@@ -20,12 +20,15 @@ export interface SpiritModule {
   promptExample?: string;
 }
 
+export type ProductType = 'coaching' | 'simulation';
+
 export interface Prototype {
   id: string;
   name: string;
   college: string;
   domain: string;
   status: PrototypeStatus;
+  productType?: ProductType;
   description: string;
   longDescription: string;
   spiritSummary: string;
