@@ -1,8 +1,77 @@
 import { useNavigate } from 'react-router-dom';
 import {
   Sparkles, Zap, Globe, Shield, Heart, ArrowRight,
-  CheckCircle2, Clock, Rocket, Star, Building2, Award
+  CheckCircle2, Clock, Rocket, Star, Building2, Award, Users, TrendingUp
 } from 'lucide-react';
+
+const GLOBAL_REGIONS = [
+  {
+    region: 'North America',
+    flag: '🇺🇸',
+    institutions: '2,800+',
+    focus: 'Christian universities, healthcare, military chaplaincy',
+    status: 'Active',
+    statusColor: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300',
+    highlights: ['Banner Health', 'US Military Chaplains', 'GCU Partner Network'],
+    color: 'border-emerald-300 dark:border-emerald-700',
+    population: '350M',
+  },
+  {
+    region: 'Latin America',
+    flag: '🌎',
+    institutions: '3,400+',
+    focus: 'Catholic & evangelical universities, pastoral networks',
+    status: 'Year 2 Target',
+    statusColor: 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300',
+    highlights: ['Brazil evangelical network (50M believers)', 'Colombia, Mexico, Argentina', 'Portuguese + Spanish Spirit Vessels'],
+    color: 'border-blue-300 dark:border-blue-700',
+    population: '660M',
+  },
+  {
+    region: 'Sub-Saharan Africa',
+    flag: '🌍',
+    institutions: '8,200+',
+    focus: 'Fastest-growing Christian population on earth',
+    status: 'Year 3 Target',
+    statusColor: 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-300',
+    highlights: ['Nigeria, Kenya, Ethiopia, South Africa', '700M+ Christians by 2030', 'Healthcare deserts — AI fills the gap'],
+    color: 'border-yellow-300 dark:border-yellow-700',
+    population: '1.4B',
+  },
+  {
+    region: 'Middle East & North Africa',
+    flag: '🕌',
+    institutions: '1,200+',
+    focus: 'Interfaith ethics AI, minority Christian communities',
+    status: 'Year 3 Target',
+    statusColor: 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-300',
+    highlights: ['UAE, Jordan, Lebanon', 'Human dignity AI applicable across faiths', 'Government AI ethics partnerships'],
+    color: 'border-orange-300 dark:border-orange-700',
+    population: '600M',
+  },
+  {
+    region: 'Asia-Pacific',
+    flag: '🌏',
+    institutions: '12,000+',
+    focus: 'South Korea, Philippines, India, Australia — growing Christian presence',
+    status: 'Year 3 Target',
+    statusColor: 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-300',
+    highlights: ['Philippines (90% Catholic)', 'South Korea (Christian university system)', 'India evangelical networks'],
+    color: 'border-purple-300 dark:border-purple-700',
+    population: '4.6B',
+  },
+  {
+    region: 'Europe',
+    flag: '🇪🇺',
+    institutions: '5,400+',
+    focus: 'EU AI Act compliance + Christian heritage institutions',
+    status: 'Year 2 Target',
+    statusColor: 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300',
+    highlights: ['UK, Germany, Netherlands, Poland', 'EU AI Act alignment = Flourish Standard advantage', 'Church of England, Catholic educational networks'],
+    color: 'border-blue-300 dark:border-blue-700',
+    population: '450M',
+  },
+];
 
 const PHASE1_MILESTONES = [
   { date: 'Q3 2025', label: 'Platform Launch', desc: 'GCU Flourish AI platform live with 2 pilot spirit vessels (Nursing & Business).', done: true },
@@ -512,6 +581,70 @@ export default function VisionRoadmap() {
               <p className="text-xs text-gcu-purple/70 dark:text-purple-400/70 font-medium mt-1">{p.reach}</p>
             </div>
           ))}
+        </div>
+      </div>
+
+      {/* ── GLOBAL MARKET MAP ── */}
+      <div>
+        <div className="flex items-center gap-3 mb-2">
+          <Globe size={20} className="text-blue-500" />
+          <h2 className="text-2xl font-black text-slate-900 dark:text-white">Global Market Opportunity</h2>
+        </div>
+        <p className="text-slate-500 dark:text-slate-400 text-sm mb-6">
+          We are not creating a product for GCU. We are creating an industry for the world.
+          33,000+ Christian institutions across 6 continents have no ethical AI framework to follow — until now.
+        </p>
+        <div className="grid grid-cols-3 gap-4 mb-6">
+          <div className="page-card p-5 text-center">
+            <Globe size={22} className="text-blue-500 mx-auto mb-2" />
+            <p className="text-3xl font-black text-slate-900 dark:text-white">33,000+</p>
+            <p className="text-xs font-semibold text-slate-500 mt-1">Christian Institutions Globally</p>
+          </div>
+          <div className="page-card p-5 text-center">
+            <Users size={22} className="text-gcu-purple mx-auto mb-2" />
+            <p className="text-3xl font-black text-slate-900 dark:text-white">2.6B</p>
+            <p className="text-xs font-semibold text-slate-500 mt-1">Christians Worldwide</p>
+          </div>
+          <div className="page-card p-5 text-center">
+            <TrendingUp size={22} className="text-gcu-gold mx-auto mb-2" />
+            <p className="text-3xl font-black text-slate-900 dark:text-white">$0</p>
+            <p className="text-xs font-semibold text-slate-500 mt-1">Current Ethical AI Market (GCU Creates It)</p>
+          </div>
+        </div>
+        <div className="grid md:grid-cols-2 gap-4">
+          {GLOBAL_REGIONS.map(r => (
+            <div key={r.region} className={`page-card p-5 border-l-4 ${r.color}`}>
+              <div className="flex items-start justify-between mb-3">
+                <div className="flex items-center gap-2">
+                  <span className="text-2xl">{r.flag}</span>
+                  <div>
+                    <h3 className="font-black text-slate-900 dark:text-white">{r.region}</h3>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">Population: {r.population}</p>
+                  </div>
+                </div>
+                <span className={`text-xs font-bold px-2.5 py-1 rounded-full flex-shrink-0 ${r.statusColor}`}>{r.status}</span>
+              </div>
+              <p className="text-2xl font-black text-gcu-purple dark:text-purple-300 mb-1">{r.institutions}</p>
+              <p className="text-xs text-slate-600 dark:text-slate-400 mb-3">{r.focus}</p>
+              <ul className="space-y-1">
+                {r.highlights.map((h, i) => (
+                  <li key={i} className="flex items-start gap-1.5 text-xs text-slate-600 dark:text-slate-400">
+                    <Star size={10} className="text-gcu-gold mt-0.5 flex-shrink-0" />
+                    <span>{h}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+        <div className="mt-4 rounded-xl bg-gradient-to-r from-gcu-purple/10 to-blue-500/10 dark:from-gcu-purple/20 dark:to-blue-500/10 border border-gcu-purple/20 p-5 text-center">
+          <p className="text-sm font-bold text-slate-800 dark:text-white mb-1">
+            The network effect is irreversible at 25 institutions.
+          </p>
+          <p className="text-xs text-slate-500 dark:text-slate-400">
+            Once 25 universities and health systems adopt the Flourish Standard, GCU becomes the accrediting authority. Every institution that joins after that strengthens GCU's position — not weakens it.
+            The industry will not form around a startup. It will form around the university that had the courage to define it first.
+          </p>
         </div>
       </div>
 

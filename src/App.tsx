@@ -13,6 +13,8 @@ import VisionRoadmap from './pages/VisionRoadmap';
 import SpiritNetwork from './pages/SpiritNetwork';
 import FlourishAPI from './pages/FlourishAPI';
 import FlourishRobotics from './pages/FlourishRobotics';
+import ExecutiveBriefing from './pages/ExecutiveBriefing';
+import FlourishStandard from './pages/FlourishStandard';
 
 function ProtectedRoutes() {
   const { user, isLoading } = useAuth();
@@ -46,6 +48,8 @@ function ProtectedRoutes() {
         <Route path="spirit-network" element={<SpiritNetwork />} />
         <Route path="flourish-api" element={<FlourishAPI />} />
         <Route path="flourish-robotics" element={<FlourishRobotics />} />
+        <Route path="executive-brief" element={<ExecutiveBriefing />} />
+        <Route path="flourish-standard" element={<FlourishStandard />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

@@ -14,6 +14,8 @@ const PAGE_META: Record<string, { title: string; subtitle?: string }> = {
   '/flourish-api': { title: 'Flourish API', subtitle: 'The soul layer for any AI — GCU ethical character as a service' },
   '/flourish-robotics': { title: 'Flourish Robotics', subtitle: 'Phase 2 — Spirit Vessels get bodies · Launching 2027' },
   '/vision': { title: 'Vision & Roadmap', subtitle: 'Phase 1: Digital · Phase 2: Physical embodiment · The global standard' },
+  '/executive-brief': { title: 'Executive Briefing', subtitle: 'Presidential summary · The case for GCU as the global authority on ethical AI' },
+  '/flourish-standard': { title: 'The Flourish Standard', subtitle: 'GCU\'s ethical AI certification framework · The industry standard we are creating' },
 };
 
 export default function Layout() {

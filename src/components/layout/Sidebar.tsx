@@ -2,7 +2,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import {
   LayoutDashboard, Library, Wand2, FlaskConical,
   TrendingUp, BookOpen, LogOut, ChevronLeft, ChevronRight,
-  Shield, X, Heart, Code2, Rocket, Bot
+  Shield, X, Heart, Code2, Rocket, Bot, Briefcase, Award
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { RoleBadge } from '../ui/Badge';
@@ -35,6 +35,8 @@ const NAV_SECTIONS = [
     label: 'Vision',
     items: [
       { label: 'Vision & Roadmap', icon: Rocket, to: '/vision' },
+      { label: 'Flourish Standard', icon: Award, to: '/flourish-standard' },
+      { label: 'Executive Briefing', icon: Briefcase, to: '/executive-brief' },
     ],
   },
   {
