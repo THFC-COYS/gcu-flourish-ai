@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import {
   FlaskConical, Star, ThumbsUp, ThumbsDown, Download,
-  Share2, BarChart3, Shield, Zap
+  Share2, BarChart3, Shield, Zap, Mic, MicOff
 } from 'lucide-react';
 import { MOCK_PROTOTYPES } from '../data/mockData';
 import { Prototype } from '../types';
@@ -55,6 +55,7 @@ export default function TestingZone() {
   const [feedback, setFeedback] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [deployMsg, setDeployMsg] = useState('');
+  const [voiceMode, setVoiceMode] = useState(false);
 
   useEffect(() => {
     const id = searchParams.get('id');
@@ -109,7 +110,7 @@ export default function TestingZone() {
         {/* Chat simulator */}
         <div className="lg:col-span-2 space-y-4">
           {/* Selected prototype info */}
-          <div className="page-card p-4 flex items-start gap-4">
+          <div className="page-card p-4 flex items-start gap-4 relative">
             <div
               className="w-14 h-14 rounded-xl flex items-center justify-center text-2xl flex-shrink-0"
               style={{ background: selected.colorAccent }}
@@ -126,6 +127,30 @@ export default function TestingZone() {
               <div className="mt-2">
                 <p className="text-xs text-gcu-purple dark:text-purple-400 font-medium italic">"{selected.spiritSummary}"</p>
               </div>
+            </div>
+            {/* Voice mode toggle */}
+            <div className="flex flex-col items-end gap-2 flex-shrink-0">
+              <button
+                onClick={() => setVoiceMode(v => !v)}
+                className={`flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold border transition-all ${
+                  voiceMode
+                    ? 'bg-gcu-purple text-white border-gcu-purple shadow-gcu'
+                    : 'bg-white dark:bg-[#1A1235] text-slate-600 dark:text-slate-400 border-slate-200 dark:border-[#2D2050] hover:border-gcu-purple/40'
+                }`}
+              >
+                {voiceMode ? <Mic size={14} /> : <MicOff size={14} />}
+                <span>{voiceMode ? 'Voice On' : 'Voice Off'}</span>
+              </button>
+              {voiceMode && (
+                <div className="flex items-center gap-1.5 text-xs text-gcu-purple dark:text-purple-400 font-medium">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gcu-purple opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-gcu-purple"></span>
+                  </span>
+                  Listening…
+                  <span className="text-amber-500 dark:text-amber-400">(Simulated)</span>
+                </div>
+              )}
             </div>
           </div>
 

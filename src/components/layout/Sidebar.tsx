@@ -2,7 +2,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import {
   LayoutDashboard, Library, Wand2, FlaskConical,
   TrendingUp, BookOpen, LogOut, ChevronLeft, ChevronRight,
-  Shield, X, Heart, Code2, Rocket
+  Shield, X, Heart, Code2, Rocket, Bot
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { RoleBadge } from '../ui/Badge';
@@ -22,6 +22,7 @@ const NAV_SECTIONS = [
     items: [
       { label: 'Spirit Network', icon: Heart, to: '/spirit-network' },
       { label: 'Flourish API', icon: Code2, to: '/flourish-api' },
+      { label: 'Flourish Robotics', icon: Bot, to: '/flourish-robotics' },
     ],
   },
   {

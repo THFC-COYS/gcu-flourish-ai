@@ -91,6 +91,20 @@ export interface ActivityLogEntry {
   role: UserRole;
 }
 
+export interface ScenarioStep {
+  quickReply: string;
+  aiResponse: string;
+}
+
+export interface Scenario {
+  id: string;
+  title: string;
+  icon: string;
+  description: string;
+  aiOpener: string;
+  steps: ScenarioStep[];
+}
+
 export interface BuilderFormData {
   name: string;
   college: string;

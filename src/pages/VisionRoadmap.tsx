@@ -7,11 +7,12 @@ import {
 const PHASE1_MILESTONES = [
   { date: 'Q3 2025', label: 'Platform Launch', desc: 'GCU Flourish AI platform live with 2 pilot spirit vessels (Nursing & Business).', done: true },
   { date: 'Q4 2025', label: 'All 10 Colleges', desc: 'Spirit vessels created for all 10 GCU colleges. Platform open to faculty builders.', done: true },
-  { date: 'Q1 2026', label: 'Banner Health Pilot', desc: 'Spirit Nurse Assistant deployed in 3 Banner Health facilities. First clinical data collected.', done: true },
+  { date: 'Q1 2026', label: '3 External Partner Pilots', desc: 'Pilot Spirit Vessels with 3 external partners (Banner Health, SUSD, AZ Church Network). First real-world data collected.', done: false },
   { date: 'Q2 2026', label: 'Flourish API Beta', desc: 'External API opens for enterprise partners to license GCU ethical character into their AI.', done: false },
   { date: 'Q3 2026', label: 'Ethical AI Certification', desc: 'GCU launches the industry\'s first Ethical AI Character Certification standard.', done: false },
   { date: 'Q4 2026', label: 'Spirit Network Launch', desc: '10,000+ alumni actively contributing wisdom to living spirit vessels.', done: false },
   { date: '2027', label: 'Global Multi-Language', desc: 'Spirit vessels speak 12 languages — same character, worldwide reach.', done: false },
+  { date: '2027 Q2', label: 'Wearable API Launch', desc: 'Flourish API certified for smart glasses (Meta Ray-Ban, Apple) and enterprise AR. Spirit Vessels leave the screen and enter the field.', done: false },
 ];
 
 const PHASE2_MILESTONES = [
@@ -23,6 +24,108 @@ const PHASE2_MILESTONES = [
   { date: '2030', label: 'The Standard', desc: 'GCU\'s Spirit Vessel certification becomes the required ethical standard for AI in healthcare, education, and faith-based organizations worldwide.', icon: '⭐' },
 ];
 
+const PHASE3_MILESTONES = [
+  { date: '2027 Q2', label: 'Flourish API on Smart Glasses', desc: 'Spirit Vessels streamed live to Meta Ray-Ban smart glasses. Nurses see patient vitals + compassionate prompts in their field of vision. Teachers get real-time student engagement coaching.', icon: '👓' },
+  { date: '2027 Q4', label: 'Enterprise AR Rollout', desc: 'Apple Vision Pro and Meta Quest enterprise integrations. Spirit Vessels become ambient work companions — always present, never intrusive.', icon: '🥽' },
+  { date: '2028 Q2', label: 'Neural Interface Beta', desc: 'Flourish API connects to Synchron BrainOS and early Neuralink developer program — silent, thought-triggered Spirit guidance for users with accessibility needs and elite professionals.', icon: '🧠' },
+  { date: '2028 Q4', label: 'Wearable Spirit Certification', desc: 'GCU certifies Spirit-Safe wearable AI interactions — the first ethical standard for ambient, always-on AI companions worn on the body.', icon: '🏅' },
+  { date: '2029', label: '1 Billion Wearable Moments', desc: 'Spirit Vessels embedded in 50M+ wearable devices globally. A nurse in Lagos, a teacher in Seoul, a pastor in São Paulo — all receiving Spirit guidance in real time.', icon: '🌍' },
+];
+
+const WEARABLE_DEVICES = [
+  {
+    name: 'Meta Ray-Ban Smart Glasses',
+    company: 'Meta',
+    icon: '👓',
+    color: 'bg-blue-50 dark:bg-blue-900/15',
+    border: 'border-blue-200 dark:border-blue-800',
+    useCase: 'Real-time Spirit coaching overlaid in field of vision. Nurses see patient context + care prompts. Teachers see student engagement signals.',
+    timeline: '2027',
+    status: 'Priority target',
+  },
+  {
+    name: 'Apple Vision Pro',
+    company: 'Apple',
+    icon: '🥽',
+    color: 'bg-slate-50 dark:bg-slate-800/30',
+    border: 'border-slate-200 dark:border-slate-700',
+    useCase: 'Immersive Spirit simulations for training. Surgeons, engineers, and social workers practice scenarios in full spatial environments.',
+    timeline: '2027',
+    status: 'Priority target',
+  },
+  {
+    name: 'Neuralink N1',
+    company: 'Neuralink',
+    icon: '🧠',
+    color: 'bg-purple-50 dark:bg-purple-900/15',
+    border: 'border-purple-200 dark:border-purple-800',
+    useCase: 'Silent, thought-triggered Spirit guidance. Zero-latency ethical prompts for high-stakes decisions. Accessibility: communication for non-verbal users.',
+    timeline: '2028',
+    status: 'Exploratory',
+  },
+  {
+    name: 'Synchron BrainOS',
+    company: 'Synchron',
+    icon: '⚡',
+    color: 'bg-amber-50 dark:bg-amber-900/15',
+    border: 'border-amber-200 dark:border-amber-800',
+    useCase: 'FDA-cleared neural interface. Spirit Vessels accessible to paralyzed and locked-in patients — dignity and connection restored through thought alone.',
+    timeline: '2028',
+    status: 'Exploratory',
+  },
+  {
+    name: 'Samsung Galaxy AR Ring',
+    company: 'Samsung',
+    icon: '💍',
+    color: 'bg-teal-50 dark:bg-teal-900/15',
+    border: 'border-teal-200 dark:border-teal-800',
+    useCase: 'Haptic Spirit prompts — a gentle pulse when ethical guidance is recommended. Ambient wellness coaching through biometric-triggered Spirit interventions.',
+    timeline: '2028',
+    status: 'Exploratory',
+  },
+  {
+    name: 'Meta Quest Enterprise',
+    company: 'Meta',
+    icon: '🎮',
+    color: 'bg-indigo-50 dark:bg-indigo-900/15',
+    border: 'border-indigo-200 dark:border-indigo-800',
+    useCase: 'Full-immersion Spirit simulation training. Medical, legal, and pastoral care scenarios in photorealistic virtual environments.',
+    timeline: '2027',
+    status: 'Priority target',
+  },
+];
+
+const WORKER_USE_CASES = [
+  {
+    role: 'ICU Nurse',
+    device: 'Meta Ray-Ban Glasses',
+    icon: '🏥',
+    moment: 'Walking to Room 4B. Spirit Nurse whispers: "Patient reported anxiety about surgery. Last interaction: daughter visited 2hrs ago. Suggested opener: ask how she\'s feeling."',
+    impact: 'Every patient interaction is personalized before the nurse enters the room.',
+  },
+  {
+    role: 'K-12 Teacher',
+    device: 'Smart Glasses',
+    icon: '🎓',
+    moment: 'Mid-lesson. Spirit Mentor overlay: "Marcus — disengaged 8 min. Check in privately after class. Suggested: \'You seem quiet today — everything okay?\'"',
+    impact: 'No student slips through unnoticed. The teacher\'s instincts, amplified.',
+  },
+  {
+    role: 'Hospital Chaplain',
+    device: 'Earpiece + AR Overlay',
+    icon: '✝️',
+    moment: 'Entering palliative care. Spirit Faith Companion: "Patient is Muslim. Family present. Culturally: avoid direct reference to death. Focus on peace, legacy, being surrounded by love."',
+    impact: 'Culturally competent spiritual care at the bedside — for every tradition.',
+  },
+  {
+    role: 'Field Engineer',
+    device: 'Apple Vision Pro',
+    icon: '⚙️',
+    moment: 'Reviewing bridge design overlay. Spirit Innovator: "Flagged: load calculation uses 2019 standard. Updated 2024 seismic code changes this tolerance by 12%. Review before sign-off."',
+    impact: 'Creation-care ethics and safety standards checked in real time.',
+  },
+];
+
 const PARTNERS = [
   { name: 'Banner Health', sector: 'Healthcare', reach: '30 hospitals', icon: '🏥' },
   { name: 'Mayo Clinic', sector: 'Research', reach: '1.3M patients/yr', icon: '🔬' },
@@ -32,6 +135,10 @@ const PARTNERS = [
   { name: 'The Vatican', sector: 'Global Ethics', reach: '1.3B Catholics', icon: '✝️' },
   { name: 'World Health Org.', sector: 'Global Health', reach: '194 member states', icon: '🌍' },
   { name: 'AACSB International', sector: 'Business Education', reach: '900+ universities', icon: '🎓' },
+  { name: 'Meta Reality Labs', sector: 'Smart Glasses / AR', reach: '3B+ users', icon: '👓' },
+  { name: 'Apple Vision', sector: 'Spatial Computing', reach: 'Enterprise AR', icon: '🥽' },
+  { name: 'Neuralink', sector: 'Neural Interface', reach: 'Next frontier', icon: '🧠' },
+  { name: 'Synchron', sector: 'FDA-cleared BCI', reach: 'Accessibility + elite', icon: '⚡' },
 ];
 
 const IMPACT_PROJECTIONS = [
@@ -216,6 +323,115 @@ export default function VisionRoadmap() {
                 <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">{f.desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ── PHASE 3: WEARABLES ── */}
+      <div className="page-card overflow-hidden">
+        <div className="bg-gradient-to-r from-[#0D0920] via-[#1A0A3E] to-slate-900 p-6 flex items-center justify-between">
+          <div>
+            <div className="text-gcu-gold text-xs font-bold uppercase tracking-widest mb-1">Phase 3 · 2027 → 2029</div>
+            <h2 className="text-2xl font-black text-white">The Wearable Spirit Network</h2>
+            <p className="text-white/60 text-sm mt-1">Spirit Vessels leave the screen. Smart glasses, neural interfaces, and AR — Spirit guidance at the point of need.</p>
+          </div>
+          <div className="hidden sm:flex items-center gap-2">
+            <span className="text-3xl">👓</span>
+            <span className="text-white/40 text-sm font-bold">Coming 2027</span>
+          </div>
+        </div>
+
+        <div className="p-6 space-y-8">
+          {/* Simulated disclaimer */}
+          <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-xl p-3 flex items-start gap-2">
+            <span className="text-amber-500 flex-shrink-0">⚠</span>
+            <p className="text-xs text-amber-700 dark:text-amber-400 font-medium">All wearable integrations and neural interface partnerships shown below are conceptual targets — not confirmed. Simulated for demonstration purposes only.</p>
+          </div>
+
+          {/* Phase 3 timeline */}
+          <div className="relative">
+            <div className="absolute left-[15px] top-0 bottom-0 w-0.5 bg-slate-200 dark:bg-[#2D2050]" />
+            <div className="space-y-5">
+              {PHASE3_MILESTONES.map((m, i) => (
+                <div key={i} className="flex gap-4 relative">
+                  <div className="w-8 h-8 rounded-full bg-white dark:bg-[#1A1235] border-2 border-slate-200 dark:border-[#2D2050] flex items-center justify-center flex-shrink-0 z-10 text-sm">
+                    {m.icon}
+                  </div>
+                  <div className="flex-1 pb-2 opacity-80">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="text-xs font-bold text-gcu-gold bg-gcu-gold/10 px-2 py-0.5 rounded">{m.date}</span>
+                      <span className="text-sm font-bold text-slate-900 dark:text-white">{m.label}</span>
+                    </div>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">{m.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Device showcase */}
+          <div>
+            <h3 className="text-sm font-black text-slate-900 dark:text-white mb-1">Target Devices & Platforms</h3>
+            <p className="text-xs text-slate-500 dark:text-slate-400 mb-4">The Flourish API is device-agnostic — any wearable that can make an API call can host a Spirit Vessel.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {WEARABLE_DEVICES.map(device => (
+                <div key={device.name} className={`rounded-xl p-4 border ${device.color} ${device.border}`}>
+                  <div className="flex items-start gap-3 mb-3">
+                    <span className="text-2xl flex-shrink-0">{device.icon}</span>
+                    <div className="min-w-0">
+                      <p className="text-sm font-bold text-slate-900 dark:text-white leading-tight">{device.name}</p>
+                      <div className="flex items-center gap-2 mt-0.5">
+                        <span className="text-xs text-slate-500 dark:text-slate-400">{device.company}</span>
+                        <span className={`text-xs font-semibold px-1.5 py-0.5 rounded ${device.status === 'Priority target' ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400' : 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400'}`}>
+                          {device.status}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">{device.useCase}</p>
+                  <p className="text-xs text-gcu-purple dark:text-purple-400 font-semibold mt-2">Target: {device.timeline}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Real-world worker moments */}
+          <div>
+            <h3 className="text-sm font-black text-slate-900 dark:text-white mb-1">Spirit in the Field — Real-Time Worker Moments</h3>
+            <p className="text-xs text-slate-500 dark:text-slate-400 mb-4">The most powerful Spirit Vessel is the one that shows up exactly when a worker needs it — before they even know they need it.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {WORKER_USE_CASES.map(uc => (
+                <div key={uc.role} className="rounded-xl border border-slate-200 dark:border-[#2D2050] bg-slate-50 dark:bg-[#1A1235] p-4">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-xl">{uc.icon}</span>
+                    <div>
+                      <p className="text-sm font-bold text-slate-900 dark:text-white">{uc.role}</p>
+                      <p className="text-xs text-gcu-purple dark:text-purple-400 font-medium">{uc.device}</p>
+                    </div>
+                  </div>
+                  <div className="bg-white dark:bg-[#0F0A1E] border border-slate-200 dark:border-[#2D2050] rounded-lg p-3 mb-3">
+                    <p className="text-xs text-slate-400 dark:text-slate-500 font-semibold uppercase tracking-wide mb-1">Spirit says:</p>
+                    <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed italic">"{uc.moment}"</p>
+                  </div>
+                  <p className="text-xs font-semibold text-emerald-700 dark:text-emerald-400">→ {uc.impact}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* The Neuralink vision */}
+          <div className="rounded-2xl bg-gradient-to-r from-[#0D0920] to-[#1A0A3E] p-6 border border-purple-900/40">
+            <div className="flex items-start gap-4">
+              <span className="text-4xl flex-shrink-0">🧠</span>
+              <div>
+                <div className="text-xs font-bold text-gcu-gold uppercase tracking-widest mb-1">The Long Horizon · 2028+</div>
+                <h4 className="text-lg font-black text-white mb-2">When Spirit Becomes Thought</h4>
+                <p className="text-sm text-white/60 leading-relaxed max-w-2xl">
+                  Neural interfaces like Neuralink and Synchron represent the ultimate convergence: Spirit guidance that arrives not as a sound or image, but as a subtle, silent prompt — indistinguishable from intuition. A nurse who just <em>knows</em> to check on Room 7. A teacher who <em>feels</em> a student needs attention. The GCU spirit, woven into human consciousness itself.
+                </p>
+                <p className="text-xs text-gcu-gold/60 mt-3 italic">⚠ Exploratory concept · Dependent on neural interface technology maturity and regulatory approval · Not a current product</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

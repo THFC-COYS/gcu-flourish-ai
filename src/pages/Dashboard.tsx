@@ -108,6 +108,49 @@ export default function Dashboard() {
         ))}
       </div>
 
+      {/* Global Impact Counter */}
+      <div className="page-card p-5 border-l-4 border-gcu-gold">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+          <div>
+            <div className="flex items-center gap-2 mb-1">
+              <Globe size={16} className="text-gcu-gold" />
+              <span className="text-xs font-bold text-gcu-gold uppercase tracking-widest">Global Impact Goal</span>
+              <span className="text-xs bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 font-semibold px-2 py-0.5 rounded-full">Simulated</span>
+            </div>
+            <h3 className="text-xl font-black text-slate-900 dark:text-white">10,000,000 Interactions</h3>
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Lives touched by GCU Spirit Vessels worldwide</p>
+          </div>
+          <div className="text-right flex-shrink-0">
+            <p className="text-3xl font-black text-gcu-purple dark:text-purple-300">487,219</p>
+            <p className="text-xs text-slate-400 dark:text-slate-500">interactions to date</p>
+          </div>
+        </div>
+        <div className="space-y-2">
+          <div className="flex justify-between text-xs text-slate-500 dark:text-slate-400">
+            <span>Progress to 10M goal</span>
+            <span className="font-bold text-gcu-purple dark:text-purple-300">4.87%</span>
+          </div>
+          <div className="h-4 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+            <div
+              className="h-full rounded-full bg-gradient-to-r from-gcu-purple to-gcu-gold transition-all duration-1000"
+              style={{ width: '4.87%' }}
+            />
+          </div>
+          <div className="grid grid-cols-3 gap-3 pt-1">
+            {[
+              { value: '12', label: 'Countries reached', icon: '🌍' },
+              { value: '847', label: 'Alumni contributors', icon: '❤️' },
+              { value: '$2.1M', label: 'Revenue reinvested', icon: '💰' },
+            ].map(({ value, label, icon }) => (
+              <div key={label} className="text-center p-2 bg-slate-50 dark:bg-[#1A1235] rounded-lg">
+                <p className="text-base font-black text-slate-900 dark:text-white">{icon} {value}</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400 leading-tight mt-0.5">{label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* Stats */}
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
         <StatCard

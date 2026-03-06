@@ -12,6 +12,7 @@ const PAGE_META: Record<string, { title: string; subtitle?: string }> = {
   '/resources': { title: 'Resources & Governance', subtitle: 'Ethical guidelines, policies, and documentation' },
   '/spirit-network': { title: 'Spirit Network', subtitle: 'Alumni wisdom — the living source code of our AI' },
   '/flourish-api': { title: 'Flourish API', subtitle: 'The soul layer for any AI — GCU ethical character as a service' },
+  '/flourish-robotics': { title: 'Flourish Robotics', subtitle: 'Phase 2 — Spirit Vessels get bodies · Launching 2027' },
   '/vision': { title: 'Vision & Roadmap', subtitle: 'Phase 1: Digital · Phase 2: Physical embodiment · The global standard' },
 };
 
