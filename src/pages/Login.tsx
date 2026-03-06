@@ -117,6 +117,11 @@ export default function Login() {
           </div>
 
           {/* Stats row */}
+          <div className="mb-1">
+            <span className="text-xs font-bold uppercase tracking-widest bg-amber-400/20 border border-amber-400/40 text-amber-300 px-2 py-0.5 rounded-full">
+              ⚠ Simulated data — for demonstration purposes only
+            </span>
+          </div>
           <div className="grid grid-cols-4 gap-3">
             {STATS.map(s => (
               <div key={s.label} className="glass-card rounded-xl p-3 text-center">
@@ -144,6 +149,10 @@ export default function Login() {
 
           {/* Testimonial */}
           <div className="glass-card rounded-2xl p-5">
+            <div className="flex items-center gap-2 mb-3">
+              <span className="text-xs font-bold uppercase tracking-widest bg-amber-400/20 border border-amber-400/40 text-amber-300 px-2 py-0.5 rounded-full">Simulated</span>
+              <span className="text-white/30 text-xs">Illustrative example, not a real testimonial</span>
+            </div>
             <p className="text-white/80 text-sm leading-relaxed italic">
               "Flourish AI reduced our nursing documentation time by 34% — but more importantly,
               our staff said it actually <span className="text-gcu-gold font-semibold">felt human.</span> That's something no other platform delivered."
@@ -152,7 +161,7 @@ export default function Login() {
               <div className="w-8 h-8 rounded-full bg-gcu-gold/20 border border-gcu-gold/30 flex items-center justify-center text-gcu-gold font-bold text-sm">B</div>
               <div>
                 <div className="text-white text-sm font-semibold">Banner Health System</div>
-                <div className="text-white/40 text-xs">Pilot Partner · Phoenix, AZ</div>
+                <div className="text-white/40 text-xs">Simulated Partner · Phoenix, AZ</div>
               </div>
             </div>
           </div>

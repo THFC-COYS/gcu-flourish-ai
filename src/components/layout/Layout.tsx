@@ -32,6 +32,10 @@ export default function Layout() {
       />
 
       <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
+        {/* Simulated data banner */}
+        <div className="bg-amber-400 text-amber-900 text-xs font-bold text-center py-1.5 px-4 flex-shrink-0">
+          ⚠ DEMO MODE — All data, metrics, and figures are simulated for testing purposes only. Not real platform data.
+        </div>
         <Header
           title={meta.title}
           subtitle={meta.subtitle}
