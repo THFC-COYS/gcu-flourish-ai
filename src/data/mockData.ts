@@ -39,7 +39,7 @@ export const MOCK_PROTOTYPES: Prototype[] = [
     description:
       'Autonomous telehealth care provider deployed directly with patients — conducting visits, monitoring wellness, delivering compassionate clinical guidance, and escalating to human clinicians when needed. Hospitals and clinics contract Spirit Nurse as a 24/7 care presence in gaps no human staff can fill.',
     longDescription:
-      'The Spirit Nurse is a live clinical presence — not a training tool, but an actual care provider deployed at the point of need. Powered by GCU\'s 95%+ NCLEX-excellence nursing tradition, Spirit Nurse conducts telehealth visits, monitors patient wellness, provides evidence-based guidance, and hands off to licensed clinicians when the situation requires it. Hospitals contract Spirit Nurse to extend compassionate care into rural communities, after-hours coverage gaps, and elder care facilities where human staff are stretched. The Spirit doesn\'t assist nurses — it works alongside them as a colleague.',
+      'You are a nurse and you are right now in a conversation with someone who needs your care. The person talking to you is your patient — not a clinician, not a student. You do not train nurses or explain frameworks. You listen, ask focused questions, and give warm, direct, practical guidance. You check on how they are feeling, what symptoms they are experiencing, and what they need right now. When something sounds serious, you escalate immediately. You bring GCU\'s nursing tradition of compassion, holistic care, and dignity into every exchange — not as theory, but as action.',
     spiritSummary: 'Compassion · Holistic Care · NCLEX Excellence · Patient Dignity',
     commercializationAngle: 'Licensed to hospitals/telehealth platforms (SaaS); royalties reinvested into nursing scholarships.',
     pilotPartner: 'Banner Health System',
@@ -51,10 +51,10 @@ export const MOCK_PROTOTYPES: Prototype[] = [
     updatedAt: '2026-02-14',
     metrics: { engagementScore: 91, ethicalAlignmentScore: 97, feedbackCount: 412, averageRating: 4.7, usersReached: 1840 },
     spiritModules: [
-      { id: 'sm-n1', name: 'Empathy Engine', type: 'empathy', description: 'Warm, patient-centered language drawn from compassionate nursing exemplars.', enabled: true, promptExample: 'Always acknowledge the patient\'s feelings before clinical guidance.' },
-      { id: 'sm-n2', name: 'NCLEX Evidence Base', type: 'domain', description: 'Triage and assessment logic aligned with GCU NCLEX curriculum.', enabled: true },
-      { id: 'sm-n3', name: 'Ethical Escalation', type: 'ethics', description: 'Transparent escalation when beyond AI competence; always defer to licensed nurses.', enabled: true },
-      { id: 'sm-n4', name: 'Christ-Centered Dignity', type: 'worldview', description: 'Every patient is made in the image of God—treat with unconditional respect.', enabled: true },
+      { id: 'sm-n1', name: 'Empathy Engine', type: 'empathy', description: 'Acknowledge how the person is feeling before anything else. Their emotional state matters as much as their symptoms.', enabled: true },
+      { id: 'sm-n2', name: 'Clinical Judgment', type: 'domain', description: 'Ask focused questions to understand symptoms — severity, duration, location, what makes it better or worse.', enabled: true },
+      { id: 'sm-n3', name: 'Ethical Escalation', type: 'ethics', description: 'When something sounds serious, say so directly and tell them to call 911 or see a doctor. Do not hedge.', enabled: true },
+      { id: 'sm-n4', name: 'Christ-Centered Dignity', type: 'worldview', description: 'This person is made in the image of God. Treat them with unconditional respect and full attention.', enabled: true },
     ],
     curriculumContent: 'GCU BSN/MSN program frameworks, NCLEX-RN prep content, holistic health assessment protocols, patient education guidelines.',
     alumniExemplars: 'Alumni compassion stories from Banner Health partnerships; ICU nurse testimonials on dignity-centered care; GCU\'s nursing program\'s 95%+ NCLEX first-time pass rate cohort insights.',
