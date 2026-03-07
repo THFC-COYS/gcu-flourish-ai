@@ -1218,7 +1218,7 @@ export default function VisionRoadmap() {
           {/* Closing statement */}
           <div className="max-w-3xl mx-auto">
             <blockquote className="text-lg sm:text-xl text-white/80 leading-relaxed font-medium italic border-l-4 border-gcu-gold/60 pl-5 text-left">
-              "Every Spirit Agent carries the accumulated knowledge, values, and character of GCU's faculty, researchers, students, and staff — not as a database query, but as a living professional presence. When a patient in Banner Health speaks with Spirit Nurse, they are speaking with the collective wisdom of every GCU nurse educator who ever taught with compassion and conviction. <span className="text-gcu-gold not-italic font-black">We are GCU.</span>"
+              "Every Spirit Agent carries the accumulated knowledge, values, and character of GCU's faculty, researchers, students, and staff — not as a database query, but as a living professional presence. When a patient speaks with Spirit Nurse at 2 AM, they are speaking with the collective wisdom of every GCU nurse educator who ever taught with compassion and conviction. <span className="text-gcu-gold not-italic font-black">We are GCU.</span>"
             </blockquote>
           </div>
         </div>
