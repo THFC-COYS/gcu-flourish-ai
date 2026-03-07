@@ -17,11 +17,20 @@ const MOMENTS = [
     bg: 'from-[#1A1235] to-[#2D1A5E]',
   },
   {
+    eyebrow: 'The Collective',
+    headline: 'We Are GCU.',
+    subheadline: 'Physical and digital — one soul.',
+    body: 'Every nurse educator. Every doctoral researcher. Every student who shared what it means to care, to teach, to lead with faith in today\'s world. The curriculum, the lectures, the lived experience — synthesized into a Spirit Layer that moves across every surface where people face moments that matter. On a tablet. In a kiosk. In a classroom. On a wearable. Inside a robot. The form changes. The soul does not.',
+    cta: 'See the platform',
+    bg: 'from-[#2D1A5E] to-[#1A0A30]',
+    weAreGCU: true,
+  },
+  {
     eyebrow: 'The Platform',
     headline: 'Flourish AI puts that spirit in the room with anyone who needs it.',
     body: 'Ten Spirit Agents — one for each GCU college — available to any person, anywhere, at any moment of need. Not a chatbot. Not a search engine. An autonomous professional who knows what they\'re doing and cares about who they\'re doing it for.',
     cta: 'Enter the platform',
-    bg: 'from-[#2D1A5E] to-[#3D1F8A]',
+    bg: 'from-[#1A0A30] to-[#3D1F8A]',
     last: true,
   },
 ];
@@ -103,9 +112,16 @@ export default function OnboardingOverlay({ onComplete }: { onComplete: () => vo
         </p>
 
         {/* Headline */}
-        <h1 className="text-3xl sm:text-4xl font-black text-white leading-tight mb-6 transition-all duration-500">
-          {moment.headline}
+        <h1 className={`font-black text-white leading-tight mb-3 transition-all duration-500 ${(moment as any).weAreGCU ? 'text-5xl sm:text-7xl' : 'text-3xl sm:text-4xl mb-6'}`}>
+          {(moment as any).weAreGCU
+            ? <><span className="text-white">We </span><span className="text-gcu-gold">Are</span><span className="text-white"> GCU.</span></>
+            : moment.headline}
         </h1>
+
+        {/* Sub-headline for We Are GCU slide */}
+        {(moment as any).subheadline && (
+          <p className="text-purple-300/80 text-lg font-semibold italic mb-6">{(moment as any).subheadline}</p>
+        )}
 
         {/* Body */}
         <p className="text-white/60 text-base leading-relaxed mb-10 max-w-xl mx-auto transition-all duration-500">
