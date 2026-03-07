@@ -1,6 +1,25 @@
 import { useState, useRef, useEffect } from 'react';
-import { Send, Shield, RefreshCw } from 'lucide-react';
+import { Send, Shield, RefreshCw, Volume2, VolumeX } from 'lucide-react';
 import { Message, Prototype } from '../types';
+
+function speak(text: string) {
+  if (!window.speechSynthesis) return;
+  window.speechSynthesis.cancel();
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.rate = 0.95;
+  utterance.pitch = 1.05;
+  // Prefer a warm female voice if available
+  const voices = window.speechSynthesis.getVoices();
+  const preferred = voices.find(v =>
+    v.name.includes('Samantha') ||
+    v.name.includes('Karen') ||
+    v.name.includes('Moira') ||
+    v.name.includes('Female') ||
+    (v.lang === 'en-US' && v.name.toLowerCase().includes('female'))
+  ) ?? voices.find(v => v.lang === 'en-US') ?? voices[0];
+  if (preferred) utterance.voice = preferred;
+  window.speechSynthesis.speak(utterance);
+}
 
 interface ChatSimulatorProps {
   prototype: Prototype;
@@ -100,6 +119,7 @@ export default function ChatSimulator({ prototype, compact = false }: ChatSimula
   }]);
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const [voiceOn, setVoiceOn] = useState(false);
   const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -138,6 +158,7 @@ export default function ChatSimulator({ prototype, compact = false }: ChatSimula
       timestamp: new Date(),
       attribution: prototype.aiPersona.attribution,
     }]);
+    if (voiceOn) speak(content);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -170,6 +191,17 @@ export default function ChatSimulator({ prototype, compact = false }: ChatSimula
           <span className="text-sm font-semibold text-slate-800 dark:text-white">{prototype.name}</span>
         </div>
         <div className="flex items-center gap-2">
+          <button
+            onClick={() => {
+              const next = !voiceOn;
+              setVoiceOn(next);
+              if (!next) window.speechSynthesis?.cancel();
+            }}
+            className={`p-1.5 rounded-lg transition-colors ${voiceOn ? 'text-gcu-purple bg-gcu-purple/10' : 'text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/10'}`}
+            title={voiceOn ? 'Mute Spirit voice' : 'Enable Spirit voice'}
+          >
+            {voiceOn ? <Volume2 size={14} /> : <VolumeX size={14} />}
+          </button>
           <div className="flex items-center gap-1 text-xs text-slate-500 dark:text-slate-400">
             <Shield size={12} className="text-gcu-purple" />
             <span>Ethical AI</span>
