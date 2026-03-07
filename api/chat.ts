@@ -22,7 +22,7 @@ export default async function handler(req: any, res: any) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        model: 'grok-2-1212',
+        model: 'grok-3',
         messages: [
           { role: 'system', content: systemPrompt },
           ...messages,
