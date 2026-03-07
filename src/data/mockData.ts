@@ -32,7 +32,7 @@ export const MOCK_PROTOTYPES: Prototype[] = [
   // ── 1. NURSING ──────────────────────────────────────────────────────────────
   {
     id: 'proto-nursing',
-    name: 'GCU Spirit Nurse Assistant',
+    name: 'Spirit Nurse',
     college: 'College of Nursing and Health Care Professions',
     domain: 'Autonomous Telehealth Provider · Patient Companion · 24/7 Clinical Presence',
     status: 'pilot',
@@ -94,7 +94,7 @@ export const MOCK_PROTOTYPES: Prototype[] = [
   // ── 2. BUSINESS / CCOB ──────────────────────────────────────────────────────
   {
     id: 'proto-business',
-    name: 'GCU Spirit Servant-Leader Consultant',
+    name: 'Spirit Business Advisor',
     college: 'Colangelo College of Business (CCOB)',
     domain: 'Autonomous Executive Advisor · SME Strategy · Ethical Business Partner',
     status: 'pilot',
@@ -152,7 +152,7 @@ export const MOCK_PROTOTYPES: Prototype[] = [
   // ── 3. COLLEGE OF EDUCATION ──────────────────────────────────────────────────
   {
     id: 'proto-education',
-    name: 'GCU Spirit Mentor Avatar',
+    name: 'Spirit Teacher',
     college: 'College of Education',
     domain: 'Autonomous Classroom Co-Educator · Direct Student Tutoring · Lesson Co-Design',
     status: 'prototype',
@@ -198,7 +198,7 @@ export const MOCK_PROTOTYPES: Prototype[] = [
   // ── 4. ENGINEERING & TECHNOLOGY ──────────────────────────────────────────────
   {
     id: 'proto-engineering',
-    name: 'GCU Spirit Stewardship Innovator',
+    name: 'Spirit Engineer',
     college: 'College of Engineering and Technology',
     domain: 'Autonomous Engineering Co-Worker · Real-Time Design Review · Ethical Tech Advisor',
     status: 'prototype',
@@ -244,7 +244,7 @@ export const MOCK_PROTOTYPES: Prototype[] = [
   // ── 5. HUMANITIES & SOCIAL SCIENCES ──────────────────────────────────────────
   {
     id: 'proto-humanities',
-    name: 'GCU Spirit Ethical Companion',
+    name: 'Spirit Companion',
     college: 'College of Humanities and Social Sciences',
     domain: 'Autonomous Wellness Companion · 24/7 Mental Health Support · Faith-Informed Crisis Triage',
     status: 'prototype',
@@ -290,7 +290,7 @@ export const MOCK_PROTOTYPES: Prototype[] = [
   // ── 6. NATURAL SCIENCES ──────────────────────────────────────────────────────
   {
     id: 'proto-science',
-    name: 'GCU Spirit Discovery Guide',
+    name: 'Spirit Research Partner',
     college: 'College of Natural Sciences',
     domain: 'Autonomous Research Partner · Live Lab Guidance · Ethical R&D Co-Worker',
     status: 'prototype',
@@ -332,7 +332,7 @@ export const MOCK_PROTOTYPES: Prototype[] = [
   // ── 7. THEOLOGY ──────────────────────────────────────────────────────────────
   {
     id: 'proto-theology',
-    name: 'GCU Spirit Faith Companion',
+    name: 'Spirit Chaplain',
     college: 'College of Theology',
     domain: 'Autonomous Chaplain · 24/7 Pastoral Presence · Spiritual Crisis Companion',
     status: 'prototype',
@@ -378,7 +378,7 @@ export const MOCK_PROTOTYPES: Prototype[] = [
   // ── 8. ARTS & MEDIA ──────────────────────────────────────────────────────────
   {
     id: 'proto-arts',
-    name: 'GCU Spirit Creative Steward',
+    name: 'Spirit Creative',
     college: 'College of Arts and Media',
     domain: 'Autonomous Creative Co-Director · Ethical Content Strategy · Brand Storytelling Partner',
     status: 'prototype',
@@ -420,7 +420,7 @@ export const MOCK_PROTOTYPES: Prototype[] = [
   // ── 9. DOCTORAL STUDIES ──────────────────────────────────────────────────────
   {
     id: 'proto-doctoral',
-    name: 'GCU Spirit Research Mentor',
+    name: 'Spirit Dissertation Advisor',
     college: 'College of Doctoral Studies',
     domain: 'Autonomous Dissertation Advisor · Scholarly Research Partner · 24/7 Doctoral Companion',
     status: 'prototype',
@@ -466,7 +466,7 @@ export const MOCK_PROTOTYPES: Prototype[] = [
   // ── 10. HONORS COLLEGE ──────────────────────────────────────────────────────
   {
     id: 'proto-honors',
-    name: 'GCU Spirit Elite Innovator',
+    name: 'Spirit Innovator',
     college: 'Honors College',
     domain: 'Autonomous Leadership Mentor · Interdisciplinary Thought Partner · Innovation Co-Creator',
     status: 'prototype',
