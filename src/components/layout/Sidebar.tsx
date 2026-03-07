@@ -14,7 +14,7 @@ const NAV_SECTIONS = [
       { label: 'Dashboard', icon: LayoutDashboard, to: '/' },
       { label: 'Prototype Library', icon: Library, to: '/library' },
       { label: 'Spirit Builder', icon: Wand2, to: '/builder' },
-      { label: 'Testing Zone', icon: FlaskConical, to: '/testing' },
+      { label: 'Deployment Console', icon: FlaskConical, to: '/testing' },
     ],
   },
   {

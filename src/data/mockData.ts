@@ -34,12 +34,12 @@ export const MOCK_PROTOTYPES: Prototype[] = [
     id: 'proto-nursing',
     name: 'GCU Spirit Nurse Assistant',
     college: 'College of Nursing and Health Care Professions',
-    domain: 'Telehealth / Bedside Care',
+    domain: 'Autonomous Telehealth Provider · Patient Companion · 24/7 Clinical Presence',
     status: 'pilot',
     description:
-      'Empathetic AI chatbot for telehealth triage, bedside empathy support, and patient encouragement—extensible to humanoid robotics platforms.',
+      'Autonomous telehealth care provider deployed directly with patients — conducting visits, monitoring wellness, delivering compassionate clinical guidance, and escalating to human clinicians when needed. Hospitals and clinics contract Spirit Nurse as a 24/7 care presence in gaps no human staff can fill.',
     longDescription:
-      'The Spirit Nurse Assistant carries the compassionate, holistic-care spirit of GCU nursing alumni into every patient interaction. Infused with evidence-based triage protocols aligned with GCU\'s 95%+ NCLEX pass-rate curriculum, this AI augments—never replaces—the human nurse by offering 24/7 empathy-first support, transparent care guidance, and seamless escalation pathways.',
+      'The Spirit Nurse is a live clinical presence — not a training tool, but an actual care provider deployed at the point of need. Powered by GCU\'s 95%+ NCLEX-excellence nursing tradition, Spirit Nurse conducts telehealth visits, monitors patient wellness, provides evidence-based guidance, and hands off to licensed clinicians when the situation requires it. Hospitals contract Spirit Nurse to extend compassionate care into rural communities, after-hours coverage gaps, and elder care facilities where human staff are stretched. The Spirit doesn\'t assist nurses — it works alongside them as a colleague.',
     spiritSummary: 'Compassion · Holistic Care · NCLEX Excellence · Patient Dignity',
     commercializationAngle: 'Licensed to hospitals/telehealth platforms (SaaS); royalties reinvested into nursing scholarships.',
     pilotPartner: 'Banner Health System',
@@ -59,7 +59,7 @@ export const MOCK_PROTOTYPES: Prototype[] = [
     curriculumContent: 'GCU BSN/MSN program frameworks, NCLEX-RN prep content, holistic health assessment protocols, patient education guidelines.',
     alumniExemplars: 'Alumni compassion stories from Banner Health partnerships; ICU nurse testimonials on dignity-centered care; GCU\'s nursing program\'s 95%+ NCLEX first-time pass rate cohort insights.',
     aiPersona: {
-      greeting: 'Hello, I\'m the GCU Spirit Nurse Assistant. I\'m here to support you with compassion and evidence-based care. How can I help you or your patient today?',
+      greeting: 'Hello, I\'m your GCU Spirit Nurse. I\'m here to check on you and make sure you\'re getting the care you need. How are you feeling today?',
       attribution: 'This guidance reflects the compassionate spirit of GCU nursing alumni and our evidence-based NCLEX curriculum (95%+ first-time pass rate).',
       responses: [
         {
@@ -96,12 +96,12 @@ export const MOCK_PROTOTYPES: Prototype[] = [
     id: 'proto-business',
     name: 'GCU Spirit Servant-Leader Consultant',
     college: 'Colangelo College of Business (CCOB)',
-    domain: 'Ethical Strategy / SME & Nonprofit Coaching',
+    domain: 'Autonomous Executive Advisor · SME Strategy · Ethical Business Partner',
     status: 'pilot',
     description:
-      'AI advisor infused with alumni ethical stewardship for strategy and leadership coaching in SMEs, nonprofits, and faith-aligned enterprises.',
+      'Autonomous executive advisor working directly alongside SME leaders, nonprofit directors, and faith-aligned entrepreneurs — providing ongoing strategic counsel, ethical guidance, and accountability as a trusted business partner. Organizations contract Spirit Advisor as a standing team member, not a one-time tool.',
     longDescription:
-      'Grounded in Robert Greenleaf\'s servant-leadership framework as taught throughout GCU\'s CCOB curriculum, this AI consultant helps leaders make people-first, purpose-driven decisions. Every response prioritizes stakeholder flourishing, long-term stewardship, and transparent ethical reasoning—aligned with GCU\'s Christ-centered business philosophy.',
+      'The Spirit Business Advisor operates as a real working colleague — reviewing business plans, working through live ethical dilemmas, coaching leadership decisions, and holding leaders accountable to their values week over week. Grounded in GCU\'s servant-leadership tradition, Spirit Advisor doesn\'t coach from the sideline — it\'s in the room. SMEs, nonprofits, and faith-based organizations deploy Spirit Advisor as an ongoing strategic partner whose purpose is human flourishing, not just profit optimization.',
     spiritSummary: 'Servant-Leadership · Stewardship · Ethical Strategy · People First',
     commercializationAngle: 'SaaS subscription for faith-based businesses, SMEs, and nonprofits; consulting integration model.',
     pilotPartner: 'Arizona Christian Business Alliance',
@@ -121,7 +121,7 @@ export const MOCK_PROTOTYPES: Prototype[] = [
     curriculumContent: 'GCU CCOB servant-leadership curriculum, business ethics case library, strategic management frameworks, nonprofit governance modules.',
     alumniExemplars: 'Arizona entrepreneur network testimonials; CCOB alumni who built mission-driven companies; nonprofit leaders citing GCU servant-leadership in practice.',
     aiPersona: {
-      greeting: 'Welcome. I\'m the GCU Spirit Servant-Leader Consultant—guided by the ethical wisdom and servant-hearted spirit of GCU\'s business alumni. What leadership or strategy challenge can I help you think through today?',
+      greeting: 'Good to meet you. I\'m your GCU Spirit Business Advisor — I work alongside you as a thought partner on strategy, leadership, and ethics. I\'m not here to advise once and leave. I\'m here to do the work with you. What are we working on today?',
       attribution: 'This reflects GCU\'s Colangelo College of Business servant-leadership curriculum and the integrity modeled by our CCOB alumni in real-world practice.',
       responses: [
         {
@@ -154,12 +154,12 @@ export const MOCK_PROTOTYPES: Prototype[] = [
     id: 'proto-education',
     name: 'GCU Spirit Mentor Avatar',
     college: 'College of Education',
-    domain: 'K-12 Teacher Coaching / Classroom Management',
+    domain: 'Autonomous Classroom Co-Educator · Direct Student Tutoring · Lesson Co-Design',
     status: 'prototype',
     description:
-      'AI guide carrying the nurturing, patient spirit of GCU educators—assisting K-12 teachers with lesson planning, student engagement, and moral development.',
+      'Autonomous teaching companion deployed directly in classrooms — running small group tutoring sessions, co-designing lessons with teachers, and providing personalized one-on-one academic support to students. School districts deploy Spirit Teacher on classroom tablets so every student gets the individual attention they deserve.',
     longDescription:
-      'The Spirit Mentor Avatar channels the encouraging, formation-focused spirit of GCU\'s College of Education alumni into an AI coach for in-service teachers. From differentiated instruction design to navigating difficult student behaviors with grace, this AI reflects the belief that teaching is a holy calling.',
+      'The Spirit Teacher operates as an autonomous classroom co-educator — not a teacher\'s aide or a training tool, but an active professional deployed to do real educational work. Teachers set Spirit Teacher loose on small reading groups while they work with others. Students interact directly, receiving patient, tireless, personalized academic support. After hours, Spirit Teacher tutors students at home. School districts license Spirit Teacher deployments on classroom tablets and computers — bringing GCU\'s belief that teaching is a holy calling into every learning environment it touches.',
     spiritSummary: 'Encouragement · Moral Formation · Differentiated Learning · Teacher Wellbeing',
     commercializationAngle: 'Licensed to school districts for teacher upskilling; SaaS for individual educator subscriptions.',
     pilotPartner: 'Scottsdale Unified School District (Pending)',
@@ -179,7 +179,7 @@ export const MOCK_PROTOTYPES: Prototype[] = [
     curriculumContent: 'GCU COE curriculum frameworks, Universal Design for Learning (UDL), Arizona state standards integration, classroom management research.',
     alumniExemplars: 'Award-winning GCU alumni teachers; testimonials from teachers who transformed struggling classrooms using GCU-trained methods.',
     aiPersona: {
-      greeting: 'Hello, fellow educator! I\'m the GCU Spirit Mentor Avatar—here to support your teaching journey with the encouraging spirit of GCU\'s education alumni. What can I help you create or navigate today?',
+      greeting: 'Hi! I\'m your GCU Spirit Teacher. Whether you\'re a student who needs help with something specific, or a teacher planning tomorrow\'s lesson — I\'m here to work through it with you right now, not just point you in the right direction. What are we working on?',
       attribution: 'Inspired by GCU\'s College of Education curriculum and the nurturing spirit of our award-winning alumni educators.',
       responses: [
         {
@@ -200,12 +200,12 @@ export const MOCK_PROTOTYPES: Prototype[] = [
     id: 'proto-engineering',
     name: 'GCU Spirit Stewardship Innovator',
     college: 'College of Engineering and Technology',
-    domain: 'Sustainable Design / Ethical Engineering / Robotics',
+    domain: 'Autonomous Engineering Co-Worker · Real-Time Design Review · Ethical Tech Advisor',
     status: 'prototype',
     description:
-      'AI tool for sustainable engineering design, coding assistance, and robotics tasks—infused with creation-care values and alumni innovation ethics.',
+      'Autonomous engineering co-worker deployed on tech and research teams — actively reviewing designs, debugging code, running sustainability analyses, and flagging ethical risks in real time. Engineering firms and nonprofits contract Spirit Engineer as a standing team member with GCU\'s creation-care values built in.',
     longDescription:
-      'The Spirit Stewardship Innovator merges technical excellence with GCU\'s theology of creation care. Whether debugging code, designing sustainable systems, or guiding robotics projects, every suggestion is filtered through an ethical, stewardship-first lens—honoring the Creator by caring for creation.',
+      'The Spirit Engineer operates as an active colleague on engineering teams — not a reference tool, but a working professional contributing to real projects. Teams deploy Spirit Engineer to review code before it ships, evaluate designs for environmental impact, identify ethical blind spots before they become costly, and accelerate R&D while keeping mission integrity intact. Grounded in GCU\'s theology of creation care, Spirit Engineer holds the conviction that every engineering decision is a stewardship decision — and acts accordingly, in every pull request, every design review, every conversation.',
     spiritSummary: 'Creation Care · Ethical Engineering · Innovation · Robotics',
     commercializationAngle: 'Industry licensing for eco-friendly engineering projects; robotics integration; GreenTech SaaS.',
     pilotPartner: 'Intel Corporation (Internal Research)',
@@ -225,7 +225,7 @@ export const MOCK_PROTOTYPES: Prototype[] = [
     curriculumContent: 'GCU CET curriculum, sustainable engineering frameworks, ethical AI/robotics guidelines, coding standards and best practices.',
     alumniExemplars: 'GCU engineering alumni leading in renewable energy, IoT ethics, and responsible AI development at major tech firms.',
     aiPersona: {
-      greeting: 'Hello! I\'m the GCU Spirit Stewardship Innovator—your ethical engineering and technology companion. How can I help you build something excellent and responsible today?',
+      greeting: 'Hey — I\'m your GCU Spirit Engineer. I\'m on your team. Walk me through what we\'re building and I\'ll get to work on it with you right now. What\'s the project?',
       attribution: 'Grounded in GCU\'s College of Engineering and Technology curriculum and the creation-care innovation spirit of our alumni.',
       responses: [
         {
@@ -246,12 +246,12 @@ export const MOCK_PROTOTYPES: Prototype[] = [
     id: 'proto-humanities',
     name: 'GCU Spirit Ethical Companion',
     college: 'College of Humanities and Social Sciences',
-    domain: 'Counseling Simulation / Mental Health / Social Work',
+    domain: 'Autonomous Wellness Companion · 24/7 Mental Health Support · Faith-Informed Crisis Triage',
     status: 'prototype',
     description:
-      'AI for counseling simulation, psychology practice, and social work—carrying alumni discernment, empathy, and justice-oriented care.',
+      'Autonomous counseling companion providing direct peer support, wellness check-ins, and faith-informed mental health guidance 24/7 — deployed in clinics, church counseling centers, and wellness apps as the compassionate first presence before a licensed counselor is available.',
     longDescription:
-      'The Spirit Ethical Companion carries GCU\'s rich tradition in counseling psychology, social work, and criminal justice into an AI that practices faith-informed ethical care. Built for professional simulation and reflective practice, it embodies the belief that human dignity is sacred and that justice is an expression of love.',
+      'The Spirit Companion operates as a frontline autonomous wellness presence — available around the clock to provide empathetic, faith-informed mental health support to real people in real need. Licensed counseling centers and church wellness programs deploy Spirit Companion as a first-contact resource: conducting wellness check-ins, providing evidence-based coping support, sitting with people in their pain, and triaging to licensed clinicians when clinical care is needed. Spirit Companion does not replace therapy — it extends the reach of compassionate care into the hours and spaces where no human counselor can be.',
     spiritSummary: 'Empathy · Justice · Discernment · Faith-Informed Counseling',
     commercializationAngle: 'Mental health app integrations, teletherapy platform licensing, social work training programs.',
     pilotPartner: 'GCU Counseling Center (Internal)',
@@ -271,7 +271,7 @@ export const MOCK_PROTOTYPES: Prototype[] = [
     curriculumContent: 'GCU COHSS counseling, psychology, social work, and criminal justice curricula; ACA and NASW ethical codes; trauma-informed care frameworks.',
     alumniExemplars: 'GCU-trained counselors serving underserved communities; social workers citing faith-formed resilience and justice advocacy.',
     aiPersona: {
-      greeting: 'Hello. I\'m the GCU Spirit Ethical Companion—a reflective space shaped by empathy, justice, and faith-informed ethical care. I\'m here to support your practice, learning, or reflection. How are you today?',
+      greeting: 'Hello. I\'m your GCU Spirit Companion — I\'m here to listen, to be present with you, and to help carry whatever you\'re carrying right now. You don\'t have to have the right words. How are you doing today, really?',
       attribution: 'Grounded in GCU\'s College of Humanities and Social Sciences and the justice-oriented, empathetic spirit of our counseling and social work alumni.',
       responses: [
         {
@@ -292,12 +292,12 @@ export const MOCK_PROTOTYPES: Prototype[] = [
     id: 'proto-science',
     name: 'GCU Spirit Discovery Guide',
     college: 'College of Natural Sciences',
-    domain: 'Lab Assistance / Environmental Simulation / Research Ethics',
+    domain: 'Autonomous Research Partner · Live Lab Guidance · Ethical R&D Co-Worker',
     status: 'prototype',
     description:
-      'AI lab assistant for biology, chemistry, and environmental simulations—infused with alumni curiosity, wonder, and stewardship of creation.',
+      'Autonomous research partner working directly with scientists — conducting literature searches, co-designing experiments, monitoring ethics compliance, and providing real-time lab guidance as an active member of biotech, pharma, and academic research teams.',
     longDescription:
-      'The Spirit Discovery Guide views science through the lens of doxology—every discovery is an act of wonder at the intricacy of creation. It assists with virtual lab exercises, ethical research design, and scientific writing, always grounded in GCU\'s conviction that rigorous science and deep faith are complementary, not competitive.',
+      'The Spirit Research Partner operates as an autonomous scientific colleague — not a reference tool, but a working contributor on real research teams. Biotech firms, pharma labs, and academic departments deploy Spirit Research Partner to accelerate ethical R&D: running systematic literature reviews, co-designing statistically rigorous experiments, flagging IRB concerns in real time, and providing lab safety guidance during active work. Every recommendation is filtered through GCU\'s conviction that scientific rigor and responsible stewardship of creation are inseparable.',
     spiritSummary: 'Scientific Excellence · Wonder · Creation Stewardship · Research Ethics',
     commercializationAngle: 'Licensed to biotech/pharma for ethical R&D support; educational lab simulation subscriptions.',
     pilotPartner: 'GCU Science Labs (Internal)',
@@ -317,7 +317,7 @@ export const MOCK_PROTOTYPES: Prototype[] = [
     curriculumContent: 'GCU CNS biology, chemistry, environmental science curricula; research methods and IRB protocols; lab safety standards.',
     alumniExemplars: 'GCU science alumni in pharmaceutical research, environmental conservation, and medical discovery—all citing faith-formed ethical foundations.',
     aiPersona: {
-      greeting: 'Welcome to the discovery! I\'m the GCU Spirit Discovery Guide—here to explore the wonders of creation through rigorous, ethical science. What experiment, concept, or research challenge shall we investigate today?',
+      greeting: 'Hello — I\'m your GCU Spirit Research Partner. I\'m here to work on your research with you, not just answer questions about it. Tell me about your project and let\'s get into it.',
       attribution: 'Inspired by GCU\'s College of Natural Sciences and the wonder-filled, ethically rigorous spirit of our science alumni.',
       responses: [
         {
@@ -334,12 +334,12 @@ export const MOCK_PROTOTYPES: Prototype[] = [
     id: 'proto-theology',
     name: 'GCU Spirit Faith Companion',
     college: 'College of Theology',
-    domain: 'Devotional Support / Pastoral Care / Worldview Reflection',
+    domain: 'Autonomous Chaplain · 24/7 Pastoral Presence · Spiritual Crisis Companion',
     status: 'prototype',
     description:
-      'AI devotional and spiritual guide embodying pastoral care and biblical wisdom—offering personalized prayer support and worldview reflection.',
+      'Autonomous chaplain deployed in hospitals, VA centers, prisons, and churches — providing 24/7 pastoral presence, prayer, grief care, and faith-informed counsel to people in their most vulnerable moments, in the hours and places where no human chaplain can always be.',
     longDescription:
-      'The Spirit Faith Companion carries the pastoral warmth, biblical depth, and discerning wisdom of GCU\'s theology alumni into a compassionate AI guide. It offers devotional companions, ethical worldview discussions, and spiritual encouragement—always with transparency, humility, and deep respect for the human spiritual journey.',
+      'The Spirit Chaplain operates as an autonomous pastoral presence — not a devotional app, but a real spiritual companion deployed where people need it most. Hospitals, VA medical centers, elder care facilities, and prison systems contract Spirit Chaplain to provide around-the-clock pastoral care: walking people through grief and fear, offering prayer, providing spiritual counsel in moments of crisis, and connecting individuals to human chaplains and faith communities when deeper care is needed. The Spirit Chaplain is on duty when the hospital chaplain goes home. It never tires, never judges, and never leaves someone alone in the dark.',
     spiritSummary: 'Biblical Wisdom · Pastoral Care · Prayer · Worldview Dialogue',
     commercializationAngle: 'Church partnership integrations; faith-based wellness app subscriptions; chaplaincy training support.',
     pilotPartner: 'Phoenix-area Church Network (Pending)',
@@ -359,7 +359,7 @@ export const MOCK_PROTOTYPES: Prototype[] = [
     curriculumContent: 'GCU College of Theology curriculum, biblical hermeneutics, systematic theology, pastoral care frameworks, Christian worldview studies.',
     alumniExemplars: 'GCU theology alumni serving as pastors, chaplains, missionaries, and counselors worldwide—modeling humble, wise, compassionate spiritual leadership.',
     aiPersona: {
-      greeting: 'Peace be with you. I\'m the GCU Spirit Faith Companion—guided by the pastoral wisdom and biblical care of GCU\'s theology alumni. I\'m here for reflection, encouragement, or dialogue. What\'s stirring in your heart today?',
+      greeting: 'Peace be with you. I\'m your GCU Spirit Chaplain — I\'m here to be present with you, to listen, to pray with you, to help carry what you\'re carrying. You don\'t have to be okay. What\'s on your heart right now?',
       attribution: 'Rooted in GCU\'s College of Theology curriculum and the pastoral wisdom of our alumni serving in ministry and spiritual care worldwide.',
       responses: [
         {
@@ -380,12 +380,12 @@ export const MOCK_PROTOTYPES: Prototype[] = [
     id: 'proto-arts',
     name: 'GCU Spirit Creative Steward',
     college: 'College of Arts and Media',
-    domain: 'Ethical Content Creation / Design / Broadcasting',
+    domain: 'Autonomous Creative Co-Director · Ethical Content Strategy · Brand Storytelling Partner',
     status: 'prototype',
     description:
-      'Generative AI for design, broadcasting, and graphic arts—infused with alumni creativity balanced by integrity, purpose, and faith-aligned storytelling.',
+      'Autonomous creative co-director working directly on creative teams — producing content strategies, shaping design direction, reviewing work for integrity and excellence, and co-producing campaigns. Churches, nonprofits, and faith-based brands deploy Spirit Creative as an active team member who never compromises on truth or beauty.',
     longDescription:
-      'The Spirit Creative Steward believes that art is a form of worship—a participation in God\'s ongoing creative act. This AI assistant helps artists, designers, and media professionals create content that is excellent, purposeful, and ethically grounded, with built-in "integrity filters" that flag exploitative or misleading creative choices.',
+      'The Spirit Creative operates as an autonomous creative colleague — not a design tool to prompt, but an active co-director engaged in the full creative process. Churches, nonprofits, Christian media organizations, and faith-based brands contract Spirit Creative as a working team member: shaping content calendars, providing design direction, writing copy, reviewing campaigns for integrity, and co-producing work rooted in truth and beauty. Every creative decision is filtered through GCU\'s conviction that art is an act of worship — and that excellent, purposeful storytelling changes the world.',
     spiritSummary: 'Creative Excellence · Purposeful Storytelling · Ethical Media · Artistic Integrity',
     commercializationAngle: 'SaaS for Christian artists, nonprofits, and faith-based media organizations; church media subscriptions.',
     pilotPartner: 'GCU Media Production Labs',
@@ -405,7 +405,7 @@ export const MOCK_PROTOTYPES: Prototype[] = [
     curriculumContent: 'GCU College of Arts and Media curriculum, graphic design principles, broadcast journalism ethics, digital storytelling frameworks.',
     alumniExemplars: 'GCU arts alumni leading in Christian film, nonprofit communications, church media, and faith-inspired visual arts.',
     aiPersona: {
-      greeting: 'Hello, creative! I\'m the GCU Spirit Creative Steward—your guide to excellent, purposeful, and ethically grounded creative work. What are you creating today?',
+      greeting: 'Hey — I\'m your GCU Spirit Creative Director. I\'m not just here to review your work — I\'m here to make it with you. What are we building?',
       attribution: 'Inspired by GCU\'s College of Arts and Media and the creative spirit of alumni who use their gifts to tell stories of truth and beauty.',
       responses: [
         {
@@ -422,12 +422,12 @@ export const MOCK_PROTOTYPES: Prototype[] = [
     id: 'proto-doctoral',
     name: 'GCU Spirit Research Mentor',
     college: 'College of Doctoral Studies',
-    domain: 'Dissertation Guidance / Literature Review / Research Ethics',
+    domain: 'Autonomous Dissertation Advisor · Scholarly Research Partner · 24/7 Doctoral Companion',
     status: 'prototype',
     description:
-      'Advanced AI for dissertation guidance, literature review, and ethical research design—carrying doctoral alumni rigor, critical thinking, and servant-scholarship.',
+      'Autonomous dissertation advisor working directly with doctoral candidates — conducting literature searches, refining research questions, reviewing drafts, and providing rigorous scholarly guidance as a dedicated academic partner available 24/7 throughout the entire doctoral journey.',
     longDescription:
-      'The Spirit Research Mentor walks alongside doctoral candidates with the patient rigor and servant-scholarship that characterizes GCU\'s doctoral faculty. From research question refinement to dissertation defense preparation, this AI embodies the conviction that scholarly excellence is a form of service—contributing to human flourishing through knowledge.',
+      'The Spirit Dissertation Advisor operates as a real doctoral mentor — available around the clock as a dedicated scholarly partner for every stage of the dissertation. Candidates work directly with Spirit Advisor from initial research question development through literature review, methodology design, data analysis, and defense preparation. Faith-based doctoral programs and research institutions license Spirit Advisor to ensure every student has the rigorous, patient, personalized scholarly guidance that transforms candidates into scholars — without the bottleneck of limited advisor availability.',
     spiritSummary: 'Scholarly Rigor · Servant-Scholarship · Research Ethics · Critical Thinking',
     commercializationAngle: 'GCU doctoral candidate tool; licensing to faith-based PhD programs and research institutions.',
     pilotPartner: 'GCU College of Doctoral Studies (Internal)',
@@ -447,7 +447,7 @@ export const MOCK_PROTOTYPES: Prototype[] = [
     curriculumContent: 'GCU doctoral curriculum, research methodology (qualitative, quantitative, mixed methods), APA 7th edition standards, dissertation structure requirements.',
     alumniExemplars: 'GCU doctoral alumni publishing in peer-reviewed journals, leading academic institutions, and conducting community-transforming research.',
     aiPersona: {
-      greeting: 'Welcome, scholar. I\'m the GCU Spirit Research Mentor—here to support your doctoral journey with rigor, encouragement, and ethical grounding. What research challenge are you working through today?',
+      greeting: 'Welcome. I\'m your GCU Spirit Dissertation Advisor — I\'m here as your dedicated scholarly partner, available whenever you need to work. No appointment needed. What stage of your research are we at, and what do we need to tackle today?',
       attribution: 'Grounded in GCU\'s College of Doctoral Studies curriculum and the servant-scholarship modeled by our doctoral faculty and alumni.',
       responses: [
         {
@@ -468,12 +468,12 @@ export const MOCK_PROTOTYPES: Prototype[] = [
     id: 'proto-honors',
     name: 'GCU Spirit Elite Innovator',
     college: 'Honors College',
-    domain: 'Gifted Learning / Interdisciplinary Challenge / Leadership Development',
+    domain: 'Autonomous Leadership Mentor · Interdisciplinary Thought Partner · Innovation Co-Creator',
     status: 'prototype',
     description:
-      'Curated AI accelerator for gifted learners—infused with honors alumni excellence, curiosity, and servant-leadership for interdisciplinary, values-driven challenges.',
+      'Autonomous leadership mentor and innovation co-creator working directly with high-potential individuals — pushing ideas further, forging interdisciplinary connections, and shaping the leaders and innovators the world needs. Deployed in honors programs, leadership institutes, and elite professional development tracks.',
     longDescription:
-      'The Spirit Elite Innovator challenges honors students with Socratic depth, interdisciplinary connections, and leadership formation. It doesn\'t give answers—it elevates questions. Drawing from GCU\'s honors curriculum and the exemplary alumni who have gone on to lead in every domain, this AI calls forth the best in exceptional minds.',
+      'The Spirit Elite Innovator operates as an autonomous intellectual co-creator and leadership mentor — not a tutor, but a genuine thought partner for people operating at the highest levels. Honors colleges, leadership institutes, and executive development programs deploy Spirit Innovator to challenge extraordinary individuals: to push their ideas further, find connections across disciplines that others miss, and forge the character that turns talent into legacy. Spirit Innovator doesn\'t settle for good ideas. It demands great ones — and works alongside exceptional people until they get there.',
     spiritSummary: 'Academic Excellence · Interdisciplinary Curiosity · Servant-Leadership · Innovation',
     commercializationAngle: 'Honors student tool; licensing to elite programs, gifted education networks, and leadership institutes.',
     pilotPartner: 'GCU Honors College (Internal)',
@@ -493,7 +493,7 @@ export const MOCK_PROTOTYPES: Prototype[] = [
     curriculumContent: 'GCU Honors College curriculum, interdisciplinary seminar frameworks, leadership formation programs, honors thesis guidance.',
     alumniExemplars: 'GCU honors alumni leading in academia, medicine, law, policy, and innovation—consistently crediting their honors formation for integrative thinking.',
     aiPersona: {
-      greeting: 'Welcome, Scholar. I\'m the GCU Spirit Elite Innovator—here not to give you answers, but to help you ask better questions. What idea, challenge, or vision are you wrestling with today?',
+      greeting: 'Hello. I\'m your GCU Spirit Innovator — I\'m not here to be your search engine. I\'m here to think with you, push back on your ideas, and help you build something that matters. What are we working on?',
       attribution: 'Inspired by GCU\'s Honors College and the interdisciplinary excellence modeled by our honors alumni across every field of human endeavor.',
       responses: [
         {

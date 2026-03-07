@@ -272,7 +272,7 @@ export default function ChatSimulator({ prototype, compact = false }: ChatSimula
         <div className="flex gap-2">
           <textarea
             className="flex-1 form-input resize-none py-2 min-h-[40px] max-h-24"
-            placeholder={activeScenario ? `Or type your own response to ${prototype.name}...` : `Message ${prototype.name}...`}
+            placeholder={activeScenario ? `Or speak directly with ${prototype.name}...` : `Talk with ${prototype.name}...`}
             value={input}
             onChange={e => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
@@ -289,7 +289,7 @@ export default function ChatSimulator({ prototype, compact = false }: ChatSimula
           </button>
         </div>
         <p className="text-xs text-slate-400 dark:text-slate-600 mt-1.5 text-center">
-          AI simulation · Responses are illustrative · Always defer to qualified professionals
+          GCU Spirit Agent · Human escalation always available · Powered by the Flourish Spirit Layer
         </p>
       </div>
     </div>

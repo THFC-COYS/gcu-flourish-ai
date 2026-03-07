@@ -7,7 +7,7 @@ const PAGE_META: Record<string, { title: string; subtitle?: string }> = {
   '/': { title: 'Dashboard', subtitle: 'Overview of GCU Flourish AI platform' },
   '/library': { title: 'Prototype Library', subtitle: 'All 10 college spirit vessels' },
   '/builder': { title: 'Spirit Infusion Builder', subtitle: 'Create & configure new AI prototypes' },
-  '/testing': { title: 'Testing Zone', subtitle: 'Sandbox & simulate prototype interactions' },
+  '/testing': { title: 'Deployment Console', subtitle: 'Deploy and interact with live Spirit Agents — your autonomous AI workforce' },
   '/commercialization': { title: 'Impact & Commercialization Tracker', subtitle: 'Revenue, partnerships, and reinvestment' },
   '/resources': { title: 'Resources & Governance', subtitle: 'Ethical guidelines, policies, and documentation' },
   '/spirit-network': { title: 'Spirit Network', subtitle: 'Alumni wisdom — the living source code of our AI' },

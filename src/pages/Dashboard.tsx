@@ -72,13 +72,13 @@ export default function Dashboard() {
           <div>
             <div className="inline-flex items-center gap-2 bg-gcu-gold/20 border border-gcu-gold/30 text-gcu-gold text-xs font-semibold px-3 py-1 rounded-full mb-3">
               <Sparkles size={12} />
-              GCU Flourish AI · World-Class Ethical AI Platform
+              GCU Flourish AI · Autonomous Spirit Agents — Creating a New Industry
             </div>
             <h1 className="text-2xl sm:text-3xl font-black text-white mb-1">
               {greeting}, {firstName}! 👋
             </h1>
             <p className="text-white/70 text-sm max-w-lg leading-relaxed">
-              Infusing the Spirit of GCU Graduates to Promote Human Flourishing Through Ethical AI.
+              Autonomous Spirit Agents working as real nurses, teachers, chaplains, advisors, and researchers — deployed in hospitals, classrooms, churches, and boardrooms worldwide.
             </p>
             <div className="mt-2">
               <RoleBadge role={user?.role ?? 'viewer'} />
@@ -86,7 +86,7 @@ export default function Dashboard() {
           </div>
           <div className="flex flex-wrap gap-2 shrink-0">
             <button onClick={() => navigate('/library')} className="btn-gold text-xs px-4 py-2 flex items-center gap-1.5">
-              <Heart size={13} /> Spirit Vessels
+              <Heart size={13} /> Deploy a Spirit Agent
             </button>
             <button onClick={() => navigate('/vision')} className="border border-white/30 text-white text-xs font-semibold px-4 py-2 rounded-lg hover:bg-white/10 transition-colors flex items-center gap-1.5">
               <Rocket size={13} /> See the Vision
