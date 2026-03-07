@@ -9,7 +9,7 @@ const THESIS_PILLARS = [
   {
     icon: Brain,
     title: 'The Spirit Layer',
-    body: 'GCU has invented and owns a proprietary ethical AI architecture that no Silicon Valley company can replicate — because they don\'t have our 50 years of Christ-centered academic tradition, our 100K+ alumni network, or our mission.',
+    body: 'GCU has invented and owns a proprietary ethical AI architecture that no Silicon Valley company can replicate — because they don\'t have our 77 years of Christ-centered academic tradition, our 100K+ alumni network, or our mission.',
     tag: 'Proprietary IP',
     color: 'from-purple-600 to-purple-800',
     tagColor: 'bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300',
@@ -155,6 +155,68 @@ export default function ExecutiveBriefing() {
             <span className="bg-white/10 border border-white/20 text-white text-sm px-4 py-1.5 rounded-full font-semibold">33,000+ Addressable Institutions</span>
             <span className="bg-white/10 border border-white/20 text-white text-sm px-4 py-1.5 rounded-full font-semibold">0 Competitors in Christian AI</span>
           </div>
+        </div>
+      </div>
+
+      {/* Personal Letter */}
+      <div className="page-card p-8 border-l-4 border-gcu-purple space-y-5">
+        <div className="flex items-center gap-3 mb-2">
+          <div className="w-1 h-8 rounded-full bg-gcu-purple" />
+          <h2 className="text-2xl font-black text-slate-900 dark:text-white">A Note from the Builder</h2>
+        </div>
+
+        <p className="text-sm text-slate-500 dark:text-slate-400 italic">
+          First, I want to acknowledge — I apologize if what you are about to see feels like it extends beyond the walls of GCU. I built this quickly, with urgency, and I realized fast that what started as a university project became something much larger than that. This is not just a GCU idea. This is a university idea. And I believe with everything I have that GCU is exactly the right university to own it.
+        </p>
+
+        <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+          For 77 years, Grand Canyon University has built something rare: a university where academic excellence and genuine human character exist in the same room. Our nurses graduate knowing their craft <em>and</em> knowing how to sit with a frightened patient at 2 AM. Our teachers understand pedagogy <em>and</em> understand a struggling kid. Our chaplains carry theology <em>and</em> carry grief with grace. Our business graduates understand markets <em>and</em> understand that how you treat people in a crisis is the measure of everything you've built.
+        </p>
+
+        <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+          That wisdom has always lived here — in our faculty, our curriculum, our culture. Until now, it could only reach the people standing in our classrooms — or the patients, clients, and communities fortunate enough to interact with our graduates in the real moments that matter.
+        </p>
+
+        <div className="bg-gcu-purple/5 dark:bg-gcu-purple/10 border border-gcu-purple/20 rounded-xl p-4">
+          <p className="text-base font-black text-gcu-purple dark:text-purple-300">I am changing that.</p>
+          <p className="text-sm text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
+            Over the last several months, I built GCU Flourish AI — the first platform to deploy the spirit of a university as autonomous agents available to any person, anywhere, at any moment of need. Ten Spirit Agents, one for each college, each carrying GCU's full professional knowledge and values into the world. I had to hit pause when the spring teaching term started. My plan was to pick it back up as a summer project. But I'm starting to think we don't have the time to wait.
+          </p>
+        </div>
+
+        <div className="space-y-4">
+          <p className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">Two Examples of What This Looks Like</p>
+
+          <div className="bg-slate-50 dark:bg-[#1A1235] rounded-xl p-5 space-y-2">
+            <p className="text-xs font-bold text-gcu-purple dark:text-purple-300 uppercase tracking-wide">College of Nursing — Phoenix Hospital</p>
+            <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              A regional hospital system serves 400,000 patients a year. A newly diagnosed cancer patient goes home on a Friday afternoon with a folder of paperwork, a head full of fear, and no one to call until Monday. With Spirit Nurse deployed, that patient opens their phone. Spirit Nurse — carrying the full clinical knowledge of GCU's College of Nursing — is there. Not a phone tree. A real conversation. One that asks the right questions, listens to the answers, and knows when to say: <em>call your doctor right now.</em>
+            </p>
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-2">The hospital licenses Spirit Nurse. GCU earns revenue. The revenue funds scholarships. The scholarships train more nurses. The mission compounds.</p>
+          </div>
+
+          <div className="bg-slate-50 dark:bg-[#1A1235] rounded-xl p-5 space-y-2">
+            <p className="text-xs font-bold text-gcu-purple dark:text-purple-300 uppercase tracking-wide">College of Theology — Rural Africa</p>
+            <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              A small developing town — no seminary nearby, no trained counselor within a hundred miles. A pastor walks into a situation he has never been trained for. A family torn apart. A young man who has lost his faith and is losing himself with it. An elder who is dying and terrified. With Spirit Chaplain deployed, that pastor opens his phone. He gets not an answer, but a presence — one that knows scripture and knows suffering. One that helps him find the words he needs to find his own.
+            </p>
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-2">No plane ticket. No grant. No waiting list. The Spirit of GCU — present in a moment that would otherwise go unmet.</p>
+          </div>
+        </div>
+
+        <div className="border-t border-slate-100 dark:border-[#2D2050] pt-4 space-y-3">
+          <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            And the platform never stops growing — because GCU never stops growing. Every curriculum update, every published article, every guest speaker who walks onto this campus becomes part of what Flourish AI knows. Students and alumni can enter their own stories directly into the platform — a small business owner who learned servant leadership when layoffs were on the table, a nurse who remembers the conversation with a child's parents that changed her life forever. These voices flow into the platform and become part of what every Spirit Agent carries into every conversation.
+          </p>
+          <p className="text-sm font-bold text-slate-700 dark:text-slate-200 leading-relaxed">
+            This is the digital collective. Not a database. Not a knowledge base. The soul of an institution — alive, growing, and finally available to everyone who needs it.
+          </p>
+          <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            Today it lives as a website and mobile app. Tomorrow: wearables, smart glasses, robots in classrooms holding small group tutoring while the teacher leads the lesson up front. The Spirit Agents get bodies. They go where the people are — not where the institution can afford to send someone.
+          </p>
+          <p className="text-sm text-slate-500 dark:text-slate-400 italic">
+            The platform exists. It works. What it needs now is the institution behind it.
+          </p>
         </div>
       </div>
 
@@ -322,7 +384,7 @@ export default function ExecutiveBriefing() {
           <Heart size={20} className="text-pink-500 flex-shrink-0 mt-0.5" />
           <div>
             <h4 className="font-black text-slate-900 dark:text-white mb-1">The GCU Difference</h4>
-            <p className="text-sm text-slate-600 dark:text-slate-400">We are not selling AI. We are encoding GCU's soul — 50 years of Christ-centered education — into technology that can serve millions of people worldwide, indefinitely.</p>
+            <p className="text-sm text-slate-600 dark:text-slate-400">We are not selling AI. We are encoding GCU's soul — 77 years of Christ-centered education — into technology that can serve millions of people worldwide, indefinitely.</p>
           </div>
         </div>
         <div className="page-card p-5 flex items-start gap-4">

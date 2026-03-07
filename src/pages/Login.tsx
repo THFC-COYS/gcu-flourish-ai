@@ -8,17 +8,17 @@ import { useAuth } from '../context/AuthContext';
 import { DEMO_CREDENTIALS } from '../data/mockData';
 
 const STATS = [
-  { value: '2.4M+', label: 'Patient & Student Interactions' },
-  { value: '94%', label: 'Ethical Alignment Score' },
-  { value: '127', label: 'Partner Organizations' },
+  { value: '10', label: 'Autonomous Spirit Agents Live' },
+  { value: '24/7', label: 'Always On — Never Tired' },
   { value: '0', label: 'Data Sold. Ever.' },
+  { value: '∞', label: 'Questions They Can Answer' },
 ];
 
 const INDUSTRIES = [
-  { icon: '🏥', label: 'Healthcare', desc: 'Nurse burnout, patient education, discharge coaching' },
-  { icon: '🎓', label: 'Education', desc: 'Advisor bots, tutoring, career mentorship' },
-  { icon: '💼', label: 'Enterprise', desc: 'HR onboarding, servant-leader coaching, ethics training' },
-  { icon: '⛪', label: 'Nonprofits', desc: 'Community outreach, spiritual care, counseling support' },
+  { icon: '🏥', label: 'Healthcare', desc: 'Spirit Nurse conducting telehealth visits, monitoring patients, extending care into underserved hours' },
+  { icon: '🎓', label: 'Education', desc: 'Spirit Teacher running live tutoring sessions and small groups directly with students' },
+  { icon: '✝️', label: 'Pastoral Care', desc: 'Spirit Chaplain present in hospitals, VA centers, and prisons at 3am when no human can be' },
+  { icon: '💼', label: 'Business & Nonprofits', desc: 'Spirit Advisor working alongside leaders on live strategy, ethics, and mission-critical decisions' },
 ];
 
 const TRUST_BADGES = [
@@ -103,16 +103,16 @@ export default function Login() {
           <div>
             <div className="inline-flex items-center gap-2 bg-gcu-gold/20 border border-gcu-gold/30 text-gcu-gold text-sm font-semibold px-4 py-2 rounded-full mb-5">
               <Sparkles size={14} />
-              The World's First Soul-Infused AI Platform
+              GCU Flourish AI · Creating a New Industry
             </div>
             <h1 className="text-4xl xl:text-5xl font-black text-white leading-tight mb-4">
-              AI that acts with{' '}
-              <span className="text-gcu-gold">compassion,</span>
-              <br />not just intelligence.
+              Not AI tools.<br />
+              <span className="text-gcu-gold">AI colleagues.</span>
             </h1>
             <p className="text-white/70 text-lg leading-relaxed max-w-lg">
-              We embed the character of GCU's most compassionate graduates — servant-leadership,
-              integrity, and Christ-centered values — directly into AI tools your organization can deploy today.
+              GCU Spirit Agents are autonomous professionals — nurses, teachers, chaplains, and advisors —
+              encoded with 50 years of Christ-centered character and deployed where the world needs them most.
+              Starting as a website. Becoming wearables. Becoming robots.
             </p>
           </div>
 
@@ -133,7 +133,7 @@ export default function Login() {
 
           {/* Industries */}
           <div>
-            <p className="text-white/40 text-xs font-semibold uppercase tracking-widest mb-3">Built for your industry</p>
+            <p className="text-white/40 text-xs font-semibold uppercase tracking-widest mb-3">Deployed where humans can't always be</p>
             <div className="grid grid-cols-2 gap-2">
               {INDUSTRIES.map(ind => (
                 <div key={ind.label} className="glass-card rounded-xl p-3 flex items-start gap-3">
@@ -154,8 +154,8 @@ export default function Login() {
               <span className="text-white/30 text-xs">Illustrative example, not a real testimonial</span>
             </div>
             <p className="text-white/80 text-sm leading-relaxed italic">
-              "Flourish AI reduced our nursing documentation time by 34% — but more importantly,
-              our staff said it actually <span className="text-gcu-gold font-semibold">felt human.</span> That's something no other platform delivered."
+              "At 3am, when our chaplain goes home, there is a patient somewhere who is afraid and alone.
+              The Spirit Chaplain is <span className="text-gcu-gold font-semibold">already there.</span> That's not a feature. That's a calling answered."
             </p>
             <div className="flex items-center gap-3 mt-4">
               <div className="w-8 h-8 rounded-full bg-gcu-gold/20 border border-gcu-gold/30 flex items-center justify-center text-gcu-gold font-bold text-sm">B</div>
@@ -379,12 +379,12 @@ export default function Login() {
                     required
                   >
                     <option value="">Select your focus area…</option>
-                    <option value="nursing">Healthcare / Nursing Support</option>
-                    <option value="education">Student Advising & Tutoring</option>
-                    <option value="hr">HR Onboarding & Training</option>
-                    <option value="pastoral">Pastoral & Spiritual Care</option>
-                    <option value="enterprise">Enterprise AI Ethics</option>
-                    <option value="other">Other</option>
+                    <option value="nursing">Deploy a Spirit Nurse — Telehealth & Patient Care</option>
+                    <option value="education">Deploy a Spirit Teacher — Direct Student Tutoring</option>
+                    <option value="pastoral">Deploy a Spirit Chaplain — 24/7 Pastoral Presence</option>
+                    <option value="business">Deploy a Spirit Advisor — Strategy & Leadership</option>
+                    <option value="standard">License the Flourish Standard for my organization</option>
+                    <option value="other">Other / Just exploring</option>
                   </select>
                 </div>
 
@@ -424,9 +424,9 @@ export default function Login() {
               </p>
               <div className="space-y-2 text-left mb-6">
                 {[
-                  'Personalized platform walkthrough',
-                  'Custom spirit vessel scoped to your org',
-                  'Pricing & partnership options',
+                  'Live Spirit Agent demonstration tailored to your use case',
+                  'Deployment roadmap: website → tablet → robot',
+                  'Flourish Standard licensing & partnership options',
                 ].map(item => (
                   <div key={item} className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
                     <ArrowRight size={14} className="text-gcu-gold flex-shrink-0" />

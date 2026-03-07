@@ -155,7 +155,7 @@ export default function Dashboard() {
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
         <StatCard
           icon={<FlaskConical size={20} className="text-gcu-purple" />}
-          label="Spirit Vessels"
+          label="Spirit Agents"
           value={COLLEGE_COUNTS.total}
           sub="Across all 10 GCU colleges"
           color="bg-gcu-purple-pale dark:bg-gcu-purple/10"
@@ -171,7 +171,7 @@ export default function Dashboard() {
           icon={<Users size={20} className="text-emerald-600" />}
           label="People Reached"
           value={COLLEGE_COUNTS.studentsReached.toLocaleString()}
-          sub="Students, faculty & partners"
+          sub="Patients, clients & communities"
           color="bg-emerald-50 dark:bg-emerald-900/20"
         />
         <StatCard
@@ -203,7 +203,7 @@ export default function Dashboard() {
       {/* College grid */}
       <div className="page-card p-5">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-base font-bold text-slate-900 dark:text-white">All 10 College Spirit Vessels</h2>
+          <h2 className="text-base font-bold text-slate-900 dark:text-white">All 10 Deployed Spirit Agents</h2>
           <button onClick={() => navigate('/library')} className="text-xs text-gcu-purple dark:text-purple-400 font-semibold flex items-center gap-1 hover:gap-2 transition-all">
             Full library <ArrowRight size={12} />
           </button>
@@ -267,6 +267,7 @@ export default function Dashboard() {
           <div className="page-card p-4 space-y-1">
             <p className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide mb-2">Explore Platform</p>
             {[
+              { label: 'Training Academy', sub: 'Practice with Spirit in role-play', icon: '🎓', to: '/spirit-training' },
               { label: 'Spirit Network', sub: '847 alumni contributors', icon: '❤️', to: '/spirit-network' },
               { label: 'Flourish API', sub: 'License the soul layer', icon: '⚡', to: '/flourish-api' },
               { label: 'Vision & Roadmap', sub: 'Phase 1 → Phase 2', icon: '🚀', to: '/vision' },
