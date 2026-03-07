@@ -47,6 +47,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
     setUser(foundUser);
     localStorage.setItem('gcu-flourish-user', JSON.stringify(foundUser));
+    localStorage.removeItem('flourish_onboarded_v1');
     return { success: true };
   };
 
