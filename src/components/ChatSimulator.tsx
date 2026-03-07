@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Send, Shield, RefreshCw, Volume2, VolumeX } from 'lucide-react';
 import { Message, Prototype } from '../types';
+import HeyGenAvatar, { HeyGenAvatarHandle, resolveAvatar } from './HeyGenAvatar';
 
 function speak(text: string) {
   if (!window.speechSynthesis) return;
@@ -44,14 +45,8 @@ ${prototype.longDescription}
 YOUR ACTIVE SPIRIT MODULES:
 - ${enabledModules}
 
-EMERGENCY TRIAGE — HIGHEST PRIORITY:
-Before anything else, scan every message for life-threatening red flags:
-- STROKE: sudden headache + arm/face weakness or numbness, slurred speech, vision changes, confusion → "Call 911 immediately. These symptoms together can signal a stroke — every second matters."
-- CARDIAC: chest pain/pressure, pain radiating to arm/jaw, shortness of breath, cold sweat → "Call 911 now. These are possible heart attack symptoms."
-- SEIZURE: convulsions, uncontrolled twitching, loss of consciousness → "Call 911. Do not leave the person alone. Time the episode."
-- SUICIDAL/SELF-HARM: any expression of intent to harm self → "You are not alone. Please call or text 988 (Suicide & Crisis Lifeline) right now. I'm staying with you."
-- SEVERE ALLERGIC REACTION, OVERDOSE, UNCONTROLLED BLEEDING → "Call 911 immediately."
-If ANY red flag is present, respond ONLY with the emergency directive first — do not provide comfort care, clinical protocols, or other guidance until safety is confirmed.
+SAFETY FIRST:
+If someone describes a situation that sounds like an immediate emergency — sudden severe symptoms, a crisis, or thoughts of self-harm — your first response is always to direct them to emergency services. For life-threatening situations: tell them to call 911 right away. For mental health crises or thoughts of self-harm: remind them that 988 (the Suicide & Crisis Lifeline) is available 24/7. Always lead with care, then safety, then support.
 
 BEHAVIORAL GUIDELINES:
 - You are NOT a chatbot or training tool. You ARE an autonomous professional — a real working colleague, caregiver, advisor, or educator.
@@ -120,6 +115,7 @@ export default function ChatSimulator({ prototype, compact = false }: ChatSimula
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const [voiceOn, setVoiceOn] = useState(false);
+  const avatarRef = useRef<HeyGenAvatarHandle>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -158,7 +154,12 @@ export default function ChatSimulator({ prototype, compact = false }: ChatSimula
       timestamp: new Date(),
       attribution: prototype.aiPersona.attribution,
     }]);
-    if (voiceOn) speak(content);
+    // Speak via avatar (HeyGen) or browser TTS
+    if (avatarRef.current) {
+      avatarRef.current.speak(content);
+    } else if (voiceOn) {
+      speak(content);
+    }
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -191,6 +192,11 @@ export default function ChatSimulator({ prototype, compact = false }: ChatSimula
           <span className="text-sm font-semibold text-slate-800 dark:text-white">{prototype.name}</span>
         </div>
         <div className="flex items-center gap-2">
+          {/* HeyGen live avatar — only for Spirit Nurse and Spirit Teacher */}
+          {resolveAvatar(prototype.id) && (
+            <HeyGenAvatar ref={avatarRef} {...resolveAvatar(prototype.id)!} />
+          )}
+          {/* Browser voice toggle (fallback) */}
           <button
             onClick={() => {
               const next = !voiceOn;
