@@ -1120,6 +1120,110 @@ export default function VisionRoadmap() {
         </p>
       </div>
 
+      {/* ── WE ARE GCU ── */}
+      <div className="relative overflow-hidden rounded-2xl border border-gcu-purple/20 dark:border-gcu-purple/30 bg-gradient-to-br from-[#1A0A30] via-[#120820] to-[#0a0618]">
+        {/* Subtle radial glow */}
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 70% 60% at 50% 40%, rgba(124,58,237,0.18) 0%, transparent 70%)' }} />
+
+        <div className="relative z-10 px-8 py-12 md:py-16 text-center">
+          {/* Overline */}
+          <div className="inline-flex items-center gap-2 bg-gcu-purple/20 border border-gcu-purple/40 text-purple-300 text-xs font-bold px-4 py-1.5 rounded-full mb-6 uppercase tracking-widest">
+            <Sparkles size={12} />
+            The Collective
+          </div>
+
+          {/* Headline */}
+          <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-none mb-2">
+            We <span className="text-gcu-gold">Are</span> GCU.
+          </h2>
+          <p className="text-purple-300/70 text-lg font-medium mb-10 max-w-xl mx-auto">
+            The AI is not built from the internet. It is built from <em>us</em>.
+          </p>
+
+          {/* Flow diagram */}
+          <div className="flex flex-col md:flex-row items-center justify-center gap-0 max-w-4xl mx-auto mb-12">
+
+            {/* Sources column */}
+            <div className="flex flex-col gap-2.5 text-left min-w-[200px]">
+              {[
+                { icon: '🎓', label: 'Faculty Expertise', sub: 'Decades of clinical, academic & pastoral mastery' },
+                { icon: '📚', label: 'Curriculum & Content', sub: "GCU's entire academic catalog and pedagogy" },
+                { icon: '🔬', label: 'Research & Publications', sub: 'Peer-reviewed scholarship and original findings' },
+                { icon: '🏛️', label: 'Institutional Memory', sub: 'Values, culture, and 77 years of mission' },
+                { icon: '💡', label: 'Student & Staff IP', sub: 'Projects, presentations, and lived experience' },
+              ].map(s => (
+                <div key={s.label} className="flex items-start gap-2.5 bg-white/5 border border-white/10 rounded-xl px-3 py-2.5 hover:border-gcu-purple/40 transition-colors group">
+                  <span className="text-xl flex-shrink-0 mt-0.5">{s.icon}</span>
+                  <div>
+                    <p className="text-xs font-bold text-white group-hover:text-purple-200 transition-colors leading-tight">{s.label}</p>
+                    <p className="text-[10px] text-slate-500 leading-tight mt-0.5">{s.sub}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Arrow / Spirit Layer */}
+            <div className="flex md:flex-col items-center gap-0 px-2 md:px-6 py-4 md:py-0">
+              {/* Arrows on both sides */}
+              <div className="hidden md:flex flex-col items-center gap-1 text-gcu-purple/40 mb-3">
+                <div className="w-px h-8 bg-gradient-to-b from-transparent to-gcu-purple/40" />
+                <ArrowRight size={14} className="rotate-90 text-gcu-purple/60" />
+              </div>
+              <ArrowRight size={20} className="md:hidden text-gcu-purple/50 rotate-0 mx-2" />
+
+              {/* Spirit Layer nucleus */}
+              <div className="flex flex-col items-center gap-2 my-2">
+                <div className="relative w-28 h-28 md:w-32 md:h-32 flex-shrink-0">
+                  {/* Pulsing ring */}
+                  <div className="absolute inset-0 rounded-full border-2 border-gcu-purple/30 animate-ping" style={{ animationDuration: '3s' }} />
+                  <div className="absolute inset-2 rounded-full border border-gcu-purple/20" />
+                  {/* Core */}
+                  <div className="absolute inset-4 rounded-full bg-gradient-to-br from-gcu-purple via-purple-700 to-indigo-800 flex items-center justify-center shadow-lg shadow-gcu-purple/40">
+                    <div className="text-center">
+                      <Sparkles size={16} className="text-gcu-gold mx-auto mb-0.5" />
+                      <p className="text-white text-[9px] font-black uppercase tracking-wide leading-tight">Spirit<br/>Layer</p>
+                    </div>
+                  </div>
+                </div>
+                <p className="text-xs font-bold text-purple-300 uppercase tracking-widest">Synthesis</p>
+              </div>
+
+              <div className="hidden md:flex flex-col items-center gap-1 text-gcu-purple/40 mt-3">
+                <ArrowRight size={14} className="rotate-90 text-gcu-purple/60" />
+                <div className="w-px h-8 bg-gradient-to-b from-gcu-purple/40 to-transparent" />
+              </div>
+              <ArrowRight size={20} className="md:hidden text-gcu-purple/50 mx-2" />
+            </div>
+
+            {/* Deployment surfaces column */}
+            <div className="flex flex-col gap-2.5 text-left min-w-[200px]">
+              {[
+                { icon: '📱', label: 'Bedside Tablet', sub: 'Spirit Nurse at 2 AM — present when humans cannot be' },
+                { icon: '🖥️', label: 'Hospital Lobby Kiosk', sub: 'Orienting families in their most frightened moments' },
+                { icon: '🧑‍🏫', label: 'Classroom Avatar', sub: 'Spirit Teacher — life-size, live, and responsive' },
+                { icon: '🥽', label: 'Wearable AR', sub: "Overlaying Spirit's guidance on the nurse's world" },
+                { icon: '🤖', label: 'Flourish Robotics', sub: "A physical presence with GCU's character embedded" },
+              ].map(s => (
+                <div key={s.label} className="flex items-start gap-2.5 bg-white/5 border border-white/10 rounded-xl px-3 py-2.5 hover:border-gcu-gold/30 transition-colors group">
+                  <span className="text-xl flex-shrink-0 mt-0.5">{s.icon}</span>
+                  <div>
+                    <p className="text-xs font-bold text-white group-hover:text-gcu-gold transition-colors leading-tight">{s.label}</p>
+                    <p className="text-[10px] text-slate-500 leading-tight mt-0.5">{s.sub}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Closing statement */}
+          <div className="max-w-3xl mx-auto">
+            <blockquote className="text-lg sm:text-xl text-white/80 leading-relaxed font-medium italic border-l-4 border-gcu-gold/60 pl-5 text-left">
+              "Every Spirit Agent carries the accumulated knowledge, values, and character of GCU's faculty, researchers, students, and staff — not as a database query, but as a living professional presence. When a patient in Banner Health speaks with Spirit Nurse, they are speaking with the collective wisdom of every GCU nurse educator who ever taught with compassion and conviction. <span className="text-gcu-gold not-italic font-black">We are GCU.</span>"
+            </blockquote>
+          </div>
+        </div>
+      </div>
+
       {/* ── GLOBAL MARKET MAP ── */}
       <div>
         <div className="flex items-center gap-3 mb-2">
