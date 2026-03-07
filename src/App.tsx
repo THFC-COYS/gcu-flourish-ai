@@ -15,6 +15,7 @@ import FlourishAPI from './pages/FlourishAPI';
 import FlourishRobotics from './pages/FlourishRobotics';
 import ExecutiveBriefing from './pages/ExecutiveBriefing';
 import FlourishStandard from './pages/FlourishStandard';
+import SpiritTraining from './pages/SpiritTraining';
 
 function ProtectedRoutes() {
   const { user, isLoading } = useAuth();
@@ -50,6 +51,7 @@ function ProtectedRoutes() {
         <Route path="flourish-robotics" element={<FlourishRobotics />} />
         <Route path="executive-brief" element={<ExecutiveBriefing />} />
         <Route path="flourish-standard" element={<FlourishStandard />} />
+        <Route path="spirit-training" element={<SpiritTraining />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

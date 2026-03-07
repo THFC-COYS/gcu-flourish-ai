@@ -16,6 +16,7 @@ const PAGE_META: Record<string, { title: string; subtitle?: string }> = {
   '/vision': { title: 'Vision & Roadmap', subtitle: 'Phase 1: Digital · Phase 2: Physical embodiment · The global standard' },
   '/executive-brief': { title: 'Executive Briefing', subtitle: 'Presidential summary · The case for GCU as the global authority on ethical AI' },
   '/flourish-standard': { title: 'The Flourish Standard', subtitle: 'GCU\'s ethical AI certification framework · The industry standard we are creating' },
+  '/spirit-training': { title: 'Spirit Training Academy', subtitle: 'Practice the hardest human moments — Spirit plays the challenge, you play the professional' },
 };
 
 export default function Layout() {

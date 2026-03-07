@@ -2,7 +2,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import {
   LayoutDashboard, Library, Wand2, FlaskConical,
   TrendingUp, BookOpen, LogOut, ChevronLeft, ChevronRight,
-  Shield, X, Heart, Code2, Rocket, Bot, Briefcase, Award
+  Shield, X, Heart, Code2, Rocket, Bot, Briefcase, Award, GraduationCap
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { RoleBadge } from '../ui/Badge';
@@ -15,6 +15,7 @@ const NAV_SECTIONS = [
       { label: 'Prototype Library', icon: Library, to: '/library' },
       { label: 'Spirit Builder', icon: Wand2, to: '/builder' },
       { label: 'Deployment Console', icon: FlaskConical, to: '/testing' },
+      { label: 'Training Academy', icon: GraduationCap, to: '/spirit-training' },
     ],
   },
   {
