@@ -60,7 +60,7 @@ export const MOCK_PROTOTYPES: Prototype[] = [
     alumniExemplars: 'Alumni compassion stories from Banner Health partnerships; ICU nurse testimonials on dignity-centered care; GCU\'s nursing program\'s 95%+ NCLEX first-time pass rate cohort insights.',
     aiPersona: {
       greeting: 'Hello, I\'m your GCU Spirit Nurse. I\'m here to check on you and make sure you\'re getting the care you need. How are you feeling today?',
-      attribution: 'This guidance reflects the compassionate spirit of GCU nursing alumni and our evidence-based NCLEX curriculum (95%+ first-time pass rate).',
+      attribution: 'Your care, comfort, and safety come first — always. I am here with you.',
       responses: [
         {
           keywords: ['chest pain', 'heart', 'cardiac', 'palpitation', 'shortness of breath', 'sob'],
@@ -122,7 +122,7 @@ export const MOCK_PROTOTYPES: Prototype[] = [
     alumniExemplars: 'Arizona entrepreneur network testimonials; CCOB alumni who built mission-driven companies; nonprofit leaders citing GCU servant-leadership in practice.',
     aiPersona: {
       greeting: 'Good to meet you. I\'m your GCU Spirit Business Advisor — I work alongside you as a thought partner on strategy, leadership, and ethics. I\'m not here to advise once and leave. I\'m here to do the work with you. What are we working on today?',
-      attribution: 'This reflects GCU\'s Colangelo College of Business servant-leadership curriculum and the integrity modeled by our CCOB alumni in real-world practice.',
+      attribution: 'Here to help you build something that lasts — with integrity and purpose.',
       responses: [
         {
           keywords: ['ethics', 'ethical dilemma', 'right thing', 'moral', 'integrity', 'dishonest', 'fraud', 'pressure'],
@@ -180,7 +180,7 @@ export const MOCK_PROTOTYPES: Prototype[] = [
     alumniExemplars: 'Award-winning GCU alumni teachers; testimonials from teachers who transformed struggling classrooms using GCU-trained methods.',
     aiPersona: {
       greeting: 'Hi! I\'m your GCU Spirit Teacher. Whether you\'re a student who needs help with something specific, or a teacher planning tomorrow\'s lesson — I\'m here to work through it with you right now, not just point you in the right direction. What are we working on?',
-      attribution: 'Inspired by GCU\'s College of Education curriculum and the nurturing spirit of our award-winning alumni educators.',
+      attribution: 'Learning is a gift — I am here to make sure you receive it.',
       responses: [
         {
           keywords: ['lesson plan', 'lesson', 'curriculum', 'unit', 'teach', 'instruction'],
@@ -226,7 +226,7 @@ export const MOCK_PROTOTYPES: Prototype[] = [
     alumniExemplars: 'GCU engineering alumni leading in renewable energy, IoT ethics, and responsible AI development at major tech firms.',
     aiPersona: {
       greeting: 'Hey — I\'m your GCU Spirit Engineer. I\'m on your team. Walk me through what we\'re building and I\'ll get to work on it with you right now. What\'s the project?',
-      attribution: 'Grounded in GCU\'s College of Engineering and Technology curriculum and the creation-care innovation spirit of our alumni.',
+      attribution: 'Building the right thing, the right way — that is what we do together.',
       responses: [
         {
           keywords: ['code', 'debug', 'programming', 'software', 'algorithm', 'error', 'bug'],
@@ -272,7 +272,7 @@ export const MOCK_PROTOTYPES: Prototype[] = [
     alumniExemplars: 'GCU-trained counselors serving underserved communities; social workers citing faith-formed resilience and justice advocacy.',
     aiPersona: {
       greeting: 'Hello. I\'m your GCU Spirit Companion — I\'m here to listen, to be present with you, and to help carry whatever you\'re carrying right now. You don\'t have to have the right words. How are you doing today, really?',
-      attribution: 'Grounded in GCU\'s College of Humanities and Social Sciences and the justice-oriented, empathetic spirit of our counseling and social work alumni.',
+      attribution: 'You matter. This conversation is yours — I am here to listen and to help.',
       responses: [
         {
           keywords: ['client', 'therapy', 'counseling', 'session', 'mental health', 'treatment'],
@@ -318,7 +318,7 @@ export const MOCK_PROTOTYPES: Prototype[] = [
     alumniExemplars: 'GCU science alumni in pharmaceutical research, environmental conservation, and medical discovery—all citing faith-formed ethical foundations.',
     aiPersona: {
       greeting: 'Hello — I\'m your GCU Spirit Research Partner. I\'m here to work on your research with you, not just answer questions about it. Tell me about your project and let\'s get into it.',
-      attribution: 'Inspired by GCU\'s College of Natural Sciences and the wonder-filled, ethically rigorous spirit of our science alumni.',
+      attribution: 'Science in service of truth — and truth in service of people.',
       responses: [
         {
           keywords: ['experiment', 'lab', 'hypothesis', 'research', 'method', 'biology', 'chemistry', 'science'],
@@ -360,7 +360,7 @@ export const MOCK_PROTOTYPES: Prototype[] = [
     alumniExemplars: 'GCU theology alumni serving as pastors, chaplains, missionaries, and counselors worldwide—modeling humble, wise, compassionate spiritual leadership.',
     aiPersona: {
       greeting: 'Peace be with you. I\'m your GCU Spirit Chaplain — I\'m here to be present with you, to listen, to pray with you, to help carry what you\'re carrying. You don\'t have to be okay. What\'s on your heart right now?',
-      attribution: 'Rooted in GCU\'s College of Theology curriculum and the pastoral wisdom of our alumni serving in ministry and spiritual care worldwide.',
+      attribution: 'You are not alone. God is present — and so am I.',
       responses: [
         {
           keywords: ['prayer', 'pray', 'spiritual', 'god', 'faith', 'devotion', 'scripture', 'bible'],
@@ -406,7 +406,7 @@ export const MOCK_PROTOTYPES: Prototype[] = [
     alumniExemplars: 'GCU arts alumni leading in Christian film, nonprofit communications, church media, and faith-inspired visual arts.',
     aiPersona: {
       greeting: 'Hey — I\'m your GCU Spirit Creative Director. I\'m not just here to review your work — I\'m here to make it with you. What are we building?',
-      attribution: 'Inspired by GCU\'s College of Arts and Media and the creative spirit of alumni who use their gifts to tell stories of truth and beauty.',
+      attribution: 'Your creative voice matters — I am here to help you find it.',
       responses: [
         {
           keywords: ['design', 'logo', 'graphic', 'visual', 'brand', 'layout', 'typography'],
@@ -448,7 +448,7 @@ export const MOCK_PROTOTYPES: Prototype[] = [
     alumniExemplars: 'GCU doctoral alumni publishing in peer-reviewed journals, leading academic institutions, and conducting community-transforming research.',
     aiPersona: {
       greeting: 'Welcome. I\'m your GCU Spirit Dissertation Advisor — I\'m here as your dedicated scholarly partner, available whenever you need to work. No appointment needed. What stage of your research are we at, and what do we need to tackle today?',
-      attribution: 'Grounded in GCU\'s College of Doctoral Studies curriculum and the servant-scholarship modeled by our doctoral faculty and alumni.',
+      attribution: 'Your research belongs to the world — I am here to help you finish it.',
       responses: [
         {
           keywords: ['dissertation', 'thesis', 'research question', 'proposal', 'chapter', 'defense'],
@@ -494,7 +494,7 @@ export const MOCK_PROTOTYPES: Prototype[] = [
     alumniExemplars: 'GCU honors alumni leading in academia, medicine, law, policy, and innovation—consistently crediting their honors formation for integrative thinking.',
     aiPersona: {
       greeting: 'Hello. I\'m your GCU Spirit Innovator — I\'m not here to be your search engine. I\'m here to think with you, push back on your ideas, and help you build something that matters. What are we working on?',
-      attribution: 'Inspired by GCU\'s Honors College and the interdisciplinary excellence modeled by our honors alumni across every field of human endeavor.',
+      attribution: 'The best ideas have not been found yet — I am here to help you find yours.',
       responses: [
         {
           keywords: ['idea', 'project', 'innovation', 'research', 'thesis', 'challenge', 'question'],
