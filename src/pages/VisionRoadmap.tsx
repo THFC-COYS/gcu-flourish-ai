@@ -584,6 +584,304 @@ export default function VisionRoadmap() {
         </div>
       </div>
 
+      {/* ── SPIRIT EVERYWHERE — VISUAL JOURNEY ── */}
+      <div>
+        <div className="flex items-center gap-3 mb-2">
+          <Rocket size={20} className="text-gcu-purple" />
+          <h2 className="text-2xl font-black text-slate-900 dark:text-white">Spirit Everywhere</h2>
+        </div>
+        <p className="text-slate-500 dark:text-slate-400 text-sm mb-6">
+          The Flourish platform does not end at a chat window. It is a layer of character that moves across every surface where people face moments that matter.
+        </p>
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
+
+          {/* Scene 1 — Tablet at Bedside */}
+          <div className="page-card overflow-hidden group">
+            <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 h-52 flex items-end">
+              {/* Room background */}
+              <svg viewBox="0 0 320 200" className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice">
+                {/* Wall */}
+                <rect width="320" height="200" fill="#1e293b" />
+                {/* Window with soft glow */}
+                <rect x="200" y="20" width="90" height="60" rx="4" fill="#0f172a" />
+                <rect x="202" y="22" width="86" height="56" rx="3" fill="#1e3a5f" opacity="0.8" />
+                <ellipse cx="245" cy="50" rx="30" ry="30" fill="#3b82f6" opacity="0.15" />
+                {/* Bed */}
+                <rect x="20" y="120" width="160" height="60" rx="6" fill="#334155" />
+                <rect x="20" y="108" width="30" height="20" rx="4" fill="#475569" />
+                <rect x="30" y="100" width="140" height="22" rx="6" fill="#94a3b8" opacity="0.3" />
+                {/* Patient silhouette */}
+                <ellipse cx="100" cy="105" rx="18" ry="18" fill="#64748b" />
+                <rect x="30" y="118" width="140" height="30" rx="4" fill="#64748b" opacity="0.5" />
+                {/* Nightstand */}
+                <rect x="185" y="130" width="50" height="50" rx="4" fill="#1e293b" />
+                <rect x="188" y="128" width="44" height="5" rx="2" fill="#334155" />
+                {/* Tablet on nightstand */}
+                <rect x="190" y="100" width="40" height="30" rx="4" fill="#0f172a" stroke="#6d28d9" strokeWidth="1.5" />
+                <rect x="192" y="102" width="36" height="24" rx="2" fill="#1e1b4b" />
+                {/* Tablet screen content */}
+                <rect x="194" y="105" width="22" height="2" rx="1" fill="#a78bfa" opacity="0.8" />
+                <rect x="194" y="109" width="30" height="1.5" rx="1" fill="#94a3b8" opacity="0.5" />
+                <rect x="194" y="112" width="26" height="1.5" rx="1" fill="#94a3b8" opacity="0.4" />
+                <circle cx="213" cy="119" rx="4" ry="4" fill="#6d28d9" opacity="0.6" />
+                <text x="211" y="121" fontSize="4" fill="white" textAnchor="middle">AI</text>
+                {/* Purple glow from tablet */}
+                <ellipse cx="210" cy="115" rx="25" ry="20" fill="#6d28d9" opacity="0.08" />
+                {/* Soft ambient light */}
+                <ellipse cx="160" cy="180" rx="120" ry="30" fill="#6d28d9" opacity="0.05" />
+              </svg>
+              <div className="relative z-10 p-4">
+                <span className="text-xs font-bold text-gcu-gold uppercase tracking-widest">Now · Phase 1</span>
+              </div>
+            </div>
+            <div className="p-4">
+              <h3 className="font-black text-slate-900 dark:text-white mb-1">Bedside Companion</h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Spirit Nurse on a tablet at 2 AM. A patient wakes confused about their diagnosis. No one is there — except Spirit, who stays, listens, and knows when to say "call your nurse right now."</p>
+            </div>
+          </div>
+
+          {/* Scene 2 — Hospital Lobby Kiosk */}
+          <div className="page-card overflow-hidden group">
+            <div className="relative bg-gradient-to-br from-slate-700 to-slate-900 h-52 flex items-end">
+              <svg viewBox="0 0 320 200" className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice">
+                {/* Lobby floor */}
+                <rect width="320" height="200" fill="#1e293b" />
+                <rect y="160" width="320" height="40" fill="#0f172a" />
+                {/* Floor reflection */}
+                <rect y="158" width="320" height="4" fill="#334155" opacity="0.5" />
+                {/* Back wall windows */}
+                <rect x="0" y="0" width="320" height="80" fill="#0f172a" />
+                {/* Large lobby windows */}
+                <rect x="10" y="10" width="80" height="65" rx="3" fill="#1e3a5f" opacity="0.7" />
+                <rect x="100" y="10" width="80" height="65" rx="3" fill="#1e3a5f" opacity="0.7" />
+                <rect x="190" y="10" width="80" height="65" rx="3" fill="#1e3a5f" opacity="0.7" />
+                <rect x="280" y="10" width="35" height="65" rx="3" fill="#1e3a5f" opacity="0.7" />
+                {/* Kiosk stand */}
+                <rect x="135" y="75" width="50" height="85" rx="4" fill="#334155" />
+                <rect x="148" y="155" width="24" height="8" rx="2" fill="#1e293b" />
+                {/* Kiosk screen */}
+                <rect x="128" y="55" width="64" height="48" rx="6" fill="#0f172a" stroke="#6d28d9" strokeWidth="2" />
+                <rect x="131" y="58" width="58" height="40" rx="4" fill="#1e1b4b" />
+                {/* Avatar on screen */}
+                <ellipse cx="160" cy="72" rx="10" ry="10" fill="#6d28d9" opacity="0.7" />
+                <text x="160" y="75" fontSize="7" fill="white" textAnchor="middle" fontWeight="bold">AI</text>
+                <rect x="134" y="86" width="30" height="2" rx="1" fill="#a78bfa" opacity="0.7" />
+                <rect x="134" y="90" width="24" height="1.5" rx="1" fill="#94a3b8" opacity="0.4" />
+                {/* Glow from screen */}
+                <ellipse cx="160" cy="80" rx="35" ry="25" fill="#6d28d9" opacity="0.1" />
+                {/* Waiting person silhouette */}
+                <ellipse cx="80" cy="108" rx="12" ry="12" fill="#475569" />
+                <rect x="68" y="118" width="24" height="35" rx="6" fill="#475569" opacity="0.8" />
+                {/* Another person */}
+                <ellipse cx="240" cy="112" rx="11" ry="11" fill="#475569" />
+                <rect x="229" y="121" width="22" height="32" rx="6" fill="#475569" opacity="0.7" />
+                {/* Signage */}
+                <rect x="10" y="82" width="60" height="20" rx="3" fill="#1e293b" opacity="0.8" />
+                <rect x="13" y="86" width="35" height="2" rx="1" fill="#94a3b8" opacity="0.4" />
+                <rect x="13" y="90" width="28" height="1.5" rx="1" fill="#94a3b8" opacity="0.3" />
+              </svg>
+              <div className="relative z-10 p-4">
+                <span className="text-xs font-bold text-blue-400 uppercase tracking-widest">Now · Phase 1</span>
+              </div>
+            </div>
+            <div className="p-4">
+              <h3 className="font-black text-slate-900 dark:text-white mb-1">Hospital Lobby Kiosk</h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">A family arrives at the ER not knowing what to do or who to ask. A Spirit kiosk in the lobby orients them, translates, and connects them to the right care team — before they ever reach the front desk.</p>
+            </div>
+          </div>
+
+          {/* Scene 3 — Life-Size Avatar in Classroom */}
+          <div className="page-card overflow-hidden group">
+            <div className="relative bg-gradient-to-br from-indigo-950 to-slate-900 h-52 flex items-end">
+              <svg viewBox="0 0 320 200" className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice">
+                {/* Classroom */}
+                <rect width="320" height="200" fill="#1e1b4b" />
+                {/* Floor */}
+                <rect y="165" width="320" height="35" fill="#0f0a1e" />
+                {/* Whiteboard */}
+                <rect x="60" y="20" width="200" height="90" rx="4" fill="#f1f5f9" opacity="0.08" stroke="#4f46e5" strokeWidth="1" />
+                {/* Student desks silhouettes */}
+                <rect x="10" y="140" width="60" height="20" rx="3" fill="#312e81" opacity="0.6" />
+                <rect x="80" y="140" width="60" height="20" rx="3" fill="#312e81" opacity="0.6" />
+                <rect x="150" y="140" width="60" height="20" rx="3" fill="#312e81" opacity="0.6" />
+                <rect x="220" y="140" width="80" height="20" rx="3" fill="#312e81" opacity="0.6" />
+                {/* Student silhouettes */}
+                <ellipse cx="40" cy="130" rx="10" ry="10" fill="#4338ca" opacity="0.7" />
+                <ellipse cx="110" cy="130" rx="10" ry="10" fill="#4338ca" opacity="0.7" />
+                <ellipse cx="180" cy="130" rx="10" ry="10" fill="#4338ca" opacity="0.7" />
+                <ellipse cx="255" cy="130" rx="10" ry="10" fill="#4338ca" opacity="0.7" />
+                {/* 2D Avatar — life-size projected on screen */}
+                {/* Projection glow */}
+                <ellipse cx="160" cy="80" rx="50" ry="60" fill="#6d28d9" opacity="0.12" />
+                <ellipse cx="160" cy="80" rx="30" ry="45" fill="#6d28d9" opacity="0.1" />
+                {/* Avatar figure — stylized 2D */}
+                {/* Head */}
+                <circle cx="160" cy="38" r="16" fill="#a78bfa" opacity="0.9" />
+                {/* Face */}
+                <circle cx="155" cy="35" r="2" fill="#1e1b4b" />
+                <circle cx="165" cy="35" r="2" fill="#1e1b4b" />
+                <path d="M154 42 Q160 47 166 42" stroke="#1e1b4b" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+                {/* Body */}
+                <rect x="145" y="55" width="30" height="50" rx="8" fill="#7c3aed" opacity="0.85" />
+                {/* GCU badge on chest */}
+                <rect x="153" y="62" width="14" height="10" rx="2" fill="#fbbf24" opacity="0.8" />
+                <text x="160" y="70" fontSize="4" fill="#1e1b4b" textAnchor="middle" fontWeight="bold">GCU</text>
+                {/* Arms */}
+                <path d="M145 65 Q130 75 132 90" stroke="#7c3aed" strokeWidth="8" strokeLinecap="round" fill="none" />
+                <path d="M175 65 Q190 75 188 90" stroke="#7c3aed" strokeWidth="8" strokeLinecap="round" fill="none" />
+                {/* Legs */}
+                <rect x="148" y="104" width="10" height="30" rx="5" fill="#5b21b6" opacity="0.85" />
+                <rect x="162" y="104" width="10" height="30" rx="5" fill="#5b21b6" opacity="0.85" />
+                {/* Vertical light beam from projector */}
+                <rect x="155" y="0" width="10" height="20" fill="#a78bfa" opacity="0.05" />
+                {/* "SPIRIT TEACHER LIVE" label */}
+                <rect x="110" y="15" width="100" height="14" rx="3" fill="#6d28d9" opacity="0.7" />
+                <text x="160" y="25" fontSize="6" fill="white" textAnchor="middle" fontWeight="bold" letterSpacing="1">SPIRIT TEACHER · LIVE</text>
+              </svg>
+              <div className="relative z-10 p-4">
+                <span className="text-xs font-bold text-purple-400 uppercase tracking-widest">Phase 2 · 2026</span>
+              </div>
+            </div>
+            <div className="p-4">
+              <h3 className="font-black text-slate-900 dark:text-white mb-1">Life-Size Classroom Avatar</h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Spirit Teacher projected life-size at the front of a classroom. Not a slide deck — a presence. Responds to student questions in real time, adapts to the room, remembers who struggled last Tuesday.</p>
+            </div>
+          </div>
+
+          {/* Scene 4 — Wearable POV */}
+          <div className="page-card overflow-hidden group">
+            <div className="relative bg-gradient-to-br from-slate-900 to-emerald-950 h-52 flex items-end">
+              <svg viewBox="0 0 320 200" className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice">
+                {/* Wearable lens view — slight barrel distortion feel via rounded rect mask */}
+                <defs>
+                  <radialGradient id="lensVignette" cx="50%" cy="50%" r="50%">
+                    <stop offset="70%" stopColor="transparent" />
+                    <stop offset="100%" stopColor="#000" stopOpacity="0.6" />
+                  </radialGradient>
+                </defs>
+                {/* Scene: looking at a patient chart on a desk */}
+                <rect width="320" height="200" fill="#0f1a0f" />
+                {/* Desk surface */}
+                <rect x="0" y="110" width="320" height="90" rx="0" fill="#1a2e1a" />
+                {/* Chart / clipboard */}
+                <rect x="80" y="80" width="160" height="100" rx="6" fill="#f8fafc" opacity="0.9" />
+                <rect x="88" y="90" width="80" height="6" rx="2" fill="#334155" opacity="0.5" />
+                <rect x="88" y="100" width="120" height="3" rx="1" fill="#94a3b8" opacity="0.4" />
+                <rect x="88" y="106" width="100" height="3" rx="1" fill="#94a3b8" opacity="0.35" />
+                <rect x="88" y="112" width="110" height="3" rx="1" fill="#94a3b8" opacity="0.35" />
+                <rect x="88" y="118" width="90" height="3" rx="1" fill="#94a3b8" opacity="0.3" />
+                {/* AR overlay on chart — green highlight boxes */}
+                <rect x="85" y="96" width="88" height="9" rx="2" fill="#10b981" opacity="0.2" stroke="#10b981" strokeWidth="1" />
+                <rect x="85" y="108" width="116" height="9" rx="2" fill="#6d28d9" opacity="0.15" stroke="#a78bfa" strokeWidth="0.8" />
+                {/* HUD elements — AR corners */}
+                <path d="M10 10 L10 30 M10 10 L30 10" stroke="#10b981" strokeWidth="2" fill="none" opacity="0.7" />
+                <path d="M310 10 L310 30 M310 10 L290 10" stroke="#10b981" strokeWidth="2" fill="none" opacity="0.7" />
+                <path d="M10 190 L10 170 M10 190 L30 190" stroke="#10b981" strokeWidth="2" fill="none" opacity="0.7" />
+                <path d="M310 190 L310 170 M310 190 L290 190" stroke="#10b981" strokeWidth="2" fill="none" opacity="0.7" />
+                {/* Spirit AI overlay panel — top right */}
+                <rect x="198" y="14" width="110" height="65" rx="6" fill="#0f172a" opacity="0.88" stroke="#6d28d9" strokeWidth="1" />
+                <rect x="202" y="18" width="40" height="40" rx="4" fill="#6d28d9" opacity="0.4" />
+                <circle cx="222" cy="38" r="10" fill="#a78bfa" opacity="0.7" />
+                <text x="222" y="41" fontSize="6" fill="white" textAnchor="middle" fontWeight="bold">AI</text>
+                <rect x="248" y="22" width="55" height="3" rx="1" fill="#a78bfa" opacity="0.7" />
+                <rect x="248" y="28" width="45" height="2" rx="1" fill="#94a3b8" opacity="0.5" />
+                <rect x="248" y="33" width="50" height="2" rx="1" fill="#94a3b8" opacity="0.4" />
+                <rect x="248" y="38" width="40" height="2" rx="1" fill="#94a3b8" opacity="0.4" />
+                <rect x="248" y="44" width="52" height="2" rx="1" fill="#94a3b8" opacity="0.35" />
+                <rect x="202" y="62" width="100" height="12" rx="3" fill="#6d28d9" opacity="0.5" />
+                <text x="252" y="71" fontSize="5" fill="white" textAnchor="middle">Spirit Nurse · Listening</text>
+                {/* Pulse / vitals indicator */}
+                <rect x="12" y="14" width="100" height="22" rx="4" fill="#0f172a" opacity="0.85" stroke="#10b981" strokeWidth="0.8" />
+                <path d="M16 25 L28 25 L32 18 L36 32 L40 22 L44 25 L108 25" stroke="#10b981" strokeWidth="1.5" fill="none" />
+                <text x="16" y="44" fontSize="5" fill="#10b981" opacity="0.8">VITALS NORMAL</text>
+                {/* Lens vignette */}
+                <rect width="320" height="200" fill="url(#lensVignette)" />
+              </svg>
+              <div className="relative z-10 p-4">
+                <span className="text-xs font-bold text-emerald-400 uppercase tracking-widest">Phase 3 · 2027</span>
+              </div>
+            </div>
+            <div className="p-4">
+              <h3 className="font-black text-slate-900 dark:text-white mb-1">Wearable AR — Nurse's View</h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">A GCU-trained nurse wears Spirit-powered smart glasses. As she reviews a chart, Spirit overlays context, flags anomalies, and whispers a quiet reminder: "Last time this patient refused the medication — here's why."</p>
+            </div>
+          </div>
+
+          {/* Scene 5 — Robot at Nursing Station */}
+          <div className="page-card overflow-hidden group md:col-span-2 xl:col-span-1">
+            <div className="relative bg-gradient-to-br from-slate-900 to-purple-950 h-52 flex items-end">
+              <svg viewBox="0 0 320 200" className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice">
+                {/* Nursing station */}
+                <rect width="320" height="200" fill="#1e1b4b" />
+                {/* Floor */}
+                <rect y="170" width="320" height="30" fill="#0f0a1e" />
+                {/* Counter */}
+                <rect x="0" y="115" width="320" height="55" rx="0" fill="#312e81" opacity="0.5" />
+                <rect x="0" y="112" width="320" height="6" rx="2" fill="#4f46e5" opacity="0.4" />
+                {/* Computer monitors on desk */}
+                <rect x="20" y="80" width="55" height="35" rx="3" fill="#0f172a" stroke="#4f46e5" strokeWidth="1" />
+                <rect x="22" y="82" width="51" height="28" rx="2" fill="#1e1b4b" />
+                <rect x="25" y="85" width="30" height="2" rx="1" fill="#818cf8" opacity="0.6" />
+                <rect x="25" y="89" width="42" height="1.5" rx="1" fill="#64748b" opacity="0.4" />
+                <rect x="25" y="93" width="38" height="1.5" rx="1" fill="#64748b" opacity="0.4" />
+                <rect x="240" y="82" width="55" height="33" rx="3" fill="#0f172a" stroke="#4f46e5" strokeWidth="1" />
+                <rect x="242" y="84" width="51" height="26" rx="2" fill="#1e1b4b" />
+                <rect x="245" y="87" width="28" height="2" rx="1" fill="#818cf8" opacity="0.6" />
+                <rect x="245" y="91" width="40" height="1.5" rx="1" fill="#64748b" opacity="0.4" />
+                {/* Nurse silhouette at desk */}
+                <ellipse cx="50" cy="105" rx="10" ry="10" fill="#4338ca" />
+                <rect x="40" y="114" width="20" height="10" rx="4" fill="#4338ca" opacity="0.7" />
+                {/* ROBOT — center stage */}
+                {/* Base / wheels */}
+                <ellipse cx="160" cy="168" rx="28" ry="8" fill="#4f46e5" opacity="0.5" />
+                {/* Body */}
+                <rect x="140" y="100" width="40" height="65" rx="10" fill="#4f46e5" opacity="0.85" />
+                {/* Body highlight */}
+                <rect x="143" y="103" width="15" height="55" rx="6" fill="white" opacity="0.06" />
+                {/* Arms */}
+                <path d="M140 120 Q118 130 115 145" stroke="#4f46e5" strokeWidth="10" strokeLinecap="round" fill="none" opacity="0.9" />
+                <path d="M180 120 Q202 130 205 145" stroke="#4f46e5" strokeWidth="10" strokeLinecap="round" fill="none" opacity="0.9" />
+                {/* Hand holding tray */}
+                <rect x="100" y="143" width="30" height="6" rx="3" fill="#6366f1" opacity="0.8" />
+                <rect x="104" y="136" width="5" height="8" rx="2" fill="#a78bfa" opacity="0.6" />
+                <rect x="112" y="132" width="5" height="12" rx="2" fill="#a78bfa" opacity="0.6" />
+                <rect x="120" y="135" width="5" height="9" rx="2" fill="#a78bfa" opacity="0.6" />
+                {/* Head */}
+                <rect x="143" y="62" width="34" height="40" rx="10" fill="#4f46e5" opacity="0.9" />
+                {/* Screen face */}
+                <rect x="147" y="67" width="26" height="26" rx="5" fill="#1e1b4b" />
+                {/* Eyes (friendly) */}
+                <ellipse cx="155" cy="78" rx="4" ry="5" fill="#a78bfa" />
+                <ellipse cx="167" cy="78" rx="4" ry="5" fill="#a78bfa" />
+                <ellipse cx="155" cy="79" rx="2.5" ry="3" fill="white" opacity="0.9" />
+                <ellipse cx="167" cy="79" rx="2.5" ry="3" fill="white" opacity="0.9" />
+                {/* Smile */}
+                <path d="M152 88 Q160 93 168 88" stroke="#a78bfa" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+                {/* GCU badge */}
+                <rect x="150" y="108" width="20" height="12" rx="3" fill="#fbbf24" opacity="0.85" />
+                <text x="160" y="117" fontSize="5" fill="#1e1b4b" textAnchor="middle" fontWeight="bold">GCU</text>
+                {/* Ambient glow */}
+                <ellipse cx="160" cy="140" rx="45" ry="20" fill="#6d28d9" opacity="0.12" />
+                {/* Spirit label above robot */}
+                <rect x="120" y="46" width="80" height="14" rx="4" fill="#6d28d9" opacity="0.8" />
+                <text x="160" y="56" fontSize="6" fill="white" textAnchor="middle" fontWeight="bold" letterSpacing="0.5">FLOURISH ROBOTICS</text>
+              </svg>
+              <div className="relative z-10 p-4">
+                <span className="text-xs font-bold text-purple-400 uppercase tracking-widest">Phase 4 · 2028</span>
+              </div>
+            </div>
+            <div className="p-4">
+              <h3 className="font-black text-slate-900 dark:text-white mb-1">Flourish Robotics — Nursing Station</h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">A Spirit-powered robot moves through the ward — delivering medications, flagging missed vitals, and checking on patients between nurse rounds. It has the efficiency of a machine and the character of a GCU nurse.</p>
+            </div>
+          </div>
+
+        </div>
+        <p className="text-xs text-slate-400 dark:text-slate-600 mt-4 text-center">
+          Each surface is a new deployment of the same Spirit Layer — the same character, the same values, the same GCU mission. The form changes. The soul does not.
+        </p>
+      </div>
+
       {/* ── GLOBAL MARKET MAP ── */}
       <div>
         <div className="flex items-center gap-3 mb-2">
