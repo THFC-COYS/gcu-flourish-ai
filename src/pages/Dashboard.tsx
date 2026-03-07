@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   TrendingUp, Users, FlaskConical, CheckCircle2,
@@ -8,6 +9,7 @@ import { useAuth } from '../context/AuthContext';
 import { MOCK_PROTOTYPES, MOCK_ACTIVITY } from '../data/mockData';
 import PrototypeCard from '../components/PrototypeCard';
 import { RoleBadge } from '../components/ui/Badge';
+import OnboardingOverlay, { shouldShowOnboarding } from '../components/OnboardingOverlay';
 
 const COLLEGE_COUNTS = {
   total: MOCK_PROTOTYPES.length,
@@ -52,6 +54,7 @@ function timeAgo(ts: string) {
 export default function Dashboard() {
   const { user } = useAuth();
   const navigate = useNavigate();
+  const [showOnboarding, setShowOnboarding] = useState(() => shouldShowOnboarding());
 
   const hour = new Date().getHours();
   const greeting = hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening';
@@ -59,6 +62,8 @@ export default function Dashboard() {
   const featuredProtos = MOCK_PROTOTYPES.filter(p => p.status !== 'prototype').slice(0, 2);
 
   return (
+    <>
+    {showOnboarding && <OnboardingOverlay onComplete={() => setShowOnboarding(false)} />}
     <div className="space-y-6 animate-fade-in">
 
       {/* Welcome banner */}
@@ -78,7 +83,7 @@ export default function Dashboard() {
               {greeting}, {firstName}! 👋
             </h1>
             <p className="text-white/70 text-sm max-w-lg leading-relaxed">
-              Autonomous Spirit Agents working as real nurses, teachers, chaplains, advisors, and researchers — deployed in hospitals, classrooms, churches, and boardrooms worldwide.
+              AI that acts with compassion, not just intelligence. We embed the character of GCU's most compassionate graduates — servant leadership, integrity, and Christ-centered values — directly into AI your organization can deploy today.
             </p>
             <div className="mt-2">
               <RoleBadge role={user?.role ?? 'viewer'} />
@@ -289,5 +294,6 @@ export default function Dashboard() {
         </div>
       </div>
     </div>
+    </>
   );
 }
