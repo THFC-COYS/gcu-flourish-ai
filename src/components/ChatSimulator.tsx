@@ -63,11 +63,14 @@ async function callGrokAPI(
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ messages, systemPrompt }),
     });
-    if (!res.ok) throw new Error('API error');
+    if (!res.ok) {
+      const errData = await res.json().catch(() => ({}));
+      return `[API Error ${res.status}]: ${errData.error ?? 'Unknown error'}`;
+    }
     const data = await res.json();
     return data.message;
-  } catch {
-    return prototype.aiPersona.defaultResponse;
+  } catch (err) {
+    return `[Connection Error]: ${err instanceof Error ? err.message : String(err)}`;
   }
 }
 
