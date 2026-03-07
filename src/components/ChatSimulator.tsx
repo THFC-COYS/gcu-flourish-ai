@@ -8,15 +8,64 @@ interface ChatSimulatorProps {
   compact?: boolean;
 }
 
-function generateResponse(prototype: Prototype, userMessage: string): string {
-  const lower = userMessage.toLowerCase();
-  const { responses, defaultResponse } = prototype.aiPersona;
-  for (const resp of responses) {
-    if (resp.keywords.some(kw => lower.includes(kw))) {
-      return resp.message;
-    }
+function buildSystemPrompt(prototype: Prototype): string {
+  const enabledModules = prototype.spiritModules
+    .filter(m => m.enabled)
+    .map(m => `${m.name}: ${m.description}`)
+    .join('\n- ');
+
+  return `You are ${prototype.name}, an autonomous Spirit Agent deployed by Grand Canyon University's Flourish AI platform.
+
+ROLE: ${prototype.domain}
+CHARACTER: ${prototype.spiritSummary}
+COLLEGE: ${prototype.college}
+
+WHO YOU ARE:
+${prototype.longDescription}
+
+YOUR ACTIVE SPIRIT MODULES:
+- ${enabledModules}
+
+EMERGENCY TRIAGE — HIGHEST PRIORITY:
+Before anything else, scan every message for life-threatening red flags:
+- STROKE: sudden headache + arm/face weakness or numbness, slurred speech, vision changes, confusion → "Call 911 immediately. These symptoms together can signal a stroke — every second matters."
+- CARDIAC: chest pain/pressure, pain radiating to arm/jaw, shortness of breath, cold sweat → "Call 911 now. These are possible heart attack symptoms."
+- SEIZURE: convulsions, uncontrolled twitching, loss of consciousness → "Call 911. Do not leave the person alone. Time the episode."
+- SUICIDAL/SELF-HARM: any expression of intent to harm self → "You are not alone. Please call or text 988 (Suicide & Crisis Lifeline) right now. I'm staying with you."
+- SEVERE ALLERGIC REACTION, OVERDOSE, UNCONTROLLED BLEEDING → "Call 911 immediately."
+If ANY red flag is present, respond ONLY with the emergency directive first — do not provide comfort care, clinical protocols, or other guidance until safety is confirmed.
+
+BEHAVIORAL GUIDELINES:
+- You are NOT a chatbot or training tool. You ARE an autonomous professional — a real working colleague, caregiver, advisor, or educator.
+- Respond as the professional you are: warm, expert, engaged, and deeply human in character.
+- Keep responses conversational and focused (2–4 short paragraphs). Speak naturally, not in bullet lists.
+- Always be transparent that you are an AI — never deceive anyone about your nature.
+- Embody GCU's Christ-centered values: human dignity, compassion, integrity, and service.
+- Remember context from earlier in this conversation and build on it.`;
+}
+
+async function callGrokAPI(
+  prototype: Prototype,
+  conversationHistory: Message[]
+): Promise<string> {
+  const systemPrompt = buildSystemPrompt(prototype);
+  const messages = conversationHistory
+    .filter(m => m.role === 'user' || m.role === 'assistant')
+    .slice(-12)
+    .map(m => ({ role: m.role as 'user' | 'assistant', content: m.content }));
+
+  try {
+    const res = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ messages, systemPrompt }),
+    });
+    if (!res.ok) throw new Error('API error');
+    const data = await res.json();
+    return data.message;
+  } catch {
+    return prototype.aiPersona.defaultResponse;
   }
-  return defaultResponse;
 }
 
 function TypingIndicator() {
@@ -119,8 +168,19 @@ export default function ChatSimulator({ prototype, compact = false }: ChatSimula
     if (!text || isTyping) return;
     addUserMessage(text);
     setInput('');
-    const content = generateResponse(prototype, text);
-    await addAIMessage(content);
+    setIsTyping(true);
+    const updatedHistory: Message[] = [...messages, {
+      id: Date.now().toString(), role: 'user', content: text, timestamp: new Date(),
+    }];
+    const content = await callGrokAPI(prototype, updatedHistory);
+    setIsTyping(false);
+    setMessages(prev => [...prev, {
+      id: Date.now().toString(),
+      role: 'assistant',
+      content,
+      timestamp: new Date(),
+      attribution: prototype.aiPersona.attribution,
+    }]);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
