@@ -595,40 +595,89 @@ export default function VisionRoadmap() {
         </p>
         <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
 
-          {/* Scene 1 — Tablet at Bedside */}
+          {/* Scene 1 — Hospital Bedside 2AM */}
           <div className="page-card overflow-hidden group">
-            <div className="relative bg-gradient-to-br from-slate-800 to-slate-900 h-52 flex items-end">
-              {/* Room background */}
+            <div className="relative h-52 flex items-end">
               <svg viewBox="0 0 320 200" className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice">
-                {/* Wall */}
-                <rect width="320" height="200" fill="#1e293b" />
-                {/* Window with soft glow */}
-                <rect x="200" y="20" width="90" height="60" rx="4" fill="#0f172a" />
-                <rect x="202" y="22" width="86" height="56" rx="3" fill="#1e3a5f" opacity="0.8" />
-                <ellipse cx="245" cy="50" rx="30" ry="30" fill="#3b82f6" opacity="0.15" />
-                {/* Bed */}
-                <rect x="20" y="120" width="160" height="60" rx="6" fill="#334155" />
-                <rect x="20" y="108" width="30" height="20" rx="4" fill="#475569" />
-                <rect x="30" y="100" width="140" height="22" rx="6" fill="#94a3b8" opacity="0.3" />
-                {/* Patient silhouette */}
-                <ellipse cx="100" cy="105" rx="18" ry="18" fill="#64748b" />
-                <rect x="30" y="118" width="140" height="30" rx="4" fill="#64748b" opacity="0.5" />
+                <defs>
+                  <linearGradient id="s1bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#060b14"/><stop offset="100%" stopColor="#0a1320"/></linearGradient>
+                  <radialGradient id="s1tglow" cx="68%" cy="52%" r="32%"><stop offset="0%" stopColor="#60a5fa" stopOpacity="0.55"/><stop offset="100%" stopColor="#60a5fa" stopOpacity="0"/></radialGradient>
+                  <radialGradient id="s1mongreen" cx="87%" cy="52%" r="15%"><stop offset="0%" stopColor="#22c55e" stopOpacity="0.18"/><stop offset="100%" stopColor="#22c55e" stopOpacity="0"/></radialGradient>
+                  <radialGradient id="s1vig" cx="50%" cy="50%" r="70%"><stop offset="55%" stopColor="transparent"/><stop offset="100%" stopColor="#000" stopOpacity="0.82"/></radialGradient>
+                  <linearGradient id="s1sheet" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stopColor="#b8cce0"/><stop offset="55%" stopColor="#d8e8f4"/><stop offset="100%" stopColor="#7890a8"/></linearGradient>
+                </defs>
+                <rect width="320" height="200" fill="url(#s1bg)"/>
+                <rect width="320" height="52" fill="#0c1624" opacity="0.7"/>
+                {/* City window */}
+                <rect x="215" y="12" width="88" height="62" rx="2" fill="#08141e"/>
+                <rect x="218" y="15" width="82" height="56" fill="#0b1a30"/>
+                <rect x="224" y="38" width="7" height="18" fill="#f59e0b" opacity="0.5"/>
+                <rect x="238" y="34" width="6" height="22" fill="#f59e0b" opacity="0.4"/>
+                <rect x="250" y="40" width="9" height="14" fill="#f59e0b" opacity="0.45"/>
+                <rect x="264" y="36" width="5" height="20" fill="#60a5fa" opacity="0.38"/>
+                <rect x="274" y="44" width="8" height="12" fill="#f59e0b" opacity="0.4"/>
+                <rect x="288" y="38" width="6" height="18" fill="#fbbf24" opacity="0.35"/>
+                <ellipse cx="258" cy="58" rx="50" ry="32" fill="#1a3050" opacity="0.35"/>
+                {/* Floor */}
+                <rect y="162" width="320" height="38" fill="#040810"/>
+                <rect y="160" width="320" height="3" fill="#0d1828" opacity="0.8"/>
+                {/* Headboard */}
+                <rect x="15" y="88" width="17" height="82" rx="3" fill="#141e2e"/>
+                <rect x="17" y="91" width="13" height="76" rx="2" fill="#1c2d3e"/>
+                {/* Bed frame */}
+                <rect x="15" y="152" width="215" height="16" rx="3" fill="#0f1828"/>
+                {/* Mattress */}
+                <rect x="32" y="98" width="192" height="56" rx="5" fill="#1c2c3e"/>
+                {/* Sheets */}
+                <rect x="32" y="93" width="192" height="58" rx="5" fill="url(#s1sheet)"/>
+                <path d="M32 108 Q120 103 224 110" stroke="#98aec4" strokeWidth="1" fill="none" opacity="0.55"/>
+                <path d="M32 122 Q100 118 224 124" stroke="#98aec4" strokeWidth="0.8" fill="none" opacity="0.4"/>
+                <path d="M32 136 Q90 133 200 138" stroke="#98aec4" strokeWidth="0.7" fill="none" opacity="0.3"/>
+                <ellipse cx="108" cy="136" rx="55" ry="13" fill="#7890a8" opacity="0.38"/>
+                {/* Pillow */}
+                <ellipse cx="88" cy="98" rx="44" ry="12" fill="#e4eef8"/>
+                <ellipse cx="88" cy="97" rx="42" ry="10" fill="#d8e8f4"/>
+                {/* Patient head */}
+                <ellipse cx="88" cy="91" rx="16" ry="15" fill="#c8a47e"/>
+                <path d="M72 88 Q88 79 104 88 Q102 83 88 80 Q74 83 72 88Z" fill="#3d2e1e"/>
+                <ellipse cx="83" cy="91" rx="2" ry="2.5" fill="#a07050" opacity="0.35"/>
+                <ellipse cx="93" cy="91" rx="2" ry="2.5" fill="#a07050" opacity="0.35"/>
+                {/* IV pole */}
+                <rect x="240" y="50" width="2.5" height="110" rx="1" fill="#2a3848"/>
+                <ellipse cx="241" cy="50" rx="7" ry="3" fill="#38485a"/>
+                <path d="M234 54 Q241 51 248 54 L246 76 Q241 80 236 76Z" fill="#a8c8e8" opacity="0.6"/>
+                <rect x="240" y="76" width="2" height="24" fill="#88b0d0" opacity="0.5"/>
                 {/* Nightstand */}
-                <rect x="185" y="130" width="50" height="50" rx="4" fill="#1e293b" />
-                <rect x="188" y="128" width="44" height="5" rx="2" fill="#334155" />
-                {/* Tablet on nightstand */}
-                <rect x="190" y="100" width="40" height="30" rx="4" fill="#0f172a" stroke="#6d28d9" strokeWidth="1.5" />
-                <rect x="192" y="102" width="36" height="24" rx="2" fill="#1e1b4b" />
-                {/* Tablet screen content */}
-                <rect x="194" y="105" width="22" height="2" rx="1" fill="#a78bfa" opacity="0.8" />
-                <rect x="194" y="109" width="30" height="1.5" rx="1" fill="#94a3b8" opacity="0.5" />
-                <rect x="194" y="112" width="26" height="1.5" rx="1" fill="#94a3b8" opacity="0.4" />
-                <circle cx="213" cy="119" rx="4" ry="4" fill="#6d28d9" opacity="0.6" />
-                <text x="211" y="121" fontSize="4" fill="white" textAnchor="middle">AI</text>
-                {/* Purple glow from tablet */}
-                <ellipse cx="210" cy="115" rx="25" ry="20" fill="#6d28d9" opacity="0.08" />
-                {/* Soft ambient light */}
-                <ellipse cx="160" cy="180" rx="120" ry="30" fill="#6d28d9" opacity="0.05" />
+                <rect x="208" y="116" width="48" height="46" rx="3" fill="#0c1520"/>
+                <rect x="208" y="114" width="50" height="5" rx="2" fill="#141e2e"/>
+                {/* Tablet propped on stand */}
+                <g transform="rotate(-10, 228, 108)">
+                  <rect x="214" y="93" width="30" height="22" rx="4" fill="#08101a" stroke="#2a3848" strokeWidth="1.5"/>
+                  <rect x="216" y="95" width="26" height="18" rx="2.5" fill="#dff0ff"/>
+                  <rect x="216" y="95" width="26" height="4.5" rx="2" fill="#4f46e5"/>
+                  <circle cx="220" cy="97.5" r="2" fill="#a78bfa"/>
+                  <text x="220" y="99" fontSize="2.5" fill="white" textAnchor="middle" fontWeight="bold">AI</text>
+                  <rect x="224" y="96.5" width="16" height="1" rx="0.5" fill="white" opacity="0.8"/>
+                  <rect x="224" y="98.5" width="12" height="1" rx="0.5" fill="white" opacity="0.55"/>
+                  <rect x="217" y="101" width="21" height="5" rx="2" fill="white"/>
+                  <rect x="219" y="102.5" width="15" height="1" rx="0.3" fill="#94a3b8" opacity="0.5"/>
+                  <rect x="219" y="104" width="10" height="1" rx="0.3" fill="#94a3b8" opacity="0.4"/>
+                  <rect x="219" y="108" width="21" height="4" rx="2" fill="#4f46e5" opacity="0.75"/>
+                  <rect x="221" y="109.5" width="14" height="1" rx="0.3" fill="white" opacity="0.7"/>
+                  <rect x="216" y="113" width="26" height="3" rx="1" fill="#e2e8f0" opacity="0.85"/>
+                </g>
+                {/* Screen glow */}
+                <rect width="320" height="200" fill="url(#s1tglow)"/>
+                {/* ECG monitor */}
+                <rect x="260" y="96" width="44" height="28" rx="3" fill="#08100e" stroke="#1c2c28" strokeWidth="1"/>
+                <rect x="262" y="98" width="40" height="20" rx="2" fill="#040c06"/>
+                <path d="M264 108 L270 108 L272 102 L275 114 L278 106 L281 108 L300 108" stroke="#22c55e" strokeWidth="1.5" fill="none" opacity="0.9"/>
+                <text x="262" y="124" fontSize="3.8" fill="#22c55e" opacity="0.7">HR 72  SpO2 98%</text>
+                <rect width="320" height="200" fill="url(#s1mongreen)"/>
+                {/* Ceiling light cone */}
+                <path d="M155 0 L125 70 L185 70Z" fill="white" opacity="0.008"/>
+                {/* Vignette */}
+                <rect width="320" height="200" fill="url(#s1vig)"/>
               </svg>
               <div className="relative z-10 p-4">
                 <span className="text-xs font-bold text-gcu-gold uppercase tracking-widest">Now · Phase 1</span>
@@ -642,46 +691,104 @@ export default function VisionRoadmap() {
 
           {/* Scene 2 — Hospital Lobby Kiosk */}
           <div className="page-card overflow-hidden group">
-            <div className="relative bg-gradient-to-br from-slate-700 to-slate-900 h-52 flex items-end">
+            <div className="relative h-52 flex items-end">
               <svg viewBox="0 0 320 200" className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice">
-                {/* Lobby floor */}
-                <rect width="320" height="200" fill="#1e293b" />
-                <rect y="160" width="320" height="40" fill="#0f172a" />
-                {/* Floor reflection */}
-                <rect y="158" width="320" height="4" fill="#334155" opacity="0.5" />
-                {/* Back wall windows */}
-                <rect x="0" y="0" width="320" height="80" fill="#0f172a" />
-                {/* Large lobby windows */}
-                <rect x="10" y="10" width="80" height="65" rx="3" fill="#1e3a5f" opacity="0.7" />
-                <rect x="100" y="10" width="80" height="65" rx="3" fill="#1e3a5f" opacity="0.7" />
-                <rect x="190" y="10" width="80" height="65" rx="3" fill="#1e3a5f" opacity="0.7" />
-                <rect x="280" y="10" width="35" height="65" rx="3" fill="#1e3a5f" opacity="0.7" />
-                {/* Kiosk stand */}
-                <rect x="135" y="75" width="50" height="85" rx="4" fill="#334155" />
-                <rect x="148" y="155" width="24" height="8" rx="2" fill="#1e293b" />
-                {/* Kiosk screen */}
-                <rect x="128" y="55" width="64" height="48" rx="6" fill="#0f172a" stroke="#6d28d9" strokeWidth="2" />
-                <rect x="131" y="58" width="58" height="40" rx="4" fill="#1e1b4b" />
+                <defs>
+                  <linearGradient id="s2sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#bfd8f8"/><stop offset="100%" stopColor="#e8f4ff"/></linearGradient>
+                  <linearGradient id="s2lobby" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#dce8f4"/><stop offset="100%" stopColor="#c8d8ea"/></linearGradient>
+                  <linearGradient id="s2floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#d0dcea"/><stop offset="100%" stopColor="#b8c8d8"/></linearGradient>
+                  <radialGradient id="s2kglow" cx="50%" cy="35%" r="30%"><stop offset="0%" stopColor="#818cf8" stopOpacity="0.5"/><stop offset="100%" stopColor="#818cf8" stopOpacity="0"/></radialGradient>
+                  <radialGradient id="s2sun" cx="80%" cy="5%" r="60%"><stop offset="0%" stopColor="#fff7ed" stopOpacity="0.6"/><stop offset="100%" stopColor="#fff7ed" stopOpacity="0"/></radialGradient>
+                  <radialGradient id="s2vig" cx="50%" cy="50%" r="70%"><stop offset="60%" stopColor="transparent"/><stop offset="100%" stopColor="#000" stopOpacity="0.45"/></radialGradient>
+                </defs>
+                {/* Exterior sky through windows */}
+                <rect width="320" height="200" fill="url(#s2lobby)"/>
+                {/* Sunlight wash */}
+                <rect width="320" height="200" fill="url(#s2sun)"/>
+                {/* Ceiling */}
+                <rect width="320" height="22" fill="#e8f0f8"/>
+                {/* Ceiling coffers */}
+                <rect x="0" y="18" width="320" height="3" fill="#c8d8e8" opacity="0.6"/>
+                <rect x="80" y="0" width="2" height="22" fill="#c8d8e8" opacity="0.4"/>
+                <rect x="160" y="0" width="2" height="22" fill="#c8d8e8" opacity="0.4"/>
+                <rect x="240" y="0" width="2" height="22" fill="#c8d8e8" opacity="0.4"/>
+                {/* Ceiling lights */}
+                <ellipse cx="80" cy="20" rx="8" ry="3" fill="#fffde7" opacity="0.9"/>
+                <ellipse cx="160" cy="20" rx="8" ry="3" fill="#fffde7" opacity="0.9"/>
+                <ellipse cx="240" cy="20" rx="8" ry="3" fill="#fffde7" opacity="0.9"/>
+                {/* Back wall - large floor-to-ceiling windows */}
+                <rect x="0" y="22" width="85" height="120" fill="#bdd4ee"/>
+                <rect x="2" y="24" width="81" height="116" fill="url(#s2sky)"/>
+                <rect x="90" y="22" width="85" height="120" fill="#bdd4ee"/>
+                <rect x="92" y="24" width="81" height="116" fill="url(#s2sky)"/>
+                <rect x="180" y="22" width="85" height="120" fill="#bdd4ee"/>
+                <rect x="182" y="24" width="81" height="116" fill="url(#s2sky)"/>
+                <rect x="270" y="22" width="50" height="120" fill="#bdd4ee"/>
+                <rect x="272" y="24" width="46" height="116" fill="url(#s2sky)"/>
+                {/* Window mullions */}
+                <rect x="85" y="22" width="5" height="120" fill="#d0dcea"/>
+                <rect x="175" y="22" width="5" height="120" fill="#d0dcea"/>
+                <rect x="265" y="22" width="5" height="120" fill="#d0dcea"/>
+                {/* Polished floor */}
+                <rect y="142" width="320" height="58" fill="url(#s2floor)"/>
+                <rect y="140" width="320" height="4" fill="#c0d0e0"/>
+                {/* Floor tile lines */}
+                <line x1="0" y1="155" x2="320" y2="155" stroke="#b8c8d8" strokeWidth="0.8" opacity="0.6"/>
+                <line x1="0" y1="168" x2="320" y2="168" stroke="#b8c8d8" strokeWidth="0.8" opacity="0.5"/>
+                <line x1="0" y1="182" x2="320" y2="182" stroke="#b8c8d8" strokeWidth="0.6" opacity="0.4"/>
+                <line x1="80" y1="142" x2="80" y2="200" stroke="#b8c8d8" strokeWidth="0.8" opacity="0.5"/>
+                <line x1="160" y1="142" x2="160" y2="200" stroke="#b8c8d8" strokeWidth="0.8" opacity="0.5"/>
+                <line x1="240" y1="142" x2="240" y2="200" stroke="#b8c8d8" strokeWidth="0.6" opacity="0.4"/>
+                {/* Reception desk background */}
+                <rect x="0" y="100" width="60" height="42" rx="2" fill="#c0d0e0" opacity="0.7"/>
+                <rect x="2" y="102" width="56" height="38" rx="1" fill="#b0c0d0" opacity="0.5"/>
+                {/* Receptionist silhouette */}
+                <ellipse cx="30" cy="100" rx="9" ry="9" fill="#7890a8" opacity="0.7"/>
+                <rect x="21" y="108" width="18" height="14" rx="3" fill="#7890a8" opacity="0.6"/>
+                {/* KIOSK - center */}
+                {/* Base */}
+                <ellipse cx="160" cy="156" rx="22" ry="6" fill="#9090b0" opacity="0.4"/>
+                {/* Pole */}
+                <rect x="154" y="108" width="12" height="48" rx="3" fill="#9898b8" opacity="0.8"/>
+                <rect x="155" y="109" width="5" height="46" rx="2" fill="white" opacity="0.1"/>
+                {/* Screen housing */}
+                <rect x="128" y="58" width="64" height="52" rx="8" fill="#282060" stroke="#4f46e5" strokeWidth="1.5"/>
+                {/* Screen */}
+                <rect x="131" y="61" width="58" height="44" rx="6" fill="#1e1b4b"/>
                 {/* Avatar on screen */}
-                <ellipse cx="160" cy="72" rx="10" ry="10" fill="#6d28d9" opacity="0.7" />
-                <text x="160" y="75" fontSize="7" fill="white" textAnchor="middle" fontWeight="bold">AI</text>
-                <rect x="134" y="86" width="30" height="2" rx="1" fill="#a78bfa" opacity="0.7" />
-                <rect x="134" y="90" width="24" height="1.5" rx="1" fill="#94a3b8" opacity="0.4" />
-                {/* Glow from screen */}
-                <ellipse cx="160" cy="80" rx="35" ry="25" fill="#6d28d9" opacity="0.1" />
-                {/* Waiting person silhouette */}
-                <ellipse cx="80" cy="108" rx="12" ry="12" fill="#475569" />
-                <rect x="68" y="118" width="24" height="35" rx="6" fill="#475569" opacity="0.8" />
-                {/* Another person */}
-                <ellipse cx="240" cy="112" rx="11" ry="11" fill="#475569" />
-                <rect x="229" y="121" width="22" height="32" rx="6" fill="#475569" opacity="0.7" />
-                {/* Signage */}
-                <rect x="10" y="82" width="60" height="20" rx="3" fill="#1e293b" opacity="0.8" />
-                <rect x="13" y="86" width="35" height="2" rx="1" fill="#94a3b8" opacity="0.4" />
-                <rect x="13" y="90" width="28" height="1.5" rx="1" fill="#94a3b8" opacity="0.3" />
+                <ellipse cx="160" cy="74" rx="11" ry="12" fill="#7c6aba"/>
+                <ellipse cx="160" cy="70" rx="9" ry="9" fill="#a78bfa" opacity="0.9"/>
+                <ellipse cx="156" cy="68" rx="2" ry="2.5" fill="#1e1b4b"/>
+                <ellipse cx="164" cy="68" rx="2" ry="2.5" fill="#1e1b4b"/>
+                <path d="M155 73 Q160 77 165 73" stroke="#1e1b4b" strokeWidth="1.2" fill="none" strokeLinecap="round"/>
+                {/* Body outline on screen */}
+                <rect x="154" y="82" width="12" height="18" rx="4" fill="#7c3aed" opacity="0.7"/>
+                {/* Screen text */}
+                <rect x="134" y="92" width="30" height="2" rx="1" fill="#a78bfa" opacity="0.8"/>
+                <rect x="134" y="96" width="22" height="1.5" rx="1" fill="#c4b5fd" opacity="0.5"/>
+                <rect x="134" y="99" width="26" height="1.5" rx="1" fill="#c4b5fd" opacity="0.45"/>
+                {/* Kiosk glow on floor */}
+                <ellipse cx="160" cy="155" rx="40" ry="10" fill="#6366f1" opacity="0.15"/>
+                {/* Screen glow on wall */}
+                <rect width="320" height="200" fill="url(#s2kglow)"/>
+                {/* PEOPLE silhouettes */}
+                {/* Family approaching left */}
+                <ellipse cx="72" cy="134" rx="10" ry="10" fill="#4b5563" opacity="0.85"/>
+                <path d="M62 144 Q72 148 82 144 L80 175 Q72 178 64 175 Z" fill="#4b5563" opacity="0.8"/>
+                {/* Child beside adult */}
+                <ellipse cx="88" cy="142" rx="7" ry="7" fill="#4b5563" opacity="0.75"/>
+                <path d="M81 149 Q88 153 95 149 L93 172 Q88 175 83 172 Z" fill="#4b5563" opacity="0.7"/>
+                {/* Person on right */}
+                <ellipse cx="248" cy="138" rx="9" ry="9" fill="#4b5563" opacity="0.7"/>
+                <path d="M239 147 Q248 151 257 147 L255 175 Q248 178 241 175 Z" fill="#4b5563" opacity="0.65"/>
+                {/* Floor reflections of people */}
+                <ellipse cx="72" cy="175" rx="10" ry="4" fill="#4b5563" opacity="0.12"/>
+                <ellipse cx="160" cy="157" rx="22" ry="4" fill="#4040a0" opacity="0.1"/>
+                {/* Vignette */}
+                <rect width="320" height="200" fill="url(#s2vig)"/>
               </svg>
               <div className="relative z-10 p-4">
-                <span className="text-xs font-bold text-blue-400 uppercase tracking-widest">Now · Phase 1</span>
+                <span className="text-xs font-bold text-blue-700 uppercase tracking-widest">Now · Phase 1</span>
               </div>
             </div>
             <div className="p-4">
@@ -690,53 +797,93 @@ export default function VisionRoadmap() {
             </div>
           </div>
 
-          {/* Scene 3 — Life-Size Avatar in Classroom */}
+          {/* Scene 3 — Life-Size Classroom Avatar */}
           <div className="page-card overflow-hidden group">
-            <div className="relative bg-gradient-to-br from-indigo-950 to-slate-900 h-52 flex items-end">
+            <div className="relative h-52 flex items-end">
               <svg viewBox="0 0 320 200" className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice">
-                {/* Classroom */}
-                <rect width="320" height="200" fill="#1e1b4b" />
-                {/* Floor */}
-                <rect y="165" width="320" height="35" fill="#0f0a1e" />
-                {/* Whiteboard */}
-                <rect x="60" y="20" width="200" height="90" rx="4" fill="#f1f5f9" opacity="0.08" stroke="#4f46e5" strokeWidth="1" />
-                {/* Student desks silhouettes */}
-                <rect x="10" y="140" width="60" height="20" rx="3" fill="#312e81" opacity="0.6" />
-                <rect x="80" y="140" width="60" height="20" rx="3" fill="#312e81" opacity="0.6" />
-                <rect x="150" y="140" width="60" height="20" rx="3" fill="#312e81" opacity="0.6" />
-                <rect x="220" y="140" width="80" height="20" rx="3" fill="#312e81" opacity="0.6" />
-                {/* Student silhouettes */}
-                <ellipse cx="40" cy="130" rx="10" ry="10" fill="#4338ca" opacity="0.7" />
-                <ellipse cx="110" cy="130" rx="10" ry="10" fill="#4338ca" opacity="0.7" />
-                <ellipse cx="180" cy="130" rx="10" ry="10" fill="#4338ca" opacity="0.7" />
-                <ellipse cx="255" cy="130" rx="10" ry="10" fill="#4338ca" opacity="0.7" />
-                {/* 2D Avatar — life-size projected on screen */}
-                {/* Projection glow */}
-                <ellipse cx="160" cy="80" rx="50" ry="60" fill="#6d28d9" opacity="0.12" />
-                <ellipse cx="160" cy="80" rx="30" ry="45" fill="#6d28d9" opacity="0.1" />
-                {/* Avatar figure — stylized 2D */}
-                {/* Head */}
-                <circle cx="160" cy="38" r="16" fill="#a78bfa" opacity="0.9" />
-                {/* Face */}
-                <circle cx="155" cy="35" r="2" fill="#1e1b4b" />
-                <circle cx="165" cy="35" r="2" fill="#1e1b4b" />
-                <path d="M154 42 Q160 47 166 42" stroke="#1e1b4b" strokeWidth="1.5" fill="none" strokeLinecap="round" />
-                {/* Body */}
-                <rect x="145" y="55" width="30" height="50" rx="8" fill="#7c3aed" opacity="0.85" />
-                {/* GCU badge on chest */}
-                <rect x="153" y="62" width="14" height="10" rx="2" fill="#fbbf24" opacity="0.8" />
-                <text x="160" y="70" fontSize="4" fill="#1e1b4b" textAnchor="middle" fontWeight="bold">GCU</text>
+                <defs>
+                  <linearGradient id="s3bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#09071a"/><stop offset="100%" stopColor="#0e0b22"/></linearGradient>
+                  <radialGradient id="s3screen" cx="50%" cy="30%" r="45%"><stop offset="0%" stopColor="#ece8ff" stopOpacity="0.95"/><stop offset="70%" stopColor="#c4b5fd" stopOpacity="0.3"/><stop offset="100%" stopColor="#c4b5fd" stopOpacity="0"/></radialGradient>
+                  <radialGradient id="s3projector" cx="50%" cy="0%" r="55%"><stop offset="0%" stopColor="#d8d0ff" stopOpacity="0.15"/><stop offset="100%" stopColor="#d8d0ff" stopOpacity="0"/></radialGradient>
+                  <radialGradient id="s3vig" cx="50%" cy="50%" r="70%"><stop offset="50%" stopColor="transparent"/><stop offset="100%" stopColor="#000" stopOpacity="0.75"/></radialGradient>
+                  <linearGradient id="s3avatar" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#ddd6fe"/><stop offset="100%" stopColor="#7c3aed"/></linearGradient>
+                </defs>
+                <rect width="320" height="200" fill="url(#s3bg)"/>
+                {/* Ceiling - barely visible */}
+                <rect width="320" height="20" fill="#0d0b20"/>
+                {/* Projector beam from ceiling */}
+                <path d="M155 0 L108 108 L212 108Z" fill="#c4b5fd" opacity="0.04"/>
+                <path d="M158 0 L118 108 L202 108Z" fill="#c4b5fd" opacity="0.03"/>
+                {/* Projector unit */}
+                <rect x="148" y="0" width="24" height="8" rx="2" fill="#2a2040"/>
+                <ellipse cx="160" cy="8" rx="5" ry="3" fill="#a78bfa" opacity="0.5"/>
+                {/* PROJECTION SCREEN */}
+                <rect x="60" y="15" width="200" height="115" rx="4" fill="#0d0b1e" stroke="#2a2050" strokeWidth="1"/>
+                {/* Screen surface lit by projection */}
+                <rect x="62" y="17" width="196" height="111" rx="3" fill="url(#s3screen)"/>
+                {/* Screen glow wash on ceiling and walls */}
+                <rect width="320" height="200" fill="url(#s3projector)"/>
+                {/* LIVE AVATAR ON SCREEN */}
+                {/* Avatar glow/halo */}
+                <ellipse cx="160" cy="75" rx="40" ry="55" fill="#7c3aed" opacity="0.12"/>
+                {/* Avatar head */}
+                <ellipse cx="160" cy="34" rx="18" ry="19" fill="url(#s3avatar)"/>
+                {/* Face features */}
+                <ellipse cx="153" cy="31" rx="3" ry="3.5" fill="#1e1b4b"/>
+                <ellipse cx="167" cy="31" rx="3" ry="3.5" fill="#1e1b4b"/>
+                <ellipse cx="153" cy="30" rx="1.5" ry="2" fill="white" opacity="0.4"/>
+                <ellipse cx="167" cy="30" rx="1.5" ry="2" fill="white" opacity="0.4"/>
+                <path d="M153 40 Q160 45 167 40" stroke="#1e1b4b" strokeWidth="1.8" fill="none" strokeLinecap="round"/>
+                {/* Hair */}
+                <path d="M142 28 Q160 18 178 28 Q176 20 160 17 Q144 20 142 28Z" fill="#2a1a50"/>
+                {/* Neck */}
+                <rect x="155" y="53" width="10" height="8" rx="2" fill="#c4b5fd" opacity="0.7"/>
+                {/* Body - blazer */}
+                <path d="M138 62 Q160 58 182 62 L185 125 Q160 130 135 125Z" fill="#5b21b6" opacity="0.9"/>
+                <path d="M160 62 L160 128" stroke="#4c1d95" strokeWidth="1" opacity="0.5"/>
+                {/* Collar */}
+                <path d="M150 62 Q160 68 170 62" fill="#7c3aed" opacity="0.5"/>
+                {/* GCU badge */}
+                <rect x="152" y="70" width="16" height="11" rx="2" fill="#fbbf24" opacity="0.9"/>
+                <text x="160" y="78.5" fontSize="4.5" fill="#1e1b4b" textAnchor="middle" fontWeight="bold">GCU</text>
                 {/* Arms */}
-                <path d="M145 65 Q130 75 132 90" stroke="#7c3aed" strokeWidth="8" strokeLinecap="round" fill="none" />
-                <path d="M175 65 Q190 75 188 90" stroke="#7c3aed" strokeWidth="8" strokeLinecap="round" fill="none" />
+                <path d="M138 70 Q118 82 116 100" stroke="#5b21b6" strokeWidth="11" strokeLinecap="round" fill="none" opacity="0.9"/>
+                <path d="M182 70 Q202 82 204 100" stroke="#5b21b6" strokeWidth="11" strokeLinecap="round" fill="none" opacity="0.9"/>
+                {/* Hands */}
+                <ellipse cx="116" cy="103" rx="6" ry="5" fill="#c4b5fd" opacity="0.7"/>
+                <ellipse cx="204" cy="103" rx="6" ry="5" fill="#c4b5fd" opacity="0.7"/>
                 {/* Legs */}
-                <rect x="148" y="104" width="10" height="30" rx="5" fill="#5b21b6" opacity="0.85" />
-                <rect x="162" y="104" width="10" height="30" rx="5" fill="#5b21b6" opacity="0.85" />
-                {/* Vertical light beam from projector */}
-                <rect x="155" y="0" width="10" height="20" fill="#a78bfa" opacity="0.05" />
-                {/* "SPIRIT TEACHER LIVE" label */}
-                <rect x="110" y="15" width="100" height="14" rx="3" fill="#6d28d9" opacity="0.7" />
-                <text x="160" y="25" fontSize="6" fill="white" textAnchor="middle" fontWeight="bold" letterSpacing="1">SPIRIT TEACHER · LIVE</text>
+                <rect x="148" y="124" width="11" height="28" rx="5" fill="#4c1d95" opacity="0.9"/>
+                <rect x="161" y="124" width="11" height="28" rx="5" fill="#4c1d95" opacity="0.9"/>
+                {/* LIVE badge on screen */}
+                <rect x="64" y="19" width="36" height="11" rx="3" fill="#dc2626" opacity="0.9"/>
+                <text x="82" y="27" fontSize="5.5" fill="white" textAnchor="middle" fontWeight="bold">● LIVE</text>
+                {/* SPIRIT TEACHER label */}
+                <rect x="190" y="19" width="64" height="11" rx="3" fill="#4f46e5" opacity="0.8"/>
+                <text x="222" y="27" fontSize="5" fill="white" textAnchor="middle" fontWeight="bold">SPIRIT TEACHER</text>
+                {/* Floor */}
+                <rect y="170" width="320" height="30" fill="#080614"/>
+                {/* STUDENT ROWS */}
+                {/* Back row desks */}
+                <rect x="0" y="148" width="65" height="18" rx="2" fill="#1a1530" opacity="0.8"/>
+                <rect x="75" y="148" width="65" height="18" rx="2" fill="#1a1530" opacity="0.8"/>
+                <rect x="150" y="148" width="65" height="18" rx="2" fill="#1a1530" opacity="0.8"/>
+                <rect x="225" y="148" width="80" height="18" rx="2" fill="#1a1530" opacity="0.8"/>
+                {/* Student heads — lit from screen */}
+                <ellipse cx="33" cy="140" rx="10" ry="10" fill="#2a2240" opacity="0.9"/>
+                <ellipse cx="33" cy="140" rx="8" ry="8" fill="#c4b5fd" opacity="0.08"/>
+                <ellipse cx="108" cy="138" rx="10" ry="10" fill="#2a2240" opacity="0.9"/>
+                <ellipse cx="108" cy="138" rx="8" ry="8" fill="#c4b5fd" opacity="0.1"/>
+                <ellipse cx="183" cy="136" rx="10" ry="10" fill="#2a2240" opacity="0.9"/>
+                <ellipse cx="183" cy="136" rx="8" ry="8" fill="#c4b5fd" opacity="0.12"/>
+                <ellipse cx="258" cy="137" rx="10" ry="10" fill="#2a2240" opacity="0.9"/>
+                <ellipse cx="258" cy="137" rx="8" ry="8" fill="#c4b5fd" opacity="0.1"/>
+                {/* Laptop screens at desks glowing */}
+                <rect x="20" y="151" width="28" height="14" rx="2" fill="#1e1b4b" opacity="0.7"/>
+                <rect x="95" y="151" width="28" height="14" rx="2" fill="#1e1b4b" opacity="0.7"/>
+                <rect x="170" y="151" width="28" height="14" rx="2" fill="#1e1b4b" opacity="0.7"/>
+                {/* Vignette */}
+                <rect width="320" height="200" fill="url(#s3vig)"/>
               </svg>
               <div className="relative z-10 p-4">
                 <span className="text-xs font-bold text-purple-400 uppercase tracking-widest">Phase 2 · 2026</span>
@@ -748,54 +895,92 @@ export default function VisionRoadmap() {
             </div>
           </div>
 
-          {/* Scene 4 — Wearable POV */}
+          {/* Scene 4 — Wearable AR POV */}
           <div className="page-card overflow-hidden group">
-            <div className="relative bg-gradient-to-br from-slate-900 to-emerald-950 h-52 flex items-end">
+            <div className="relative h-52 flex items-end">
               <svg viewBox="0 0 320 200" className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice">
-                {/* Wearable lens view — slight barrel distortion feel via rounded rect mask */}
                 <defs>
-                  <radialGradient id="lensVignette" cx="50%" cy="50%" r="50%">
-                    <stop offset="70%" stopColor="transparent" />
-                    <stop offset="100%" stopColor="#000" stopOpacity="0.6" />
-                  </radialGradient>
+                  <linearGradient id="s4room" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#1a2a20"/><stop offset="100%" stopColor="#243830"/></linearGradient>
+                  <linearGradient id="s4floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#243830"/><stop offset="100%" stopColor="#1a2820"/></linearGradient>
+                  <radialGradient id="s4vig" cx="50%" cy="50%" r="60%"><stop offset="40%" stopColor="transparent"/><stop offset="100%" stopColor="#000" stopOpacity="0.88"/></radialGradient>
+                  <linearGradient id="s4bed" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#c8d8e8"/><stop offset="100%" stopColor="#a8b8c8"/></linearGradient>
                 </defs>
-                {/* Scene: looking at a patient chart on a desk */}
-                <rect width="320" height="200" fill="#0f1a0f" />
-                {/* Desk surface */}
-                <rect x="0" y="110" width="320" height="90" rx="0" fill="#1a2e1a" />
-                {/* Chart / clipboard */}
-                <rect x="80" y="80" width="160" height="100" rx="6" fill="#f8fafc" opacity="0.9" />
-                <rect x="88" y="90" width="80" height="6" rx="2" fill="#334155" opacity="0.5" />
-                <rect x="88" y="100" width="120" height="3" rx="1" fill="#94a3b8" opacity="0.4" />
-                <rect x="88" y="106" width="100" height="3" rx="1" fill="#94a3b8" opacity="0.35" />
-                <rect x="88" y="112" width="110" height="3" rx="1" fill="#94a3b8" opacity="0.35" />
-                <rect x="88" y="118" width="90" height="3" rx="1" fill="#94a3b8" opacity="0.3" />
-                {/* AR overlay on chart — green highlight boxes */}
-                <rect x="85" y="96" width="88" height="9" rx="2" fill="#10b981" opacity="0.2" stroke="#10b981" strokeWidth="1" />
-                <rect x="85" y="108" width="116" height="9" rx="2" fill="#6d28d9" opacity="0.15" stroke="#a78bfa" strokeWidth="0.8" />
-                {/* HUD elements — AR corners */}
-                <path d="M10 10 L10 30 M10 10 L30 10" stroke="#10b981" strokeWidth="2" fill="none" opacity="0.7" />
-                <path d="M310 10 L310 30 M310 10 L290 10" stroke="#10b981" strokeWidth="2" fill="none" opacity="0.7" />
-                <path d="M10 190 L10 170 M10 190 L30 190" stroke="#10b981" strokeWidth="2" fill="none" opacity="0.7" />
-                <path d="M310 190 L310 170 M310 190 L290 190" stroke="#10b981" strokeWidth="2" fill="none" opacity="0.7" />
-                {/* Spirit AI overlay panel — top right */}
-                <rect x="198" y="14" width="110" height="65" rx="6" fill="#0f172a" opacity="0.88" stroke="#6d28d9" strokeWidth="1" />
-                <rect x="202" y="18" width="40" height="40" rx="4" fill="#6d28d9" opacity="0.4" />
-                <circle cx="222" cy="38" r="10" fill="#a78bfa" opacity="0.7" />
-                <text x="222" y="41" fontSize="6" fill="white" textAnchor="middle" fontWeight="bold">AI</text>
-                <rect x="248" y="22" width="55" height="3" rx="1" fill="#a78bfa" opacity="0.7" />
-                <rect x="248" y="28" width="45" height="2" rx="1" fill="#94a3b8" opacity="0.5" />
-                <rect x="248" y="33" width="50" height="2" rx="1" fill="#94a3b8" opacity="0.4" />
-                <rect x="248" y="38" width="40" height="2" rx="1" fill="#94a3b8" opacity="0.4" />
-                <rect x="248" y="44" width="52" height="2" rx="1" fill="#94a3b8" opacity="0.35" />
-                <rect x="202" y="62" width="100" height="12" rx="3" fill="#6d28d9" opacity="0.5" />
-                <text x="252" y="71" fontSize="5" fill="white" textAnchor="middle">Spirit Nurse · Listening</text>
-                {/* Pulse / vitals indicator */}
-                <rect x="12" y="14" width="100" height="22" rx="4" fill="#0f172a" opacity="0.85" stroke="#10b981" strokeWidth="0.8" />
-                <path d="M16 25 L28 25 L32 18 L36 32 L40 22 L44 25 L108 25" stroke="#10b981" strokeWidth="1.5" fill="none" />
-                <text x="16" y="44" fontSize="5" fill="#10b981" opacity="0.8">VITALS NORMAL</text>
+                {/* Clinical room */}
+                <rect width="320" height="200" fill="url(#s4room)"/>
+                {/* Ceiling with fluorescent strip */}
+                <rect width="320" height="18" fill="#243830"/>
+                <rect x="80" y="6" width="160" height="6" rx="2" fill="#d4f5dc" opacity="0.7"/>
+                <ellipse cx="160" cy="12" rx="80" ry="14" fill="#d4f5dc" opacity="0.08"/>
+                {/* Wall */}
+                <rect y="18" width="320" height="105" fill="#1e3028"/>
+                {/* Window */}
+                <rect x="240" y="25" width="65" height="55" rx="2" fill="#1a3040"/>
+                <rect x="243" y="28" width="59" height="49" fill="#2a4858" opacity="0.8"/>
+                <ellipse cx="272" cy="52" rx="25" ry="20" fill="#60a5fa" opacity="0.12"/>
+                {/* Floor */}
+                <rect y="123" width="320" height="77" fill="url(#s4floor)"/>
+                {/* Floor tile */}
+                <line x1="0" y1="145" x2="320" y2="145" stroke="#2a4030" strokeWidth="1" opacity="0.6"/>
+                <line x1="0" y1="167" x2="320" y2="167" stroke="#2a4030" strokeWidth="1" opacity="0.5"/>
+                <line x1="0" y1="189" x2="320" y2="189" stroke="#2a4030" strokeWidth="0.8" opacity="0.4"/>
+                {/* PATIENT IN BED */}
+                {/* Bed frame */}
+                <rect x="30" y="95" width="200" height="55" rx="5" fill="#1c2c3c" opacity="0.9"/>
+                {/* Sheets */}
+                <rect x="30" y="90" width="200" height="55" rx="5" fill="url(#s4bed)"/>
+                <path d="M30 105 Q130 100 230 106" stroke="#98b0c4" strokeWidth="0.8" fill="none" opacity="0.5"/>
+                {/* Patient head */}
+                <ellipse cx="80" cy="92" rx="15" ry="14" fill="#c8a47a"/>
+                <path d="M65 89 Q80 81 95 89 Q93 84 80 81 Q67 84 65 89Z" fill="#3d2e1e"/>
+                {/* IV pole */}
+                <rect x="228" y="45" width="2" height="95" rx="1" fill="#3a5048"/>
+                <ellipse cx="229" cy="45" rx="6" ry="3" fill="#4a6058"/>
+                <path d="M222 48 Q229 45 236 48 L234 68 Q229 72 224 68Z" fill="#90c8a8" opacity="0.55"/>
+                {/* NURSE standing with clipboard */}
+                <ellipse cx="262" cy="88" rx="12" ry="12" fill="#3a6050"/>
+                <path d="M250 100 Q262 106 274 100 L272 145 Q262 149 252 145Z" fill="#3a6050" opacity="0.9"/>
+                {/* Clipboard in nurse hand */}
+                <rect x="274" y="108" width="18" height="24" rx="2" fill="#d8e8d0" opacity="0.8"/>
+                <rect x="276" y="112" width="12" height="1.5" rx="0.5" fill="#4a6048" opacity="0.5"/>
+                <rect x="276" y="115" width="10" height="1.5" rx="0.5" fill="#4a6048" opacity="0.4"/>
+                <rect x="276" y="118" width="11" height="1.5" rx="0.5" fill="#4a6048" opacity="0.4"/>
+                {/* ── AR HUD OVERLAY ── */}
+                {/* Corner brackets */}
+                <path d="M12 12 L12 32 M12 12 L32 12" stroke="#00e676" strokeWidth="2.5" fill="none" opacity="0.85"/>
+                <path d="M308 12 L308 32 M308 12 L288 12" stroke="#00e676" strokeWidth="2.5" fill="none" opacity="0.85"/>
+                <path d="M12 188 L12 168 M12 188 L32 188" stroke="#00e676" strokeWidth="2.5" fill="none" opacity="0.85"/>
+                <path d="M308 188 L308 168 M308 188 L288 188" stroke="#00e676" strokeWidth="2.5" fill="none" opacity="0.85"/>
+                {/* AR target on patient */}
+                <circle cx="80" cy="92" r="20" stroke="#00e676" strokeWidth="1" fill="none" opacity="0.5" strokeDasharray="4 3"/>
+                <line x1="80" y1="68" x2="80" y2="74" stroke="#00e676" strokeWidth="1" opacity="0.6"/>
+                <line x1="80" y1="110" x2="80" y2="116" stroke="#00e676" strokeWidth="1" opacity="0.6"/>
+                <line x1="56" y1="92" x2="62" y2="92" stroke="#00e676" strokeWidth="1" opacity="0.6"/>
+                <line x1="98" y1="92" x2="104" y2="92" stroke="#00e676" strokeWidth="1" opacity="0.6"/>
+                {/* VITALS panel — top left */}
+                <rect x="12" y="15" width="108" height="42" rx="5" fill="#0a1a12" opacity="0.88" stroke="#00e676" strokeWidth="0.8"/>
+                <text x="18" y="26" fontSize="5" fill="#00e676" fontWeight="bold" opacity="0.9">PATIENT 4B · JOHNSON</text>
+                <path d="M16 34 L24 34 L26 28 L29 40 L32 30 L35 34 L55 34" stroke="#00e676" strokeWidth="1.5" fill="none" opacity="0.9"/>
+                <text x="60" y="34" fontSize="4.5" fill="#00e676" opacity="0.8">HR 72</text>
+                <text x="16" y="46" fontSize="4.2" fill="#4ade80" opacity="0.7">SpO2 98%  BP 118/76  Temp 98.4°F</text>
+                <text x="16" y="54" fontSize="4" fill="#00e676" opacity="0.6">VITALS STABLE</text>
+                {/* SPIRIT panel — top right */}
+                <rect x="200" y="15" width="108" height="70" rx="5" fill="#0a0c1a" opacity="0.90" stroke="#6d28d9" strokeWidth="0.8"/>
+                <rect x="203" y="18" width="36" height="36" rx="4" fill="#3b1f6e" opacity="0.7"/>
+                <ellipse cx="221" cy="36" rx="11" ry="12" fill="#a78bfa" opacity="0.85"/>
+                <ellipse cx="218" cy="33" rx="2" ry="2.5" fill="#1e1b4b"/>
+                <ellipse cx="224" cy="33" rx="2" ry="2.5" fill="#1e1b4b"/>
+                <path d="M218 39 Q221 42 224 39" stroke="#1e1b4b" strokeWidth="1" fill="none" strokeLinecap="round"/>
+                <text x="244" y="26" fontSize="5" fill="#a78bfa" fontWeight="bold" opacity="0.9">SPIRIT NURSE</text>
+                <rect x="244" y="29" width="58" height="2" rx="1" fill="#a78bfa" opacity="0.6"/>
+                <text x="244" y="37" fontSize="4" fill="#c4b5fd" opacity="0.75">Last visit: 3h ago</text>
+                <text x="244" y="43" fontSize="4" fill="#c4b5fd" opacity="0.7">Allergies: Penicillin</text>
+                <text x="244" y="49" fontSize="4" fill="#fbbf24" opacity="0.8">⚠ Refused meds 2×</text>
+                <rect x="203" y="57" width="102" height="24" rx="3" fill="#3b1f6e" opacity="0.6"/>
+                <text x="254" y="65" fontSize="4.2" fill="#ddd6fe" textAnchor="middle" fontWeight="bold">SPIRIT SAYS:</text>
+                <text x="254" y="72" fontSize="3.8" fill="#c4b5fd" textAnchor="middle" opacity="0.85">"Ask about medication concern</text>
+                <text x="254" y="77" fontSize="3.8" fill="#c4b5fd" textAnchor="middle" opacity="0.85">before morning rounds."</text>
                 {/* Lens vignette */}
-                <rect width="320" height="200" fill="url(#lensVignette)" />
+                <rect width="320" height="200" fill="url(#s4vig)"/>
               </svg>
               <div className="relative z-10 p-4">
                 <span className="text-xs font-bold text-emerald-400 uppercase tracking-widest">Phase 3 · 2027</span>
@@ -807,67 +992,120 @@ export default function VisionRoadmap() {
             </div>
           </div>
 
-          {/* Scene 5 — Robot at Nursing Station */}
+          {/* Scene 5 — Flourish Robotics */}
           <div className="page-card overflow-hidden group md:col-span-2 xl:col-span-1">
-            <div className="relative bg-gradient-to-br from-slate-900 to-purple-950 h-52 flex items-end">
+            <div className="relative h-52 flex items-end">
               <svg viewBox="0 0 320 200" className="absolute inset-0 w-full h-full" preserveAspectRatio="xMidYMid slice">
-                {/* Nursing station */}
-                <rect width="320" height="200" fill="#1e1b4b" />
-                {/* Floor */}
-                <rect y="170" width="320" height="30" fill="#0f0a1e" />
-                {/* Counter */}
-                <rect x="0" y="115" width="320" height="55" rx="0" fill="#312e81" opacity="0.5" />
-                <rect x="0" y="112" width="320" height="6" rx="2" fill="#4f46e5" opacity="0.4" />
-                {/* Computer monitors on desk */}
-                <rect x="20" y="80" width="55" height="35" rx="3" fill="#0f172a" stroke="#4f46e5" strokeWidth="1" />
-                <rect x="22" y="82" width="51" height="28" rx="2" fill="#1e1b4b" />
-                <rect x="25" y="85" width="30" height="2" rx="1" fill="#818cf8" opacity="0.6" />
-                <rect x="25" y="89" width="42" height="1.5" rx="1" fill="#64748b" opacity="0.4" />
-                <rect x="25" y="93" width="38" height="1.5" rx="1" fill="#64748b" opacity="0.4" />
-                <rect x="240" y="82" width="55" height="33" rx="3" fill="#0f172a" stroke="#4f46e5" strokeWidth="1" />
-                <rect x="242" y="84" width="51" height="26" rx="2" fill="#1e1b4b" />
-                <rect x="245" y="87" width="28" height="2" rx="1" fill="#818cf8" opacity="0.6" />
-                <rect x="245" y="91" width="40" height="1.5" rx="1" fill="#64748b" opacity="0.4" />
-                {/* Nurse silhouette at desk */}
-                <ellipse cx="50" cy="105" rx="10" ry="10" fill="#4338ca" />
-                <rect x="40" y="114" width="20" height="10" rx="4" fill="#4338ca" opacity="0.7" />
+                <defs>
+                  <linearGradient id="s5bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#d8e8f4"/><stop offset="100%" stopColor="#c0d4e8"/></linearGradient>
+                  <linearGradient id="s5floor" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#d0e0f0"/><stop offset="100%" stopColor="#b8cce0"/></linearGradient>
+                  <linearGradient id="s5robot" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#818cf8"/><stop offset="100%" stopColor="#4f46e5"/></linearGradient>
+                  <linearGradient id="s5robotbody" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor="#6366f1"/><stop offset="100%" stopColor="#4338ca"/></linearGradient>
+                  <radialGradient id="s5glow" cx="50%" cy="75%" r="35%"><stop offset="0%" stopColor="#6366f1" stopOpacity="0.25"/><stop offset="100%" stopColor="#6366f1" stopOpacity="0"/></radialGradient>
+                  <radialGradient id="s5ceil" cx="50%" cy="0%" r="60%"><stop offset="0%" stopColor="#f0f8ff" stopOpacity="0.8"/><stop offset="100%" stopColor="#f0f8ff" stopOpacity="0"/></radialGradient>
+                  <radialGradient id="s5vig" cx="50%" cy="50%" r="70%"><stop offset="55%" stopColor="transparent"/><stop offset="100%" stopColor="#000" stopOpacity="0.4"/></radialGradient>
+                </defs>
+                {/* Bright clinical environment */}
+                <rect width="320" height="200" fill="url(#s5bg)"/>
+                <rect width="320" height="200" fill="url(#s5ceil)"/>
+                {/* Ceiling */}
+                <rect width="320" height="16" fill="#e8f2fc"/>
+                {/* Fluorescent light panels */}
+                <rect x="40" y="4" width="90" height="8" rx="2" fill="#fffef0" opacity="0.95"/>
+                <rect x="190" y="4" width="90" height="8" rx="2" fill="#fffef0" opacity="0.95"/>
+                <ellipse cx="85" cy="12" rx="55" ry="16" fill="#f0f8ff" opacity="0.4"/>
+                <ellipse cx="235" cy="12" rx="55" ry="16" fill="#f0f8ff" opacity="0.4"/>
+                {/* Back wall */}
+                <rect y="16" width="320" height="115" fill="#ccdde8" opacity="0.5"/>
+                {/* Nursing station counter - U-shape */}
+                <rect x="0" y="110" width="320" height="50" fill="#b8c8d8"/>
+                <rect x="0" y="108" width="320" height="5" rx="1" fill="#a0b4c8"/>
+                {/* Counter surface highlights */}
+                <rect x="2" y="109" width="316" height="2" fill="white" opacity="0.3"/>
+                {/* Monitors on counter */}
+                <rect x="15" y="75" width="60" height="36" rx="3" fill="#1a2030" stroke="#3040a0" strokeWidth="1"/>
+                <rect x="17" y="77" width="56" height="30" rx="2" fill="#0a1020"/>
+                <rect x="19" y="79" width="35" height="2" rx="1" fill="#6080d0" opacity="0.7"/>
+                <rect x="19" y="83" width="48" height="1.5" rx="1" fill="#4060a0" opacity="0.5"/>
+                <rect x="19" y="87" width="40" height="1.5" rx="1" fill="#4060a0" opacity="0.45"/>
+                <rect x="19" y="91" width="44" height="1.5" rx="1" fill="#4060a0" opacity="0.4"/>
+                <rect x="245" y="76" width="58" height="34" rx="3" fill="#1a2030" stroke="#3040a0" strokeWidth="1"/>
+                <rect x="247" y="78" width="54" height="28" rx="2" fill="#0a1020"/>
+                <rect x="249" y="81" width="32" height="2" rx="1" fill="#6080d0" opacity="0.6"/>
+                <rect x="249" y="85" width="45" height="1.5" rx="1" fill="#4060a0" opacity="0.45"/>
+                {/* Medical supplies on counter */}
+                <rect x="170" y="98" width="18" height="14" rx="2" fill="#e8f4f0" opacity="0.9"/>
+                <rect x="195" y="95" width="14" height="17" rx="2" fill="#d0e8f4" opacity="0.9"/>
+                <rect x="215" y="99" width="20" height="12" rx="2" fill="#f0e8d8" opacity="0.9"/>
+                {/* Nurse silhouette at left */}
+                <ellipse cx="52" cy="88" rx="12" ry="12" fill="#5a7090"/>
+                <path d="M40 100 Q52 106 64 100 L62 135 Q52 140 42 135Z" fill="#5a7090" opacity="0.9"/>
+                {/* Nurse's scrubs detail */}
+                <rect x="46" y="103" width="12" height="8" rx="2" fill="#4a6080" opacity="0.5"/>
+                {/* Second staff member right */}
+                <ellipse cx="278" cy="90" rx="11" ry="11" fill="#5a7090" opacity="0.7"/>
+                <path d="M267 101 Q278 107 289 101 L287 132 Q278 137 269 132Z" fill="#5a7090" opacity="0.65"/>
                 {/* ROBOT — center stage */}
-                {/* Base / wheels */}
-                <ellipse cx="160" cy="168" rx="28" ry="8" fill="#4f46e5" opacity="0.5" />
-                {/* Body */}
-                <rect x="140" y="100" width="40" height="65" rx="10" fill="#4f46e5" opacity="0.85" />
-                {/* Body highlight */}
-                <rect x="143" y="103" width="15" height="55" rx="6" fill="white" opacity="0.06" />
-                {/* Arms */}
-                <path d="M140 120 Q118 130 115 145" stroke="#4f46e5" strokeWidth="10" strokeLinecap="round" fill="none" opacity="0.9" />
-                <path d="M180 120 Q202 130 205 145" stroke="#4f46e5" strokeWidth="10" strokeLinecap="round" fill="none" opacity="0.9" />
-                {/* Hand holding tray */}
-                <rect x="100" y="143" width="30" height="6" rx="3" fill="#6366f1" opacity="0.8" />
-                <rect x="104" y="136" width="5" height="8" rx="2" fill="#a78bfa" opacity="0.6" />
-                <rect x="112" y="132" width="5" height="12" rx="2" fill="#a78bfa" opacity="0.6" />
-                <rect x="120" y="135" width="5" height="9" rx="2" fill="#a78bfa" opacity="0.6" />
-                {/* Head */}
-                <rect x="143" y="62" width="34" height="40" rx="10" fill="#4f46e5" opacity="0.9" />
-                {/* Screen face */}
-                <rect x="147" y="67" width="26" height="26" rx="5" fill="#1e1b4b" />
-                {/* Eyes (friendly) */}
-                <ellipse cx="155" cy="78" rx="4" ry="5" fill="#a78bfa" />
-                <ellipse cx="167" cy="78" rx="4" ry="5" fill="#a78bfa" />
-                <ellipse cx="155" cy="79" rx="2.5" ry="3" fill="white" opacity="0.9" />
-                <ellipse cx="167" cy="79" rx="2.5" ry="3" fill="white" opacity="0.9" />
-                {/* Smile */}
-                <path d="M152 88 Q160 93 168 88" stroke="#a78bfa" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+                {/* Shadow under robot */}
+                <ellipse cx="160" cy="170" rx="32" ry="9" fill="#8090b0" opacity="0.3"/>
+                {/* Wheel base */}
+                <rect x="136" y="162" width="48" height="12" rx="6" fill="#3730a3" opacity="0.9"/>
+                <ellipse cx="148" cy="174" rx="10" ry="5" fill="#312e81"/>
+                <ellipse cx="172" cy="174" rx="10" ry="5" fill="#312e81"/>
+                <rect x="141" y="163" width="8" height="6" rx="2" fill="#4338ca" opacity="0.6"/>
+                <rect x="171" y="163" width="8" height="6" rx="2" fill="#4338ca" opacity="0.6"/>
+                {/* Body lower */}
+                <rect x="138" y="118" width="44" height="46" rx="8" fill="url(#s5robotbody)"/>
+                <rect x="140" y="120" width="16" height="42" rx="5" fill="white" opacity="0.07"/>
+                {/* Body panel lines */}
+                <rect x="142" y="130" width="36" height="1" rx="0.5" fill="white" opacity="0.15"/>
+                <rect x="142" y="140" width="36" height="1" rx="0.5" fill="white" opacity="0.12"/>
+                <rect x="142" y="150" width="36" height="1" rx="0.5" fill="white" opacity="0.1"/>
                 {/* GCU badge */}
-                <rect x="150" y="108" width="20" height="12" rx="3" fill="#fbbf24" opacity="0.85" />
-                <text x="160" y="117" fontSize="5" fill="#1e1b4b" textAnchor="middle" fontWeight="bold">GCU</text>
-                {/* Ambient glow */}
-                <ellipse cx="160" cy="140" rx="45" ry="20" fill="#6d28d9" opacity="0.12" />
-                {/* Spirit label above robot */}
-                <rect x="120" y="46" width="80" height="14" rx="4" fill="#6d28d9" opacity="0.8" />
-                <text x="160" y="56" fontSize="6" fill="white" textAnchor="middle" fontWeight="bold" letterSpacing="0.5">FLOURISH ROBOTICS</text>
+                <rect x="148" y="123" width="24" height="14" rx="3" fill="#fbbf24" opacity="0.95"/>
+                <text x="160" y="133" fontSize="6" fill="#1e1b4b" textAnchor="middle" fontWeight="bold">GCU</text>
+                {/* Torso/shoulder join */}
+                <rect x="133" y="113" width="54" height="9" rx="4" fill="url(#s5robot)" opacity="0.9"/>
+                {/* Arms */}
+                <path d="M138 122 Q112 132 108 150" stroke="#4f46e5" strokeWidth="12" strokeLinecap="round" fill="none" opacity="0.9"/>
+                <path d="M182 122 Q208 132 212 150" stroke="#4f46e5" strokeWidth="12" strokeLinecap="round" fill="none" opacity="0.9"/>
+                {/* Arm highlights */}
+                <path d="M138 122 Q114 130 110 148" stroke="#818cf8" strokeWidth="4" strokeLinecap="round" fill="none" opacity="0.25"/>
+                {/* Left hand with medication tray */}
+                <rect x="95" y="148" width="32" height="8" rx="4" fill="#6366f1" opacity="0.9"/>
+                <rect x="97" y="140" width="6" height="9" rx="3" fill="#a78bfa" opacity="0.8"/>
+                <rect x="106" y="136" width="6" height="13" rx="3" fill="#c4b5fd" opacity="0.75"/>
+                <rect x="115" y="139" width="6" height="10" rx="3" fill="#a78bfa" opacity="0.8"/>
+                {/* Right hand open/gesturing */}
+                <ellipse cx="212" cy="153" rx="8" ry="6" fill="#6366f1" opacity="0.85"/>
+                {/* Robot HEAD */}
+                <rect x="140" y="68" width="40" height="47" rx="12" fill="url(#s5robot)"/>
+                {/* Head highlight */}
+                <rect x="142" y="70" width="14" height="43" rx="6" fill="white" opacity="0.08"/>
+                {/* FACE SCREEN */}
+                <rect x="145" y="74" width="30" height="30" rx="7" fill="#0c0e24"/>
+                {/* Friendly eyes */}
+                <ellipse cx="154" cy="86" rx="5" ry="6" fill="#a78bfa"/>
+                <ellipse cx="166" cy="86" rx="5" ry="6" fill="#a78bfa"/>
+                <ellipse cx="154" cy="85" rx="3" ry="3.5" fill="white" opacity="0.92"/>
+                <ellipse cx="166" cy="85" rx="3" ry="3.5" fill="white" opacity="0.92"/>
+                <ellipse cx="155" cy="84" rx="1.5" ry="2" fill="#1e1b4b"/>
+                <ellipse cx="167" cy="84" rx="1.5" ry="2" fill="#1e1b4b"/>
+                {/* Smile arc */}
+                <path d="M150 96 Q160 103 170 96" stroke="#a78bfa" strokeWidth="2" fill="none" strokeLinecap="round"/>
+                {/* Robot ears/side panels */}
+                <rect x="136" y="78" width="6" height="18" rx="3" fill="#4338ca" opacity="0.8"/>
+                <rect x="178" y="78" width="6" height="18" rx="3" fill="#4338ca" opacity="0.8"/>
+                {/* FLOURISH ROBOTICS label */}
+                <rect x="110" y="50" width="100" height="16" rx="5" fill="#3730a3" opacity="0.9"/>
+                <text x="160" y="61" fontSize="6.5" fill="white" textAnchor="middle" fontWeight="bold" letterSpacing="0.3">FLOURISH ROBOTICS</text>
+                {/* Robot glow on floor */}
+                <rect width="320" height="200" fill="url(#s5glow)"/>
+                {/* Vignette */}
+                <rect width="320" height="200" fill="url(#s5vig)"/>
               </svg>
               <div className="relative z-10 p-4">
-                <span className="text-xs font-bold text-purple-400 uppercase tracking-widest">Phase 4 · 2028</span>
+                <span className="text-xs font-bold text-purple-600 uppercase tracking-widest">Phase 4 · 2028</span>
               </div>
             </div>
             <div className="p-4">
