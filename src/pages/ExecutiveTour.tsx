@@ -121,7 +121,7 @@ const ASKS = [
   },
 ];
 
-const TOTAL_SLIDES = 20;
+const TOTAL_SLIDES = 21;
 
 // ── Layout helpers ────────────────────────────────────────────────────────────
 
@@ -155,6 +155,28 @@ function SlideHero() {
           This is what Greg Lucas has built. This is not a hypothetical.
         </p>
         <p className="text-white/20 text-sm">Use arrow keys or click Next to advance</p>
+      </div>
+    </Slide>
+  );
+}
+
+function SlideVideo() {
+  return (
+    <Slide>
+      <div className="text-center mb-6">
+        <Eyebrow>Platform Walkthrough</Eyebrow>
+        <h2 className="text-3xl sm:text-4xl font-black text-white mb-2 leading-tight">
+          5 minutes. The full picture.
+        </h2>
+        <p className="text-white/40 text-sm">Watch before advancing — or use the arrow keys to skip ahead.</p>
+      </div>
+      <div className="relative w-full max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-black/60 border border-white/10" style={{ paddingBottom: '56.25%', height: 0 }}>
+        <iframe
+          src="https://www.loom.com/embed/5387b7bb1d054356843b1999e8474a02"
+          frameBorder="0"
+          allowFullScreen
+          className="absolute top-0 left-0 w-full h-full"
+        />
       </div>
     </Slide>
   );
@@ -1175,26 +1197,27 @@ function SlideLibraryOverview() {
 // ── Slide router ──────────────────────────────────────────────────────────────
 
 function SlideContent({ index, onEnter }: { index: number; onEnter: () => void }) {
-  // Scenes occupy indices 5–9
-  if (index >= 5 && index <= 9) {
-    return <SlideScene scene={SCENES[index - 5]} index={index - 5} />;
+  // Scenes occupy indices 6–10
+  if (index >= 6 && index <= 10) {
+    return <SlideScene scene={SCENES[index - 6]} index={index - 6} />;
   }
   switch (index) {
     case 0:  return <SlideHero />;
-    case 1:  return <SlideProblem />;
-    case 2:  return <SlideWeAreGCU />;
-    case 3:  return <SlidePlatform />;
-    case 4:  return <SlideDeliveryRoadmap />;
-    case 10: return <SlideProof />;
-    case 11: return <SlidePlatformOverview />;
-    case 12: return <SlideLibraryOverview />;
-    case 13: return <SlideStewardship />;
-    case 14: return <SlideFlourishStandard />;
-    case 15: return <SlideMarket />;
-    case 16: return <SlidePartners />;
-    case 17: return <SlideRevenue />;
-    case 18: return <SlideAsk />;
-    case 19: return <SlideLegacy onEnter={onEnter} />;
+    case 1:  return <SlideVideo />;
+    case 2:  return <SlideProblem />;
+    case 3:  return <SlideWeAreGCU />;
+    case 4:  return <SlidePlatform />;
+    case 5:  return <SlideDeliveryRoadmap />;
+    case 11: return <SlideProof />;
+    case 12: return <SlidePlatformOverview />;
+    case 13: return <SlideLibraryOverview />;
+    case 14: return <SlideStewardship />;
+    case 15: return <SlideFlourishStandard />;
+    case 16: return <SlideMarket />;
+    case 17: return <SlidePartners />;
+    case 18: return <SlideRevenue />;
+    case 19: return <SlideAsk />;
+    case 20: return <SlideLegacy onEnter={onEnter} />;
     default: return null;
   }
 }
@@ -1220,7 +1243,7 @@ export default function ExecutiveTour() {
   }, [goNext, goPrev, enterPlatform]);
 
   const isLast  = slide === TOTAL_SLIDES - 1;
-  const isScene = slide >= 4 && slide <= 8;
+  const isScene = slide >= 6 && slide <= 10;
 
   return (
     <div className="fixed inset-0 flex flex-col overflow-hidden" style={{ background: 'linear-gradient(135deg, #080414 0%, #100820 100%)' }}>
