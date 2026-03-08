@@ -861,14 +861,25 @@ function SlideFlourishStandard() {
         ))}
       </div>
 
-      {/* Flourish API Banner */}
-      <div className="bg-purple-600/15 border border-purple-500/40 rounded-2xl px-6 py-4 mb-5 flex items-start gap-4">
-        <div className="text-2xl flex-shrink-0">🔌</div>
-        <div>
-          <p className="text-purple-300 font-black text-sm mb-1">Powered by the Flourish API</p>
-          <p className="text-white/60 text-xs leading-relaxed">
-            What makes organizational deployment possible is the Flourish API — a secure interface that lets hospitals, schools, and institutions embed Spirit Agents directly into their own platforms, apps, and workflows. A hospital deploys Spirit Nurse inside its patient portal. A school district embeds Spirit Teacher in its learning management system. The institution owns the experience. GCU powers it. The API is the bridge — and every call through it is governed by the Flourish Standard.
-          </p>
+      {/* Two deployment paths */}
+      <div className="grid md:grid-cols-2 gap-4 mb-5">
+        <div className="bg-purple-600/15 border border-purple-500/40 rounded-2xl px-5 py-4 flex items-start gap-3">
+          <div className="text-2xl flex-shrink-0">🔌</div>
+          <div>
+            <p className="text-purple-300 font-black text-sm mb-1">Flourish API Integration</p>
+            <p className="text-white/55 text-xs leading-relaxed">
+              For institutions that want to embed Spirit directly into their own systems. A hospital adds Spirit Nurse to its patient portal. A school district plugs Spirit Teacher into its learning management system. The institution owns the experience — GCU powers it behind the scenes.
+            </p>
+          </div>
+        </div>
+        <div className="bg-gcu-gold/10 border border-gcu-gold/30 rounded-2xl px-5 py-4 flex items-start gap-3">
+          <div className="text-2xl flex-shrink-0">📱</div>
+          <div>
+            <p className="text-gcu-gold font-black text-sm mb-1">Platform License</p>
+            <p className="text-white/55 text-xs leading-relaxed">
+              For institutions that want to deploy Spirit without custom development. Staff and students access Spirit through the Flourish platform directly — branded, configured, and certified for their organization. Ready to launch without an IT team.
+            </p>
+          </div>
         </div>
       </div>
 
