@@ -758,7 +758,7 @@ function SlidePlatformOverview() {
 function SlideLibraryOverview() {
   const [active, setActive] = useState<number | null>(null);
 
-  const annotations = [
+  const annotations: { x: string; y: string; side: 'left' | 'right'; dot: string; label: string; detail: string }[] = [
     {
       x: '18%', y: '9%',
       side: 'right' as const,
