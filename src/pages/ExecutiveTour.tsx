@@ -364,12 +364,12 @@ function SlideLegacy({ onEnter }: { onEnter: () => void }) {
           >
             Enter the Platform <ChevronRight size={18} />
           </button>
-          <button
-            onClick={onEnter}
+          <a
+            href="/flourish-standard"
             className="flex items-center gap-2 px-8 py-4 rounded-2xl bg-white/10 border border-white/20 text-white font-bold text-base hover:bg-white/15 transition-colors"
           >
             <Shield size={16} /> View the Flourish Standard
-          </button>
+          </a>
         </div>
         <p className="text-white/20 text-xs mt-10">GCU Flourish AI · 77 years of character, deployed at scale</p>
       </div>
