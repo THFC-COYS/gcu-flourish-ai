@@ -121,7 +121,7 @@ const ASKS = [
   },
 ];
 
-const TOTAL_SLIDES = 16;
+const TOTAL_SLIDES = 17;
 
 // ── Layout helpers ────────────────────────────────────────────────────────────
 
@@ -755,6 +755,99 @@ function SlidePlatformOverview() {
   );
 }
 
+function SlideLibraryOverview() {
+  const [active, setActive] = useState<number | null>(null);
+
+  const annotations = [
+    {
+      x: '18%', y: '9%',
+      side: 'right' as const,
+      dot: 'bg-gcu-gold',
+      label: '20 Spirit Vessels — All 10 Colleges',
+      detail: 'Every GCU college has at least one Spirit Vessel built and live in the library. This is not a pilot for one department — the entire university is represented.',
+    },
+    {
+      x: '27%', y: '15%',
+      side: 'right' as const,
+      dot: 'bg-blue-400',
+      label: '💬 Coaching Mode',
+      detail: 'Spirit works with a person one-on-one over time — a student who needs ongoing tutoring, a business founder getting weekly accountability, a patient managing a long-term condition. Not a single conversation. An ongoing relationship that grows with the person.',
+    },
+    {
+      x: '36%', y: '15%',
+      side: 'right' as const,
+      dot: 'bg-emerald-400',
+      label: '🎮 Simulation Mode',
+      detail: 'Spirit plays a challenging character — a difficult patient, a grieving family member, a student in crisis — so that a nurse, teacher, or chaplain in training can practice their skills in a safe, realistic environment. Spirit then breaks character and delivers structured feedback. Training without real-world risk.',
+    },
+    {
+      x: '22%', y: '26%',
+      side: 'right' as const,
+      dot: 'bg-purple-400',
+      label: 'Live Pilot Deployments',
+      detail: 'Spirit Nurse and Spirit Advisor carry a "Pilot" badge — meaning they are already deployed in real external partnerships. Not prototypes. Active deployments generating real data.',
+    },
+    {
+      x: '22%', y: '42%',
+      side: 'right' as const,
+      dot: 'bg-gcu-gold',
+      label: 'Spirit Infusion — Character, Not Just Knowledge',
+      detail: 'Every Spirit Vessel carries GCU\'s values baked in — Compassion, Servant Leadership, Biblical Wisdom, Creation Care. This is what separates Spirit from any other AI: it doesn\'t just know the field, it has the character of someone who chose that field for the right reasons.',
+    },
+    {
+      x: '28%', y: '48%',
+      side: 'right' as const,
+      dot: 'bg-emerald-400',
+      label: '97% Ethical Alignment Score',
+      detail: 'Every Spirit Vessel is automatically scored for ethical alignment on every interaction. Spirit Nurse scores 97%. Spirit Chaplain scores 98%. These are not aspirational targets — they are measured results from thousands of simulated interactions already run through the platform.',
+    },
+  ];
+
+  return (
+    <div className="min-h-full flex flex-col items-center justify-center px-8 py-8">
+      <div className="w-full max-w-5xl mx-auto">
+        <div className="text-center mb-5">
+          <Eyebrow>The Spirit Vessel Library</Eyebrow>
+          <h2 className="text-3xl sm:text-4xl font-black text-white leading-tight">
+            20 vessels. 10 colleges. Two modes.<br />
+            <span className="text-gcu-gold">Deployment. And training.</span>
+          </h2>
+          <p className="text-white/30 text-xs mt-2">Hover the markers to explore</p>
+        </div>
+        <div className="relative w-full">
+          <img
+            src="/scenes/prototype-library.png"
+            alt="GCU Spirit Vessel Library"
+            className="w-full rounded-2xl border border-white/10 shadow-2xl shadow-black/40"
+          />
+          {annotations.map((a, i) => (
+            <div
+              key={i}
+              className="absolute"
+              style={{ left: a.x, top: a.y, transform: 'translate(-50%, -50%)' }}
+              onMouseEnter={() => setActive(i)}
+              onMouseLeave={() => setActive(null)}
+            >
+              <div className="relative cursor-pointer">
+                <div className={`absolute inset-0 rounded-full ${a.dot} opacity-40 animate-ping`} style={{ animationDuration: '2s' }} />
+                <div className={`relative w-4 h-4 rounded-full ${a.dot} border-2 border-white/60 shadow-lg`} />
+              </div>
+              {active === i && (
+                <div className={`absolute z-30 w-60 bg-[#0F0A1E]/95 border border-white/20 rounded-xl p-3 shadow-2xl pointer-events-none ${
+                  a.side === 'left' ? 'right-6 top-0' : 'left-6 top-0'
+                }`}>
+                  <p className="text-white font-black text-xs mb-1.5">{a.label}</p>
+                  <p className="text-white/60 text-[11px] leading-relaxed">{a.detail}</p>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ── Slide router ──────────────────────────────────────────────────────────────
 
 function SlideContent({ index, onEnter }: { index: number; onEnter: () => void }) {
@@ -769,11 +862,12 @@ function SlideContent({ index, onEnter }: { index: number; onEnter: () => void }
     case 3:  return <SlidePlatform />;
     case 9:  return <SlideProof />;
     case 10: return <SlidePlatformOverview />;
-    case 11: return <SlideStewardship />;
-    case 12: return <SlideMarket />;
-    case 13: return <SlideRevenue />;
-    case 14: return <SlideAsk />;
-    case 15: return <SlideLegacy onEnter={onEnter} />;
+    case 11: return <SlideLibraryOverview />;
+    case 12: return <SlideStewardship />;
+    case 13: return <SlideMarket />;
+    case 14: return <SlideRevenue />;
+    case 15: return <SlideAsk />;
+    case 16: return <SlideLegacy onEnter={onEnter} />;
     default: return null;
   }
 }
