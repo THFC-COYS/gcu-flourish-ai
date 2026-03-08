@@ -127,7 +127,7 @@ function SlideProblem() {
           People face their most important moments<br />with no one in the room.
         </h2>
         <p className="text-white/50 text-base max-w-2xl mx-auto">
-          GCU has spent 77 years training people who combine deep expertise with human dignity. Until now, only those standing in our classrooms could benefit.
+          GCU has spent 77 years training people who combine deep expertise with human dignity. Until now, only those being taught by our faculty — or served by our graduates — could benefit.
         </p>
       </div>
       <div className="grid md:grid-cols-3 gap-4">
