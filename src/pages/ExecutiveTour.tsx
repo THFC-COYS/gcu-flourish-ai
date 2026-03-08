@@ -235,6 +235,7 @@ function SlideWeAreGCU() {
             </div>
           </div>
           <p className="text-gcu-gold text-[10px] font-bold uppercase tracking-widest mt-2 text-center">Spirit<br />Layer</p>
+          <p className="text-white/30 text-[9px] text-center mt-1 max-w-[80px] leading-tight">the intelligence between GCU's knowledge and the person who needs it</p>
           <div className="w-1 h-8 bg-gradient-to-b from-gcu-purple/40 to-transparent mt-2 hidden md:block" />
         </div>
 
@@ -266,12 +267,15 @@ function SlideWeAreGCU() {
 function SlidePlatform() {
   return (
     <Slide>
-      <div className="text-center mb-8">
+      <div className="text-center mb-5">
         <Eyebrow>What We've Built</Eyebrow>
         <h2 className="text-4xl sm:text-5xl font-black text-white">
           10 Spirit Agents.<br />
           <span className="text-gcu-gold">One for every GCU college.</span>
         </h2>
+        <p className="text-white/50 text-base max-w-2xl mx-auto mt-3 leading-relaxed">
+          A Spirit Agent is a GCU expert you can have a real conversation with — by text or voice, any time of day, on a phone, tablet, kiosk, or wearable. It knows everything a GCU-trained professional in that field would know, and it responds the way a GCU graduate would: with expertise <em>and</em> with humanity.
+        </p>
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
         {AGENTS.map(a => (
@@ -283,7 +287,7 @@ function SlidePlatform() {
         ))}
       </div>
       <p className="text-center text-white/30 text-xs mt-5">
-        Each agent is a live prototype — deployable today, growing continuously through the GCU Spirit Network.
+        Each agent is a live prototype — available today, growing continuously as GCU's knowledge grows.
       </p>
     </Slide>
   );
@@ -520,7 +524,7 @@ function SlideStewardship() {
     {
       icon: '🔍',
       title: 'Pre-Send Confidence Review',
-      body: 'Before any response reaches a user, a secondary AI audit agent evaluates it for clinical accuracy, emotional appropriateness, and scope compliance — and assigns a confidence score. Responses that fall below threshold are automatically rewritten or escalated to human review. The user never sees a response that hasn\'t cleared the gate.',
+      body: 'Before any response reaches a user, a second AI reviews it for accuracy, tone, and safety — like an editor checking every word before it goes to print. Responses that don\'t meet the standard are rewritten or sent to a human reviewer. The person on the other end never sees a response that hasn\'t cleared that gate.',
       color: 'border-purple-500',
     },
     {
@@ -571,7 +575,7 @@ function SlideStewardship() {
         <div>
           <p className="text-gcu-gold font-black text-sm mb-1">Grounded in Official GCU Sources — Not the Open Internet</p>
           <p className="text-white/60 text-xs leading-relaxed">
-            Every Spirit Agent response is generated through a Retrieval-Augmented Generation (RAG) system that pulls exclusively from verified GCU institutional sources — accredited curriculum, peer-reviewed faculty research, approved clinical protocols, and official course content. Spirit does not draw from the open web. It cannot hallucinate facts from outside its verified knowledge base. When the answer is not in the source material, Spirit says so and directs the person to a qualified human. The knowledge is GCU's. The liability boundary is clear.
+            When Spirit responds, it does not search the open internet. It searches a locked library of verified GCU content — accredited curriculum, faculty-reviewed clinical protocols, approved course material, and peer-reviewed research. Think of it as a librarian who only has access to GCU's official shelves. If the answer isn't in those shelves, Spirit says so and directs the person to a qualified human. The knowledge is GCU's. The liability boundary is clear.
           </p>
         </div>
       </div>
@@ -597,8 +601,8 @@ function SlidePlatformOverview() {
       x: '10%', y: '52%',
       side: 'right' as const,
       dot: 'bg-gcu-purple',
-      label: 'Full Navigation Suite',
-      detail: '10 Spirit Agents · Deployment Console · Flourish API · Robotics · Vision Roadmap · Flourish Standard · Executive Briefing — all accessible from one platform, built and running today.',
+      label: 'One Platform. Everything in One Place.',
+      detail: '10 Spirit Agents · tools to deploy them to hospitals and schools · a robotics roadmap · an ethics certification program · an executive briefing — all built, all accessible, all running today.',
     },
     {
       x: '37%', y: '26%',
