@@ -166,9 +166,9 @@ function SlideVideo() {
       <div className="text-center mb-6">
         <Eyebrow>Platform Walkthrough</Eyebrow>
         <h2 className="text-3xl sm:text-4xl font-black text-white mb-2 leading-tight">
-          5 minutes. The full picture.
+          30-minute guided walkthrough.
         </h2>
-        <p className="text-white/40 text-sm">Watch before advancing — or use the arrow keys to skip ahead.</p>
+        <p className="text-white/40 text-sm">Full platform demo narrated by Greg Lucas. Watch at your own pace — or press the arrow key to skip ahead to the slides.</p>
       </div>
       <div className="relative w-full max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl shadow-black/60 border border-white/10" style={{ paddingBottom: '56.25%', height: 0 }}>
         <iframe
