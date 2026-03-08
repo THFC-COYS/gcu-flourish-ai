@@ -224,6 +224,7 @@ function SlideWeAreGCU() {
 
   const [activeSource, setActiveSource] = useState<string | null>(sources[0].label);
   const [activeSurface, setActiveSurface] = useState<string | null>(null);
+  const [activeNucleus, setActiveNucleus] = useState(false);
 
   // Auto-dismiss the pre-opened tooltip after 2.5s so user sees it then takes over
   useEffect(() => {
@@ -277,14 +278,33 @@ function SlideWeAreGCU() {
         </div>
 
         {/* Spirit Layer nucleus */}
-        <div className="flex flex-col items-center px-10">
+        <div className="flex flex-col items-center px-10 relative">
           <p className="text-gcu-gold text-sm font-black uppercase tracking-widest mb-1 text-center drop-shadow-lg">AI</p>
           <div className="w-1 h-8 bg-gradient-to-b from-transparent to-gcu-purple/40 mb-2 hidden md:block" />
-          <div className="relative w-20 h-20 flex-shrink-0">
+          <div
+            className="relative w-20 h-20 flex-shrink-0 cursor-pointer"
+            onMouseEnter={() => setActiveNucleus(true)}
+            onMouseLeave={() => setActiveNucleus(false)}
+          >
             <div className="absolute inset-0 rounded-full border-2 border-gcu-purple/30 animate-ping" style={{ animationDuration: '3s' }} />
-            <div className="absolute inset-2 rounded-full bg-gradient-to-br from-gcu-purple to-indigo-800 flex items-center justify-center shadow-lg shadow-gcu-purple/40">
+            <div className={`absolute inset-2 rounded-full bg-gradient-to-br from-gcu-purple to-indigo-800 flex items-center justify-center shadow-lg shadow-gcu-purple/40 transition-all duration-200 ${activeNucleus ? 'scale-110 shadow-gcu-purple/70' : ''}`}>
               <Sparkles size={18} className="text-gcu-gold" />
             </div>
+            {activeNucleus && (
+              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 z-30 w-72 bg-[#1A0A30] border border-gcu-purple/60 rounded-2xl p-4 shadow-2xl shadow-gcu-purple/40 pointer-events-none">
+                <p className="text-gcu-gold font-black text-xs uppercase tracking-widest mb-2">The Spirit Layer</p>
+                <p className="text-white/80 text-[11px] leading-relaxed mb-3">
+                  GCU has spent 77 years building something no technology company can buy: the collective intelligence, lived experience, and moral character of an entire university.
+                </p>
+                <p className="text-white/80 text-[11px] leading-relaxed mb-3">
+                  Every faculty lecture. Every published study. Every curriculum framework. Every student who shared what it means to be a GCU nurse, teacher, or chaplain in today's world. Every institutional value that shapes how GCU graduates show up in a crisis.
+                </p>
+                <p className="text-white font-bold text-[11px] leading-relaxed">
+                  The Spirit Layer takes all of it — and makes it available as a real conversation, with any person, on any device, at any moment they need it.
+                </p>
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-gcu-purple/60" />
+              </div>
+            )}
           </div>
           <p className="text-gcu-gold text-[10px] font-bold uppercase tracking-widest mt-2 text-center">Spirit<br />Layer</p>
           <p className="text-white/30 text-[9px] text-center mt-1 max-w-[80px] leading-tight">the intelligence between GCU's knowledge and the person who needs it</p>
