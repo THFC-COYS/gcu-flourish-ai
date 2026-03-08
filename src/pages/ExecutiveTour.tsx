@@ -22,7 +22,7 @@ const SCENES = [
     src: '/scenes/bedside.jpg',
     label: 'Bedside Companion',
     phase: 'Now · Phase 1',
-    scenario: '2 AM. Room 4B. A patient alone with a diagnosis they don\'t understand — and no nurse available until morning. Spirit Nurse is already there. Listening. Staying. Knowing exactly when to say "press your call button right now."',
+    scenario: '2 AM. Room 4B. A patient alone with a diagnosis they don\'t understand — an active mind running with doubt and fear, and no nurse available until morning. Spirit Nurse is already there. Listening. Staying. Quieting the spiral. Knowing exactly when to say "press your call button right now."',
   },
   {
     src: '/scenes/lobby.jpg',
