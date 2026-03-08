@@ -12,7 +12,7 @@ const MOMENTS = [
   {
     eyebrow: 'The Answer',
     headline: 'GCU has spent 77 years training people who are both.',
-    body: 'Nurses who sit with fear. Teachers who stay with struggle. Chaplains who carry grief. Business leaders who know that how you treat people in a crisis is the measure of everything you\'ve built. That spirit has always lived here. Until now, it could only reach the people standing in our classrooms.',
+    body: 'Nurses who sit with fear. Teachers who stay with struggle. Chaplains who carry grief. Business leaders who know that how you treat people in a crisis is the measure of everything you\'ve built. That spirit has always lived here. Until now, it could only reach those being taught by our faculty — or served by our graduates.',
     cta: 'See what changed',
     bg: 'from-[#1A1235] to-[#2D1A5E]',
   },

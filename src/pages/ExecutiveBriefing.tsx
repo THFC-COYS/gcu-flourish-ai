@@ -35,8 +35,8 @@ const THESIS_PILLARS = [
 const REVENUE_MODEL = [
   {
     year: 'Year 1',
-    period: '2025–2026',
-    amount: '$3.2M',
+    period: '2027–2028',
+    amount: '~$3.2M est.',
     breakdown: [
       'GCU internal operational savings: $1.1M',
       '3 external partner pilots (Health System, SUSD, AZ Church): $800K',
@@ -44,13 +44,13 @@ const REVENUE_MODEL = [
       'Grant funding (Title III, Lilly Foundation): $700K',
     ],
     color: 'border-slate-300 dark:border-slate-600',
-    badge: 'In Progress',
+    badge: 'Projected',
     badgeColor: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300',
   },
   {
     year: 'Year 2',
-    period: '2026–2027',
-    amount: '$14.5M',
+    period: '2028–2029',
+    amount: '~$14.5M est.',
     breakdown: [
       '25 partner institutions @ $180K/yr: $4.5M',
       'Enterprise Flourish API (healthcare, gov): $5.2M',
@@ -63,8 +63,8 @@ const REVENUE_MODEL = [
   },
   {
     year: 'Year 3',
-    period: '2027–2028',
-    amount: '$52M',
+    period: '2029–2030',
+    amount: '~$52M est.',
     breakdown: [
       '100+ certified institutions worldwide: $18M',
       'Wearables API & hardware partnerships: $14M',
@@ -151,7 +151,7 @@ export default function ExecutiveBriefing() {
             Flourish AI is the world's first Christ-centered ethical AI platform. We are positioned to define the global standard for how AI operates inside faith-based institutions — and to generate transformational revenue in the process.
           </p>
           <div className="flex flex-wrap justify-center gap-3 mt-6">
-            <span className="bg-white/10 border border-white/20 text-white text-sm px-4 py-1.5 rounded-full font-semibold">$52M Year 3 Revenue Target</span>
+            <span className="bg-white/10 border border-white/20 text-white text-sm px-4 py-1.5 rounded-full font-semibold">~$52M est. Year 3 Revenue Potential</span>
             <span className="bg-white/10 border border-white/20 text-white text-sm px-4 py-1.5 rounded-full font-semibold">33,000+ Addressable Institutions</span>
             <span className="bg-white/10 border border-white/20 text-white text-sm px-4 py-1.5 rounded-full font-semibold">0 Competitors in Christian AI</span>
           </div>
@@ -162,7 +162,7 @@ export default function ExecutiveBriefing() {
       <div className="page-card p-8 border-l-4 border-gcu-purple space-y-5">
         <div className="flex items-center gap-3 mb-2">
           <div className="w-1 h-8 rounded-full bg-gcu-purple" />
-          <h2 className="text-2xl font-black text-slate-900 dark:text-white">A Note from the Builder</h2>
+          <h2 className="text-2xl font-black text-slate-900 dark:text-white">A Note from Greg Lucas</h2>
         </div>
 
         <p className="text-sm text-slate-500 dark:text-slate-400 italic">
@@ -174,7 +174,7 @@ export default function ExecutiveBriefing() {
         </p>
 
         <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-          That wisdom has always lived here — in our faculty, our curriculum, our culture. Until now, it could only reach the people standing in our classrooms — or the patients, clients, and communities fortunate enough to interact with our graduates in the real moments that matter.
+          That wisdom has always lived here — in our faculty, our curriculum, our culture. Until now, it could only reach the people being taught by our faculty — or the patients, clients, and communities fortunate enough to be served by our graduates in the real moments that matter.
         </p>
 
         <div className="bg-gcu-purple/5 dark:bg-gcu-purple/10 border border-gcu-purple/20 rounded-xl p-4">
@@ -365,7 +365,7 @@ export default function ExecutiveBriefing() {
             ))}
             <div className="flex items-center gap-4 bg-gcu-purple rounded-xl px-4 py-3">
               <span className="text-lg font-black text-gcu-gold w-20 flex-shrink-0">$2.2M</span>
-              <span className="text-sm text-white font-bold">Total · 12-month runway to $14.5M Year 2 revenue</span>
+              <span className="text-sm text-white font-bold">Total · 12-month runway to Year 2 revenue target</span>
             </div>
           </div>
         </div>

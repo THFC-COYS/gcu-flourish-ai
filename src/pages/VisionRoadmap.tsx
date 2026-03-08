@@ -853,7 +853,7 @@ export default function VisionRoadmap() {
           <div className="flex-1">
             <h3 className="font-black text-gcu-purple dark:text-purple-300 text-lg mb-2">The GCU Ethical AI Standard</h3>
             <p className="text-sm text-slate-700 dark:text-slate-400 leading-relaxed mb-4">
-              By 2028, every hospital, school, and faith-based organization deploying AI will ask one question:
+              By 2030, every hospital, school, and faith-based organization deploying AI will ask one question:
               <span className="font-bold text-gcu-purple dark:text-purple-300"> "Is it Spirit-Certified?"</span>
               <br /><br />
               GCU doesn't just build spirit vessels — GCU writes the standard that the entire industry follows.
