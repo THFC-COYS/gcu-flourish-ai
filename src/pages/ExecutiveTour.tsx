@@ -32,9 +32,9 @@ const SCENES = [
   },
   {
     src: '/scenes/classroom.jpg',
-    label: 'Life-Size Classroom Avatar',
+    label: 'A Student in Academic Crisis',
     phase: 'Phase 2 · 2026',
-    scenario: 'Spirit Teacher stands at the front of the room — life-size, live, and responsive. Not a slide deck. Not a video. A presence that knows who struggled last Tuesday and adjusts in real time. GCU\'s best educators, available in every classroom.',
+    scenario: 'She\'s three weeks behind, convinced she can\'t finish, and her teacher is managing 34 other students. Her advisor isn\'t available until Monday. She opens the app. Spirit Teacher doesn\'t just explain the concept — it finds where she got lost, rebuilds her confidence, and stays with her until she gets it. No waitlist. No office hours. No one left behind.',
   },
   {
     src: '/scenes/wearable.jpg',
