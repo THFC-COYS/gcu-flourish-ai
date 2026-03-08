@@ -444,6 +444,16 @@ function SlideDeliveryRoadmap() {
       detail: 'Life-size touchscreen kiosks in hospital lobbies, school hallways, and church entrances. Spirit as a physical presence — no device required. Requires hardware and deployment investment.',
     },
     {
+      icon: '🔌',
+      title: 'Flourish API',
+      sub: 'Ready to License',
+      status: 'Ready',
+      statusColor: 'bg-blue-500',
+      textColor: 'text-blue-400',
+      borderColor: 'border-blue-500',
+      detail: 'Any hospital, university, or faith-based organization can license the Flourish API and embed Spirit directly into their own patient portal, learning platform, or app — under their own brand, with GCU\'s values built in. GCU becomes the infrastructure the entire industry runs on.',
+    },
+    {
       icon: '🤖',
       title: 'Physical Robot',
       sub: 'Phase 4 · 2029+',
@@ -471,7 +481,7 @@ function SlideDeliveryRoadmap() {
       <div className="relative">
         {/* Connecting line */}
         <div className="absolute top-8 left-0 right-0 h-0.5 bg-gradient-to-r from-emerald-500/40 via-amber-500/40 to-gcu-purple/40 hidden md:block" />
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-7 gap-3">
           {phases.map((p, i) => (
             <div
               key={p.title}
@@ -561,6 +571,12 @@ function SlideMarket() {
           Every Christian university, hospital system, and faith-based organization on earth needs an ethical AI framework. None exists. GCU builds it first — and licenses the standard globally.
         </p>
       </div>
+      <div className="bg-gcu-purple/15 border border-gcu-purple/40 rounded-2xl px-6 py-4 mb-6 max-w-3xl mx-auto">
+        <p className="text-white font-black text-sm mb-1">The Flourish API — GCU Becomes the Infrastructure</p>
+        <p className="text-white/60 text-xs leading-relaxed">
+          GCU doesn't have to reach 33,000 institutions directly. The Flourish API lets any hospital, university, or faith-based organization license the Spirit Layer and embed it inside their own systems — their patient portal, their learning platform, their app. They deploy Spirit under their own brand. GCU's values are built in. GCU earns the licensing revenue. Think of it as the AWS of faith-based AI: GCU builds the foundation that the entire industry runs on.
+        </p>
+      </div>
       <div className="grid md:grid-cols-3 gap-5">
         {stats.map(s => (
           <div key={s.label} className="bg-white/5 border border-white/10 rounded-2xl p-6 text-center">
@@ -577,9 +593,9 @@ function SlideMarket() {
 
 function SlideRevenue() {
   const rows = [
-    { year: 'Year 1', period: '2027–2028', amount: '~$3.2M est.',  note: 'Internal savings + 3 pilots + API licensing + grants',                        color: 'text-slate-300'   },
-    { year: 'Year 2', period: '2028–2029', amount: '~$14.5M est.', note: '25 partner institutions + enterprise API + Flourish Standard certification',    color: 'text-purple-300'  },
-    { year: 'Year 3', period: '2029–2030', amount: '~$52M est.',   note: '100+ certified institutions worldwide + wearables + robotics platform',         color: 'text-gcu-gold'    },
+    { year: 'Year 1', period: '2027–2028', amount: '~$3.2M est.',  note: 'Internal GCU savings + 3 external pilots + early Flourish API licensing to partner institutions + grants',                        color: 'text-slate-300'   },
+    { year: 'Year 2', period: '2028–2029', amount: '~$14.5M est.', note: '25 partner institutions licensing Spirit directly + enterprise Flourish API (hospitals, universities embedding Spirit in their own systems) + Flourish Standard certification fees',    color: 'text-purple-300'  },
+    { year: 'Year 3', period: '2029–2030', amount: '~$52M est.',   note: '100+ certified institutions worldwide + Flourish API at scale + wearables + robotics platform licensing',         color: 'text-gcu-gold'    },
   ];
   return (
     <Slide>
