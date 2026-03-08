@@ -182,12 +182,18 @@ function SlideWeAreGCU() {
     { label: 'Flourish Robotics', detail: 'Spirit in a physical body — moving through wards, classrooms, and communities with the character of a GCU graduate.' },
   ];
 
-  const [activeSource, setActiveSource] = useState<string | null>(null);
+  const [activeSource, setActiveSource] = useState<string | null>(sources[0].label);
   const [activeSurface, setActiveSurface] = useState<string | null>(null);
+
+  // Auto-dismiss the pre-opened tooltip after 2.5s so user sees it then takes over
+  useEffect(() => {
+    const t = setTimeout(() => setActiveSource(null), 2500);
+    return () => clearTimeout(t);
+  }, []);
 
   return (
     <Slide>
-      <div className="text-center mb-8">
+      <div className="text-center mb-6">
         <Eyebrow>The Collective</Eyebrow>
         <h2 className="text-6xl sm:text-7xl font-black leading-none mb-3">
           <span className="text-white">We </span>
@@ -195,7 +201,9 @@ function SlideWeAreGCU() {
           <span className="text-white"> GCU.</span>
         </h2>
         <p className="text-purple-300/70 text-lg font-semibold italic">Physical and digital — one soul.</p>
-        <p className="text-white/30 text-xs mt-2">Hover any item to learn more</p>
+        <div className="inline-flex items-center gap-2 mt-3 bg-gcu-gold/10 border border-gcu-gold/30 rounded-full px-4 py-1.5">
+          <span className="text-gcu-gold text-xs font-bold">👆 Hover any item to explore what feeds Spirit</span>
+        </div>
       </div>
       <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0">
         {/* Sources */}
@@ -205,18 +213,22 @@ function SlideWeAreGCU() {
               <div
                 onMouseEnter={() => setActiveSource(s.label)}
                 onMouseLeave={() => setActiveSource(null)}
-                className={`flex items-center gap-2 border rounded-xl px-3 py-2 cursor-default transition-all duration-200 ${
+                className={`flex items-center gap-2 border rounded-xl px-3 py-2 cursor-pointer transition-all duration-200 ${
                   s.highlight
                     ? 'bg-gcu-purple/20 border-gcu-purple/50 hover:border-gcu-purple'
-                    : 'bg-white/5 border-white/10 hover:border-white/30 hover:bg-white/10'
-                }`}
+                    : 'bg-white/5 border-white/10 hover:border-white/40 hover:bg-white/10'
+                } ${activeSource === s.label ? (s.highlight ? 'border-gcu-purple bg-gcu-purple/25' : 'border-white/40 bg-white/10') : ''}`}
               >
                 <div className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${s.highlight ? 'bg-gcu-gold' : 'bg-gcu-purple'}`} />
-                <span className={`text-xs font-medium ${s.highlight ? 'text-gcu-gold' : 'text-white/80'}`}>{s.label}</span>
-                {s.highlight && <span className="text-[9px] text-gcu-gold/60 ml-auto">↺ live</span>}
+                <span className={`text-xs font-medium flex-1 ${s.highlight ? 'text-gcu-gold' : 'text-white/80'}`}>{s.label}</span>
+                {s.highlight
+                  ? <span className="text-[9px] text-gcu-gold/60">↺ live</span>
+                  : <span className="text-white/25 text-[10px]">+</span>
+                }
               </div>
               {activeSource === s.label && (
-                <div className="absolute left-full top-0 ml-2 z-20 w-56 bg-[#1A0A30] border border-gcu-purple/40 rounded-xl p-3 shadow-xl shadow-black/40 pointer-events-none">
+                <div className="absolute left-full top-0 ml-3 z-20 w-60 bg-[#1A0A30] border border-gcu-purple/60 rounded-xl p-4 shadow-2xl shadow-gcu-purple/20 pointer-events-none">
+                  <p className="text-gcu-gold font-black text-[11px] mb-1.5">{s.label}</p>
                   <p className="text-white/80 text-[11px] leading-relaxed">{s.detail}</p>
                 </div>
               )}
@@ -246,13 +258,15 @@ function SlideWeAreGCU() {
               <div
                 onMouseEnter={() => setActiveSurface(s.label)}
                 onMouseLeave={() => setActiveSurface(null)}
-                className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-3 py-2 cursor-default transition-all duration-200 hover:border-gcu-gold/40 hover:bg-white/10"
+                className={`flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-3 py-2 cursor-pointer transition-all duration-200 hover:border-gcu-gold/50 hover:bg-white/10 ${activeSurface === s.label ? 'border-gcu-gold/50 bg-white/10' : ''}`}
               >
                 <div className="w-1.5 h-1.5 rounded-full bg-gcu-gold flex-shrink-0" />
-                <span className="text-xs text-white/80 font-medium">{s.label}</span>
+                <span className="text-xs text-white/80 font-medium flex-1">{s.label}</span>
+                <span className="text-white/25 text-[10px]">+</span>
               </div>
               {activeSurface === s.label && (
-                <div className="absolute right-full top-0 mr-2 z-20 w-56 bg-[#1A0A30] border border-gcu-gold/30 rounded-xl p-3 shadow-xl shadow-black/40 pointer-events-none">
+                <div className="absolute right-full top-0 mr-3 z-20 w-60 bg-[#1A0A30] border border-gcu-gold/40 rounded-xl p-4 shadow-2xl shadow-gcu-gold/10 pointer-events-none">
+                  <p className="text-gcu-gold font-black text-[11px] mb-1.5">{s.label}</p>
                   <p className="text-white/80 text-[11px] leading-relaxed">{s.detail}</p>
                 </div>
               )}
