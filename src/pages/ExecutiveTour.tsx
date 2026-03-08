@@ -908,7 +908,7 @@ function SlideLibraryOverview() {
       side: 'right' as const,
       dot: 'bg-gcu-gold',
       label: '20 Spirit Vessels — All 10 Colleges',
-      detail: 'Every GCU college has at least one Spirit Vessel built and live in the library. This is not a pilot for one department — the entire university is represented.',
+      detail: 'Every GCU college has at least one Spirit Vessel designed and prototyped in the demo library. This shows the full scope of what has been built — the entire university represented in a single platform.',
     },
     {
       x: '27%', y: '15%',
@@ -928,8 +928,8 @@ function SlideLibraryOverview() {
       x: '22%', y: '26%',
       side: 'right' as const,
       dot: 'bg-purple-400',
-      label: 'Live Pilot Deployments',
-      detail: 'Spirit Nurse and Spirit Advisor carry a "Pilot" badge — meaning they are already deployed in real external partnerships. Not prototypes. Active deployments generating real data.',
+      label: 'Pilot-Ready Vessels',
+      detail: 'Spirit Nurse and Spirit Advisor carry a "Pilot" badge in the demo — indicating they are the most developed vessels and are ready for real external pilot deployments. These are demo designations showing deployment readiness, not active external contracts.',
     },
     {
       x: '22%', y: '42%',
@@ -943,7 +943,7 @@ function SlideLibraryOverview() {
       side: 'right' as const,
       dot: 'bg-emerald-400',
       label: '97% Ethical Alignment Score',
-      detail: 'Every Spirit Vessel is automatically scored for ethical alignment on every interaction. Spirit Nurse scores 97%. Spirit Chaplain scores 98%. These are not aspirational targets — they are measured results from thousands of simulated interactions already run through the platform.',
+      detail: 'Every Spirit Vessel is automatically scored for ethical alignment. The scores shown — Spirit Nurse at 97%, Spirit Chaplain at 98% — are demo figures from simulated interactions used to build and test the scoring system. Real deployment scores will be generated from live interactions once pilots launch.',
     },
   ];
 
