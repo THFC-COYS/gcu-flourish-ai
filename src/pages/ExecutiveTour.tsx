@@ -174,7 +174,7 @@ function SlideWeAreGCU() {
           ))}
         </div>
         <div className="flex flex-col items-center px-10">
-          <p className="text-white/40 text-[10px] font-bold uppercase tracking-widest mb-1 text-center">AI</p>
+          <p className="text-gcu-gold text-sm font-black uppercase tracking-widest mb-1 text-center drop-shadow-lg">AI</p>
           <div className="w-1 h-8 bg-gradient-to-b from-transparent to-gcu-purple/40 mb-2 hidden md:block" />
           <div className="relative w-20 h-20 flex-shrink-0">
             <div className="absolute inset-0 rounded-full border-2 border-gcu-purple/30 animate-ping" style={{ animationDuration: '3s' }} />
