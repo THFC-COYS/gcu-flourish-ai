@@ -72,6 +72,13 @@ const ASKS = [
     accent: 'border-emerald-500',
     glow: 'text-emerald-300',
   },
+  {
+    number: '04',
+    title: 'Establish the Department of Robotics & Intelligent Systems',
+    body: 'Create a new academic department that formalizes GCU\'s leadership in embodied AI. This positions GCU as the institution that doesn\'t just deploy intelligent systems — it defines how they should be built.',
+    accent: 'border-sky-500',
+    glow: 'text-sky-300',
+  },
 ];
 
 const TOTAL_SLIDES = 13;
@@ -325,11 +332,11 @@ function SlideAsk() {
       <div className="text-center mb-10">
         <Eyebrow>What We Need from Leadership</Eyebrow>
         <h2 className="text-4xl sm:text-5xl font-black text-white mb-3 leading-tight">
-          Three decisions that change<br />
+          Four decisions that change<br />
           <span className="text-gcu-gold">GCU's trajectory.</span>
         </h2>
       </div>
-      <div className="grid md:grid-cols-3 gap-5">
+      <div className="grid md:grid-cols-4 gap-5">
         {ASKS.map(a => (
           <div key={a.number} className={`bg-white/5 border-t-4 ${a.accent} rounded-2xl p-6`}>
             <p className={`text-5xl font-black mb-4 ${a.glow} opacity-30`}>{a.number}</p>
