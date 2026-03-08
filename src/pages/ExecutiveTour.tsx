@@ -54,7 +54,7 @@ const ASKS = [
   {
     number: '01',
     title: 'Authorize Phase 1 Investment',
-    body: 'Approve $3.2M for infrastructure, team, and the first three external pilot deployments. This funds the transition from prototype to production platform.',
+    body: 'Approve the Phase 1 investment for infrastructure, team, and the first three external pilot deployments. This funds the transition from prototype to production platform.',
     accent: 'border-gcu-purple',
     glow: 'text-purple-300',
   },
@@ -284,9 +284,9 @@ function SlideMarket() {
 
 function SlideRevenue() {
   const rows = [
-    { year: 'Year 1', period: '2025–2026', amount: '$3.2M',  note: 'Internal savings + 3 pilots + API licensing + grants',                        color: 'text-slate-300'   },
-    { year: 'Year 2', period: '2026–2027', amount: '$14.5M', note: '25 partner institutions + enterprise API + Flourish Standard certification',    color: 'text-purple-300'  },
-    { year: 'Year 3', period: '2027–2028', amount: '$52M',   note: '100+ certified institutions worldwide + wearables + robotics platform',         color: 'text-gcu-gold'    },
+    { year: 'Year 1', period: '2027–2028', amount: '~$3.2M est.',  note: 'Internal savings + 3 pilots + API licensing + grants',                        color: 'text-slate-300'   },
+    { year: 'Year 2', period: '2028–2029', amount: '~$14.5M est.', note: '25 partner institutions + enterprise API + Flourish Standard certification',    color: 'text-purple-300'  },
+    { year: 'Year 3', period: '2029–2030', amount: '~$52M est.',   note: '100+ certified institutions worldwide + wearables + robotics platform',         color: 'text-gcu-gold'    },
   ];
   return (
     <Slide>
@@ -313,7 +313,7 @@ function SlideRevenue() {
         ))}
       </div>
       <p className="text-center text-white/20 text-xs mt-5">
-        Conservative projections based on comparable faith-based SaaS and AI platform benchmarks.
+        Potential estimates based on comparable faith-based SaaS and AI platform benchmarks. Actual results will vary.
       </p>
     </Slide>
   );
