@@ -498,6 +498,18 @@ function SlideStewardship() {
         </h2>
         <p className="text-white/40 text-sm max-w-2xl mx-auto">GCU built the safety architecture before the product — because a platform that touches people in their most vulnerable moments must earn its place in the room.</p>
       </div>
+
+      {/* RAG Foundation Banner */}
+      <div className="bg-gcu-purple/15 border border-gcu-purple/40 rounded-2xl px-6 py-4 mb-5 flex items-start gap-4">
+        <div className="text-2xl flex-shrink-0">📚</div>
+        <div>
+          <p className="text-gcu-gold font-black text-sm mb-1">Grounded in Official GCU Sources — Not the Open Internet</p>
+          <p className="text-white/60 text-xs leading-relaxed">
+            Every Spirit Agent response is generated through a Retrieval-Augmented Generation (RAG) system that pulls exclusively from verified GCU institutional sources — accredited curriculum, peer-reviewed faculty research, approved clinical protocols, and official course content. Spirit does not draw from the open web. It cannot hallucinate facts from outside its verified knowledge base. When the answer is not in the source material, Spirit says so and directs the person to a qualified human. The knowledge is GCU's. The liability boundary is clear.
+          </p>
+        </div>
+      </div>
+
       <div className="grid md:grid-cols-3 gap-4">
         {pillars.map(p => (
           <div key={p.title} className={`bg-white/5 border-t-2 ${p.color} border-x border-b border-white/10 rounded-2xl p-4`}>
