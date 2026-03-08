@@ -352,7 +352,7 @@ function SlideLegacy({ onEnter }: { onEnter: () => void }) {
           <span className="text-gcu-gold">GCU writes the standard<br />the entire industry follows.</span>
         </h2>
         <p className="text-white/50 text-lg leading-relaxed mb-4 max-w-2xl mx-auto">
-          By 2028, every hospital, university, and faith-based organization deploying AI will ask one question:
+          By 2030, every hospital, university, and faith-based organization deploying AI will ask one question:
         </p>
         <p className="text-2xl font-black text-white mb-10">
           "Is it <span className="text-gcu-gold">Spirit-Certified</span>?"
