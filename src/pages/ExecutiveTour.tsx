@@ -151,11 +151,43 @@ function SlideProblem() {
 }
 
 function SlideWeAreGCU() {
-  const sources  = ['Faculty Expertise', 'Curriculum & Pedagogy', 'Research & Scholarship', 'Institutional Values', 'Student & Staff IP'];
-  const surfaces = ['Bedside Tablet', 'Hospital Kiosk', 'Classroom Avatar', 'Wearable AR', 'Flourish Robotics'];
+  const sources = [
+    {
+      label: 'Faculty Expertise',
+      detail: 'Credentialed knowledge from GCU faculty across all 10 colleges — reviewed, verified, and signed off before entering the Spirit Layer. Every domain expert is named and accountable.',
+    },
+    {
+      label: 'Curriculum & Pedagogy',
+      detail: 'Accredited course content, learning frameworks, and pedagogical approaches built over 77 years of academic excellence — the full depth of what GCU teaches, made available in every conversation.',
+    },
+    {
+      label: 'Research & Scholarship',
+      detail: 'Peer-reviewed research, published scholarship, and evidence-based practice from GCU\'s doctoral and research programs — Spirit speaks from the literature, not just intuition.',
+    },
+    {
+      label: 'Institutional Values',
+      detail: "GCU's Christ-centered mission, ethical commitments, and character standards — the soul that gives Spirit its spirit. Every response is shaped by who GCU is, not just what it knows.",
+    },
+    {
+      label: 'Living Alumni & Student Voice',
+      detail: 'Students and alumni continuously contribute their stories, experiences, and insights — what it means to be a GCU nurse in today\'s ICU, a GCU teacher in a struggling classroom, a GCU chaplain at 2 AM. Every voice that enters the system makes Spirit more human. The collective grows with every graduating class.',
+      highlight: true,
+    },
+  ];
+  const surfaces = [
+    { label: 'Bedside Tablet',    detail: 'Spirit Nurse available to every patient, every night — clinical knowledge with human presence.' },
+    { label: 'Hospital Kiosk',    detail: 'Life-size Spirit presence in lobbies and waiting areas — orienting families, holding space, connecting to care.' },
+    { label: 'Classroom Avatar',  detail: 'Spirit Teacher leading small group sessions — personalized support for every student who needs it.' },
+    { label: 'Wearable AR',       detail: 'Spirit overlaid in the nurse\'s field of vision — real-time guidance without breaking the care relationship.' },
+    { label: 'Flourish Robotics', detail: 'Spirit in a physical body — moving through wards, classrooms, and communities with the character of a GCU graduate.' },
+  ];
+
+  const [activeSource, setActiveSource] = useState<string | null>(null);
+  const [activeSurface, setActiveSurface] = useState<string | null>(null);
+
   return (
     <Slide>
-      <div className="text-center mb-10">
+      <div className="text-center mb-8">
         <Eyebrow>The Collective</Eyebrow>
         <h2 className="text-6xl sm:text-7xl font-black leading-none mb-3">
           <span className="text-white">We </span>
@@ -163,16 +195,36 @@ function SlideWeAreGCU() {
           <span className="text-white"> GCU.</span>
         </h2>
         <p className="text-purple-300/70 text-lg font-semibold italic">Physical and digital — one soul.</p>
+        <p className="text-white/30 text-xs mt-2">Hover any item to learn more</p>
       </div>
       <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0">
+        {/* Sources */}
         <div className="flex flex-col gap-2 min-w-[210px]">
           {sources.map(s => (
-            <div key={s} className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-3 py-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-gcu-purple flex-shrink-0" />
-              <span className="text-xs text-white/80 font-medium">{s}</span>
+            <div key={s.label} className="relative">
+              <div
+                onMouseEnter={() => setActiveSource(s.label)}
+                onMouseLeave={() => setActiveSource(null)}
+                className={`flex items-center gap-2 border rounded-xl px-3 py-2 cursor-default transition-all duration-200 ${
+                  s.highlight
+                    ? 'bg-gcu-purple/20 border-gcu-purple/50 hover:border-gcu-purple'
+                    : 'bg-white/5 border-white/10 hover:border-white/30 hover:bg-white/10'
+                }`}
+              >
+                <div className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${s.highlight ? 'bg-gcu-gold' : 'bg-gcu-purple'}`} />
+                <span className={`text-xs font-medium ${s.highlight ? 'text-gcu-gold' : 'text-white/80'}`}>{s.label}</span>
+                {s.highlight && <span className="text-[9px] text-gcu-gold/60 ml-auto">↺ live</span>}
+              </div>
+              {activeSource === s.label && (
+                <div className="absolute left-full top-0 ml-2 z-20 w-56 bg-[#1A0A30] border border-gcu-purple/40 rounded-xl p-3 shadow-xl shadow-black/40 pointer-events-none">
+                  <p className="text-white/80 text-[11px] leading-relaxed">{s.detail}</p>
+                </div>
+              )}
             </div>
           ))}
         </div>
+
+        {/* Spirit Layer nucleus */}
         <div className="flex flex-col items-center px-10">
           <p className="text-gcu-gold text-sm font-black uppercase tracking-widest mb-1 text-center drop-shadow-lg">AI</p>
           <div className="w-1 h-8 bg-gradient-to-b from-transparent to-gcu-purple/40 mb-2 hidden md:block" />
@@ -185,11 +237,24 @@ function SlideWeAreGCU() {
           <p className="text-gcu-gold text-[10px] font-bold uppercase tracking-widest mt-2 text-center">Spirit<br />Layer</p>
           <div className="w-1 h-8 bg-gradient-to-b from-gcu-purple/40 to-transparent mt-2 hidden md:block" />
         </div>
+
+        {/* Surfaces */}
         <div className="flex flex-col gap-2 min-w-[210px]">
           {surfaces.map(s => (
-            <div key={s} className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-3 py-2">
-              <div className="w-1.5 h-1.5 rounded-full bg-gcu-gold flex-shrink-0" />
-              <span className="text-xs text-white/80 font-medium">{s}</span>
+            <div key={s.label} className="relative">
+              <div
+                onMouseEnter={() => setActiveSurface(s.label)}
+                onMouseLeave={() => setActiveSurface(null)}
+                className="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-3 py-2 cursor-default transition-all duration-200 hover:border-gcu-gold/40 hover:bg-white/10"
+              >
+                <div className="w-1.5 h-1.5 rounded-full bg-gcu-gold flex-shrink-0" />
+                <span className="text-xs text-white/80 font-medium">{s.label}</span>
+              </div>
+              {activeSurface === s.label && (
+                <div className="absolute right-full top-0 mr-2 z-20 w-56 bg-[#1A0A30] border border-gcu-gold/30 rounded-xl p-3 shadow-xl shadow-black/40 pointer-events-none">
+                  <p className="text-white/80 text-[11px] leading-relaxed">{s.detail}</p>
+                </div>
+              )}
             </div>
           ))}
         </div>
