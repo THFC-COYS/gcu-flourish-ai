@@ -112,7 +112,7 @@ function SlideHero() {
           for every person it has ever trained to serve?
         </h1>
         <p className="text-white/50 text-lg leading-relaxed mb-10">
-          This is not a hypothetical. This is what we have built.
+          This is what Greg Lucas has built. This is not a hypothetical.
         </p>
         <p className="text-white/20 text-sm">Use arrow keys or click Next to advance</p>
       </div>
