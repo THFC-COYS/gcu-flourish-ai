@@ -861,6 +861,17 @@ function SlideFlourishStandard() {
         ))}
       </div>
 
+      {/* Flourish API Banner */}
+      <div className="bg-purple-600/15 border border-purple-500/40 rounded-2xl px-6 py-4 mb-5 flex items-start gap-4">
+        <div className="text-2xl flex-shrink-0">🔌</div>
+        <div>
+          <p className="text-purple-300 font-black text-sm mb-1">Powered by the Flourish API</p>
+          <p className="text-white/60 text-xs leading-relaxed">
+            What makes organizational deployment possible is the Flourish API — a secure interface that lets hospitals, schools, and institutions embed Spirit Agents directly into their own platforms, apps, and workflows. A hospital deploys Spirit Nurse inside its patient portal. A school district embeds Spirit Teacher in its learning management system. The institution owns the experience. GCU powers it. The API is the bridge — and every call through it is governed by the Flourish Standard.
+          </p>
+        </div>
+      </div>
+
       <div className="grid md:grid-cols-2 gap-4 mb-5">
         {pillars.map(p => (
           <div key={p.title} className={`bg-white/5 border-t-2 ${p.color} border-x border-b border-white/10 rounded-2xl p-5`}>
