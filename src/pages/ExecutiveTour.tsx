@@ -122,9 +122,9 @@ function SlideHero() {
 
 function SlideProblem() {
   const scenarios = [
-    { icon: '🏥', who: 'A patient alone at 2 AM', moment: "with a diagnosis they don't understand and no nurse to call" },
-    { icon: '📖', who: 'A student in academic crisis', moment: "convinced they can't finish, with no advisor available until Monday" },
-    { icon: '💔', who: 'A grieving family at the ER', moment: 'not knowing what to ask, who to trust, or where to go' },
+    { icon: '🏥', who: 'A patient alone at 2 AM', moment: "with a diagnosis they don't understand — an active mind running with doubt and fear, and no one to call" },
+    { icon: '📖', who: 'A student in academic crisis', moment: "convinced she can't finish, with her teacher managing 34 other students and no one left to help her" },
+    { icon: '💔', who: 'A grieving family at the ER', moment: 'not knowing what to ask, who to trust, or where to go — one of them quietly asking why God would let this happen' },
   ];
   return (
     <Slide>
