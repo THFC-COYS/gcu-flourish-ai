@@ -32,9 +32,9 @@ const SCENES = [
   },
   {
     src: '/scenes/classroom.jpg',
-    label: 'A Student in Academic Crisis',
+    label: 'Life-Size Kiosk — A Student in Crisis',
     phase: 'Phase 2 · 2026',
-    scenario: 'She\'s three weeks behind, convinced she can\'t finish, and her teacher is managing 34 other students. She opens the app. Spirit Teacher doesn\'t just explain the concept — it finds where she got lost, rebuilds her confidence, and stays with her until she gets it. No waitlist. No office hours. No one left behind.',
+    scenario: 'She\'s three weeks behind, convinced she can\'t finish, and her teacher is managing 34 other students. She walks up to the life-size Spirit Teacher kiosk in the hallway. Not a screen. A presence — full height, face to face, speaking directly to her. It finds where she got lost, rebuilds her confidence, and stays with her until she gets it. No waitlist. No office hours. No one left behind.',
   },
   {
     src: '/scenes/wearable.jpg',
