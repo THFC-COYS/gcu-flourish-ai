@@ -206,8 +206,8 @@ export default function FlourishAPI() {
                 <div key={f.title} className="flex items-start gap-3">
                   <span className="text-lg">{f.icon}</span>
                   <div>
-                    <p className="text-xs font-bold text-slate-800 dark:text-slate-200">{f.title}</p>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 leading-relaxed">{f.desc}</p>
+                    <p className="text-sm font-bold text-slate-800 dark:text-slate-200">{f.title}</p>
+                    <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5 leading-relaxed">{f.desc}</p>
                   </div>
                 </div>
               ))}
@@ -249,7 +249,7 @@ export default function FlourishAPI() {
               </div>
               <ul className="space-y-2 flex-1 mb-6">
                 {tier.features.map(f => (
-                  <li key={f} className="flex items-start gap-2 text-xs text-slate-600 dark:text-slate-400">
+                  <li key={f} className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-400">
                     <CheckCircle2 size={13} className="text-gcu-purple mt-0.5 flex-shrink-0" />
                     {f}
                   </li>
@@ -294,7 +294,7 @@ export default function FlourishAPI() {
                 <span className="text-xs font-bold text-gcu-purple/60 dark:text-purple-400/60">{intg.category}</span>
               </div>
               <h4 className="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-gcu-purple dark:group-hover:text-purple-300 transition-colors">{intg.name}</h4>
-              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">{intg.desc}</p>
+              <p className="text-sm text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">{intg.desc}</p>
             </div>
           ))}
         </div>
@@ -322,8 +322,8 @@ export default function FlourishAPI() {
               {i < CERTIFICATION_STEPS.length - 1 && (
                 <div className="hidden sm:block absolute w-full h-0.5 bg-slate-200 dark:bg-[#2D2050]" />
               )}
-              <h4 className="text-xs font-bold text-slate-800 dark:text-slate-200">{s.title}</h4>
-              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">{s.desc}</p>
+              <h4 className="text-sm font-bold text-slate-800 dark:text-slate-200">{s.title}</h4>
+              <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">{s.desc}</p>
             </div>
           ))}
         </div>

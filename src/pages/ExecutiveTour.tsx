@@ -127,7 +127,7 @@ const TOTAL_SLIDES = 19;
 
 function Slide({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-full flex items-center justify-center px-8 py-10">
+    <div className="min-h-full flex items-center justify-center px-4 sm:px-8 py-6 sm:py-10">
       <div className="w-full max-w-5xl mx-auto">{children}</div>
     </div>
   );
@@ -135,7 +135,7 @@ function Slide({ children }: { children: React.ReactNode }) {
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-gcu-gold text-xs font-bold uppercase tracking-widest mb-4">{children}</p>
+    <p className="text-gcu-gold text-xs sm:text-sm font-bold uppercase tracking-widest mb-4">{children}</p>
   );
 }
 
@@ -182,7 +182,7 @@ function SlideProblem() {
           <div key={s.who} className="bg-white/5 border border-white/10 rounded-2xl p-5 text-left">
             <div className="text-3xl mb-3">{s.icon}</div>
             <p className="text-white font-bold text-sm mb-1">{s.who}</p>
-            <p className="text-white/50 text-xs leading-relaxed">{s.moment}</p>
+            <p className="text-white/50 text-sm leading-relaxed">{s.moment}</p>
           </div>
         ))}
       </div>
@@ -261,16 +261,16 @@ function SlideWeAreGCU() {
                 } ${activeSource === s.label ? (s.highlight ? 'border-gcu-purple bg-gcu-purple/25' : 'border-white/40 bg-white/10') : ''}`}
               >
                 <div className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${s.highlight ? 'bg-gcu-gold' : 'bg-gcu-purple'}`} />
-                <span className={`text-xs font-medium flex-1 ${s.highlight ? 'text-gcu-gold' : 'text-white/80'}`}>{s.label}</span>
+                <span className={`text-sm font-medium flex-1 ${s.highlight ? 'text-gcu-gold' : 'text-white/80'}`}>{s.label}</span>
                 {s.highlight
-                  ? <span className="text-[9px] text-gcu-gold/60">↺ live</span>
-                  : <span className="text-white/25 text-[10px]">+</span>
+                  ? <span className="text-xs text-gcu-gold/60">↺ live</span>
+                  : <span className="text-white/25 text-xs">+</span>
                 }
               </div>
               {activeSource === s.label && (
-                <div className="absolute left-full top-0 ml-3 z-20 w-60 bg-[#1A0A30] border border-gcu-purple/60 rounded-xl p-4 shadow-2xl shadow-gcu-purple/20 pointer-events-none">
-                  <p className="text-gcu-gold font-black text-[11px] mb-1.5">{s.label}</p>
-                  <p className="text-white/80 text-[11px] leading-relaxed">{s.detail}</p>
+                <div className="absolute top-full left-0 mt-2 sm:mt-0 sm:top-0 sm:left-full sm:ml-3 z-20 w-60 bg-[#1A0A30] border border-gcu-purple/60 rounded-xl p-4 shadow-2xl shadow-gcu-purple/20 pointer-events-none">
+                  <p className="text-gcu-gold font-black text-xs mb-1.5">{s.label}</p>
+                  <p className="text-white/80 text-xs leading-relaxed">{s.detail}</p>
                 </div>
               )}
             </div>
@@ -293,21 +293,21 @@ function SlideWeAreGCU() {
             {activeNucleus && (
               <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 z-30 w-72 bg-[#1A0A30] border border-gcu-purple/60 rounded-2xl p-4 shadow-2xl shadow-gcu-purple/40 pointer-events-none">
                 <p className="text-gcu-gold font-black text-xs uppercase tracking-widest mb-2">The Spirit Layer</p>
-                <p className="text-white/80 text-[11px] leading-relaxed mb-3">
+                <p className="text-white/80 text-xs leading-relaxed mb-3">
                   GCU has spent 77 years building something no technology company can buy: the collective intelligence, lived experience, and moral character of an entire university.
                 </p>
-                <p className="text-white/80 text-[11px] leading-relaxed mb-3">
+                <p className="text-white/80 text-xs leading-relaxed mb-3">
                   Every faculty lecture. Every published study. Every curriculum framework. Every student who shared what it means to be a GCU nurse, teacher, or chaplain in today's world. Every institutional value that shapes how GCU graduates show up in a crisis.
                 </p>
-                <p className="text-white font-bold text-[11px] leading-relaxed">
+                <p className="text-white font-bold text-xs leading-relaxed">
                   The Spirit Layer takes all of it — and makes it available as a real conversation, with any person, on any device, at any moment they need it.
                 </p>
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-gcu-purple/60" />
               </div>
             )}
           </div>
-          <p className="text-gcu-gold text-[10px] font-bold uppercase tracking-widest mt-2 text-center">Spirit<br />Layer</p>
-          <p className="text-white/30 text-[9px] text-center mt-1 max-w-[80px] leading-tight">the intelligence between GCU's knowledge and the person who needs it</p>
+          <p className="text-gcu-gold text-xs font-bold uppercase tracking-widest mt-2 text-center">Spirit<br />Layer</p>
+          <p className="text-white/30 text-xs text-center mt-1 max-w-[80px] leading-tight">the intelligence between GCU's knowledge and the person who needs it</p>
           <div className="w-1 h-8 bg-gradient-to-b from-gcu-purple/40 to-transparent mt-2 hidden md:block" />
         </div>
 
@@ -321,13 +321,13 @@ function SlideWeAreGCU() {
                 className={`flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-3 py-2 cursor-pointer transition-all duration-200 hover:border-gcu-gold/50 hover:bg-white/10 ${activeSurface === s.label ? 'border-gcu-gold/50 bg-white/10' : ''}`}
               >
                 <div className="w-1.5 h-1.5 rounded-full bg-gcu-gold flex-shrink-0" />
-                <span className="text-xs text-white/80 font-medium flex-1">{s.label}</span>
-                <span className="text-white/25 text-[10px]">+</span>
+                <span className="text-sm text-white/80 font-medium flex-1">{s.label}</span>
+                <span className="text-white/25 text-xs">+</span>
               </div>
               {activeSurface === s.label && (
-                <div className="absolute right-full top-0 mr-3 z-20 w-60 bg-[#1A0A30] border border-gcu-gold/40 rounded-xl p-4 shadow-2xl shadow-gcu-gold/10 pointer-events-none">
-                  <p className="text-gcu-gold font-black text-[11px] mb-1.5">{s.label}</p>
-                  <p className="text-white/80 text-[11px] leading-relaxed">{s.detail}</p>
+                <div className="absolute top-full right-0 mt-2 sm:mt-0 sm:top-0 sm:right-full sm:mr-3 z-20 w-60 bg-[#1A0A30] border border-gcu-gold/40 rounded-xl p-4 shadow-2xl shadow-gcu-gold/10 pointer-events-none">
+                  <p className="text-gcu-gold font-black text-xs mb-1.5">{s.label}</p>
+                  <p className="text-white/80 text-xs leading-relaxed">{s.detail}</p>
                 </div>
               )}
             </div>
@@ -358,7 +358,7 @@ function SlidePlatform() {
           A Spirit Agent is a GCU expert you can have a real conversation with — by text or voice, any time of day, on a phone, tablet, kiosk, or wearable. It responds the way a GCU graduate would: with expertise <em>and</em> with humanity.
         </p>
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
         {AGENTS.map(a => (
           <div
             key={a.name}
@@ -368,14 +368,14 @@ function SlidePlatform() {
           >
             <div className={`bg-white/5 border rounded-xl p-3 text-center cursor-pointer transition-all duration-200 ${active === a.name ? 'border-gcu-purple bg-gcu-purple/10 scale-105' : 'border-white/10 hover:border-gcu-purple/40'}`}>
               <div className="text-2xl mb-1.5">{a.icon}</div>
-              <p className="text-white text-xs font-bold leading-tight mb-1">{a.name}</p>
-              <p className="text-white/40 text-[10px] leading-tight">{a.domain}</p>
+              <p className="text-white text-sm font-bold leading-tight mb-1">{a.name}</p>
+              <p className="text-white/40 text-xs leading-tight">{a.domain}</p>
             </div>
             {active === a.name && (
               <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-30 w-64 bg-[#1A0A30] border border-gcu-purple/60 rounded-xl p-4 shadow-2xl shadow-gcu-purple/30 pointer-events-none">
-                <p className="text-gcu-gold font-black text-xs mb-0.5">{a.name}</p>
-                <p className="text-white/40 text-[10px] mb-2 italic">{a.college}</p>
-                <p className="text-white/80 text-[11px] leading-relaxed">{a.detail}</p>
+                <p className="text-gcu-gold font-black text-sm mb-0.5">{a.name}</p>
+                <p className="text-white/40 text-xs mb-2 italic">{a.college}</p>
+                <p className="text-white/80 text-xs leading-relaxed">{a.detail}</p>
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-gcu-purple/60" />
               </div>
             )}
@@ -495,13 +495,13 @@ function SlideDeliveryRoadmap() {
               </div>
               <div className={`w-full bg-white/5 border-t-2 ${p.borderColor} border-x border-b border-white/10 rounded-2xl p-3 transition-all duration-200 ${active === i ? 'bg-white/10 scale-105' : ''}`}>
                 <div className="text-2xl mb-1.5">{p.icon}</div>
-                <p className="text-white font-black text-xs leading-tight mb-1">{p.title}</p>
-                <span className={`text-[9px] font-bold ${p.textColor}`}>{p.sub}</span>
+                <p className="text-white font-black text-sm leading-tight mb-1">{p.title}</p>
+                <span className={`text-xs font-bold ${p.textColor}`}>{p.sub}</span>
               </div>
               {active === i && (
                 <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-30 w-52 bg-[#1A0A30] border border-white/20 rounded-xl p-3 shadow-2xl pointer-events-none">
-                  <p className={`font-black text-xs mb-1 ${p.textColor}`}>{p.title}</p>
-                  <p className="text-white/70 text-[11px] leading-relaxed">{p.detail}</p>
+                  <p className={`font-black text-sm mb-1 ${p.textColor}`}>{p.title}</p>
+                  <p className="text-white/70 text-xs leading-relaxed">{p.detail}</p>
                   <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-white/20" />
                 </div>
               )}
@@ -576,6 +576,7 @@ function SlideMarket() {
         <p className="text-white/60 text-xs leading-relaxed">
           GCU doesn't have to reach 33,000 institutions directly. The Flourish API lets any hospital, university, or faith-based organization license the Spirit Layer and embed it inside their own systems — their patient portal, their learning platform, their app. They deploy Spirit under their own brand. GCU's values are built in. GCU earns the licensing revenue. Think of it as the AWS of faith-based AI: GCU builds the foundation that the entire industry runs on.
         </p>
+
       </div>
       <div className="grid md:grid-cols-3 gap-5">
         {stats.map(s => (
@@ -583,7 +584,7 @@ function SlideMarket() {
             <s.Icon size={24} className={`${s.color} mx-auto mb-3`} />
             <p className={`text-5xl font-black ${s.color} mb-2`}>{s.value}</p>
             <p className="text-white font-bold text-sm mb-2">{s.label}</p>
-            <p className="text-white/40 text-xs leading-relaxed">{s.sub}</p>
+            <p className="text-white/40 text-sm leading-relaxed">{s.sub}</p>
           </div>
         ))}
       </div>
@@ -615,7 +616,7 @@ function SlideRevenue() {
               <p className="text-white/30 text-xs">{r.period}</p>
             </div>
             <div className="flex-1">
-              <p className="text-white/50 text-xs leading-relaxed">{r.note}</p>
+              <p className="text-white/50 text-sm leading-relaxed">{r.note}</p>
             </div>
             <p className={`text-3xl font-black flex-shrink-0 ${r.color}`}>{r.amount}</p>
           </div>
@@ -643,7 +644,7 @@ function SlideAsk() {
           <div key={a.number} className={`bg-white/5 border-t-4 ${a.accent} rounded-2xl p-6`}>
             <p className={`text-5xl font-black mb-4 ${a.glow} opacity-30`}>{a.number}</p>
             <h3 className="text-white font-black text-base mb-3 leading-tight">{a.title}</h3>
-            <p className="text-white/50 text-xs leading-relaxed">{a.body}</p>
+            <p className="text-white/50 text-sm leading-relaxed">{a.body}</p>
           </div>
         ))}
       </div>
@@ -704,11 +705,11 @@ function SlideProof() {
       <div className={`flex gap-2 ${isUser ? 'justify-end' : 'justify-start'}`}>
         {!isUser && (
           <div className="w-6 h-6 rounded-full bg-gcu-purple flex-shrink-0 flex items-center justify-center mt-0.5">
-            <span className="text-[9px] text-white font-black">S</span>
+            <span className="text-xs text-white font-black">S</span>
           </div>
         )}
-        <div className={`max-w-[80%] rounded-2xl px-3 py-2 text-xs leading-relaxed ${isUser ? 'bg-white/10 text-white/80 rounded-tr-sm' : 'bg-gcu-purple/30 border border-gcu-purple/40 text-white/90 rounded-tl-sm'}`}>
-          {!isUser && <p className="text-gcu-gold font-bold text-[10px] mb-1">{(msg as any).name}</p>}
+        <div className={`max-w-[80%] rounded-2xl px-3 py-2 text-sm leading-relaxed ${isUser ? 'bg-white/10 text-white/80 rounded-tr-sm' : 'bg-gcu-purple/30 border border-gcu-purple/40 text-white/90 rounded-tl-sm'}`}>
+          {!isUser && <p className="text-gcu-gold font-bold text-xs mb-1">{(msg as any).name}</p>}
           {msg.text}
         </div>
       </div>
@@ -733,7 +734,7 @@ function SlideProof() {
           <div key={col.label} className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden flex flex-col">
             <div className="px-4 py-3 border-b border-white/10 bg-white/5">
               <p className="text-white font-black text-sm">{col.label}</p>
-              <p className="text-white/40 text-[10px] mt-0.5">{col.sub}</p>
+              <p className="text-white/40 text-xs mt-0.5">{col.sub}</p>
             </div>
             <div className="flex flex-col gap-2.5 p-4 overflow-y-auto max-h-72">
               {col.chat.map((msg, i) => <ChatBubble key={i} msg={msg} />)}
@@ -794,7 +795,7 @@ function SlideStewardship() {
         <div className="text-2xl flex-shrink-0">📚</div>
         <div>
           <p className="text-gcu-gold font-black text-sm mb-1">Grounded in Official GCU Sources — Not the Open Internet</p>
-          <p className="text-white/60 text-xs leading-relaxed">
+          <p className="text-white/60 text-sm leading-relaxed">
             When Spirit responds, it does not search the open internet. It searches a locked library of verified GCU content — accredited curriculum, faculty-reviewed clinical protocols, approved course material, and peer-reviewed research. Think of it as a librarian who only has access to GCU's official shelves. If the answer isn't in those shelves, Spirit says so and directs the person to a qualified human. The knowledge is GCU's. The liability boundary is clear.
           </p>
         </div>
@@ -805,7 +806,7 @@ function SlideStewardship() {
           <div key={p.title} className={`bg-white/5 border-t-2 ${p.color} border-x border-b border-white/10 rounded-2xl p-4`}>
             <div className="text-2xl mb-2">{p.icon}</div>
             <h3 className="text-white font-black text-sm mb-2 leading-tight">{p.title}</h3>
-            <p className="text-white/50 text-xs leading-relaxed">{p.body}</p>
+            <p className="text-white/50 text-sm leading-relaxed">{p.body}</p>
           </div>
         ))}
       </div>
@@ -867,7 +868,7 @@ function SlideFlourishStandard() {
           <div className="text-2xl flex-shrink-0">🔌</div>
           <div>
             <p className="text-purple-300 font-black text-sm mb-1">Flourish API Integration</p>
-            <p className="text-white/55 text-xs leading-relaxed">
+            <p className="text-white/70 text-sm leading-relaxed">
               For institutions that want to embed Spirit directly into their own systems. A hospital adds Spirit Nurse to its patient portal. A school district plugs Spirit Teacher into its learning management system. The institution owns the experience — GCU powers it behind the scenes.
             </p>
           </div>
@@ -876,7 +877,7 @@ function SlideFlourishStandard() {
           <div className="text-2xl flex-shrink-0">📱</div>
           <div>
             <p className="text-gcu-gold font-black text-sm mb-1">Platform License</p>
-            <p className="text-white/55 text-xs leading-relaxed">
+            <p className="text-white/70 text-sm leading-relaxed">
               For institutions that want to deploy Spirit without custom development. Staff and students access Spirit through the Flourish platform directly — branded, configured, and certified for their organization. Ready to launch without an IT team.
             </p>
           </div>
@@ -888,7 +889,7 @@ function SlideFlourishStandard() {
           <div key={p.title} className={`bg-white/5 border-t-2 ${p.color} border-x border-b border-white/10 rounded-2xl p-5`}>
             <div className="text-2xl mb-2">{p.icon}</div>
             <h3 className="text-white font-black text-sm mb-2 leading-tight">{p.title}</h3>
-            <p className="text-white/50 text-xs leading-relaxed">{p.body}</p>
+            <p className="text-white/50 text-sm leading-relaxed">{p.body}</p>
           </div>
         ))}
       </div>
@@ -896,15 +897,15 @@ function SlideFlourishStandard() {
       <div className="grid md:grid-cols-3 gap-4">
         <div className="bg-gcu-gold/10 border border-gcu-gold/30 rounded-2xl p-4 text-center">
           <p className="text-gcu-gold font-black text-sm mb-1">What institutions get</p>
-          <p className="text-white/60 text-xs">The authority to deploy Spirit Agents — and the credibility of GCU's ethical framework behind every interaction.</p>
+          <p className="text-white/60 text-sm">The authority to deploy Spirit Agents — and the credibility of GCU's ethical framework behind every interaction.</p>
         </div>
         <div className="bg-white/5 border border-white/10 rounded-2xl p-4 text-center">
           <p className="text-white font-black text-sm mb-1">What GCU earns</p>
-          <p className="text-white/60 text-xs">Certification fees, annual re-certification revenue, and a growing network of institutions operating under GCU's ethical authority.</p>
+          <p className="text-white/60 text-sm">Certification fees, annual re-certification revenue, and a growing network of institutions operating under GCU's ethical authority.</p>
         </div>
         <div className="bg-purple-500/10 border border-purple-500/30 rounded-2xl p-4 text-center">
           <p className="text-purple-300 font-black text-sm mb-1">The market position</p>
-          <p className="text-white/60 text-xs">No ethical AI certification standard exists for faith-based institutions. GCU creates it first — and owns the category.</p>
+          <p className="text-white/60 text-sm">No ethical AI certification standard exists for faith-based institutions. GCU creates it first — and owns the category.</p>
         </div>
       </div>
     </Slide>
@@ -989,8 +990,8 @@ function SlidePlatformOverview() {
                     ? 'right-6 top-0'
                     : 'left-6 top-0'
                 }`}>
-                  <p className="text-white font-black text-xs mb-1.5">{a.label}</p>
-                  <p className="text-white/60 text-[11px] leading-relaxed">{a.detail}</p>
+                  <p className="text-white font-black text-sm mb-1.5">{a.label}</p>
+                  <p className="text-white/60 text-xs leading-relaxed">{a.detail}</p>
                 </div>
               )}
             </div>
@@ -1082,8 +1083,8 @@ function SlideLibraryOverview() {
                 <div className={`absolute z-30 w-60 bg-[#0F0A1E]/95 border border-white/20 rounded-xl p-3 shadow-2xl pointer-events-none ${
                   a.side === 'left' ? 'right-6 top-0' : 'left-6 top-0'
                 }`}>
-                  <p className="text-white font-black text-xs mb-1.5">{a.label}</p>
-                  <p className="text-white/60 text-[11px] leading-relaxed">{a.detail}</p>
+                  <p className="text-white font-black text-sm mb-1.5">{a.label}</p>
+                  <p className="text-white/60 text-xs leading-relaxed">{a.detail}</p>
                 </div>
               )}
             </div>

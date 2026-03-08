@@ -183,7 +183,7 @@ export default function FlourishRobotics() {
               <div className="space-y-1.5">
                 <p className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide">Key Capabilities (Planned)</p>
                 {robot.specs.map(spec => (
-                  <div key={spec} className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-400">
+                  <div key={spec} className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
                     <div className="w-1.5 h-1.5 rounded-full bg-gcu-purple/50 flex-shrink-0" />
                     {spec}
                   </div>

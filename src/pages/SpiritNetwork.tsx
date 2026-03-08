@@ -179,7 +179,7 @@ export default function SpiritNetwork() {
             ].map(s => (
               <div key={s.label} className="text-center">
                 <div className="text-2xl font-black text-gcu-gold">{s.value}</div>
-                <div className="text-xs text-white/50">{s.label}</div>
+                <div className="text-sm text-white/50">{s.label}</div>
               </div>
             ))}
           </div>
@@ -201,7 +201,7 @@ export default function SpiritNetwork() {
                 <div>
                   <div className="text-xl mb-1">{step.icon}</div>
                   <h3 className="text-sm font-bold text-slate-900 dark:text-white">{step.title}</h3>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">{step.desc}</p>
+                  <p className="text-sm text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">{step.desc}</p>
                 </div>
               </div>
             </div>
@@ -332,7 +332,7 @@ export default function SpiritNetwork() {
                   onChange={e => setFormData(f => ({ ...f, consent: e.target.checked }))}
                   required
                 />
-                <span className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                <span className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
                   I consent to GCU using my story and wisdom to train and enrich spirit vessel AI models. I understand my contribution will be attributed to me by name (with my approval), and I will receive impact reports showing how many people my wisdom has served. GCU will never sell or share my contribution outside the Flourish AI platform without my explicit consent.
                 </span>
               </label>
