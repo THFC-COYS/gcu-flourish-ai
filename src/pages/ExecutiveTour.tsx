@@ -777,12 +777,6 @@ function SlideStewardship() {
       body: 'All knowledge entering the Spirit Layer is reviewed and credentialed by GCU faculty before it is deployed. Faculty members sign off on their domain. The Spirit Layer is only as trustworthy as the people who built it — and every source is named, verified, and accountable.',
       color: 'border-emerald-500',
     },
-    {
-      icon: '📜',
-      title: 'Flourish Standard Certification',
-      body: 'Every institution that deploys a Spirit Agent must complete GCU\'s Flourish Standard certification — establishing clear governance, liability frameworks, and deployment protocols. Certification shifts responsibility to the deploying institution and creates a documented chain of stewardship that protects GCU, the partner, and the people they serve.',
-      color: 'border-gcu-gold',
-    },
   ];
   return (
     <Slide>
@@ -849,15 +843,22 @@ function SlideFlourishStandard() {
 
   return (
     <Slide>
-      <div className="text-center mb-8">
+      <div className="text-center mb-6">
         <Eyebrow>The Flourish Standard</Eyebrow>
         <h2 className="text-4xl sm:text-5xl font-black text-white mb-3 leading-tight">
-          GCU writes the rules.<br />
-          <span className="text-gcu-gold">The industry signs the contract.</span>
+          Spirit is a platform organizations deploy.<br />
+          <span className="text-gcu-gold">GCU sets the terms.</span>
         </h2>
         <p className="text-white/40 text-sm max-w-2xl mx-auto">
-          Every institution that deploys a Spirit Agent must complete GCU's Flourish Standard certification. It is not optional. It is the condition of access — and the mechanism that protects everyone involved.
+          Hospitals, school districts, churches, and universities license Spirit Agents and deploy them inside their own systems. GCU does not operate every deployment — but GCU governs every one. The Flourish Standard is how.
         </p>
+      </div>
+
+      {/* Who deploys Spirit */}
+      <div className="flex flex-wrap justify-center gap-3 mb-5">
+        {['🏥 Hospital Systems', '🏫 School Districts', '⛪ Churches & Ministries', '🎓 Universities', '🏢 Faith-Based Organizations'].map(org => (
+          <span key={org} className="px-4 py-2 rounded-full bg-white/5 border border-white/15 text-white/70 text-xs font-bold">{org}</span>
+        ))}
       </div>
 
       <div className="grid md:grid-cols-2 gap-4 mb-5">
