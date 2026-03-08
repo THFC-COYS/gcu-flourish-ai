@@ -53,31 +53,31 @@ const SCENES = [
 const ASKS = [
   {
     number: '01',
+    title: 'Establish the Department of Robotics & Intelligent Systems',
+    body: 'This is the institutional foundation everything else rests on. Create a new academic department that formalizes GCU\'s leadership in embodied AI — signaling to the world that GCU is not a follower in this space. It is the standard.',
+    accent: 'border-sky-500',
+    glow: 'text-sky-300',
+  },
+  {
+    number: '02',
     title: 'Authorize Phase 1 Investment',
     body: 'Approve the Phase 1 investment for infrastructure, team, and the first three external pilot deployments. This funds the transition from prototype to production platform.',
     accent: 'border-gcu-purple',
     glow: 'text-purple-300',
   },
   {
-    number: '02',
+    number: '03',
     title: 'Activate Faculty Participation',
     body: "Commission all 10 colleges to formally contribute faculty expertise into their Spirit Agent. This is GCU's unique moat — no other institution on earth can replicate it.",
     accent: 'border-gcu-gold',
     glow: 'text-gcu-gold',
   },
   {
-    number: '03',
+    number: '04',
     title: 'Greenlight the First External Deployment',
     body: 'Approve the first clinical or educational partnership. The first real-world deployment establishes GCU as the pioneer and generates the data that proves the model.',
     accent: 'border-emerald-500',
     glow: 'text-emerald-300',
-  },
-  {
-    number: '04',
-    title: 'Establish the Department of Robotics & Intelligent Systems',
-    body: 'Create a new academic department that formalizes GCU\'s leadership in embodied AI. This positions GCU as the institution that doesn\'t just deploy intelligent systems — it defines how they should be built.',
-    accent: 'border-sky-500',
-    glow: 'text-sky-300',
   },
 ];
 
@@ -465,8 +465,8 @@ function SlideStewardship() {
     },
     {
       icon: '🛑',
-      title: 'Hard Scope Boundaries',
-      body: 'Spirit Agents cannot diagnose, prescribe, or render legal or financial determinations — ever. These are hard-coded constraints, not soft guidelines. Every Spirit session opens with a clear disclosure of role and limitation. Spirit knows exactly where its expertise ends and a licensed professional begins — and it says so.',
+      title: 'Tiered Diagnostic Authority',
+      body: 'In-hospital deployments connected to internal EHR data and machine vision can support full clinical diagnosis — Spirit sees what the care team sees. For all other deployments, a two-tier model applies: low-acuity findings Spirit can surface independently; high-acuity or complex findings require a verified clinician to review before the response reaches the patient. Scope is not a soft guideline — it is enforced by deployment type at the architecture level.',
       color: 'border-amber-500',
     },
     {
