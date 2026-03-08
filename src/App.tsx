@@ -16,6 +16,7 @@ import FlourishRobotics from './pages/FlourishRobotics';
 import ExecutiveBriefing from './pages/ExecutiveBriefing';
 import FlourishStandard from './pages/FlourishStandard';
 import SpiritTraining from './pages/SpiritTraining';
+import ExecutiveTour from './pages/ExecutiveTour';
 
 function ProtectedRoutes() {
   const { user, isLoading } = useAuth();
@@ -65,6 +66,7 @@ export default function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/login" element={<LoginGuard />} />
+            <Route path="/executive-tour" element={<ExecutiveTour />} />
             <Route path="/*" element={<ProtectedRoutes />} />
           </Routes>
         </BrowserRouter>
