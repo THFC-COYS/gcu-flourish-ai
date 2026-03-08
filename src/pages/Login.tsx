@@ -160,8 +160,8 @@ export default function Login() {
             <div className="flex items-center gap-3 mt-4">
               <div className="w-8 h-8 rounded-full bg-gcu-gold/20 border border-gcu-gold/30 flex items-center justify-center text-gcu-gold font-bold text-sm">B</div>
               <div>
-                <div className="text-white text-sm font-semibold">Banner Health System</div>
-                <div className="text-white/40 text-xs">Simulated Partner · Phoenix, AZ</div>
+                <div className="text-white text-sm font-semibold">Illustrative Healthcare Partner</div>
+                <div className="text-white/40 text-xs">Simulated · Not a real organization</div>
               </div>
             </div>
           </div>

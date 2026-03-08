@@ -127,7 +127,7 @@ const SECTORS = [
     title: 'Faith-Based Healthcare',
     count: '600+',
     unit: 'US hospital systems',
-    desc: 'Banner Health, Intermountain Health, Adventist Health, and hundreds more are actively searching for ethical AI frameworks aligned with their mission.',
+    desc: 'Hundreds of faith-aligned hospital systems are actively searching for ethical AI frameworks aligned with their mission.',
     color: 'text-pink-500',
     bg: 'bg-pink-50 dark:bg-pink-900/10',
   },

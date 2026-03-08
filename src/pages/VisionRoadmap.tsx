@@ -12,7 +12,7 @@ const GLOBAL_REGIONS = [
     focus: 'Christian universities, healthcare, military chaplaincy',
     status: 'Active',
     statusColor: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300',
-    highlights: ['Banner Health', 'US Military Chaplains', 'GCU Partner Network'],
+    highlights: ['Arizona Faith Health System', 'US Military Chaplains', 'GCU Partner Network'],
     color: 'border-emerald-300 dark:border-emerald-700',
     population: '350M',
   },
@@ -76,7 +76,7 @@ const GLOBAL_REGIONS = [
 const PHASE1_MILESTONES = [
   { date: 'Q3 2025', label: 'Platform Launch', desc: 'GCU Flourish AI platform live with 2 pilot spirit vessels (Nursing & Business).', done: true },
   { date: 'Q4 2025', label: 'All 10 Colleges', desc: 'Spirit vessels created for all 10 GCU colleges. Platform open to faculty builders.', done: true },
-  { date: 'Q1 2026', label: '3 External Partner Pilots', desc: 'Pilot Spirit Vessels with 3 external partners (Banner Health, SUSD, AZ Church Network). First real-world data collected.', done: false },
+  { date: 'Q1 2026', label: '3 External Partner Pilots', desc: 'Pilot Spirit Vessels with 3 external partners (Arizona Faith Health System, SUSD, AZ Church Network). First real-world data collected.', done: false },
   { date: 'Q2 2026', label: 'Flourish API Beta', desc: 'External API opens for enterprise partners to license GCU ethical character into their AI.', done: false },
   { date: 'Q3 2026', label: 'Ethical AI Certification', desc: 'GCU launches the industry\'s first Ethical AI Character Certification standard.', done: false },
   { date: 'Q4 2026', label: 'Spirit Network Launch', desc: '10,000+ alumni actively contributing wisdom to living spirit vessels.', done: false },
@@ -86,7 +86,7 @@ const PHASE1_MILESTONES = [
 
 const PHASE2_MILESTONES = [
   { date: '2027 Q1', label: 'Spirit Body Prototype', desc: 'First humanoid robot running a GCU Spirit Vessel. Unveiled at GCU Innovation Summit.', icon: '🤖' },
-  { date: '2027 Q3', label: 'Spirit Nurse Robot Pilot', desc: 'Spirit Nurse Companion deployed in Banner Health ICU for night-watch compassionate support.', icon: '🏥' },
+  { date: '2027 Q3', label: 'Spirit Nurse Robot Pilot', desc: 'Spirit Nurse Companion deployed in Arizona Faith Health System ICU for night-watch compassionate support.', icon: '🏥' },
   { date: '2028', label: 'Spirit Mentor Classroom', desc: 'Spirit Mentor robots in 500 K-12 classrooms — patient, personalized, never tired.', icon: '🎓' },
   { date: '2028', label: 'Spirit Faith Companion', desc: 'Elder care and VA hospital deployment. Presence for the isolated and forgotten.', icon: '✝️' },
   { date: '2029', label: 'Global Deployment', desc: '50,000 spirit vessels — digital and physical — active in 40+ countries.', icon: '🌍' },
@@ -196,7 +196,7 @@ const WORKER_USE_CASES = [
 ];
 
 const PARTNERS = [
-  { name: 'Banner Health', sector: 'Healthcare', reach: '30 hospitals', icon: '🏥' },
+  { name: 'Arizona Faith Health System', sector: 'Healthcare', reach: '30 hospitals', icon: '🏥' },
   { name: 'Mayo Clinic', sector: 'Research', reach: '1.3M patients/yr', icon: '🔬' },
   { name: 'US Dept. of Veterans Affairs', sector: 'Government', reach: '9M veterans', icon: '🇺🇸' },
   { name: 'Microsoft Azure', sector: 'Technology', reach: 'Global cloud infra', icon: '☁️' },

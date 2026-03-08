@@ -39,7 +39,7 @@ const REVENUE_MODEL = [
     amount: '$3.2M',
     breakdown: [
       'GCU internal operational savings: $1.1M',
-      '3 external partner pilots (Banner Health, SUSD, AZ Church): $800K',
+      '3 external partner pilots (Health System, SUSD, AZ Church): $800K',
       'Flourish API early-access licensing: $600K',
       'Grant funding (Title III, Lilly Foundation): $700K',
     ],
@@ -102,7 +102,7 @@ const MOAT_ITEMS = [
 
 const TRACTION = [
   { value: '20', label: 'AI Prototypes Built', sub: 'Across all 10 colleges', icon: Zap, color: 'text-gcu-purple' },
-  { value: '5', label: 'Active Partnerships', sub: 'Banner Health, SUSD + 3 more', icon: Building2, color: 'text-blue-500' },
+  { value: '5', label: 'Active Partnerships', sub: 'Health System, SUSD + 3 more', icon: Building2, color: 'text-blue-500' },
   { value: '34K+', label: 'Monthly Interactions', sub: 'Simulated / growing', icon: TrendingUp, color: 'text-emerald-500' },
   { value: '94%', label: 'Ethical Alignment', sub: 'Avg across all prototypes', icon: CheckCircle2, color: 'text-gcu-gold' },
 ];
@@ -111,7 +111,7 @@ const FIRSTS = [
   { date: 'Q3 2024', label: 'First Christian University AI Platform', done: true },
   { date: 'Q4 2024', label: 'First AI Ethics Certification Framework (Draft)', done: true },
   { date: 'Q1 2025', label: 'First Spirit Vessel Prototypes (20 built)', done: true },
-  { date: 'Q1 2026', label: 'First External Clinical AI Partnership (Banner Health)', done: false },
+  { date: 'Q1 2026', label: 'First External Clinical AI Partnership', done: false },
   { date: 'Q2 2026', label: 'Flourish Standard v1.0 Published', done: false },
   { date: 'Q3 2027', label: 'First Embodied AI Chaplain (Robotics)', done: false },
   { date: '2028', label: 'First Neural-Interface Spirit Layer (Wearables)', done: false },

@@ -26,7 +26,7 @@ console.log(response.message);
 
 console.log(response.attribution);
 // → "This reflects the compassionate pre-op care spirit of GCU
-//    nursing alumni (95%+ NCLEX pass rate, Banner Health partners)."
+//    nursing alumni (95%+ NCLEX pass rate, Arizona Faith Health System partners)."
 
 console.log(response.ethicalAlignmentScore);  // → 97
 console.log(response.spiritModulesApplied);   // → ['empathy', 'ethics', 'domain']`;
@@ -337,7 +337,7 @@ export default function FlourishAPI() {
         </div>
         <h2 className="text-2xl font-black text-white mb-3">Start with the Flourish API</h2>
         <p className="text-white/60 text-sm max-w-lg mx-auto mb-6">
-          Join Banner Health, the Arizona Christian Business Alliance, and Intel in building AI that doesn't just perform — it cares.
+          Join leading healthcare systems, Christian universities, and mission-driven organizations in building AI that doesn't just perform — it cares.
         </p>
         <div className="flex flex-wrap gap-3 justify-center">
           <button className="btn-gold flex items-center gap-2">
