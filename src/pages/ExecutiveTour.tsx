@@ -18,11 +18,36 @@ const AGENTS = [
 ];
 
 const SCENES = [
-  { src: '/scenes/bedside.jpg',   label: 'Bedside Tablet',              phase: 'Now'  },
-  { src: '/scenes/lobby.jpg',     label: 'Hospital Lobby Kiosk',        phase: 'Now'  },
-  { src: '/scenes/classroom.jpg', label: 'Life-Size Classroom Avatar',  phase: '2026' },
-  { src: '/scenes/wearable.jpg',  label: 'Wearable AR — Nurse\'s View', phase: '2027' },
-  { src: '/scenes/robotics.jpg',  label: 'Flourish Robotics',           phase: '2028' },
+  {
+    src: '/scenes/bedside.jpg',
+    label: 'Bedside Companion',
+    phase: 'Now · Phase 1',
+    scenario: '2 AM. Room 4B. A patient alone with a diagnosis they don\'t understand — and no nurse available until morning. Spirit Nurse is already there. Listening. Staying. Knowing exactly when to say "press your call button right now."',
+  },
+  {
+    src: '/scenes/lobby.jpg',
+    label: 'Hospital Lobby Kiosk',
+    phase: 'Now · Phase 1',
+    scenario: 'A family arrives at the emergency entrance. They don\'t know where to go, who to ask, or what\'s happening to the person they love. Spirit is the first calm face they see — orienting them, translating if needed, and connecting them to the right care team before they reach the front desk.',
+  },
+  {
+    src: '/scenes/classroom.jpg',
+    label: 'Life-Size Classroom Avatar',
+    phase: 'Phase 2 · 2026',
+    scenario: 'Spirit Teacher stands at the front of the room — life-size, live, and responsive. Not a slide deck. Not a video. A presence that knows who struggled last Tuesday and adjusts in real time. GCU\'s best educators, available in every classroom.',
+  },
+  {
+    src: '/scenes/wearable.jpg',
+    label: 'Wearable AR — Nurse\'s View',
+    phase: 'Phase 3 · 2027',
+    scenario: 'The nurse enters the room and Spirit\'s overlay is already there — patient history, medication flags, a quiet note in the corner of her lens: "She\'s afraid of needles. Use distraction." The efficiency of AI. The instincts of a GCU nurse.',
+  },
+  {
+    src: '/scenes/robotics.jpg',
+    label: 'Flourish Robotics',
+    phase: 'Phase 4 · 2028',
+    scenario: '3 AM on the ward. The robot moves through the corridor — delivering medications, checking vitals, stopping at the room of a patient who hasn\'t slept. It has the precision of a machine and the character of every GCU nurse who ever stayed a little longer than required.',
+  },
 ];
 
 const ASKS = [
@@ -49,7 +74,7 @@ const ASKS = [
   },
 ];
 
-const TOTAL_SLIDES = 9;
+const TOTAL_SLIDES = 13;
 
 // ── Layout helpers ────────────────────────────────────────────────────────────
 
@@ -191,27 +216,37 @@ function SlidePlatform() {
   );
 }
 
-function SlideEverywhere() {
+function SlideScene({ scene, index }: { scene: typeof SCENES[0]; index: number }) {
   return (
-    <Slide>
-      <div className="text-center mb-8">
-        <Eyebrow>The Deployment Vision</Eyebrow>
-        <h2 className="text-4xl sm:text-5xl font-black text-white mb-2">Spirit Everywhere.</h2>
-        <p className="text-white/50 text-base">The form changes. The soul does not.</p>
+    <div className="relative w-full h-full min-h-[calc(100vh-10rem)] flex items-end">
+      {/* Full-bleed image */}
+      <img
+        src={scene.src}
+        alt={scene.label}
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+      {/* Gradient overlay — darker at bottom for text */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10" />
+
+      {/* Top-left running title */}
+      <div className="absolute top-6 left-8 flex items-center gap-3">
+        <span className="text-white/30 text-xs font-bold uppercase tracking-widest">Spirit Everywhere</span>
+        <span className="text-white/15 text-xs">·</span>
+        <span className="text-gcu-gold text-xs font-bold uppercase tracking-widest">{scene.phase}</span>
+        <span className="text-white/15 text-xs">·</span>
+        <span className="text-white/30 text-xs">{index + 1} of {SCENES.length}</span>
       </div>
-      <div className="grid grid-cols-5 gap-3">
-        {SCENES.map(s => (
-          <div key={s.label} className="flex flex-col gap-2">
-            <div className="relative h-36 rounded-xl overflow-hidden">
-              <img src={s.src} alt={s.label} className="absolute inset-0 w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-              <span className="absolute bottom-2 left-2 text-[9px] font-bold text-gcu-gold uppercase tracking-wider">{s.phase}</span>
-            </div>
-            <p className="text-white/60 text-[10px] font-semibold text-center leading-tight">{s.label}</p>
-          </div>
-        ))}
+
+      {/* Bottom text */}
+      <div className="relative z-10 px-10 pb-10 max-w-2xl">
+        <h2 className="text-4xl sm:text-5xl font-black text-white mb-4 leading-tight">
+          {scene.label}
+        </h2>
+        <p className="text-white/70 text-base sm:text-lg leading-relaxed">
+          {scene.scenario}
+        </p>
       </div>
-    </Slide>
+    </div>
   );
 }
 
@@ -345,16 +380,19 @@ function SlideLegacy({ onEnter }: { onEnter: () => void }) {
 // ── Slide router ──────────────────────────────────────────────────────────────
 
 function SlideContent({ index, onEnter }: { index: number; onEnter: () => void }) {
+  // Scenes occupy indices 4–8
+  if (index >= 4 && index <= 8) {
+    return <SlideScene scene={SCENES[index - 4]} index={index - 4} />;
+  }
   switch (index) {
-    case 0: return <SlideHero />;
-    case 1: return <SlideProblem />;
-    case 2: return <SlideWeAreGCU />;
-    case 3: return <SlidePlatform />;
-    case 4: return <SlideEverywhere />;
-    case 5: return <SlideMarket />;
-    case 6: return <SlideRevenue />;
-    case 7: return <SlideAsk />;
-    case 8: return <SlideLegacy onEnter={onEnter} />;
+    case 0:  return <SlideHero />;
+    case 1:  return <SlideProblem />;
+    case 2:  return <SlideWeAreGCU />;
+    case 3:  return <SlidePlatform />;
+    case 9:  return <SlideMarket />;
+    case 10: return <SlideRevenue />;
+    case 11: return <SlideAsk />;
+    case 12: return <SlideLegacy onEnter={onEnter} />;
     default: return null;
   }
 }
@@ -379,7 +417,8 @@ export default function ExecutiveTour() {
     return () => window.removeEventListener('keydown', onKey);
   }, [goNext, goPrev, enterPlatform]);
 
-  const isLast = slide === TOTAL_SLIDES - 1;
+  const isLast  = slide === TOTAL_SLIDES - 1;
+  const isScene = slide >= 4 && slide <= 8;
 
   return (
     <div className="fixed inset-0 flex flex-col overflow-hidden" style={{ background: 'linear-gradient(135deg, #080414 0%, #100820 100%)' }}>
@@ -390,8 +429,8 @@ export default function ExecutiveTour() {
         </svg>
       </div>
 
-      {/* Header */}
-      <div className="relative z-10 flex items-center justify-between px-8 py-5 flex-shrink-0 border-b border-white/5">
+      {/* Header — transparent on scene slides */}
+      <div className={`relative z-10 flex items-center justify-between px-8 py-5 flex-shrink-0 transition-all duration-500 ${isScene ? '' : 'border-b border-white/5'}`}>
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 rounded-lg bg-gcu-gold flex items-center justify-center">
             <span className="font-black text-gcu-purple-dark text-sm">GCU</span>
@@ -414,8 +453,8 @@ export default function ExecutiveTour() {
         <SlideContent index={slide} onEnter={enterPlatform} />
       </div>
 
-      {/* Footer */}
-      <div className="relative z-10 flex items-center justify-between px-8 py-5 flex-shrink-0 border-t border-white/5">
+      {/* Footer — transparent on scene slides */}
+      <div className={`relative z-10 flex items-center justify-between px-8 py-5 flex-shrink-0 transition-all duration-500 ${isScene ? '' : 'border-t border-white/5'}`}>
         {/* Progress dots */}
         <div className="flex items-center gap-1.5">
           {Array.from({ length: TOTAL_SLIDES }).map((_, i) => (
