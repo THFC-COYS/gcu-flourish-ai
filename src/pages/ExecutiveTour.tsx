@@ -121,7 +121,7 @@ const ASKS = [
   },
 ];
 
-const TOTAL_SLIDES = 19;
+const TOTAL_SLIDES = 20;
 
 // ── Layout helpers ────────────────────────────────────────────────────────────
 
@@ -588,6 +588,83 @@ function SlideMarket() {
           </div>
         ))}
       </div>
+    </Slide>
+  );
+}
+
+function SlidePartners() {
+  const categories = [
+    {
+      icon: '🤖',
+      label: 'Robotics & Hardware',
+      color: 'border-purple-500',
+      textColor: 'text-purple-300',
+      note: 'Physical Spirit Vessels',
+      partners: ['Boston Dynamics', 'Agility Robotics', 'Unitree Robotics', 'NVIDIA Jetson'],
+    },
+    {
+      icon: '🏥',
+      label: 'Faith-Based Health Systems',
+      color: 'border-red-400',
+      textColor: 'text-red-300',
+      note: 'Spirit Nurse deployment',
+      partners: ['CommonSpirit Health', 'Ascension Health', 'Dignity Health', 'Adventist Health'],
+    },
+    {
+      icon: '🎓',
+      label: 'Christian Universities',
+      color: 'border-gcu-gold',
+      textColor: 'text-gcu-gold',
+      note: 'Platform license + Flourish Standard',
+      partners: ['Liberty University', 'Baylor University', 'Wheaton College', 'Oral Roberts University'],
+    },
+    {
+      icon: '💻',
+      label: 'Technology Infrastructure',
+      color: 'border-blue-400',
+      textColor: 'text-blue-300',
+      note: 'AI & cloud backbone',
+      partners: ['Microsoft Azure', 'AWS', 'Epic Systems', 'Canvas LMS'],
+    },
+    {
+      icon: '⛪',
+      label: 'Ministry & Mission',
+      color: 'border-emerald-400',
+      textColor: 'text-emerald-300',
+      note: 'Spirit Chaplain deployment',
+      partners: ['Focus on the Family', 'Compassion International', 'World Vision', 'Cru'],
+    },
+  ];
+
+  return (
+    <Slide>
+      <div className="text-center mb-8">
+        <Eyebrow>Potential Partners</Eyebrow>
+        <h2 className="text-4xl sm:text-5xl font-black text-white mb-3 leading-tight">
+          GCU doesn't build this alone.<br />
+          <span className="text-gcu-gold">The ecosystem is ready.</span>
+        </h2>
+        <p className="text-white/40 text-sm max-w-2xl mx-auto">
+          These are the organizations GCU is positioned to partner with across every phase of the roadmap. None of these are confirmed — but all of them need exactly what GCU is building.
+        </p>
+      </div>
+
+      <div className="grid md:grid-cols-5 gap-4">
+        {categories.map(cat => (
+          <div key={cat.label} className={`bg-white/5 border-t-2 ${cat.color} border-x border-b border-white/10 rounded-2xl p-4`}>
+            <div className="text-2xl mb-2">{cat.icon}</div>
+            <p className={`text-xs font-black uppercase tracking-wide mb-0.5 ${cat.textColor}`}>{cat.label}</p>
+            <p className="text-white/30 text-xs mb-3 italic">{cat.note}</p>
+            <div className="flex flex-col gap-1.5">
+              {cat.partners.map(p => (
+                <span key={p} className="text-white/70 text-xs bg-white/5 border border-white/10 rounded-lg px-2 py-1 leading-tight">{p}</span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <p className="text-center text-white/20 text-xs mt-5">Exploratory · Not confirmed partnerships · For illustration of market positioning</p>
     </Slide>
   );
 }
@@ -1114,9 +1191,10 @@ function SlideContent({ index, onEnter }: { index: number; onEnter: () => void }
     case 13: return <SlideStewardship />;
     case 14: return <SlideFlourishStandard />;
     case 15: return <SlideMarket />;
-    case 16: return <SlideRevenue />;
-    case 17: return <SlideAsk />;
-    case 18: return <SlideLegacy onEnter={onEnter} />;
+    case 16: return <SlidePartners />;
+    case 17: return <SlideRevenue />;
+    case 18: return <SlideAsk />;
+    case 19: return <SlideLegacy onEnter={onEnter} />;
     default: return null;
   }
 }
