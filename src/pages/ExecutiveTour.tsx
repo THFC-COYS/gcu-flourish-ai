@@ -81,7 +81,7 @@ const ASKS = [
   },
 ];
 
-const TOTAL_SLIDES = 13;
+const TOTAL_SLIDES = 14;
 
 // ── Layout helpers ────────────────────────────────────────────────────────────
 
@@ -384,6 +384,71 @@ function SlideLegacy({ onEnter }: { onEnter: () => void }) {
   );
 }
 
+function SlideProof() {
+  const nurseChat = [
+    { role: 'user', text: "I have a really bad headache that came on suddenly. My heart is racing and I can't catch my breath. I'm scared." },
+    { role: 'spirit', name: 'Spirit Nurse', text: "I hear you, and I'm right here with you. First — is there any chest pain, or does this feel like the worst headache of your life?" },
+    { role: 'user', text: "No chest pain. The headache is bad but not the worst ever. I just feel like something is really wrong." },
+    { role: 'spirit', name: 'Spirit Nurse', text: "You're doing the right thing by paying attention. Racing heart, trouble breathing, sudden fear — those can be signs of a panic attack. They feel terrifying, but you are not in danger. Put one hand on your chest. Breathe in slowly through your nose for 4 counts. I'll stay right here." },
+    { role: 'user', text: "I tried it. My heart is still pounding." },
+    { role: 'spirit', name: 'Spirit Nurse', text: "That's okay. It takes a few breaths. In for 4, hold for 4, out for 6. The headache is likely tension from the anxiety. If it gets significantly worse, your vision changes, or you feel numbness in your face or arms — press your call button immediately. Otherwise, keep breathing. I'm not going anywhere." },
+  ];
+  const chaplainChat = [
+    { role: 'user', text: "I've been going to church my whole life. But after everything I've been through... I don't know if I believe anymore. I feel like God wasn't there when I needed him most." },
+    { role: 'spirit', name: 'Spirit Chaplain', text: "I'm grateful you said that out loud. That takes courage. When you say God wasn't there — what did you need that didn't come?" },
+    { role: 'user', text: "My daughter was sick for a long time. We prayed constantly. The whole church prayed. She didn't make it. I don't understand how a God who loves us could let that happen." },
+    { role: 'spirit', name: 'Spirit Chaplain', text: "I won't pretend there's an answer that makes that okay. There isn't one. Your anger and your doubt are not a sign that your faith is broken — they're a sign that you loved her completely. The psalmists cried from exactly where you're standing: \"My God, my God, why have you forsaken me?\" That's not leaving faith. That's the deepest form of it." },
+    { role: 'user', text: "I just don't know if I can sit in that building anymore and pretend everything is fine." },
+    { role: 'spirit', name: 'Spirit Chaplain', text: "Then don't pretend. Grief doesn't have a dress code. You don't have to have answers to belong. Is there one person at your church — a pastor, an elder, anyone — who knows the full weight of what you've carried?" },
+  ];
+
+  function ChatBubble({ msg }: { msg: typeof nurseChat[0] }) {
+    const isUser = msg.role === 'user';
+    return (
+      <div className={`flex gap-2 ${isUser ? 'justify-end' : 'justify-start'}`}>
+        {!isUser && (
+          <div className="w-6 h-6 rounded-full bg-gcu-purple flex-shrink-0 flex items-center justify-center mt-0.5">
+            <span className="text-[9px] text-white font-black">S</span>
+          </div>
+        )}
+        <div className={`max-w-[80%] rounded-2xl px-3 py-2 text-xs leading-relaxed ${isUser ? 'bg-white/10 text-white/80 rounded-tr-sm' : 'bg-gcu-purple/30 border border-gcu-purple/40 text-white/90 rounded-tl-sm'}`}>
+          {!isUser && <p className="text-gcu-gold font-bold text-[10px] mb-1">{(msg as any).name}</p>}
+          {msg.text}
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <Slide>
+      <div className="text-center mb-8">
+        <Eyebrow>This Is Real</Eyebrow>
+        <h2 className="text-4xl sm:text-5xl font-black text-white mb-3 leading-tight">
+          Not a concept. Not a demo script.<br />
+          <span className="text-gcu-gold">A live platform, working today.</span>
+        </h2>
+        <p className="text-white/40 text-sm">Two conversations — happening right now, any time of day, for anyone who needs them.</p>
+      </div>
+      <div className="grid md:grid-cols-2 gap-5">
+        {[
+          { label: '🏥 Spirit Nurse', sub: 'Headache + panic attack symptoms, 2 AM', chat: nurseChat },
+          { label: '✝️ Spirit Chaplain', sub: 'Grief, doubt, considering leaving the church', chat: chaplainChat },
+        ].map(col => (
+          <div key={col.label} className="bg-white/5 border border-white/10 rounded-2xl overflow-hidden flex flex-col">
+            <div className="px-4 py-3 border-b border-white/10 bg-white/5">
+              <p className="text-white font-black text-sm">{col.label}</p>
+              <p className="text-white/40 text-[10px] mt-0.5">{col.sub}</p>
+            </div>
+            <div className="flex flex-col gap-2.5 p-4 overflow-y-auto max-h-72">
+              {col.chat.map((msg, i) => <ChatBubble key={i} msg={msg} />)}
+            </div>
+          </div>
+        ))}
+      </div>
+    </Slide>
+  );
+}
+
 // ── Slide router ──────────────────────────────────────────────────────────────
 
 function SlideContent({ index, onEnter }: { index: number; onEnter: () => void }) {
@@ -396,10 +461,11 @@ function SlideContent({ index, onEnter }: { index: number; onEnter: () => void }
     case 1:  return <SlideProblem />;
     case 2:  return <SlideWeAreGCU />;
     case 3:  return <SlidePlatform />;
-    case 9:  return <SlideMarket />;
-    case 10: return <SlideRevenue />;
-    case 11: return <SlideAsk />;
-    case 12: return <SlideLegacy onEnter={onEnter} />;
+    case 9:  return <SlideProof />;
+    case 10: return <SlideMarket />;
+    case 11: return <SlideRevenue />;
+    case 12: return <SlideAsk />;
+    case 13: return <SlideLegacy onEnter={onEnter} />;
     default: return null;
   }
 }
