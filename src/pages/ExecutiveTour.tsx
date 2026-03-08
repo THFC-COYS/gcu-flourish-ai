@@ -81,7 +81,7 @@ const ASKS = [
   },
 ];
 
-const TOTAL_SLIDES = 14;
+const TOTAL_SLIDES = 15;
 
 // ── Layout helpers ────────────────────────────────────────────────────────────
 
@@ -449,6 +449,68 @@ function SlideProof() {
   );
 }
 
+function SlideStewardship() {
+  const pillars = [
+    {
+      icon: '🔍',
+      title: 'Pre-Send Confidence Review',
+      body: 'Before any response reaches a user, a secondary AI audit agent evaluates it for clinical accuracy, emotional appropriateness, and scope compliance — and assigns a confidence score. Responses that fall below threshold are automatically rewritten or escalated to human review. The user never sees a response that hasn\'t cleared the gate.',
+      color: 'border-purple-500',
+    },
+    {
+      icon: '🚨',
+      title: 'Real-Time Crisis Escalation',
+      body: 'Every conversation is scanned in real time for crisis indicators — self-harm, suicidal ideation, acute medical emergency, spiritual crisis. When detected, Spirit immediately shifts into escalation mode: it stays present, keeps the person calm, and simultaneously notifies a human responder or emergency services. Spirit never leaves someone alone in a moment that requires more than AI.',
+      color: 'border-red-500',
+    },
+    {
+      icon: '🛑',
+      title: 'Hard Scope Boundaries',
+      body: 'Spirit Agents cannot diagnose, prescribe, or render legal or financial determinations — ever. These are hard-coded constraints, not soft guidelines. Every Spirit session opens with a clear disclosure of role and limitation. Spirit knows exactly where its expertise ends and a licensed professional begins — and it says so.',
+      color: 'border-amber-500',
+    },
+    {
+      icon: '📋',
+      title: 'Full Audit Trail',
+      body: 'Every conversation is logged, timestamped, and stored with a full audit record. GCU faculty supervisors review flagged sessions. Quality, safety, and alignment scores are tracked at the session level. Deploying institutions receive regular stewardship reports. Nothing happens in the dark.',
+      color: 'border-blue-500',
+    },
+    {
+      icon: '🎓',
+      title: 'Faculty Knowledge Verification',
+      body: 'All knowledge entering the Spirit Layer is reviewed and credentialed by GCU faculty before it is deployed. Faculty members sign off on their domain. The Spirit Layer is only as trustworthy as the people who built it — and every source is named, verified, and accountable.',
+      color: 'border-emerald-500',
+    },
+    {
+      icon: '📜',
+      title: 'Flourish Standard Certification',
+      body: 'Every institution that deploys a Spirit Agent must complete GCU\'s Flourish Standard certification — establishing clear governance, liability frameworks, and deployment protocols. Certification shifts responsibility to the deploying institution and creates a documented chain of stewardship that protects GCU, the partner, and the people they serve.',
+      color: 'border-gcu-gold',
+    },
+  ];
+  return (
+    <Slide>
+      <div className="text-center mb-8">
+        <Eyebrow>Stewardship & Safety</Eyebrow>
+        <h2 className="text-4xl sm:text-5xl font-black text-white mb-3 leading-tight">
+          Spirit never acts alone.<br />
+          <span className="text-gcu-gold">Every response is accountable.</span>
+        </h2>
+        <p className="text-white/40 text-sm max-w-2xl mx-auto">GCU built the safety architecture before the product — because a platform that touches people in their most vulnerable moments must earn its place in the room.</p>
+      </div>
+      <div className="grid md:grid-cols-3 gap-4">
+        {pillars.map(p => (
+          <div key={p.title} className={`bg-white/5 border-t-2 ${p.color} border-x border-b border-white/10 rounded-2xl p-4`}>
+            <div className="text-2xl mb-2">{p.icon}</div>
+            <h3 className="text-white font-black text-sm mb-2 leading-tight">{p.title}</h3>
+            <p className="text-white/50 text-xs leading-relaxed">{p.body}</p>
+          </div>
+        ))}
+      </div>
+    </Slide>
+  );
+}
+
 // ── Slide router ──────────────────────────────────────────────────────────────
 
 function SlideContent({ index, onEnter }: { index: number; onEnter: () => void }) {
@@ -462,10 +524,11 @@ function SlideContent({ index, onEnter }: { index: number; onEnter: () => void }
     case 2:  return <SlideWeAreGCU />;
     case 3:  return <SlidePlatform />;
     case 9:  return <SlideProof />;
-    case 10: return <SlideMarket />;
-    case 11: return <SlideRevenue />;
-    case 12: return <SlideAsk />;
-    case 13: return <SlideLegacy onEnter={onEnter} />;
+    case 10: return <SlideStewardship />;
+    case 11: return <SlideMarket />;
+    case 12: return <SlideRevenue />;
+    case 13: return <SlideAsk />;
+    case 14: return <SlideLegacy onEnter={onEnter} />;
     default: return null;
   }
 }
