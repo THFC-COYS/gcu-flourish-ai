@@ -121,7 +121,7 @@ const ASKS = [
   },
 ];
 
-const TOTAL_SLIDES = 17;
+const TOTAL_SLIDES = 18;
 
 // ── Layout helpers ────────────────────────────────────────────────────────────
 
@@ -386,6 +386,124 @@ function SlidePlatform() {
         <div className="inline-flex items-center gap-2 bg-gcu-gold/10 border border-gcu-gold/30 rounded-full px-4 py-1.5">
           <span className="text-gcu-gold text-xs font-bold">👆 Hover each agent to see what it means for that college</span>
         </div>
+      </div>
+    </Slide>
+  );
+}
+
+function SlideDeliveryRoadmap() {
+  const phases = [
+    {
+      icon: '💬',
+      title: 'Text-Based Chat',
+      sub: 'Current · Live Now',
+      status: 'Live',
+      statusColor: 'bg-emerald-500',
+      textColor: 'text-emerald-400',
+      borderColor: 'border-emerald-500',
+      detail: 'Spirit is available today as a full text conversation on any browser or device. All 10 Spirit Agents are live and deployable right now.',
+    },
+    {
+      icon: '🎙️',
+      title: 'Voice-Based',
+      sub: 'Ready to Launch',
+      status: 'Ready',
+      statusColor: 'bg-blue-500',
+      textColor: 'text-blue-400',
+      borderColor: 'border-blue-500',
+      detail: 'Voice integration is built and tested. Spirit can speak and listen. Launch requires deployment infrastructure approval.',
+    },
+    {
+      icon: '🧑‍💻',
+      title: 'Interactive Avatars',
+      sub: 'Needs Funding',
+      status: 'Funding',
+      statusColor: 'bg-amber-500',
+      textColor: 'text-amber-400',
+      borderColor: 'border-amber-500',
+      detail: 'Life-size interactive avatar rendering — Spirit as a visible, expressive presence on screen. Requires investment in avatar rendering infrastructure.',
+    },
+    {
+      icon: '📱',
+      title: 'iOS / Android App',
+      sub: 'Needs Funding',
+      status: 'Funding',
+      statusColor: 'bg-amber-500',
+      textColor: 'text-amber-400',
+      borderColor: 'border-amber-500',
+      detail: 'A dedicated Flourish AI mobile app — Spirit in your pocket. Push notifications, offline mode, and personalized ongoing relationships. Requires mobile development investment.',
+    },
+    {
+      icon: '🖥️',
+      title: 'Physical Digital Kiosk',
+      sub: 'Needs Funding',
+      status: 'Funding',
+      statusColor: 'bg-amber-500',
+      textColor: 'text-amber-400',
+      borderColor: 'border-amber-500',
+      detail: 'Life-size touchscreen kiosks in hospital lobbies, school hallways, and church entrances. Spirit as a physical presence — no device required. Requires hardware and deployment investment.',
+    },
+    {
+      icon: '🤖',
+      title: 'Physical Robot',
+      sub: 'Phase 4 · 2029+',
+      status: 'Phase 4',
+      statusColor: 'bg-gcu-purple',
+      textColor: 'text-purple-400',
+      borderColor: 'border-gcu-purple',
+      detail: 'Spirit Vessels in physical robotic form — moving through wards, classrooms, and communities. The character of a GCU graduate in a body that can go where people are.',
+    },
+  ];
+
+  const [active, setActive] = useState<number | null>(null);
+
+  return (
+    <Slide>
+      <div className="text-center mb-8">
+        <Eyebrow>The Delivery Roadmap</Eyebrow>
+        <h2 className="text-4xl sm:text-5xl font-black text-white mb-3 leading-tight">
+          Spirit meets people wherever they are.<br />
+          <span className="text-gcu-gold">The form changes. The soul does not.</span>
+        </h2>
+        <p className="text-white/30 text-xs">Hover each phase to learn more</p>
+      </div>
+      {/* Timeline */}
+      <div className="relative">
+        {/* Connecting line */}
+        <div className="absolute top-8 left-0 right-0 h-0.5 bg-gradient-to-r from-emerald-500/40 via-amber-500/40 to-gcu-purple/40 hidden md:block" />
+        <div className="grid grid-cols-2 md:grid-cols-6 gap-3">
+          {phases.map((p, i) => (
+            <div
+              key={p.title}
+              className="relative flex flex-col items-center text-center cursor-pointer"
+              onMouseEnter={() => setActive(i)}
+              onMouseLeave={() => setActive(null)}
+            >
+              {/* Node dot on timeline */}
+              <div className={`w-6 h-6 rounded-full ${p.statusColor} border-2 border-white/20 flex items-center justify-center mb-3 z-10 shadow-lg transition-transform duration-200 ${active === i ? 'scale-125' : ''}`}>
+                <div className="w-2 h-2 rounded-full bg-white/60" />
+              </div>
+              <div className={`w-full bg-white/5 border-t-2 ${p.borderColor} border-x border-b border-white/10 rounded-2xl p-3 transition-all duration-200 ${active === i ? 'bg-white/10 scale-105' : ''}`}>
+                <div className="text-2xl mb-1.5">{p.icon}</div>
+                <p className="text-white font-black text-xs leading-tight mb-1">{p.title}</p>
+                <span className={`text-[9px] font-bold ${p.textColor}`}>{p.sub}</span>
+              </div>
+              {active === i && (
+                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-30 w-52 bg-[#1A0A30] border border-white/20 rounded-xl p-3 shadow-2xl pointer-events-none">
+                  <p className={`font-black text-xs mb-1 ${p.textColor}`}>{p.title}</p>
+                  <p className="text-white/70 text-[11px] leading-relaxed">{p.detail}</p>
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-white/20" />
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="flex flex-wrap justify-center gap-3 mt-6">
+        <span className="flex items-center gap-1.5 text-xs text-emerald-400"><span className="w-2 h-2 rounded-full bg-emerald-500 inline-block" /> Live Now</span>
+        <span className="flex items-center gap-1.5 text-xs text-blue-400"><span className="w-2 h-2 rounded-full bg-blue-500 inline-block" /> Ready to Launch</span>
+        <span className="flex items-center gap-1.5 text-xs text-amber-400"><span className="w-2 h-2 rounded-full bg-amber-500 inline-block" /> Needs Funding</span>
+        <span className="flex items-center gap-1.5 text-xs text-purple-400"><span className="w-2 h-2 rounded-full bg-gcu-purple inline-block" /> Future Phase</span>
       </div>
     </Slide>
   );
@@ -877,23 +995,24 @@ function SlideLibraryOverview() {
 // ── Slide router ──────────────────────────────────────────────────────────────
 
 function SlideContent({ index, onEnter }: { index: number; onEnter: () => void }) {
-  // Scenes occupy indices 4–8
-  if (index >= 4 && index <= 8) {
-    return <SlideScene scene={SCENES[index - 4]} index={index - 4} />;
+  // Scenes occupy indices 5–9
+  if (index >= 5 && index <= 9) {
+    return <SlideScene scene={SCENES[index - 5]} index={index - 5} />;
   }
   switch (index) {
     case 0:  return <SlideHero />;
     case 1:  return <SlideProblem />;
     case 2:  return <SlideWeAreGCU />;
     case 3:  return <SlidePlatform />;
-    case 9:  return <SlideProof />;
-    case 10: return <SlidePlatformOverview />;
-    case 11: return <SlideLibraryOverview />;
-    case 12: return <SlideStewardship />;
-    case 13: return <SlideMarket />;
-    case 14: return <SlideRevenue />;
-    case 15: return <SlideAsk />;
-    case 16: return <SlideLegacy onEnter={onEnter} />;
+    case 4:  return <SlideDeliveryRoadmap />;
+    case 10: return <SlideProof />;
+    case 11: return <SlidePlatformOverview />;
+    case 12: return <SlideLibraryOverview />;
+    case 13: return <SlideStewardship />;
+    case 14: return <SlideMarket />;
+    case 15: return <SlideRevenue />;
+    case 16: return <SlideAsk />;
+    case 17: return <SlideLegacy onEnter={onEnter} />;
     default: return null;
   }
 }
