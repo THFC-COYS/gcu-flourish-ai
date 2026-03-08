@@ -339,7 +339,13 @@ function SlideWeAreGCU() {
 }
 
 function SlidePlatform() {
-  const [active, setActive] = useState<string | null>(null);
+  const [active, setActive] = useState<string | null>('Spirit Researcher');
+
+  useEffect(() => {
+    const t = setTimeout(() => setActive(null), 2000);
+    return () => clearTimeout(t);
+  }, []);
+
   return (
     <Slide>
       <div className="text-center mb-5">
