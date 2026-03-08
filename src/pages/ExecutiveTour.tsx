@@ -5,16 +5,56 @@ import { ArrowLeft, ArrowRight, X, Sparkles, ChevronRight, Shield, Users, Globe,
 // ── Shared data ──────────────────────────────────────────────────────────────
 
 const AGENTS = [
-  { icon: '🏥', name: 'Spirit Nurse', domain: 'Clinical care & patient support' },
-  { icon: '📚', name: 'Spirit Teacher', domain: 'Education & learning guidance' },
-  { icon: '✝️', name: 'Spirit Chaplain', domain: 'Grief, faith & spiritual care' },
-  { icon: '💼', name: 'Spirit Advisor', domain: 'Business ethics & leadership' },
-  { icon: '🤝', name: 'Spirit Companion', domain: 'Mental health & emotional support' },
-  { icon: '🔬', name: 'Spirit Researcher', domain: 'Scientific inquiry & integrity' },
-  { icon: '⚙️', name: 'Spirit Engineer', domain: 'Ethical engineering practice' },
-  { icon: '🎨', name: 'Spirit Creative', domain: 'Arts, media & creative process' },
-  { icon: '🎓', name: 'Spirit Dissertation', domain: 'Doctoral research & completion' },
-  { icon: '💡', name: 'Spirit Innovator', domain: 'Honors & entrepreneurial thinking' },
+  {
+    icon: '🏥', name: 'Spirit Nurse', domain: 'Clinical care & patient support',
+    college: 'College of Nursing & Health Care Professions',
+    detail: 'Every GCU nursing graduate carries clinical competency and compassionate presence. Spirit Nurse carries both — available to any patient at 2 AM when fear is loudest and no one else can be there. Your faculty\'s clinical knowledge. Your graduates\' character. In the room when it matters most.',
+  },
+  {
+    icon: '📚', name: 'Spirit Teacher', domain: 'Education & learning guidance',
+    college: 'College of Education',
+    detail: 'Spirit Teacher is your faculty\'s pedagogy, your curriculum frameworks, and your best teaching moments — available to any student who is falling behind, any teacher who needs support, any parent trying to understand their child. The patience of your best educators. Always present. Never tired.',
+  },
+  {
+    icon: '✝️', name: 'Spirit Chaplain', domain: 'Grief, faith & spiritual care',
+    college: 'College of Theology',
+    detail: 'Spirit Chaplain carries scripture, grief, and the pastoral wisdom of GCU\'s theology program into every hard conversation about faith, loss, and doubt. A rural pastor at 2 AM. A student losing their faith. A family in the ICU. Your theology — present in the room.',
+  },
+  {
+    icon: '💼', name: 'Spirit Advisor', domain: 'Business ethics & leadership',
+    college: 'Colangelo College of Business',
+    detail: 'Spirit Advisor brings GCU\'s servant leadership principles and business ethics into every high-stakes decision. The founder on the edge. The leader who knows the right thing but feels alone in it. The team that needs someone to say: this is not who we are. Your faculty\'s values at the table.',
+  },
+  {
+    icon: '🤝', name: 'Spirit Companion', domain: 'Mental health & emotional support',
+    college: 'College of Humanities & Social Sciences',
+    detail: 'Spirit Companion is trained in mental health support frameworks and compassionate listening. The person at 3 AM with no one to call. The teenager who won\'t talk to a parent. Not therapy — presence. The kind of presence your counseling program teaches and your graduates embody.',
+  },
+  {
+    icon: '🔬', name: 'Spirit Researcher', domain: 'Scientific inquiry & integrity',
+    college: 'College of Science, Engineering & Technology',
+    detail: 'Spirit Researcher supports the ethics of inquiry — methodology, data integrity, and the courage to ask hard questions honestly. The doctoral candidate stuck at midnight. The researcher questioning their own data. Your program\'s academic rigor, present when the library is closed.',
+  },
+  {
+    icon: '⚙️', name: 'Spirit Engineer', domain: 'Ethical engineering practice',
+    college: 'College of Engineering',
+    detail: 'Spirit Engineer carries GCU\'s commitment to building things right, not just fast. The junior engineer afraid to speak up. The team cutting corners to hit a deadline. The moment when someone needs to hear: integrity is not optional. Your curriculum\'s values at the moment of decision.',
+  },
+  {
+    icon: '🎨', name: 'Spirit Creative', domain: 'Arts, media & creative process',
+    college: 'College of Arts & Media',
+    detail: 'Spirit Creative supports artistic integrity, creative process, and the ethics of storytelling. The filmmaker at a crossroads between vision and commerce. The writer who has lost their voice. Your arts faculty\'s wisdom about what it means to create with purpose — not just with skill.',
+  },
+  {
+    icon: '🎓', name: 'Spirit Dissertation', domain: 'Doctoral research & completion',
+    college: 'College of Doctoral Studies',
+    detail: 'Spirit Dissertation walks doctoral candidates through the hardest stretch — methodology, writing blocks, imposter syndrome, and the final push. The ABD candidate paralyzed for three years. The student at midnight convinced they\'ll never finish. Your doctoral faculty\'s mentorship, available whenever panic sets in.',
+  },
+  {
+    icon: '💡', name: 'Spirit Innovator', domain: 'Honors & entrepreneurial thinking',
+    college: 'Honors College',
+    detail: 'Spirit Innovator serves your highest-potential students — the gifted ones terrified of failure, the ideas that need courage to pursue, the founders who need someone to believe in them first. GCU\'s innovation culture deployed to every student with something worth building.',
+  },
 ];
 
 const SCENES = [
@@ -279,6 +319,7 @@ function SlideWeAreGCU() {
 }
 
 function SlidePlatform() {
+  const [active, setActive] = useState<string | null>(null);
   return (
     <Slide>
       <div className="text-center mb-5">
@@ -288,21 +329,38 @@ function SlidePlatform() {
           <span className="text-gcu-gold">One for every GCU college.</span>
         </h2>
         <p className="text-white/50 text-base max-w-2xl mx-auto mt-3 leading-relaxed">
-          A Spirit Agent is a GCU expert you can have a real conversation with — by text or voice, any time of day, on a phone, tablet, kiosk, or wearable. It knows everything a GCU-trained professional in that field would know, and it responds the way a GCU graduate would: with expertise <em>and</em> with humanity.
+          A Spirit Agent is a GCU expert you can have a real conversation with — by text or voice, any time of day, on a phone, tablet, kiosk, or wearable. It responds the way a GCU graduate would: with expertise <em>and</em> with humanity.
         </p>
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
         {AGENTS.map(a => (
-          <div key={a.name} className="bg-white/5 border border-white/10 rounded-xl p-3 text-center hover:border-gcu-purple/40 transition-colors">
-            <div className="text-2xl mb-1.5">{a.icon}</div>
-            <p className="text-white text-xs font-bold leading-tight mb-1">{a.name}</p>
-            <p className="text-white/40 text-[10px] leading-tight">{a.domain}</p>
+          <div
+            key={a.name}
+            className="relative"
+            onMouseEnter={() => setActive(a.name)}
+            onMouseLeave={() => setActive(null)}
+          >
+            <div className={`bg-white/5 border rounded-xl p-3 text-center cursor-pointer transition-all duration-200 ${active === a.name ? 'border-gcu-purple bg-gcu-purple/10 scale-105' : 'border-white/10 hover:border-gcu-purple/40'}`}>
+              <div className="text-2xl mb-1.5">{a.icon}</div>
+              <p className="text-white text-xs font-bold leading-tight mb-1">{a.name}</p>
+              <p className="text-white/40 text-[10px] leading-tight">{a.domain}</p>
+            </div>
+            {active === a.name && (
+              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-30 w-64 bg-[#1A0A30] border border-gcu-purple/60 rounded-xl p-4 shadow-2xl shadow-gcu-purple/30 pointer-events-none">
+                <p className="text-gcu-gold font-black text-xs mb-0.5">{a.name}</p>
+                <p className="text-white/40 text-[10px] mb-2 italic">{a.college}</p>
+                <p className="text-white/80 text-[11px] leading-relaxed">{a.detail}</p>
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-gcu-purple/60" />
+              </div>
+            )}
           </div>
         ))}
       </div>
-      <p className="text-center text-white/30 text-xs mt-5">
-        Each agent is a live prototype — available today, growing continuously as GCU's knowledge grows.
-      </p>
+      <div className="flex items-center justify-center gap-2 mt-4">
+        <div className="inline-flex items-center gap-2 bg-gcu-gold/10 border border-gcu-gold/30 rounded-full px-4 py-1.5">
+          <span className="text-gcu-gold text-xs font-bold">👆 Hover each agent to see what it means for that college</span>
+        </div>
+      </div>
     </Slide>
   );
 }
