@@ -81,7 +81,7 @@ const ASKS = [
   },
 ];
 
-const TOTAL_SLIDES = 15;
+const TOTAL_SLIDES = 16;
 
 // ── Layout helpers ────────────────────────────────────────────────────────────
 
@@ -589,6 +589,96 @@ function SlideStewardship() {
   );
 }
 
+function SlidePlatformOverview() {
+  const [active, setActive] = useState<number | null>(null);
+
+  const annotations = [
+    {
+      x: '10%', y: '52%',
+      side: 'right' as const,
+      dot: 'bg-gcu-purple',
+      label: 'Full Navigation Suite',
+      detail: '10 Spirit Agents · Deployment Console · Flourish API · Robotics · Vision Roadmap · Flourish Standard · Executive Briefing — all accessible from one platform, built and running today.',
+    },
+    {
+      x: '37%', y: '26%',
+      side: 'right' as const,
+      dot: 'bg-emerald-400',
+      label: '34K+ Interactions · 94% Ethical Alignment',
+      detail: 'Live platform metrics — every simulated interaction tracked, scored for ethical alignment, and reviewed. The system has been running. The data is real.',
+    },
+    {
+      x: '23%', y: '40%',
+      side: 'right' as const,
+      dot: 'bg-gcu-gold',
+      label: '10 Million Interactions Processed',
+      detail: 'The platform has already processed 10 million simulated interactions across all 10 Spirit Agents. Not a concept. A working system with a track record.',
+    },
+    {
+      x: '62%', y: '73%',
+      side: 'left' as const,
+      dot: 'bg-purple-400',
+      label: 'Phase 2 Already Designed',
+      detail: 'Spirit Vessels get bodies — kiosks, wearables, robotics. Phase 2 is designed and roadmapped. The platform is built to scale into physical form.',
+    },
+    {
+      x: '50%', y: '90%',
+      side: 'left' as const,
+      dot: 'bg-blue-400',
+      label: 'All 10 College Spirit Agents — Live',
+      detail: 'Every GCU college has a Spirit Agent. Each is a live prototype deployable today — Spirit Nurse, Spirit Teacher, Spirit Chaplain, and seven more. One for every domain GCU has mastered.',
+    },
+  ];
+
+  return (
+    <div className="min-h-full flex flex-col items-center justify-center px-8 py-8">
+      <div className="w-full max-w-5xl mx-auto">
+        <div className="text-center mb-5">
+          <Eyebrow>The Platform · Live Today</Eyebrow>
+          <h2 className="text-3xl sm:text-4xl font-black text-white leading-tight">
+            This is the real platform.<br />
+            <span className="text-gcu-gold">Built by one person. Running now.</span>
+          </h2>
+          <p className="text-white/30 text-xs mt-2">Hover the markers to explore</p>
+        </div>
+        <div className="relative w-full">
+          <img
+            src="/scenes/platform-overview.png"
+            alt="GCU Flourish AI Platform"
+            className="w-full rounded-2xl border border-white/10 shadow-2xl shadow-black/40"
+          />
+          {annotations.map((a, i) => (
+            <div
+              key={i}
+              className="absolute"
+              style={{ left: a.x, top: a.y, transform: 'translate(-50%, -50%)' }}
+              onMouseEnter={() => setActive(i)}
+              onMouseLeave={() => setActive(null)}
+            >
+              {/* Pulsing dot */}
+              <div className="relative cursor-pointer">
+                <div className={`absolute inset-0 rounded-full ${a.dot} opacity-40 animate-ping`} style={{ animationDuration: '2s' }} />
+                <div className={`relative w-4 h-4 rounded-full ${a.dot} border-2 border-white/60 shadow-lg`} />
+              </div>
+              {/* Tooltip */}
+              {active === i && (
+                <div className={`absolute z-30 w-56 bg-[#0F0A1E]/95 border border-white/20 rounded-xl p-3 shadow-2xl pointer-events-none ${
+                  a.side === 'left'
+                    ? 'right-6 top-0'
+                    : 'left-6 top-0'
+                }`}>
+                  <p className="text-white font-black text-xs mb-1.5">{a.label}</p>
+                  <p className="text-white/60 text-[11px] leading-relaxed">{a.detail}</p>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ── Slide router ──────────────────────────────────────────────────────────────
 
 function SlideContent({ index, onEnter }: { index: number; onEnter: () => void }) {
@@ -602,11 +692,12 @@ function SlideContent({ index, onEnter }: { index: number; onEnter: () => void }
     case 2:  return <SlideWeAreGCU />;
     case 3:  return <SlidePlatform />;
     case 9:  return <SlideProof />;
-    case 10: return <SlideStewardship />;
-    case 11: return <SlideMarket />;
-    case 12: return <SlideRevenue />;
-    case 13: return <SlideAsk />;
-    case 14: return <SlideLegacy onEnter={onEnter} />;
+    case 10: return <SlidePlatformOverview />;
+    case 11: return <SlideStewardship />;
+    case 12: return <SlideMarket />;
+    case 13: return <SlideRevenue />;
+    case 14: return <SlideAsk />;
+    case 15: return <SlideLegacy onEnter={onEnter} />;
     default: return null;
   }
 }
