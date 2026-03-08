@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowLeft, ArrowRight, X, Sparkles, ChevronRight, Shield, Users, Globe, TrendingUp } from 'lucide-react';
+import { ArrowLeft, ArrowRight, X, Sparkles, ChevronRight, Users, Globe, TrendingUp } from 'lucide-react';
 
 // ── Shared data ──────────────────────────────────────────────────────────────
 
@@ -121,7 +121,7 @@ const ASKS = [
   },
 ];
 
-const TOTAL_SLIDES = 18;
+const TOTAL_SLIDES = 19;
 
 // ── Layout helpers ────────────────────────────────────────────────────────────
 
@@ -666,19 +666,13 @@ function SlideLegacy({ onEnter }: { onEnter: () => void }) {
         <p className="text-2xl font-black text-white mb-10">
           "Is it <span className="text-gcu-gold">Spirit-Certified</span>?"
         </p>
-        <div className="flex flex-wrap items-center justify-center gap-4">
+        <div className="flex items-center justify-center">
           <button
             onClick={onEnter}
             className="flex items-center gap-2 px-8 py-4 rounded-2xl bg-gcu-gold text-gcu-purple-dark font-black text-base hover:bg-yellow-400 transition-colors shadow-lg shadow-gcu-gold/20"
           >
-            Enter the Platform <ChevronRight size={18} />
+            Enter the Demo <ChevronRight size={18} />
           </button>
-          <a
-            href="/flourish-standard"
-            className="flex items-center gap-2 px-8 py-4 rounded-2xl bg-white/10 border border-white/20 text-white font-bold text-base hover:bg-white/15 transition-colors"
-          >
-            <Shield size={16} /> View the Flourish Standard
-          </a>
         </div>
         <p className="text-white/20 text-xs mt-10">GCU Flourish AI · 77 years of character, deployed at scale</p>
       </div>
@@ -820,6 +814,75 @@ function SlideStewardship() {
             <p className="text-white/50 text-xs leading-relaxed">{p.body}</p>
           </div>
         ))}
+      </div>
+    </Slide>
+  );
+}
+
+function SlideFlourishStandard() {
+  const pillars = [
+    {
+      icon: '📋',
+      color: 'border-gcu-gold',
+      title: 'Institutional Governance Agreement',
+      body: 'Before a Spirit Agent goes live, the deploying institution signs a formal governance agreement defining who oversees the deployment, how sessions are reviewed, and what escalation procedures are in place. Accountability is documented before the first conversation happens.',
+    },
+    {
+      icon: '⚖️',
+      color: 'border-blue-400',
+      title: 'Liability Framework',
+      body: 'Certification formally shifts primary liability to the deploying institution. GCU retains quality authority — the institution accepts operational responsibility. The documented chain of stewardship protects GCU, the partner, and every person the system serves.',
+    },
+    {
+      icon: '🔐',
+      color: 'border-purple-400',
+      title: 'Deployment Protocol Compliance',
+      body: 'Every deployment must meet GCU\'s technical, ethical, and pastoral standards before going live — verified source libraries, safety layers active, audit logging enabled, crisis escalation tested. The Flourish Standard is not a checkbox. It is a gate.',
+    },
+    {
+      icon: '🎓',
+      color: 'border-emerald-400',
+      title: 'Annual Re-Certification',
+      body: 'Certification is not permanent. Institutions re-certify annually — ensuring governance stays current, Spirit Agents are updated with verified knowledge, and safety systems remain active. Re-certification generates recurring revenue and keeps GCU in an ongoing stewardship relationship with every partner.',
+    },
+  ];
+
+  return (
+    <Slide>
+      <div className="text-center mb-8">
+        <Eyebrow>The Flourish Standard</Eyebrow>
+        <h2 className="text-4xl sm:text-5xl font-black text-white mb-3 leading-tight">
+          GCU writes the rules.<br />
+          <span className="text-gcu-gold">The industry signs the contract.</span>
+        </h2>
+        <p className="text-white/40 text-sm max-w-2xl mx-auto">
+          Every institution that deploys a Spirit Agent must complete GCU's Flourish Standard certification. It is not optional. It is the condition of access — and the mechanism that protects everyone involved.
+        </p>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-4 mb-5">
+        {pillars.map(p => (
+          <div key={p.title} className={`bg-white/5 border-t-2 ${p.color} border-x border-b border-white/10 rounded-2xl p-5`}>
+            <div className="text-2xl mb-2">{p.icon}</div>
+            <h3 className="text-white font-black text-sm mb-2 leading-tight">{p.title}</h3>
+            <p className="text-white/50 text-xs leading-relaxed">{p.body}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="grid md:grid-cols-3 gap-4">
+        <div className="bg-gcu-gold/10 border border-gcu-gold/30 rounded-2xl p-4 text-center">
+          <p className="text-gcu-gold font-black text-sm mb-1">What institutions get</p>
+          <p className="text-white/60 text-xs">The authority to deploy Spirit Agents — and the credibility of GCU's ethical framework behind every interaction.</p>
+        </div>
+        <div className="bg-white/5 border border-white/10 rounded-2xl p-4 text-center">
+          <p className="text-white font-black text-sm mb-1">What GCU earns</p>
+          <p className="text-white/60 text-xs">Certification fees, annual re-certification revenue, and a growing network of institutions operating under GCU's ethical authority.</p>
+        </div>
+        <div className="bg-purple-500/10 border border-purple-500/30 rounded-2xl p-4 text-center">
+          <p className="text-purple-300 font-black text-sm mb-1">The market position</p>
+          <p className="text-white/60 text-xs">No ethical AI certification standard exists for faith-based institutions. GCU creates it first — and owns the category.</p>
+        </div>
       </div>
     </Slide>
   );
@@ -1025,10 +1088,11 @@ function SlideContent({ index, onEnter }: { index: number; onEnter: () => void }
     case 11: return <SlidePlatformOverview />;
     case 12: return <SlideLibraryOverview />;
     case 13: return <SlideStewardship />;
-    case 14: return <SlideMarket />;
-    case 15: return <SlideRevenue />;
-    case 16: return <SlideAsk />;
-    case 17: return <SlideLegacy onEnter={onEnter} />;
+    case 14: return <SlideFlourishStandard />;
+    case 15: return <SlideMarket />;
+    case 16: return <SlideRevenue />;
+    case 17: return <SlideAsk />;
+    case 18: return <SlideLegacy onEnter={onEnter} />;
     default: return null;
   }
 }
