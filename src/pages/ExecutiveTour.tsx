@@ -28,7 +28,7 @@ const SCENES = [
     src: '/scenes/lobby.jpg',
     label: 'Hospital Lobby Kiosk',
     phase: 'Now · Phase 1',
-    scenario: 'A family arrives at the emergency entrance. They don\'t know where to go, who to ask, or what\'s happening to the person they love. Spirit is the first calm face they see — orienting them, translating if needed, and connecting them to the right care team before they reach the front desk.',
+    scenario: 'A family arrives at the emergency entrance. They don\'t know where to go, who to ask, or what\'s happening to the person they love. One of them is quietly asking why God would let this happen. Spirit is the first calm face they see — orienting them, holding space for their fear and their faith, and connecting them to the right care team before they reach the front desk.',
   },
   {
     src: '/scenes/classroom.jpg',
