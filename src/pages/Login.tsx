@@ -1,24 +1,218 @@
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Eye, EyeOff, AlertCircle, Sparkles, CheckCircle2,
-  ArrowRight, Shield, Heart, Zap, Users, Star, Building2
+  ArrowRight, Shield, Heart, Zap, Star, Building2
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { DEMO_CREDENTIALS } from '../data/mockData';
 
-const STATS = [
-  { value: '10', label: 'Autonomous Spirit Agents Live' },
-  { value: '24/7', label: 'Always On — Never Tired' },
-  { value: '0', label: 'Data Sold. Ever.' },
-  { value: '∞', label: 'Questions They Can Answer' },
-];
+// ── Live demo script ─────────────────────────────────────────────────────────
+// Each entry is either a patient message or a Spirit Nurse response.
+// delay = ms after previous message fully appears before this one starts showing.
+const DEMO_SCRIPT = [
+  {
+    role: 'user' as const,
+    text: "I woke up at 2am with pressure in my chest. I'm scared.",
+    delay: 800,
+  },
+  {
+    role: 'nurse' as const,
+    text: "I hear you, and it's okay to be scared — you did the right thing reaching out. That kind of pressure in your chest needs our full attention right now.\n\nCan you tell me: does the pressure spread anywhere, like your left arm or jaw? And on a scale of 1 to 10, how would you rate it?",
+    delay: 1200,
+  },
+  {
+    role: 'user' as const,
+    text: "It's about a 7... and yes, it goes into my left arm.",
+    delay: 900,
+  },
+  {
+    role: 'nurse' as const,
+    text: "Listen to me carefully: call 911 right now. Don't drive yourself.\n\nWhile you wait — sit down, don't lie flat, and try to stay as calm as you can. If you have aspirin nearby and you're not allergic, chew one regular tablet.\n\nI'm staying right here with you until help arrives. You are not alone.",
+    delay: 1400,
+  },
+] as const;
 
-const INDUSTRIES = [
-  { icon: '🏥', label: 'Healthcare', desc: 'Spirit Nurse conducting telehealth visits, monitoring patients, extending care into underserved hours' },
-  { icon: '🎓', label: 'Education', desc: 'Spirit Teacher running live tutoring sessions and small groups directly with students' },
-  { icon: '✝️', label: 'Pastoral Care', desc: 'Spirit Chaplain present in hospitals, VA centers, and prisons at 3am when no human can be' },
-  { icon: '💼', label: 'Business & Nonprofits', desc: 'Spirit Advisor working alongside leaders on live strategy, ethics, and mission-critical decisions' },
+// Typing speed: characters per interval tick (ms)
+const CHAR_DELAY = 18; // ms per character
+const NURSE_CHAR_DELAY = 14;
+
+interface DemoMsg {
+  role: 'user' | 'nurse';
+  text: string;
+  partial: boolean; // still being typed?
+}
+
+function LiveDemoChat() {
+  const [messages, setMessages] = useState<DemoMsg[]>([]);
+  const [nurseTyping, setNurseTyping] = useState(false);
+  const bottomRef = useRef<HTMLDivElement>(null);
+  const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
+
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages, nurseTyping]);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    function clearAll() {
+      timers.current.forEach(clearTimeout);
+      timers.current = [];
+    }
+
+    function typeMessage(
+      scriptIdx: number,
+      charIdx: number,
+      accumulated: string,
+      afterDone: () => void
+    ) {
+      const entry = DEMO_SCRIPT[scriptIdx];
+      if (cancelled) return;
+      if (charIdx >= entry.text.length) {
+        // Mark message as fully typed
+        setMessages(prev =>
+          prev.map((m, i) => (i === prev.length - 1 ? { ...m, partial: false } : m))
+        );
+        afterDone();
+        return;
+      }
+      const nextChar = entry.text[charIdx];
+      const next = accumulated + nextChar;
+      setMessages(prev =>
+        prev.map((m, i) => (i === prev.length - 1 ? { ...m, text: next } : m))
+      );
+      const speed = entry.role === 'nurse' ? NURSE_CHAR_DELAY : CHAR_DELAY;
+      const t = setTimeout(() => typeMessage(scriptIdx, charIdx + 1, next, afterDone), speed);
+      timers.current.push(t);
+    }
+
+    function runScript(idx: number) {
+      if (idx >= DEMO_SCRIPT.length || cancelled) return;
+      const entry = DEMO_SCRIPT[idx];
+
+      const t = setTimeout(() => {
+        if (cancelled) return;
+        if (entry.role === 'nurse') {
+          setNurseTyping(true);
+          // Show typing indicator for a beat, then start typing the actual message
+          const t2 = setTimeout(() => {
+            if (cancelled) return;
+            setNurseTyping(false);
+            setMessages(prev => [...prev, { role: 'nurse', text: '', partial: true }]);
+            typeMessage(idx, 0, '', () => {
+              runScript(idx + 1);
+            });
+          }, 1600);
+          timers.current.push(t2);
+        } else {
+          setMessages(prev => [...prev, { role: 'user', text: '', partial: true }]);
+          typeMessage(idx, 0, '', () => {
+            runScript(idx + 1);
+          });
+        }
+      }, entry.delay);
+      timers.current.push(t);
+    }
+
+    // Restart the demo from scratch
+    function restart() {
+      if (cancelled) return;
+      setMessages([]);
+      setNurseTyping(false);
+      runScript(0);
+    }
+
+    restart();
+
+    // Auto-replay after the last message finishes + 6s pause
+    // We do this by scheduling a delayed restart after all delays sum
+    const totalDuration =
+      DEMO_SCRIPT.reduce((acc, s) => acc + s.delay + s.text.length * NURSE_CHAR_DELAY, 0) + 6000;
+    const loopTimer = setInterval(() => {
+      if (cancelled) return;
+      clearAll();
+      restart();
+    }, totalDuration);
+
+    return () => {
+      cancelled = true;
+      clearAll();
+      clearInterval(loopTimer);
+    };
+  }, []);
+
+  return (
+    <div className="flex flex-col h-full">
+      {/* Demo badge */}
+      <div className="flex items-center gap-2 mb-4">
+        <span className="relative flex h-2 w-2">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
+        </span>
+        <span className="text-xs font-bold text-white/50 uppercase tracking-widest">Live Demo · Spirit Nurse</span>
+        <span className="text-xs text-white/30 ml-auto">2:04 AM</span>
+      </div>
+
+      {/* Chat area */}
+      <div className="flex-1 overflow-y-auto space-y-3 pr-1 demo-chat-scroll">
+        {messages.map((msg, i) => (
+          <div
+            key={i}
+            className={`flex items-end gap-2 animate-fade-in ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}
+          >
+            {msg.role === 'nurse' && (
+              <div className="w-7 h-7 rounded-full bg-gcu-gold flex items-center justify-center text-gcu-purple-dark text-xs font-black flex-shrink-0 mb-0.5">
+                SN
+              </div>
+            )}
+            <div
+              className={`max-w-[82%] px-4 py-2.5 rounded-2xl text-sm leading-relaxed whitespace-pre-wrap ${
+                msg.role === 'user'
+                  ? 'bg-white/15 text-white rounded-br-sm'
+                  : 'bg-white/10 border border-white/10 text-white/90 rounded-bl-sm'
+              }`}
+            >
+              {msg.text}
+              {msg.partial && (
+                <span className="inline-block w-0.5 h-3.5 bg-white/70 ml-0.5 animate-pulse align-middle" />
+              )}
+            </div>
+          </div>
+        ))}
+
+        {/* Nurse typing indicator */}
+        {nurseTyping && (
+          <div className="flex items-end gap-2 animate-fade-in">
+            <div className="w-7 h-7 rounded-full bg-gcu-gold flex items-center justify-center text-gcu-purple-dark text-xs font-black flex-shrink-0 mb-0.5">
+              SN
+            </div>
+            <div className="bg-white/10 border border-white/10 rounded-2xl rounded-bl-sm px-4 py-3">
+              <div className="flex items-center gap-1">
+                <span className="typing-dot" />
+                <span className="typing-dot" />
+                <span className="typing-dot" />
+              </div>
+            </div>
+          </div>
+        )}
+        <div ref={bottomRef} />
+      </div>
+
+      {/* Attribution */}
+      <div className="mt-3 flex items-center gap-1.5 text-xs text-white/30">
+        <Shield size={11} className="text-gcu-gold/60" />
+        Ethical AI · Human escalation always available · GCU Flourish Spirit Layer
+      </div>
+    </div>
+  );
+}
+
+const STATS = [
+  { value: '10', label: 'Spirit Agents Live' },
+  { value: '24/7', label: 'Always On' },
+  { value: '0', label: 'Data Sold. Ever.' },
+  { value: '∞', label: 'Questions Answered' },
 ];
 
 const TRUST_BADGES = [
@@ -131,39 +325,9 @@ export default function Login() {
             ))}
           </div>
 
-          {/* Industries */}
-          <div>
-            <p className="text-white/40 text-xs font-semibold uppercase tracking-widest mb-3">Deployed where humans can't always be</p>
-            <div className="grid grid-cols-2 gap-2">
-              {INDUSTRIES.map(ind => (
-                <div key={ind.label} className="glass-card rounded-xl p-3 flex items-start gap-3">
-                  <span className="text-xl flex-shrink-0">{ind.icon}</span>
-                  <div>
-                    <div className="text-white text-sm font-bold">{ind.label}</div>
-                    <div className="text-white/50 text-xs leading-tight mt-0.5">{ind.desc}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Testimonial */}
-          <div className="glass-card rounded-2xl p-5">
-            <div className="flex items-center gap-2 mb-3">
-              <span className="text-xs font-bold uppercase tracking-widest bg-amber-400/20 border border-amber-400/40 text-amber-300 px-2 py-0.5 rounded-full">Simulated</span>
-              <span className="text-white/30 text-xs">Illustrative example, not a real testimonial</span>
-            </div>
-            <p className="text-white/80 text-sm leading-relaxed italic">
-              "At 3am, when our chaplain goes home, there is a patient somewhere who is afraid and alone.
-              The Spirit Chaplain is <span className="text-gcu-gold font-semibold">already there.</span> That's not a feature. That's a calling answered."
-            </p>
-            <div className="flex items-center gap-3 mt-4">
-              <div className="w-8 h-8 rounded-full bg-gcu-gold/20 border border-gcu-gold/30 flex items-center justify-center text-gcu-gold font-bold text-sm">B</div>
-              <div>
-                <div className="text-white text-sm font-semibold">Illustrative Healthcare Partner</div>
-                <div className="text-white/40 text-xs">Simulated · Not a real organization</div>
-              </div>
-            </div>
+          {/* Live demo chat */}
+          <div className="glass-card rounded-2xl p-4 flex flex-col" style={{ height: '280px' }}>
+            <LiveDemoChat />
           </div>
 
           {/* Trust badges */}
