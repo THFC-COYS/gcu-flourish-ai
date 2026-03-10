@@ -56,6 +56,7 @@ export default function TestingZone() {
   const [submitted, setSubmitted] = useState(false);
   const [deployMsg, setDeployMsg] = useState('');
   const [voiceMode, setVoiceMode] = useState(false);
+  const [pendingHandoffBrief, setPendingHandoffBrief] = useState<string | undefined>();
 
   useEffect(() => {
     const id = searchParams.get('id');
@@ -156,7 +157,15 @@ export default function TestingZone() {
 
           <ChatSimulator
             prototype={selected}
-            onHandoff={p => { setSelected(p); setSubmitted(false); setDeployMsg(''); }}
+            handoffBrief={pendingHandoffBrief}
+            onHandoff={p => {
+              const brief = sessionStorage.getItem('pending_handoff_brief') ?? undefined;
+              sessionStorage.removeItem('pending_handoff_brief');
+              setPendingHandoffBrief(brief);
+              setSelected(p);
+              setSubmitted(false);
+              setDeployMsg('');
+            }}
           />
 
           {/* Sample prompts */}

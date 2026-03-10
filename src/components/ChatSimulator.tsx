@@ -1,32 +1,31 @@
 import { useState, useRef, useEffect } from 'react';
-import { Send, Shield, RefreshCw, Volume2, VolumeX, ArrowRightCircle, X } from 'lucide-react';
+import { Send, Shield, RefreshCw, Volume2, VolumeX, ArrowRightCircle, X, Clock, AlertTriangle, Phone, Heart } from 'lucide-react';
 import { Message, Prototype } from '../types';
 import HeyGenAvatar, { HeyGenAvatarHandle, resolveAvatar } from './HeyGenAvatar';
 import { MOCK_PROTOTYPES } from '../data/mockData';
 
+// ─── Voice ────────────────────────────────────────────────────────────────────
 function speak(text: string) {
   if (!window.speechSynthesis) return;
   window.speechSynthesis.cancel();
   const utterance = new SpeechSynthesisUtterance(text);
   utterance.rate = 0.95;
   utterance.pitch = 1.05;
-  // Prefer a warm female voice if available
   const voices = window.speechSynthesis.getVoices();
   const preferred = voices.find(v =>
-    v.name.includes('Samantha') ||
-    v.name.includes('Karen') ||
-    v.name.includes('Moira') ||
-    v.name.includes('Female') ||
+    v.name.includes('Samantha') || v.name.includes('Karen') ||
+    v.name.includes('Moira') || v.name.includes('Female') ||
     (v.lang === 'en-US' && v.name.toLowerCase().includes('female'))
   ) ?? voices.find(v => v.lang === 'en-US') ?? voices[0];
   if (preferred) utterance.voice = preferred;
   window.speechSynthesis.speak(utterance);
 }
 
+// ─── Handoff detection ────────────────────────────────────────────────────────
 function detectHandoff(userMessage: string, currentId: string): Prototype | null {
   const msg = userMessage.toLowerCase();
   let best: Prototype | null = null;
-  let bestScore = 1; // require at least 2 keyword hits
+  let bestScore = 1;
   for (const p of MOCK_PROTOTYPES) {
     if (p.id === currentId) continue;
     const keywords = [
@@ -40,12 +39,61 @@ function detectHandoff(userMessage: string, currentId: string): Prototype | null
   return best;
 }
 
-interface ChatSimulatorProps {
-  prototype: Prototype;
-  compact?: boolean;
-  onHandoff?: (prototype: Prototype) => void;
+// ─── Crisis detection ─────────────────────────────────────────────────────────
+const CRISIS_KEYWORDS = [
+  'suicide', 'kill myself', 'end my life', 'want to die', 'don\'t want to live',
+  'hurt myself', 'harm myself', 'self harm', 'overdose', 'cutting myself',
+  'ending it', 'not worth living', 'better off dead', 'no reason to live',
+];
+
+function detectCrisis(text: string): boolean {
+  const lower = text.toLowerCase();
+  return CRISIS_KEYWORDS.some(k => lower.includes(k));
 }
 
+// ─── Institutional Memory ─────────────────────────────────────────────────────
+const MEMORY_KEY_PREFIX = 'spirit_memory_';
+const MAX_STORED_MESSAGES = 20;
+
+function getMemoryKey(prototypeId: string): string {
+  return `${MEMORY_KEY_PREFIX}${prototypeId}`;
+}
+
+function loadMemory(prototypeId: string): Message[] {
+  try {
+    const raw = localStorage.getItem(getMemoryKey(prototypeId));
+    if (!raw) return [];
+    const parsed = JSON.parse(raw) as Array<Omit<Message, 'timestamp'> & { timestamp: string }>;
+    return parsed.map(m => ({ ...m, timestamp: new Date(m.timestamp) }));
+  } catch {
+    return [];
+  }
+}
+
+function saveMemory(prototypeId: string, messages: Message[]) {
+  try {
+    const toStore = messages
+      .filter(m => m.role !== 'system')
+      .slice(-MAX_STORED_MESSAGES);
+    localStorage.setItem(getMemoryKey(prototypeId), JSON.stringify(toStore));
+  } catch {
+    // storage full or unavailable — fail silently
+  }
+}
+
+function clearMemory(prototypeId: string) {
+  localStorage.removeItem(getMemoryKey(prototypeId));
+}
+
+// ─── Build handoff brief ──────────────────────────────────────────────────────
+function buildHandoffBrief(fromSpirit: Prototype, messages: Message[]): string {
+  const userMessages = messages.filter(m => m.role === 'user').map(m => m.content);
+  const topicSummary = userMessages.slice(-3).join(' / ').slice(0, 200);
+  const msgCount = userMessages.length;
+  return `📋 **Spirit Handoff Brief**\n\nTransferring from: **${fromSpirit.name}** (${fromSpirit.college})\nConversation length: ${msgCount} exchange${msgCount !== 1 ? 's' : ''}\nRecent context: *"${topicSummary || 'General conversation'}"*\n\nThe person you're now speaking with was just working with ${fromSpirit.name}. Pick up naturally — they may not want to repeat themselves.`;
+}
+
+// ─── API call ─────────────────────────────────────────────────────────────────
 function buildSystemPrompt(prototype: Prototype): string {
   const enabledModules = prototype.spiritModules
     .filter(m => m.enabled)
@@ -106,6 +154,7 @@ async function callGrokAPI(
   }
 }
 
+// ─── Sub-components ───────────────────────────────────────────────────────────
 function TypingIndicator() {
   return (
     <div className="flex items-end gap-2">
@@ -123,53 +172,166 @@ function TypingIndicator() {
   );
 }
 
-export default function ChatSimulator({ prototype, compact = false, onHandoff }: ChatSimulatorProps) {
-  const [messages, setMessages] = useState<Message[]>([{
-    id: '0',
-    role: 'assistant',
-    content: prototype.aiPersona.greeting,
-    timestamp: new Date(),
-    attribution: prototype.aiPersona.attribution,
-  }]);
-  const [input, setInput] = useState('');
-  const [isTyping, setIsTyping] = useState(false);
-  const [voiceOn, setVoiceOn] = useState(false);
-  const [handoffSuggestion, setHandoffSuggestion] = useState<Prototype | null>(null);
-  const avatarRef = useRef<HeyGenAvatarHandle>(null);
-  const bottomRef = useRef<HTMLDivElement>(null);
+function CrisisCard({ onDismiss }: { onDismiss: () => void }) {
+  return (
+    <div className="mx-4 mb-2 bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800 rounded-xl p-4 space-y-3">
+      <div className="flex items-start justify-between gap-2">
+        <div className="flex items-center gap-2">
+          <AlertTriangle size={16} className="text-red-600 dark:text-red-400 flex-shrink-0 mt-0.5" />
+          <p className="text-sm font-semibold text-red-800 dark:text-red-300">
+            You don't have to face this alone
+          </p>
+        </div>
+        <button onClick={onDismiss} className="text-red-400 hover:text-red-600 flex-shrink-0">
+          <X size={14} />
+        </button>
+      </div>
+      <p className="text-xs text-red-700 dark:text-red-400 leading-relaxed">
+        What you're feeling is real. A trained person is ready to listen right now — no judgment.
+      </p>
+      <div className="grid grid-cols-2 gap-2">
+        <a
+          href="tel:988"
+          className="flex items-center justify-center gap-1.5 bg-red-600 hover:bg-red-700 text-white text-xs font-semibold py-2 px-3 rounded-lg transition-colors"
+        >
+          <Phone size={12} /> Call 988
+        </a>
+        <a
+          href="sms:988"
+          className="flex items-center justify-center gap-1.5 bg-white dark:bg-red-900/50 hover:bg-red-50 dark:hover:bg-red-900 text-red-700 dark:text-red-300 border border-red-300 dark:border-red-700 text-xs font-semibold py-2 px-3 rounded-lg transition-colors"
+        >
+          <Heart size={12} /> Text 988
+        </a>
+      </div>
+      <p className="text-xs text-red-500 dark:text-red-500 text-center">
+        988 Suicide &amp; Crisis Lifeline · Free · 24/7 · Confidential
+      </p>
+    </div>
+  );
+}
 
-  useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages, isTyping]);
+// ─── Main component ───────────────────────────────────────────────────────────
+interface ChatSimulatorProps {
+  prototype: Prototype;
+  compact?: boolean;
+  onHandoff?: (prototype: Prototype) => void;
+  handoffBrief?: string;
+}
 
-  // Reset when prototype changes
-  useEffect(() => {
-    setMessages([{
+export default function ChatSimulator({ prototype, compact = false, onHandoff, handoffBrief }: ChatSimulatorProps) {
+  const previousMemory = loadMemory(prototype.id);
+  const isReturning = previousMemory.length > 0;
+
+  const buildInitialMessages = (): Message[] => {
+    const greeting: Message = {
       id: '0',
       role: 'assistant',
       content: prototype.aiPersona.greeting,
       timestamp: new Date(),
       attribution: prototype.aiPersona.attribution,
-    }]);
+    };
+
+    if (handoffBrief) {
+      // Coming in via handoff — inject brief as system context, then greet fresh
+      return [
+        { id: 'hb', role: 'system', content: handoffBrief, timestamp: new Date() },
+        greeting,
+      ];
+    }
+
+    if (isReturning) {
+      const returnNote: Message = {
+        id: 'mem-return',
+        role: 'system',
+        content: `🔁 Spirit remembers you — continuing from your last conversation (${previousMemory.length} previous exchanges).`,
+        timestamp: new Date(),
+      };
+      const returningGreeting: Message = {
+        id: '0',
+        role: 'assistant',
+        content: `Welcome back. I remember our last conversation. How are you doing today?`,
+        timestamp: new Date(),
+        attribution: prototype.aiPersona.attribution,
+      };
+      return [...previousMemory, returnNote, returningGreeting];
+    }
+
+    return [greeting];
+  };
+
+  const [messages, setMessages] = useState<Message[]>(buildInitialMessages);
+  const [input, setInput] = useState('');
+  const [isTyping, setIsTyping] = useState(false);
+  const [voiceOn, setVoiceOn] = useState(false);
+  const [handoffSuggestion, setHandoffSuggestion] = useState<Prototype | null>(null);
+  const [showCrisis, setShowCrisis] = useState(false);
+  const avatarRef = useRef<HeyGenAvatarHandle>(null);
+  const bottomRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages, isTyping, showCrisis]);
+
+  // Save memory whenever messages change
+  useEffect(() => {
+    saveMemory(prototype.id, messages);
+  }, [messages, prototype.id]);
+
+  // Reset when prototype changes
+  useEffect(() => {
+    const mem = loadMemory(prototype.id);
+    const returning = mem.length > 0;
+    if (returning) {
+      const returnNote: Message = {
+        id: 'mem-return',
+        role: 'system',
+        content: `🔁 Spirit remembers you — continuing from your last conversation (${mem.length} previous exchanges).`,
+        timestamp: new Date(),
+      };
+      const returningGreeting: Message = {
+        id: '0',
+        role: 'assistant',
+        content: `Welcome back. I remember our last conversation. How are you doing today?`,
+        timestamp: new Date(),
+        attribution: prototype.aiPersona.attribution,
+      };
+      setMessages([...mem, returnNote, returningGreeting]);
+    } else {
+      setMessages([{
+        id: '0',
+        role: 'assistant',
+        content: prototype.aiPersona.greeting,
+        timestamp: new Date(),
+        attribution: prototype.aiPersona.attribution,
+      }]);
+    }
     setInput('');
     setIsTyping(false);
     setHandoffSuggestion(null);
+    setShowCrisis(false);
   }, [prototype.id]);
 
   const sendMessage = async () => {
     const text = input.trim();
     if (!text || isTyping) return;
+
+    // Crisis check
+    if (detectCrisis(text)) {
+      setShowCrisis(true);
+    }
+
     const userMsg: Message = {
       id: Date.now().toString(), role: 'user', content: text, timestamp: new Date(),
     };
     const updatedHistory = [...messages, userMsg];
     setMessages(updatedHistory);
     setInput('');
-    // Detect if user is asking about a different spirit's domain
+
     if (onHandoff) {
       const suggestion = detectHandoff(text, prototype.id);
       if (suggestion) setHandoffSuggestion(suggestion);
     }
+
     setIsTyping(true);
     const content = await callGrokAPI(prototype, updatedHistory);
     setIsTyping(false);
@@ -180,7 +342,7 @@ export default function ChatSimulator({ prototype, compact = false, onHandoff }:
       timestamp: new Date(),
       attribution: prototype.aiPersona.attribution,
     }]);
-    // Speak via avatar (HeyGen) or browser TTS
+
     if (avatarRef.current) {
       avatarRef.current.speak(content);
     } else if (voiceOn) {
@@ -196,6 +358,7 @@ export default function ChatSimulator({ prototype, compact = false, onHandoff }:
   };
 
   const resetChat = () => {
+    clearMemory(prototype.id);
     setMessages([{
       id: '0',
       role: 'assistant',
@@ -205,24 +368,38 @@ export default function ChatSimulator({ prototype, compact = false, onHandoff }:
     }]);
     setInput('');
     setIsTyping(false);
+    setShowCrisis(false);
+  };
+
+  const acceptHandoff = (target: Prototype) => {
+    const brief = buildHandoffBrief(prototype, messages);
+    onHandoff?.(target);
+    // The parent will re-render with new prototype + pass handoffBrief
+    // We surface the brief via onHandoff — parent handles rendering
+    // For now, store it so TestingZone can pick it up
+    sessionStorage.setItem('pending_handoff_brief', brief);
+    setHandoffSuggestion(null);
   };
 
   const height = compact ? 'h-72' : 'h-[420px]';
 
   return (
     <div className="flex flex-col bg-slate-50 dark:bg-[#0F0A1E] rounded-xl border border-slate-200 dark:border-[#2D2050] overflow-hidden">
-      {/* Chat header */}
+      {/* Header */}
       <div className="bg-white dark:bg-[#1A1235] border-b border-slate-200 dark:border-[#2D2050] px-4 py-3 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse-slow" />
           <span className="text-sm font-semibold text-slate-800 dark:text-white">{prototype.name}</span>
+          {isReturning && (
+            <span className="flex items-center gap-1 text-xs text-gcu-purple dark:text-purple-300 bg-gcu-purple/10 px-1.5 py-0.5 rounded-full">
+              <Clock size={10} /> Remembers you
+            </span>
+          )}
         </div>
         <div className="flex items-center gap-2">
-          {/* HeyGen live avatar — only for Spirit Nurse and Spirit Teacher */}
           {resolveAvatar(prototype.id) && (
             <HeyGenAvatar ref={avatarRef} {...resolveAvatar(prototype.id)!} />
           )}
-          {/* Browser voice toggle (fallback) */}
           <button
             onClick={() => {
               const next = !voiceOn;
@@ -241,7 +418,7 @@ export default function ChatSimulator({ prototype, compact = false, onHandoff }:
           <button
             onClick={resetChat}
             className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/10 transition-colors"
-            title="Reset chat"
+            title="Reset chat and clear memory"
           >
             <RefreshCw size={14} />
           </button>
@@ -268,7 +445,9 @@ export default function ChatSimulator({ prototype, compact = false, onHandoff }:
                   msg.role === 'user'
                     ? 'bg-gcu-purple text-white rounded-br-sm'
                     : msg.role === 'system'
-                    ? 'bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300 text-xs'
+                    ? msg.content.startsWith('📋')
+                      ? 'bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 text-blue-800 dark:text-blue-300 text-xs'
+                      : 'bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300 text-xs'
                     : 'bg-white dark:bg-[#241D35] border border-slate-100 dark:border-[#2D2050] text-slate-800 dark:text-slate-200 rounded-bl-sm'
                 }`}
               >
@@ -287,28 +466,34 @@ export default function ChatSimulator({ prototype, compact = false, onHandoff }:
         <div ref={bottomRef} />
       </div>
 
-      {/* Spirit handoff suggestion */}
+      {/* Crisis card */}
+      {showCrisis && <CrisisCard onDismiss={() => setShowCrisis(false)} />}
+
+      {/* Handoff suggestion — upgraded to show context */}
       {handoffSuggestion && (
-        <div className="bg-gcu-purple/5 dark:bg-gcu-purple/10 border-t border-gcu-purple/20 px-4 py-2.5 flex items-center gap-3">
-          <span className="text-lg flex-shrink-0">{handoffSuggestion.icon}</span>
-          <div className="flex-1 min-w-0">
-            <p className="text-xs text-slate-700 dark:text-slate-300">
-              <span className="font-semibold text-gcu-purple dark:text-purple-300">{handoffSuggestion.name}</span>
-              {' '}may be better suited for this topic.
-            </p>
+        <div className="bg-gcu-purple/5 dark:bg-gcu-purple/10 border-t border-gcu-purple/20 px-4 py-3 space-y-2">
+          <div className="flex items-center gap-3">
+            <span className="text-lg flex-shrink-0">{handoffSuggestion.icon}</span>
+            <div className="flex-1 min-w-0">
+              <p className="text-xs font-semibold text-gcu-purple dark:text-purple-300">{handoffSuggestion.name}</p>
+              <p className="text-xs text-slate-500 dark:text-slate-400 truncate">{handoffSuggestion.domain}</p>
+            </div>
+            <button
+              onClick={() => acceptHandoff(handoffSuggestion)}
+              className="flex items-center gap-1.5 text-xs font-semibold text-gcu-purple dark:text-purple-300 hover:text-gcu-purple-dark transition-colors flex-shrink-0 bg-gcu-purple/10 hover:bg-gcu-purple/20 px-2.5 py-1.5 rounded-lg"
+            >
+              <ArrowRightCircle size={13} /> Transfer
+            </button>
+            <button
+              onClick={() => setHandoffSuggestion(null)}
+              className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 flex-shrink-0"
+            >
+              <X size={13} />
+            </button>
           </div>
-          <button
-            onClick={() => { onHandoff?.(handoffSuggestion); setHandoffSuggestion(null); }}
-            className="flex items-center gap-1.5 text-xs font-semibold text-gcu-purple dark:text-purple-300 hover:text-gcu-purple-dark transition-colors flex-shrink-0"
-          >
-            <ArrowRightCircle size={14} /> Switch
-          </button>
-          <button
-            onClick={() => setHandoffSuggestion(null)}
-            className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 flex-shrink-0"
-          >
-            <X size={13} />
-          </button>
+          <p className="text-xs text-slate-500 dark:text-slate-400 italic pl-8">
+            Your conversation history will be summarized and passed to {handoffSuggestion.name} — you won't have to repeat yourself.
+          </p>
         </div>
       )}
 
