@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
-import { Send, Shield, RefreshCw, Volume2, VolumeX } from 'lucide-react';
+import { Send, Shield, RefreshCw, Volume2, VolumeX, ArrowRightCircle, X } from 'lucide-react';
 import { Message, Prototype } from '../types';
 import HeyGenAvatar, { HeyGenAvatarHandle, resolveAvatar } from './HeyGenAvatar';
+import { MOCK_PROTOTYPES } from '../data/mockData';
 
 function speak(text: string) {
   if (!window.speechSynthesis) return;
@@ -22,9 +23,27 @@ function speak(text: string) {
   window.speechSynthesis.speak(utterance);
 }
 
+function detectHandoff(userMessage: string, currentId: string): Prototype | null {
+  const msg = userMessage.toLowerCase();
+  let best: Prototype | null = null;
+  let bestScore = 1; // require at least 2 keyword hits
+  for (const p of MOCK_PROTOTYPES) {
+    if (p.id === currentId) continue;
+    const keywords = [
+      ...p.tags,
+      ...p.domain.split(/[\s·,/–-]+/),
+      ...p.college.replace(/\(.*\)/, '').split(/\s+/),
+    ].map(k => k.toLowerCase()).filter(k => k.length > 3);
+    const score = keywords.filter(k => msg.includes(k)).length;
+    if (score > bestScore) { bestScore = score; best = p; }
+  }
+  return best;
+}
+
 interface ChatSimulatorProps {
   prototype: Prototype;
   compact?: boolean;
+  onHandoff?: (prototype: Prototype) => void;
 }
 
 function buildSystemPrompt(prototype: Prototype): string {
@@ -104,7 +123,7 @@ function TypingIndicator() {
   );
 }
 
-export default function ChatSimulator({ prototype, compact = false }: ChatSimulatorProps) {
+export default function ChatSimulator({ prototype, compact = false, onHandoff }: ChatSimulatorProps) {
   const [messages, setMessages] = useState<Message[]>([{
     id: '0',
     role: 'assistant',
@@ -115,6 +134,7 @@ export default function ChatSimulator({ prototype, compact = false }: ChatSimula
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const [voiceOn, setVoiceOn] = useState(false);
+  const [handoffSuggestion, setHandoffSuggestion] = useState<Prototype | null>(null);
   const avatarRef = useRef<HeyGenAvatarHandle>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
 
@@ -133,6 +153,7 @@ export default function ChatSimulator({ prototype, compact = false }: ChatSimula
     }]);
     setInput('');
     setIsTyping(false);
+    setHandoffSuggestion(null);
   }, [prototype.id]);
 
   const sendMessage = async () => {
@@ -144,6 +165,11 @@ export default function ChatSimulator({ prototype, compact = false }: ChatSimula
     const updatedHistory = [...messages, userMsg];
     setMessages(updatedHistory);
     setInput('');
+    // Detect if user is asking about a different spirit's domain
+    if (onHandoff) {
+      const suggestion = detectHandoff(text, prototype.id);
+      if (suggestion) setHandoffSuggestion(suggestion);
+    }
     setIsTyping(true);
     const content = await callGrokAPI(prototype, updatedHistory);
     setIsTyping(false);
@@ -260,6 +286,31 @@ export default function ChatSimulator({ prototype, compact = false }: ChatSimula
         {isTyping && <TypingIndicator />}
         <div ref={bottomRef} />
       </div>
+
+      {/* Spirit handoff suggestion */}
+      {handoffSuggestion && (
+        <div className="bg-gcu-purple/5 dark:bg-gcu-purple/10 border-t border-gcu-purple/20 px-4 py-2.5 flex items-center gap-3">
+          <span className="text-lg flex-shrink-0">{handoffSuggestion.icon}</span>
+          <div className="flex-1 min-w-0">
+            <p className="text-xs text-slate-700 dark:text-slate-300">
+              <span className="font-semibold text-gcu-purple dark:text-purple-300">{handoffSuggestion.name}</span>
+              {' '}may be better suited for this topic.
+            </p>
+          </div>
+          <button
+            onClick={() => { onHandoff?.(handoffSuggestion); setHandoffSuggestion(null); }}
+            className="flex items-center gap-1.5 text-xs font-semibold text-gcu-purple dark:text-purple-300 hover:text-gcu-purple-dark transition-colors flex-shrink-0"
+          >
+            <ArrowRightCircle size={14} /> Switch
+          </button>
+          <button
+            onClick={() => setHandoffSuggestion(null)}
+            className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 flex-shrink-0"
+          >
+            <X size={13} />
+          </button>
+        </div>
+      )}
 
       {/* Input */}
       <div className="bg-white dark:bg-[#1A1235] border-t border-slate-200 dark:border-[#2D2050] p-3">

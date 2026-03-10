@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ChevronRight, ChevronLeft, Check, Save, Wand2, Upload, Eye } from 'lucide-react';
+import { ChevronRight, ChevronLeft, Check, Save, Wand2, Upload, Eye, Sparkles, RefreshCw } from 'lucide-react';
 import { COLLEGES } from '../data/mockData';
 import { SpiritModule, BuilderFormData } from '../types';
 import ChatSimulator from '../components/ChatSimulator';
@@ -61,6 +61,10 @@ export default function Builder() {
   const [form, setForm] = useState<BuilderFormData>(INITIAL_FORM);
   const [saved, setSaved] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [aiPrompt, setAiPrompt] = useState('');
+  const [isGenerating, setIsGenerating] = useState(false);
+  const [generateError, setGenerateError] = useState('');
+  const [generateSuccess, setGenerateSuccess] = useState(false);
 
   if (!isRole('admin', 'faculty')) {
     return (
@@ -105,6 +109,51 @@ export default function Builder() {
         m.id === id ? { ...m, enabled: !m.enabled } : m
       ),
     }));
+  };
+
+  const handleGenerate = async () => {
+    if (!aiPrompt.trim() || isGenerating) return;
+    setIsGenerating(true);
+    setGenerateError('');
+    setGenerateSuccess(false);
+    const systemPrompt = `You are a GCU Flourish AI spirit vessel configuration generator. When given a description, output ONLY a valid JSON object with exactly these fields:
+{
+  "name": "Spirit vessel name",
+  "college": "Must be exactly one of: ${COLLEGES.join(' | ')}",
+  "domain": "Domain / use case (1-2 lines)",
+  "description": "2-3 sentence description of what this spirit does and who it serves",
+  "curriculumContent": "Relevant GCU curriculum content, frameworks, and program highlights for this college/domain",
+  "alumniExemplars": "Alumni stories and character traits to infuse into the spirit",
+  "commercializationAngle": "How this spirit vessel could be licensed or monetized"
+}
+Output ONLY the JSON. No markdown, no explanation, no code fences.`;
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ systemPrompt, messages: [{ role: 'user', content: aiPrompt }] }),
+      });
+      const data = await res.json();
+      const text: string = data.message ?? '';
+      const jsonStr = text.replace(/```(?:json)?/gi, '').trim();
+      const parsed = JSON.parse(jsonStr);
+      setForm(prev => ({
+        ...prev,
+        name: parsed.name ?? prev.name,
+        college: COLLEGES.includes(parsed.college) ? parsed.college : prev.college,
+        domain: parsed.domain ?? prev.domain,
+        description: parsed.description ?? prev.description,
+        curriculumContent: parsed.curriculumContent ?? prev.curriculumContent,
+        alumniExemplars: parsed.alumniExemplars ?? prev.alumniExemplars,
+        commercializationAngle: parsed.commercializationAngle ?? prev.commercializationAngle,
+      }));
+      setGenerateSuccess(true);
+      setErrors({});
+    } catch {
+      setGenerateError('Generation failed — try rephrasing your description.');
+    } finally {
+      setIsGenerating(false);
+    }
   };
 
   const handleSave = () => {
@@ -161,6 +210,40 @@ export default function Builder() {
               <span className="w-6 h-6 rounded-full bg-gcu-purple text-white text-xs flex items-center justify-center font-bold">1</span>
               Basic Prototype Information
             </h3>
+
+            {/* ── AI Quick Generate ── */}
+            <div className="bg-gradient-to-r from-gcu-purple/10 to-gcu-gold/10 border border-gcu-purple/20 rounded-xl p-4">
+              <div className="flex items-center gap-2 mb-2.5">
+                <Sparkles size={15} className="text-gcu-purple" />
+                <span className="text-sm font-bold text-gcu-purple dark:text-purple-300">Generate with AI</span>
+                <span className="text-xs text-slate-400">— describe your spirit in plain English, we'll fill the form</span>
+              </div>
+              <div className="flex gap-2">
+                <input
+                  value={aiPrompt}
+                  onChange={e => setAiPrompt(e.target.value)}
+                  onKeyDown={e => e.key === 'Enter' && handleGenerate()}
+                  placeholder='e.g., "A spirit for nursing students preparing for NCLEX, focused on compassionate triage"'
+                  className="form-input flex-1 text-sm"
+                  disabled={isGenerating}
+                />
+                <button
+                  onClick={handleGenerate}
+                  disabled={!aiPrompt.trim() || isGenerating}
+                  className="btn-primary text-sm flex items-center gap-2 disabled:opacity-50 whitespace-nowrap"
+                >
+                  {isGenerating
+                    ? <><RefreshCw size={13} className="animate-spin" /> Generating…</>
+                    : <><Sparkles size={13} /> Generate</>}
+                </button>
+              </div>
+              {generateError && <p className="text-xs text-red-500 mt-2">{generateError}</p>}
+              {generateSuccess && (
+                <p className="text-xs text-emerald-600 dark:text-emerald-400 mt-2 flex items-center gap-1">
+                  <Check size={12} /> Form populated — review and edit below, then continue.
+                </p>
+              )}
+            </div>
 
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="sm:col-span-2">

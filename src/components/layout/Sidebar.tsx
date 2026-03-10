@@ -9,27 +9,27 @@ import { RoleBadge } from '../ui/Badge';
 
 const NAV_SECTIONS = [
   {
-    label: 'Main',
+    label: 'Build',
     items: [
       { label: 'Dashboard', icon: LayoutDashboard, to: '/' },
       { label: 'Prototype Library', icon: Library, to: '/library' },
       { label: 'Spirit Builder', icon: Wand2, to: '/builder' },
+    ],
+  },
+  {
+    label: 'Test',
+    items: [
       { label: 'Deployment Console', icon: FlaskConical, to: '/testing' },
       { label: 'Training Academy', icon: GraduationCap, to: '/spirit-training' },
     ],
   },
   {
-    label: 'Network',
+    label: 'Scale',
     items: [
+      { label: 'Impact Tracker', icon: TrendingUp, to: '/commercialization' },
       { label: 'Spirit Network', icon: Heart, to: '/spirit-network' },
       { label: 'Flourish API', icon: Code2, to: '/flourish-api' },
       { label: 'Flourish Robotics', icon: Bot, to: '/flourish-robotics' },
-    ],
-  },
-  {
-    label: 'Commerce',
-    items: [
-      { label: 'Impact Tracker', icon: TrendingUp, to: '/commercialization' },
     ],
   },
   {
@@ -38,11 +38,6 @@ const NAV_SECTIONS = [
       { label: 'Vision & Roadmap', icon: Rocket, to: '/vision' },
       { label: 'Flourish Standard', icon: Award, to: '/flourish-standard' },
       { label: 'Executive Briefing', icon: Briefcase, to: '/executive-brief' },
-    ],
-  },
-  {
-    label: 'Governance',
-    items: [
       { label: 'Resources', icon: BookOpen, to: '/resources' },
     ],
   },
@@ -138,15 +133,6 @@ export default function Sidebar({ collapsed, onToggle, mobileOpen, onMobileClose
             </div>
           </div>
         )}
-
-        <NavLink
-          to="/resources"
-          onClick={onMobileClose}
-          className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}
-        >
-          <Shield size={18} className="flex-shrink-0" />
-          {!collapsed && <span>Ethics & Policy</span>}
-        </NavLink>
 
         <button onClick={handleLogout} className="sidebar-link w-full text-left hover:text-red-300">
           <LogOut size={18} className="flex-shrink-0" />

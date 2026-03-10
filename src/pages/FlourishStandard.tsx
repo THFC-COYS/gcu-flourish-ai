@@ -1,8 +1,9 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Shield, Award, Globe, Heart, Eye, Lightbulb,
   CheckCircle2, ArrowRight, Star, Users, Building2,
-  ChevronRight, Zap, Lock, Rocket
+  ChevronRight, Zap, Lock, Rocket, Download, Github, Copy, Check, ExternalLink
 } from 'lucide-react';
 
 const PILLARS = [
@@ -168,8 +169,22 @@ function Check({ val }: { val: boolean }) {
     : <span className="text-slate-300 dark:text-slate-700 text-lg leading-none mx-auto block text-center">—</span>;
 }
 
+const BADGE_EMBED = `<a href="https://flourish.gcu.edu/standard" target="_blank" rel="noopener">
+  <img src="https://flourish.gcu.edu/badge/flourish-certified-v1.svg"
+       alt="Flourish Standard Certified"
+       width="160" height="44" />
+</a>`;
+
 export default function FlourishStandard() {
   const navigate = useNavigate();
+  const [badgeCopied, setBadgeCopied] = useState(false);
+
+  const copyBadge = () => {
+    navigator.clipboard.writeText(BADGE_EMBED).then(() => {
+      setBadgeCopied(true);
+      setTimeout(() => setBadgeCopied(false), 2500);
+    });
+  };
 
   return (
     <div className="space-y-10 animate-fade-in max-w-5xl mx-auto">
@@ -195,6 +210,64 @@ export default function FlourishStandard() {
             <span className="bg-white/10 border border-white/20 text-white text-sm px-4 py-1.5 rounded-full font-semibold flex items-center gap-1.5"><Lock size={12} /> GCU-Owned IP</span>
             <span className="bg-white/10 border border-white/20 text-white text-sm px-4 py-1.5 rounded-full font-semibold flex items-center gap-1.5"><Globe size={12} /> Global Applicability</span>
             <span className="bg-white/10 border border-white/20 text-white text-sm px-4 py-1.5 rounded-full font-semibold flex items-center gap-1.5"><Star size={12} /> Zero Competitors</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Open-source the Standard */}
+      <div className="bg-white dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-2xl p-6 sm:p-8">
+        <div className="flex flex-col sm:flex-row sm:items-start gap-6">
+          <div className="flex-1">
+            <div className="inline-flex items-center gap-2 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 text-xs font-bold px-3 py-1 rounded-full mb-3">
+              <Globe size={11} /> Open Standard Initiative
+            </div>
+            <h2 className="text-xl font-black text-slate-900 dark:text-white mb-2">
+              Make the Flourish Standard the world's default
+            </h2>
+            <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+              The Flourish Standard is GCU-owned IP — but its impact grows with adoption.
+              Download the specification, embed the certified badge, or join the working group
+              to help shape v2.0 alongside institutions globally.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <button className="flex items-center gap-2 px-4 py-2 bg-gcu-purple text-white text-sm font-semibold rounded-lg hover:bg-gcu-purple-dark transition-colors">
+                <Download size={14} /> Download v1.0 Spec (PDF)
+              </button>
+              <button
+                onClick={copyBadge}
+                className={`flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-lg border transition-colors ${
+                  badgeCopied
+                    ? 'bg-emerald-50 dark:bg-emerald-900/20 border-emerald-300 dark:border-emerald-700 text-emerald-700 dark:text-emerald-400'
+                    : 'bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-600 text-slate-700 dark:text-slate-300 hover:border-gcu-purple/40'
+                }`}
+              >
+                {badgeCopied ? <><Check size={14} /> Copied!</> : <><Copy size={14} /> Copy Embed Badge</>}
+              </button>
+              <button className="flex items-center gap-2 px-4 py-2 bg-gray-900 dark:bg-gray-700 text-white text-sm font-semibold rounded-lg hover:bg-gray-800 dark:hover:bg-gray-600 transition-colors">
+                <Github size={14} /> View on GitHub
+              </button>
+            </div>
+          </div>
+          <div className="sm:w-64 space-y-3">
+            <div className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-4">
+              <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">Embed Badge Preview</p>
+              <div className="bg-white dark:bg-gray-900 rounded-lg border border-gray-100 dark:border-gray-700 p-3 flex items-center justify-center">
+                <div className="flex items-center gap-2 bg-gcu-purple text-white text-xs font-bold px-3 py-2 rounded-lg">
+                  <Award size={14} />
+                  <span>Flourish Standard Certified</span>
+                </div>
+              </div>
+              <div className="mt-2 font-mono text-xs text-gray-400 bg-gray-100 dark:bg-gray-800 rounded p-2 overflow-hidden text-ellipsis whitespace-nowrap">
+                {BADGE_EMBED.split('\n')[1].trim()}
+              </div>
+            </div>
+            <a
+              href="#"
+              className="flex items-center justify-between p-3 bg-purple-50 dark:bg-purple-900/10 border border-purple-200 dark:border-purple-800 rounded-xl text-sm text-gcu-purple dark:text-purple-300 font-semibold hover:bg-purple-100 dark:hover:bg-purple-900/20 transition-colors group"
+            >
+              <span>Join Working Group v2.0</span>
+              <ExternalLink size={13} className="group-hover:translate-x-0.5 transition-transform" />
+            </a>
           </div>
         </div>
       </div>

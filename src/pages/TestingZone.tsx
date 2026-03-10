@@ -154,7 +154,10 @@ export default function TestingZone() {
             </div>
           </div>
 
-          <ChatSimulator prototype={selected} />
+          <ChatSimulator
+            prototype={selected}
+            onHandoff={p => { setSelected(p); setSubmitted(false); setDeployMsg(''); }}
+          />
 
           {/* Sample prompts */}
           <div className="page-card p-4">
