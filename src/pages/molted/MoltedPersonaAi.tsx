@@ -49,7 +49,7 @@ function Hero() {
           style={{ background: 'radial-gradient(ellipse at center, rgba(255,107,53,0.09) 0%, transparent 70%)' }}
         />
         <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full"
-          style={{ background: 'radial-gradient(circle, rgba(123,97,255,0.06) 0%, transparent 70%)' }}
+          style={{ background: 'radial-gradient(circle, rgba(212,175,55,0.05) 0%, transparent 70%)' }}
         />
       </div>
 

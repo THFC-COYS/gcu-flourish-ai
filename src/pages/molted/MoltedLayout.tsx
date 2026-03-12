@@ -3,22 +3,26 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 function MoltedLogo({ size = 'md' }: { size?: 'sm' | 'md' | 'lg' }) {
-  const sizes = {
-    sm: { mark: 'w-7 h-7 text-xs', text: 'text-base' },
-    md: { mark: 'w-9 h-9 text-sm', text: 'text-xl' },
-    lg: { mark: 'w-14 h-14 text-lg', text: 'text-3xl' },
-  };
-  const s = sizes[size];
+  const textSize = { sm: 'text-lg', md: 'text-2xl', lg: 'text-4xl' }[size];
 
   return (
-    <div className="flex items-center gap-2.5">
-      <div className={`${s.mark} rounded-xl bg-gradient-to-br from-molted-violet to-molted-ember flex items-center justify-center font-black text-white shadow-molted-violet relative overflow-hidden`}>
-        <span className="relative z-10">M</span>
-        <div className="absolute inset-0 bg-gradient-to-tr from-transparent to-white/10" />
-      </div>
-      <span className={`${s.text} font-black text-molted-white tracking-tight`}>
-        Molt<span className="text-molted-violet">ED</span>{' '}
-        <span className="text-molted-ember font-light italic">Ai</span>
+    <div className="flex items-center">
+      {/* Wordmark: "molted" charcoal · "Ai" red — matching the real logo */}
+      <span className={`${textSize} font-black tracking-tight leading-none`}>
+        {/* "molt" — charcoal/white depending on bg */}
+        <span className="text-molted-white/90">molt</span>
+        {/* "ed" — gold, glowing, represents Education */}
+        <span
+          className="relative"
+          style={{
+            color: '#D4AF37',
+            textShadow: '0 0 20px rgba(212,175,55,0.6), 0 0 40px rgba(212,175,55,0.25)',
+          }}
+        >
+          ed
+        </span>
+        {/* "Ai" — red, bold */}
+        <span style={{ color: '#CC2200', fontWeight: 900 }}>Ai</span>
       </span>
     </div>
   );
