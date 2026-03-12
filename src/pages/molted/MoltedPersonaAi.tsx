@@ -84,12 +84,12 @@ function Hero() {
 
         <p className="mt-4 text-lg text-molted-muted/70 max-w-2xl mx-auto leading-relaxed animate-reveal" style={{ animationDelay: '250ms' }}>
           Every institution has a character — a way of caring, teaching, and showing up.
-          Custom Spirit carries all of it into every conversation, at any hour.
+          Persona Ai carries all of it into every conversation, at any hour.
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 animate-reveal" style={{ animationDelay: '350ms' }}>
           <a
-            href="mailto:hello@molted.ai?subject=Custom Spirit Demo Request"
+            href="mailto:hello@molted.ai?subject=Persona Ai Demo Request"
             className="group flex items-center gap-2.5 px-8 py-4 rounded-xl bg-molted-ember hover:bg-molted-ember-light text-white font-bold text-lg transition-all duration-200 shadow-molted-ember hover:-translate-y-px"
           >
             Create Your Spirit
@@ -129,7 +129,7 @@ function TheSpiritIdea() {
               backgroundClip: 'text',
             }}
           >
-            Custom Spirit gives it a voice.
+            Persona Ai gives it a voice.
           </p>
           <p className="mt-8 text-molted-muted text-lg leading-relaxed max-w-2xl mx-auto">
             Not a generic chatbot. Not "AI assistant." A named, trained, branded persona that speaks
@@ -219,7 +219,7 @@ function SpiritShowcase() {
             GCU Spirit Network
           </h2>
           <p className="mt-4 text-molted-muted max-w-xl mx-auto">
-            Grand Canyon University deployed six Custom Spirits — one for each college.
+            Grand Canyon University deployed six Persona Ais — one for each college.
             This is what the platform can do.
           </p>
         </RevealBlock>
@@ -332,7 +332,7 @@ function WhyDifferent() {
     {
       icon: Heart,
       title: 'A Persona, Not a Chatbot',
-      body: 'Generic AI assistants answer questions. Custom Spirit represents your institution — with its name, voice, and values embedded in every response.',
+      body: 'Generic AI assistants answer questions. Persona Ai represents your institution — with its name, voice, and values embedded in every response.',
       color: 'text-rose-400',
       bg: 'bg-rose-400/10 border-rose-400/20',
     },
@@ -353,7 +353,7 @@ function WhyDifferent() {
     {
       icon: Zap,
       title: 'Built on What\'s Proven',
-      body: 'Custom Spirit is built on the same architecture that powers the GCU Spirit Network — real deployments, real students, real outcomes.',
+      body: 'Persona Ai is built on the same architecture that powers the GCU Spirit Network — real deployments, real students, real outcomes.',
       color: 'text-molted-violet',
       bg: 'bg-molted-violet/10 border-molted-violet/20',
     },
@@ -377,7 +377,7 @@ function WhyDifferent() {
     <section className="py-24 px-6 border-t border-molted-border">
       <div className="max-w-6xl mx-auto">
         <RevealBlock className="text-center mb-16">
-          <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">Why Custom Spirit</p>
+          <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">Why Persona Ai</p>
           <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight">
             Built for institutions<br />that care about character.
           </h2>
@@ -407,7 +407,7 @@ function PricingTeaser() {
     {
       name: 'Starter',
       tag: 'One Spirit. One campus.',
-      features: ['1 Custom Spirit persona', 'Up to 10,000 interactions/mo', 'Standard training pipeline', 'Email support'],
+      features: ['1 Persona Ai persona', 'Up to 10,000 interactions/mo', 'Standard training pipeline', 'Email support'],
       cta: 'Talk to Us',
       highlight: false,
     },
@@ -462,7 +462,7 @@ function PricingTeaser() {
                   ))}
                 </ul>
                 <a
-                  href="mailto:hello@molted.ai?subject=Custom Spirit Pricing Inquiry"
+                  href="mailto:hello@molted.ai?subject=Persona Ai Pricing Inquiry"
                   className={`mt-8 block text-center px-6 py-3 rounded-xl font-semibold text-sm transition-all ${
                     tier.highlight
                       ? 'bg-molted-ember hover:bg-molted-ember-light text-white shadow-molted-ember'
@@ -496,7 +496,7 @@ function CTA() {
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="mailto:hello@molted.ai?subject=Custom Spirit Demo Request"
+              href="mailto:hello@molted.ai?subject=Persona Ai Demo Request"
               className="group flex items-center gap-2.5 px-8 py-4 rounded-xl bg-molted-ember hover:bg-molted-ember-light text-white font-bold text-lg transition-all hover:-translate-y-px shadow-molted-ember"
             >
               Start the Conversation
@@ -515,7 +515,7 @@ function CTA() {
   );
 }
 
-export default function MoltedCustomSpirit() {
+export default function MoltedPersonaAi() {
   return (
     <MoltedLayout>
       <Hero />

@@ -92,7 +92,7 @@ function Story() {
               text: 'We started by partnering with Grand Canyon University to build the GCU Flourish AI platform: a network of six custom AI personas, each trained on a college\'s identity, deployed to serve students across nursing, education, theology, business, law, and STEM.',
             },
             {
-              text: 'From that work, two products emerged: pAIgeBreaker — for institutions that want to make reading transformative — and Custom Spirit — for any institution that wants its values, expertise, and care present everywhere.',
+              text: 'From that work, two products emerged: pAIgeBreaker — for institutions that want to make reading transformative — and Persona Ai — for any institution that wants its values, expertise, and care present everywhere.',
             },
           ].map((p, i) => (
             <RevealBlock key={i} delay={i * 100}>

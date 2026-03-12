@@ -19,7 +19,7 @@ import SpiritTraining from './pages/SpiritTraining';
 import ExecutiveTour from './pages/ExecutiveTour';
 import MoltedHome from './pages/molted/MoltedHome';
 import MoltedPAIgeBreaker from './pages/molted/MoltedPAIgeBreaker';
-import MoltedCustomSpirit from './pages/molted/MoltedCustomSpirit';
+import MoltedPersonaAi from './pages/molted/MoltedPersonaAi';
 import MoltedAbout from './pages/molted/MoltedAbout';
 
 function ProtectedRoutes() {
@@ -74,7 +74,7 @@ export default function App() {
             {/* MoltED Ai — public company website */}
             <Route path="/molted" element={<MoltedHome />} />
             <Route path="/molted/paigebreaker" element={<MoltedPAIgeBreaker />} />
-            <Route path="/molted/custom-spirit" element={<MoltedCustomSpirit />} />
+            <Route path="/molted/persona-ai" element={<MoltedPersonaAi />} />
             <Route path="/molted/about" element={<MoltedAbout />} />
             <Route path="/*" element={<ProtectedRoutes />} />
           </Routes>

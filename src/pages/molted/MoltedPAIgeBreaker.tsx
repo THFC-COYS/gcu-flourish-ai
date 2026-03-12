@@ -92,10 +92,10 @@ function Hero() {
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </a>
           <Link
-            to="/molted/custom-spirit"
+            to="/molted/persona-ai"
             className="px-8 py-4 rounded-xl border border-molted-border text-molted-muted hover:text-molted-white font-semibold transition-all hover:border-molted-subtle"
           >
-            See Custom Spirit instead →
+            See Persona Ai instead →
           </Link>
         </div>
       </div>

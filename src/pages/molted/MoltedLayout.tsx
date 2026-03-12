@@ -27,7 +27,7 @@ function MoltedLogo({ size = 'md' }: { size?: 'sm' | 'md' | 'lg' }) {
 const NAV_LINKS = [
   { label: 'Products', href: '/molted' },
   { label: 'pAIgeBreaker', href: '/molted/paigebreaker' },
-  { label: 'Custom Spirit', href: '/molted/custom-spirit' },
+  { label: 'Persona Ai', href: '/molted/persona-ai' },
   { label: 'About', href: '/molted/about' },
 ];
 
@@ -147,7 +147,7 @@ export function MoltedFooter() {
             <ul className="space-y-2.5">
               {[
                 { label: 'pAIgeBreaker', href: '/molted/paigebreaker' },
-                { label: 'Custom Spirit', href: '/molted/custom-spirit' },
+                { label: 'Persona Ai', href: '/molted/persona-ai' },
               ].map(l => (
                 <li key={l.href}>
                   <Link

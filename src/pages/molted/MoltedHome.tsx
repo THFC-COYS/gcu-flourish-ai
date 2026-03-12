@@ -103,10 +103,10 @@ function Hero() {
           <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
         </Link>
         <Link
-          to="/molted/custom-spirit"
+          to="/molted/persona-ai"
           className="group flex items-center gap-2.5 px-7 py-3.5 rounded-xl border border-molted-border hover:border-molted-ember/50 text-molted-white hover:text-molted-ember font-semibold transition-all duration-200 hover:bg-molted-ember/5"
         >
-          Custom Spirit
+          Persona Ai
           <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
         </Link>
       </div>
@@ -285,8 +285,8 @@ function PAIgeBreakerSection() {
   );
 }
 
-/* ── Custom Spirit product section ─────────────────────────────────────── */
-function CustomSpiritSection() {
+/* ── Persona Ai product section ─────────────────────────────────────── */
+function PersonaAiSection() {
   const SPIRITS = [
     { icon: '🏥', name: 'Spirit Nurse', domain: 'Clinical care' },
     { icon: '📚', name: 'Spirit Teacher', domain: 'Education' },
@@ -361,7 +361,7 @@ function CustomSpiritSection() {
             <RevealBlock delay={300}>
               <p className="mt-4 text-molted-muted/70 leading-relaxed">
                 Every institution has a character — values, expertise, and a way of seeing the world.
-                Custom Spirit carries all of it into every conversation, every hour, everywhere
+                Persona Ai carries all of it into every conversation, every hour, everywhere
                 your community needs it. Not a chatbot. A persona.
               </p>
             </RevealBlock>
@@ -384,10 +384,10 @@ function CustomSpiritSection() {
 
             <RevealBlock delay={500}>
               <Link
-                to="/molted/custom-spirit"
+                to="/molted/persona-ai"
                 className="mt-8 inline-flex items-center gap-2 text-molted-ember font-semibold hover:gap-3 transition-all"
               >
-                Explore Custom Spirit <ChevronRight size={16} />
+                Explore Persona Ai <ChevronRight size={16} />
               </Link>
             </RevealBlock>
           </div>
@@ -508,7 +508,7 @@ export default function MoltedHome() {
       <Hero />
       <Mission />
       <PAIgeBreakerSection />
-      <CustomSpiritSection />
+      <PersonaAiSection />
       <Stats />
       <Manifesto />
       <FinalCTA />
