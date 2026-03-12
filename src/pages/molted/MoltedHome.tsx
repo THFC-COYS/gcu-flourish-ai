@@ -299,9 +299,9 @@ function PersonaAiSection() {
   return (
     <section className="py-24 px-6 border-t border-molted-border">
       <div className="max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-          {/* Visual mock — left side */}
-          <RevealBlock delay={200}>
+        <div className="grid md:grid-cols-2 gap-16 items-center flex flex-col md:flex-none">
+          {/* Visual mock — left side on desktop, below text on mobile */}
+          <RevealBlock delay={200} className="order-2 md:order-1">
             <div className="relative">
               {/* Live example label above the card */}
               <div className="flex items-center gap-2 mb-3">
@@ -342,8 +342,8 @@ function PersonaAiSection() {
             </div>
           </RevealBlock>
 
-          {/* Text */}
-          <div>
+          {/* Text — first on mobile, right on desktop */}
+          <div className="order-1 md:order-2">
             <RevealBlock>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-molted-ember/10 border border-molted-ember/20 text-molted-ember text-xs font-semibold mb-6">
                 <Sparkles size={12} /> Product 02
