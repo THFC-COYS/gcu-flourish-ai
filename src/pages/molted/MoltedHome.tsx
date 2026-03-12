@@ -303,10 +303,15 @@ function PersonaAiSection() {
           {/* Visual mock — left side */}
           <RevealBlock delay={200}>
             <div className="relative">
-              <div className="rounded-2xl border border-molted-border bg-molted-elevated p-6 shadow-molted-glow">
-                <p className="text-molted-muted text-xs font-semibold uppercase tracking-wider mb-5">
-                  Spirit Network · Grand Canyon University
-                </p>
+              {/* Live example label above the card */}
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse flex-shrink-0" />
+                <p className="text-green-400 text-xs font-bold uppercase tracking-widest">Live deployment</p>
+              </div>
+              <p className="text-molted-white font-bold text-sm mb-1">Spirit Network · Grand Canyon University</p>
+              <p className="text-molted-muted text-xs mb-4">6 Persona Ai instances — one per college, trained on GCU's identity</p>
+
+              <div className="rounded-2xl border border-molted-border bg-molted-elevated p-5 shadow-molted-glow">
                 <div className="grid grid-cols-2 gap-3">
                   {SPIRITS.map((s, i) => (
                     <div
@@ -321,8 +326,8 @@ function PersonaAiSection() {
                     </div>
                   ))}
                 </div>
-                <div className="mt-5 pt-5 border-t border-molted-border flex items-center justify-between">
-                  <p className="text-molted-muted text-xs">6 active Spirits · GCU Network</p>
+                <div className="mt-4 pt-4 border-t border-molted-border flex items-center justify-between">
+                  <p className="text-molted-muted text-xs">50,000+ interactions served</p>
                   <div className="flex items-center gap-1.5 text-xs text-green-400">
                     <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
                     All systems live
@@ -332,7 +337,7 @@ function PersonaAiSection() {
 
               {/* Floating accent */}
               <div className="absolute -bottom-4 -left-4 w-24 h-24 rounded-full"
-                style={{ background: 'radial-gradient(circle, rgba(255,107,53,0.15) 0%, transparent 70%)' }}
+                style={{ background: 'radial-gradient(circle, rgba(232,23,15,0.12) 0%, transparent 70%)' }}
               />
             </div>
           </RevealBlock>
