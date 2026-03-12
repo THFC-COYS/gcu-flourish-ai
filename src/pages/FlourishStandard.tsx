@@ -101,7 +101,7 @@ const TIERS = [
     forWho: 'Large health systems, government, global mission orgs',
     features: [
       'Everything in Practitioner',
-      'Custom Spirit Layer configuration',
+      'Persona Ai Layer configuration',
       'Unlimited API access',
       'Dedicated Flourish AI advisor',
       'Co-authorship in Standard updates',
