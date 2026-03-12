@@ -299,7 +299,7 @@ function PersonaAiSection() {
   return (
     <section className="py-24 px-6 border-t border-molted-border">
       <div className="max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-16 items-center flex flex-col md:flex-none">
+        <div className="flex flex-col md:grid md:grid-cols-2 gap-16 items-center">
           {/* Visual mock — left side on desktop, below text on mobile */}
           <RevealBlock delay={200} className="order-2 md:order-1">
             <div className="relative">
