@@ -46,15 +46,15 @@ function AmbientOrbs() {
     <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
       {/* Violet primary orb */}
       <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[800px] h-[600px] rounded-full"
-        style={{ background: 'radial-gradient(ellipse at center, rgba(212,175,55,0.10) 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(ellipse at center, rgba(232,160,32,0.10) 0%, transparent 70%)' }}
       />
       {/* Ember accent orb */}
       <div className="absolute top-1/3 -right-40 w-[500px] h-[500px] rounded-full animate-glow-pulse"
-        style={{ background: 'radial-gradient(ellipse at center, rgba(204,34,0,0.07) 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(ellipse at center, rgba(232,23,15,0.07) 0%, transparent 70%)' }}
       />
       {/* Bottom violet */}
       <div className="absolute bottom-0 -left-20 w-[400px] h-[400px] rounded-full"
-        style={{ background: 'radial-gradient(ellipse at center, rgba(212,175,55,0.05) 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(ellipse at center, rgba(232,160,32,0.05) 0%, transparent 70%)' }}
       />
     </div>
   );
@@ -78,7 +78,7 @@ function Hero() {
         <span
           className="inline-block"
           style={{
-            background: 'linear-gradient(135deg, #D4AF37 0%, #CC2200 100%)',
+            background: 'linear-gradient(120deg, #F5B740 0%, #E8A020 55%, #E8170F 100%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',
@@ -135,7 +135,7 @@ function Mission() {
           </p>
           <p className="mt-4 text-3xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight"
             style={{
-              background: 'linear-gradient(135deg, #D4AF37 0%, #CC2200 100%)',
+              background: 'linear-gradient(120deg, #F5B740 0%, #E8A020 55%, #E8170F 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
@@ -444,7 +444,7 @@ function Manifesto() {
   return (
     <section className="py-32 px-6 border-t border-molted-border relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(212,175,55,0.05) 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(232,160,32,0.05) 0%, transparent 70%)' }}
       />
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <RevealBlock>

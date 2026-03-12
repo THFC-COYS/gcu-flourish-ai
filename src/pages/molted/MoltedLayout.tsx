@@ -11,18 +11,17 @@ function MoltedLogo({ size = 'md' }: { size?: 'sm' | 'md' | 'lg' }) {
       <span className={`${textSize} font-black tracking-tight leading-none`}>
         {/* "molt" — charcoal/white depending on bg */}
         <span className="text-molted-white/90">molt</span>
-        {/* "ed" — gold, glowing, represents Education */}
+        {/* "ed" — amber-gold with backlight glow, represents Education */}
         <span
-          className="relative"
           style={{
-            color: '#D4AF37',
-            textShadow: '0 0 20px rgba(212,175,55,0.6), 0 0 40px rgba(212,175,55,0.25)',
+            color: '#F5B740',
+            textShadow: '0 0 12px rgba(245,183,64,0.9), 0 0 30px rgba(232,160,32,0.5), 0 0 60px rgba(232,160,32,0.2)',
           }}
         >
           ed
         </span>
-        {/* "Ai" — red, bold */}
-        <span style={{ color: '#CC2200', fontWeight: 900 }}>Ai</span>
+        {/* "Ai" — scarlet, no glow — a statement, not decoration */}
+        <span style={{ color: '#E8170F', fontWeight: 900, letterSpacing: '-0.01em' }}>Ai</span>
       </span>
     </div>
   );

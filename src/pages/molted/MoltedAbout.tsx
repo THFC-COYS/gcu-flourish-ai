@@ -55,7 +55,7 @@ function Hero() {
           We didn't build<br />
           <span
             style={{
-              background: 'linear-gradient(135deg, #D4AF37 0%, #CC2200 100%)',
+              background: 'linear-gradient(120deg, #F5B740 0%, #E8A020 55%, #E8170F 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',

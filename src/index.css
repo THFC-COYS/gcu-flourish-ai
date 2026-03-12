@@ -141,7 +141,7 @@
 /* ── MoltED Ai global styles ──────────────────────────────────────────── */
 @layer utilities {
   .molted-hero-gradient {
-    background: linear-gradient(135deg, #D4AF37 0%, #CC2200 100%);
+    background: linear-gradient(120deg, #F5B740 0%, #E8A020 55%, #E8170F 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
