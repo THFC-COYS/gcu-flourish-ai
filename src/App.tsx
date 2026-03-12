@@ -17,6 +17,10 @@ import ExecutiveBriefing from './pages/ExecutiveBriefing';
 import FlourishStandard from './pages/FlourishStandard';
 import SpiritTraining from './pages/SpiritTraining';
 import ExecutiveTour from './pages/ExecutiveTour';
+import MoltedHome from './pages/molted/MoltedHome';
+import MoltedPAIgeBreaker from './pages/molted/MoltedPAIgeBreaker';
+import MoltedCustomSpirit from './pages/molted/MoltedCustomSpirit';
+import MoltedAbout from './pages/molted/MoltedAbout';
 
 function ProtectedRoutes() {
   const { user, isLoading } = useAuth();
@@ -67,6 +71,11 @@ export default function App() {
           <Routes>
             <Route path="/login" element={<LoginGuard />} />
             <Route path="/executive-tour" element={<ExecutiveTour />} />
+            {/* MoltED Ai — public company website */}
+            <Route path="/molted" element={<MoltedHome />} />
+            <Route path="/molted/paigebreaker" element={<MoltedPAIgeBreaker />} />
+            <Route path="/molted/custom-spirit" element={<MoltedCustomSpirit />} />
+            <Route path="/molted/about" element={<MoltedAbout />} />
             <Route path="/*" element={<ProtectedRoutes />} />
           </Routes>
         </BrowserRouter>
