@@ -347,8 +347,8 @@ function PersonaAiSection() {
 
             <RevealBlock delay={100}>
               <h2 className="text-4xl md:text-6xl font-black text-molted-white leading-tight tracking-tight">
-                Custom<br />
-                <span className="text-molted-ember">Spirit</span>
+                Persona<br />
+                <span className="text-molted-ember">Ai</span>
               </h2>
             </RevealBlock>
 

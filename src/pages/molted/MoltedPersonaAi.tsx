@@ -62,18 +62,16 @@ function Hero() {
         {/* Wordmark */}
         <h1 className="animate-reveal">
           <span className="block text-5xl md:text-7xl lg:text-8xl font-black text-molted-white leading-none tracking-tight">
-            Custom
+            Persona
           </span>
           <span
             className="block text-5xl md:text-7xl lg:text-8xl font-black leading-none tracking-tight mt-1"
             style={{
-              background: 'linear-gradient(135deg, #FF6B35 0%, #FF8C60 50%, #FFC27A 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
+              color: '#E8170F',
+              textShadow: '0 0 40px rgba(232,23,15,0.25)',
             }}
           >
-            Spirit
+            Ai
           </span>
         </h1>
 
