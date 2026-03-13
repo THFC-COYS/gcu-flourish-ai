@@ -20,6 +20,7 @@ import ExecutiveTour from './pages/ExecutiveTour';
 import MoltedHome from './pages/molted/MoltedHome';
 import MoltedPAIgeBreaker from './pages/molted/MoltedPAIgeBreaker';
 import MoltedPersonaAi from './pages/molted/MoltedPersonaAi';
+import MoltedTeachOS from './pages/molted/MoltedTeachOS';
 import MoltedAbout from './pages/molted/MoltedAbout';
 
 function ProtectedRoutes() {
@@ -75,6 +76,7 @@ export default function App() {
             <Route path="/molted" element={<MoltedHome />} />
             <Route path="/molted/paigebreaker" element={<MoltedPAIgeBreaker />} />
             <Route path="/molted/persona-ai" element={<MoltedPersonaAi />} />
+            <Route path="/molted/teachos" element={<MoltedTeachOS />} />
             <Route path="/molted/about" element={<MoltedAbout />} />
             <Route path="/*" element={<ProtectedRoutes />} />
           </Routes>

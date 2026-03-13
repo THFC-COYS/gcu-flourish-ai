@@ -31,6 +31,7 @@ const NAV_LINKS = [
   { label: 'Products', href: '/molted' },
   { label: 'pAIgeBreaker', href: '/molted/paigebreaker' },
   { label: 'Persona Ai', href: '/molted/persona-ai' },
+  { label: 'TeachOS', href: '/molted/teachos' },
   { label: 'About', href: '/molted/about' },
 ];
 
@@ -151,6 +152,7 @@ export function MoltedFooter() {
               {[
                 { label: 'pAIgeBreaker', href: '/molted/paigebreaker' },
                 { label: 'Persona Ai', href: '/molted/persona-ai' },
+                { label: 'TeachOS', href: '/molted/teachos' },
               ].map(l => (
                 <li key={l.href}>
                   <Link

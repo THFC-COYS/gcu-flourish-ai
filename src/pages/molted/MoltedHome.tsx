@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, BookOpen, Sparkles, Globe, Users, Zap, ChevronRight } from 'lucide-react';
+import { ArrowRight, BookOpen, Sparkles, Globe, Users, Zap, ChevronRight, Cpu, MessageSquare, CheckSquare, TrendingUp } from 'lucide-react';
 import MoltedLayout from './MoltedLayout';
 
 /* ── Scroll reveal hook ────────────────────────────────────────────────── */
@@ -69,7 +69,7 @@ function Hero() {
       {/* Tagline chip */}
       <div className="relative z-10 mb-8 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-molted-violet/30 bg-molted-violet/10 text-molted-violet text-xs font-semibold tracking-wide uppercase animate-fade-in">
         <Sparkles size={12} />
-        AI EdTech · Two Products · One Mission
+        AI EdTech · Three Products · One Mission
       </div>
 
       {/* Main headline */}
@@ -107,6 +107,14 @@ function Hero() {
           className="group flex items-center gap-2.5 px-7 py-3.5 rounded-xl border border-molted-border hover:border-molted-ember/50 text-molted-white hover:text-molted-ember font-semibold transition-all duration-200 hover:bg-molted-ember/5"
         >
           Persona Ai
+          <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+        </Link>
+        <Link
+          to="/molted/teachos"
+          className="group flex items-center gap-2.5 px-7 py-3.5 rounded-xl border font-semibold transition-all duration-200"
+          style={{ borderColor: 'rgba(45,212,191,0.3)', color: '#2DD4BF' }}
+        >
+          TeachOS
           <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
         </Link>
       </div>
@@ -402,6 +410,146 @@ function PersonaAiSection() {
   );
 }
 
+/* ── TeachOS product section ───────────────────────────────────────────── */
+const TEAL = '#2DD4BF';
+const TEAL_DIM = 'rgba(45,212,191,0.12)';
+const TEAL_BORDER = 'rgba(45,212,191,0.22)';
+
+function TeachOSSection() {
+  const tools = [
+    { icon: MessageSquare, label: 'Discussion Intelligence', desc: 'AI reads every post, drafts responses' },
+    { icon: BookOpen, label: 'Course Architect', desc: 'Syllabus → full semester, automatically' },
+    { icon: CheckSquare, label: 'Agentic Grader', desc: 'Rubric-based grading with personal feedback' },
+    { icon: TrendingUp, label: 'Early Warning', desc: 'At-risk students flagged in real time' },
+  ];
+
+  return (
+    <section className="py-24 px-6 border-t border-molted-border">
+      <div className="max-w-6xl mx-auto">
+        <div className="flex flex-col md:grid md:grid-cols-2 gap-16 items-center">
+          {/* Text — first on mobile, left on desktop */}
+          <div className="order-1">
+            <RevealBlock>
+              <div
+                className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-6"
+                style={{ background: TEAL_DIM, border: `1px solid ${TEAL_BORDER}`, color: TEAL }}
+              >
+                <Cpu size={12} /> Product 03
+              </div>
+            </RevealBlock>
+
+            <RevealBlock delay={100}>
+              <h2 className="text-4xl md:text-6xl font-black leading-tight tracking-tight">
+                <span className="text-molted-white">Teach</span>
+                <span style={{ color: TEAL, textShadow: '0 0 30px rgba(45,212,191,0.3)' }}>OS</span>
+              </h2>
+            </RevealBlock>
+
+            <RevealBlock delay={200}>
+              <p className="mt-6 text-xl text-molted-muted leading-relaxed">
+                The AI operating system for every faculty member.
+              </p>
+            </RevealBlock>
+
+            <RevealBlock delay={300}>
+              <p className="mt-4 text-molted-muted/70 leading-relaxed">
+                TeachOS handles the 23 hours a week faculty spend on administration —
+                grading, discussion boards, announcements, student emails — so professors
+                can spend every hour doing what only they can do: teach.
+              </p>
+            </RevealBlock>
+
+            <RevealBlock delay={400}>
+              <div className="mt-8 space-y-3">
+                {[
+                  'Auto-grade essays with full rubric feedback',
+                  'Draft responses to every discussion post',
+                  'Build entire semester from one syllabus upload',
+                  'Flag at-risk students before they fall behind',
+                ].map((feat, i) => (
+                  <div key={i} className="flex items-center gap-3 text-sm text-molted-muted">
+                    <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: TEAL }} />
+                    {feat}
+                  </div>
+                ))}
+              </div>
+            </RevealBlock>
+
+            <RevealBlock delay={500}>
+              <Link
+                to="/molted/teachos"
+                className="mt-8 inline-flex items-center gap-2 font-semibold hover:gap-3 transition-all"
+                style={{ color: TEAL }}
+              >
+                Explore TeachOS <ChevronRight size={16} />
+              </Link>
+            </RevealBlock>
+          </div>
+
+          {/* Visual — second on mobile, right on desktop */}
+          <RevealBlock delay={200} className="order-2">
+            <div className="relative">
+              <div
+                className="rounded-2xl border p-5"
+                style={{ background: 'rgba(17,17,24,0.8)', borderColor: TEAL_BORDER, boxShadow: `0 0 40px rgba(45,212,191,0.08)` }}
+              >
+                {/* Header */}
+                <div className="flex items-center justify-between mb-5">
+                  <div>
+                    <p className="text-molted-white text-sm font-bold">TeachOS Dashboard</p>
+                    <p className="text-molted-muted text-xs">BIO301 · Spring Semester</p>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-xs" style={{ color: TEAL }}>
+                    <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: TEAL }} />
+                    Running
+                  </div>
+                </div>
+
+                {/* Tool status cards */}
+                <div className="grid grid-cols-2 gap-3 mb-4">
+                  {tools.map((tool, i) => {
+                    const Icon = tool.icon;
+                    return (
+                      <div
+                        key={i}
+                        className="rounded-xl p-3 border"
+                        style={{ background: TEAL_DIM, borderColor: TEAL_BORDER }}
+                      >
+                        <Icon size={14} className="mb-2" style={{ color: TEAL }} />
+                        <p className="text-molted-white text-xs font-semibold leading-snug">{tool.label}</p>
+                        <p className="text-molted-muted text-xs mt-0.5">{tool.desc}</p>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* Activity feed */}
+                <div className="space-y-2">
+                  {[
+                    { msg: 'Essay 2 graded — 24 students · 4 min', time: 'Just now' },
+                    { msg: 'Week 8 announcement scheduled', time: '2m ago' },
+                    { msg: 'Marcus T. flagged — 5 days inactive', time: '1h ago' },
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center justify-between text-xs py-2 border-b border-molted-border last:border-0">
+                      <p className="text-molted-muted">{item.msg}</p>
+                      <p className="text-molted-subtle ml-3 flex-shrink-0">{item.time}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Floating accent */}
+              <div className="absolute -top-4 -right-4 w-24 h-24 rounded-full pointer-events-none"
+                style={{ background: 'radial-gradient(circle, rgba(45,212,191,0.12) 0%, transparent 70%)' }}
+              />
+            </div>
+          </RevealBlock>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ── Stats ─────────────────────────────────────────────────────────────── */
 function Stats() {
   const stats = [
@@ -514,6 +662,7 @@ export default function MoltedHome() {
       <Mission />
       <PAIgeBreakerSection />
       <PersonaAiSection />
+      <TeachOSSection />
       <Stats />
       <Manifesto />
       <FinalCTA />
