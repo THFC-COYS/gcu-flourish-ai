@@ -1,7 +1,8 @@
 /*
   TeachOS · Course Architect API
-  POST { title, level, format, weeks, objectives, syllabus? }
-  → full semester structure via Grok
+  POST { title, level, format, weeks, objectives, syllabus?, voice? }
+  → full semester structure via Grok (Level 1 announcements; use
+    /api/expand-announcements for Level 2/3 announcement depth)
 */
 
 const SYSTEM_PROMPT = `You are Course Architect, an AI system built for university faculty inside TeachOS.
@@ -52,7 +53,7 @@ export default async function handler(req: any, res: any) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { title, level, format, weeks, objectives, syllabus, announcementLevel, voice } = req.body;
+  const { title, level, format, weeks, objectives, syllabus, voice } = req.body;
 
   if (!title || !objectives || String(objectives).trim().length < 10) {
     return res.status(400).json({ error: 'Please provide a course title and at least one learning objective.' });
@@ -67,17 +68,12 @@ export default async function handler(req: any, res: any) {
     ? `\n\nExisting syllabus or outline to draw from:\n${syllabus.trim()}`
     : '';
 
-  // Scale scope and token budget based on announcement depth
-  const aLevel = Number(announcementLevel) || 1;
-  const maxWeeks   = aLevel === 1 ? 12 : aLevel === 2 ? 10 : 8;
-  const maxTokens  = aLevel === 1 ? 3000 : aLevel === 2 ? 4500 : 6000;
-  const clampedWeeks = Math.min(maxWeeks, Math.max(1, Number(weeks) || 8));
+  const voiceBlock = voice?.trim()
+    ? `\n\nFaculty voice — write announcements to sound like this person:\n${voice.trim()}`
+    : '';
 
-  const announcementSpec = aLevel === 1
-    ? 'Level 1 — Orientation (60–80 words): Welcome students to the week, name the topic, explain why it matters, tell them what to read or do first.'
-    : aLevel === 2
-    ? 'Level 2 — Mini Lesson (160–200 words): Open with a welcome, then teach the core ideas of each topic directly in the announcement with brief explanations — students should arrive having engaged with the material before class.'
-    : 'Level 3 — Deep Dive (270–320 words): Everything in Level 2, plus include at least one concrete real-world example or short case study that grounds the theory in practice. Make it compelling enough that students share it.';
+  // Keep this call fast: compact announcements, capped at 10 weeks, 2500 tokens
+  const clampedWeeks = Math.min(10, Math.max(1, Number(weeks) || 8));
 
   const userMessage = `Design a complete course structure for the following:
 
@@ -86,12 +82,9 @@ Level: ${level || 'Undergraduate'}
 Format: ${format || 'Online'}
 Duration: ${clampedWeeks} weeks
 Learning objectives:
-${objectives}${syllabusBlock}
+${objectives}${syllabusBlock}${voiceBlock}
 
-Generate all ${clampedWeeks} weekly modules. Keep objectives to 2 per module. Keep topics to 3 per module.
-
-Announcement style for every module:
-${announcementSpec}${voice?.trim() ? `\n\nFaculty voice and personality — write ALL announcements to sound authentically like this person:\n${voice.trim()}` : ''}`;
+Generate all ${clampedWeeks} weekly modules. Keep each announcement to 60–80 words. Keep objectives to 2 per module. Keep topics to 3 per module.`;
 
   try {
     const response = await fetch('https://api.x.ai/v1/chat/completions', {
@@ -102,7 +95,7 @@ ${announcementSpec}${voice?.trim() ? `\n\nFaculty voice and personality — writ
       },
       body: JSON.stringify({
         model: 'grok-4-latest',
-        max_tokens: maxTokens,
+        max_tokens: 2500,
         messages: [
           { role: 'system', content: SYSTEM_PROMPT },
           { role: 'user', content: userMessage },

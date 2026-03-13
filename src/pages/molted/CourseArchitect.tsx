@@ -361,9 +361,10 @@ function Results({ result }: { result: CourseResult }) {
 }
 
 /* ── Input form ────────────────────────────────────────────────────────── */
-function InputForm({ onSubmit, loading }: {
+function InputForm({ onSubmit, loading, loadingStage }: {
   onSubmit: (data: Record<string, string>) => void;
   loading: boolean;
+  loadingStage: string;
 }) {
   const [form, setForm] = useState({
     title: '',
@@ -583,7 +584,7 @@ function InputForm({ onSubmit, loading }: {
         }}
       >
         {loading ? (
-          <><Loader2 size={16} className="animate-spin" />Designing your course...</>
+          <><Loader2 size={16} className="animate-spin" />{loadingStage || 'Designing your course…'}</>
         ) : (
           <><UploadCloud size={16} />Build Course Structure</>
         )}
@@ -596,6 +597,7 @@ function InputForm({ onSubmit, loading }: {
 export default function CourseArchitect() {
   const [result, setResult] = useState<CourseResult | null>(null);
   const [loading, setLoading] = useState(false);
+  const [loadingStage, setLoadingStage] = useState('');
   const [error, setError] = useState<string | null>(null);
 
   async function handleSubmit(form: Record<string, string>) {
@@ -604,19 +606,52 @@ export default function CourseArchitect() {
     setResult(null);
 
     try {
-      const res = await fetch('/api/course-architect', {
+      // Stage 1: course map + Level 1 announcements (always fast)
+      setLoadingStage('Building course structure…');
+      const res1 = await fetch('/api/course-architect', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       });
+      const courseData = await res1.json();
+      if (!res1.ok) { setError(courseData.error ?? 'Something went wrong building the course map.'); return; }
 
-      const data = await res.json();
-      if (!res.ok) { setError(data.error ?? 'Something went wrong.'); return; }
-      setResult(data);
+      // Stage 2 (Level 2/3 only): replace announcements with deeper versions
+      const aLevel = Number(form.announcementLevel) || 1;
+      if (aLevel > 1 && Array.isArray(courseData.modules)) {
+        setLoadingStage(
+          aLevel === 2
+            ? 'Writing mini-lesson announcements…'
+            : 'Writing deep-dive announcements with examples…'
+        );
+        const res2 = await fetch('/api/expand-announcements', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            modules: courseData.modules,
+            level: form.announcementLevel,
+            voice: form.voice,
+            courseTitle: courseData.courseTitle,
+          }),
+        });
+        if (res2.ok) {
+          const enhanced: Array<{ week: number; announcement: string }> = await res2.json();
+          if (Array.isArray(enhanced)) {
+            courseData.modules = courseData.modules.map((m: any) => {
+              const hit = enhanced.find(a => a.week === m.week);
+              return hit ? { ...m, announcement: hit.announcement } : m;
+            });
+          }
+        }
+        // If expand-announcements fails, we still show the Level 1 result — don't block the user
+      }
+
+      setResult(courseData);
     } catch {
-      setError('Network error — check your connection.');
+      setError('Network error — please check your connection and try again.');
     } finally {
       setLoading(false);
+      setLoadingStage('');
     }
   }
 
@@ -662,7 +697,7 @@ export default function CourseArchitect() {
               className="rounded-3xl p-6 border sticky top-24"
               style={{ background: 'rgba(17,17,24,0.7)', borderColor: 'rgba(255,255,255,0.06)' }}
             >
-              <InputForm onSubmit={handleSubmit} loading={loading} />
+              <InputForm onSubmit={handleSubmit} loading={loading} loadingStage={loadingStage} />
             </div>
 
             {/* Results */}
@@ -716,11 +751,13 @@ export default function CourseArchitect() {
                   >
                     <Loader2 size={20} style={{ color: TEAL }} className="animate-spin" />
                   </div>
-                  <p className="text-molted-white font-semibold mb-1">Designing your course...</p>
+                  <p className="text-molted-white font-semibold mb-1">{loadingStage || 'Designing your course…'}</p>
                   <p className="text-molted-muted text-sm">
-                    Building module map, writing announcements, generating FAQ.
+                    {loadingStage.includes('announcement')
+                      ? 'Writing richer announcements takes a bit longer — hang tight.'
+                      : 'Building module map, writing announcements, generating FAQ.'}
                     <br />
-                    This takes 15–30 seconds for a full semester.
+                    This takes 15–45 seconds depending on depth and length.
                   </p>
                 </div>
               )}
