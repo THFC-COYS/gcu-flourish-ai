@@ -45,9 +45,9 @@ export default async function handler(req: any, res: any) {
     return res.status(400).json({ error: 'Please paste at least some discussion content.' });
   }
 
-  const apiKey = process.env.ANTHROPIC_API_KEY;
+  const apiKey = process.env.GROK_API_KEY;
   if (!apiKey) {
-    return res.status(500).json({ error: 'ANTHROPIC_API_KEY not configured on server.' });
+    return res.status(500).json({ error: 'GROK_API_KEY not configured on server.' });
   }
 
   const contextBlock = context?.trim()
@@ -57,28 +57,29 @@ export default async function handler(req: any, res: any) {
   const userMessage = `Analyze this discussion thread:${contextBlock}\n\n---\n\n${thread.trim()}`;
 
   try {
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
+    const response = await fetch('https://api.x.ai/v1/chat/completions', {
       method: 'POST',
       headers: {
-        'x-api-key': apiKey,
-        'anthropic-version': '2023-06-01',
-        'content-type': 'application/json',
+        'Authorization': `Bearer ${apiKey}`,
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        model: 'claude-sonnet-4-6',
+        model: 'grok-4-latest',
         max_tokens: 2048,
-        system: SYSTEM_PROMPT,
-        messages: [{ role: 'user', content: userMessage }],
+        messages: [
+          { role: 'system', content: SYSTEM_PROMPT },
+          { role: 'user', content: userMessage },
+        ],
       }),
     });
 
     if (!response.ok) {
       const err = await response.text();
-      return res.status(response.status).json({ error: `Claude API error: ${err}` });
+      return res.status(response.status).json({ error: `Grok API error: ${err}` });
     }
 
     const data = await response.json();
-    const raw = data.content?.[0]?.text ?? '';
+    const raw = data.choices?.[0]?.message?.content ?? '';
 
     let parsed;
     try {
@@ -86,7 +87,7 @@ export default async function handler(req: any, res: any) {
       const clean = raw.replace(/^```json\s*/i, '').replace(/^```\s*/i, '').replace(/```\s*$/i, '').trim();
       parsed = JSON.parse(clean);
     } catch {
-      return res.status(500).json({ error: 'Failed to parse Claude response as JSON.', raw });
+      return res.status(500).json({ error: 'Failed to parse Grok response as JSON.', raw });
     }
 
     res.setHeader('Cache-Control', 'no-store');
