@@ -16,11 +16,19 @@ Instructions:
 3. For every misconception: draft a Socratic follow-up response that guides the student toward correct thinking WITHOUT directly correcting them. Sound like a thoughtful professor.
 4. For strong posts: draft a short public acknowledgment the instructor could post to highlight the thinking to the class.
 5. Write a brief pedagogical insight (2–3 sentences) for the instructor summarizing the state of the discussion.
+6. Write a single instructor response the faculty member can post directly to the discussion board. This is the most important output. It should:
+   - Open with 1–2 sentences acknowledging the quality of engagement in the thread
+   - Gently surface and reframe the most important misconception(s) without calling out students by name — ask a guiding question instead of correcting directly
+   - Explicitly highlight 1–2 ideas from strong posts and invite the class to build on them (you may name those students)
+   - Close with a forward-looking question or prompt that pushes the class deeper into the topic
+   - Tone and length: follow the instructor response requirements provided in the user message
+   - Default if not specified: warm, intellectually engaged, ~200 words
 
 Return ONLY valid JSON — no markdown, no preamble, no explanation. Use this exact schema:
 
 {
   "summary": "one sentence overview of what this discussion thread is about and how it went overall",
+  "instructorPost": "the full ready-to-post instructor response — 150–250 words, warm and intellectually engaged",
   "posts": [
     {
       "author": "student name, or 'Unknown' if not identifiable",
@@ -39,7 +47,7 @@ export default async function handler(req: any, res: any) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { thread, context } = req.body;
+  const { thread, context, opts } = req.body;
 
   if (!thread || typeof thread !== 'string' || thread.trim().length < 20) {
     return res.status(400).json({ error: 'Please paste at least some discussion content.' });
@@ -54,7 +62,16 @@ export default async function handler(req: any, res: any) {
     ? `\n\nInstructor context (learning objectives / topic):\n${context.trim()}`
     : '';
 
-  const userMessage = `Analyze this discussion thread:${contextBlock}\n\n---\n\n${thread.trim()}`;
+  const tone = opts?.tone ?? 'conversational';
+  const wordCount = Math.min(600, Math.max(50, Number(opts?.wordCount) || 200));
+  const nameStudents = opts?.nameStudents !== false;
+
+  const optsBlock = `\n\nInstructor response requirements:
+- Tone: ${tone} (${tone === 'formal' ? 'professional and academic' : tone === 'socratic' ? 'question-driven, never stating answers directly' : 'warm, approachable, collegial'})
+- Target length: approximately ${wordCount} words
+- Name students: ${nameStudents ? 'yes — you may refer to students by first name' : 'no — keep the response anonymous, do not name individual students'}`;
+
+  const userMessage = `Analyze this discussion thread:${contextBlock}${optsBlock}\n\n---\n\n${thread.trim()}`;
 
   try {
     const response = await fetch('https://api.x.ai/v1/chat/completions', {

@@ -20,6 +20,7 @@ interface Post {
 
 interface Analysis {
   summary: string;
+  instructorPost: string;
   posts: Post[];
   insights: string;
 }
@@ -225,6 +226,28 @@ function Results({ analysis }: { analysis: Analysis }) {
         </div>
       </div>
 
+      {/* Instructor response */}
+      {analysis.instructorPost && (
+        <div
+          className="rounded-2xl border"
+          style={{ background: 'rgba(17,17,24,0.9)', borderColor: 'rgba(255,255,255,0.08)' }}
+        >
+          <div className="flex items-center justify-between px-5 pt-5 pb-3">
+            <div>
+              <p className="text-molted-white text-sm font-bold">Your response</p>
+              <p className="text-molted-muted text-xs mt-0.5">Ready to paste into your discussion board</p>
+            </div>
+            <CopyButton text={analysis.instructorPost} />
+          </div>
+          <div
+            className="mx-4 mb-4 rounded-xl p-4 text-sm leading-relaxed text-molted-white/85 whitespace-pre-wrap"
+            style={{ background: 'rgba(0,0,0,0.35)', border: '1px solid rgba(255,255,255,0.05)' }}
+          >
+            {analysis.instructorPost}
+          </div>
+        </div>
+      )}
+
       {/* Posts */}
       <div>
         <FilterTabs filter={filter} setFilter={setFilter} posts={analysis.posts} />
@@ -252,16 +275,66 @@ function Results({ analysis }: { analysis: Analysis }) {
   );
 }
 
+/* ── ResponseOptions ───────────────────────────────────────────────────── */
+interface ResponseOptions {
+  tone: 'formal' | 'conversational' | 'socratic';
+  wordCount: number;
+  nameStudents: boolean;
+}
+
+function ChipGroup<T extends string>({
+  label,
+  options,
+  value,
+  onChange,
+}: {
+  label: string;
+  options: { value: T; label: string }[];
+  value: T;
+  onChange: (v: T) => void;
+}) {
+  return (
+    <div>
+      <p className="text-molted-muted text-xs font-semibold mb-2">{label}</p>
+      <div className="flex gap-2 flex-wrap">
+        {options.map(opt => {
+          const active = opt.value === value;
+          return (
+            <button
+              key={opt.value}
+              type="button"
+              onClick={() => onChange(opt.value)}
+              className="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all"
+              style={{
+                background: active ? TEAL_DIM : 'rgba(255,255,255,0.04)',
+                color: active ? TEAL : '#86868B',
+                border: `1px solid ${active ? TEAL_BORDER : 'rgba(255,255,255,0.07)'}`,
+              }}
+            >
+              {opt.label}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 /* ── Input panel ───────────────────────────────────────────────────────── */
 function InputPanel({
   onAnalyze,
   loading,
 }: {
-  onAnalyze: (thread: string, context: string) => void;
+  onAnalyze: (thread: string, context: string, opts: ResponseOptions) => void;
   loading: boolean;
 }) {
   const [thread, setThread] = useState('');
   const [context, setContext] = useState('');
+  const [opts, setOpts] = useState<ResponseOptions>({
+    tone: 'conversational',
+    wordCount: 200,
+    nameStudents: true,
+  });
 
   const ready = thread.trim().length > 30 && !loading;
 
@@ -310,8 +383,91 @@ function InputPanel({
         </p>
       </div>
 
+      {/* Response options */}
+      <div
+        className="rounded-2xl border p-4 space-y-4"
+        style={{ background: 'rgba(0,0,0,0.25)', borderColor: 'rgba(255,255,255,0.06)' }}
+      >
+        <p className="text-molted-white text-xs font-bold uppercase tracking-wide">
+          Response options
+        </p>
+        <ChipGroup
+          label="Tone"
+          value={opts.tone}
+          onChange={v => setOpts(o => ({ ...o, tone: v }))}
+          options={[
+            { value: 'conversational', label: 'Conversational' },
+            { value: 'formal', label: 'Formal' },
+            { value: 'socratic', label: 'Socratic' },
+          ]}
+        />
+        <div>
+          <p className="text-molted-muted text-xs font-semibold mb-2">Word count</p>
+          <div className="flex items-center gap-3">
+            <input
+              type="number"
+              min={50}
+              max={600}
+              value={opts.wordCount}
+              onChange={e => {
+                const v = Math.min(600, Math.max(50, Number(e.target.value) || 50));
+                setOpts(o => ({ ...o, wordCount: v }));
+              }}
+              className="w-24 rounded-lg border text-sm text-molted-white text-center py-1.5 focus:outline-none"
+              style={{
+                background: 'rgba(17,17,24,0.9)',
+                borderColor: TEAL_BORDER,
+              }}
+            />
+            <div className="flex gap-1.5">
+              {[75, 150, 200, 350].map(n => (
+                <button
+                  key={n}
+                  type="button"
+                  onClick={() => setOpts(o => ({ ...o, wordCount: n }))}
+                  className="px-2.5 py-1 rounded-lg text-xs font-semibold transition-all"
+                  style={{
+                    background: opts.wordCount === n ? TEAL_DIM : 'rgba(255,255,255,0.04)',
+                    color: opts.wordCount === n ? TEAL : '#86868B',
+                    border: `1px solid ${opts.wordCount === n ? TEAL_BORDER : 'rgba(255,255,255,0.07)'}`,
+                  }}
+                >
+                  {n}w
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div>
+          <p className="text-molted-muted text-xs font-semibold mb-2">Name students</p>
+          <div className="flex gap-2">
+            {[
+              { val: true, label: 'Name them' },
+              { val: false, label: 'Keep anonymous' },
+            ].map(opt => {
+              const active = opt.val === opts.nameStudents;
+              return (
+                <button
+                  key={String(opt.val)}
+                  type="button"
+                  onClick={() => setOpts(o => ({ ...o, nameStudents: opt.val }))}
+                  className="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all"
+                  style={{
+                    background: active ? TEAL_DIM : 'rgba(255,255,255,0.04)',
+                    color: active ? TEAL : '#86868B',
+                    border: `1px solid ${active ? TEAL_BORDER : 'rgba(255,255,255,0.07)'}`,
+                  }}
+                >
+                  {opt.label}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
       <button
-        onClick={() => onAnalyze(thread, context)}
+        onClick={() => onAnalyze(thread, context, opts)}
         disabled={!ready}
         className="w-full flex items-center justify-center gap-2.5 py-3.5 rounded-xl font-bold text-sm transition-all duration-200"
         style={{
@@ -342,7 +498,7 @@ export default function DiscussionDemo() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  async function handleAnalyze(thread: string, context: string) {
+  async function handleAnalyze(thread: string, context: string, opts: ResponseOptions) {
     setLoading(true);
     setError(null);
     setAnalysis(null);
@@ -351,7 +507,7 @@ export default function DiscussionDemo() {
       const res = await fetch('/api/discuss', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ thread, context }),
+        body: JSON.stringify({ thread, context, opts }),
       });
 
       const data = await res.json();
