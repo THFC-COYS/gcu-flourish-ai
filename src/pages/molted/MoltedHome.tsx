@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, BookOpen, Sparkles, Globe, Users, Zap, ChevronRight, Cpu, MessageSquare, CheckSquare, TrendingUp } from 'lucide-react';
+import { ArrowRight, Sparkles, Globe, Users, Zap, ChevronRight } from 'lucide-react';
 import MoltedLayout from './MoltedLayout';
 
 /* ── Scroll reveal hook ────────────────────────────────────────────────── */
@@ -17,7 +17,7 @@ function useReveal() {
           obs.unobserve(el);
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.12 }
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -44,17 +44,14 @@ function RevealBlock({ children, delay = 0, className = '' }: {
 function AmbientOrbs() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
-      {/* Violet primary orb */}
-      <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[800px] h-[600px] rounded-full"
-        style={{ background: 'radial-gradient(ellipse at center, rgba(232,160,32,0.10) 0%, transparent 70%)' }}
+      <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[600px] rounded-full"
+        style={{ background: 'radial-gradient(ellipse at center, rgba(232,160,32,0.08) 0%, transparent 70%)' }}
       />
-      {/* Ember accent orb */}
-      <div className="absolute top-1/3 -right-40 w-[500px] h-[500px] rounded-full animate-glow-pulse"
-        style={{ background: 'radial-gradient(ellipse at center, rgba(232,23,15,0.07) 0%, transparent 70%)' }}
+      <div className="absolute top-1/3 -right-40 w-[500px] h-[500px] rounded-full"
+        style={{ background: 'radial-gradient(ellipse at center, rgba(232,23,15,0.06) 0%, transparent 70%)' }}
       />
-      {/* Bottom violet */}
       <div className="absolute bottom-0 -left-20 w-[400px] h-[400px] rounded-full"
-        style={{ background: 'radial-gradient(ellipse at center, rgba(232,160,32,0.05) 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(ellipse at center, rgba(45,212,191,0.04) 0%, transparent 70%)' }}
       />
     </div>
   );
@@ -67,60 +64,65 @@ function Hero() {
       <AmbientOrbs />
 
       {/* Tagline chip */}
-      <div className="relative z-10 mb-8 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-molted-violet/30 bg-molted-violet/10 text-molted-violet text-xs font-semibold tracking-wide uppercase animate-fade-in">
-        <Sparkles size={12} />
-        AI EdTech · Three Products · One Mission
-      </div>
+      <RevealBlock className="mb-8">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-molted-violet/30 bg-molted-violet/10 text-molted-violet text-xs font-semibold tracking-wide uppercase">
+          <Sparkles size={12} />
+          AI EdTech · Nine Products · One Platform
+        </div>
+      </RevealBlock>
 
       {/* Main headline */}
-      <h1 className="relative z-10 text-5xl md:text-7xl lg:text-8xl font-black text-molted-white leading-[1.02] tracking-tight max-w-5xl animate-reveal">
-        Education.{' '}
-        <span
-          className="inline-block"
-          style={{
-            background: 'linear-gradient(120deg, #F5B740 0%, #E8A020 55%, #E8170F 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-          }}
-        >
-          Transformed.
-        </span>
-      </h1>
+      <RevealBlock delay={100}>
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-molted-white leading-[1.02] tracking-tight max-w-5xl">
+          Education.{' '}
+          <span
+            style={{
+              background: 'linear-gradient(120deg, #F5B740 0%, #E8A020 55%, #E8170F 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
+          >
+            Transformed.
+          </span>
+        </h1>
+      </RevealBlock>
 
       {/* Sub-headline */}
-      <p className="relative z-10 mt-8 text-lg md:text-xl text-molted-muted max-w-xl leading-relaxed animate-reveal" style={{ animationDelay: '150ms' }}>
-        Two AIs that make institutions better at their most human work.
-      </p>
+      <RevealBlock delay={200}>
+        <p className="mt-8 text-lg md:text-xl text-molted-muted max-w-xl leading-relaxed">
+          From the student struggling at midnight to the provost measuring outcomes —
+          MoltED Ai covers the entire education stack.
+        </p>
+      </RevealBlock>
 
       {/* CTAs */}
-      <div className="relative z-10 mt-10 flex flex-col sm:flex-row items-center gap-4 animate-reveal" style={{ animationDelay: '300ms' }}>
+      <RevealBlock delay={300} className="mt-10 flex flex-col sm:flex-row items-center gap-4 flex-wrap justify-center">
         <Link
           to="/molted/paigebreaker"
-          className="group flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-molted-violet hover:bg-molted-violet-light text-white font-semibold transition-all duration-200 shadow-molted-violet hover:-translate-y-px"
+          className="group flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-molted-violet hover:bg-molted-violet-light text-white font-semibold transition-all duration-200 hover:-translate-y-px"
         >
           pAIgeBreaker
           <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
         </Link>
         <Link
-          to="/molted/persona-ai"
-          className="group flex items-center gap-2.5 px-7 py-3.5 rounded-xl border border-molted-border hover:border-molted-ember/50 text-molted-white hover:text-molted-ember font-semibold transition-all duration-200 hover:bg-molted-ember/5"
-        >
-          Persona Ai
-          <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-        </Link>
-        <Link
           to="/molted/teachos"
-          className="group flex items-center gap-2.5 px-7 py-3.5 rounded-xl border font-semibold transition-all duration-200"
-          style={{ borderColor: 'rgba(45,212,191,0.3)', color: '#2DD4BF' }}
+          className="group flex items-center gap-2.5 px-7 py-3.5 rounded-xl border border-molted-border hover:border-[#2DD4BF]/40 text-molted-white font-semibold transition-all duration-200 hover:text-[#2DD4BF]"
         >
           TeachOS
           <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
         </Link>
-      </div>
+        <Link
+          to="/molted/campus-os"
+          className="group flex items-center gap-2.5 px-7 py-3.5 rounded-xl border border-molted-border text-molted-muted hover:text-molted-white hover:border-molted-subtle font-semibold transition-all duration-200"
+        >
+          CampusOS
+          <ChevronRight size={16} />
+        </Link>
+      </RevealBlock>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-molted-subtle animate-pulse-slow">
+      {/* Scroll cue */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-molted-subtle animate-pulse">
         <span className="text-xs tracking-widest uppercase">Scroll</span>
         <div className="w-px h-8 bg-gradient-to-b from-molted-subtle to-transparent" />
       </div>
@@ -128,20 +130,18 @@ function Hero() {
   );
 }
 
-/* ── Mission statement ─────────────────────────────────────────────────── */
+/* ── Mission ───────────────────────────────────────────────────────────── */
 function Mission() {
   const ref = useReveal();
   return (
     <section className="py-32 px-6">
       <div className="max-w-4xl mx-auto text-center">
-        <div
-          ref={ref}
-          className="opacity-0 translate-y-8 transition-all duration-1000 ease-out"
-        >
+        <div ref={ref} className="opacity-0 translate-y-8 transition-all duration-1000 ease-out">
           <p className="text-3xl md:text-5xl lg:text-6xl font-black text-molted-white leading-[1.1] tracking-tight">
             "The best schools in the world have great teachers.
           </p>
-          <p className="mt-4 text-3xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight"
+          <p
+            className="mt-4 text-3xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight"
             style={{
               background: 'linear-gradient(120deg, #F5B740 0%, #E8A020 55%, #E8170F 100%)',
               WebkitBackgroundClip: 'text',
@@ -158,393 +158,274 @@ function Mission() {
   );
 }
 
-/* ── pAIgeBreaker product section ──────────────────────────────────────── */
-function PAIgeBreakerSection() {
+/* ── Products — Available Now ──────────────────────────────────────────── */
+const LIVE_PRODUCTS = [
+  {
+    num: '01',
+    name: 'pAIgeBreaker',
+    color: '#E8A020',
+    glow: 'rgba(232,160,32,0.15)',
+    audience: 'For Students',
+    tagline: 'Every question answered. Every page. Every hour.',
+    desc: 'AI that turns any textbook or document into a live conversation. Students ask in plain English, get curriculum-aligned answers instantly — at 2 AM, without a tutor.',
+    href: '/molted/paigebreaker',
+    live: true,
+  },
+  {
+    num: '02',
+    name: 'Persona Ai',
+    color: '#E8170F',
+    glow: 'rgba(232,23,15,0.12)',
+    audience: 'For Institutions',
+    tagline: "Your institution's voice, everywhere, always.",
+    desc: 'Custom AI personas trained on your identity, values, and curriculum. Not a chatbot. A persona. Six live instances deployed at Grand Canyon University.',
+    href: '/molted/persona-ai',
+    live: true,
+  },
+  {
+    num: '03',
+    name: 'TeachOS',
+    color: '#2DD4BF',
+    glow: 'rgba(45,212,191,0.12)',
+    audience: 'For Faculty',
+    tagline: 'The AI operating system for every educator.',
+    desc: 'Reclaims the 23 hours per week faculty spend on administration — grading, discussion boards, announcements, student emails. All automated. You review, approve, teach.',
+    href: '/molted/teachos',
+    live: true,
+  },
+];
+
+function LiveProducts() {
   return (
     <section className="py-24 px-6 border-t border-molted-border">
       <div className="max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-          {/* Text */}
-          <div>
-            <RevealBlock>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-molted-violet/10 border border-molted-violet/20 text-molted-violet text-xs font-semibold mb-6">
-                <BookOpen size={12} /> Product 01
-              </div>
-            </RevealBlock>
-
-            <RevealBlock delay={100}>
-              <h2 className="text-4xl md:text-6xl font-black text-molted-white leading-tight tracking-tight">
-                pAIge<span className="text-molted-violet">Breaker</span>
+        <RevealBlock className="mb-12">
+          <div className="flex items-center justify-between flex-wrap gap-4">
+            <div>
+              <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-2">Available now</p>
+              <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight">
+                Three products. In production.
               </h2>
-            </RevealBlock>
-
-            <RevealBlock delay={200}>
-              <p className="mt-6 text-xl text-molted-muted leading-relaxed">
-                Every student. Every page. Every question — answered.
-              </p>
-            </RevealBlock>
-
-            <RevealBlock delay={300}>
-              <p className="mt-4 text-molted-muted/70 leading-relaxed">
-                pAIgeBreaker turns any textbook, document, or reading assignment into a live
-                conversation. Students ask in plain English. They get curriculum-aligned
-                answers instantly — at 2 AM, without a tutor, without waiting.
-              </p>
-            </RevealBlock>
-
-            <RevealBlock delay={400}>
-              <div className="mt-8 space-y-3">
-                {[
-                  'Ask any question about any text',
-                  'Aligned to your curriculum standards',
-                  'Personalized to each student\'s level',
-                  'Available every hour of every day',
-                ].map((feat, i) => (
-                  <div key={i} className="flex items-center gap-3 text-sm text-molted-muted">
-                    <div className="w-1.5 h-1.5 rounded-full bg-molted-violet flex-shrink-0" />
-                    {feat}
-                  </div>
-                ))}
-              </div>
-            </RevealBlock>
-
-            <RevealBlock delay={500}>
-              <Link
-                to="/molted/paigebreaker"
-                className="mt-8 inline-flex items-center gap-2 text-molted-violet font-semibold hover:gap-3 transition-all"
-              >
-                Explore pAIgeBreaker <ChevronRight size={16} />
-              </Link>
-            </RevealBlock>
-          </div>
-
-          {/* Visual mock */}
-          <RevealBlock delay={200} className="md:order-last">
-            <div className="relative">
-              <div className="rounded-2xl border border-molted-border bg-molted-elevated overflow-hidden shadow-molted-glow">
-                {/* Mock browser chrome */}
-                <div className="bg-molted-surface px-4 py-3 flex items-center gap-2 border-b border-molted-border">
-                  <div className="flex gap-1.5">
-                    <div className="w-3 h-3 rounded-full bg-red-500/50" />
-                    <div className="w-3 h-3 rounded-full bg-yellow-500/50" />
-                    <div className="w-3 h-3 rounded-full bg-green-500/50" />
-                  </div>
-                  <div className="flex-1 mx-4 bg-molted-border rounded-md h-6 flex items-center px-3">
-                    <span className="text-molted-muted text-xs">paigebreaker.com</span>
-                  </div>
-                </div>
-
-                {/* Mock chat interface */}
-                <div className="p-6 space-y-4 min-h-[320px]">
-                  {/* Document excerpt */}
-                  <div className="bg-molted-surface rounded-xl p-4 border border-molted-border">
-                    <p className="text-molted-muted text-xs leading-relaxed">
-                      <span className="text-molted-white font-medium">Chapter 4 · Mitosis</span>
-                      <br />
-                      <span className="bg-molted-violet/20 text-molted-violet-light px-0.5">
-                        Mitosis is the process of cell division
-                      </span>{' '}
-                      that results in two daughter cells each having the same number and
-                      kind of chromosomes as the parent cell...
-                    </p>
-                  </div>
-
-                  {/* Student question */}
-                  <div className="flex justify-end">
-                    <div className="bg-molted-violet/20 border border-molted-violet/30 rounded-xl rounded-br-sm px-4 py-3 max-w-xs">
-                      <p className="text-molted-white text-sm">
-                        Wait — what's the difference between mitosis and meiosis again?
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* pAIgeBreaker answer */}
-                  <div className="flex gap-3">
-                    <div className="w-7 h-7 rounded-full bg-gradient-to-br from-molted-violet to-molted-ember flex items-center justify-center text-white text-xs font-bold flex-shrink-0 mt-0.5">
-                      p
-                    </div>
-                    <div className="bg-molted-surface border border-molted-border rounded-xl rounded-bl-sm px-4 py-3 flex-1">
-                      <p className="text-molted-muted text-sm leading-relaxed">
-                        Great question. Think of it this way: <span className="text-molted-violet-light">mitosis = copy</span> (same DNA, body growth),{' '}
-                        <span className="text-molted-ember-light">meiosis = remix</span> (half DNA, for reproduction).
-                        Your textbook just covered mitosis — want me to pull up a quick comparison?
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Typing indicator */}
-                  <div className="flex items-center gap-1 pl-10">
-                    <div className="w-1.5 h-1.5 rounded-full bg-molted-violet/50 animate-bounce" style={{ animationDelay: '0ms' }} />
-                    <div className="w-1.5 h-1.5 rounded-full bg-molted-violet/50 animate-bounce" style={{ animationDelay: '150ms' }} />
-                    <div className="w-1.5 h-1.5 rounded-full bg-molted-violet/50 animate-bounce" style={{ animationDelay: '300ms' }} />
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating accent */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 rounded-full"
-                style={{ background: 'radial-gradient(circle, rgba(123,97,255,0.2) 0%, transparent 70%)' }}
-              />
             </div>
-          </RevealBlock>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ── Persona Ai product section ─────────────────────────────────────── */
-function PersonaAiSection() {
-  const SPIRITS = [
-    { icon: '🏥', name: 'Spirit Nurse', domain: 'Clinical care' },
-    { icon: '📚', name: 'Spirit Teacher', domain: 'Education' },
-    { icon: '✝️', name: 'Spirit Chaplain', domain: 'Faith & grief' },
-    { icon: '💼', name: 'Spirit Advisor', domain: 'Business ethics' },
-    { icon: '⚖️', name: 'Spirit Counsel', domain: 'Legal guidance' },
-    { icon: '🔬', name: 'Spirit Scientist', domain: 'Research support' },
-  ];
-
-  return (
-    <section className="py-24 px-6 border-t border-molted-border">
-      <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col md:grid md:grid-cols-2 gap-16 items-center">
-          {/* Visual mock — left side on desktop, below text on mobile */}
-          <RevealBlock delay={200} className="order-2 md:order-1">
-            <div className="relative">
-              {/* Live example label above the card */}
-              <div className="flex items-center gap-2 mb-3">
-                <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse flex-shrink-0" />
-                <p className="text-green-400 text-xs font-bold uppercase tracking-widest">Live deployment</p>
-              </div>
-              <p className="text-molted-white font-bold text-sm mb-1">Spirit Network · Grand Canyon University</p>
-              <p className="text-molted-muted text-xs mb-4">6 Persona Ai instances — one per college, trained on GCU's identity</p>
-
-              <div className="rounded-2xl border border-molted-border bg-molted-elevated p-5 shadow-molted-glow">
-                <div className="grid grid-cols-2 gap-3">
-                  {SPIRITS.map((s, i) => (
-                    <div
-                      key={i}
-                      className="bg-molted-surface border border-molted-border rounded-xl p-4 hover:border-molted-ember/40 transition-colors group"
-                    >
-                      <span className="text-2xl block mb-2">{s.icon}</span>
-                      <p className="text-molted-white text-sm font-semibold group-hover:text-molted-ember-light transition-colors">
-                        {s.name}
-                      </p>
-                      <p className="text-molted-muted text-xs mt-0.5">{s.domain}</p>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-4 pt-4 border-t border-molted-border flex items-center justify-between">
-                  <p className="text-molted-muted text-xs">50,000+ interactions served</p>
-                  <div className="flex items-center gap-1.5 text-xs text-green-400">
-                    <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                    All systems live
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating accent */}
-              <div className="absolute -bottom-4 -left-4 w-24 h-24 rounded-full"
-                style={{ background: 'radial-gradient(circle, rgba(232,23,15,0.12) 0%, transparent 70%)' }}
-              />
+            <div className="flex items-center gap-2 text-xs text-green-400">
+              <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+              All systems live
             </div>
-          </RevealBlock>
-
-          {/* Text — first on mobile, right on desktop */}
-          <div className="order-1 md:order-2">
-            <RevealBlock>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-molted-ember/10 border border-molted-ember/20 text-molted-ember text-xs font-semibold mb-6">
-                <Sparkles size={12} /> Product 02
-              </div>
-            </RevealBlock>
-
-            <RevealBlock delay={100}>
-              <h2 className="text-4xl md:text-6xl font-black text-molted-white leading-tight tracking-tight">
-                Persona<br />
-                <span className="text-molted-ember">Ai</span>
-              </h2>
-            </RevealBlock>
-
-            <RevealBlock delay={200}>
-              <p className="mt-6 text-xl text-molted-muted leading-relaxed">
-                Your institution's voice. Present everywhere. Always.
-              </p>
-            </RevealBlock>
-
-            <RevealBlock delay={300}>
-              <p className="mt-4 text-molted-muted/70 leading-relaxed">
-                Every institution has a character — values, expertise, and a way of seeing the world.
-                Persona Ai carries all of it into every conversation, every hour, everywhere
-                your community needs it. Not a chatbot. A persona.
-              </p>
-            </RevealBlock>
-
-            <RevealBlock delay={400}>
-              <div className="mt-8 space-y-3">
-                {[
-                  'Named, branded, and trained on your identity',
-                  'Domain expertise from your curriculum',
-                  'Deployed wherever your students are',
-                  'Scales from one campus to the world',
-                ].map((feat, i) => (
-                  <div key={i} className="flex items-center gap-3 text-sm text-molted-muted">
-                    <div className="w-1.5 h-1.5 rounded-full bg-molted-ember flex-shrink-0" />
-                    {feat}
-                  </div>
-                ))}
-              </div>
-            </RevealBlock>
-
-            <RevealBlock delay={500}>
-              <Link
-                to="/molted/persona-ai"
-                className="mt-8 inline-flex items-center gap-2 text-molted-ember font-semibold hover:gap-3 transition-all"
-              >
-                Explore Persona Ai <ChevronRight size={16} />
-              </Link>
-            </RevealBlock>
           </div>
-        </div>
-      </div>
-    </section>
-  );
-}
+        </RevealBlock>
 
-/* ── TeachOS product section ───────────────────────────────────────────── */
-const TEAL = '#2DD4BF';
-const TEAL_DIM = 'rgba(45,212,191,0.12)';
-const TEAL_BORDER = 'rgba(45,212,191,0.22)';
-
-function TeachOSSection() {
-  const tools = [
-    { icon: MessageSquare, label: 'Discussion Intelligence', desc: 'AI reads every post, drafts responses' },
-    { icon: BookOpen, label: 'Course Architect', desc: 'Syllabus → full semester, automatically' },
-    { icon: CheckSquare, label: 'Agentic Grader', desc: 'Rubric-based grading with personal feedback' },
-    { icon: TrendingUp, label: 'Early Warning', desc: 'At-risk students flagged in real time' },
-  ];
-
-  return (
-    <section className="py-24 px-6 border-t border-molted-border">
-      <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col md:grid md:grid-cols-2 gap-16 items-center">
-          {/* Text — first on mobile, left on desktop */}
-          <div className="order-1">
-            <RevealBlock>
-              <div
-                className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-6"
-                style={{ background: TEAL_DIM, border: `1px solid ${TEAL_BORDER}`, color: TEAL }}
-              >
-                <Cpu size={12} /> Product 03
-              </div>
-            </RevealBlock>
-
-            <RevealBlock delay={100}>
-              <h2 className="text-4xl md:text-6xl font-black leading-tight tracking-tight">
-                <span className="text-molted-white">Teach</span>
-                <span style={{ color: TEAL, textShadow: '0 0 30px rgba(45,212,191,0.3)' }}>OS</span>
-              </h2>
-            </RevealBlock>
-
-            <RevealBlock delay={200}>
-              <p className="mt-6 text-xl text-molted-muted leading-relaxed">
-                The AI operating system for every faculty member.
-              </p>
-            </RevealBlock>
-
-            <RevealBlock delay={300}>
-              <p className="mt-4 text-molted-muted/70 leading-relaxed">
-                TeachOS handles the 23 hours a week faculty spend on administration —
-                grading, discussion boards, announcements, student emails — so professors
-                can spend every hour doing what only they can do: teach.
-              </p>
-            </RevealBlock>
-
-            <RevealBlock delay={400}>
-              <div className="mt-8 space-y-3">
-                {[
-                  'Auto-grade essays with full rubric feedback',
-                  'Draft responses to every discussion post',
-                  'Build entire semester from one syllabus upload',
-                  'Flag at-risk students before they fall behind',
-                ].map((feat, i) => (
-                  <div key={i} className="flex items-center gap-3 text-sm text-molted-muted">
-                    <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: TEAL }} />
-                    {feat}
-                  </div>
-                ))}
-              </div>
-            </RevealBlock>
-
-            <RevealBlock delay={500}>
+        <div className="grid md:grid-cols-3 gap-6">
+          {LIVE_PRODUCTS.map((p, i) => (
+            <RevealBlock key={p.num} delay={i * 100}>
               <Link
-                to="/molted/teachos"
-                className="mt-8 inline-flex items-center gap-2 font-semibold hover:gap-3 transition-all"
-                style={{ color: TEAL }}
+                to={p.href}
+                className="group block rounded-2xl border border-molted-border bg-molted-elevated p-7 h-full hover:border-opacity-60 transition-all duration-300 hover:-translate-y-1"
+                style={{ '--glow': p.glow } as React.CSSProperties}
               >
-                Explore TeachOS <ChevronRight size={16} />
-              </Link>
-            </RevealBlock>
-          </div>
-
-          {/* Visual — second on mobile, right on desktop */}
-          <RevealBlock delay={200} className="order-2">
-            <div className="relative">
-              <div
-                className="rounded-2xl border p-5"
-                style={{ background: 'rgba(17,17,24,0.8)', borderColor: TEAL_BORDER, boxShadow: `0 0 40px rgba(45,212,191,0.08)` }}
-              >
-                {/* Header */}
                 <div className="flex items-center justify-between mb-5">
-                  <div>
-                    <p className="text-molted-white text-sm font-bold">TeachOS Dashboard</p>
-                    <p className="text-molted-muted text-xs">BIO301 · Spring Semester</p>
-                  </div>
-                  <div className="flex items-center gap-1.5 text-xs" style={{ color: TEAL }}>
-                    <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: TEAL }} />
-                    Running
-                  </div>
+                  <span
+                    className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full"
+                    style={{ background: `${p.color}15`, color: p.color, border: `1px solid ${p.color}25` }}
+                  >
+                    {p.audience}
+                  </span>
+                  <span className="text-molted-subtle text-xs">{p.num}</span>
                 </div>
+                <h3
+                  className="text-2xl font-black tracking-tight mb-3 transition-colors"
+                  style={{ color: '#F5F5F7' }}
+                >
+                  {p.name}
+                </h3>
+                <p className="text-sm font-semibold mb-3" style={{ color: p.color }}>
+                  {p.tagline}
+                </p>
+                <p className="text-molted-muted text-sm leading-relaxed mb-6">{p.desc}</p>
+                <div
+                  className="inline-flex items-center gap-2 text-sm font-semibold group-hover:gap-3 transition-all"
+                  style={{ color: p.color }}
+                >
+                  Explore <ChevronRight size={14} />
+                </div>
+              </Link>
+            </RevealBlock>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
-                {/* Tool status cards */}
-                <div className="grid grid-cols-2 gap-3 mb-4">
-                  {tools.map((tool, i) => {
-                    const Icon = tool.icon;
-                    return (
-                      <div
-                        key={i}
-                        className="rounded-xl p-3 border"
-                        style={{ background: TEAL_DIM, borderColor: TEAL_BORDER }}
-                      >
-                        <Icon size={14} className="mb-2" style={{ color: TEAL }} />
-                        <p className="text-molted-white text-xs font-semibold leading-snug">{tool.label}</p>
-                        <p className="text-molted-muted text-xs mt-0.5">{tool.desc}</p>
-                      </div>
-                    );
-                  })}
-                </div>
+/* ── Products — In Development ─────────────────────────────────────────── */
+const COMING_PRODUCTS = [
+  {
+    name: 'PathwayAi',
+    color: '#8B5CF6',
+    audience: 'Students',
+    tagline: 'Every student on their own learning path.',
+    desc: 'Adaptive learning engine built on real interaction data. Netflix for education.',
+    href: '/molted/pathway-ai',
+  },
+  {
+    name: 'ProofAi',
+    color: '#F97316',
+    audience: 'Faculty',
+    tagline: "Assessment for the post-ChatGPT world.",
+    desc: 'Oral AI assessments, portfolio-based competency verification. You can\'t outsource a conversation.',
+    href: '/molted/proof-ai',
+  },
+  {
+    name: 'RetainAi',
+    color: '#F43F5E',
+    audience: 'Institutions',
+    tagline: 'Every student who was about to leave — didn\'t.',
+    desc: 'Identifies departure risk weeks before students decide, triggers the right intervention.',
+    href: '/molted/retain-ai',
+  },
+  {
+    name: 'OutcomesAi',
+    color: '#0EA5E9',
+    audience: 'Leadership',
+    tagline: 'Finally know if any of it is working.',
+    desc: 'Intelligence layer for provosts, deans, and boards. Real-time institutional analytics.',
+    href: '/molted/outcomes-ai',
+  },
+  {
+    name: 'MasteryAi',
+    color: '#10B981',
+    audience: 'Curriculum',
+    tagline: 'Stop teaching time. Start teaching mastery.',
+    desc: 'Rebuilds any existing course as a competency-based learning experience — in minutes.',
+    href: '/molted/mastery-ai',
+  },
+];
 
-                {/* Activity feed */}
-                <div className="space-y-2">
-                  {[
-                    { msg: 'Essay 2 graded — 24 students · 4 min', time: 'Just now' },
-                    { msg: 'Week 8 announcement scheduled', time: '2m ago' },
-                    { msg: 'Marcus T. flagged — 5 days inactive', time: '1h ago' },
-                  ].map((item, i) => (
-                    <div key={i} className="flex items-center justify-between text-xs py-2 border-b border-molted-border last:border-0">
-                      <p className="text-molted-muted">{item.msg}</p>
-                      <p className="text-molted-subtle ml-3 flex-shrink-0">{item.time}</p>
-                    </div>
-                  ))}
+function ComingProducts() {
+  return (
+    <section className="py-24 px-6 border-t border-molted-border">
+      <div className="max-w-6xl mx-auto">
+        <RevealBlock className="mb-12">
+          <div className="flex items-center justify-between flex-wrap gap-4">
+            <div>
+              <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-2">In development</p>
+              <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight">
+                Four products. Building now.
+              </h2>
+            </div>
+            <div className="flex items-center gap-2 text-xs text-molted-muted">
+              <div className="w-1.5 h-1.5 rounded-full bg-molted-muted" />
+              Early access available
+            </div>
+          </div>
+        </RevealBlock>
+
+        <div className="grid md:grid-cols-2 gap-5">
+          {COMING_PRODUCTS.map((p, i) => (
+            <RevealBlock key={p.name} delay={i * 80}>
+              <Link
+                to={p.href}
+                className="group flex gap-5 p-6 rounded-2xl border border-molted-border bg-molted-elevated/50 hover:bg-molted-elevated hover:border-opacity-80 transition-all duration-300"
+              >
+                <div
+                  className="w-10 h-10 rounded-xl flex-shrink-0 mt-0.5"
+                  style={{ background: `${p.color}15`, border: `1px solid ${p.color}25` }}
+                >
+                  <div className="w-full h-full flex items-center justify-center">
+                    <div className="w-2 h-2 rounded-full" style={{ background: p.color }} />
+                  </div>
                 </div>
+                <div className="flex-1">
+                  <div className="flex items-center gap-3 mb-2">
+                    <p className="text-molted-white font-bold">{p.name}</p>
+                    <span
+                      className="text-xs px-2 py-0.5 rounded-full font-medium"
+                      style={{ background: `${p.color}10`, color: p.color, border: `1px solid ${p.color}20` }}
+                    >
+                      {p.audience}
+                    </span>
+                  </div>
+                  <p className="text-sm font-semibold mb-1.5" style={{ color: p.color }}>{p.tagline}</p>
+                  <p className="text-molted-muted text-sm leading-relaxed">{p.desc}</p>
+                </div>
+                <ChevronRight
+                  size={16}
+                  className="text-molted-subtle group-hover:text-molted-muted flex-shrink-0 mt-1 group-hover:translate-x-1 transition-all"
+                />
+              </Link>
+            </RevealBlock>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ── CampusOS Platform Teaser ──────────────────────────────────────────── */
+function PlatformTeaser() {
+  return (
+    <section className="py-24 px-6 border-t border-molted-border">
+      <div className="max-w-6xl mx-auto">
+        <RevealBlock>
+          <Link
+            to="/molted/campus-os"
+            className="group block relative rounded-3xl overflow-hidden border border-molted-border p-12 md:p-16 text-center hover:border-opacity-60 transition-all duration-500"
+            style={{ background: 'rgba(10,10,15,0.8)' }}
+          >
+            {/* Multi-color ambient */}
+            <div className="absolute inset-0 pointer-events-none">
+              <div className="absolute top-0 left-1/4 w-[400px] h-[300px] rounded-full"
+                style={{ background: 'radial-gradient(ellipse, rgba(232,160,32,0.06) 0%, transparent 70%)' }} />
+              <div className="absolute top-0 right-1/4 w-[400px] h-[300px] rounded-full"
+                style={{ background: 'radial-gradient(ellipse, rgba(45,212,191,0.06) 0%, transparent 70%)' }} />
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] rounded-full"
+                style={{ background: 'radial-gradient(ellipse, rgba(139,92,246,0.05) 0%, transparent 70%)' }} />
+            </div>
+
+            <div className="relative z-10">
+              <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-6">The platform</p>
+              <h2
+                className="text-5xl md:text-7xl font-black tracking-tight mb-6"
+                style={{
+                  background: 'linear-gradient(135deg, #E8A020 0%, #2DD4BF 50%, #8B5CF6 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}
+              >
+                CampusOS
+              </h2>
+              <p className="text-xl md:text-2xl text-molted-white/80 font-semibold mb-4 max-w-xl mx-auto">
+                The AI-native LMS built for the world that exists now.
+              </p>
+              <p className="text-molted-muted text-base max-w-lg mx-auto leading-relaxed mb-8">
+                Canvas was built before the iPhone was a year old. We're building the replacement —
+                from scratch, for the AI era. Every MoltED product becomes a native feature.
+              </p>
+
+              {/* Product orbit mockup */}
+              <div className="flex flex-wrap justify-center gap-2 mb-8">
+                {['pAIgeBreaker', 'Persona Ai', 'TeachOS', 'PathwayAi', 'ProofAi', 'RetainAi', 'OutcomesAi', 'MasteryAi'].map((name, i) => (
+                  <span
+                    key={i}
+                    className="px-3 py-1.5 rounded-full text-xs font-medium border border-molted-border text-molted-muted"
+                  >
+                    {name}
+                  </span>
+                ))}
+                <span
+                  className="px-3 py-1.5 rounded-full text-xs font-bold border text-molted-white"
+                  style={{ borderColor: 'rgba(139,92,246,0.4)', background: 'rgba(139,92,246,0.1)' }}
+                >
+                  All built in.
+                </span>
               </div>
 
-              {/* Floating accent */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 rounded-full pointer-events-none"
-                style={{ background: 'radial-gradient(circle, rgba(45,212,191,0.12) 0%, transparent 70%)' }}
-              />
+              <div className="inline-flex items-center gap-2 text-molted-muted font-semibold group-hover:text-molted-white group-hover:gap-3 transition-all">
+                Explore CampusOS <ArrowRight size={16} />
+              </div>
             </div>
-          </RevealBlock>
-        </div>
+          </Link>
+        </RevealBlock>
       </div>
     </section>
   );
@@ -553,7 +434,7 @@ function TeachOSSection() {
 /* ── Stats ─────────────────────────────────────────────────────────────── */
 function Stats() {
   const stats = [
-    { value: '50K+', label: 'Student interactions', icon: Users, color: 'text-molted-violet' },
+    { value: '50K+', label: 'Student interactions served', icon: Users, color: 'text-molted-violet' },
     { value: '6', label: 'Spirit personas deployed', icon: Sparkles, color: 'text-molted-ember' },
     { value: '24/7', label: 'Always available', icon: Zap, color: 'text-emerald-400' },
     { value: '1', label: 'Flagship university partner', icon: Globe, color: 'text-sky-400' },
@@ -572,7 +453,7 @@ function Stats() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {stats.map((s, i) => (
             <RevealBlock key={i} delay={i * 100}>
-              <div className="bg-molted-elevated border border-molted-border rounded-2xl p-6 text-center hover:border-molted-border/80 hover:shadow-molted-card-hover transition-all">
+              <div className="bg-molted-elevated border border-molted-border rounded-2xl p-6 text-center hover:border-molted-border/80 transition-all">
                 <s.icon size={24} className={`mx-auto mb-4 ${s.color}`} />
                 <p className="text-4xl font-black text-molted-white">{s.value}</p>
                 <p className="text-molted-muted text-sm mt-2 leading-snug">{s.label}</p>
@@ -585,29 +466,25 @@ function Stats() {
   );
 }
 
-/* ── Manifesto / philosophy ────────────────────────────────────────────── */
+/* ── Manifesto ─────────────────────────────────────────────────────────── */
 function Manifesto() {
-  const lines = [
-    { text: 'Education is the highest-leverage act', accent: false },
-    { text: 'in human civilization.', accent: false },
-    { text: 'We are building the tools', accent: false },
-    { text: 'that make it radically better.', accent: true },
-  ];
-
   return (
     <section className="py-32 px-6 border-t border-molted-border relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(232,160,32,0.05) 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(232,160,32,0.04) 0%, transparent 70%)' }}
       />
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <RevealBlock>
-          {lines.map((line, i) => (
+          {[
+            { text: 'Education is the highest-leverage act', accent: false },
+            { text: 'in human civilization.', accent: false },
+            { text: 'We are building the tools', accent: false },
+            { text: 'that make it radically better.', accent: true },
+          ].map((line, i) => (
             <p
               key={i}
               className={`text-3xl md:text-5xl font-black leading-tight tracking-tight ${
-                line.accent
-                  ? 'text-molted-violet'
-                  : 'text-molted-white'
+                line.accent ? 'text-molted-violet' : 'text-molted-white'
               }`}
             >
               {line.text}
@@ -636,7 +513,8 @@ function FinalCTA() {
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="mailto:hello@molted.ai"
-              className="group flex items-center gap-2.5 px-8 py-4 rounded-xl bg-gradient-to-r from-molted-violet to-molted-ember text-white font-bold text-lg transition-all duration-200 hover:-translate-y-px hover:shadow-molted-violet"
+              className="group flex items-center gap-2.5 px-8 py-4 rounded-xl text-white font-bold text-lg transition-all duration-200 hover:-translate-y-px"
+              style={{ background: 'linear-gradient(135deg, #E8A020 0%, #E8170F 100%)' }}
             >
               Schedule a Demo
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
@@ -660,9 +538,9 @@ export default function MoltedHome() {
     <MoltedLayout>
       <Hero />
       <Mission />
-      <PAIgeBreakerSection />
-      <PersonaAiSection />
-      <TeachOSSection />
+      <LiveProducts />
+      <ComingProducts />
+      <PlatformTeaser />
       <Stats />
       <Manifesto />
       <FinalCTA />

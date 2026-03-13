@@ -21,6 +21,12 @@ import MoltedHome from './pages/molted/MoltedHome';
 import MoltedPAIgeBreaker from './pages/molted/MoltedPAIgeBreaker';
 import MoltedPersonaAi from './pages/molted/MoltedPersonaAi';
 import MoltedTeachOS from './pages/molted/MoltedTeachOS';
+import MoltedPathwayAi from './pages/molted/MoltedPathwayAi';
+import MoltedProofAi from './pages/molted/MoltedProofAi';
+import MoltedRetainAi from './pages/molted/MoltedRetainAi';
+import MoltedOutcomesAi from './pages/molted/MoltedOutcomesAi';
+import MoltedCampusOS from './pages/molted/MoltedCampusOS';
+import MoltedMasteryAi from './pages/molted/MoltedMasteryAi';
 import MoltedAbout from './pages/molted/MoltedAbout';
 
 function ProtectedRoutes() {
@@ -77,6 +83,12 @@ export default function App() {
             <Route path="/molted/paigebreaker" element={<MoltedPAIgeBreaker />} />
             <Route path="/molted/persona-ai" element={<MoltedPersonaAi />} />
             <Route path="/molted/teachos" element={<MoltedTeachOS />} />
+            <Route path="/molted/pathway-ai" element={<MoltedPathwayAi />} />
+            <Route path="/molted/proof-ai" element={<MoltedProofAi />} />
+            <Route path="/molted/retain-ai" element={<MoltedRetainAi />} />
+            <Route path="/molted/outcomes-ai" element={<MoltedOutcomesAi />} />
+            <Route path="/molted/campus-os" element={<MoltedCampusOS />} />
+            <Route path="/molted/mastery-ai" element={<MoltedMasteryAi />} />
             <Route path="/molted/about" element={<MoltedAbout />} />
             <Route path="/*" element={<ProtectedRoutes />} />
           </Routes>
