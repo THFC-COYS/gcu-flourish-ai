@@ -486,7 +486,7 @@ function BeforeAfter() {
 
   const after = [
     'Adaptive path personalized to knowledge state',
-    'PathwayAi tells you exactly what's next',
+    "PathwayAi tells you exactly what's next",
     'Proactive gap detection in real time',
     'Targeted intervention before falling behind',
     'Teacher gets class-level gap reports weekly',
@@ -572,7 +572,7 @@ function ForInstitutions() {
   const benefits = [
     {
       icon: BarChart2,
-      title: 'Completion rates rise when students don't fall through the cracks.',
+      title: "Completion rates rise when students don't fall through the cracks.",
       body: "When students get the right content at the right time, they finish. PathwayAi catches the gaps that become quiet departures.",
     },
     {
