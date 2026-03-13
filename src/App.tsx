@@ -29,6 +29,7 @@ import MoltedCampusOS from './pages/molted/MoltedCampusOS';
 import MoltedMasteryAi from './pages/molted/MoltedMasteryAi';
 import MoltedAbout from './pages/molted/MoltedAbout';
 import DiscussionDemo from './pages/molted/DiscussionDemo';
+import CourseArchitect from './pages/molted/CourseArchitect';
 
 function ProtectedRoutes() {
   const { user, isLoading } = useAuth();
@@ -92,6 +93,7 @@ export default function App() {
             <Route path="/molted/mastery-ai" element={<MoltedMasteryAi />} />
             <Route path="/molted/about" element={<MoltedAbout />} />
             <Route path="/molted/teachos/discussion" element={<DiscussionDemo />} />
+            <Route path="/molted/teachos/course-architect" element={<CourseArchitect />} />
             <Route path="/*" element={<ProtectedRoutes />} />
           </Routes>
         </BrowserRouter>

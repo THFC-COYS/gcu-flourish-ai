@@ -548,7 +548,18 @@ function CoreTools() {
             {/* Visual mock */}
             <ToolVisual type={active.visual} />
 
-            {/* Try it link for Discussion Intelligence */}
+            {/* Try it links */}
+            {active.visual === 'architect' && (
+              <Link
+                to="/molted/teachos/course-architect"
+                className="flex items-center justify-center gap-2.5 w-full py-3 rounded-xl text-sm font-bold transition-all duration-200 hover:-translate-y-px"
+                style={{ background: TEAL_DIM, color: TEAL, border: `1px solid ${TEAL_BORDER}` }}
+              >
+                <Play size={14} />
+                Try Course Architect — build a semester in minutes
+                <ArrowRight size={14} />
+              </Link>
+            )}
             {active.visual === 'discussion' && (
               <Link
                 to="/molted/teachos/discussion"
