@@ -11,7 +11,7 @@ Your job is to design a complete semester course structure from the instructor's
 Instructions:
 1. Design a week-by-week course map with clear, measurable objectives per module.
 2. Each module should have a ready-to-post Canvas/Blackboard announcement the instructor can paste directly — written in a warm, professorial voice, addressed to the students. Each announcement should: welcome students to the week, preview the key topic, explain why it matters, and tell them what to do first.
-3. Generate a student FAQ document answering the most common logistical and academic questions students will have about this course type.
+3. Generate 6–8 FAQ entries answering the most common logistical and academic questions students will have about this course type.
 4. Write a brief course overview paragraph the instructor can use as their syllabus introduction.
 
 Return ONLY valid JSON — no markdown, no preamble, no explanation. Use this exact schema:
@@ -27,7 +27,7 @@ Return ONLY valid JSON — no markdown, no preamble, no explanation. Use this ex
       "topics": ["Key topic 1", "Key topic 2", "Key topic 3"],
       "discussionPrompt": "A single discussion board prompt for this week that promotes higher-order thinking",
       "assignment": "Brief description of the week's assignment or activity (1–2 sentences)",
-      "announcement": "The full ready-to-post weekly announcement — 100–150 words, warm and engaging, addressed to students"
+      "announcement": "Ready-to-post weekly announcement — 60–80 words, warm, addressed to students. Preview the topic and tell them what to do first."
     }
   ],
   "assessments": [
@@ -67,16 +67,18 @@ export default async function handler(req: any, res: any) {
     ? `\n\nExisting syllabus or outline to draw from:\n${syllabus.trim()}`
     : '';
 
+  const clampedWeeks = Math.min(12, Math.max(1, Number(weeks) || 8));
+
   const userMessage = `Design a complete course structure for the following:
 
 Course title: ${title}
 Level: ${level || 'Undergraduate'}
 Format: ${format || 'Online'}
-Duration: ${weeks || 8} weeks
+Duration: ${clampedWeeks} weeks
 Learning objectives:
 ${objectives}${syllabusBlock}
 
-Generate all ${weeks || 8} weekly modules.`;
+Generate all ${clampedWeeks} weekly modules. Keep each announcement to 60–80 words. Keep objectives to 2 per module. Keep topics to 3 per module.`;
 
   try {
     const response = await fetch('https://api.x.ai/v1/chat/completions', {
@@ -87,7 +89,7 @@ Generate all ${weeks || 8} weekly modules.`;
       },
       body: JSON.stringify({
         model: 'grok-4-latest',
-        max_tokens: 4096,
+        max_tokens: 3000,
         messages: [
           { role: 'system', content: SYSTEM_PROMPT },
           { role: 'user', content: userMessage },

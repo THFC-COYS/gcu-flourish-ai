@@ -7,5 +7,9 @@
         { "key": "Cache-Control", "value": "no-store, no-cache, must-revalidate" }
       ]
     }
-  ]
+  ],
+  "functions": {
+    "api/course-architect.ts": { "maxDuration": 60 },
+    "api/discuss.ts": { "maxDuration": 30 }
+  }
 }
