@@ -158,203 +158,172 @@ function Mission() {
   );
 }
 
-/* ── Products — Available Now ──────────────────────────────────────────── */
-const LIVE_PRODUCTS = [
+/* ── Platform Tiers ────────────────────────────────────────────────────── */
+const TIERS = [
   {
-    num: '01',
-    name: 'pAIgeBreaker',
+    id: 'student',
+    label: 'Student Platform',
     color: '#E8A020',
-    glow: 'rgba(232,160,32,0.15)',
-    audience: 'For Students',
-    tagline: 'Every question answered. Every page. Every hour.',
-    desc: 'AI that turns any textbook or document into a live conversation. Students ask in plain English, get curriculum-aligned answers instantly — at 2 AM, without a tutor.',
-    href: '/molted/paigebreaker',
-    live: true,
+    headline: 'For the student struggling at midnight.',
+    products: [
+      {
+        name: 'pAIgeBreaker',
+        tagline: 'Every question answered. Every page. Every hour.',
+        desc: 'AI that turns any textbook into a live conversation. Curriculum-aligned answers instantly — at 2 AM, without a tutor.',
+        href: '/molted/paigebreaker',
+        live: true,
+      },
+      {
+        name: 'PathwayAi',
+        tagline: 'Every student on their own learning path.',
+        desc: 'Adaptive learning engine built on real interaction data. Netflix for education.',
+        href: '/molted/pathway-ai',
+        live: false,
+      },
+      {
+        name: 'MasteryAi',
+        tagline: 'Stop teaching time. Start teaching mastery.',
+        desc: 'Rebuilds any course as a competency-based experience — progress on proof, not the calendar.',
+        href: '/molted/mastery-ai',
+        live: false,
+      },
+    ],
   },
   {
-    num: '02',
-    name: 'Persona Ai',
-    color: '#E8170F',
-    glow: 'rgba(232,23,15,0.12)',
-    audience: 'For Institutions',
-    tagline: "Your institution's voice, everywhere, always.",
-    desc: 'Custom AI personas trained on your identity, values, and curriculum. Not a chatbot. A persona. Six live instances deployed at Grand Canyon University.',
-    href: '/molted/persona-ai',
-    live: true,
-  },
-  {
-    num: '03',
-    name: 'TeachOS',
+    id: 'faculty',
+    label: 'Faculty Platform',
     color: '#2DD4BF',
-    glow: 'rgba(45,212,191,0.12)',
-    audience: 'For Faculty',
-    tagline: 'The AI operating system for every educator.',
-    desc: 'Reclaims the 23 hours per week faculty spend on administration — grading, discussion boards, announcements, student emails. All automated. You review, approve, teach.',
-    href: '/molted/teachos',
-    live: true,
+    headline: 'For the professor buried in admin.',
+    products: [
+      {
+        name: 'TeachOS',
+        tagline: 'The AI operating system for every educator.',
+        desc: 'Reclaims 23 hours per week — grading, discussions, announcements, emails. All automated. You review, approve, teach.',
+        href: '/molted/teachos',
+        live: true,
+      },
+      {
+        name: 'ProofAi',
+        tagline: 'Assessment for the post-ChatGPT world.',
+        desc: "Oral AI assessments and portfolio-based competency verification. You can't outsource a conversation.",
+        href: '/molted/proof-ai',
+        live: false,
+      },
+    ],
+  },
+  {
+    id: 'institution',
+    label: 'Institution Platform',
+    color: '#E8170F',
+    headline: 'For the provost measuring outcomes.',
+    products: [
+      {
+        name: 'Persona Ai',
+        tagline: "Your institution's voice, everywhere, always.",
+        desc: 'Custom AI personas trained on your identity, values, and curriculum. Six live instances at Grand Canyon University.',
+        href: '/molted/persona-ai',
+        live: true,
+      },
+      {
+        name: 'RetainAi',
+        tagline: "Every student who was about to leave — didn't.",
+        desc: 'Identifies departure risk weeks before students decide, triggers the right intervention at the right time.',
+        href: '/molted/retain-ai',
+        live: false,
+      },
+      {
+        name: 'OutcomesAi',
+        tagline: 'Finally know if any of it is working.',
+        desc: 'Intelligence layer for provosts, deans, and boards. Real-time institutional analytics that actually mean something.',
+        href: '/molted/outcomes-ai',
+        live: false,
+      },
+    ],
   },
 ];
 
-function LiveProducts() {
+function PlatformTiers() {
   return (
     <section className="py-24 px-6 border-t border-molted-border">
       <div className="max-w-6xl mx-auto">
-        <RevealBlock className="mb-12">
-          <div className="flex items-center justify-between flex-wrap gap-4">
-            <div>
-              <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-2">Available now</p>
-              <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight">
-                Three products. In production.
-              </h2>
-            </div>
-            <div className="flex items-center gap-2 text-xs text-green-400">
-              <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-              All systems live
-            </div>
-          </div>
+
+        {/* Section header */}
+        <RevealBlock className="mb-16 text-center">
+          <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">
+            The full stack
+          </p>
+          <h2 className="text-4xl md:text-6xl font-black text-molted-white tracking-tight leading-tight">
+            Education.{' '}
+            <span style={{
+              background: 'linear-gradient(120deg, #F5B740 0%, #E8A020 55%, #E8170F 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}>
+              Transformed.
+            </span>
+          </h2>
+          <p className="mt-5 text-molted-muted text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+            From the student struggling at midnight to the provost measuring outcomes —
+            MoltED Ai covers the entire education stack.
+          </p>
         </RevealBlock>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {LIVE_PRODUCTS.map((p, i) => (
-            <RevealBlock key={p.num} delay={i * 100}>
-              <Link
-                to={p.href}
-                className="group block rounded-2xl border border-molted-border bg-molted-elevated p-7 h-full hover:border-opacity-60 transition-all duration-300 hover:-translate-y-1"
-                style={{ '--glow': p.glow } as React.CSSProperties}
-              >
-                <div className="flex items-center justify-between mb-5">
-                  <span
-                    className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full"
-                    style={{ background: `${p.color}15`, color: p.color, border: `1px solid ${p.color}25` }}
+        {/* Three columns */}
+        <div className="grid md:grid-cols-3 gap-8">
+          {TIERS.map((tier, ti) => (
+            <RevealBlock key={tier.id} delay={ti * 120} className="flex flex-col">
+
+              {/* Tier header */}
+              <div className="mb-6">
+                <div
+                  className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-3"
+                  style={{ background: `${tier.color}12`, color: tier.color, border: `1px solid ${tier.color}25` }}
+                >
+                  <div className="w-1.5 h-1.5 rounded-full" style={{ background: tier.color }} />
+                  {tier.label}
+                </div>
+                <p className="text-molted-muted text-sm leading-snug">{tier.headline}</p>
+              </div>
+
+              {/* Product cards */}
+              <div className="flex flex-col gap-3 flex-1">
+                {tier.products.map((p) => (
+                  <Link
+                    key={p.name}
+                    to={p.href}
+                    className="group block rounded-xl border border-molted-border bg-molted-elevated p-5 hover:border-opacity-60 transition-all duration-300 hover:-translate-y-0.5"
+                    style={p.live ? { borderColor: `${tier.color}22` } : undefined}
                   >
-                    {p.audience}
-                  </span>
-                  <span className="text-molted-subtle text-xs">{p.num}</span>
-                </div>
-                <h3
-                  className="text-2xl font-black tracking-tight mb-3 transition-colors"
-                  style={{ color: '#F5F5F7' }}
-                >
-                  {p.name}
-                </h3>
-                <p className="text-sm font-semibold mb-3" style={{ color: p.color }}>
-                  {p.tagline}
-                </p>
-                <p className="text-molted-muted text-sm leading-relaxed mb-6">{p.desc}</p>
-                <div
-                  className="inline-flex items-center gap-2 text-sm font-semibold group-hover:gap-3 transition-all"
-                  style={{ color: p.color }}
-                >
-                  Explore <ChevronRight size={14} />
-                </div>
-              </Link>
-            </RevealBlock>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ── Products — In Development ─────────────────────────────────────────── */
-const COMING_PRODUCTS = [
-  {
-    name: 'PathwayAi',
-    color: '#8B5CF6',
-    audience: 'Students',
-    tagline: 'Every student on their own learning path.',
-    desc: 'Adaptive learning engine built on real interaction data. Netflix for education.',
-    href: '/molted/pathway-ai',
-  },
-  {
-    name: 'ProofAi',
-    color: '#F97316',
-    audience: 'Faculty',
-    tagline: "Assessment for the post-ChatGPT world.",
-    desc: 'Oral AI assessments, portfolio-based competency verification. You can\'t outsource a conversation.',
-    href: '/molted/proof-ai',
-  },
-  {
-    name: 'RetainAi',
-    color: '#F43F5E',
-    audience: 'Institutions',
-    tagline: 'Every student who was about to leave — didn\'t.',
-    desc: 'Identifies departure risk weeks before students decide, triggers the right intervention.',
-    href: '/molted/retain-ai',
-  },
-  {
-    name: 'OutcomesAi',
-    color: '#0EA5E9',
-    audience: 'Leadership',
-    tagline: 'Finally know if any of it is working.',
-    desc: 'Intelligence layer for provosts, deans, and boards. Real-time institutional analytics.',
-    href: '/molted/outcomes-ai',
-  },
-  {
-    name: 'MasteryAi',
-    color: '#10B981',
-    audience: 'Curriculum',
-    tagline: 'Stop teaching time. Start teaching mastery.',
-    desc: 'Rebuilds any existing course as a competency-based learning experience — in minutes.',
-    href: '/molted/mastery-ai',
-  },
-];
-
-function ComingProducts() {
-  return (
-    <section className="py-24 px-6 border-t border-molted-border">
-      <div className="max-w-6xl mx-auto">
-        <RevealBlock className="mb-12">
-          <div className="flex items-center justify-between flex-wrap gap-4">
-            <div>
-              <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-2">In development</p>
-              <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight">
-                Four products. Building now.
-              </h2>
-            </div>
-            <div className="flex items-center gap-2 text-xs text-molted-muted">
-              <div className="w-1.5 h-1.5 rounded-full bg-molted-muted" />
-              Early access available
-            </div>
-          </div>
-        </RevealBlock>
-
-        <div className="grid md:grid-cols-2 gap-5">
-          {COMING_PRODUCTS.map((p, i) => (
-            <RevealBlock key={p.name} delay={i * 80}>
-              <Link
-                to={p.href}
-                className="group flex gap-5 p-6 rounded-2xl border border-molted-border bg-molted-elevated/50 hover:bg-molted-elevated hover:border-opacity-80 transition-all duration-300"
-              >
-                <div
-                  className="w-10 h-10 rounded-xl flex-shrink-0 mt-0.5"
-                  style={{ background: `${p.color}15`, border: `1px solid ${p.color}25` }}
-                >
-                  <div className="w-full h-full flex items-center justify-center">
-                    <div className="w-2 h-2 rounded-full" style={{ background: p.color }} />
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-2">
-                    <p className="text-molted-white font-bold">{p.name}</p>
-                    <span
-                      className="text-xs px-2 py-0.5 rounded-full font-medium"
-                      style={{ background: `${p.color}10`, color: p.color, border: `1px solid ${p.color}20` }}
+                    <div className="flex items-center justify-between mb-2.5">
+                      <p className="text-molted-white font-bold text-base">{p.name}</p>
+                      {p.live ? (
+                        <span className="flex items-center gap-1.5 text-xs text-green-400 font-medium">
+                          <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                          Live
+                        </span>
+                      ) : (
+                        <span className="text-xs text-molted-subtle font-medium">Coming</span>
+                      )}
+                    </div>
+                    <p className="text-xs font-semibold mb-2 leading-snug" style={{ color: tier.color }}>
+                      {p.tagline}
+                    </p>
+                    <p className="text-molted-muted text-xs leading-relaxed mb-3">{p.desc}</p>
+                    <div
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold group-hover:gap-2.5 transition-all"
+                      style={{ color: tier.color }}
                     >
-                      {p.audience}
-                    </span>
-                  </div>
-                  <p className="text-sm font-semibold mb-1.5" style={{ color: p.color }}>{p.tagline}</p>
-                  <p className="text-molted-muted text-sm leading-relaxed">{p.desc}</p>
-                </div>
-                <ChevronRight
-                  size={16}
-                  className="text-molted-subtle group-hover:text-molted-muted flex-shrink-0 mt-1 group-hover:translate-x-1 transition-all"
-                />
-              </Link>
+                      Explore <ChevronRight size={12} />
+                    </div>
+                  </Link>
+                ))}
+              </div>
+
             </RevealBlock>
           ))}
         </div>
+
       </div>
     </section>
   );
@@ -538,8 +507,7 @@ export default function MoltedHome() {
     <MoltedLayout>
       <Hero />
       <Mission />
-      <LiveProducts />
-      <ComingProducts />
+      <PlatformTiers />
       <PlatformTeaser />
       <Stats />
       <Manifesto />
