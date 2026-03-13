@@ -10,7 +10,7 @@ Your job is to design a complete semester course structure from the instructor's
 
 Instructions:
 1. Design a week-by-week course map with clear, measurable objectives per module.
-2. Each module should have a ready-to-post Canvas/Blackboard announcement the instructor can paste directly — written in a warm, professorial voice, addressed to the students. Each announcement should: welcome students to the week, preview the key topic, explain why it matters, and tell them what to do first.
+2. Each module should have a ready-to-post Canvas/Blackboard announcement the instructor can paste directly. If the instructor provided a voice/personality description, write the announcements to sound authentically like that person — reflect their background, personality, and communication style. Do not sound like a generic LMS template.
 3. Generate 6–8 FAQ entries answering the most common logistical and academic questions students will have about this course type.
 4. Write a brief course overview paragraph the instructor can use as their syllabus introduction.
 
@@ -52,7 +52,7 @@ export default async function handler(req: any, res: any) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { title, level, format, weeks, objectives, syllabus } = req.body;
+  const { title, level, format, weeks, objectives, syllabus, announcementLevel, voice } = req.body;
 
   if (!title || !objectives || String(objectives).trim().length < 10) {
     return res.status(400).json({ error: 'Please provide a course title and at least one learning objective.' });
@@ -67,7 +67,17 @@ export default async function handler(req: any, res: any) {
     ? `\n\nExisting syllabus or outline to draw from:\n${syllabus.trim()}`
     : '';
 
-  const clampedWeeks = Math.min(12, Math.max(1, Number(weeks) || 8));
+  // Scale scope and token budget based on announcement depth
+  const aLevel = Number(announcementLevel) || 1;
+  const maxWeeks   = aLevel === 1 ? 12 : aLevel === 2 ? 10 : 8;
+  const maxTokens  = aLevel === 1 ? 3000 : aLevel === 2 ? 4500 : 6000;
+  const clampedWeeks = Math.min(maxWeeks, Math.max(1, Number(weeks) || 8));
+
+  const announcementSpec = aLevel === 1
+    ? 'Level 1 — Orientation (60–80 words): Welcome students to the week, name the topic, explain why it matters, tell them what to read or do first.'
+    : aLevel === 2
+    ? 'Level 2 — Mini Lesson (160–200 words): Open with a welcome, then teach the core ideas of each topic directly in the announcement with brief explanations — students should arrive having engaged with the material before class.'
+    : 'Level 3 — Deep Dive (270–320 words): Everything in Level 2, plus include at least one concrete real-world example or short case study that grounds the theory in practice. Make it compelling enough that students share it.';
 
   const userMessage = `Design a complete course structure for the following:
 
@@ -78,7 +88,10 @@ Duration: ${clampedWeeks} weeks
 Learning objectives:
 ${objectives}${syllabusBlock}
 
-Generate all ${clampedWeeks} weekly modules. Keep each announcement to 60–80 words. Keep objectives to 2 per module. Keep topics to 3 per module.`;
+Generate all ${clampedWeeks} weekly modules. Keep objectives to 2 per module. Keep topics to 3 per module.
+
+Announcement style for every module:
+${announcementSpec}${voice?.trim() ? `\n\nFaculty voice and personality — write ALL announcements to sound authentically like this person:\n${voice.trim()}` : ''}`;
 
   try {
     const response = await fetch('https://api.x.ai/v1/chat/completions', {
@@ -89,7 +102,7 @@ Generate all ${clampedWeeks} weekly modules. Keep each announcement to 60–80 w
       },
       body: JSON.stringify({
         model: 'grok-4-latest',
-        max_tokens: 3000,
+        max_tokens: maxTokens,
         messages: [
           { role: 'system', content: SYSTEM_PROMPT },
           { role: 'user', content: userMessage },

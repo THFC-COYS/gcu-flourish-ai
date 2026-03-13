@@ -372,6 +372,8 @@ function InputForm({ onSubmit, loading }: {
     weeks: '8',
     objectives: '',
     syllabus: '',
+    announcementLevel: '1',
+    voice: '',
   });
 
   const set = (k: string) => (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) =>
@@ -459,6 +461,92 @@ function InputForm({ onSubmit, loading }: {
           style={{
             background: 'rgba(17,17,24,0.9)',
             borderColor: form.objectives.length > 0 ? TEAL_BORDER : 'rgba(255,255,255,0.08)',
+          }}
+        />
+      </div>
+
+      {/* Announcement depth */}
+      <div>
+        <label className="block text-molted-white text-sm font-semibold mb-1">
+          Announcement depth
+        </label>
+        <p className="text-molted-muted text-xs mb-3">
+          How much content should each weekly announcement carry?
+        </p>
+        <div className="space-y-2">
+          {[
+            {
+              value: '1',
+              title: 'Level 1 — Orientation',
+              desc: 'Introduces the week\'s topics and objectives. Tells students what to read and where to start. Quick and to the point.',
+              words: '~70 words',
+            },
+            {
+              value: '2',
+              title: 'Level 2 — Mini Lesson',
+              desc: 'Expands on each topic with brief explanations. Teaches the core ideas directly in the announcement — students arrive to class having already engaged with the material.',
+              words: '~180 words',
+            },
+            {
+              value: '3',
+              title: 'Level 3 — Deep Dive',
+              desc: 'Everything in Level 2, plus real-world examples or a short case study that anchors the theory in practice. The richest announcement — drives the highest engagement.',
+              words: '~300 words',
+            },
+          ].map(opt => {
+            const active = form.announcementLevel === opt.value;
+            return (
+              <button
+                key={opt.value}
+                type="button"
+                onClick={() => setForm(f => ({ ...f, announcementLevel: opt.value }))}
+                className="w-full text-left rounded-xl border p-3.5 transition-all"
+                style={{
+                  background: active ? TEAL_DIM : 'rgba(255,255,255,0.02)',
+                  borderColor: active ? TEAL_BORDER : 'rgba(255,255,255,0.07)',
+                }}
+              >
+                <div className="flex items-center justify-between mb-1">
+                  <p className="text-sm font-bold" style={{ color: active ? TEAL : '#F5F5F7' }}>
+                    {opt.title}
+                  </p>
+                  <span
+                    className="text-xs px-2 py-0.5 rounded-full font-semibold"
+                    style={{
+                      background: active ? `${TEAL}20` : 'rgba(255,255,255,0.05)',
+                      color: active ? TEAL : '#3A3A40',
+                    }}
+                  >
+                    {opt.words}
+                  </span>
+                </div>
+                <p className="text-xs leading-relaxed" style={{ color: active ? 'rgba(45,212,191,0.75)' : '#3A3A40' }}>
+                  {opt.desc}
+                </p>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Faculty voice */}
+      <div>
+        <label className="block text-molted-white text-sm font-semibold mb-1">
+          Your voice <span className="text-molted-subtle font-normal">(optional)</span>
+        </label>
+        <p className="text-molted-muted text-xs mb-2">
+          Describe yourself — your background, teaching style, personality, hobbies, vibe.
+          The announcements will sound like you, not a template.
+        </p>
+        <textarea
+          value={form.voice}
+          onChange={set('voice')}
+          placeholder="e.g. I've been teaching organizational behavior for 12 years. Former HR director turned academic. I love basketball and always use sports analogies. I keep things direct and practical — I hate jargon. I like to open with a story or something that surprises students."
+          rows={4}
+          className="w-full rounded-xl border text-sm text-molted-muted leading-relaxed resize-none p-3 focus:outline-none transition-colors"
+          style={{
+            background: 'rgba(17,17,24,0.9)',
+            borderColor: form.voice.length > 0 ? TEAL_BORDER : 'rgba(255,255,255,0.08)',
           }}
         />
       </div>
