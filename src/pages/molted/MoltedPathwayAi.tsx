@@ -1,12 +1,14 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  ArrowRight, Check, Brain, GitBranch, Zap, BarChart2,
-  TrendingUp, Users, BookOpen, Sparkles,
+  ArrowRight, Check, GitBranch, Zap, Map, Brain,
+  BookOpen, AlertTriangle, ChevronRight, Users, BarChart2, Lightbulb,
 } from 'lucide-react';
 import MoltedLayout from './MoltedLayout';
 
 const VIOLET = '#8B5CF6';
+const VIOLET_DIM = 'rgba(139,92,246,0.12)';
+const VIOLET_BORDER = 'rgba(139,92,246,0.22)';
 
 /* ── Reveal helpers ─────────────────────────────────────────────────────── */
 function useReveal() {
@@ -58,22 +60,22 @@ function Hero() {
       {/* Ambient glow */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden>
         <div
-          className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[700px] rounded-full"
-          style={{ background: `radial-gradient(ellipse at center, ${VIOLET}12 0%, transparent 70%)` }}
+          className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1100px] h-[700px] rounded-full"
+          style={{ background: `radial-gradient(ellipse at center, rgba(139,92,246,0.10) 0%, transparent 70%)` }}
         />
         <div
           className="absolute bottom-0 left-1/4 w-[500px] h-[400px] rounded-full"
-          style={{ background: `radial-gradient(circle, ${VIOLET}08 0%, transparent 70%)` }}
+          style={{ background: `radial-gradient(circle, rgba(139,92,246,0.06) 0%, transparent 70%)` }}
         />
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto">
-        {/* Badge */}
+        {/* Status chip */}
         <div
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border text-xs font-semibold mb-8 animate-fade-in"
-          style={{ borderColor: `${VIOLET}40`, background: `${VIOLET}12`, color: VIOLET }}
+          style={{ borderColor: VIOLET_BORDER, background: VIOLET_DIM, color: VIOLET }}
         >
-          <GitBranch size={12} /> MoltED Ai · Adaptive Learning Engine
+          <GitBranch size={12} /> In Development · Early Access
         </div>
 
         {/* Wordmark */}
@@ -83,56 +85,58 @@ function Hero() {
           </span>
           <span
             className="block text-5xl md:text-7xl lg:text-8xl font-black leading-none tracking-tight mt-1"
-            style={{ color: VIOLET, textShadow: `0 0 40px ${VIOLET}40` }}
+            style={{ color: VIOLET, textShadow: '0 0 40px rgba(139,92,246,0.35)' }}
           >
             Ai
           </span>
         </h1>
 
-        {/* Position */}
-        <p className="mt-6 text-molted-muted text-sm font-semibold uppercase tracking-widest animate-reveal" style={{ animationDelay: '100ms' }}>
-          Every student on their own learning path
-        </p>
-
-        {/* Tagline */}
-        <p className="mt-4 text-2xl md:text-3xl font-bold text-molted-white animate-reveal" style={{ animationDelay: '150ms' }}>
-          The Netflix moment for education.
-        </p>
-
-        <p className="mt-5 text-lg text-molted-muted/80 max-w-2xl mx-auto leading-relaxed animate-reveal" style={{ animationDelay: '250ms' }}>
-          Every student is different. Finally, so is their education.
-        </p>
-
-        <p className="mt-3 text-base text-molted-muted/60 max-w-xl mx-auto leading-relaxed animate-reveal" style={{ animationDelay: '300ms' }}>
-          PathwayAi learns what each student knows, what they don't, and what they need next —
-          then builds a personalized learning path in real time.
-        </p>
-
-        {/* Callout chip */}
-        <div
-          className="mt-6 inline-flex items-center gap-2 px-5 py-2.5 rounded-full border text-sm font-medium animate-reveal"
-          style={{ borderColor: `${VIOLET}30`, background: `${VIOLET}0D`, color: VIOLET, animationDelay: '320ms' }}
+        {/* Headline */}
+        <p
+          className="mt-8 text-2xl md:text-3xl lg:text-4xl font-bold text-molted-white leading-tight animate-reveal"
+          style={{ animationDelay: '100ms' }}
         >
-          <Sparkles size={13} />
-          Powered by every pAIgeBreaker interaction.
-        </div>
+          Every student on their own learning path.
+        </p>
+
+        {/* Subtext */}
+        <p
+          className="mt-5 text-lg text-molted-muted/80 max-w-2xl mx-auto leading-relaxed animate-reveal"
+          style={{ animationDelay: '200ms' }}
+        >
+          PathwayAi learns what each student knows, what they're missing, and what they need
+          next — then builds a personalized learning path in real time. Not the same road for
+          everyone. A different road for every student.
+        </p>
 
         {/* CTAs */}
-        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 animate-reveal" style={{ animationDelay: '380ms' }}>
+        <div
+          className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 animate-reveal"
+          style={{ animationDelay: '280ms' }}
+        >
           <a
-            href="mailto:hello@molted.ai?subject=PathwayAi Student Access"
-            className="group flex items-center gap-2.5 px-8 py-4 rounded-xl text-white font-bold text-lg transition-all duration-200 hover:-translate-y-px"
-            style={{ background: VIOLET, boxShadow: `0 0 24px ${VIOLET}40` }}
+            href="mailto:hello@molted.ai?subject=PathwayAi Early Access"
+            className="group flex items-center gap-2.5 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 hover:-translate-y-px"
+            style={{ background: VIOLET, color: '#0A0A0B', boxShadow: `0 0 28px rgba(139,92,246,0.35)` }}
           >
-            Start Learning
+            Get Early Access
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </a>
           <a
-            href="mailto:hello@molted.ai?subject=PathwayAi Institution Inquiry"
+            href="#how-it-learns"
             className="px-8 py-4 rounded-xl border border-molted-border text-molted-muted hover:text-molted-white font-semibold transition-all hover:border-molted-subtle"
           >
-            For Institutions →
+            Learn More →
           </a>
+        </div>
+
+        {/* Callout chip */}
+        <div
+          className="mt-8 inline-flex items-center gap-2 px-5 py-2.5 rounded-full border text-sm font-medium animate-reveal"
+          style={{ borderColor: VIOLET_BORDER, background: VIOLET_DIM, color: VIOLET, animationDelay: '340ms' }}
+        >
+          <Zap size={13} />
+          Powered by every pAIgeBreaker interaction — no extra setup required.
         </div>
       </div>
 
@@ -144,112 +148,127 @@ function Hero() {
   );
 }
 
-/* ── The Flat Road Problem ──────────────────────────────────────────────── */
-function FlatRoadProblem() {
+/* ── The Problem ────────────────────────────────────────────────────────── */
+function TheProblem() {
   return (
     <section className="py-24 px-6 border-t border-molted-border">
       <div className="max-w-6xl mx-auto">
         <RevealBlock className="text-center mb-16">
           <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">The problem</p>
           <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight leading-tight">
-            Every student takes the exact same path.<br />
-            <span className="text-molted-muted font-normal text-3xl md:text-4xl mt-2 block">
-              None of them are the same.
-            </span>
+            Every student takes the exact same road.<br />
+            <span className="text-molted-muted font-normal text-3xl md:text-4xl">None of them are the same person.</span>
           </h2>
-          <p className="mt-6 text-molted-muted max-w-2xl mx-auto text-lg leading-relaxed">
-            The standard model is a straight road. Everyone moves at the same pace,
-            through the same content, regardless of what they already know or where they're stuck.
-            Some sprint ahead bored. Others fall behind in silence.
-          </p>
         </RevealBlock>
 
-        {/* Branching path diagram */}
-        <RevealBlock delay={150}>
-          <div className="bg-molted-elevated border border-molted-border rounded-2xl p-8 md:p-12 overflow-x-auto">
-            <div className="min-w-[600px]">
-              {/* Old Way */}
-              <div className="mb-10">
-                <p className="text-molted-muted text-xs font-semibold uppercase tracking-widest mb-4 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-molted-ember" /> Old Way · One path
-                </p>
-                <div className="flex items-center gap-0">
-                  {['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'].map((w, i) => (
-                    <div key={i} className="flex items-center">
-                      <div className="flex flex-col items-center">
-                        <div className="w-10 h-10 rounded-full bg-molted-surface border border-molted-border flex items-center justify-center">
-                          <span className="text-molted-muted text-xs">👤</span>
-                        </div>
-                        <span className="text-molted-muted text-xs mt-1.5 text-center">{w}</span>
-                      </div>
-                      {i < 5 && <div className="w-12 h-px bg-molted-border mx-1 flex-shrink-0" />}
-                    </div>
-                  ))}
-                  <div className="ml-3 px-3 py-1.5 rounded-lg bg-molted-ember/15 border border-molted-ember/30 text-molted-ember text-xs font-semibold flex-shrink-0">
-                    30% lost
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          {/* Left: stat copy */}
+          <RevealBlock>
+            <div className="space-y-6">
+              <p className="text-molted-muted text-lg leading-relaxed">
+                The traditional curriculum is a straight line. Every student starts at mile 0
+                and walks to mile 100.
+              </p>
+              <div className="bg-molted-elevated border border-molted-border rounded-2xl p-6 space-y-5">
+                <div className="flex items-start gap-3">
+                  <div className="w-5 h-5 rounded-full bg-molted-ember/20 border border-molted-ember/40 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <AlertTriangle size={10} className="text-molted-ember" />
                   </div>
+                  <p className="text-molted-muted text-sm leading-relaxed">
+                    Whether they already know miles 1–30.
+                  </p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-5 h-5 rounded-full bg-molted-ember/20 border border-molted-ember/40 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <AlertTriangle size={10} className="text-molted-ember" />
+                  </div>
+                  <p className="text-molted-muted text-sm leading-relaxed">
+                    Whether miles 40–60 are where they break.
+                  </p>
+                </div>
+                <div className="pt-4 border-t border-molted-border">
+                  <p className="text-molted-white text-sm font-semibold">
+                    Students who know the material are bored. Students with gaps are lost.
+                    Nobody gets what they actually need.
+                  </p>
                 </div>
               </div>
+            </div>
+          </RevealBlock>
 
-              {/* PathwayAi */}
+          {/* Right: road metaphor — CSS only, no SVG */}
+          <RevealBlock delay={150}>
+            <div className="bg-molted-elevated border border-molted-border rounded-2xl p-6 space-y-8">
+              <p className="text-molted-muted text-xs font-semibold uppercase tracking-widest">
+                Two paths. One winner.
+              </p>
+
+              {/* Traditional road */}
               <div>
-                <p className="text-molted-muted text-xs font-semibold uppercase tracking-widest mb-4 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full" style={{ background: VIOLET }} /> PathwayAi · Adaptive branches
+                <p className="text-molted-muted text-xs font-semibold mb-3 flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-molted-subtle inline-block" />
+                  Traditional
                 </p>
-                {/* Start node */}
-                <div className="flex flex-col">
-                  <div className="flex items-start gap-3">
-                    {/* Root */}
-                    <div className="flex flex-col items-center flex-shrink-0">
-                      <div
-                        className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xs"
-                        style={{ background: VIOLET, boxShadow: `0 0 16px ${VIOLET}40` }}
-                      >
-                        Start
+                <div className="flex items-center gap-0">
+                  {['Mile 0', 'Mile 25', 'Mile 50', 'Mile 75', 'Mile 100'].map((m, i) => (
+                    <div key={i} className="flex items-center flex-1 last:flex-none">
+                      <div className="flex flex-col items-center gap-1">
+                        <div className="w-3 h-3 rounded-full bg-molted-subtle border border-molted-border" />
+                        <span className="text-molted-subtle text-[10px] whitespace-nowrap">{m}</span>
                       </div>
+                      {i < 4 && <div className="flex-1 h-px bg-molted-border mx-1" />}
                     </div>
+                  ))}
+                </div>
+                <p className="text-molted-muted/50 text-xs mt-2 italic">Same road. Every student. No exceptions.</p>
+              </div>
 
-                    <div className="w-8 h-px bg-molted-border mt-6 flex-shrink-0" />
-
-                    {/* Branches */}
-                    <div className="flex flex-col gap-4">
-                      {[
-                        { label: 'Advanced track', detail: 'Skip mastered units', color: '#10B981', students: '23%' },
-                        { label: 'Standard track', detail: 'Steady progression', color: VIOLET, students: '48%' },
-                        { label: 'Remediation track', detail: 'Fill knowledge gaps first', color: '#F59E0B', students: '29%' },
-                      ].map((branch, i) => (
-                        <div key={i} className="flex items-center gap-3">
-                          <div
-                            className="px-4 py-2.5 rounded-xl border text-xs font-semibold flex-shrink-0"
-                            style={{ borderColor: `${branch.color}35`, background: `${branch.color}10`, color: branch.color }}
-                          >
-                            {branch.label}
-                          </div>
-                          <span className="text-molted-muted text-xs">{branch.detail}</span>
-                          <div className="ml-auto px-2 py-1 rounded-full bg-molted-surface border border-molted-border text-molted-muted text-xs flex-shrink-0">
-                            {branch.students}
-                          </div>
-                        </div>
-                      ))}
+              {/* PathwayAi branching road */}
+              <div>
+                <p className="text-xs font-semibold mb-3 flex items-center gap-2" style={{ color: VIOLET }}>
+                  <span className="w-2 h-2 rounded-full inline-block" style={{ background: VIOLET }} />
+                  PathwayAi
+                </p>
+                <div className="space-y-2.5">
+                  {/* Entry */}
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 rounded-full flex-shrink-0" style={{ background: VIOLET }} />
+                    <div className="h-px flex-1" style={{ background: VIOLET_BORDER }} />
+                    <span className="text-xs text-molted-muted px-2 py-0.5 rounded bg-molted-surface border border-molted-border">
+                      Where you actually are
+                    </span>
+                  </div>
+                  {/* Branch nodes */}
+                  <div className="ml-1.5 pl-4 border-l-2 space-y-2" style={{ borderColor: VIOLET_BORDER }}>
+                    <div
+                      className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs border"
+                      style={{ background: VIOLET_DIM, borderColor: VIOLET_BORDER, color: VIOLET }}
+                    >
+                      <Check size={11} /> You already know this → skip
                     </div>
-
-                    <div className="ml-auto flex flex-col items-center flex-shrink-0">
-                      <div className="w-12 h-12 rounded-full border-2 flex items-center justify-center text-xs font-bold mt-1" style={{ borderColor: VIOLET, color: VIOLET }}>
-                        ✓
-                      </div>
-                      <span className="text-molted-muted text-xs mt-1.5">Mastery</span>
+                    <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs border border-amber-500/30 bg-amber-500/10 text-amber-400">
+                      <AlertTriangle size={11} /> Gap detected
+                    </div>
+                    <div
+                      className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs border"
+                      style={{ background: VIOLET_DIM, borderColor: VIOLET_BORDER, color: VIOLET }}
+                    >
+                      <GitBranch size={11} /> Custom route built
                     </div>
                   </div>
-
-                  <div className="mt-4 flex items-center gap-2 pl-2">
-                    <div className="w-2 h-2 rounded-full" style={{ background: VIOLET }} />
-                    <span className="text-molted-muted text-xs">Paths reconverge when mastery is achieved. No one gets left behind. No one gets held back.</span>
+                  {/* Exit */}
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 rounded-full flex-shrink-0" style={{ background: VIOLET }} />
+                    <div className="h-px flex-1" style={{ background: VIOLET_BORDER }} />
+                    <span className="text-xs font-semibold px-2 py-0.5 rounded" style={{ color: VIOLET, background: VIOLET_DIM }}>
+                      Mastery — your way
+                    </span>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </RevealBlock>
+          </RevealBlock>
+        </div>
       </div>
     </section>
   );
@@ -261,54 +280,56 @@ function HowItLearns() {
     {
       num: '01',
       icon: BookOpen,
-      title: 'You interact with pAIgeBreaker.',
-      body: 'Every question you ask, every concept you struggle with, every topic you click through with ease — PathwayAi records your knowledge state in real time. Nothing is lost. Everything is signal.',
-      color: '#E8A020',
+      title: 'Every interaction is intelligence.',
+      body: 'pAIgeBreaker logs each question, each concept, each struggle. PathwayAi reads the signal.',
     },
     {
       num: '02',
       icon: Brain,
-      title: 'PathwayAi maps what you know.',
-      body: 'A knowledge graph builds around you. Mastered concepts glow. Gaps appear. Dependencies between concepts become visible — so the system knows what you need to learn before you can move forward.',
-      color: VIOLET,
+      title: 'Your knowledge graph builds.',
+      body: 'Mastered concepts light up. Gaps appear. Dependencies become visible.',
     },
     {
       num: '03',
-      icon: Zap,
-      title: 'Your path adjusts in real time.',
-      body: 'Before you even know you need it, PathwayAi surfaces the right concept at the right moment. Not a suggestion. A path — built for where you actually are right now.',
-      color: '#0EA5E9',
+      icon: Map,
+      title: 'Your path adjusts before you fall.',
+      body: "PathwayAi surfaces what you need next — not what the syllabus says is next. The difference is everything.",
     },
   ];
 
   return (
-    <section className="py-24 px-6 border-t border-molted-border">
+    <section id="how-it-learns" className="py-24 px-6 border-t border-molted-border">
       <div className="max-w-6xl mx-auto">
         <RevealBlock className="text-center mb-16">
-          <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">The engine</p>
+          <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">How it works</p>
           <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight">
-            How PathwayAi learns you.
+            How PathwayAi learns.
           </h2>
+          <p className="mt-4 text-molted-muted max-w-xl mx-auto">
+            No surveys. No onboarding quizzes. It learns by watching students learn.
+          </p>
         </RevealBlock>
 
-        <div className="grid md:grid-cols-3 gap-6 relative">
-          {/* Connector line (desktop) */}
-          <div className="hidden md:block absolute top-16 left-1/6 right-1/6 h-px bg-gradient-to-r from-transparent via-molted-border to-transparent pointer-events-none" />
-
-          {steps.map((step, i) => (
-            <RevealBlock key={i} delay={i * 130}>
-              <div className="bg-molted-elevated border border-molted-border rounded-2xl p-8 hover:-translate-y-px hover:shadow-molted-card-hover transition-all h-full">
-                <div className="flex items-center justify-between mb-6">
-                  <span className="text-5xl font-black text-molted-border select-none">{step.num}</span>
+        <div className="grid md:grid-cols-3 gap-6">
+          {steps.map((s, i) => (
+            <RevealBlock key={i} delay={i * 120}>
+              <div
+                className="bg-molted-elevated border border-molted-border rounded-2xl p-7 h-full flex flex-col hover:-translate-y-px transition-all"
+                style={i === 2 ? { borderColor: VIOLET_BORDER } : {}}
+              >
+                <div className="flex items-center justify-between mb-5">
+                  <span className="text-4xl font-black leading-none" style={{ color: VIOLET_BORDER }}>
+                    {s.num}
+                  </span>
                   <div
-                    className="w-11 h-11 rounded-xl flex items-center justify-center"
-                    style={{ background: `${step.color}14`, border: `1px solid ${step.color}30` }}
+                    className="w-10 h-10 rounded-xl flex items-center justify-center"
+                    style={{ background: VIOLET_DIM, border: `1px solid ${VIOLET_BORDER}` }}
                   >
-                    <step.icon size={20} style={{ color: step.color }} />
+                    <s.icon size={18} style={{ color: VIOLET }} />
                   </div>
                 </div>
-                <h3 className="text-molted-white font-bold text-lg mb-3 leading-snug">{step.title}</h3>
-                <p className="text-molted-muted text-sm leading-relaxed">{step.body}</p>
+                <h3 className="text-molted-white font-bold text-lg leading-snug mb-3">{s.title}</h3>
+                <p className="text-molted-muted text-sm leading-relaxed flex-1">{s.body}</p>
               </div>
             </RevealBlock>
           ))}
@@ -319,164 +340,131 @@ function HowItLearns() {
 }
 
 /* ── Knowledge Graph Mock ───────────────────────────────────────────────── */
+type NodeStatus = 'mastered' | 'gap' | 'struggling' | 'next' | 'unreached';
+
+interface GraphNode {
+  label: string;
+  status: NodeStatus;
+  badge: string;
+}
+
+const GRAPH_NODES: GraphNode[] = [
+  { label: 'Mitosis ✓', status: 'mastered', badge: 'Mastered' },
+  { label: 'Meiosis', status: 'gap', badge: 'Gap detected' },
+  { label: 'ATP Synthesis', status: 'struggling', badge: 'Struggling' },
+  { label: 'Photosynthesis ✓', status: 'mastered', badge: 'Mastered' },
+  { label: 'DNA Replication → next', status: 'next', badge: 'Up next' },
+  { label: 'Protein Synthesis', status: 'unreached', badge: 'Not reached' },
+];
+
+const NODE_STYLE: Record<NodeStatus, { border: string; color: string; bg: string }> = {
+  mastered: { border: VIOLET_BORDER, color: VIOLET, bg: VIOLET_DIM },
+  gap: { border: 'rgba(245,158,11,0.40)', color: '#F59E0B', bg: 'rgba(245,158,11,0.08)' },
+  struggling: { border: 'rgba(239,68,68,0.35)', color: '#EF4444', bg: 'rgba(239,68,68,0.08)' },
+  next: { border: 'rgba(20,184,166,0.40)', color: '#14B8A6', bg: 'rgba(20,184,166,0.08)' },
+  unreached: { border: '#3A3A40', color: '#86868B', bg: 'rgba(58,58,64,0.20)' },
+};
+
+// Six surrounding nodes mapped to absolute positions around a center box
+const NODE_POSITIONS = [
+  'top-2 left-1/2 -translate-x-1/2',   // top center
+  'top-2 right-2',                       // top right
+  'top-1/2 right-2 -translate-y-1/2',   // mid right
+  'bottom-2 right-2',                    // bottom right
+  'bottom-2 left-2',                     // bottom left
+  'top-1/2 left-2 -translate-y-1/2',    // mid left
+];
+
 function KnowledgeGraphMock() {
-  type NodeStatus = 'mastered' | 'struggling' | 'next' | 'locked' | 'current';
-
-  const nodes: { id: string; label: string; status: NodeStatus; x: number; y: number; emoji?: string }[] = [
-    { id: 'cell', label: 'Cell Biology', status: 'current', x: 50, y: 50, emoji: '🔬' },
-    { id: 'mitosis', label: 'Mitosis', status: 'mastered', x: 22, y: 22, emoji: '✓' },
-    { id: 'meiosis', label: 'Meiosis', status: 'struggling', x: 78, y: 22, emoji: '✗' },
-    { id: 'atp', label: 'ATP Synthesis', status: 'struggling', x: 15, y: 60, emoji: '⚡' },
-    { id: 'photo', label: 'Photosynthesis', status: 'mastered', x: 85, y: 60, emoji: '✓' },
-    { id: 'dna', label: 'DNA Replication', status: 'next', x: 30, y: 82, emoji: '→' },
-    { id: 'protein', label: 'Protein Synthesis', status: 'next', x: 70, y: 82, emoji: '→' },
-    { id: 'genetics', label: 'Genetics', status: 'locked', x: 50, y: 18, emoji: '🔒' },
-  ];
-
-  const statusStyle: Record<NodeStatus, { bg: string; border: string; text: string; glow?: string }> = {
-    mastered: { bg: `${VIOLET}20`, border: VIOLET, text: VIOLET, glow: `0 0 16px ${VIOLET}40` },
-    struggling: { bg: '#F59E0B20', border: '#F59E0B', text: '#F59E0B', glow: '0 0 12px #F59E0B30' },
-    next: { bg: '#0EA5E920', border: '#0EA5E9', text: '#0EA5E9' },
-    locked: { bg: '#3A3A4020', border: '#3A3A40', text: '#3A3A40' },
-    current: { bg: `${VIOLET}30`, border: VIOLET, text: '#fff', glow: `0 0 24px ${VIOLET}50` },
-  };
-
-  const connections = [
-    ['cell', 'mitosis'],
-    ['cell', 'meiosis'],
-    ['cell', 'atp'],
-    ['cell', 'photo'],
-    ['cell', 'dna'],
-    ['cell', 'protein'],
-    ['mitosis', 'genetics'],
-    ['meiosis', 'genetics'],
-  ];
-
   return (
     <section className="py-24 px-6 border-t border-molted-border">
       <div className="max-w-6xl mx-auto">
-        <RevealBlock className="text-center mb-12">
+        <RevealBlock className="text-center mb-16">
           <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">Knowledge graph</p>
           <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight">
-            See exactly where you are.
+            See exactly where each student stands.
           </h2>
           <p className="mt-4 text-molted-muted max-w-xl mx-auto">
-            PathwayAi builds a live map of your knowledge — showing what you've mastered,
-            where you're stuck, and what comes next.
+            A live map of what they know, what they don't, and what's blocking them.
           </p>
         </RevealBlock>
 
-        <RevealBlock delay={150}>
-          <div className="bg-molted-elevated border border-molted-border rounded-2xl overflow-hidden">
-            {/* Window chrome */}
-            <div className="bg-molted-surface border-b border-molted-border px-5 py-3 flex items-center gap-2">
-              <div className="w-2.5 h-2.5 rounded-full bg-red-500" />
-              <div className="w-2.5 h-2.5 rounded-full bg-yellow-500" />
-              <div className="w-2.5 h-2.5 rounded-full" style={{ background: VIOLET }} />
-              <span className="ml-2 text-molted-muted text-xs font-mono">pathway.molted.ai · Knowledge Graph · Alex T.</span>
-            </div>
-
-            {/* Graph area */}
-            <div className="relative" style={{ height: '420px', background: 'rgba(0,0,0,0.2)' }}>
-              {/* SVG connections */}
-              <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-                {connections.map(([from, to], i) => {
-                  const a = nodes.find(n => n.id === from)!;
-                  const b = nodes.find(n => n.id === to)!;
-                  const isActive = a.status !== 'locked' && b.status !== 'locked';
-                  return (
-                    <line
-                      key={i}
-                      x1={`${a.x}%`} y1={`${a.y}%`}
-                      x2={`${b.x}%`} y2={`${b.y}%`}
-                      stroke={isActive ? `${VIOLET}30` : '#3A3A4040'}
-                      strokeWidth="0.3"
-                    />
-                  );
-                })}
-              </svg>
-
-              {/* Nodes */}
-              {nodes.map((node) => {
-                const style = statusStyle[node.status];
-                const isCenter = node.id === 'cell';
-                return (
-                  <div
-                    key={node.id}
-                    className="absolute transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1"
-                    style={{ left: `${node.x}%`, top: `${node.y}%` }}
-                  >
-                    <div
-                      className={`rounded-full border-2 flex items-center justify-center font-bold text-xs transition-all ${
-                        isCenter ? 'w-16 h-16' : 'w-12 h-12'
-                      }`}
-                      style={{
-                        background: style.bg,
-                        borderColor: style.border,
-                        color: style.text,
-                        boxShadow: style.glow,
-                      }}
-                    >
-                      <div className="flex flex-col items-center leading-none">
-                        <span className={isCenter ? 'text-base' : 'text-sm'}>{node.emoji}</span>
-                      </div>
-                    </div>
-                    <span
-                      className="text-center font-semibold leading-snug"
-                      style={{
-                        color: style.text,
-                        fontSize: isCenter ? '11px' : '9px',
-                        maxWidth: '72px',
-                        textAlign: 'center',
-                      }}
-                    >
-                      {node.label}
-                    </span>
-                  </div>
-                );
-              })}
-
-              {/* Legend */}
-              <div className="absolute bottom-4 left-4 flex flex-wrap gap-3">
-                {[
-                  { label: 'Mastered', color: VIOLET },
-                  { label: 'Struggling', color: '#F59E0B' },
-                  { label: 'Up next', color: '#0EA5E9' },
-                  { label: 'Locked', color: '#3A3A40' },
-                ].map((l, i) => (
-                  <div key={i} className="flex items-center gap-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full" style={{ background: l.color }} />
-                    <span className="text-molted-muted text-xs">{l.label}</span>
-                  </div>
-                ))}
+        <RevealBlock delay={100}>
+          <div className="bg-molted-elevated border border-molted-border rounded-2xl p-8">
+            {/* Header */}
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <p className="text-molted-white font-bold text-lg">Jordan M. · Knowledge Map</p>
+                <p className="text-molted-muted text-sm">Biology 201 · Week 6 of 16</p>
+              </div>
+              <div
+                className="flex items-center gap-2 px-3 py-1.5 rounded-full border"
+                style={{ borderColor: VIOLET_BORDER, background: VIOLET_DIM }}
+              >
+                <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: VIOLET }} />
+                <span className="text-xs font-semibold" style={{ color: VIOLET }}>Live graph</span>
               </div>
             </div>
 
-            {/* Insight bar */}
+            {/* Graph area — central concept + surrounding nodes via divs */}
+            <div className="relative h-64 md:h-80 mb-8">
+              {/* Center node */}
+              <div
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 px-5 py-3 rounded-2xl border-2 text-center"
+                style={{ borderColor: VIOLET, background: VIOLET_DIM, boxShadow: `0 0 32px rgba(139,92,246,0.20)` }}
+              >
+                <p className="text-molted-white font-black text-base">Cell Biology</p>
+                <p className="text-molted-muted text-xs mt-0.5">Core concept</p>
+              </div>
+
+              {/* Surrounding nodes */}
+              {GRAPH_NODES.map((node, i) => {
+                const s = NODE_STYLE[node.status];
+                return (
+                  <div
+                    key={i}
+                    className={`absolute px-3 py-2 rounded-xl border text-center ${NODE_POSITIONS[i]}`}
+                    style={{ borderColor: s.border, background: s.bg, minWidth: 110 }}
+                  >
+                    <p className="text-xs font-semibold" style={{ color: s.color }}>{node.label}</p>
+                    <p className="text-[10px] mt-0.5" style={{ color: s.color, opacity: 0.7 }}>{node.badge}</p>
+                    {node.status === 'next' && (
+                      <span
+                        className="absolute -top-1 -right-1 w-3 h-3 rounded-full animate-ping"
+                        style={{ background: s.color, opacity: 0.6 }}
+                      />
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* PathwayAi suggestion card */}
             <div
-              className="px-6 py-5 border-t border-molted-border flex flex-col md:flex-row md:items-center justify-between gap-4"
-              style={{ background: `${VIOLET}0A` }}
+              className="rounded-2xl border p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+              style={{ borderColor: VIOLET_BORDER, background: VIOLET_DIM }}
             >
               <div className="flex items-start gap-3">
                 <div
                   className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
-                  style={{ background: `${VIOLET}20`, border: `1px solid ${VIOLET}30` }}
+                  style={{ background: VIOLET_DIM, border: `1px solid ${VIOLET_BORDER}` }}
                 >
-                  <Brain size={15} style={{ color: VIOLET }} />
+                  <Lightbulb size={15} style={{ color: VIOLET }} />
                 </div>
                 <div>
-                  <p className="text-molted-white text-sm font-semibold">PathwayAi says:</p>
-                  <p className="text-molted-muted text-sm mt-0.5">
-                    You've mastered mitosis but <span className="text-yellow-400 font-medium">meiosis is blocking your path to genetics.</span>{' '}
+                  <p className="text-molted-muted text-xs font-semibold uppercase tracking-wider mb-1">PathwayAi Suggestion</p>
+                  <p className="text-molted-white text-sm leading-relaxed">
+                    You've mastered Mitosis but Meiosis is blocking your path to Genetics.
                     Let's fix that now.
                   </p>
                 </div>
               </div>
               <button
-                className="flex-shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-white transition-all hover:-translate-y-px"
-                style={{ background: VIOLET, boxShadow: `0 0 16px ${VIOLET}40` }}
+                className="flex-shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all hover:-translate-y-px whitespace-nowrap"
+                style={{ background: VIOLET, color: '#0A0A0B' }}
               >
-                Start Meiosis →
+                Start this module →
+                <ChevronRight size={14} />
               </button>
             </div>
           </div>
@@ -486,56 +474,54 @@ function KnowledgeGraphMock() {
   );
 }
 
-/* ── Student Experience Comparison ─────────────────────────────────────── */
-function StudentExperience() {
+/* ── Before / After ─────────────────────────────────────────────────────── */
+function BeforeAfter() {
   const before = [
-    'Linear syllabus, same for every student',
+    'Linear syllabus — same for every student',
     'Student guesses what to study',
-    'Generic feedback on assessments',
-    'Struggles are invisible to the system',
-    'One pace for everyone',
-    'Catch-up is the student\'s problem',
+    'Generic feedback after the fact',
+    'Falls behind without warning',
+    'Teacher discovers gaps at exam time',
   ];
 
   const after = [
-    'Adaptive path built around your knowledge state',
-    'Proactive suggestions before you fall behind',
-    'Targeted feedback tied to your specific gaps',
-    'Struggles are surfaced and addressed automatically',
-    'Your pace, your gaps, your wins',
-    'System intervenes before you fall behind',
+    'Adaptive path personalized to knowledge state',
+    'PathwayAi tells you exactly what's next',
+    'Proactive gap detection in real time',
+    'Targeted intervention before falling behind',
+    'Teacher gets class-level gap reports weekly',
   ];
 
   return (
     <section className="py-24 px-6 border-t border-molted-border">
       <div className="max-w-6xl mx-auto">
         <RevealBlock className="text-center mb-16">
-          <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">Impact</p>
+          <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">The difference</p>
           <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight">
-            The difference is total.
+            Before PathwayAi. After PathwayAi.
           </h2>
         </RevealBlock>
 
         <div className="grid md:grid-cols-2 gap-6">
           {/* Before */}
           <RevealBlock>
-            <div className="bg-molted-elevated border border-molted-ember/20 rounded-2xl p-8 h-full">
+            <div className="bg-molted-elevated border border-molted-border rounded-2xl p-7 h-full">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-8 h-8 rounded-lg bg-molted-ember/15 border border-molted-ember/30 flex items-center justify-center">
-                  <span className="text-molted-ember text-sm">✕</span>
+                <div className="w-8 h-8 rounded-xl bg-molted-ember/15 border border-molted-ember/30 flex items-center justify-center">
+                  <AlertTriangle size={15} className="text-molted-ember" />
                 </div>
                 <div>
-                  <p className="text-molted-white font-bold">Before PathwayAi</p>
-                  <p className="text-molted-muted text-xs">The standard model</p>
+                  <p className="text-molted-white font-bold text-base">Before PathwayAi</p>
+                  <p className="text-molted-muted text-xs">The old way</p>
                 </div>
               </div>
               <ul className="space-y-3">
                 {before.map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <div className="w-5 h-5 rounded-full bg-molted-ember/15 border border-molted-ember/30 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <span className="text-molted-ember text-xs">✕</span>
+                  <li key={i} className="flex items-start gap-3 text-sm text-molted-muted">
+                    <div className="w-4 h-4 rounded-full bg-molted-ember/15 border border-molted-ember/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <span className="text-molted-ember text-[9px] font-bold">✕</span>
                     </div>
-                    <span className="text-molted-muted text-sm leading-relaxed">{item}</span>
+                    {item}
                   </li>
                 ))}
               </ul>
@@ -543,33 +529,33 @@ function StudentExperience() {
           </RevealBlock>
 
           {/* After */}
-          <RevealBlock delay={150}>
+          <RevealBlock delay={120}>
             <div
-              className="rounded-2xl p-8 h-full border-2"
-              style={{ background: `${VIOLET}08`, borderColor: `${VIOLET}30`, boxShadow: `0 0 40px ${VIOLET}10` }}
+              className="bg-molted-elevated rounded-2xl p-7 h-full border-2"
+              style={{ borderColor: VIOLET_BORDER, boxShadow: `0 0 40px rgba(139,92,246,0.10)` }}
             >
               <div className="flex items-center gap-3 mb-6">
                 <div
-                  className="w-8 h-8 rounded-lg flex items-center justify-center"
-                  style={{ background: `${VIOLET}20`, border: `1px solid ${VIOLET}30` }}
+                  className="w-8 h-8 rounded-xl flex items-center justify-center"
+                  style={{ background: VIOLET_DIM, border: `1px solid ${VIOLET_BORDER}` }}
                 >
-                  <Zap size={15} style={{ color: VIOLET }} />
+                  <GitBranch size={15} style={{ color: VIOLET }} />
                 </div>
                 <div>
-                  <p className="text-molted-white font-bold">After PathwayAi</p>
-                  <p className="text-molted-muted text-xs">Adaptive education</p>
+                  <p className="text-molted-white font-bold text-base">After PathwayAi</p>
+                  <p className="text-xs" style={{ color: VIOLET }}>The right way</p>
                 </div>
               </div>
               <ul className="space-y-3">
                 {after.map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
+                  <li key={i} className="flex items-start gap-3 text-sm text-molted-muted">
                     <div
-                      className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
-                      style={{ background: `${VIOLET}20`, border: `1px solid ${VIOLET}35` }}
+                      className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+                      style={{ background: VIOLET_DIM, border: `1px solid ${VIOLET_BORDER}` }}
                     >
-                      <Check size={10} style={{ color: VIOLET }} />
+                      <Check size={9} style={{ color: VIOLET }} />
                     </div>
-                    <span className="text-molted-white text-sm leading-relaxed">{item}</span>
+                    {item}
                   </li>
                 ))}
               </ul>
@@ -583,62 +569,54 @@ function StudentExperience() {
 
 /* ── For Institutions ───────────────────────────────────────────────────── */
 function ForInstitutions() {
-  const reasons = [
+  const benefits = [
     {
-      icon: TrendingUp,
-      title: 'Completion rates rise',
-      body: 'Students who get the right content at the right time don\'t drop out. PathwayAi reduces the gaps that cause quiet failure.',
-      color: '#10B981',
+      icon: BarChart2,
+      title: 'Completion rates rise when students don't fall through the cracks.',
+      body: "When students get the right content at the right time, they finish. PathwayAi catches the gaps that become quiet departures.",
     },
     {
       icon: Users,
-      title: 'Students feel seen',
-      body: 'Adaptive learning signals to every student that their path is designed for them — not assembled from a shelf.',
-      color: VIOLET,
+      title: 'Faculty get class-level gap reports.',
+      body: 'See exactly where your cohort is struggling — aggregated, anonymous, actionable — before exam week.',
     },
     {
-      icon: BarChart2,
-      title: 'Faculty get class-level gap reports',
-      body: 'PathwayAi surfaces where the entire cohort is struggling — so faculty can intervene in the classroom before it\'s too late.',
-      color: '#0EA5E9',
+      icon: Lightbulb,
+      title: 'Students feel seen, not processed.',
+      body: 'A curriculum that responds to who they are — not who the average student is. Engagement and belonging follow.',
     },
     {
-      icon: GitBranch,
-      title: 'Connects directly to TeachOS',
-      body: 'Pathway data flows into TeachOS — giving instructors a real-time view of student knowledge states across the class.',
-      color: '#F59E0B',
+      icon: Brain,
+      title: 'Built on real interaction data — not invented learning science.',
+      body: 'PathwayAi works from actual pAIgeBreaker interactions: what students asked, struggled with, and mastered. Real signal.',
     },
   ];
 
   return (
     <section className="py-24 px-6 border-t border-molted-border">
       <div className="max-w-6xl mx-auto">
-        <RevealBlock className="text-center mb-12">
-          <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">Institutional value</p>
+        <RevealBlock className="text-center mb-16">
+          <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">For institutions</p>
           <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight">
-            Why institutions buy PathwayAi.
+            Why institutions deploy PathwayAi.
           </h2>
-          <p className="mt-6 text-molted-muted text-lg max-w-2xl mx-auto leading-relaxed">
-            The first adaptive learning system that works because it's built on{' '}
-            <span style={{ color: VIOLET }}>real student interaction data</span> —
-            not content trees assembled by designers.
+          <p className="mt-4 text-molted-muted max-w-xl mx-auto">
+            Personalized learning isn't just a student benefit. It's an institutional outcome.
           </p>
         </RevealBlock>
 
-        <div className="grid md:grid-cols-2 gap-5 mb-12">
-          {reasons.map((r, i) => (
-            <RevealBlock key={i} delay={i * 80}>
-              <div className="bg-molted-elevated border border-molted-border rounded-2xl p-6 hover:-translate-y-px hover:shadow-molted-card-hover transition-all flex gap-5">
+        <div className="grid md:grid-cols-2 gap-5">
+          {benefits.map((b, i) => (
+            <RevealBlock key={i} delay={i * 100}>
+              <div className="bg-molted-elevated border border-molted-border rounded-2xl p-7 h-full hover:-translate-y-px transition-all">
                 <div
-                  className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
-                  style={{ background: `${r.color}14`, border: `1px solid ${r.color}25` }}
+                  className="w-10 h-10 rounded-xl flex items-center justify-center mb-5"
+                  style={{ background: VIOLET_DIM, border: `1px solid ${VIOLET_BORDER}` }}
                 >
-                  <r.icon size={20} style={{ color: r.color }} />
+                  <b.icon size={18} style={{ color: VIOLET }} />
                 </div>
-                <div>
-                  <h3 className="text-molted-white font-bold mb-2">{r.title}</h3>
-                  <p className="text-molted-muted text-sm leading-relaxed">{r.body}</p>
-                </div>
+                <h3 className="text-molted-white font-bold text-base mb-2 leading-snug">{b.title}</h3>
+                <p className="text-molted-muted text-sm leading-relaxed">{b.body}</p>
               </div>
             </RevealBlock>
           ))}
@@ -655,84 +633,72 @@ function Pricing() {
       name: 'Student',
       price: '$9',
       period: '/mo',
-      tag: 'Your path. Your pace.',
+      tag: 'Personal adaptive learning.',
       features: [
-        'Full adaptive learning path',
-        'Personal knowledge graph',
-        'Proactive gap detection',
-        'pAIgeBreaker integration',
-        '3 active course subjects',
+        'Personalized learning path',
+        'Knowledge gap detection',
+        'Real-time path adjustment',
+        'Works with any pAIgeBreaker session',
       ],
-      cta: 'Start Learning',
+      cta: 'Get Early Access',
       highlight: false,
     },
     {
       name: 'Department',
       price: '$299',
       period: '/mo',
-      tag: 'Department-wide adaptive learning.',
+      tag: 'Up to 500 students.',
       features: [
-        'All Student features for your class',
-        'Faculty cohort gap reports',
-        'Class-level knowledge heatmaps',
-        'TeachOS integration',
-        'Unlimited students',
-        'Weekly insight reports',
+        'All Student features',
+        'Class-level gap reports for faculty',
+        'Cohort knowledge dashboards',
+        'Weekly automated insights',
+        'Faculty alert system',
+        'pAIgeBreaker integration',
       ],
-      cta: 'Most Popular',
+      cta: 'Start a Department',
       highlight: true,
     },
     {
       name: 'Institution',
       price: 'Custom',
       period: '',
-      tag: 'Institution-wide adaptive education.',
+      tag: 'Unlimited students. Full integration.',
       features: [
         'All Department features',
-        'Cross-course knowledge mapping',
-        'OutcomesAi integration',
-        'Accreditation outcome alignment',
-        'Custom curriculum integration',
+        'Unlimited student seats',
+        'Cross-department analytics',
+        'TeachOS & OutcomesAi integration',
+        'Accreditation reporting layer',
         'Dedicated success manager',
       ],
-      cta: 'Contact Us',
+      cta: 'Talk to Our Team',
       highlight: false,
     },
   ];
 
   return (
     <section className="py-24 px-6 border-t border-molted-border">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         <RevealBlock className="text-center mb-16">
-          <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">Investment</p>
+          <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">Pricing</p>
           <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight">
-            Built for students and institutions.
+            Start with one student. Scale to a university.
           </h2>
-          <p className="mt-4 text-molted-muted">Start as a student. Scale to the institution.</p>
         </RevealBlock>
 
         <div className="grid md:grid-cols-3 gap-5">
           {tiers.map((tier, i) => (
             <RevealBlock key={i} delay={i * 100}>
               <div
-                className={`rounded-2xl p-8 h-full flex flex-col border transition-all hover:-translate-y-px ${
-                  tier.highlight
-                    ? 'border-2'
-                    : 'bg-molted-elevated border-molted-border hover:border-molted-subtle'
+                className={`rounded-2xl p-7 h-full flex flex-col border transition-all hover:-translate-y-px ${
+                  tier.highlight ? 'border-2 bg-molted-elevated' : 'border-molted-border bg-molted-elevated'
                 }`}
-                style={
-                  tier.highlight
-                    ? {
-                        background: `${VIOLET}08`,
-                        borderColor: VIOLET,
-                        boxShadow: `0 0 40px ${VIOLET}15`,
-                      }
-                    : {}
-                }
+                style={tier.highlight ? { borderColor: VIOLET, boxShadow: `0 0 40px rgba(139,92,246,0.12)` } : {}}
               >
                 {tier.highlight && (
                   <span className="inline-block mb-4 text-xs font-bold uppercase tracking-wider" style={{ color: VIOLET }}>
-                    ★ Most Popular
+                    ★ Most popular
                   </span>
                 )}
                 <h3 className="text-molted-white font-black text-2xl">{tier.name}</h3>
@@ -745,7 +711,7 @@ function Pricing() {
                   {tier.features.map((f, j) => (
                     <li key={j} className="flex items-start gap-2.5 text-sm text-molted-muted">
                       <Check
-                        size={14}
+                        size={13}
                         className="flex-shrink-0 mt-0.5"
                         style={{ color: tier.highlight ? VIOLET : '#86868B' }}
                       />
@@ -758,7 +724,7 @@ function Pricing() {
                   className="mt-8 block text-center px-6 py-3.5 rounded-xl font-semibold text-sm transition-all hover:-translate-y-px"
                   style={
                     tier.highlight
-                      ? { background: VIOLET, color: '#fff', boxShadow: `0 0 20px ${VIOLET}35` }
+                      ? { background: VIOLET, color: '#0A0A0B', boxShadow: `0 0 20px rgba(139,92,246,0.30)` }
                       : { border: '1px solid #3A3A40', color: '#86868B' }
                   }
                 >
@@ -775,43 +741,48 @@ function Pricing() {
 
 /* ── CTA ────────────────────────────────────────────────────────────────── */
 function CTA() {
+  const [email, setEmail] = useState('');
+
   return (
     <section className="py-32 px-6 border-t border-molted-border">
       <div className="max-w-3xl mx-auto text-center">
         <RevealBlock>
           <h2 className="text-4xl md:text-6xl font-black text-molted-white tracking-tight leading-tight">
-            Your students deserve a path{' '}
-            <span style={{ color: VIOLET }}>built for them.</span>
+            Your students deserve a path built for them.
           </h2>
           <p className="mt-6 text-molted-muted text-xl leading-relaxed max-w-xl mx-auto">
-            Generic education is a solved problem. The only question is whether your institution
-            is ready to leave it behind.
+            PathwayAi is in early access. Be among the first institutions to give every student
+            their own road.
           </p>
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
+            <input
+              type="email"
+              placeholder="your@university.edu"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              className="flex-1 w-full px-5 py-4 rounded-xl bg-molted-elevated border border-molted-border text-molted-white placeholder:text-molted-muted text-sm focus:outline-none focus:border-violet-500 transition-colors"
+            />
             <a
-              href="mailto:hello@molted.ai?subject=PathwayAi Demo Request"
-              className="group flex items-center gap-2.5 px-8 py-4 rounded-xl text-white font-bold text-lg transition-all duration-200 hover:-translate-y-px"
-              style={{ background: VIOLET, boxShadow: `0 0 24px ${VIOLET}40` }}
+              href={`mailto:hello@molted.ai?subject=PathwayAi Early Access&body=From: ${email}`}
+              className="flex-shrink-0 flex items-center gap-2 px-6 py-4 rounded-xl font-bold text-sm transition-all hover:-translate-y-px"
+              style={{ background: VIOLET, color: '#0A0A0B', boxShadow: `0 0 20px rgba(139,92,246,0.30)` }}
             >
-              Start the Conversation
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+              Request Access
+              <ArrowRight size={16} />
             </a>
+          </div>
+          <div className="mt-10 pt-8 border-t border-molted-border flex flex-col sm:flex-row items-center justify-center gap-6">
             <Link
               to="/molted"
-              className="px-8 py-4 rounded-xl border border-molted-border text-molted-muted hover:text-molted-white font-semibold transition-all hover:border-molted-subtle"
+              className="text-molted-muted hover:text-molted-white text-sm transition-colors"
             >
               ← Back to MoltED Ai
             </Link>
-          </div>
-          <div className="mt-10 pt-8 border-t border-molted-border flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-molted-muted">
-            <Link to="/molted/paigebreaker" className="hover:text-molted-white transition-colors">
-              pAIgeBreaker →
-            </Link>
-            <Link to="/molted/teachos" className="hover:text-molted-white transition-colors">
-              TeachOS →
-            </Link>
-            <Link to="/molted/outcomes-ai" className="hover:text-molted-white transition-colors">
-              OutcomesAi →
+            <Link
+              to="/molted/paigebreaker"
+              className="text-molted-muted hover:text-molted-white text-sm transition-colors"
+            >
+              Explore pAIgeBreaker →
             </Link>
           </div>
         </RevealBlock>
@@ -825,10 +796,10 @@ export default function MoltedPathwayAi() {
   return (
     <MoltedLayout>
       <Hero />
-      <FlatRoadProblem />
+      <TheProblem />
       <HowItLearns />
       <KnowledgeGraphMock />
-      <StudentExperience />
+      <BeforeAfter />
       <ForInstitutions />
       <Pricing />
       <CTA />
