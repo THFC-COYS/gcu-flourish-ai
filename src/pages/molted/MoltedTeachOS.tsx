@@ -547,6 +547,19 @@ function CoreTools() {
 
             {/* Visual mock */}
             <ToolVisual type={active.visual} />
+
+            {/* Try it link for Discussion Intelligence */}
+            {active.visual === 'discussion' && (
+              <Link
+                to="/molted/teachos/discussion"
+                className="flex items-center justify-center gap-2.5 w-full py-3 rounded-xl text-sm font-bold transition-all duration-200 hover:-translate-y-px"
+                style={{ background: TEAL_DIM, color: TEAL, border: `1px solid ${TEAL_BORDER}` }}
+              >
+                <Play size={14} />
+                Try Discussion Intelligence — paste any thread
+                <ArrowRight size={14} />
+              </Link>
+            )}
           </div>
         </div>
       </div>
