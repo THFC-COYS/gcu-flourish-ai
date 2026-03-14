@@ -56,7 +56,7 @@ function Hero() {
       <div className="relative z-10 max-w-5xl mx-auto">
         {/* Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-molted-ember/30 bg-molted-ember/10 text-molted-ember text-xs font-semibold mb-8 animate-fade-in">
-          <Sparkles size={12} /> Molt · Institutions
+          <Sparkles size={12} /> Molt · Enterprise
         </div>
 
         {/* Wordmark */}
@@ -72,7 +72,7 @@ function Hero() {
         </p>
 
         <p className="mt-4 text-lg text-molted-muted/70 max-w-2xl mx-auto leading-relaxed animate-reveal" style={{ animationDelay: '250ms' }}>
-          Not a prototype. Already deployed. Six AI personas, one flagship university, 50,000+ students. Your institution's voice, present everywhere — in every college, every department, every question, at 2 AM.
+          Not a chatbot. A named, trained AI persona that carries your organization's values in every conversation — at 2 AM, at scale, without a headcount increase. Already proven at a flagship university serving 50,000+ people. Now available to hospitals, health systems, and enterprises.
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 animate-reveal" style={{ animationDelay: '350ms' }}>
@@ -162,7 +162,7 @@ function TheSpiritIdea() {
         <RevealBlock className="text-center">
           <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-8">The idea</p>
           <p className="text-3xl md:text-5xl font-black text-molted-white leading-tight tracking-tight">
-            Your institution has a soul.
+            Your organization has a culture.
           </p>
           <p className="mt-4 text-3xl md:text-5xl font-black leading-tight tracking-tight"
             style={{
@@ -176,7 +176,7 @@ function TheSpiritIdea() {
           </p>
           <p className="mt-8 text-molted-muted text-lg leading-relaxed max-w-2xl mx-auto">
             Not a generic chatbot. Not "AI assistant." A named, trained, branded persona that speaks
-            with your mission — and never stops.
+            with your values — in every patient room, every onboarding session, every 2 AM question. Without a headcount increase.
           </p>
         </RevealBlock>
       </div>
@@ -184,99 +184,170 @@ function TheSpiritIdea() {
   );
 }
 
-/* ── Live spirit showcase (from GCU work) ──────────────────────────────── */
-function SpiritShowcase() {
-  const [active, setActive] = useState(0);
-
-  const spirits = [
+/* ── Industry showcase ──────────────────────────────────────────────────── */
+const INDUSTRY_PERSONAS: Record<string, {
+  icon: string; name: string; context: string; tagline: string; detail: string;
+  color: string; bg: string; live?: boolean;
+}[]> = {
+  'Higher Ed': [
     {
-      icon: '🏥',
-      name: 'The Nurse Persona',
-      college: 'School of Nursing',
-      tagline: 'Clinical care & patient support',
+      icon: '🏥', name: 'The Nurse Persona', context: 'School of Nursing', tagline: 'Clinical care & patient support',
       detail: 'Every nursing graduate carries clinical competency and compassionate presence. The Nurse Persona carries both — available to any patient at 2 AM when fear is loudest and no one else can be there. Your faculty\'s clinical knowledge. Your graduates\' character. In the room when it matters most.',
-      color: 'text-rose-400',
-      bg: 'bg-rose-400/10 border-rose-400/20',
-      accent: '#F87171',
+      color: 'text-rose-400', bg: 'bg-rose-400/10 border-rose-400/20', live: true,
     },
     {
-      icon: '📚',
-      name: 'The Teaching Persona',
-      college: 'College of Education',
-      tagline: 'Education & learning guidance',
+      icon: '📚', name: 'The Teaching Persona', context: 'College of Education', tagline: 'Education & learning guidance',
       detail: 'The Teaching Persona is your faculty\'s pedagogy, your curriculum frameworks, and your best teaching moments — available to any student who is falling behind, any teacher who needs support, any parent trying to understand their child. The patience of your best educators. Always present. Never tired.',
-      color: 'text-sky-400',
-      bg: 'bg-sky-400/10 border-sky-400/20',
-      accent: '#38BDF8',
+      color: 'text-sky-400', bg: 'bg-sky-400/10 border-sky-400/20', live: true,
     },
     {
-      icon: '✝️',
-      name: 'The Faith Persona',
-      college: 'School of Divinity',
-      tagline: 'Grief, faith & spiritual care',
-      detail: 'The Faith Persona carries scripture, grief, and the pastoral wisdom of the institution\'s theology program into every hard conversation about faith, loss, and doubt. A rural pastor at 2 AM. A student losing their faith. A family in the ICU. Your theology — present in the room.',
-      color: 'text-amber-400',
-      bg: 'bg-amber-400/10 border-amber-400/20',
-      accent: '#FBBF24',
+      icon: '✝️', name: 'The Faith Persona', context: 'School of Divinity', tagline: 'Grief, faith & spiritual care',
+      detail: 'The Faith Persona carries scripture, grief, and the pastoral wisdom of your theology program into every hard conversation about faith, loss, and doubt. A rural pastor at 2 AM. A student losing their faith. A family in the ICU. Your theology — present in the room.',
+      color: 'text-amber-400', bg: 'bg-amber-400/10 border-amber-400/20', live: true,
     },
     {
-      icon: '💼',
-      name: 'The Business Persona',
-      college: 'School of Business',
-      tagline: 'Business ethics & leadership',
-      detail: 'The Business Persona brings our business school\'s ethos on servant leadership, ethical business, and entrepreneurial character into every mentorship moment — career pivots, ethical dilemmas, startup challenges. Your business school\'s wisdom. Available to every graduate.',
-      color: 'text-emerald-400',
-      bg: 'bg-emerald-400/10 border-emerald-400/20',
-      accent: '#34D399',
+      icon: '💼', name: 'The Business Persona', context: 'School of Business', tagline: 'Business ethics & leadership',
+      detail: 'The Business Persona brings your business school\'s ethos on servant leadership, ethical business, and entrepreneurial character into every mentorship moment — career pivots, ethical dilemmas, startup challenges. Your business school\'s wisdom. Available to every graduate.',
+      color: 'text-emerald-400', bg: 'bg-emerald-400/10 border-emerald-400/20', live: true,
     },
     {
-      icon: '⚖️',
-      name: 'The Legal Persona',
-      college: 'School of Law',
-      tagline: 'Legal guidance & ethics',
+      icon: '⚖️', name: 'The Legal Persona', context: 'School of Law', tagline: 'Legal guidance & ethics',
       detail: 'The Legal Persona guides law students through landmark cases, ethical dilemmas, and jurisprudence questions. Study partner. Socratic partner. Never bills by the hour.',
-      color: 'text-violet-400',
-      bg: 'bg-violet-400/10 border-violet-400/20',
-      accent: '#A78BFA',
+      color: 'text-violet-400', bg: 'bg-violet-400/10 border-violet-400/20', live: true,
     },
     {
-      icon: '🔬',
-      name: 'The STEM Persona',
-      college: 'College of Engineering & Technology',
-      tagline: 'Research, lab & STEM support',
+      icon: '🔬', name: 'The STEM Persona', context: 'College of Engineering & Technology', tagline: 'Research, lab & STEM support',
       detail: 'From hypothesis design to data analysis interpretation, The STEM Persona supports research students through the scientific method — while maintaining your program\'s standards for rigor, ethics, and methodology.',
-      color: 'text-cyan-400',
-      bg: 'bg-cyan-400/10 border-cyan-400/20',
-      accent: '#22D3EE',
+      color: 'text-cyan-400', bg: 'bg-cyan-400/10 border-cyan-400/20', live: true,
     },
-  ];
+  ],
+  Healthcare: [
+    {
+      icon: '🩺', name: 'Patient Navigator', context: 'Health System', tagline: 'Discharge, care plans & follow-up',
+      detail: 'Most readmissions happen because patients don\'t understand their discharge instructions. The Patient Navigator speaks in plain language, answers questions at 2 AM, and follows up proactively — in your health system\'s voice, bound by your clinical protocols.',
+      color: 'text-rose-400', bg: 'bg-rose-400/10 border-rose-400/20',
+    },
+    {
+      icon: '🏠', name: 'Rural Access Persona', context: 'Community Health', tagline: 'Health literacy & access guidance',
+      detail: 'For communities where the nearest specialist is 90 minutes away, the Rural Access Persona closes the gap — answering health questions, explaining diagnoses, and triaging urgency. Your clinical expertise. Available everywhere your patients are.',
+      color: 'text-emerald-400', bg: 'bg-emerald-400/10 border-emerald-400/20',
+    },
+    {
+      icon: '👶', name: 'New Parent Companion', context: 'Pediatric & Maternity', tagline: 'Postpartum support & newborn guidance',
+      detail: 'The 3 AM terror of new parenthood is universal. The New Parent Companion answers the questions that fill urgent care waiting rooms — in your hospital\'s voice, with your pediatricians\' guidance — so families feel supported, not abandoned, after discharge.',
+      color: 'text-sky-400', bg: 'bg-sky-400/10 border-sky-400/20',
+    },
+    {
+      icon: '🧠', name: 'Mental Health Navigator', context: 'Behavioral Health', tagline: 'Crisis triage & ongoing support',
+      detail: 'When someone reaches out at 2 AM in distress, speed and warmth matter more than anything else. The Mental Health Navigator triages urgency, provides immediate support resources, and connects patients to your clinical team — without replacing the human care that comes next.',
+      color: 'text-violet-400', bg: 'bg-violet-400/10 border-violet-400/20',
+    },
+    {
+      icon: '💊', name: 'Medication Coach', context: 'Pharmacy & Chronic Care', tagline: 'Adherence & side effect guidance',
+      detail: 'Non-adherence is responsible for nearly 50% of treatment failures. The Medication Coach checks in, answers concerns about side effects in plain language, and nudges refills — turning your pharmacy\'s clinical knowledge into daily patient contact.',
+      color: 'text-amber-400', bg: 'bg-amber-400/10 border-amber-400/20',
+    },
+    {
+      icon: '🏥', name: 'Clinical Onboarding Persona', context: 'Hospital System', tagline: 'New staff orientation & protocol guidance',
+      detail: 'A new nurse\'s first 90 days are the highest-risk period for errors and turnover. The Clinical Onboarding Persona walks new hires through your protocols, answers policy questions, and makes the learning curve survivable — without pulling preceptors off the floor.',
+      color: 'text-cyan-400', bg: 'bg-cyan-400/10 border-cyan-400/20',
+    },
+  ],
+  Enterprise: [
+    {
+      icon: '🚀', name: 'Onboarding Persona', context: 'HR & People Ops', tagline: 'New hire orientation & culture',
+      detail: 'The first 90 days determine whether a hire becomes a long-term contributor. The Onboarding Persona carries your culture, your processes, and your values into every new hire\'s early questions — so managers spend less time answering the same things and new employees feel less lost.',
+      color: 'text-emerald-400', bg: 'bg-emerald-400/10 border-emerald-400/20',
+    },
+    {
+      icon: '🎯', name: 'Customer Success Persona', context: 'Customer Experience', tagline: 'Retention, expansion & support',
+      detail: 'Your best CSM can\'t be in every account at once. The Customer Success Persona carries their playbook — onboarding flows, expansion signals, health check frameworks — to every customer, at every stage. Your culture of customer obsession. Always available.',
+      color: 'text-sky-400', bg: 'bg-sky-400/10 border-sky-400/20',
+    },
+    {
+      icon: '📋', name: 'Benefits Guide Persona', context: 'HR & Benefits', tagline: 'Benefits navigation & open enrollment',
+      detail: 'Most employees don\'t understand their benefits. The Benefits Guide Persona explains health plans, 401k options, and leave policies in plain language — reducing HR ticket volume by 60% and making open enrollment feel like a conversation, not a forms exercise.',
+      color: 'text-amber-400', bg: 'bg-amber-400/10 border-amber-400/20',
+    },
+    {
+      icon: '⚙️', name: 'Technical Support Persona', context: 'Engineering & IT', tagline: 'Tier-1 support & knowledge base',
+      detail: 'Your senior engineers spend 30% of their time answering questions that are already documented somewhere. The Technical Support Persona absorbs your documentation, your runbooks, and your tribal knowledge — and becomes the first answer for every Tier-1 question.',
+      color: 'text-violet-400', bg: 'bg-violet-400/10 border-violet-400/20',
+    },
+    {
+      icon: '🌍', name: 'Brand Ambassador Persona', context: 'Marketing & Brand', tagline: 'Brand voice at every touchpoint',
+      detail: 'Every customer touchpoint is a brand moment. The Brand Ambassador Persona carries your brand voice — your tone, your values, your positioning — into every interaction: support tickets, community forums, onboarding flows, and partner communications.',
+      color: 'text-rose-400', bg: 'bg-rose-400/10 border-rose-400/20',
+    },
+    {
+      icon: '📈', name: 'Sales Enablement Persona', context: 'Revenue Operations', tagline: 'Objection handling & competitive intel',
+      detail: 'Your best sales rep knows every objection and every competitor\'s weakness cold. The Sales Enablement Persona carries that knowledge to every rep on the team — available during every call, before every demo, at every stage of the funnel.',
+      color: 'text-cyan-400', bg: 'bg-cyan-400/10 border-cyan-400/20',
+    },
+  ],
+};
 
-  const current = spirits[active];
+function SpiritShowcase() {
+  const industries = Object.keys(INDUSTRY_PERSONAS) as (keyof typeof INDUSTRY_PERSONAS)[];
+  const [activeIndustry, setActiveIndustry] = useState<string>('Higher Ed');
+  const [activeIdx, setActiveIdx] = useState(0);
+
+  const spirits = INDUSTRY_PERSONAS[activeIndustry];
+  const current = spirits[activeIdx];
+
+  function switchIndustry(ind: string) {
+    setActiveIndustry(ind);
+    setActiveIdx(0);
+  }
 
   return (
     <section className="py-24 px-6 border-t border-molted-border">
       <div className="max-w-6xl mx-auto">
-        <RevealBlock className="text-center mb-12">
-          <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">Live example</p>
+        <RevealBlock className="text-center mb-10">
+          <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">Where Persona works</p>
           <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight">
-            One Institution. Six Personas.
+            Any organization. Any voice.
           </h2>
           <p className="mt-4 text-molted-muted max-w-xl mx-auto">
-            A flagship university deployed six Personas — one for each college.
-            This is what the platform looks like at scale.
+            The same platform proven at a flagship university — available to hospitals, health systems, and enterprises.
           </p>
+        </RevealBlock>
+
+        {/* Industry tabs */}
+        <RevealBlock delay={100}>
+          <div className="flex items-center justify-center gap-2 mb-10 flex-wrap">
+            {industries.map((ind) => (
+              <button
+                key={ind}
+                onClick={() => switchIndustry(ind)}
+                className="px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200"
+                style={{
+                  background: activeIndustry === ind ? '#E8170F' : 'rgba(255,255,255,0.05)',
+                  color: activeIndustry === ind ? '#fff' : '#86868B',
+                  border: `1px solid ${activeIndustry === ind ? 'transparent' : 'rgba(255,255,255,0.08)'}`,
+                }}
+              >
+                {ind}
+                {ind === 'Higher Ed' && (
+                  <span className="ml-2 text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-emerald-400/20 text-emerald-400 border border-emerald-400/30">
+                    Live
+                  </span>
+                )}
+              </button>
+            ))}
+          </div>
         </RevealBlock>
 
         <RevealBlock delay={150}>
           <div className="grid md:grid-cols-3 gap-6">
-            {/* Spirit selector */}
+            {/* Persona selector */}
             <div className="space-y-2">
               {spirits.map((s, i) => (
                 <button
                   key={i}
-                  onClick={() => setActive(i)}
+                  onClick={() => setActiveIdx(i)}
                   className={`w-full text-left px-4 py-3.5 rounded-xl border transition-all flex items-center gap-3 ${
-                    active === i
+                    activeIdx === i
                       ? 'bg-molted-elevated border-molted-ember/40 text-molted-white shadow-molted-card'
                       : 'border-molted-border text-molted-muted hover:border-molted-subtle hover:text-molted-white'
                   }`}
@@ -284,10 +355,12 @@ function SpiritShowcase() {
                   <span className="text-xl flex-shrink-0">{s.icon}</span>
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-2 flex-wrap">
-                      <p className={`text-sm font-semibold ${active === i ? 'text-molted-white' : ''}`}>{s.name}</p>
-                      <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-emerald-400/15 text-emerald-400 border border-emerald-400/25 leading-none">
-                        Live · Deployed
-                      </span>
+                      <p className={`text-sm font-semibold ${activeIdx === i ? 'text-molted-white' : ''}`}>{s.name}</p>
+                      {s.live && (
+                        <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-emerald-400/15 text-emerald-400 border border-emerald-400/25 leading-none">
+                          Live
+                        </span>
+                      )}
                     </div>
                     <p className="text-xs text-molted-muted truncate">{s.tagline}</p>
                   </div>
@@ -295,7 +368,7 @@ function SpiritShowcase() {
               ))}
             </div>
 
-            {/* Spirit detail card */}
+            {/* Persona detail */}
             <div className="md:col-span-2">
               <div className="bg-molted-elevated border border-molted-border rounded-2xl p-8 h-full">
                 <div className="flex items-start gap-5">
@@ -304,17 +377,24 @@ function SpiritShowcase() {
                   </div>
                   <div>
                     <h3 className="text-molted-white text-xl font-bold">{current.name}</h3>
-                    <p className="text-molted-muted text-sm mt-0.5">{current.college}</p>
+                    <p className="text-molted-muted text-sm mt-0.5">{current.context}</p>
                     <span className={`mt-2 inline-block text-xs font-semibold px-2.5 py-1 rounded-full border ${current.bg} ${current.color}`}>
                       {current.tagline}
                     </span>
                   </div>
                 </div>
                 <p className="mt-6 text-molted-muted leading-relaxed">{current.detail}</p>
-                <div className="mt-6 flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  <span className="text-molted-muted text-xs">Live · Flagship University</span>
-                </div>
+                {current.live ? (
+                  <div className="mt-6 flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    <span className="text-molted-muted text-xs">Live · Flagship University · 50,000+ people served</span>
+                  </div>
+                ) : (
+                  <div className="mt-6 flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full" style={{ background: '#E8170F' }} />
+                    <span className="text-molted-muted text-xs">Available now · Built on proven architecture</span>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -427,7 +507,7 @@ function WhyDifferent() {
         <RevealBlock className="text-center mb-16">
           <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">Why Persona</p>
           <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight">
-            Built for institutions<br />that care about character.
+            Built for organizations<br />that can't afford to be generic.
           </h2>
         </RevealBlock>
 
@@ -481,7 +561,7 @@ function PricingTeaser() {
         <RevealBlock className="text-center mb-16">
           <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">Investment</p>
           <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight">
-            Priced for institutions,<br />not Fortune 500.
+            Priced for scale,<br />not complexity.
           </h2>
           <p className="mt-4 text-molted-muted">Exact pricing provided after a discovery call.</p>
         </RevealBlock>
@@ -551,11 +631,11 @@ function CTA() {
         <RevealBlock>
           <h2 className="text-4xl md:text-6xl font-black text-molted-white tracking-tight leading-tight">
             What does your<br />
-            <span className="text-molted-ember">institution's Persona</span><br />
+            <span className="text-molted-ember">organization's Persona</span><br />
             look like?
           </h2>
           <p className="mt-6 text-molted-muted text-lg">
-            Let's build it together. Every Persona starts with a conversation.
+            Higher ed. Healthcare. Enterprise. Every Persona starts with a conversation.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
