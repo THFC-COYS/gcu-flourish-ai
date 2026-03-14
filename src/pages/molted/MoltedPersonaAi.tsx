@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Sparkles, ArrowRight, Check, Globe, Heart, Shield, Zap, Building2 } from 'lucide-react';
-import MoltedLayout from './MoltedLayout';
+import MoltedLayout, { CampusOSBanner } from './MoltedLayout';
 
 function useReveal() {
   const ref = useRef<HTMLDivElement>(null);
@@ -516,6 +516,7 @@ function CTA() {
 export default function MoltedPersonaAi() {
   return (
     <MoltedLayout>
+      <CampusOSBanner moduleName="Persona Ai" moduleColor="#E8170F" />
       <Hero />
       <TheSpiritIdea />
       <SpiritShowcase />

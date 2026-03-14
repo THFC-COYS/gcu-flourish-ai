@@ -7,7 +7,7 @@ import {
   GraduationCap, Sparkles, Database, Lock, FlaskConical,
   PieChart, FileCheck, UserCog, BrainCircuit,
 } from 'lucide-react';
-import MoltedLayout from './MoltedLayout';
+import MoltedLayout, { CampusOSBanner } from './MoltedLayout';
 
 /* ── Scroll reveal ─────────────────────────────────────────────────────── */
 function useReveal() {
@@ -1256,6 +1256,7 @@ function CTA() {
 export default function MoltedTeachOS() {
   return (
     <MoltedLayout>
+      <CampusOSBanner moduleName="TeachOS" moduleColor="#2DD4BF" />
       <Hero />
       <TheProblem />
       <CoreTools />

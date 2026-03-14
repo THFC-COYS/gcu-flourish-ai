@@ -65,10 +65,16 @@ function Hero() {
 
       {/* Tagline chip */}
       <RevealBlock className="mb-8">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-molted-violet/30 bg-molted-violet/10 text-molted-violet text-xs font-semibold tracking-wide uppercase">
-          <Sparkles size={12} />
-          AI EdTech · Nine Products · One Platform
-        </div>
+        <Link
+          to="/molted/campus-os"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border text-xs font-semibold tracking-wide uppercase hover:opacity-80 transition-opacity"
+          style={{ borderColor: 'rgba(232,160,32,0.35)', background: 'rgba(232,160,32,0.07)' }}
+        >
+          <Sparkles size={12} style={{ color: '#E8A020' }} />
+          <span style={{ background: 'linear-gradient(120deg,#E8A020,#2DD4BF,#8B5CF6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+            Built on CampusOS · The AI-native LMS
+          </span>
+        </Link>
       </RevealBlock>
 
       {/* Main headline */}
@@ -99,11 +105,14 @@ function Hero() {
       {/* CTAs */}
       <RevealBlock delay={300} className="mt-10 flex flex-col sm:flex-row items-center gap-4 flex-wrap justify-center">
         <Link
-          to="/molted/paigebreaker"
-          className="group flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-molted-violet hover:bg-molted-violet-light text-white font-semibold transition-all duration-200 hover:-translate-y-px"
+          to="/molted/campus-os"
+          className="group relative flex items-center gap-2.5 px-7 py-3.5 rounded-xl text-white font-bold transition-all duration-200 hover:-translate-y-px overflow-hidden"
+          style={{ background: 'linear-gradient(120deg, #E8A020 0%, #2DD4BF 50%, #8B5CF6 100%)' }}
         >
-          pAIgeBreaker
-          <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+          <span className="relative z-10 flex items-center gap-2.5">
+            See CampusOS
+            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+          </span>
         </Link>
         <Link
           to="/molted/teachos"
@@ -113,11 +122,11 @@ function Hero() {
           <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
         </Link>
         <Link
-          to="/molted/campus-os"
+          to="/molted/paigebreaker"
           className="group flex items-center gap-2.5 px-7 py-3.5 rounded-xl border border-molted-border text-molted-muted hover:text-molted-white hover:border-molted-subtle font-semibold transition-all duration-200"
         >
-          CampusOS
-          <ChevronRight size={16} />
+          pAIgeBreaker
+          <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
         </Link>
       </RevealBlock>
 
@@ -249,23 +258,30 @@ function PlatformTiers() {
 
         {/* Section header */}
         <RevealBlock className="mb-16 text-center">
-          <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">
-            The full stack
-          </p>
+          <Link
+            to="/molted/campus-os"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-5 hover:opacity-80 transition-opacity"
+            style={{ background: 'rgba(232,160,32,0.08)', border: '1px solid rgba(232,160,32,0.2)' }}
+          >
+            <span style={{ background: 'linear-gradient(120deg,#E8A020,#2DD4BF,#8B5CF6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+              8 CampusOS modules
+            </span>
+            <ChevronRight size={11} style={{ color: '#E8A020' }} />
+          </Link>
           <h2 className="text-4xl md:text-6xl font-black text-molted-white tracking-tight leading-tight">
-            Education.{' '}
+            Every role. Every layer.{' '}
             <span style={{
               background: 'linear-gradient(120deg, #F5B740 0%, #E8A020 55%, #E8170F 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
             }}>
-              Transformed.
+              One platform.
             </span>
           </h2>
           <p className="mt-5 text-molted-muted text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            From the student struggling at midnight to the provost measuring outcomes —
-            MoltED Ai covers the entire education stack.
+            Start with any module today. When your institution is ready, deploy CampusOS —
+            the AI-native LMS that runs them all.
           </p>
         </RevealBlock>
 
@@ -300,10 +316,10 @@ function PlatformTiers() {
                       {p.live ? (
                         <span className="flex items-center gap-1.5 text-xs text-green-400 font-medium">
                           <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                          Live
+                          Live module
                         </span>
                       ) : (
-                        <span className="text-xs text-molted-subtle font-medium">Coming</span>
+                        <span className="text-xs text-molted-subtle font-medium">Upcoming</span>
                       )}
                     </div>
                     <p className="text-xs font-semibold mb-2 leading-snug" style={{ color: tier.color }}>
@@ -389,8 +405,11 @@ function PlatformTeaser() {
                 </span>
               </div>
 
-              <div className="inline-flex items-center gap-2 text-molted-muted font-semibold group-hover:text-molted-white group-hover:gap-3 transition-all">
-                Explore CampusOS <ArrowRight size={16} />
+              <div
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all group-hover:-translate-y-0.5"
+                style={{ background: 'linear-gradient(120deg,#E8A020,#2DD4BF,#8B5CF6)', color: '#0A0A0F' }}
+              >
+                See CampusOS <ArrowRight size={14} />
               </div>
             </div>
           </Link>

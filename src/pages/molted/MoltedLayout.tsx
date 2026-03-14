@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
 
 function MoltedLogo({ size = 'md' }: { size?: 'sm' | 'md' | 'lg' }) {
   const textSize = { sm: 'text-lg', md: 'text-2xl', lg: 'text-4xl' }[size];
@@ -125,70 +125,81 @@ function ProductsDropdown() {
 
       {open && (
         <div
-          className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[620px] rounded-2xl border border-molted-border bg-molted-surface/95 backdrop-blur-xl p-5 shadow-2xl"
+          className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[640px] rounded-2xl border border-molted-border bg-molted-surface/95 backdrop-blur-xl shadow-2xl overflow-hidden"
           style={{ boxShadow: '0 24px 60px rgba(0,0,0,0.6)' }}
         >
-          {/* Available now */}
-          <p className="text-molted-muted text-xs font-semibold uppercase tracking-widest mb-3">Available Now</p>
-          <div className="grid grid-cols-3 gap-2 mb-5">
-            {PRODUCTS_NOW.map(p => (
-              <Link
-                key={p.href}
-                to={p.href}
-                className="group p-3 rounded-xl hover:bg-white/5 transition-colors"
-              >
-                <div className="flex items-center gap-2 mb-1.5">
-                  <div className="w-1.5 h-1.5 rounded-full" style={{ background: p.color }} />
-                  <p className="text-molted-white text-sm font-semibold group-hover:text-white transition-colors">
-                    {p.label}
-                  </p>
-                </div>
-                <p className="text-molted-muted text-xs leading-relaxed">{p.desc}</p>
-                <p className="text-xs mt-1.5 font-medium" style={{ color: p.color }}>{p.audience}</p>
-              </Link>
-            ))}
-          </div>
+          {/* CampusOS header bar */}
+          <Link
+            to={PLATFORM.href}
+            className="group flex items-center gap-3 px-5 py-3.5 border-b border-molted-border hover:bg-white/5 transition-colors"
+            style={{ background: 'linear-gradient(90deg, rgba(232,160,32,0.06) 0%, rgba(45,212,191,0.04) 50%, rgba(139,92,246,0.06) 100%)' }}
+          >
+            <div
+              className="w-7 h-7 rounded-lg flex-shrink-0"
+              style={{ background: 'linear-gradient(135deg, #E8A020 0%, #2DD4BF 50%, #8B5CF6 100%)' }}
+            />
+            <div className="flex-1 min-w-0">
+              <div className="flex items-baseline gap-2">
+                <p
+                  className="text-sm font-bold"
+                  style={{
+                    background: 'linear-gradient(120deg, #E8A020, #2DD4BF, #8B5CF6)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                  }}
+                >
+                  CampusOS
+                </p>
+                <p className="text-molted-subtle text-xs">The AI-native LMS — all modules, one platform</p>
+              </div>
+            </div>
+            <ChevronDown size={12} className="text-molted-subtle -rotate-90 group-hover:translate-x-0.5 transition-transform" />
+          </Link>
 
-          {/* Coming soon */}
-          <div className="border-t border-molted-border pt-4 mb-4">
-            <p className="text-molted-muted text-xs font-semibold uppercase tracking-widest mb-3">In Development</p>
-            <div className="grid grid-cols-4 gap-2">
-              {PRODUCTS_COMING.map(p => (
+          <div className="p-5">
+            {/* Live modules */}
+            <p className="text-molted-muted text-xs font-semibold uppercase tracking-widest mb-3">Live Modules</p>
+            <div className="grid grid-cols-3 gap-2 mb-5">
+              {PRODUCTS_NOW.map(p => (
                 <Link
                   key={p.href}
                   to={p.href}
                   className="group p-3 rounded-xl hover:bg-white/5 transition-colors"
                 >
-                  <div className="flex items-center gap-2 mb-1">
-                    <div className="w-1.5 h-1.5 rounded-full opacity-60" style={{ background: p.color }} />
-                    <p className="text-molted-muted text-xs font-semibold group-hover:text-molted-white transition-colors">
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <div className="w-1.5 h-1.5 rounded-full" style={{ background: p.color }} />
+                    <p className="text-molted-white text-sm font-semibold group-hover:text-white transition-colors">
                       {p.label}
                     </p>
                   </div>
-                  <p className="text-molted-subtle text-xs leading-relaxed">{p.desc}</p>
+                  <p className="text-molted-muted text-xs leading-relaxed">{p.desc}</p>
+                  <p className="text-xs mt-1.5 font-medium" style={{ color: p.color }}>{p.audience}</p>
                 </Link>
               ))}
             </div>
-          </div>
 
-          {/* Platform */}
-          <div className="border-t border-molted-border pt-4">
-            <Link
-              to={PLATFORM.href}
-              className="group flex items-center gap-4 p-3 rounded-xl hover:bg-white/5 transition-colors"
-            >
-              <div
-                className="w-8 h-8 rounded-lg flex-shrink-0"
-                style={{ background: 'linear-gradient(135deg, #E8A020 0%, #2DD4BF 50%, #8B5CF6 100%)' }}
-              />
-              <div>
-                <p className="text-molted-white text-sm font-bold group-hover:text-white transition-colors">
-                  {PLATFORM.label}
-                  <span className="ml-2 text-xs font-medium text-molted-subtle">The Platform</span>
-                </p>
-                <p className="text-molted-muted text-xs">{PLATFORM.desc}</p>
+            {/* Upcoming modules */}
+            <div className="border-t border-molted-border pt-4">
+              <p className="text-molted-muted text-xs font-semibold uppercase tracking-widest mb-3">Upcoming Modules</p>
+              <div className="grid grid-cols-4 gap-2">
+                {PRODUCTS_COMING.map(p => (
+                  <Link
+                    key={p.href}
+                    to={p.href}
+                    className="group p-3 rounded-xl hover:bg-white/5 transition-colors"
+                  >
+                    <div className="flex items-center gap-2 mb-1">
+                      <div className="w-1.5 h-1.5 rounded-full opacity-60" style={{ background: p.color }} />
+                      <p className="text-molted-muted text-xs font-semibold group-hover:text-molted-white transition-colors">
+                        {p.label}
+                      </p>
+                    </div>
+                    <p className="text-molted-subtle text-xs leading-relaxed">{p.desc}</p>
+                  </Link>
+                ))}
               </div>
-            </Link>
+            </div>
           </div>
         </div>
       )}
@@ -226,17 +237,25 @@ export function MoltedNav() {
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-1">
-          <ProductsDropdown />
           <Link
             to="/molted/campus-os"
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+            className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 ${
               location.pathname === '/molted/campus-os'
                 ? 'text-molted-white bg-white/5'
-                : 'text-molted-muted hover:text-molted-white hover:bg-white/5'
+                : 'hover:bg-white/5'
             }`}
+            style={{
+              background: location.pathname === '/molted/campus-os'
+                ? undefined
+                : 'linear-gradient(120deg, #E8A020, #2DD4BF, #8B5CF6)',
+              WebkitBackgroundClip: location.pathname === '/molted/campus-os' ? undefined : 'text',
+              WebkitTextFillColor: location.pathname === '/molted/campus-os' ? undefined : 'transparent',
+              backgroundClip: location.pathname === '/molted/campus-os' ? undefined : 'text',
+            }}
           >
-            Platform
+            CampusOS
           </Link>
+          <ProductsDropdown />
           <Link
             to="/molted/about"
             className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
@@ -272,7 +291,19 @@ export function MoltedNav() {
       {menuOpen && (
         <div className="md:hidden bg-molted-surface/95 backdrop-blur-xl border-b border-molted-border max-h-[80vh] overflow-y-auto">
           <div className="max-w-6xl mx-auto px-6 py-4">
-            <p className="text-molted-muted text-xs font-semibold uppercase tracking-widest px-4 mb-2">Available Now</p>
+            {/* CampusOS */}
+            <Link
+              to="/molted/campus-os"
+              className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-all mb-2 border border-molted-border"
+              style={{ background: 'linear-gradient(90deg, rgba(232,160,32,0.06), rgba(139,92,246,0.06))' }}
+            >
+              <div className="w-5 h-5 rounded-md flex-shrink-0" style={{ background: 'linear-gradient(135deg, #E8A020 0%, #2DD4BF 50%, #8B5CF6 100%)' }} />
+              <div>
+                <p className="text-sm font-bold" style={{ background: 'linear-gradient(120deg,#E8A020,#2DD4BF,#8B5CF6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>CampusOS</p>
+                <p className="text-molted-subtle text-xs">The full AI-native LMS</p>
+              </div>
+            </Link>
+            <p className="text-molted-muted text-xs font-semibold uppercase tracking-widest px-4 mb-2 mt-4">Live Modules</p>
             {PRODUCTS_NOW.map(p => (
               <Link
                 key={p.href}
@@ -286,7 +317,7 @@ export function MoltedNav() {
                 </div>
               </Link>
             ))}
-            <p className="text-molted-muted text-xs font-semibold uppercase tracking-widest px-4 mt-4 mb-2">In Development</p>
+            <p className="text-molted-muted text-xs font-semibold uppercase tracking-widest px-4 mt-4 mb-2">Upcoming Modules</p>
             {PRODUCTS_COMING.map(p => (
               <Link
                 key={p.href}
@@ -301,9 +332,6 @@ export function MoltedNav() {
               </Link>
             ))}
             <div className="border-t border-molted-border mt-3 pt-3 space-y-1">
-              <Link to="/molted/campus-os" className="block px-4 py-3 rounded-lg text-sm font-medium text-molted-muted hover:text-molted-white hover:bg-white/5 transition-all">
-                Platform (CampusOS)
-              </Link>
               <Link to="/molted/about" className="block px-4 py-3 rounded-lg text-sm font-medium text-molted-muted hover:text-molted-white hover:bg-white/5 transition-all">
                 About
               </Link>
@@ -340,7 +368,22 @@ export function MoltedFooter() {
           </div>
 
           <div>
-            <p className="text-molted-white text-sm font-semibold mb-4">Products</p>
+            <div className="mb-5">
+              <Link
+                to="/molted/campus-os"
+                className="inline-flex items-center gap-2 text-sm font-bold hover:opacity-80 transition-opacity"
+                style={{
+                  background: 'linear-gradient(120deg, #E8A020, #2DD4BF, #8B5CF6)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}
+              >
+                CampusOS — The Platform
+              </Link>
+              <p className="text-molted-subtle text-xs mt-1">All modules. One AI-native LMS.</p>
+            </div>
+            <p className="text-molted-white text-sm font-semibold mb-3">Modules</p>
             <ul className="space-y-2">
               {[...PRODUCTS_NOW, ...PRODUCTS_COMING].map(l => (
                 <li key={l.href}>
@@ -349,11 +392,6 @@ export function MoltedFooter() {
                   </Link>
                 </li>
               ))}
-              <li>
-                <Link to="/molted/campus-os" className="text-molted-muted text-sm hover:text-molted-white transition-colors">
-                  CampusOS
-                </Link>
-              </li>
             </ul>
           </div>
 
@@ -384,6 +422,39 @@ export function MoltedFooter() {
         </div>
       </div>
     </footer>
+  );
+}
+
+/* ── CampusOS Module Banner ─────────────────────────────────────────────── */
+export function CampusOSBanner({ moduleName, moduleColor }: { moduleName: string; moduleColor: string }) {
+  return (
+    <div
+      className="border-b border-molted-border"
+      style={{ background: 'linear-gradient(90deg, rgba(232,160,32,0.05) 0%, rgba(45,212,191,0.04) 50%, rgba(139,92,246,0.05) 100%)' }}
+    >
+      <div className="max-w-6xl mx-auto px-6 py-2.5 flex items-center justify-between gap-4">
+        <div className="flex items-center gap-2.5 min-w-0">
+          <div className="w-4 h-4 rounded-md flex-shrink-0" style={{ background: 'linear-gradient(135deg,#E8A020,#2DD4BF,#8B5CF6)' }} />
+          <span className="text-xs text-molted-subtle hidden sm:inline">
+            <span className="font-semibold" style={{ color: moduleColor }}>{moduleName}</span>
+            {' '}is a module of
+          </span>
+          <Link
+            to="/molted/campus-os"
+            className="text-xs font-bold hover:opacity-80 transition-opacity"
+            style={{ background: 'linear-gradient(120deg,#E8A020,#2DD4BF,#8B5CF6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}
+          >
+            CampusOS — the AI-native LMS
+          </Link>
+        </div>
+        <Link
+          to="/molted/campus-os"
+          className="flex-shrink-0 flex items-center gap-1 text-xs font-semibold text-molted-muted hover:text-molted-white transition-colors"
+        >
+          See the full platform <ChevronRight size={11} />
+        </Link>
+      </div>
+    </div>
   );
 }
 
