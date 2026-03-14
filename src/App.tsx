@@ -18,6 +18,7 @@ import FlourishStandard from './pages/FlourishStandard';
 import SpiritTraining from './pages/SpiritTraining';
 import ExecutiveTour from './pages/ExecutiveTour';
 import MoltedHome from './pages/molted/MoltedHome';
+import MoltedInvestors from './pages/molted/MoltedInvestors';
 import MoltedLumen from './pages/molted/MoltedLumen';
 import MoltedBeaconAi from './pages/molted/MoltedBeaconAi';
 import MoltedForge from './pages/molted/MoltedForge';
@@ -100,6 +101,7 @@ export default function App() {
             <Route path="/molted/mastery-ai" element={<MoltedMasteryAi />} />
             <Route path="/molted/about" element={<MoltedAbout />} />
             <Route path="/molted/founding-partners" element={<MoltedFoundingPartners />} />
+            <Route path="/molted/investors" element={<MoltedInvestors />} />
             <Route path="/molted/forge/discussion" element={<DiscussionDemo />} />
             <Route path="/molted/forge/course-architect" element={<CourseArchitect />} />
             <Route path="/molted/forge/agentic-grader" element={<AgenticGrader />} />

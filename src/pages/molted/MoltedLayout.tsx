@@ -174,7 +174,7 @@ export function MoltedFooter() {
           <div>
             <p className="text-molted-white text-sm font-semibold mb-4">Company</p>
             <ul className="space-y-2.5">
-              {[{ label: 'About', href: '/molted/about' }, { label: 'Contact', href: 'mailto:hello@molted.ai' }].map(l => (
+              {[{ label: 'About', href: '/molted/about' }, { label: 'Investors', href: '/molted/investors' }, { label: 'Contact', href: 'mailto:hello@molted.ai' }].map(l => (
                 <li key={l.label}>
                   <a href={l.href} className="text-molted-muted text-sm hover:text-molted-white transition-colors">{l.label}</a>
                 </li>
