@@ -776,7 +776,7 @@ function CTA() {
               to="/molted"
               className="text-molted-muted hover:text-molted-white text-sm transition-colors"
             >
-              ← Back to MoltED Ai
+              ← Back to Molt
             </Link>
             <Link
               to="/molted/paigebreaker"

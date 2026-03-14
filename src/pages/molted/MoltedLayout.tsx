@@ -143,7 +143,7 @@ export function MoltedFooter() {
           <div className="md:col-span-2">
             <MoltedLogo size="md" />
             <p className="mt-4 text-molted-muted text-sm leading-relaxed max-w-xs">
-              MoltED Ai builds AI-native tools that transform how institutions teach,
+              Molt builds AI-native tools that transform how institutions teach,
               how students learn, and how knowledge moves.
             </p>
             <p className="mt-6 text-molted-subtle text-xs">
@@ -187,7 +187,7 @@ export function MoltedFooter() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-molted-border flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-molted-subtle text-xs">© {new Date().getFullYear()} MoltED Ai LLC. All rights reserved.</p>
+          <p className="text-molted-subtle text-xs">© {new Date().getFullYear()} Molt LLC. All rights reserved.</p>
           <p className="text-molted-subtle text-xs">Built with intent. Designed with purpose.</p>
         </div>
       </div>

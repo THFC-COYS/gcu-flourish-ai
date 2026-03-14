@@ -847,7 +847,7 @@ function EcosystemCoordination() {
           </h2>
           <p className="mt-6 text-molted-muted text-lg max-w-xl mx-auto">
             This is where the agentic vision becomes real. RetainAi pulls signals from
-            every MoltED product and pushes actions back through them.
+            every Molt product and pushes actions back through them.
           </p>
         </RevealBlock>
 
@@ -1147,7 +1147,7 @@ function FinalCTA() {
             </Link>
           </div>
           <p className="mt-8 text-molted-subtle text-sm italic">
-            "Every student who was about to leave — didn't." — MoltED Ai
+            "Every student who was about to leave — didn't." — Molt
           </p>
         </RevealBlock>
       </div>

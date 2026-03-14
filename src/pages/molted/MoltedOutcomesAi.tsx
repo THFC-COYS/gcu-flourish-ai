@@ -73,7 +73,7 @@ function Hero() {
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border text-xs font-semibold mb-8 animate-fade-in"
           style={{ borderColor: `${SKY}40`, background: `${SKY}12`, color: SKY }}
         >
-          <Eye size={12} /> MoltED Ai · Institutional Intelligence Layer
+          <Eye size={12} /> Molt · Institutional Intelligence Layer
         </div>
 
         {/* Wordmark */}
@@ -100,7 +100,7 @@ function Hero() {
         </p>
 
         <p className="mt-5 text-lg text-molted-muted/80 max-w-2xl mx-auto leading-relaxed animate-reveal" style={{ animationDelay: '250ms' }}>
-          Every product MoltED builds generates data. OutcomesAi turns that data into decisions.
+          Every product Molt builds generates data. OutcomesAi turns that data into decisions.
         </p>
 
         {/* Callout chip */}
@@ -626,7 +626,7 @@ function Integration() {
         <RevealBlock className="text-center mb-16">
           <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">Ecosystem</p>
           <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight">
-            OutcomesAi reads every<br />MoltED product.
+            OutcomesAi reads every<br />Molt product.
           </h2>
           <p className="mt-4 text-molted-muted max-w-xl mx-auto">
             Every interaction, every session, every signal — unified into one institutional view.
@@ -701,7 +701,7 @@ function Pricing() {
         'Accreditation auto-generation (SACSCOC, HLC, WASC)',
         'Board-ready report packages',
         'Risk flagging & intervention workflows',
-        'TeachOS & full MoltED integration',
+        'Teach & full Molt suite integration',
         'Dedicated success manager',
         'SLA & compliance support',
       ],
@@ -808,7 +808,7 @@ function CTA() {
               to="/molted"
               className="text-molted-muted hover:text-molted-white text-sm transition-colors"
             >
-              ← Back to MoltED Ai
+              ← Back to Molt
             </Link>
             <Link
               to="/molted/paigebreaker"

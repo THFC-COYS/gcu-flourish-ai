@@ -59,7 +59,7 @@ function Hero() {
           style={{ background: EMERALD_DIM, border: `1px solid ${EMERALD_BORDER}`, color: EMERALD }}
         >
           <Award size={12} />
-          In Development · Early Access · MoltED Ai
+          In Development · Early Access · Molt
         </div>
       </RevealBlock>
 
@@ -474,7 +474,7 @@ function Pricing() {
       price: 'Custom',
       period: 'institutional license',
       desc: 'For full institutional CBE transformation.',
-      features: ['Unlimited courses', 'Full MoltED suite integration', 'OutcomesAi data feed', 'Accreditation documentation auto-generated', 'Dedicated success team'],
+      features: ['Unlimited courses', 'Full Molt suite integration', 'Outcomes data feed', 'Accreditation documentation auto-generated', 'Dedicated success team'],
       highlight: false,
       cta: 'Talk to Sales',
     },

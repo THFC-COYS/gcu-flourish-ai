@@ -981,7 +981,7 @@ function AgenticFuture() {
             "The best teacher in the world can only be in one classroom at a time.
             TeachOS removes that ceiling — permanently."
           </p>
-          <p className="mt-3 text-molted-subtle text-sm">— MoltED Ai</p>
+          <p className="mt-3 text-molted-subtle text-sm">— Molt</p>
         </RevealBlock>
       </div>
     </section>

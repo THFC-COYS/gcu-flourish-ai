@@ -495,7 +495,7 @@ function CTA() {
               to="/molted"
               className="px-8 py-4 rounded-xl border border-molted-border text-molted-muted hover:text-molted-white font-semibold transition-all hover:border-molted-subtle"
             >
-              ← Back to MoltED Ai
+              ← Back to Molt
             </Link>
           </div>
         </RevealBlock>
