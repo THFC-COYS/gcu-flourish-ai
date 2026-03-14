@@ -571,6 +571,17 @@ function CoreTools() {
                 <ArrowRight size={14} />
               </Link>
             )}
+            {active.visual === 'grader' && (
+              <Link
+                to="/molted/teachos/agentic-grader"
+                className="flex items-center justify-center gap-2.5 w-full py-3 rounded-xl text-sm font-bold transition-all duration-200 hover:-translate-y-px"
+                style={{ background: TEAL_DIM, color: TEAL, border: `1px solid ${TEAL_BORDER}` }}
+              >
+                <Play size={14} />
+                Try Agentic Grader — paste a rubric and submission
+                <ArrowRight size={14} />
+              </Link>
+            )}
           </div>
         </div>
       </div>

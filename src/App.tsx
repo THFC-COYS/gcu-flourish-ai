@@ -30,6 +30,7 @@ import MoltedMasteryAi from './pages/molted/MoltedMasteryAi';
 import MoltedAbout from './pages/molted/MoltedAbout';
 import DiscussionDemo from './pages/molted/DiscussionDemo';
 import CourseArchitect from './pages/molted/CourseArchitect';
+import AgenticGrader from './pages/molted/AgenticGrader';
 
 function ProtectedRoutes() {
   const { user, isLoading } = useAuth();
@@ -94,6 +95,7 @@ export default function App() {
             <Route path="/molted/about" element={<MoltedAbout />} />
             <Route path="/molted/teachos/discussion" element={<DiscussionDemo />} />
             <Route path="/molted/teachos/course-architect" element={<CourseArchitect />} />
+            <Route path="/molted/teachos/agentic-grader" element={<AgenticGrader />} />
             <Route path="/*" element={<ProtectedRoutes />} />
           </Routes>
         </BrowserRouter>
