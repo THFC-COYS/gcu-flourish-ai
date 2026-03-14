@@ -92,6 +92,13 @@ const PLATFORM = {
   color: '#E8A020',
 };
 
+const IMAGO = {
+  label: 'ImagoOS',
+  href: '/molted/imago-os',
+  desc: 'The final form. The fully transformed institution.',
+  color: '#F5B740',
+};
+
 function ProductsDropdown() {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -128,6 +135,35 @@ function ProductsDropdown() {
           className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[640px] rounded-2xl border border-molted-border bg-molted-surface/95 backdrop-blur-xl shadow-2xl overflow-hidden"
           style={{ boxShadow: '0 24px 60px rgba(0,0,0,0.6)' }}
         >
+          {/* ImagoOS apex bar */}
+          <Link
+            to={IMAGO.href}
+            className="group flex items-center gap-3 px-5 py-3 border-b border-molted-border hover:bg-white/5 transition-colors"
+            style={{ background: 'linear-gradient(90deg, rgba(245,183,64,0.07) 0%, rgba(232,160,32,0.04) 100%)' }}
+          >
+            <div
+              className="w-5 h-5 rounded-md flex-shrink-0"
+              style={{ background: 'linear-gradient(135deg, #F5B740 0%, #E8A020 100%)', boxShadow: '0 0 10px rgba(245,183,64,0.3)' }}
+            />
+            <div className="flex-1 min-w-0">
+              <div className="flex items-baseline gap-2">
+                <p
+                  className="text-xs font-black tracking-wide"
+                  style={{
+                    background: 'linear-gradient(120deg, #F5B740, #E8A020)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                  }}
+                >
+                  ImagoOS
+                </p>
+                <p className="text-molted-subtle text-xs">The final form — the fully transformed institution</p>
+              </div>
+            </div>
+            <ChevronDown size={11} className="text-molted-subtle -rotate-90 group-hover:translate-x-0.5 transition-transform" />
+          </Link>
+
           {/* CampusOS header bar */}
           <Link
             to={PLATFORM.href}
@@ -238,6 +274,24 @@ export function MoltedNav() {
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-1">
           <Link
+            to="/molted/imago-os"
+            className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 hover:bg-white/5 ${
+              location.pathname === '/molted/imago-os' ? 'bg-white/5' : ''
+            }`}
+            style={{
+              color: location.pathname === '/molted/imago-os' ? '#F5B740' : undefined,
+              background: location.pathname === '/molted/imago-os'
+                ? undefined
+                : 'linear-gradient(120deg, #F5B740, #E8A020, #D97706)',
+              WebkitBackgroundClip: location.pathname === '/molted/imago-os' ? undefined : 'text',
+              WebkitTextFillColor: location.pathname === '/molted/imago-os' ? undefined : 'transparent',
+              backgroundClip: location.pathname === '/molted/imago-os' ? undefined : 'text',
+              textShadow: location.pathname === '/molted/imago-os' ? '0 0 20px rgba(245,183,64,0.4)' : undefined,
+            }}
+          >
+            ImagoOS
+          </Link>
+          <Link
             to="/molted/campus-os"
             className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 ${
               location.pathname === '/molted/campus-os'
@@ -291,6 +345,18 @@ export function MoltedNav() {
       {menuOpen && (
         <div className="md:hidden bg-molted-surface/95 backdrop-blur-xl border-b border-molted-border max-h-[80vh] overflow-y-auto">
           <div className="max-w-6xl mx-auto px-6 py-4">
+            {/* ImagoOS */}
+            <Link
+              to="/molted/imago-os"
+              className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-all mb-2 border"
+              style={{ background: 'rgba(245,183,64,0.06)', borderColor: 'rgba(245,183,64,0.2)' }}
+            >
+              <div className="w-5 h-5 rounded-md flex-shrink-0" style={{ background: 'linear-gradient(135deg, #F5B740, #E8A020)', boxShadow: '0 0 8px rgba(245,183,64,0.3)' }} />
+              <div>
+                <p className="text-sm font-black" style={{ background: 'linear-gradient(120deg,#F5B740,#E8A020)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>ImagoOS</p>
+                <p className="text-molted-subtle text-xs">The final form</p>
+              </div>
+            </Link>
             {/* CampusOS */}
             <Link
               to="/molted/campus-os"
@@ -368,6 +434,21 @@ export function MoltedFooter() {
           </div>
 
           <div>
+            <div className="mb-4">
+              <Link
+                to="/molted/imago-os"
+                className="inline-flex items-center gap-2 text-sm font-black hover:opacity-80 transition-opacity"
+                style={{
+                  background: 'linear-gradient(120deg, #F5B740, #E8A020)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}
+              >
+                ImagoOS — The Final Form
+              </Link>
+              <p className="text-molted-subtle text-xs mt-0.5">The fully transformed institution.</p>
+            </div>
             <div className="mb-5">
               <Link
                 to="/molted/campus-os"

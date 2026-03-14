@@ -66,13 +66,13 @@ function Hero() {
       {/* Tagline chip */}
       <RevealBlock className="mb-8">
         <Link
-          to="/molted/campus-os"
+          to="/molted/imago-os"
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border text-xs font-semibold tracking-wide uppercase hover:opacity-80 transition-opacity"
-          style={{ borderColor: 'rgba(232,160,32,0.35)', background: 'rgba(232,160,32,0.07)' }}
+          style={{ borderColor: 'rgba(245,183,64,0.3)', background: 'rgba(245,183,64,0.06)' }}
         >
-          <Sparkles size={12} style={{ color: '#E8A020' }} />
-          <span style={{ background: 'linear-gradient(120deg,#E8A020,#2DD4BF,#8B5CF6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-            Built on CampusOS · The AI-native LMS
+          <Sparkles size={12} style={{ color: '#F5B740' }} />
+          <span style={{ background: 'linear-gradient(120deg,#F5B740,#E8A020)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+            Building toward ImagoOS · The final form
           </span>
         </Link>
       </RevealBlock>

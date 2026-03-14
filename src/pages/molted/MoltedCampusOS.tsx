@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ChevronRight } from 'lucide-react';
 import MoltedLayout from './MoltedLayout';
 
 /* ── Scroll reveal ─────────────────────────────────────────────────────── */
@@ -504,6 +504,29 @@ function VisionStatement() {
           <p className="mt-8 text-molted-muted text-sm tracking-widest font-medium">
             — MoltED Ai
           </p>
+        </RevealBlock>
+
+        <RevealBlock delay={800} className="mt-16">
+          <Link
+            to="/molted/imago-os"
+            className="group inline-flex items-center gap-3 px-6 py-3 rounded-2xl border hover:border-opacity-60 transition-all duration-300"
+            style={{
+              borderColor: 'rgba(245,183,64,0.25)',
+              background: 'rgba(245,183,64,0.05)',
+            }}
+          >
+            <div className="w-5 h-5 rounded-md flex-shrink-0" style={{ background: 'linear-gradient(135deg,#F5B740,#E8A020)', boxShadow: '0 0 10px rgba(245,183,64,0.3)' }} />
+            <div className="text-left">
+              <p
+                className="text-sm font-black"
+                style={{ background: 'linear-gradient(120deg,#F5B740,#E8A020)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}
+              >
+                ImagoOS — The final form
+              </p>
+              <p className="text-molted-subtle text-xs mt-0.5">CampusOS is the path. This is where it leads.</p>
+            </div>
+            <ChevronRight size={14} className="text-molted-subtle group-hover:translate-x-0.5 transition-transform ml-1" />
+          </Link>
         </RevealBlock>
       </div>
     </section>

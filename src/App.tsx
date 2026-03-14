@@ -26,6 +26,7 @@ import MoltedProofAi from './pages/molted/MoltedProofAi';
 import MoltedRetainAi from './pages/molted/MoltedRetainAi';
 import MoltedOutcomesAi from './pages/molted/MoltedOutcomesAi';
 import MoltedCampusOS from './pages/molted/MoltedCampusOS';
+import MoltedImagoOS from './pages/molted/MoltedImagoOS';
 import MoltedMasteryAi from './pages/molted/MoltedMasteryAi';
 import MoltedAbout from './pages/molted/MoltedAbout';
 import DiscussionDemo from './pages/molted/DiscussionDemo';
@@ -93,6 +94,7 @@ export default function App() {
             <Route path="/molted/retain-ai" element={<MoltedRetainAi />} />
             <Route path="/molted/outcomes-ai" element={<MoltedOutcomesAi />} />
             <Route path="/molted/campus-os" element={<MoltedCampusOS />} />
+            <Route path="/molted/imago-os" element={<MoltedImagoOS />} />
             <Route path="/molted/mastery-ai" element={<MoltedMasteryAi />} />
             <Route path="/molted/about" element={<MoltedAbout />} />
             <Route path="/molted/teachos/discussion" element={<DiscussionDemo />} />
