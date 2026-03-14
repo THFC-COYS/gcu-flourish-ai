@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronRight } from 'lucide-react';
+import { ArrowRight, ChevronRight, Bot, BookOpen, BarChart3, Users } from 'lucide-react';
 import MoltedLayout from './MoltedLayout';
 
 /* ── Scroll reveal ─────────────────────────────────────────────────────── */
@@ -42,15 +42,17 @@ function Hero() {
     <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden">
       {/* Ambient */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
-        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[600px] rounded-full"
-          style={{ background: 'radial-gradient(ellipse at center, rgba(232,160,32,0.07) 0%, transparent 70%)' }} />
-        <div className="absolute top-1/3 -right-40 w-[500px] h-[500px] rounded-full"
-          style={{ background: 'radial-gradient(ellipse at center, rgba(232,23,15,0.05) 0%, transparent 70%)' }} />
+        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[1000px] h-[700px] rounded-full"
+          style={{ background: 'radial-gradient(ellipse at center, rgba(45,212,191,0.06) 0%, transparent 65%)' }} />
+        <div className="absolute top-1/2 -right-60 w-[600px] h-[600px] rounded-full"
+          style={{ background: 'radial-gradient(ellipse at center, rgba(232,23,15,0.04) 0%, transparent 70%)' }} />
+        <div className="absolute bottom-0 left-1/4 w-[500px] h-[400px] rounded-full"
+          style={{ background: 'radial-gradient(ellipse at center, rgba(232,160,32,0.04) 0%, transparent 70%)' }} />
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto">
-        {/* Provocation */}
-        <RevealBlock className="mb-6">
+        {/* Kicker */}
+        <RevealBlock className="mb-8">
           <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest">
             Canvas was built in 2008.
           </p>
@@ -59,36 +61,41 @@ function Hero() {
         {/* Headline */}
         <RevealBlock delay={80}>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-molted-white leading-[1.02] tracking-tight">
-            We built{' '}
+            The LMS that knows{' '}
             <span style={{
-              background: 'linear-gradient(120deg, #F5B740 0%, #E8A020 55%, #E8170F 100%)',
+              background: 'linear-gradient(120deg, #2DD4BF 0%, #E8A020 55%, #E8170F 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
             }}>
-              what comes next.
+              everyone.
             </span>
           </h1>
         </RevealBlock>
 
         {/* Sub */}
         <RevealBlock delay={200}>
-          <p className="mt-6 text-lg md:text-xl text-molted-muted max-w-lg mx-auto leading-relaxed">
-            Three products. Three problems that have never been solved.
-            One platform that unifies them all.
+          <p className="mt-8 text-lg md:text-xl text-molted-muted max-w-2xl mx-auto leading-relaxed">
+            Molt is an agentic learning platform. It watches every discussion, every reading session, every engagement signal — and responds to each teacher, student, and admin as an individual. Not a tool. Not a plugin. A platform that never stops working.
           </p>
         </RevealBlock>
 
-        {/* Single CTA */}
-        <RevealBlock delay={320} className="mt-10">
+        {/* CTAs */}
+        <RevealBlock delay={320} className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href="mailto:hello@molted.ai"
+            href="mailto:hello@molted.ai?subject=Molt Demo Request"
             className="group inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-bold text-base transition-all duration-200 hover:-translate-y-px"
-            style={{ background: 'linear-gradient(120deg, #E8A020 0%, #2DD4BF 50%, #8B5CF6 100%)', color: '#0a0a0f' }}
+            style={{ background: 'linear-gradient(120deg, #2DD4BF 0%, #E8A020 50%, #E8170F 100%)', color: '#0a0a0f' }}
           >
-            Get Started
+            See It Live
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
           </a>
+          <Link
+            to="/molted/campus-os"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl font-semibold text-base text-molted-muted hover:text-molted-white border border-molted-border hover:border-molted-subtle transition-all"
+          >
+            Explore the Platform
+          </Link>
         </RevealBlock>
       </div>
 
@@ -96,6 +103,210 @@ function Hero() {
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-molted-subtle animate-pulse">
         <span className="text-xs tracking-widest uppercase">Scroll</span>
         <div className="w-px h-8 bg-gradient-to-b from-molted-subtle to-transparent" />
+      </div>
+    </section>
+  );
+}
+
+/* ── The Problem ───────────────────────────────────────────────────────── */
+function TheProblem() {
+  return (
+    <section className="py-24 px-6 border-t border-molted-border">
+      <div className="max-w-4xl mx-auto">
+        <RevealBlock className="text-center">
+          <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-8">The problem</p>
+          <p className="text-3xl md:text-5xl font-black text-molted-white leading-tight tracking-tight">
+            Every LMS treats everyone
+          </p>
+          <p className="text-3xl md:text-5xl font-black leading-tight tracking-tight mt-2"
+            style={{ color: 'rgba(255,255,255,0.25)' }}>
+            exactly the same.
+          </p>
+          <p className="mt-10 text-molted-muted text-lg leading-relaxed max-w-2xl mx-auto">
+            The professor with 140 students gets the same gradebook the professor with 14 gets.
+            The student failing silently at 11 PM gets the same discussion board as the student who's thriving.
+            The admin watching retention collapse gets the same reports that were built in 2009.
+          </p>
+          <p className="mt-6 text-molted-white text-xl font-bold">
+            The LMS doesn't know any of them.
+          </p>
+        </RevealBlock>
+      </div>
+    </section>
+  );
+}
+
+/* ── The Platform ──────────────────────────────────────────────────────── */
+function ThePlatform() {
+  return (
+    <section className="py-24 px-6 border-t border-molted-border relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse at 50% 30%, rgba(45,212,191,0.04) 0%, transparent 65%)' }} />
+      <div className="max-w-4xl mx-auto relative z-10">
+        <RevealBlock className="text-center">
+          <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-8">The answer</p>
+          <h2 className="text-3xl md:text-5xl font-black text-molted-white leading-tight tracking-tight">
+            Molt is an agentic LMS.
+          </h2>
+          <p className="mt-4 text-3xl md:text-5xl font-black leading-tight tracking-tight"
+            style={{
+              background: 'linear-gradient(120deg, #2DD4BF, #E8A020)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
+          >
+            It never stops working.
+          </p>
+          <p className="mt-10 text-molted-muted text-lg leading-relaxed max-w-2xl mx-auto">
+            Agents watch every discussion board, every reading session, every engagement signal — in real time. When something needs a response, the platform acts. When something needs a human, it escalates. The LMS learns everyone. And responds to each of them as an individual.
+          </p>
+        </RevealBlock>
+
+        {/* Agent loop */}
+        <RevealBlock delay={200} className="mt-16">
+          <div
+            className="rounded-2xl border p-8"
+            style={{ background: 'rgba(17,17,24,0.8)', borderColor: 'rgba(45,212,191,0.2)' }}
+          >
+            <div className="flex items-center gap-2 mb-8">
+              <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: '#2DD4BF' }} />
+              <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: '#2DD4BF' }}>
+                Agents running now
+              </p>
+            </div>
+            <div className="grid md:grid-cols-2 gap-4">
+              {[
+                { time: '11:47 PM', event: 'Student posts confusion about cognitive load theory', action: 'Discussion agent replies in 4 seconds', role: 'Student' },
+                { time: '8:12 AM', event: 'Professor uploads syllabus for NURS 301', action: 'Course architect generates full semester infrastructure', role: 'Faculty' },
+                { time: '2:03 AM', event: 'Marcus T. hasn\'t logged in for 5 days', action: 'Early warning flags risk — personalized check-in drafted', role: 'Admin' },
+                { time: '9:30 AM', event: 'Student opens Week 4 reading on pharmacology', action: 'pAIgeBreaker activates — answers in context as they read', role: 'Student' },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="rounded-xl p-4 border"
+                  style={{ background: 'rgba(45,212,191,0.04)', borderColor: 'rgba(45,212,191,0.1)' }}
+                >
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-xs font-mono" style={{ color: '#2DD4BF' }}>{item.time}</span>
+                    <span
+                      className="text-[10px] font-bold px-2 py-0.5 rounded-full"
+                      style={{
+                        background: item.role === 'Faculty' ? 'rgba(45,212,191,0.15)' : item.role === 'Admin' ? 'rgba(232,23,15,0.15)' : 'rgba(232,160,32,0.15)',
+                        color: item.role === 'Faculty' ? '#2DD4BF' : item.role === 'Admin' ? '#E8170F' : '#E8A020',
+                      }}
+                    >
+                      {item.role}
+                    </span>
+                  </div>
+                  <p className="text-molted-muted text-xs mb-2 leading-relaxed">{item.event}</p>
+                  <p className="text-xs font-semibold text-molted-white leading-snug">↳ {item.action}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </RevealBlock>
+      </div>
+    </section>
+  );
+}
+
+/* ── Three Roles ───────────────────────────────────────────────────────── */
+const ROLES = [
+  {
+    icon: Users,
+    role: 'Teachers',
+    color: '#2DD4BF',
+    headline: 'An AI that handles the work. You do the teaching.',
+    body: 'Discussions answered while students are still online. Grades returned in minutes not weeks. Struggling students flagged before they disappear. The agent handles 23 hours of weekly admin — so you teach instead.',
+    features: ['Discussion Intelligence', 'Course Architect', 'Agentic Grader', 'Early Warning Engine', 'Auto-Respond'],
+    href: '/molted/teachos',
+    product: 'Teach',
+  },
+  {
+    icon: BookOpen,
+    role: 'Students',
+    color: '#E8A020',
+    headline: "A tutor that's always there. Right where you're reading.",
+    body: 'The moment a student hits something confusing, pAIgeBreaker answers — in context, on the page, without switching tabs. The discussion agent replies before they can close the browser. Every student gets a personalized experience.',
+    features: ['pAIgeBreaker — reading companion', 'Discussion agent replies in real time', 'Personalized to each student\'s history', 'Works on Canvas, Blackboard, D2L'],
+    href: '/molted/paigebreaker',
+    product: 'pAIgeBreaker',
+  },
+  {
+    icon: BarChart3,
+    role: 'Institutions',
+    color: '#E8170F',
+    headline: "Your voice. Everywhere. The moment it's needed.",
+    body: "Persona deploys your institution's values as AI — in every college, every department, every touchpoint. The platform tracks retention signals, surfaces risk before it becomes a crisis, and makes your outcomes visible in real time.",
+    features: ['Persona — AI with your institution\'s voice', 'Retention signals across the full roster', 'Outcomes data in real time', 'Higher ed, healthcare, enterprise'],
+    href: '/molted/persona',
+    product: 'Persona',
+  },
+];
+
+function ThreeRoles() {
+  return (
+    <section className="py-24 px-6 border-t border-molted-border">
+      <div className="max-w-6xl mx-auto">
+        <RevealBlock className="mb-16 text-center">
+          <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">
+            For everyone in the building
+          </p>
+          <h2 className="text-4xl md:text-6xl font-black text-molted-white tracking-tight leading-tight">
+            Hyperpersonalized.<br />For every role.
+          </h2>
+        </RevealBlock>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {ROLES.map((r, i) => {
+            const Icon = r.icon;
+            return (
+              <RevealBlock key={r.role} delay={i * 120}>
+                <Link
+                  to={r.href}
+                  className="group flex flex-col h-full rounded-2xl border bg-molted-elevated p-8 transition-all duration-300 hover:-translate-y-1"
+                  style={{ borderColor: `${r.color}22` }}
+                >
+                  <div
+                    className="w-10 h-10 rounded-xl flex items-center justify-center mb-5"
+                    style={{ background: `${r.color}15` }}
+                  >
+                    <Icon size={18} style={{ color: r.color }} />
+                  </div>
+
+                  <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: r.color }}>
+                    {r.role}
+                  </p>
+
+                  <h3 className="text-molted-white font-bold text-lg leading-snug mb-3">
+                    {r.headline}
+                  </h3>
+
+                  <p className="text-molted-muted text-sm leading-relaxed mb-6 flex-1">
+                    {r.body}
+                  </p>
+
+                  <div className="space-y-1.5 mb-6">
+                    {r.features.map((f, j) => (
+                      <div key={j} className="flex items-center gap-2 text-xs text-molted-muted">
+                        <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: r.color }} />
+                        {f}
+                      </div>
+                    ))}
+                  </div>
+
+                  <div
+                    className="inline-flex items-center gap-1.5 text-xs font-bold group-hover:gap-2.5 transition-all"
+                    style={{ color: r.color }}
+                  >
+                    Explore {r.product} <ChevronRight size={12} />
+                  </div>
+                </Link>
+              </RevealBlock>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
@@ -121,14 +332,14 @@ function Traction() {
               >
                 50,000+
               </p>
-              <p className="text-molted-white font-semibold text-xl mt-2">student interactions.</p>
+              <p className="text-molted-white font-semibold text-xl mt-2">people. One platform.</p>
               <p className="text-molted-muted text-base mt-1">Live today. Not a projection.</p>
             </div>
             <div className="flex flex-col gap-4 text-center md:text-right">
               {[
                 { value: '6', label: 'AI personas deployed' },
-                { value: '24/7', label: 'Always available' },
-                { value: '1', label: 'Flagship university partner' },
+                { value: '24/7', label: 'Agents always running' },
+                { value: '3', label: 'Products. One platform.' },
               ].map((s, i) => (
                 <div key={i}>
                   <p className="text-3xl font-black text-molted-white">{s.value}</p>
@@ -143,116 +354,8 @@ function Traction() {
   );
 }
 
-/* ── Three Segments ────────────────────────────────────────────────────── */
-const SEGMENTS = [
-  {
-    segment: 'Students',
-    color: '#E8A020',
-    person: 'The student at 11:47 PM.',
-    pain: '"I don\'t understand this and my exam is at 8 AM."',
-    product: 'Read',
-    href: '/molted/read',
-    tagline: 'Answers any question about any text. Right now.',
-    live: true,
-  },
-  {
-    segment: 'Faculty',
-    color: '#2DD4BF',
-    person: 'The professor who hasn\'t eaten lunch since Tuesday.',
-    pain: '"I have 140 students and zero time to actually teach."',
-    product: 'Teach',
-    href: '/molted/teachos',
-    tagline: 'Reclaims 23 hours of admin per week.',
-    live: true,
-  },
-  {
-    segment: 'Institutions',
-    color: '#E8170F',
-    person: 'The provost standing in front of the board on Thursday.',
-    pain: '"I can\'t prove any of this is working."',
-    product: 'Persona',
-    href: '/molted/persona',
-    tagline: 'Your institution\'s voice, everywhere, always on.',
-    live: true,
-  },
-];
-
-function ThreeSegments() {
-  return (
-    <section className="py-24 px-6 border-t border-molted-border">
-      <div className="max-w-6xl mx-auto">
-        <RevealBlock className="mb-16 text-center">
-          <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">
-            Three people. Three products.
-          </p>
-          <h2 className="text-4xl md:text-6xl font-black text-molted-white tracking-tight leading-tight">
-            Start with the person in pain.
-          </h2>
-        </RevealBlock>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {SEGMENTS.map((s, i) => (
-            <RevealBlock key={s.segment} delay={i * 120}>
-              <Link
-                to={s.href}
-                className="group flex flex-col h-full rounded-2xl border bg-molted-elevated p-8 transition-all duration-300 hover:-translate-y-1"
-                style={{ borderColor: `${s.color}22` }}
-              >
-                {/* Segment badge */}
-                <div
-                  className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-6 self-start"
-                  style={{ background: `${s.color}12`, color: s.color, border: `1px solid ${s.color}25` }}
-                >
-                  <div className="w-1.5 h-1.5 rounded-full" style={{ background: s.color }} />
-                  {s.segment}
-                </div>
-
-                {/* Person */}
-                <p className="text-molted-white text-sm font-semibold mb-2">{s.person}</p>
-
-                {/* Pain quote */}
-                <p className="text-molted-muted text-sm italic leading-relaxed mb-8 flex-1">
-                  {s.pain}
-                </p>
-
-                {/* Product */}
-                <div className="border-t pt-6" style={{ borderColor: `${s.color}20` }}>
-                  <div className="flex items-center justify-between mb-2">
-                    <p className="text-2xl font-black text-molted-white">{s.product}</p>
-                    <span className="flex items-center gap-1.5 text-xs text-green-400 font-medium">
-                      <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                      Live
-                    </span>
-                  </div>
-                  <p className="text-sm leading-snug mb-4" style={{ color: s.color }}>{s.tagline}</p>
-                  <div
-                    className="inline-flex items-center gap-1.5 text-xs font-bold group-hover:gap-2.5 transition-all"
-                    style={{ color: s.color }}
-                  >
-                    Explore {s.product} <ChevronRight size={12} />
-                  </div>
-                </div>
-              </Link>
-            </RevealBlock>
-          ))}
-        </div>
-
-        {/* Campus bridge */}
-        <RevealBlock delay={400} className="mt-10 text-center">
-          <p className="text-molted-muted text-sm">
-            When all three run on the same campus —{' '}
-            <Link to="/molted/campus-os" className="font-bold hover:opacity-80 transition-opacity" style={{ background: 'linear-gradient(120deg,#E8A020,#2DD4BF,#8B5CF6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-              that's Campus.
-            </Link>
-          </p>
-        </RevealBlock>
-      </div>
-    </section>
-  );
-}
-
-/* ── Campus Teaser ─────────────────────────────────────────────────────── */
-function CampusTeaser() {
+/* ── Campus Bridge ─────────────────────────────────────────────────────── */
+function CampusBridge() {
   return (
     <section className="py-24 px-6 border-t border-molted-border">
       <div className="max-w-6xl mx-auto">
@@ -263,59 +366,32 @@ function CampusTeaser() {
             style={{ background: 'rgba(10,10,15,0.8)' }}
           >
             <div className="absolute inset-0 pointer-events-none">
-              <div className="absolute top-0 left-1/4 w-[400px] h-[300px] rounded-full" style={{ background: 'radial-gradient(ellipse,rgba(232,160,32,0.06) 0%,transparent 70%)' }} />
-              <div className="absolute top-0 right-1/4 w-[400px] h-[300px] rounded-full" style={{ background: 'radial-gradient(ellipse,rgba(45,212,191,0.06) 0%,transparent 70%)' }} />
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] rounded-full" style={{ background: 'radial-gradient(ellipse,rgba(139,92,246,0.05) 0%,transparent 70%)' }} />
+              <div className="absolute top-0 left-1/4 w-[400px] h-[300px] rounded-full" style={{ background: 'radial-gradient(ellipse,rgba(45,212,191,0.06) 0%,transparent 70%)' }} />
+              <div className="absolute top-0 right-1/4 w-[400px] h-[300px] rounded-full" style={{ background: 'radial-gradient(ellipse,rgba(232,160,32,0.06) 0%,transparent 70%)' }} />
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] rounded-full" style={{ background: 'radial-gradient(ellipse,rgba(232,23,15,0.04) 0%,transparent 70%)' }} />
             </div>
             <div className="relative z-10">
-              <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-6">The platform</p>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-6"
+                style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: '#86868B' }}>
+                <Bot size={11} />
+                The full platform
+              </div>
               <h2 className="text-5xl md:text-7xl font-black tracking-tight mb-6"
-                style={{ background: 'linear-gradient(135deg,#E8A020 0%,#2DD4BF 50%,#8B5CF6 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                style={{ background: 'linear-gradient(135deg,#2DD4BF 0%,#E8A020 50%,#E8170F 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                 Campus
               </h2>
               <p className="text-xl md:text-2xl text-molted-white/80 font-semibold mb-4 max-w-xl mx-auto">
-                The AI-native LMS. Canvas was built in 2008.
+                Every agent. Every role. One platform.
               </p>
               <p className="text-molted-muted text-base max-w-lg mx-auto leading-relaxed mb-8">
-                Built from scratch for the AI era. Read, Teach, and Persona become native features —
-                not integrations, not plugins. Features.
+                Teach, pAIgeBreaker, and Persona aren't integrations. They're native features of an LMS built from scratch for the AI era.
               </p>
-              <div className="flex flex-wrap justify-center gap-2 mb-8">
-                {['Read', 'Teach', 'Persona', 'Pathway', 'Proof', 'Retain', 'Outcomes', 'Mastery'].map((name, i) => (
-                  <span key={i} className="px-3 py-1.5 rounded-full text-xs font-medium border border-molted-border text-molted-muted">{name}</span>
-                ))}
-              </div>
               <div className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all group-hover:-translate-y-0.5"
-                style={{ background: 'linear-gradient(120deg,#E8A020,#2DD4BF,#8B5CF6)', color: '#0A0A0F' }}>
+                style={{ background: 'linear-gradient(120deg,#2DD4BF,#E8A020,#E8170F)', color: '#0A0A0F' }}>
                 See Campus <ArrowRight size={14} />
               </div>
             </div>
           </Link>
-        </RevealBlock>
-      </div>
-    </section>
-  );
-}
-
-/* ── Pricing Signal ────────────────────────────────────────────────────── */
-function PricingSignal() {
-  return (
-    <section className="py-16 px-6 border-t border-molted-border">
-      <div className="max-w-4xl mx-auto text-center">
-        <RevealBlock>
-          <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">Pricing</p>
-          <p className="text-3xl md:text-4xl font-black text-molted-white tracking-tight">
-            Per-student pricing. No surprises.
-          </p>
-          <p className="mt-4 text-molted-muted text-lg max-w-xl mx-auto leading-relaxed">
-            Module-based licensing means you adopt what you need. Transparent contracts.
-            No enterprise sales labyrinth. Pricing provided after a 30-minute discovery call.
-          </p>
-          <a href="mailto:hello@molted.ai?subject=Pricing Inquiry"
-            className="mt-8 inline-flex items-center gap-2 text-sm font-bold hover:opacity-80 transition-opacity"
-            style={{ color: '#E8A020' }}>
-            Request pricing <ChevronRight size={14} />
-          </a>
         </RevealBlock>
       </div>
     </section>
@@ -327,7 +403,7 @@ function Manifesto() {
   return (
     <section className="py-32 px-6 border-t border-molted-border relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(232,160,32,0.04) 0%, transparent 70%)' }} />
+        style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(45,212,191,0.03) 0%, transparent 70%)' }} />
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <RevealBlock>
           {[
@@ -357,19 +433,19 @@ function FinalCTA() {
             Ready to molt?
           </h2>
           <p className="mt-6 text-molted-muted text-lg leading-relaxed">
-            We're actively onboarding institutional partners. The conversation takes 30 minutes.
+            We're onboarding founding partners now. The conversation takes 30 minutes.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="mailto:hello@molted.ai"
+              href="mailto:hello@molted.ai?subject=Molt Demo Request"
               className="group flex items-center gap-2.5 px-8 py-4 rounded-xl text-white font-bold text-lg transition-all duration-200 hover:-translate-y-px"
-              style={{ background: 'linear-gradient(135deg, #E8A020 0%, #E8170F 100%)' }}
+              style={{ background: 'linear-gradient(135deg, #2DD4BF 0%, #E8A020 50%, #E8170F 100%)', color: '#0A0A0F' }}
             >
               Schedule a Demo
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </a>
-            <Link to="/molted/about" className="px-8 py-4 rounded-xl border border-molted-border text-molted-muted hover:text-molted-white hover:border-molted-subtle font-semibold transition-all">
-              About Molt
+            <Link to="/molted/founding-partners" className="px-8 py-4 rounded-xl border border-molted-border text-molted-muted hover:text-molted-white hover:border-molted-subtle font-semibold transition-all">
+              Founding Partners →
             </Link>
           </div>
         </RevealBlock>
@@ -383,10 +459,11 @@ export default function MoltedHome() {
   return (
     <MoltedLayout>
       <Hero />
+      <TheProblem />
+      <ThePlatform />
+      <ThreeRoles />
       <Traction />
-      <ThreeSegments />
-      <CampusTeaser />
-      <PricingSignal />
+      <CampusBridge />
       <Manifesto />
       <FinalCTA />
     </MoltedLayout>

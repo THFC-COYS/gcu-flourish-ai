@@ -146,9 +146,6 @@ export function MoltedFooter() {
               Molt builds AI-native tools that transform how institutions teach,
               how students learn, and how knowledge moves.
             </p>
-            <p className="mt-6 text-molted-subtle text-xs">
-              LLC formation pending · Name availability verification in progress
-            </p>
           </div>
 
           <div>
@@ -187,7 +184,7 @@ export function MoltedFooter() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-molted-border flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-molted-subtle text-xs">© {new Date().getFullYear()} Molt LLC. All rights reserved.</p>
+          <p className="text-molted-subtle text-xs">© {new Date().getFullYear()} Molt Education. All rights reserved.</p>
           <p className="text-molted-subtle text-xs">Built with intent. Designed with purpose.</p>
         </div>
       </div>
