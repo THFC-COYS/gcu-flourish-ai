@@ -165,22 +165,22 @@ function StatusNote() {
         <RevealBlock>
           <div className="bg-molted-elevated border border-molted-border rounded-2xl p-8">
             <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-xl bg-amber-400/10 border border-amber-400/20 flex items-center justify-center flex-shrink-0">
-                <span className="text-lg">⚖️</span>
+              <div className="w-10 h-10 rounded-xl bg-emerald-400/10 border border-emerald-400/20 flex items-center justify-center flex-shrink-0">
+                <span className="text-lg">🏛️</span>
               </div>
               <div>
-                <h3 className="text-molted-white font-bold text-lg mb-3">Company Formation Status</h3>
+                <h3 className="text-molted-white font-bold text-lg mb-3">Company Status</h3>
                 <p className="text-molted-muted leading-relaxed mb-4">
-                  Molt LLC is currently in formation. We are actively verifying the name availability
-                  through the appropriate state registry and will complete the LLC filing upon confirmation.
+                  Molt is an active company. Products are live and deployed at a flagship university partner
+                  serving 50,000+ students. We are currently accepting founding institutional partners.
                 </p>
                 <div className="space-y-2">
                   {[
-                    { label: 'Business concept', status: '✓ Complete', color: 'text-emerald-400' },
-                    { label: 'Product development (flagship university partnership)', status: '✓ Active', color: 'text-emerald-400' },
-                    { label: 'Name availability check', status: '⏳ In progress', color: 'text-amber-400' },
-                    { label: 'LLC filing', status: '⏳ Pending name confirmation', color: 'text-amber-400' },
-                    { label: 'Public launch', status: '→ After filing', color: 'text-molted-muted' },
+                    { label: 'Company formation', status: '✓ Active', color: 'text-emerald-400' },
+                    { label: 'Product development', status: '✓ Live', color: 'text-emerald-400' },
+                    { label: 'Flagship university deployment', status: '✓ 50,000+ students', color: 'text-emerald-400' },
+                    { label: 'Founding institutional partners', status: '⏳ 12 spots open', color: 'text-amber-400' },
+                    { label: 'General availability', status: '→ 2025', color: 'text-molted-muted' },
                   ].map((item, i) => (
                     <div key={i} className="flex items-center justify-between py-2 border-b border-molted-border last:border-0">
                       <span className="text-molted-muted text-sm">{item.label}</span>
