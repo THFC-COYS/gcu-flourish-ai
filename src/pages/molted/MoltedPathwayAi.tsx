@@ -131,7 +131,7 @@ function Hero() {
           style={{ borderColor: VIOLET_BORDER, background: VIOLET_DIM, color: VIOLET, animationDelay: '340ms' }}
         >
           <Zap size={13} />
-          Powered by every pAIgeBreaker interaction — no extra setup required.
+          Powered by every Lumen interaction — no extra setup required.
         </div>
       </div>
 
@@ -276,7 +276,7 @@ function HowItLearns() {
       num: '01',
       icon: BookOpen,
       title: 'Every interaction is intelligence.',
-      body: 'pAIgeBreaker logs each question, each concept, each struggle. Pathway reads the signal.',
+      body: 'Lumen logs each question, each concept, each struggle. Pathway reads the signal.',
     },
     {
       num: '02',
@@ -583,7 +583,7 @@ function ForInstitutions() {
     {
       icon: Brain,
       title: 'Built on real interaction data — not invented learning science.',
-      body: 'Pathway works from actual pAIgeBreaker interactions: what students asked, struggled with, and mastered. Real signal.',
+      body: 'Pathway works from actual Lumen interactions: what students asked, struggled with, and mastered. Real signal.',
     },
   ];
 
@@ -633,7 +633,7 @@ function Pricing() {
         'Personalized learning path',
         'Knowledge gap detection',
         'Real-time path adjustment',
-        'Works with any pAIgeBreaker session',
+        'Works with any Lumen session',
       ],
       cta: 'Get Early Access',
       highlight: false,
@@ -649,7 +649,7 @@ function Pricing() {
         'Cohort knowledge dashboards',
         'Weekly automated insights',
         'Faculty alert system',
-        'pAIgeBreaker integration',
+        'Lumen integration',
       ],
       cta: 'Start a Department',
       highlight: true,
@@ -663,7 +663,7 @@ function Pricing() {
         'All Department features',
         'Unlimited student seats',
         'Cross-department analytics',
-        'TeachOS & OutcomesAi integration',
+        'Forge & OutcomesAi integration',
         'Accreditation reporting layer',
         'Dedicated success manager',
       ],
@@ -777,7 +777,7 @@ function CTA() {
               to="/molted/paigebreaker"
               className="text-molted-muted hover:text-molted-white text-sm transition-colors"
             >
-              Explore pAIgeBreaker →
+              Explore Lumen →
             </Link>
           </div>
         </RevealBlock>

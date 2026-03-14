@@ -806,7 +806,7 @@ function HumanInLoop() {
 function EcosystemCoordination() {
   const connections = [
     {
-      product: 'TeachOS',
+      product: 'Forge',
       color: '#2DD4BF',
       role: 'Feeds classroom signals',
       signals: ['Assignment submission timing', 'Discussion participation rate', 'Grade trajectory', 'Faculty early-warning flags'],
@@ -818,7 +818,7 @@ function EcosystemCoordination() {
       signals: ['Outreach sent in institution voice', 'Tone matched to student history', 'Channel-aware (email vs. SMS vs. portal)'],
     },
     {
-      product: 'pAIgeBreaker',
+      product: 'Lumen',
       color: '#E8A020',
       role: 'Routes academic support',
       signals: ['Struggling students routed to tutoring AI', 'Subject-specific help triggered', 'Engagement with support content tracked'],
@@ -1023,7 +1023,7 @@ function Pricing() {
       features: [
         'Everything in Starter',
         'Financial aid anomaly detection',
-        'Full ecosystem coordination (TeachOS, Persona Ai)',
+        'Full ecosystem coordination (Forge, Persona Ai)',
         'Multi-advisor workflow',
         'Custom playbook configuration',
         'ROI reporting for leadership',

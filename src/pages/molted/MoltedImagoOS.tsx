@@ -408,7 +408,7 @@ function Architecture() {
   const modules = [
     { name: 'Teach', color: '#2DD4BF', role: 'Faculty' },
     { name: 'Read', color: '#E8A020', role: 'Students' },
-    { name: 'Persona', color: '#E8170F', role: 'Institution' },
+    { name: 'Beacon', color: '#E8170F', role: 'Institution' },
     { name: 'Pathway', color: '#8B5CF6', role: 'Students' },
     { name: 'Proof', color: '#F97316', role: 'Faculty' },
     { name: 'Retain', color: '#F43F5E', role: 'Institution' },

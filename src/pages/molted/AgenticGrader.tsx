@@ -419,7 +419,7 @@ export default function AgenticGrader() {
               className="inline-flex items-center gap-1.5 text-molted-muted text-sm hover:text-molted-white transition-colors mb-6"
             >
               <ChevronLeft size={14} />
-              TeachOS
+              Forge
             </Link>
 
             <div
@@ -521,7 +521,7 @@ export default function AgenticGrader() {
             className="mt-16 rounded-3xl p-8 border text-center"
             style={{ background: 'rgba(17,17,24,0.7)', borderColor: 'rgba(255,255,255,0.06)' }}
           >
-            <p className="text-molted-muted text-sm mb-1">This is TeachOS Agentic Grader — beta.</p>
+            <p className="text-molted-muted text-sm mb-1">This is Forge Agentic Grader — beta.</p>
             <p className="text-molted-white font-semibold mb-5">
               Next: batch-grade entire class rosters in one upload.
             </p>

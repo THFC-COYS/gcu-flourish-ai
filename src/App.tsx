@@ -18,9 +18,9 @@ import FlourishStandard from './pages/FlourishStandard';
 import SpiritTraining from './pages/SpiritTraining';
 import ExecutiveTour from './pages/ExecutiveTour';
 import MoltedHome from './pages/molted/MoltedHome';
-import MoltedPAIgeBreaker from './pages/molted/MoltedPAIgeBreaker';
-import MoltedPersonaAi from './pages/molted/MoltedPersonaAi';
-import MoltedTeachOS from './pages/molted/MoltedTeachOS';
+import MoltedLumen from './pages/molted/MoltedLumen';
+import MoltedBeaconAi from './pages/molted/MoltedBeaconAi';
+import MoltedForge from './pages/molted/MoltedForge';
 import MoltedPathwayAi from './pages/molted/MoltedPathwayAi';
 import MoltedProofAi from './pages/molted/MoltedProofAi';
 import MoltedRetainAi from './pages/molted/MoltedRetainAi';
@@ -88,11 +88,9 @@ export default function App() {
             <Route path="/executive-tour" element={<ExecutiveTour />} />
             {/* MoltED Ai — public company website */}
             <Route path="/molted" element={<MoltedHome />} />
-            <Route path="/molted/paigebreaker" element={<MoltedPAIgeBreaker />} />
-            <Route path="/molted/read" element={<MoltedPAIgeBreaker />} />
-            <Route path="/molted/persona-ai" element={<MoltedPersonaAi />} />
-            <Route path="/molted/persona" element={<MoltedPersonaAi />} />
-            <Route path="/molted/teachos" element={<MoltedTeachOS />} />
+            <Route path="/molted/lumen" element={<MoltedLumen />} />
+            <Route path="/molted/beacon" element={<MoltedBeaconAi />} />
+            <Route path="/molted/forge" element={<MoltedForge />} />
             <Route path="/molted/pathway-ai" element={<MoltedPathwayAi />} />
             <Route path="/molted/proof-ai" element={<MoltedProofAi />} />
             <Route path="/molted/retain-ai" element={<MoltedRetainAi />} />
@@ -102,12 +100,12 @@ export default function App() {
             <Route path="/molted/mastery-ai" element={<MoltedMasteryAi />} />
             <Route path="/molted/about" element={<MoltedAbout />} />
             <Route path="/molted/founding-partners" element={<MoltedFoundingPartners />} />
-            <Route path="/molted/teachos/discussion" element={<DiscussionDemo />} />
-            <Route path="/molted/teachos/course-architect" element={<CourseArchitect />} />
-            <Route path="/molted/teachos/agentic-grader" element={<AgenticGrader />} />
-            <Route path="/molted/teachos/auto-respond" element={<AutoRespond />} />
-            <Route path="/molted/teachos/early-warning" element={<EarlyWarning />} />
-            <Route path="/molted/teachos/live-demo" element={<LiveAgentDemo />} />
+            <Route path="/molted/forge/discussion" element={<DiscussionDemo />} />
+            <Route path="/molted/forge/course-architect" element={<CourseArchitect />} />
+            <Route path="/molted/forge/agentic-grader" element={<AgenticGrader />} />
+            <Route path="/molted/forge/auto-respond" element={<AutoRespond />} />
+            <Route path="/molted/forge/early-warning" element={<EarlyWarning />} />
+            <Route path="/molted/forge/live-demo" element={<LiveAgentDemo />} />
             <Route path="/*" element={<ProtectedRoutes />} />
           </Routes>
         </BrowserRouter>

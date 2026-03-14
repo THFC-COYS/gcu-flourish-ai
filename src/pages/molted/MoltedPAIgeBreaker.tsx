@@ -89,10 +89,10 @@ function Hero() {
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </a>
           <Link
-            to="/molted/persona-ai"
+            to="/molted/beacon-ai"
             className="px-8 py-4 rounded-xl border border-molted-border text-molted-muted hover:text-molted-white font-semibold transition-all hover:border-molted-subtle"
           >
-            See Persona Ai instead →
+            See Beacon Ai instead →
           </Link>
         </div>
       </div>
@@ -432,7 +432,7 @@ function CTA() {
   );
 }
 
-export default function MoltedPAIgeBreaker() {
+export default function MoltedLumen() {
   return (
     <MoltedLayout>
       <OutpostBanner moduleName="Read" moduleColor="#E8A020" />

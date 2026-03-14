@@ -16,15 +16,15 @@ function MoltedLogo({ size = 'md' }: { size?: 'sm' | 'md' | 'lg' }) {
 
 /* ── Nav data ───────────────────────────────────────────────────────────── */
 const THREE_PRODUCTS = [
-  { label: 'Read', href: '/molted/read', segment: 'Students', color: '#E8A020', pain: 'For the student at midnight' },
-  { label: 'TeachOS', href: '/molted/teachos', segment: 'Faculty', color: '#2DD4BF', pain: 'For the professor drowning in admin' },
-  { label: 'Persona', href: '/molted/persona', segment: 'Institutions', color: '#E8170F', pain: 'For the provost facing the board' },
+  { label: 'Lumen', href: '/molted/lumen', segment: 'Students', color: '#E8A020', pain: 'For the student at midnight' },
+  { label: 'Forge', href: '/molted/forge', segment: 'Faculty', color: '#2DD4BF', pain: 'For the professor drowning in admin' },
+  { label: 'Beacon', href: '/molted/beacon', segment: 'Institutions', color: '#E8170F', pain: 'For the provost facing the board' },
 ];
 
 const CAMPUS_MODULES = [
-  { label: 'Read', href: '/molted/read' },
-  { label: 'TeachOS', href: '/molted/teachos' },
-  { label: 'Persona', href: '/molted/persona' },
+  { label: 'Lumen', href: '/molted/lumen' },
+  { label: 'Forge', href: '/molted/forge' },
+  { label: 'Beacon', href: '/molted/beacon' },
   { label: 'Pathway', href: '/molted/pathway-ai' },
   { label: 'Proof', href: '/molted/proof-ai' },
   { label: 'Retain', href: '/molted/retain-ai' },

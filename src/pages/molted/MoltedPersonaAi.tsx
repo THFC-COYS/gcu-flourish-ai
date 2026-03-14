@@ -80,11 +80,11 @@ function Hero() {
             href="mailto:hello@molted.ai?subject=Persona Ai Demo Request"
             className="group flex items-center gap-2.5 px-8 py-4 rounded-xl bg-molted-ember hover:bg-molted-ember-light text-white font-bold text-lg transition-all duration-200 shadow-molted-ember hover:-translate-y-px"
           >
-            Create Your Persona
+            Create Your Beacon
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </a>
           <Link
-            to="/molted/read"
+            to="/molted/lumen"
             className="px-8 py-4 rounded-xl border border-molted-border text-molted-muted hover:text-molted-white font-semibold transition-all hover:border-molted-subtle"
           >
             See Read instead →
@@ -172,7 +172,7 @@ function TheSpiritIdea() {
               backgroundClip: 'text',
             }}
           >
-            Persona gives it a voice.
+            Beacon gives it a voice.
           </p>
           <p className="mt-8 text-molted-muted text-lg leading-relaxed max-w-2xl mx-auto">
             Not a generic chatbot. Not "AI assistant." A named, trained, branded persona that speaks
@@ -192,32 +192,32 @@ const INDUSTRY_PERSONAS: Record<string, {
   'Higher Ed': [
     {
       icon: '🏥', name: 'The Nurse Persona', context: 'School of Nursing', tagline: 'Clinical care & patient support',
-      detail: 'Every nursing graduate carries clinical competency and compassionate presence. The Nurse Persona carries both — available to any patient at 2 AM when fear is loudest and no one else can be there. Your faculty\'s clinical knowledge. Your graduates\' character. In the room when it matters most.',
+      detail: 'Every nursing graduate carries clinical competency and compassionate presence. The Nurse Beacon carries both — available to any patient at 2 AM when fear is loudest and no one else can be there. Your faculty\'s clinical knowledge. Your graduates\' character. In the room when it matters most.',
       color: 'text-rose-400', bg: 'bg-rose-400/10 border-rose-400/20', live: true,
     },
     {
       icon: '📚', name: 'The Teaching Persona', context: 'College of Education', tagline: 'Education & learning guidance',
-      detail: 'The Teaching Persona is your faculty\'s pedagogy, your curriculum frameworks, and your best teaching moments — available to any student who is falling behind, any teacher who needs support, any parent trying to understand their child. The patience of your best educators. Always present. Never tired.',
+      detail: 'The Teaching Beacon is your faculty\'s pedagogy, your curriculum frameworks, and your best teaching moments — available to any student who is falling behind, any teacher who needs support, any parent trying to understand their child. The patience of your best educators. Always present. Never tired.',
       color: 'text-sky-400', bg: 'bg-sky-400/10 border-sky-400/20', live: true,
     },
     {
       icon: '✝️', name: 'The Faith Persona', context: 'School of Divinity', tagline: 'Grief, faith & spiritual care',
-      detail: 'The Faith Persona carries scripture, grief, and the pastoral wisdom of your theology program into every hard conversation about faith, loss, and doubt. A rural pastor at 2 AM. A student losing their faith. A family in the ICU. Your theology — present in the room.',
+      detail: 'The Faith Beacon carries scripture, grief, and the pastoral wisdom of your theology program into every hard conversation about faith, loss, and doubt. A rural pastor at 2 AM. A student losing their faith. A family in the ICU. Your theology — present in the room.',
       color: 'text-amber-400', bg: 'bg-amber-400/10 border-amber-400/20', live: true,
     },
     {
       icon: '💼', name: 'The Business Persona', context: 'School of Business', tagline: 'Business ethics & leadership',
-      detail: 'The Business Persona brings your business school\'s ethos on servant leadership, ethical business, and entrepreneurial character into every mentorship moment — career pivots, ethical dilemmas, startup challenges. Your business school\'s wisdom. Available to every graduate.',
+      detail: 'The Business Beacon brings your business school\'s ethos on servant leadership, ethical business, and entrepreneurial character into every mentorship moment — career pivots, ethical dilemmas, startup challenges. Your business school\'s wisdom. Available to every graduate.',
       color: 'text-emerald-400', bg: 'bg-emerald-400/10 border-emerald-400/20', live: true,
     },
     {
       icon: '⚖️', name: 'The Legal Persona', context: 'School of Law', tagline: 'Legal guidance & ethics',
-      detail: 'The Legal Persona guides law students through landmark cases, ethical dilemmas, and jurisprudence questions. Study partner. Socratic partner. Never bills by the hour.',
+      detail: 'The Legal Beacon guides law students through landmark cases, ethical dilemmas, and jurisprudence questions. Study partner. Socratic partner. Never bills by the hour.',
       color: 'text-violet-400', bg: 'bg-violet-400/10 border-violet-400/20', live: true,
     },
     {
       icon: '🔬', name: 'The STEM Persona', context: 'College of Engineering & Technology', tagline: 'Research, lab & STEM support',
-      detail: 'From hypothesis design to data analysis interpretation, The STEM Persona supports research students through the scientific method — while maintaining your program\'s standards for rigor, ethics, and methodology.',
+      detail: 'From hypothesis design to data analysis interpretation, The STEM Beacon supports research students through the scientific method — while maintaining your program\'s standards for rigor, ethics, and methodology.',
       color: 'text-cyan-400', bg: 'bg-cyan-400/10 border-cyan-400/20', live: true,
     },
   ],
@@ -229,7 +229,7 @@ const INDUSTRY_PERSONAS: Record<string, {
     },
     {
       icon: '🏠', name: 'Rural Access Persona', context: 'Community Health', tagline: 'Health literacy & access guidance',
-      detail: 'For communities where the nearest specialist is 90 minutes away, the Rural Access Persona closes the gap — answering health questions, explaining diagnoses, and triaging urgency. Your clinical expertise. Available everywhere your patients are.',
+      detail: 'For communities where the nearest specialist is 90 minutes away, the Rural Access Beacon closes the gap — answering health questions, explaining diagnoses, and triaging urgency. Your clinical expertise. Available everywhere your patients are.',
       color: 'text-emerald-400', bg: 'bg-emerald-400/10 border-emerald-400/20',
     },
     {
@@ -249,39 +249,39 @@ const INDUSTRY_PERSONAS: Record<string, {
     },
     {
       icon: '🏥', name: 'Clinical Onboarding Persona', context: 'Hospital System', tagline: 'New staff orientation & protocol guidance',
-      detail: 'A new nurse\'s first 90 days are the highest-risk period for errors and turnover. The Clinical Onboarding Persona walks new hires through your protocols, answers policy questions, and makes the learning curve survivable — without pulling preceptors off the floor.',
+      detail: 'A new nurse\'s first 90 days are the highest-risk period for errors and turnover. The Clinical Onboarding Beacon walks new hires through your protocols, answers policy questions, and makes the learning curve survivable — without pulling preceptors off the floor.',
       color: 'text-cyan-400', bg: 'bg-cyan-400/10 border-cyan-400/20',
     },
   ],
   Enterprise: [
     {
       icon: '🚀', name: 'Onboarding Persona', context: 'HR & People Ops', tagline: 'New hire orientation & culture',
-      detail: 'The first 90 days determine whether a hire becomes a long-term contributor. The Onboarding Persona carries your culture, your processes, and your values into every new hire\'s early questions — so managers spend less time answering the same things and new employees feel less lost.',
+      detail: 'The first 90 days determine whether a hire becomes a long-term contributor. The Onboarding Beacon carries your culture, your processes, and your values into every new hire\'s early questions — so managers spend less time answering the same things and new employees feel less lost.',
       color: 'text-emerald-400', bg: 'bg-emerald-400/10 border-emerald-400/20',
     },
     {
       icon: '🎯', name: 'Customer Success Persona', context: 'Customer Experience', tagline: 'Retention, expansion & support',
-      detail: 'Your best CSM can\'t be in every account at once. The Customer Success Persona carries their playbook — onboarding flows, expansion signals, health check frameworks — to every customer, at every stage. Your culture of customer obsession. Always available.',
+      detail: 'Your best CSM can\'t be in every account at once. The Customer Success Beacon carries their playbook — onboarding flows, expansion signals, health check frameworks — to every customer, at every stage. Your culture of customer obsession. Always available.',
       color: 'text-sky-400', bg: 'bg-sky-400/10 border-sky-400/20',
     },
     {
       icon: '📋', name: 'Benefits Guide Persona', context: 'HR & Benefits', tagline: 'Benefits navigation & open enrollment',
-      detail: 'Most employees don\'t understand their benefits. The Benefits Guide Persona explains health plans, 401k options, and leave policies in plain language — reducing HR ticket volume by 60% and making open enrollment feel like a conversation, not a forms exercise.',
+      detail: 'Most employees don\'t understand their benefits. The Benefits Guide Beacon explains health plans, 401k options, and leave policies in plain language — reducing HR ticket volume by 60% and making open enrollment feel like a conversation, not a forms exercise.',
       color: 'text-amber-400', bg: 'bg-amber-400/10 border-amber-400/20',
     },
     {
       icon: '⚙️', name: 'Technical Support Persona', context: 'Engineering & IT', tagline: 'Tier-1 support & knowledge base',
-      detail: 'Your senior engineers spend 30% of their time answering questions that are already documented somewhere. The Technical Support Persona absorbs your documentation, your runbooks, and your tribal knowledge — and becomes the first answer for every Tier-1 question.',
+      detail: 'Your senior engineers spend 30% of their time answering questions that are already documented somewhere. The Technical Support Beacon absorbs your documentation, your runbooks, and your tribal knowledge — and becomes the first answer for every Tier-1 question.',
       color: 'text-violet-400', bg: 'bg-violet-400/10 border-violet-400/20',
     },
     {
       icon: '🌍', name: 'Brand Ambassador Persona', context: 'Marketing & Brand', tagline: 'Brand voice at every touchpoint',
-      detail: 'Every customer touchpoint is a brand moment. The Brand Ambassador Persona carries your brand voice — your tone, your values, your positioning — into every interaction: support tickets, community forums, onboarding flows, and partner communications.',
+      detail: 'Every customer touchpoint is a brand moment. The Brand Ambassador Beacon carries your brand voice — your tone, your values, your positioning — into every interaction: support tickets, community forums, onboarding flows, and partner communications.',
       color: 'text-rose-400', bg: 'bg-rose-400/10 border-rose-400/20',
     },
     {
       icon: '📈', name: 'Sales Enablement Persona', context: 'Revenue Operations', tagline: 'Objection handling & competitive intel',
-      detail: 'Your best sales rep knows every objection and every competitor\'s weakness cold. The Sales Enablement Persona carries that knowledge to every rep on the team — available during every call, before every demo, at every stage of the funnel.',
+      detail: 'Your best sales rep knows every objection and every competitor\'s weakness cold. The Sales Enablement Beacon carries that knowledge to every rep on the team — available during every call, before every demo, at every stage of the funnel.',
       color: 'text-cyan-400', bg: 'bg-cyan-400/10 border-cyan-400/20',
     },
   ],
@@ -304,7 +304,7 @@ function SpiritShowcase() {
     <section className="py-24 px-6 border-t border-molted-border">
       <div className="max-w-6xl mx-auto">
         <RevealBlock className="text-center mb-10">
-          <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">Where Persona works</p>
+          <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">Where Beacon works</p>
           <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight">
             Any organization. Any voice.
           </h2>
@@ -340,7 +340,7 @@ function SpiritShowcase() {
 
         <RevealBlock delay={150}>
           <div className="grid md:grid-cols-3 gap-6">
-            {/* Persona selector */}
+            {/* Beacon selector */}
             <div className="space-y-2">
               {spirits.map((s, i) => (
                 <button
@@ -368,7 +368,7 @@ function SpiritShowcase() {
               ))}
             </div>
 
-            {/* Persona detail */}
+            {/* Beacon detail */}
             <div className="md:col-span-2">
               <div className="bg-molted-elevated border border-molted-border rounded-2xl p-8 h-full">
                 <div className="flex items-start gap-5">
@@ -409,20 +409,20 @@ function BuildProcess() {
   const steps = [
     {
       num: '01',
-      title: 'Define Your Persona',
+      title: 'Define Your Beacon',
       body: 'Name it. Give it a personality. Describe how it speaks, what it cares about, and what it represents of your institution.',
       icon: '✏️',
     },
     {
       num: '02',
       title: 'Train It',
-      body: 'Upload your curriculum, policies, FAQ documents, and program materials. The Persona learns your content — not the internet.',
+      body: 'Upload your curriculum, policies, FAQ documents, and program materials. The Beacon learns your content — not the internet.',
       icon: '🧠',
     },
     {
       num: '03',
       title: 'Deploy Everywhere',
-      body: 'Embed on your website. Integrate into your LMS. Add to your student portal. Persona goes wherever your community is.',
+      body: 'Embed on your website. Integrate into your LMS. Add to your student portal. Beacon goes wherever your community is.',
       icon: '🚀',
     },
   ];
@@ -459,8 +459,8 @@ function WhyDifferent() {
   const features = [
     {
       icon: Heart,
-      title: 'A Persona, Not a Chatbot',
-      body: 'Generic AI assistants answer questions. Persona represents your institution — with its name, voice, and values embedded in every response.',
+      title: 'A Beacon, Not a Chatbot',
+      body: 'Generic AI assistants answer questions. Beacon represents your institution — with its name, voice, and values embedded in every response.',
       color: 'text-rose-400',
       bg: 'bg-rose-400/10 border-rose-400/20',
     },
@@ -474,7 +474,7 @@ function WhyDifferent() {
     {
       icon: Globe,
       title: 'Always On, Never Tired',
-      body: 'A human chaplain can\'t be in every hospital room at 3 AM. The Faith Persona can. Scale your mission without scaling your headcount.',
+      body: 'A human chaplain can\'t be in every hospital room at 3 AM. The Faith Beacon can. Scale your mission without scaling your headcount.',
       color: 'text-sky-400',
       bg: 'bg-sky-400/10 border-sky-400/20',
     },
@@ -488,7 +488,7 @@ function WhyDifferent() {
     {
       icon: Building2,
       title: 'Institution-Scale',
-      body: 'Deploy one Persona or twenty. Serve a single campus or a global network. The platform scales with your ambition.',
+      body: 'Deploy one Beacon or twenty. Serve a single campus or a global network. The platform scales with your ambition.',
       color: 'text-emerald-400',
       bg: 'bg-emerald-400/10 border-emerald-400/20',
     },
@@ -534,14 +534,14 @@ function PricingTeaser() {
   const tiers = [
     {
       name: 'Starter',
-      tag: 'One Persona. One campus.',
+      tag: 'One Beacon. One campus.',
       features: ['1 Persona', 'Up to 10,000 interactions/mo', 'Standard training pipeline', 'Email support'],
       cta: 'Talk to Us',
       highlight: false,
     },
     {
       name: 'Institution',
-      tag: 'Full Persona Network.',
+      tag: 'Full Beacon Network.',
       features: ['Up to 10 Personas', 'Unlimited interactions', 'Custom training & guardrails', 'LMS integration', 'Dedicated success manager'],
       cta: 'Most Popular',
       highlight: true,
@@ -631,11 +631,11 @@ function CTA() {
         <RevealBlock>
           <h2 className="text-4xl md:text-6xl font-black text-molted-white tracking-tight leading-tight">
             What does your<br />
-            <span className="text-molted-ember">organization's Persona</span><br />
+            <span className="text-molted-ember">organization's Beacon</span><br />
             look like?
           </h2>
           <p className="mt-6 text-molted-muted text-lg">
-            Higher ed. Healthcare. Enterprise. Every Persona starts with a conversation.
+            Higher ed. Healthcare. Enterprise. Every Beacon starts with a conversation.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
@@ -658,10 +658,10 @@ function CTA() {
   );
 }
 
-export default function MoltedPersonaAi() {
+export default function MoltedBeaconAi() {
   return (
     <MoltedLayout>
-      <OutpostBanner moduleName="Persona" moduleColor="#E8170F" />
+      <OutpostBanner moduleName="Beacon" moduleColor="#E8170F" />
       <Hero />
       <LiveProof />
       <TheSpiritIdea />

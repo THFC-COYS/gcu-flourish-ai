@@ -418,7 +418,7 @@ function Integrations() {
   const connections = [
     { name: 'ProofAi', color: '#F97316', desc: 'Mastery assessments for every competency' },
     { name: 'PathwayAi', color: '#8B5CF6', desc: 'Competencies become adaptive path nodes' },
-    { name: 'TeachOS', color: '#2DD4BF', desc: 'Faculty dashboard tracks competency progress' },
+    { name: 'Forge', color: '#2DD4BF', desc: 'Faculty dashboard tracks competency progress' },
     { name: 'OutcomesAi', color: '#0EA5E9', desc: 'Attainment data feeds institutional analytics' },
   ];
 

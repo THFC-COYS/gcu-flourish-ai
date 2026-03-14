@@ -92,7 +92,7 @@ function Story() {
               text: 'We proved the concept at a flagship university: six custom AI personas, each trained on a college\'s identity, deployed to serve students across nursing, education, theology, business, law, and STEM. Over 50,000 students. Zero caveats.',
             },
             {
-              text: 'From that work, three products emerged: Read — for any student who needs answers right now. Teach — for faculty drowning in admin. Persona — for institutions that want their values and expertise present everywhere, always.',
+              text: 'From that work, three products emerged: Read — for any student who needs answers right now. Teach — for faculty drowning in admin. Beacon — for institutions that want their values and expertise present everywhere, always.',
             },
           ].map((p, i) => (
             <RevealBlock key={i} delay={i * 100}>

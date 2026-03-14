@@ -169,7 +169,7 @@ function generateMockResult(
     : `Suggested action: Review draft above, personalise the middle paragraph, then send manually. Estimated time: 90 seconds.`;
 
   const insight = shouldAutoRespond
-    ? `TeachOS matched this question to your ${category} policy with ${adjustedScore}% confidence. Responding in your documented voice — no manual action needed.`
+    ? `Forge matched this question to your ${category} policy with ${adjustedScore}% confidence. Responding in your documented voice — no manual action needed.`
     : `This question touches on areas where your personal judgment adds value. The draft above covers the policy angle; a brief personal note from you will close it well.`;
 
   return {
@@ -220,7 +220,7 @@ function InputPanel({
           rows={5}
           value={state.policies}
           onChange={e => set('policies')(e.target.value)}
-          placeholder="Paste your syllabus policies, late work rules, grading approach, or describe how you speak to students. TeachOS uses this as your voice baseline."
+          placeholder="Paste your syllabus policies, late work rules, grading approach, or describe how you speak to students. Forge uses this as your voice baseline."
           className="w-full rounded-xl px-4 py-3 text-sm resize-none outline-none transition-all"
           style={{
             background: 'rgba(255,255,255,0.04)',
@@ -417,7 +417,7 @@ function Results({ result }: { result: AutoRespondResult }) {
         <div className="flex items-start gap-3">
           <Zap size={15} style={{ color: GOLD, flexShrink: 0, marginTop: 2 }} />
           <div>
-            <p className="text-xs font-bold mb-1" style={{ color: GOLD }}>TeachOS insight</p>
+            <p className="text-xs font-bold mb-1" style={{ color: GOLD }}>Forge insight</p>
             <p className="text-xs leading-relaxed" style={{ color: '#86868B' }}>{result.insight}</p>
           </div>
         </div>
@@ -466,7 +466,7 @@ export default function AutoRespond() {
               className="inline-flex items-center gap-1.5 text-xs mb-6 transition-colors hover:opacity-80"
               style={{ color: '#86868B' }}
             >
-              <ChevronLeft size={14} /> TeachOS
+              <ChevronLeft size={14} /> Forge
             </Link>
 
             <div
@@ -483,7 +483,7 @@ export default function AutoRespond() {
             </h1>
 
             <p className="mt-3 text-molted-muted text-base max-w-lg leading-relaxed">
-              Paste your syllabus policies once. TeachOS evaluates every student question,
+              Paste your syllabus policies once. Forge evaluates every student question,
               drafts a response in your voice, and knows when to escalate instead.
             </p>
           </div>
@@ -560,7 +560,7 @@ export default function AutoRespond() {
             className="mt-16 rounded-3xl p-8 border text-center"
             style={{ background: 'rgba(17,17,24,0.7)', borderColor: 'rgba(255,255,255,0.06)' }}
           >
-            <p className="text-molted-muted text-sm mb-1">This is TeachOS Auto-Respond — beta.</p>
+            <p className="text-molted-muted text-sm mb-1">This is Forge Auto-Respond — beta.</p>
             <p className="text-molted-white font-semibold mb-5">
               Next: sync Auto-Respond directly with Canvas Inbox and Gmail.
             </p>

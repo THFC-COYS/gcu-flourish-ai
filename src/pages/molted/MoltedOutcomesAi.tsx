@@ -609,9 +609,9 @@ function AccreditationAutopilot() {
 /* ── Integration ────────────────────────────────────────────────────────── */
 function Integration() {
   const sources = [
-    { name: 'pAIgeBreaker', desc: 'Student learning interactions', color: '#E8A020' },
+    { name: 'Lumen', desc: 'Student learning interactions', color: '#E8A020' },
     { name: 'Persona Ai', desc: 'Student support conversations', color: '#E8170F' },
-    { name: 'TeachOS', desc: 'Faculty & curriculum signals', color: '#10B981' },
+    { name: 'Forge', desc: 'Faculty & curriculum signals', color: '#10B981' },
     { name: 'More coming', desc: 'Expanding ecosystem', color: '#3A3A40' },
   ];
 
@@ -679,7 +679,7 @@ function Pricing() {
         'Department-wide outcome tracking',
         'Learning velocity & engagement metrics',
         'Weekly automated reports',
-        'pAIgeBreaker & Persona Ai integration',
+        'Lumen & Persona Ai integration',
         'Email support',
       ],
       cta: 'Start with a Department',
@@ -809,7 +809,7 @@ function CTA() {
               to="/molted/paigebreaker"
               className="text-molted-muted hover:text-molted-white text-sm transition-colors"
             >
-              Explore pAIgeBreaker →
+              Explore Lumen →
             </Link>
           </div>
         </RevealBlock>

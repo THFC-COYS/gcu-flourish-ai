@@ -525,7 +525,7 @@ function Results({ result }: { result: WarningResult }) {
         <div className="flex items-start gap-3">
           <Zap size={15} style={{ color: GOLD, flexShrink: 0, marginTop: 2 }} />
           <div>
-            <p className="text-xs font-bold mb-1" style={{ color: GOLD }}>TeachOS insight</p>
+            <p className="text-xs font-bold mb-1" style={{ color: GOLD }}>Forge insight</p>
             <p className="text-xs leading-relaxed" style={{ color: '#86868B' }}>{result.insight}</p>
           </div>
         </div>
@@ -574,7 +574,7 @@ export default function EarlyWarning() {
               className="inline-flex items-center gap-1.5 text-xs mb-6 transition-colors hover:opacity-80"
               style={{ color: '#86868B' }}
             >
-              <ChevronLeft size={14} /> TeachOS
+              <ChevronLeft size={14} /> Forge
             </Link>
 
             <div
@@ -591,7 +591,7 @@ export default function EarlyWarning() {
             </h1>
 
             <p className="mt-3 text-molted-muted text-base max-w-lg leading-relaxed">
-              Paste your roster engagement data once a week. TeachOS scores every student,
+              Paste your roster engagement data once a week. Forge scores every student,
               surfaces risk signals, and writes check-in messages ready to send.
             </p>
           </div>
@@ -642,7 +642,7 @@ export default function EarlyWarning() {
                   </div>
                   <p className="text-molted-white font-semibold mb-2">Ready to scan</p>
                   <p className="text-molted-muted text-sm max-w-xs mx-auto leading-relaxed">
-                    Paste your roster data or leave it blank to see a sample. TeachOS will
+                    Paste your roster data or leave it blank to see a sample. Forge will
                     tier every student and draft personalized check-ins.
                   </p>
                 </div>
@@ -670,7 +670,7 @@ export default function EarlyWarning() {
             className="mt-16 rounded-3xl p-8 border text-center"
             style={{ background: 'rgba(17,17,24,0.7)', borderColor: 'rgba(255,255,255,0.06)' }}
           >
-            <p className="text-molted-muted text-sm mb-1">This is TeachOS Early Warning Engine — beta.</p>
+            <p className="text-molted-muted text-sm mb-1">This is Forge Early Warning Engine — beta.</p>
             <p className="text-molted-white font-semibold mb-5">
               Next: live sync from Canvas LMS — no manual data export needed.
             </p>

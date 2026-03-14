@@ -618,8 +618,8 @@ function ForFaculty() {
     },
     {
       icon: Users,
-      title: 'Integrates with TeachOS',
-      desc: 'Proof feeds directly into the TeachOS grading workflow. Assessment scores, portfolio records, and integrity flags — all in one place.',
+      title: 'Integrates with Forge',
+      desc: 'Proof feeds directly into the Forge grading workflow. Assessment scores, portfolio records, and integrity flags — all in one place.',
     },
   ];
 
@@ -692,7 +692,7 @@ function Pricing() {
         'Skills Portfolio for all students',
         'LMS grade sync (Canvas, D2L, Blackboard)',
         'Department analytics dashboard',
-        'TeachOS integration',
+        'Forge integration',
         'Priority support',
       ],
       cta: 'Request Demo',

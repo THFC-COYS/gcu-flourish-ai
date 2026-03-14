@@ -46,7 +46,7 @@ function RevealBlock({ children, delay = 0, className = '' }: {
   );
 }
 
-/* ── TeachOS accent color ──────────────────────────────────────────────── */
+/* ── Forge accent color ──────────────────────────────────────────────── */
 const TEAL = '#2DD4BF';
 const TEAL_DIM = 'rgba(45,212,191,0.15)';
 const TEAL_BORDER = 'rgba(45,212,191,0.25)';
@@ -132,7 +132,7 @@ function Hero() {
           <p className="text-molted-muted text-sm">
             The average professor spends{' '}
             <span className="text-molted-white font-semibold">23 hours/week</span>
-            {' '}on tasks TeachOS handles automatically.
+            {' '}on tasks Forge handles automatically.
           </p>
         </div>
       </RevealBlock>
@@ -193,7 +193,7 @@ function TheProblem() {
 
         <RevealBlock delay={400} className="mt-10 text-center">
           <p className="text-molted-muted text-base">
-            TeachOS automates all of it.{' '}
+            Forge automates all of it.{' '}
             <span className="text-molted-white font-semibold">Returning those 23 hours to teaching.</span>
           </p>
         </RevealBlock>
@@ -209,7 +209,7 @@ const TOOLS = [
     name: 'Discussion Intelligence',
     tagline: 'Read every post. Draft every response.',
     description:
-      'TeachOS reads your entire discussion board, identifies the quality of student reasoning, flags misconceptions, and drafts pedagogically-sound response suggestions — sorted by urgency and depth. You review. You click post.',
+      'Forge reads your entire discussion board, identifies the quality of student reasoning, flags misconceptions, and drafts pedagogically-sound response suggestions — sorted by urgency and depth. You review. You click post.',
     bullets: [
       'Detects misconceptions before they spread',
       'Surfaces the best student contributions automatically',
@@ -223,7 +223,7 @@ const TOOLS = [
     name: 'Course Architect',
     tagline: 'Upload your syllabus. Get your semester.',
     description:
-      'Drop your syllabus into TeachOS. It reads your learning objectives, your schedule, your topics — and builds your entire semester infrastructure: week-by-week announcements, module introductions, student FAQs, and reminder sequences. All in your voice.',
+      'Drop your syllabus into Forge. It reads your learning objectives, your schedule, your topics — and builds your entire semester infrastructure: week-by-week announcements, module introductions, student FAQs, and reminder sequences. All in your voice.',
     bullets: [
       'Auto-generates all semester announcements',
       'Builds per-module introductions and objectives',
@@ -237,7 +237,7 @@ const TOOLS = [
     name: 'Agentic Grader',
     tagline: 'Your rubric. Your standards. Zero friction.',
     description:
-      'Upload your rubric once. TeachOS reads every submission against it, writes individualized feedback for each student citing their specific work, assigns scores with justification, and flags any academic integrity signals. You review in minutes, not hours.',
+      'Upload your rubric once. Forge reads every submission against it, writes individualized feedback for each student citing their specific work, assigns scores with justification, and flags any academic integrity signals. You review in minutes, not hours.',
     bullets: [
       'Grades to your exact rubric — line by line',
       'Writes personalized feedback per student',
@@ -251,7 +251,7 @@ const TOOLS = [
     name: 'Auto-Respond',
     tagline: 'Routine questions answered. Instantly. Always.',
     description:
-      'Set your policies once. TeachOS learns what you always say about deadlines, extensions, exam format, office hours, and grading. When students ask, it answers in your voice — 24/7. Complex academic questions are flagged for your personal attention.',
+      'Set your policies once. Forge learns what you always say about deadlines, extensions, exam format, office hours, and grading. When students ask, it answers in your voice — 24/7. Complex academic questions are flagged for your personal attention.',
     bullets: [
       'Handles 80% of student emails automatically',
       'Answers in your documented voice and policies',
@@ -265,7 +265,7 @@ const TOOLS = [
     name: 'Early Warning Engine',
     tagline: 'See who is struggling before they give up.',
     description:
-      'TeachOS monitors engagement signals across your entire roster — login frequency, submission timing, discussion participation, grade trajectory. When a student\'s pattern changes, you know within hours, not at the end of the semester.',
+      'Forge monitors engagement signals across your entire roster — login frequency, submission timing, discussion participation, grade trajectory. When a student\'s pattern changes, you know within hours, not at the end of the semester.',
     bullets: [
       'Real-time engagement monitoring across all students',
       'Personalized check-in drafts ready to send',
@@ -556,7 +556,7 @@ function CoreTools() {
             {/* Try it links */}
             {active.visual === 'architect' && (
               <Link
-                to="/molted/teachos/course-architect"
+                to="/molted/forge/course-architect"
                 className="flex items-center justify-center gap-2.5 w-full py-3 rounded-xl text-sm font-bold transition-all duration-200 hover:-translate-y-px"
                 style={{ background: TEAL_DIM, color: TEAL, border: `1px solid ${TEAL_BORDER}` }}
               >
@@ -567,7 +567,7 @@ function CoreTools() {
             )}
             {active.visual === 'discussion' && (
               <Link
-                to="/molted/teachos/discussion"
+                to="/molted/forge/discussion"
                 className="flex items-center justify-center gap-2.5 w-full py-3 rounded-xl text-sm font-bold transition-all duration-200 hover:-translate-y-px"
                 style={{ background: TEAL_DIM, color: TEAL, border: `1px solid ${TEAL_BORDER}` }}
               >
@@ -578,7 +578,7 @@ function CoreTools() {
             )}
             {active.visual === 'grader' && (
               <Link
-                to="/molted/teachos/agentic-grader"
+                to="/molted/forge/agentic-grader"
                 className="flex items-center justify-center gap-2.5 w-full py-3 rounded-xl text-sm font-bold transition-all duration-200 hover:-translate-y-px"
                 style={{ background: TEAL_DIM, color: TEAL, border: `1px solid ${TEAL_BORDER}` }}
               >
@@ -589,7 +589,7 @@ function CoreTools() {
             )}
             {active.visual === 'autorespond' && (
               <Link
-                to="/molted/teachos/auto-respond"
+                to="/molted/forge/auto-respond"
                 className="flex items-center justify-center gap-2.5 w-full py-3 rounded-xl text-sm font-bold transition-all duration-200 hover:-translate-y-px"
                 style={{ background: TEAL_DIM, color: TEAL, border: `1px solid ${TEAL_BORDER}` }}
               >
@@ -600,7 +600,7 @@ function CoreTools() {
             )}
             {active.visual === 'warning' && (
               <Link
-                to="/molted/teachos/early-warning"
+                to="/molted/forge/early-warning"
                 className="flex items-center justify-center gap-2.5 w-full py-3 rounded-xl text-sm font-bold transition-all duration-200 hover:-translate-y-px"
                 style={{ background: TEAL_DIM, color: TEAL, border: `1px solid ${TEAL_BORDER}` }}
               >
@@ -622,8 +622,8 @@ function LMSKiller() {
     {
       num: '01',
       problem: 'The LMS is a filing cabinet.',
-      solution: 'TeachOS is a living curriculum.',
-      detail: 'Canvas and Blackboard store files. They\'ve never updated a syllabus, generated an assignment, or noticed that Week 6 confuses every cohort. TeachOS learns — semester over semester — and makes every course smarter than the last.',
+      solution: 'Forge is a living curriculum.',
+      detail: 'Canvas and Blackboard store files. They\'ve never updated a syllabus, generated an assignment, or noticed that Week 6 confuses every cohort. Forge learns — semester over semester — and makes every course smarter than the last.',
       versus: ['Static content upload', 'Manual date-copying each term', 'Same course forever'],
       wins:   ['Adaptive paths per student', 'Zero-setup semester cloning', 'Courses that improve automatically'],
       color: TEAL,
@@ -633,8 +633,8 @@ function LMSKiller() {
     {
       num: '02',
       problem: 'The gradebook is a spreadsheet with pretensions.',
-      solution: 'TeachOS closes the loop.',
-      detail: 'Legacy LMS gradebooks record what happened. TeachOS predicts what\'s about to happen — flags the student trending toward a D in week 4, not week 14. Grades become a live signal, not a lagging report card.',
+      solution: 'Forge closes the loop.',
+      detail: 'Legacy LMS gradebooks record what happened. Forge predicts what\'s about to happen — flags the student trending toward a D in week 4, not week 14. Grades become a live signal, not a lagging report card.',
       versus: ['Manual rubric application', 'Grades discovered at the end', 'Integrity flagged by vendors, not context'],
       wins:   ['Agentic grading with rubric citations', '8-week grade trajectory forecasting', 'Integrity analysis with style-drift detection'],
       color: '#A78BFA',
@@ -644,8 +644,8 @@ function LMSKiller() {
     {
       num: '03',
       problem: 'When a great professor leaves, everything leaves.',
-      solution: 'TeachOS is institutional memory.',
-      detail: 'Every great instructor has a playbook — the way they explain late work, the discussion prompts that spark real debate, the rubric language students actually understand. Today it disappears when they retire. TeachOS vaults it, transfers it, and compounds it.',
+      solution: 'Forge is institutional memory.',
+      detail: 'Every great instructor has a playbook — the way they explain late work, the discussion prompts that spark real debate, the rubric language students actually understand. Today it disappears when they retire. Forge vaults it, transfers it, and compounds it.',
       versus: ['Knowledge exits with the professor', 'Every section rebuilt from zero', 'Zero cross-course student insight'],
       wins:   ['Faculty DNA captured and transferable', 'Program-level analytics across all courses', 'Student risk visible institution-wide'],
       color: GOLD,
@@ -675,7 +675,7 @@ function LMSKiller() {
           </h2>
           <p className="text-molted-muted text-base leading-relaxed">
             Legacy LMS platforms have three structural weaknesses they can't patch.
-            TeachOS was designed around all three.
+            Forge was designed around all three.
           </p>
         </div>
 
@@ -727,7 +727,7 @@ function LMSKiller() {
                     </div>
                   </div>
                   <div>
-                    <p className="text-xs font-bold mb-2" style={{ color: p.color }}>TeachOS</p>
+                    <p className="text-xs font-bold mb-2" style={{ color: p.color }}>Forge</p>
                     <div className="space-y-1.5">
                       {p.wins.map((w, i) => (
                         <div key={i} className="flex items-start gap-2">
@@ -758,7 +758,7 @@ function ComingSoon() {
       items: [
         { icon: BrainCircuit, name: 'Adaptive Learning Paths', desc: 'Different content sequence per student based on real-time mastery signals.' },
         { icon: FlaskConical, name: 'Assignment Generator', desc: 'Describe a learning objective — get 5 assignments with rubrics, mapped to your accreditation standards.' },
-        { icon: Sparkles,     name: 'Zero-Setup Semester Clone', desc: 'Import last semester → TeachOS updates all dates, refreshes stale examples, flags outdated citations.' },
+        { icon: Sparkles,     name: 'Zero-Setup Semester Clone', desc: 'Import last semester → Forge updates all dates, refreshes stale examples, flags outdated citations.' },
         { icon: Bot,          name: 'Student AI Tutor', desc: 'Answers questions using only your course materials. Escalates to you when it can\'t. Office hours at 2 AM.' },
       ],
     },
@@ -1015,7 +1015,7 @@ function AgenticFuture() {
     {
       phase: 'Future',
       title: 'AI teaches.',
-      items: ['Real-time adaptive lesson adjustment', 'Every student on a personalized learning path', 'AI TA holds office hours in your absence', 'You set the vision — TeachOS runs the system'],
+      items: ['Real-time adaptive lesson adjustment', 'Every student on a personalized learning path', 'AI TA holds office hours in your absence', 'You set the vision — Forge runs the system'],
       live: false,
     },
   ];
@@ -1094,7 +1094,7 @@ function AgenticFuture() {
         <RevealBlock delay={400} className="mt-12 text-center">
           <p className="text-molted-muted text-base max-w-2xl mx-auto">
             "The best teacher in the world can only be in one classroom at a time.
-            TeachOS removes that ceiling — permanently."
+            Forge removes that ceiling — permanently."
           </p>
           <p className="mt-3 text-molted-subtle text-sm">— Molt</p>
         </RevealBlock>
@@ -1115,13 +1115,13 @@ function HowItWorks() {
     {
       num: '02',
       title: 'Upload your syllabus.',
-      desc: 'Drop your syllabus and TeachOS extracts your learning objectives, schedule, policies, and voice. You configure once. It runs forever.',
+      desc: 'Drop your syllabus and Forge extracts your learning objectives, schedule, policies, and voice. You configure once. It runs forever.',
       icon: UploadCloud,
     },
     {
       num: '03',
       title: 'Review. Approve. Done.',
-      desc: 'Everything TeachOS does gets surfaced for your review before it goes live. You stay in control. It does the heavy lifting.',
+      desc: 'Everything Forge does gets surfaced for your review before it goes live. You stay in control. It does the heavy lifting.',
       icon: CheckSquare,
     },
   ];
@@ -1253,7 +1253,7 @@ function PricingTeaser() {
       name: 'Department',
       price: '$199',
       period: '/mo per department',
-      desc: 'For departments deploying TeachOS across multiple courses.',
+      desc: 'For departments deploying Forge across multiple courses.',
       features: ['Everything in Faculty', 'Agentic Grader', 'Unlimited Auto-Respond', 'LMS deep integration', 'Priority support'],
       cta: 'Request Demo',
       highlight: true,
@@ -1262,7 +1262,7 @@ function PricingTeaser() {
       name: 'Institution',
       price: 'Custom',
       period: 'institutional license',
-      desc: 'For universities deploying TeachOS at scale across all colleges.',
+      desc: 'For universities deploying Forge at scale across all colleges.',
       features: ['Everything in Department', 'Full agentic mode (coming soon)', 'Custom LMS integration', 'Dedicated success team', 'SLA + compliance'],
       cta: 'Talk to Sales',
       highlight: false,
@@ -1341,7 +1341,7 @@ function CTA() {
             <span style={{ color: TEAL }}>Start teaching.</span>
           </h2>
           <p className="mt-6 text-molted-muted text-lg leading-relaxed">
-            TeachOS is accepting early access partners.<br />
+            Forge is accepting early access partners.<br />
             Be among the first faculty to get 23 hours back every week.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -1367,7 +1367,7 @@ function CTA() {
 }
 
 /* ── Page ──────────────────────────────────────────────────────────────── */
-export default function MoltedTeachOS() {
+export default function MoltedForge() {
   return (
     <MoltedLayout>
       <OutpostBanner moduleName="Teach" moduleColor="#2DD4BF" />

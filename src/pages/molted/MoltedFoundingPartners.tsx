@@ -213,7 +213,7 @@ function ThreeProducts() {
       tagline: 'The tutor that reads with you.',
       body: 'Watches any reading assignment in the browser. The moment a student hits something confusing, Read answers — in context, in real time, without leaving the page.',
       live: true,
-      href: '/molted/read',
+      href: '/molted/lumen',
     },
     {
       name: 'Teach',
@@ -222,16 +222,16 @@ function ThreeProducts() {
       tagline: 'An AI that never leaves your classroom.',
       body: 'Watches every discussion board in real time. Responds to student questions while they\'re still on the page. Grades, flags at-risk students, handles the 23 hours/week of admin. Works on top of any LMS — no integration required.',
       live: true,
-      href: '/molted/teachos',
+      href: '/molted/forge',
     },
     {
-      name: 'Persona',
+      name: 'Beacon',
       segment: 'Institutions',
       color: EMBER,
       tagline: 'Your institution\'s voice, everywhere, always on.',
       body: 'Deploy custom AI personas trained on your institution\'s identity — one per college, department, or program. Already live with six personas serving 50,000+ students.',
       live: true,
-      href: '/molted/persona',
+      href: '/molted/beacon',
     },
   ];
 
@@ -364,7 +364,7 @@ function TheAgent() {
 function ThePlatform() {
   const modules = [
     { name: 'Read', color: GOLD }, { name: 'Teach', color: TEAL },
-    { name: 'Persona', color: EMBER }, { name: 'Pathway', color: VIOLET },
+    { name: 'Beacon', color: EMBER }, { name: 'Pathway', color: VIOLET },
     { name: 'Proof', color: '#F97316' }, { name: 'Retain', color: '#F43F5E' },
     { name: 'Outcomes', color: '#0EA5E9' }, { name: 'Mastery', color: '#10B981' },
   ];

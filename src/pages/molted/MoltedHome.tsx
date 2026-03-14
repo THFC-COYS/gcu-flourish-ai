@@ -180,7 +180,7 @@ function ThePlatform() {
                 { time: '11:47 PM', event: 'Student posts confusion about cognitive load theory', action: 'Discussion agent replies in 4 seconds', role: 'Student' },
                 { time: '8:12 AM', event: 'Professor uploads syllabus for NURS 301', action: 'Course architect generates full semester infrastructure', role: 'Faculty' },
                 { time: '2:03 AM', event: 'Marcus T. hasn\'t logged in for 5 days', action: 'Early warning flags risk — personalized check-in drafted', role: 'Admin' },
-                { time: '9:30 AM', event: 'Student opens Week 4 reading on pharmacology', action: 'pAIgeBreaker activates — answers in context as they read', role: 'Student' },
+                { time: '9:30 AM', event: 'Student opens Week 4 reading on pharmacology', action: 'Lumen activates — answers in context as they read', role: 'Student' },
               ].map((item, i) => (
                 <div
                   key={i}
@@ -281,28 +281,28 @@ const ROLES = [
     headline: 'An AI that handles the work. You do the teaching.',
     body: 'Discussions answered while students are still online. Grades returned in minutes not weeks. Struggling students flagged before they disappear. The agent handles 23 hours of weekly admin — so you teach instead.',
     features: ['Discussion Intelligence', 'Course Architect', 'Agentic Grader', 'Early Warning Engine', 'Auto-Respond'],
-    href: '/molted/teachos',
-    product: 'Teach',
+    href: '/molted/forge',
+    product: 'Forge',
   },
   {
     icon: BookOpen,
     role: 'Students',
     color: '#E8A020',
     headline: "A tutor that's always there. Right where you're reading.",
-    body: 'The moment a student hits something confusing, pAIgeBreaker answers — in context, on the page, without switching tabs. The discussion agent replies before they can close the browser. Every student gets a personalized experience.',
-    features: ['pAIgeBreaker — reading companion', 'Discussion agent replies in real time', 'Personalized to each student\'s history', 'Works on Canvas, Blackboard, D2L'],
-    href: '/molted/paigebreaker',
-    product: 'pAIgeBreaker',
+    body: 'The moment a student hits something confusing, Lumen answers — in context, on the page, without switching tabs. The discussion agent replies before they can close the browser. Every student gets a personalized experience.',
+    features: ['Lumen — reading companion', 'Discussion agent replies in real time', 'Personalized to each student\'s history', 'Works on Canvas, Blackboard, D2L'],
+    href: '/molted/lumen',
+    product: 'Lumen',
   },
   {
     icon: BarChart3,
     role: 'Institutions',
     color: '#E8170F',
     headline: "Your voice. Everywhere. The moment it's needed.",
-    body: "Persona deploys your institution's values as AI — in every college, every department, every touchpoint. The platform tracks retention signals, surfaces risk before it becomes a crisis, and makes your outcomes visible in real time.",
-    features: ['Persona — AI with your institution\'s voice', 'Retention signals across the full roster', 'Outcomes data in real time', 'Higher ed, healthcare, enterprise'],
-    href: '/molted/persona',
-    product: 'Persona',
+    body: "Beacon deploys your institution's values as AI — in every college, every department, every touchpoint. The platform tracks retention signals, surfaces risk before it becomes a crisis, and makes your outcomes visible in real time.",
+    features: ['Beacon — AI with your institution\'s voice', 'Retention signals across the full roster', 'Outcomes data in real time', 'Higher ed, healthcare, enterprise'],
+    href: '/molted/beacon',
+    product: 'Beacon',
   },
 ];
 
@@ -491,7 +491,7 @@ function CampusBridge() {
                 Every agent. Every role. One platform.
               </p>
               <p className="text-molted-muted text-base max-w-lg mx-auto leading-relaxed mb-8">
-                Teach, pAIgeBreaker, and Persona aren't integrations. They're native features of an LMS built from scratch for the AI era.
+                Forge, Lumen, and Beacon aren't integrations. They're native features of an LMS built from scratch for the AI era.
               </p>
               <div className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all group-hover:-translate-y-0.5"
                 style={{ background: 'linear-gradient(120deg,#2DD4BF,#E8A020,#E8170F)', color: '#0A0A0F' }}>

@@ -303,7 +303,7 @@ function WhatOutpostRemoves() {
 /* ── Platform Architecture ──────────────────────────────────────────────── */
 const PRODUCT_NODES: { name: string; color: string; desc: string }[] = [
   { name: 'Read', color: '#E8A020', desc: 'Student engagement' },
-  { name: 'Persona', color: '#E8170F', desc: 'Adaptive identity' },
+  { name: 'Beacon', color: '#E8170F', desc: 'Adaptive identity' },
   { name: 'Teach', color: '#2DD4BF', desc: 'Faculty dashboard' },
   { name: 'Pathway', color: '#06B6D4', desc: 'Adaptive paths' },
   { name: 'Proof', color: '#F97316', desc: 'AI assessment' },
