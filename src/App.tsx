@@ -31,6 +31,8 @@ import MoltedAbout from './pages/molted/MoltedAbout';
 import DiscussionDemo from './pages/molted/DiscussionDemo';
 import CourseArchitect from './pages/molted/CourseArchitect';
 import AgenticGrader from './pages/molted/AgenticGrader';
+import AutoRespond from './pages/molted/AutoRespond';
+import EarlyWarning from './pages/molted/EarlyWarning';
 
 function ProtectedRoutes() {
   const { user, isLoading } = useAuth();
@@ -96,6 +98,8 @@ export default function App() {
             <Route path="/molted/teachos/discussion" element={<DiscussionDemo />} />
             <Route path="/molted/teachos/course-architect" element={<CourseArchitect />} />
             <Route path="/molted/teachos/agentic-grader" element={<AgenticGrader />} />
+            <Route path="/molted/teachos/auto-respond" element={<AutoRespond />} />
+            <Route path="/molted/teachos/early-warning" element={<EarlyWarning />} />
             <Route path="/*" element={<ProtectedRoutes />} />
           </Routes>
         </BrowserRouter>

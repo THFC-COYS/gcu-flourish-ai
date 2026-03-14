@@ -582,6 +582,28 @@ function CoreTools() {
                 <ArrowRight size={14} />
               </Link>
             )}
+            {active.visual === 'autorespond' && (
+              <Link
+                to="/molted/teachos/auto-respond"
+                className="flex items-center justify-center gap-2.5 w-full py-3 rounded-xl text-sm font-bold transition-all duration-200 hover:-translate-y-px"
+                style={{ background: TEAL_DIM, color: TEAL, border: `1px solid ${TEAL_BORDER}` }}
+              >
+                <Play size={14} />
+                Try Auto-Respond — paste a student question
+                <ArrowRight size={14} />
+              </Link>
+            )}
+            {active.visual === 'warning' && (
+              <Link
+                to="/molted/teachos/early-warning"
+                className="flex items-center justify-center gap-2.5 w-full py-3 rounded-xl text-sm font-bold transition-all duration-200 hover:-translate-y-px"
+                style={{ background: TEAL_DIM, color: TEAL, border: `1px solid ${TEAL_BORDER}` }}
+              >
+                <Play size={14} />
+                Try Early Warning Engine — scan your roster
+                <ArrowRight size={14} />
+              </Link>
+            )}
           </div>
         </div>
       </div>
