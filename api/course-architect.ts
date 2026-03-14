@@ -113,8 +113,12 @@ Generate all ${clampedWeeks} weekly modules. Keep each announcement to 60–80 w
 
     let parsed;
     try {
-      const clean = raw.replace(/^```json\s*/i, '').replace(/^```\s*/i, '').replace(/```\s*$/i, '').trim();
-      parsed = JSON.parse(clean);
+      // Strip markdown fences, then extract the outermost JSON object
+      const stripped = raw.replace(/^```json\s*/i, '').replace(/^```\s*/i, '').replace(/```\s*$/i, '').trim();
+      const start = stripped.indexOf('{');
+      const end = stripped.lastIndexOf('}');
+      if (start === -1 || end === -1) throw new Error('No JSON object found');
+      parsed = JSON.parse(stripped.slice(start, end + 1));
     } catch {
       return res.status(500).json({ error: 'Failed to parse Grok response as JSON.', raw });
     }

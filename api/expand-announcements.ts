@@ -108,8 +108,12 @@ ${moduleList}`;
 
     let parsed;
     try {
-      const clean = raw.replace(/^```json\s*/i, '').replace(/^```\s*/i, '').replace(/```\s*$/i, '').trim();
-      parsed = JSON.parse(clean);
+      // Strip markdown fences, then extract the outermost JSON array
+      const stripped = raw.replace(/^```json\s*/i, '').replace(/^```\s*/i, '').replace(/```\s*$/i, '').trim();
+      const start = stripped.indexOf('[');
+      const end = stripped.lastIndexOf(']');
+      if (start === -1 || end === -1) throw new Error('No JSON array found');
+      parsed = JSON.parse(stripped.slice(start, end + 1));
     } catch {
       return res.status(500).json({ error: 'Failed to parse announcement response as JSON.', raw });
     }
