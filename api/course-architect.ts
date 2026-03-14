@@ -94,7 +94,7 @@ Generate all ${clampedWeeks} weekly modules. Keep each announcement to 60–80 w
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        model: 'grok-4-latest',
+        model: 'grok-3-mini',
         max_tokens: 2500,
         messages: [
           { role: 'system', content: SYSTEM_PROMPT },

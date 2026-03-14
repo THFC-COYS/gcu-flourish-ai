@@ -84,7 +84,7 @@ ${moduleList}`;
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        model: 'grok-4-latest',
+        model: 'grok-3-mini',
         max_tokens: spec.maxTokens,
         messages: [
           {
