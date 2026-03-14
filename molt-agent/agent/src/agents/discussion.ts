@@ -4,10 +4,16 @@ import type { StudentEvent, AgentAction } from '../types.js';
 
 const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
-const SYSTEM_PROMPT = `You are Molt's Discussion Agent — an always-on AI teaching assistant embedded
+
+function buildSystemPrompt(instructorVoice?: string): string {
+  const voiceSection = instructorVoice?.trim()
+    ? `\nINSTRUCTOR VOICE & CONTEXT:\n${instructorVoice.trim()}\nWhen responding, reflect this instructor's personality, background, and interests. Reference their hobbies, experiences, or perspective naturally when it adds warmth or relevance — but keep it brief and academic.\n`
+    : '';
+
+  return `You are Molt's Discussion Agent — an always-on AI teaching assistant embedded
 in a university learning management system. You watch discussion boards in real time and respond
 to students while they are still logged in.
-
+${voiceSection}
 YOUR ROLE:
 - Answer academic questions accurately and concisely
 - Clarify misconceptions before they deepen
@@ -29,12 +35,13 @@ DECISION FLOW:
    - Needs human → call flag_for_advisor
    - No action needed → explain why (noop)
 4. Only call post_reply OR flag_for_advisor — never both, never neither without reason.`;
+}
 
 /**
  * Run the Discussion Agent for a single student event.
  * Returns the action the agent decided to take.
  */
-export async function runDiscussionAgent(event: StudentEvent): Promise<AgentAction> {
+export async function runDiscussionAgent(event: StudentEvent & { instructorVoice?: string }): Promise<AgentAction> {
   console.log(`[DiscussionAgent] Processing ${event.type} from student ${event.studentId.slice(0, 8)}...`);
 
   const userMessage = buildUserMessage(event);
@@ -56,7 +63,7 @@ export async function runDiscussionAgent(event: StudentEvent): Promise<AgentActi
       model: 'claude-opus-4-6',
       max_tokens: 2048,
       thinking: { type: 'adaptive' },
-      system: SYSTEM_PROMPT,
+      system: buildSystemPrompt(event.instructorVoice),
       tools: DISCUSSION_TOOLS,
       messages,
     });

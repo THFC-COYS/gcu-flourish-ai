@@ -30,6 +30,7 @@ import MoltedImagoOS from './pages/molted/MoltedImagoOS';
 import MoltedMasteryAi from './pages/molted/MoltedMasteryAi';
 import MoltedAbout from './pages/molted/MoltedAbout';
 import MoltedFoundingPartners from './pages/molted/MoltedFoundingPartners';
+import LiveAgentDemo from './pages/molted/LiveAgentDemo';
 import DiscussionDemo from './pages/molted/DiscussionDemo';
 import CourseArchitect from './pages/molted/CourseArchitect';
 import AgenticGrader from './pages/molted/AgenticGrader';
@@ -106,6 +107,7 @@ export default function App() {
             <Route path="/molted/teachos/agentic-grader" element={<AgenticGrader />} />
             <Route path="/molted/teachos/auto-respond" element={<AutoRespond />} />
             <Route path="/molted/teachos/early-warning" element={<EarlyWarning />} />
+            <Route path="/molted/teachos/live-demo" element={<LiveAgentDemo />} />
             <Route path="/*" element={<ProtectedRoutes />} />
           </Routes>
         </BrowserRouter>

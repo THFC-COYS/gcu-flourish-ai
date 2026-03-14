@@ -1,26 +1,79 @@
 /**
- * Molt Agent — WebSocket Server
+ * Molt Agent — WebSocket + HTTP Server
  *
- * Receives student events from the browser extension,
- * routes them to the appropriate agent, and pushes
- * the agent's action back to the connected student session.
+ * Receives student events from the browser extension via WebSocket,
+ * and exposes a REST endpoint for the demo UI (/api/reply).
  */
 
+import { createServer, IncomingMessage, ServerResponse } from 'http';
 import { WebSocketServer, WebSocket } from 'ws';
 import type { StudentEvent, ConnectedSession, AgentMessage } from './types.js';
 import { runDiscussionAgent } from './agents/discussion.js';
 
 const PORT = Number(process.env.PORT ?? 3001);
-const wss = new WebSocketServer({ port: PORT });
 
-// ── Session registry ────────────────────────────────────────────────────────
+// ── HTTP server (also hosts WebSocket) ─────────────────────────────────────
+const httpServer = createServer((req: IncomingMessage, res: ServerResponse) => {
+  // CORS for local dev
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  if (req.method === 'OPTIONS') {
+    res.writeHead(204);
+    res.end();
+    return;
+  }
+
+  if (req.method === 'POST' && req.url === '/api/reply') {
+    handleReplyRequest(req, res);
+    return;
+  }
+
+  res.writeHead(404, { 'Content-Type': 'application/json' });
+  res.end(JSON.stringify({ error: 'Not found' }));
+});
+
+async function handleReplyRequest(req: IncomingMessage, res: ServerResponse) {
+  let body = '';
+  req.on('data', (chunk) => (body += chunk));
+  req.on('end', async () => {
+    try {
+      const { prompt, studentPost, courseId = 'demo-101', voice = '' } = JSON.parse(body);
+
+      const event: StudentEvent & { instructorVoice?: string } = {
+        type: 'discussion.post',
+        lms: 'canvas',
+        studentId: 'demo-student',
+        courseId,
+        threadId: 'demo-thread',
+        content: studentPost,
+        threadContext: prompt
+          ? [{ author: 'instructor', content: prompt, timestamp: Date.now() - 60_000 }]
+          : [],
+        pageTitle: 'Live Demo Discussion',
+        timestamp: Date.now(),
+        sessionId: crypto.randomUUID(),
+        instructorVoice: voice,
+      };
+
+      const action = await runDiscussionAgent(event);
+
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify(action));
+    } catch (err) {
+      console.error('[Molt] /api/reply error:', err);
+      res.writeHead(500, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ error: 'Agent failed' }));
+    }
+  });
+}
+
+// ── WebSocket server (shared HTTP server) ──────────────────────────────────
+const wss = new WebSocketServer({ server: httpServer });
+
 // Maps sessionId → WebSocket so we can route replies back to the right student
 const sessions = new Map<string, ConnectedSession>();
-
-wss.on('listening', () => {
-  console.log(`[Molt] Agent server running on ws://localhost:${PORT}`);
-  console.log('[Molt] Waiting for browser extension connections...');
-});
 
 wss.on('connection', (ws: WebSocket) => {
   let sessionId: string | null = null;
@@ -49,7 +102,6 @@ wss.on('connection', (ws: WebSocket) => {
     console.log(`\n[Molt] ← ${event.type} from ${event.lms} course ${event.courseId}`);
     console.log(`[Molt]   Content: "${event.content.slice(0, 80)}..."`);
 
-    // Route to agent asynchronously — don't block the WS thread
     handleEvent(event, ws).catch((err) => {
       console.error('[Molt] Agent error:', err);
     });
@@ -67,7 +119,6 @@ wss.on('connection', (ws: WebSocket) => {
   });
 });
 
-// ── Route event to the correct agent ───────────────────────────────────────
 async function handleEvent(event: StudentEvent, ws: WebSocket) {
   let action;
 
@@ -76,24 +127,13 @@ async function handleEvent(event: StudentEvent, ws: WebSocket) {
     case 'discussion.reply':
       action = await runDiscussionAgent(event);
       break;
-
-    // Future agents plug in here:
-    // case 'question.asked':
-    //   action = await runQAAgent(event);
-    //   break;
-    // case 'assignment.opened':
-    //   action = await runEarlyWarningAgent(event);
-    //   break;
-
     default:
       console.log(`[Molt] No agent for event type: ${event.type}`);
       return;
   }
 
-  // Only send back to client if they're still connected
   if (ws.readyState !== WebSocket.OPEN) {
     console.log('[Molt] Student disconnected before agent finished — action queued for next login');
-    // TODO: persist to DB for delivery on next session
     return;
   }
 
@@ -102,13 +142,18 @@ async function handleEvent(event: StudentEvent, ws: WebSocket) {
   console.log(`[Molt] → Sent ${action.type} to session ${event.sessionId.slice(0, 8)}...`);
 }
 
-// ── Graceful shutdown ───────────────────────────────────────────────────────
+// ── Start ───────────────────────────────────────────────────────────────────
+httpServer.listen(PORT, () => {
+  console.log(`[Molt] Agent server running on http://localhost:${PORT} + ws://localhost:${PORT}`);
+  console.log('[Molt] POST /api/reply ready for demo UI');
+});
+
 process.on('SIGTERM', () => {
   console.log('[Molt] Shutting down...');
-  wss.close(() => process.exit(0));
+  httpServer.close(() => process.exit(0));
 });
 
 process.on('SIGINT', () => {
   console.log('[Molt] Shutting down...');
-  wss.close(() => process.exit(0));
+  httpServer.close(() => process.exit(0));
 });
