@@ -91,7 +91,7 @@ function Hero() {
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
           </a>
           <Link
-            to="/molted/campus-os"
+            to="/molted/outpost"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl font-semibold text-base text-molted-muted hover:text-molted-white border border-molted-border hover:border-molted-subtle transition-all"
           >
             Explore the Platform
@@ -211,6 +211,67 @@ function ThePlatform() {
   );
 }
 
+/* ── Data Flywheel ─────────────────────────────────────────────────────── */
+function DataFlywheel() {
+  return (
+    <section className="py-24 px-6 border-t border-molted-border relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse at 60% 50%, rgba(232,160,32,0.04) 0%, transparent 65%)' }} />
+      <div className="max-w-5xl mx-auto relative z-10">
+        <RevealBlock className="text-center mb-16">
+          <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">The moat</p>
+          <h2 className="text-3xl md:text-5xl font-black text-molted-white leading-tight tracking-tight">
+            The platform gets smarter
+          </h2>
+          <p className="text-3xl md:text-5xl font-black leading-tight tracking-tight mt-2"
+            style={{
+              background: 'linear-gradient(120deg, #E8A020, #F5B740)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
+          >
+            with every interaction.
+          </p>
+          <p className="mt-8 text-molted-muted text-lg leading-relaxed max-w-2xl mx-auto">
+            Every discussion reply, every intervention, every personalized response feeds back into Molt's understanding of how that student learns. The data flywheel compounds. Institutions that deploy early build an advantage that can't be replicated — the model trained on their students, their courses, their outcomes.
+          </p>
+        </RevealBlock>
+
+        <div className="grid md:grid-cols-4 gap-4">
+          {[
+            { step: '01', label: 'Student interacts', detail: 'Discussion, reading, assignment — every signal captured' },
+            { step: '02', label: 'Agent responds', detail: 'Personalized, in context, in real time' },
+            { step: '03', label: 'Outcome logged', detail: 'What worked, what escalated, what resolved' },
+            { step: '04', label: 'Platform learns', detail: 'Every institution builds its own compound advantage' },
+          ].map((s, i) => (
+            <RevealBlock key={i} delay={i * 80}>
+              <div
+                className="rounded-xl p-5 border h-full"
+                style={{ background: 'rgba(17,17,24,0.6)', borderColor: 'rgba(232,160,32,0.12)' }}
+              >
+                <p
+                  className="text-3xl font-black mb-3 leading-none"
+                  style={{
+                    background: 'linear-gradient(120deg, #E8A020, #F5B740)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    backgroundClip: 'text',
+                  }}
+                >
+                  {s.step}
+                </p>
+                <p className="text-molted-white font-bold text-sm mb-1">{s.label}</p>
+                <p className="text-molted-subtle text-xs leading-relaxed">{s.detail}</p>
+              </div>
+            </RevealBlock>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ── Three Roles ───────────────────────────────────────────────────────── */
 const ROLES = [
   {
@@ -312,6 +373,52 @@ function ThreeRoles() {
   );
 }
 
+/* ── Instructor First ──────────────────────────────────────────────────── */
+function InstructorFirst() {
+  return (
+    <section className="py-20 px-6 border-t border-molted-border">
+      <div className="max-w-5xl mx-auto">
+        <RevealBlock>
+          <div
+            className="rounded-2xl border p-10 md:p-14 flex flex-col md:flex-row items-center gap-10"
+            style={{ background: 'linear-gradient(135deg, rgba(45,212,191,0.04) 0%, rgba(17,17,24,0.6) 50%, rgba(45,212,191,0.03) 100%)', borderColor: 'rgba(45,212,191,0.15)' }}
+          >
+            <div className="flex-1 text-center md:text-left">
+              <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: '#2DD4BF' }}>
+                The agent augments. The instructor leads.
+              </p>
+              <h2 className="text-2xl md:text-4xl font-black text-molted-white leading-tight tracking-tight mb-4">
+                AI handles the admin.<br />You do the teaching.
+              </h2>
+              <p className="text-molted-muted text-base leading-relaxed max-w-xl">
+                Molt isn't a replacement. The best teachers in the world deserve the best tools — and that means an AI that handles the 23 hours of weekly overhead so they can spend their time on what only a human can do: mentor, inspire, challenge, connect.
+              </p>
+            </div>
+            <div className="flex-shrink-0 grid grid-cols-1 gap-3 w-full md:w-72">
+              {[
+                { human: 'Mentorship', ai: 'Discussion replies' },
+                { human: 'Office hours', ai: 'After-hours support' },
+                { human: 'Curriculum design', ai: 'Course infrastructure' },
+                { human: 'Student relationships', ai: 'Early warning detection' },
+              ].map((row, i) => (
+                <div
+                  key={i}
+                  className="flex items-center justify-between rounded-lg px-4 py-2.5 text-xs"
+                  style={{ background: 'rgba(45,212,191,0.06)', border: '1px solid rgba(45,212,191,0.1)' }}
+                >
+                  <span className="font-bold text-molted-white">{row.human}</span>
+                  <span className="text-molted-subtle">→</span>
+                  <span style={{ color: '#2DD4BF' }}>{row.ai}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </RevealBlock>
+      </div>
+    </section>
+  );
+}
+
 /* ── Traction ──────────────────────────────────────────────────────────── */
 function Traction() {
   return (
@@ -361,7 +468,7 @@ function CampusBridge() {
       <div className="max-w-6xl mx-auto">
         <RevealBlock>
           <Link
-            to="/molted/campus-os"
+            to="/molted/outpost"
             className="group block relative rounded-3xl overflow-hidden border border-molted-border p-12 md:p-16 text-center hover:border-opacity-60 transition-all duration-500"
             style={{ background: 'rgba(10,10,15,0.8)' }}
           >
@@ -378,7 +485,7 @@ function CampusBridge() {
               </div>
               <h2 className="text-5xl md:text-7xl font-black tracking-tight mb-6"
                 style={{ background: 'linear-gradient(135deg,#2DD4BF 0%,#E8A020 50%,#E8170F 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                Campus
+                Outpost
               </h2>
               <p className="text-xl md:text-2xl text-molted-white/80 font-semibold mb-4 max-w-xl mx-auto">
                 Every agent. Every role. One platform.
@@ -388,7 +495,7 @@ function CampusBridge() {
               </p>
               <div className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all group-hover:-translate-y-0.5"
                 style={{ background: 'linear-gradient(120deg,#2DD4BF,#E8A020,#E8170F)', color: '#0A0A0F' }}>
-                See Campus <ArrowRight size={14} />
+                See Outpost <ArrowRight size={14} />
               </div>
             </div>
           </Link>
@@ -406,17 +513,37 @@ function Manifesto() {
         style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(45,212,191,0.03) 0%, transparent 70%)' }} />
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <RevealBlock>
+          <p className="text-molted-subtle text-sm uppercase tracking-widest mb-8 font-semibold">Our belief</p>
           {[
-            { text: 'Education is the highest-leverage act', accent: false },
-            { text: 'in human civilization.', accent: false },
-            { text: 'We are building the tools', accent: false },
-            { text: 'that make it radically better.', accent: true },
+            { text: 'Everything that has been invented', accent: false },
+            { text: 'will need to be reinvented.', accent: true },
+            { text: 'This starts with education.', accent: false },
           ].map((line, i) => (
             <p key={i} className={`text-3xl md:text-5xl font-black leading-tight tracking-tight ${line.accent ? 'text-molted-violet' : 'text-molted-white'}`}>
               {line.text}
             </p>
           ))}
-          <p className="mt-10 text-molted-muted text-sm tracking-widest">— Molt</p>
+          <p className="mt-10 text-molted-muted text-base leading-relaxed max-w-xl mx-auto">
+            The LMS was built for a world without AI. The curriculum was built for a world without the internet. The classroom was built for a world without remote work. We are building for what comes next.
+          </p>
+          <p className="mt-6 text-molted-subtle text-sm tracking-widest">— Molt Education</p>
+        </RevealBlock>
+
+        <RevealBlock delay={200} className="mt-16">
+          <div
+            className="rounded-2xl border px-8 py-6 max-w-2xl mx-auto"
+            style={{ background: 'rgba(139,92,246,0.06)', borderColor: 'rgba(139,92,246,0.2)' }}
+          >
+            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: '#8B5CF6' }}>
+              The long game
+            </p>
+            <p className="text-molted-white text-lg font-semibold leading-snug">
+              Every student, regardless of zip code or institution budget, deserves a learning environment that knows their name.
+            </p>
+            <p className="text-molted-muted text-sm leading-relaxed mt-3">
+              The institutions deploying Molt today are proof. The long-term vision is access — bringing hyperpersonalized learning to under-resourced schools, rural campuses, and community colleges that can't afford a 1:1 tutor for every student. The platform scales. The mission doesn't change.
+            </p>
+          </div>
         </RevealBlock>
       </div>
     </section>
@@ -461,7 +588,9 @@ export default function MoltedHome() {
       <Hero />
       <TheProblem />
       <ThePlatform />
+      <DataFlywheel />
       <ThreeRoles />
+      <InstructorFirst />
       <Traction />
       <CampusBridge />
       <Manifesto />

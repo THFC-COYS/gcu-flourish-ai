@@ -75,11 +75,11 @@ function Hero() {
       {/* Eyebrow */}
       <RevealBlock className="mb-8">
         <Link
-          to="/molted/campus-os"
+          to="/molted/outpost"
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border text-xs font-semibold tracking-widest uppercase hover:opacity-80 transition-opacity"
           style={{ borderColor: 'rgba(245,183,64,0.25)', background: 'rgba(245,183,64,0.05)', color: IMAGO_AMBER }}
         >
-          Built on CampusOS
+          Built on Outpost
           <ChevronRight size={11} />
         </Link>
       </RevealBlock>
@@ -131,10 +131,10 @@ function Hero() {
           <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
         </a>
         <Link
-          to="/molted/campus-os"
+          to="/molted/outpost"
           className="text-sm font-semibold text-molted-muted hover:text-molted-white transition-colors flex items-center gap-1.5"
         >
-          Start with CampusOS <ChevronRight size={13} />
+          Start with Outpost <ChevronRight size={13} />
         </Link>
       </RevealBlock>
 
@@ -196,7 +196,7 @@ function TheMoltMetaphor() {
 
           <RevealBlock delay={180}>
             <p className="text-molted-white/80 text-lg leading-relaxed">
-              CampusOS is the shedding — the replacement infrastructure, built AI-native from
+              Outpost is the shedding — the replacement infrastructure, built AI-native from
               the first line of code. But infrastructure is the means, not the end.
             </p>
           </RevealBlock>
@@ -233,7 +233,7 @@ function ThreeStages() {
     },
     {
       label: 'Stage 2',
-      name: 'CampusOS',
+      name: 'Outpost',
       color: '#E8A020',
       bg: 'rgba(232,160,32,0.05)',
       border: 'rgba(232,160,32,0.2)',
@@ -316,7 +316,7 @@ function ThreeStages() {
         <RevealBlock delay={500} className="mt-6 flex justify-center items-center gap-4 text-molted-subtle text-xs font-semibold uppercase tracking-widest">
           <span style={{ color: '#E8170F' }}>Old Skin</span>
           <ChevronRight size={14} />
-          <span style={{ color: '#E8A020' }}>CampusOS</span>
+          <span style={{ color: '#E8A020' }}>Outpost</span>
           <ChevronRight size={14} />
           <span style={{ color: IMAGO_AMBER }}>Imago</span>
         </RevealBlock>
@@ -344,7 +344,7 @@ const DIFFERENCES = [
   },
   {
     headline: 'No walls.',
-    body: 'Learning extends beyond graduation. CampusOS follows learners into careers, continuing education, and lifelong development. The institution never loses the relationship.',
+    body: 'Learning extends beyond graduation. Outpost follows learners into careers, continuing education, and lifelong development. The institution never loses the relationship.',
     color: IMAGO_GOLD,
   },
 ];
@@ -424,7 +424,7 @@ function Architecture() {
             The stack
           </p>
           <h2 className="text-4xl md:text-6xl font-black text-molted-white tracking-tight leading-tight">
-            Imago = Campus +<br />all 8 modules, fully deployed.
+            Imago = Outpost +<br />all 8 modules, fully deployed.
           </h2>
           <p className="mt-6 text-molted-muted text-base max-w-xl mx-auto leading-relaxed">
             Each module can be adopted individually. Imago is the state you reach
@@ -465,7 +465,7 @@ function Architecture() {
           </div>
         </RevealBlock>
 
-        {/* CampusOS layer */}
+        {/* Outpost layer */}
         <RevealBlock delay={100}>
           <div className="flex justify-center mb-4">
             <div
@@ -474,7 +474,7 @@ function Architecture() {
             />
           </div>
           <Link
-            to="/molted/campus-os"
+            to="/molted/outpost"
             className="group flex justify-center mb-4"
           >
             <div
@@ -493,7 +493,7 @@ function Architecture() {
                   backgroundClip: 'text',
                 }}
               >
-                CampusOS
+                Outpost
               </p>
               <p className="text-molted-subtle text-xs mt-0.5">The AI-native LMS</p>
             </div>
@@ -595,7 +595,7 @@ function TransformCTA() {
             Ready to reach Imago?
           </h2>
           <p className="mt-6 text-molted-muted text-lg leading-relaxed">
-            Start with a single module. Build toward CampusOS.
+            Start with a single module. Build toward Outpost.
             Arrive at the final form.
           </p>
         </RevealBlock>
@@ -613,10 +613,10 @@ function TransformCTA() {
 
         <RevealBlock delay={340} className="mt-10 flex items-center justify-center gap-6 text-sm">
           <Link
-            to="/molted/campus-os"
+            to="/molted/outpost"
             className="text-molted-muted hover:text-molted-white transition-colors flex items-center gap-1.5"
           >
-            CampusOS <ChevronRight size={13} />
+            Outpost <ChevronRight size={13} />
           </Link>
           <span className="text-molted-border">·</span>
           <Link

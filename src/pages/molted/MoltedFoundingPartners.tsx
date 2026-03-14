@@ -245,7 +245,7 @@ function ThreeProducts() {
           </h2>
           <p className="mt-6 text-molted-muted text-lg max-w-2xl mx-auto">
             Each product solves a specific problem for a specific person.
-            All three feed into Campus — the AI-native LMS that replaces your infrastructure.
+            All three feed into Outpost — the AI-native LMS that replaces your infrastructure.
           </p>
         </RevealBlock>
 
@@ -377,7 +377,7 @@ function ThePlatform() {
           <h2 className="text-4xl md:text-6xl font-black text-molted-white tracking-tight leading-tight">
             Each product you adopt<br />
             <span style={{ background: `linear-gradient(120deg, ${GOLD}, ${TEAL}, ${VIOLET})`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-              builds toward Campus.
+              builds toward Outpost.
             </span>
           </h2>
           <p className="mt-6 text-molted-muted text-lg max-w-2xl mx-auto">
@@ -419,7 +419,7 @@ function ThePlatform() {
         </RevealBlock>
 
         <RevealBlock delay={380} className="mt-10">
-          <Link to="/molted/campus-os"
+          <Link to="/molted/outpost"
             className="inline-flex items-center gap-2 text-sm font-semibold transition-colors"
             style={{ color: GOLD }}>
             See the full platform <ChevronRight size={14} />
@@ -558,8 +558,8 @@ function TheAsk() {
             ← Back to Molt
           </Link>
           <span className="text-molted-border">·</span>
-          <Link to="/molted/campus-os" className="text-molted-muted hover:text-molted-white transition-colors flex items-center gap-1">
-            See Campus <ChevronRight size={13} />
+          <Link to="/molted/outpost" className="text-molted-muted hover:text-molted-white transition-colors flex items-center gap-1">
+            See Outpost <ChevronRight size={13} />
           </Link>
           <span className="text-molted-border">·</span>
           <Link to="/molted/imago-os" className="text-molted-muted hover:text-molted-white transition-colors flex items-center gap-1">

@@ -46,7 +46,7 @@ function RevealBlock({
   );
 }
 
-/* ── CampusOS accent tokens ─────────────────────────────────────────────── */
+/* ── Outpost accent tokens ─────────────────────────────────────────────── */
 const CAMPUS_GOLD = '#E8A020';
 const CAMPUS_TEAL = '#2DD4BF';
 const CAMPUS_VIOLET = '#8B5CF6';
@@ -92,7 +92,7 @@ function Hero() {
       {/* Wordmark */}
       <RevealBlock delay={100}>
         <h1 className="text-7xl md:text-9xl font-black leading-none tracking-tight">
-          <span className="text-molted-white">Campus</span>
+          <span className="text-molted-white">Outpost</span>
           <span
             style={{
               background: CAMPUS_GRADIENT,
@@ -197,7 +197,7 @@ function InfrastructureProblem() {
 
           <RevealBlock delay={280}>
             <p className="text-molted-white text-lg font-semibold leading-relaxed">
-              CampusOS starts from scratch. Built for the world that exists now.
+              Outpost starts from scratch. Built for the world that exists now.
             </p>
           </RevealBlock>
         </div>
@@ -206,8 +206,8 @@ function InfrastructureProblem() {
   );
 }
 
-/* ── What CampusOS Removes ──────────────────────────────────────────────── */
-function WhatCampusOSRemoves() {
+/* ── What Outpost Removes ──────────────────────────────────────────────── */
+function WhatOutpostRemoves() {
   const oldAssumptions = [
     'Fixed semester calendar',
     'Same course for every student',
@@ -222,7 +222,7 @@ function WhatCampusOSRemoves() {
     'Mastery replaces grades',
     'Everything is connected',
     'Education is lifelong',
-    'Learning happens everywhere CampusOS is',
+    'Learning happens everywhere Outpost is',
   ];
 
   return (
@@ -347,7 +347,7 @@ function PlatformArchitecture() {
             The platform
           </p>
           <h2 className="text-4xl md:text-6xl font-black text-molted-white tracking-tight leading-tight">
-            Everything feeds CampusOS.
+            Everything feeds Outpost.
           </h2>
         </RevealBlock>
 
@@ -360,7 +360,7 @@ function PlatformArchitecture() {
           </div>
         </RevealBlock>
 
-        {/* Central CampusOS card */}
+        {/* Central Outpost card */}
         <RevealBlock delay={220}>
           <div className="flex justify-center my-4">
             <div
@@ -383,7 +383,7 @@ function PlatformArchitecture() {
                   backgroundClip: 'text',
                 }}
               >
-                CampusOS
+                Outpost
               </h3>
               <p className="text-molted-muted text-sm">The AI-native LMS</p>
               <p className="mt-4 text-xs text-molted-subtle italic">
@@ -427,7 +427,7 @@ const PRINCIPLES: { heading: string; body: string; color: string }[] = [
   },
   {
     heading: 'No end.',
-    body: 'CampusOS follows learners into careers, continuing education, and lifelong development.',
+    body: 'Outpost follows learners into careers, continuing education, and lifelong development.',
     color: CAMPUS_VIOLET,
   },
 ];
@@ -441,7 +441,7 @@ function ThreePrinciples() {
             First principles
           </p>
           <h2 className="text-4xl md:text-6xl font-black text-molted-white tracking-tight">
-            Three things CampusOS doesn't have.
+            Three things Outpost doesn't have.
           </h2>
         </RevealBlock>
 
@@ -523,7 +523,7 @@ function VisionStatement() {
               >
                 ImagoOS — The final form
               </p>
-              <p className="text-molted-subtle text-xs mt-0.5">CampusOS is the path. This is where it leads.</p>
+              <p className="text-molted-subtle text-xs mt-0.5">Outpost is the path. This is where it leads.</p>
             </div>
             <ChevronRight size={14} className="text-molted-subtle group-hover:translate-x-0.5 transition-transform ml-1" />
           </Link>
@@ -553,7 +553,7 @@ function WaitlistCTA() {
             Private Development
           </p>
           <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight leading-tight">
-            CampusOS is in private development.
+            Outpost is in private development.
           </h2>
           <p className="mt-6 text-molted-muted text-lg leading-relaxed">
             Currently accepting{' '}
@@ -617,12 +617,12 @@ function WaitlistCTA() {
 }
 
 /* ── Page ──────────────────────────────────────────────────────────────── */
-export default function MoltedCampusOS() {
+export default function MoltedOutpost() {
   return (
     <MoltedLayout>
       <Hero />
       <InfrastructureProblem />
-      <WhatCampusOSRemoves />
+      <WhatOutpostRemoves />
       <PlatformArchitecture />
       <ThreePrinciples />
       <VisionStatement />

@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { BookOpen, MessageSquare, Zap, GraduationCap, ArrowRight, Check, Users, Target, Clock } from 'lucide-react';
-import MoltedLayout, { CampusOSBanner } from './MoltedLayout';
+import MoltedLayout, { OutpostBanner } from './MoltedLayout';
 
 function useReveal() {
   const ref = useRef<HTMLDivElement>(null);
@@ -435,7 +435,7 @@ function CTA() {
 export default function MoltedPAIgeBreaker() {
   return (
     <MoltedLayout>
-      <CampusOSBanner moduleName="Read" moduleColor="#E8A020" />
+      <OutpostBanner moduleName="Read" moduleColor="#E8A020" />
       <Hero />
       <TheInsight />
       <HowItWorks />
