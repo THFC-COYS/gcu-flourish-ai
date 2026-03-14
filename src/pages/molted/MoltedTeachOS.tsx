@@ -1104,24 +1104,133 @@ function AgenticFuture() {
 }
 
 /* ── How It Works ──────────────────────────────────────────────────────── */
+/* ── Faculty Voice ──────────────────────────────────────────────────────── */
+function FacultyVoice() {
+  const voiceInputs = [
+    {
+      icon: GraduationCap,
+      label: 'Your background',
+      example: '"15 years in trauma nursing before teaching. I have seen what happens when students aren\'t prepared."',
+      why: 'Forge grounds every response in real-world authority — not textbook authority.',
+    },
+    {
+      icon: Sparkles,
+      label: 'Your passion',
+      example: '"I love when students connect theory to what\'s happening in the world right now. That click is everything."',
+      why: 'Replies reflect genuine enthusiasm — students feel the care, not the algorithm.',
+    },
+    {
+      icon: BrainCircuit,
+      label: 'Your teaching style',
+      example: '"I push students with Socratic questions. I rarely give the answer directly — I guide them there."',
+      why: 'Forge asks follow-up questions the same way you would, not the way a chatbot would.',
+    },
+    {
+      icon: UserCog,
+      label: 'Your hobbies & life',
+      example: '"I coach my kid\'s soccer team. I use game-film breakdowns as metaphors constantly."',
+      why: 'The small personal details are what make a reply feel human. Students notice.',
+    },
+  ];
+
+  return (
+    <section className="py-28 px-6 border-t border-molted-border relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse at 40% 50%, rgba(45,212,191,0.04) 0%, transparent 65%)' }} />
+      <div className="max-w-5xl mx-auto relative z-10">
+        <RevealBlock className="text-center mb-6">
+          <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: TEAL }}>
+            Faculty in the loop
+          </p>
+          <h2 className="text-4xl md:text-5xl font-black text-molted-white leading-tight tracking-tight">
+            The agent learns your voice.
+          </h2>
+          <p className="text-3xl md:text-4xl font-black leading-tight tracking-tight mt-2"
+            style={{ color: 'rgba(255,255,255,0.25)' }}>
+            Students never lose you.
+          </p>
+        </RevealBlock>
+
+        <RevealBlock delay={100} className="text-center mb-16">
+          <p className="text-molted-muted text-lg leading-relaxed max-w-2xl mx-auto">
+            Forge doesn't replace you. It studies you. Every discussion reply, every intervention, every check-in is written in your voice — shaped by your background, your passions, and the way you actually teach. The instructor is still the soul of this.
+          </p>
+        </RevealBlock>
+
+        <div className="grid md:grid-cols-2 gap-5 mb-14">
+          {voiceInputs.map((item, i) => {
+            const Icon = item.icon;
+            return (
+              <RevealBlock key={i} delay={i * 80}>
+                <div
+                  className="rounded-2xl border p-6 h-full"
+                  style={{ background: 'rgba(17,17,24,0.7)', borderColor: TEAL_BORDER }}
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
+                      style={{ background: TEAL_DIM }}>
+                      <Icon size={16} style={{ color: TEAL }} />
+                    </div>
+                    <p className="text-molted-white font-bold text-sm">{item.label}</p>
+                  </div>
+                  <div
+                    className="rounded-xl px-4 py-3 mb-4 text-xs leading-relaxed italic"
+                    style={{ background: 'rgba(45,212,191,0.06)', borderLeft: `2px solid ${TEAL}`, color: '#A0A0B0' }}
+                  >
+                    {item.example}
+                  </div>
+                  <p className="text-molted-subtle text-xs leading-relaxed">{item.why}</p>
+                </div>
+              </RevealBlock>
+            );
+          })}
+        </div>
+
+        <RevealBlock delay={200}>
+          <div
+            className="rounded-2xl border p-8 md:p-10 text-center"
+            style={{ background: 'linear-gradient(135deg, rgba(45,212,191,0.05) 0%, rgba(17,17,24,0.8) 100%)', borderColor: TEAL_BORDER, boxShadow: TEAL_GLOW }}
+          >
+            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: TEAL }}>
+              The rule
+            </p>
+            <p className="text-2xl md:text-3xl font-black text-molted-white leading-snug mb-4">
+              Nothing leaves without your approval.
+            </p>
+            <p className="text-molted-muted text-base leading-relaxed max-w-xl mx-auto">
+              Every discussion reply, every early-warning message, every graded response is surfaced to you first. You review. You approve. You can edit one word or rewrite from scratch. The agent does the first draft in your voice — you make the call.
+            </p>
+          </div>
+        </RevealBlock>
+      </div>
+    </section>
+  );
+}
+
 function HowItWorks() {
   const steps = [
     {
       num: '01',
       title: 'Install the extension.',
-      desc: 'Add the Teach browser extension in 30 seconds. No API credentials. No IT approval. It runs on top of whatever LMS you already use.',
+      desc: 'Add the Forge browser extension in 30 seconds. No API credentials. No IT approval. It runs on top of whatever LMS you already use.',
       icon: Layers,
     },
     {
       num: '02',
       title: 'Upload your syllabus.',
-      desc: 'Drop your syllabus and Forge extracts your learning objectives, schedule, policies, and voice. You configure once. It runs forever.',
+      desc: 'Drop your syllabus and Forge extracts your learning objectives, schedule, policies, and communication style. You configure once. It runs forever.',
       icon: UploadCloud,
     },
     {
       num: '03',
+      title: 'Tell Forge who you are.',
+      desc: 'Share your background, your passion for the subject, your hobbies, your teaching philosophy. The more you share, the more every agent response sounds like you — not a chatbot.',
+      icon: UserCog,
+    },
+    {
+      num: '04',
       title: 'Review. Approve. Done.',
-      desc: 'Everything Forge does gets surfaced for your review before it goes live. You stay in control. It does the heavy lifting.',
+      desc: 'Everything Forge does gets surfaced for your review before it goes live. You stay in control. The agent does the work — in your voice.',
       icon: CheckSquare,
     },
   ];
@@ -1136,7 +1245,7 @@ function HowItWorks() {
           </h2>
         </RevealBlock>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-4 gap-6">
           {steps.map((step, i) => {
             const Icon = step.icon;
             return (
@@ -1370,11 +1479,12 @@ function CTA() {
 export default function MoltedForge() {
   return (
     <MoltedLayout>
-      <OutpostBanner moduleName="Teach" moduleColor="#2DD4BF" />
+      <OutpostBanner moduleName="Forge" moduleColor="#2DD4BF" />
       <Hero />
       <TheProblem />
       <CoreTools />
       <AgentLoop />
+      <FacultyVoice />
       <ComingSoon />
       <LMSKiller />
       <AgenticFuture />

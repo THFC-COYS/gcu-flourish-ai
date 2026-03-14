@@ -376,43 +376,61 @@ function ThreeRoles() {
 /* ── Instructor First ──────────────────────────────────────────────────── */
 function InstructorFirst() {
   return (
-    <section className="py-20 px-6 border-t border-molted-border">
+    <section className="py-24 px-6 border-t border-molted-border">
       <div className="max-w-5xl mx-auto">
-        <RevealBlock>
-          <div
-            className="rounded-2xl border p-10 md:p-14 flex flex-col md:flex-row items-center gap-10"
-            style={{ background: 'linear-gradient(135deg, rgba(45,212,191,0.04) 0%, rgba(17,17,24,0.6) 50%, rgba(45,212,191,0.03) 100%)', borderColor: 'rgba(45,212,191,0.15)' }}
-          >
-            <div className="flex-1 text-center md:text-left">
-              <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: '#2DD4BF' }}>
-                The agent augments. The instructor leads.
-              </p>
-              <h2 className="text-2xl md:text-4xl font-black text-molted-white leading-tight tracking-tight mb-4">
-                AI handles the admin.<br />You do the teaching.
-              </h2>
-              <p className="text-molted-muted text-base leading-relaxed max-w-xl">
-                Molt isn't a replacement. The best teachers in the world deserve the best tools — and that means an AI that handles the 23 hours of weekly overhead so they can spend their time on what only a human can do: mentor, inspire, challenge, connect.
-              </p>
-            </div>
-            <div className="flex-shrink-0 grid grid-cols-1 gap-3 w-full md:w-72">
-              {[
-                { human: 'Mentorship', ai: 'Discussion replies' },
-                { human: 'Office hours', ai: 'After-hours support' },
-                { human: 'Curriculum design', ai: 'Course infrastructure' },
-                { human: 'Student relationships', ai: 'Early warning detection' },
-              ].map((row, i) => (
-                <div
-                  key={i}
-                  className="flex items-center justify-between rounded-lg px-4 py-2.5 text-xs"
-                  style={{ background: 'rgba(45,212,191,0.06)', border: '1px solid rgba(45,212,191,0.1)' }}
-                >
-                  <span className="font-bold text-molted-white">{row.human}</span>
-                  <span className="text-molted-subtle">→</span>
-                  <span style={{ color: '#2DD4BF' }}>{row.ai}</span>
+        <RevealBlock className="text-center mb-14">
+          <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: '#2DD4BF' }}>
+            Faculty in the loop
+          </p>
+          <h2 className="text-3xl md:text-5xl font-black text-molted-white leading-tight tracking-tight">
+            The agent learns your voice.
+          </h2>
+          <p className="text-3xl md:text-5xl font-black leading-tight tracking-tight mt-1"
+            style={{ color: 'rgba(255,255,255,0.25)' }}>
+            Students never lose you.
+          </p>
+          <p className="mt-6 text-molted-muted text-lg leading-relaxed max-w-2xl mx-auto">
+            Molt is not a chatbot standing in for your instructor. It is your instructor's voice, deployed everywhere you cannot be at once. Forge learns your background, your passions, your hobbies, your teaching style — and every response it drafts sounds like you wrote it.
+          </p>
+        </RevealBlock>
+
+        <div className="grid md:grid-cols-2 gap-5 mb-8">
+          {[
+            { num: '01', title: 'Forge learns your story', body: 'Your years in the field. Your subject obsessions. Your coaching style. The hobbies that show up in your lectures. You share it once — it informs every response, forever.' },
+            { num: '02', title: 'Forge learns your voice', body: 'Upload your syllabus, paste your rubrics, describe how you talk to students. Forge reads your tone and matches it — not a generic AI template.' },
+            { num: '03', title: 'Forge drafts in your name', body: 'When a student posts at midnight, Forge drafts a reply grounded in your teaching philosophy and your personality. You review before anything sends.' },
+            { num: '04', title: 'You always have the last word', body: 'Nothing goes to a student without your approval. Every draft surfaces for your review. The instructor leads. The agent lifts.' },
+          ].map((item, i) => (
+            <RevealBlock key={i} delay={i * 80}>
+              <div
+                className="rounded-xl border p-6"
+                style={{ background: 'rgba(17,17,24,0.6)', borderColor: 'rgba(45,212,191,0.12)' }}
+              >
+                <div className="flex items-start gap-3">
+                  <div
+                    className="w-6 h-6 rounded-full flex-shrink-0 flex items-center justify-center text-[10px] font-black mt-0.5"
+                    style={{ background: 'rgba(45,212,191,0.15)', color: '#2DD4BF' }}
+                  >
+                    {item.num}
+                  </div>
+                  <div>
+                    <p className="text-molted-white font-bold text-sm mb-1.5">{item.title}</p>
+                    <p className="text-molted-muted text-xs leading-relaxed">{item.body}</p>
+                  </div>
                 </div>
-              ))}
-            </div>
-          </div>
+              </div>
+            </RevealBlock>
+          ))}
+        </div>
+
+        <RevealBlock delay={200} className="text-center">
+          <Link
+            to="/molted/forge"
+            className="inline-flex items-center gap-1.5 text-sm font-bold transition-opacity hover:opacity-70"
+            style={{ color: '#2DD4BF' }}
+          >
+            See how Forge learns your voice <ChevronRight size={14} />
+          </Link>
         </RevealBlock>
       </div>
     </section>
