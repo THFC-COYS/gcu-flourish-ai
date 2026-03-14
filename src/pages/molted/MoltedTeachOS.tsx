@@ -88,17 +88,18 @@ function Hero() {
       {/* Tagline */}
       <RevealBlock delay={200}>
         <p className="mt-8 text-2xl md:text-3xl font-black text-molted-white/80 tracking-tight max-w-2xl leading-snug">
-          The AI operating system<br />
-          <span className="text-molted-muted font-medium text-xl md:text-2xl">for every faculty member on earth.</span>
+          An AI that never leaves your classroom.
+          <br />
+          <span className="text-molted-muted font-medium text-xl md:text-2xl">Always watching. Always responding. Always on.</span>
         </p>
       </RevealBlock>
 
       {/* Sub */}
       <RevealBlock delay={300}>
         <p className="mt-6 text-molted-muted text-lg max-w-lg leading-relaxed">
-          TeachOS handles your course administration, grading, student communication,
-          and early intervention — so you can spend every hour doing the one thing
-          AI never will: actually teaching.
+          Teach watches every discussion board in real time. The moment a student
+          posts a question, the agent responds — while they're still on the page.
+          No integration. No IT project. Works on top of whatever LMS you already have.
         </p>
       </RevealBlock>
 
@@ -882,19 +883,131 @@ function ComingSoon() {
   );
 }
 
+/* ── Agent Loop ────────────────────────────────────────────────────────── */
+function AgentLoop() {
+  const steps = [
+    {
+      num: '01',
+      label: 'Student posts',
+      detail: 'Student types a question or reply in Canvas, Blackboard, or D2L.',
+      color: TEAL,
+    },
+    {
+      num: '02',
+      label: 'Agent detects it instantly',
+      detail: 'The Teach browser extension sees the DOM change via MutationObserver — no refresh, no polling.',
+      color: TEAL,
+    },
+    {
+      num: '03',
+      label: 'Claude evaluates context',
+      detail: 'The agent fetches course objectives and the student\'s history, then decides: respond, flag, or skip.',
+      color: TEAL,
+    },
+    {
+      num: '04',
+      label: 'Reply appears in real time',
+      detail: 'If the student is still on the page, the answer appears in the thread before they can even tab away.',
+      color: TEAL,
+    },
+  ];
+
+  return (
+    <section className="py-28 px-6 border-t border-molted-border relative overflow-hidden">
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(45,212,191,0.04) 0%, transparent 65%)' }}
+      />
+      <div className="max-w-5xl mx-auto relative z-10">
+        <RevealBlock className="text-center mb-16">
+          <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">How the agent works</p>
+          <h2 className="text-4xl md:text-6xl font-black text-molted-white tracking-tight leading-tight">
+            Zero seconds between<br />
+            <span style={{ color: TEAL }}>question and answer.</span>
+          </h2>
+          <p className="mt-6 text-molted-muted text-lg max-w-xl mx-auto">
+            Not a chatbot students have to open. An agent that finds them — in the thread,
+            while they're still there.
+          </p>
+        </RevealBlock>
+
+        {/* Flow steps */}
+        <div className="relative">
+          {/* Connecting line */}
+          <div
+            className="absolute left-7 top-8 bottom-8 w-px hidden md:block"
+            style={{ background: `linear-gradient(to bottom, ${TEAL}, rgba(45,212,191,0.1))` }}
+          />
+
+          <div className="space-y-6">
+            {steps.map((step, i) => (
+              <RevealBlock key={i} delay={i * 100}>
+                <div className="flex items-start gap-6 pl-0 md:pl-0">
+                  {/* Node */}
+                  <div
+                    className="w-14 h-14 rounded-2xl flex-shrink-0 flex items-center justify-center font-black text-sm relative z-10"
+                    style={{ background: `${TEAL}15`, border: `1px solid ${TEAL_BORDER}`, color: TEAL }}
+                  >
+                    {step.num}
+                  </div>
+                  {/* Content */}
+                  <div
+                    className="flex-1 rounded-2xl p-6 border"
+                    style={{ background: 'rgba(17,17,24,0.6)', borderColor: 'rgba(255,255,255,0.06)' }}
+                  >
+                    <p className="text-molted-white font-bold text-lg mb-1">{step.label}</p>
+                    <p className="text-molted-muted text-sm leading-relaxed">{step.detail}</p>
+                  </div>
+                </div>
+              </RevealBlock>
+            ))}
+          </div>
+        </div>
+
+        {/* No integration callout */}
+        <RevealBlock delay={500} className="mt-12">
+          <div
+            className="rounded-2xl p-6 border text-center"
+            style={{ background: `${TEAL}08`, borderColor: TEAL_BORDER }}
+          >
+            <p className="text-molted-white font-bold text-lg mb-2">
+              Works on top of any LMS. No API. No IT project.
+            </p>
+            <p className="text-molted-muted text-sm max-w-lg mx-auto">
+              Teach installs as a browser extension in 30 seconds. Canvas, Blackboard, D2L, Moodle —
+              if it runs in a browser, the agent runs on top of it.
+            </p>
+            <div className="mt-5 flex flex-wrap justify-center gap-3">
+              {['Canvas', 'Blackboard', 'D2L Brightspace', 'Moodle', 'Any web LMS'].map((lms) => (
+                <span
+                  key={lms}
+                  className="px-3 py-1.5 rounded-lg text-xs font-semibold"
+                  style={{ background: 'rgba(45,212,191,0.08)', border: `1px solid ${TEAL_BORDER}`, color: TEAL }}
+                >
+                  {lms}
+                </span>
+              ))}
+            </div>
+          </div>
+        </RevealBlock>
+      </div>
+    </section>
+  );
+}
+
 /* ── The Agentic Future ────────────────────────────────────────────────── */
 function AgenticFuture() {
   const milestones = [
     {
       phase: 'Today',
-      title: 'AI assists.',
-      items: ['Draft discussion responses', 'Grade with your rubric', 'Answer routine questions', 'Surface at-risk students'],
+      title: 'AI acts.',
+      items: ['Watches every discussion board in real time', 'Responds to student questions while they\'re still on the page', 'Grades with your rubric autonomously', 'Flags at-risk students before advisors know'],
       live: true,
     },
     {
       phase: 'Next',
-      title: 'AI acts.',
-      items: ['Post approved responses autonomously', 'Submit grades to the LMS directly', 'Send personalized student check-ins', 'Build next semester from this one'],
+      title: 'AI runs the course.',
+      items: ['Submits grades to the LMS directly', 'Sends personalized student check-ins', 'Holds office hours in your absence', 'Builds next semester from this one'],
       live: false,
     },
     {
@@ -993,8 +1106,8 @@ function HowItWorks() {
   const steps = [
     {
       num: '01',
-      title: 'Connect your LMS.',
-      desc: 'TeachOS integrates with Canvas, Blackboard, D2L, and Moodle. Your courses, students, submissions, and gradebook — synced in minutes.',
+      title: 'Install the extension.',
+      desc: 'Add the Teach browser extension in 30 seconds. No API credentials. No IT approval. It runs on top of whatever LMS you already use.',
       icon: Layers,
     },
     {
@@ -1259,6 +1372,7 @@ export default function MoltedTeachOS() {
       <Hero />
       <TheProblem />
       <CoreTools />
+      <AgentLoop />
       <ComingSoon />
       <LMSKiller />
       <AgenticFuture />
