@@ -73,16 +73,16 @@ function Hero() {
 
         {/* Tagline */}
         <p className="mt-8 text-2xl md:text-3xl font-bold text-molted-muted animate-reveal" style={{ animationDelay: '150ms' }}>
-          Reading just got smarter.
+          The tutor that reads with you.
         </p>
 
         <p className="mt-4 text-lg text-molted-muted/70 max-w-2xl mx-auto leading-relaxed animate-reveal" style={{ animationDelay: '250ms' }}>
-          Turn any textbook into a tutor. Any article into a conversation. Any confusion into clarity — instantly.
+          Read watches what you're reading. The moment you hit something confusing — a term you don't know, a paragraph that doesn't click — it answers. No search. No tab switching. Just understanding, right there on the page.
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 animate-reveal" style={{ animationDelay: '350ms' }}>
           <a
-            href="mailto:hello@molted.ai?subject=pAIgeBreaker Demo Request"
+            href="mailto:hello@molted.ai?subject=Read Demo Request"
             className="group flex items-center gap-2.5 px-8 py-4 rounded-xl bg-molted-violet hover:bg-molted-violet-light text-white font-bold text-lg transition-all duration-200 shadow-molted-violet hover:-translate-y-px"
           >
             Request Early Access
@@ -182,6 +182,95 @@ function HowItWorks() {
             </RevealBlock>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+/* ── How Read Works ────────────────────────────────────────────────────── */
+function HowReadWorks() {
+  const steps = [
+    {
+      num: '01',
+      title: 'You open your reading',
+      body: 'Canvas assignment, PDF, textbook, anything in your browser.',
+    },
+    {
+      num: '02',
+      title: 'Read is already watching',
+      body: 'The extension runs silently alongside whatever you\'re reading. No setup. No prompts.',
+    },
+    {
+      num: '03',
+      title: 'You hit something confusing',
+      body: 'Highlight a passage. Type a question. Or just pause — Read detects when you\'re stuck.',
+    },
+    {
+      num: '04',
+      title: 'Answer appears instantly',
+      body: 'Not a search result. Not a link. A direct answer, in context, while you\'re still on the page.',
+    },
+  ];
+
+  return (
+    <section className="py-24 px-6 border-t border-molted-border">
+      <div className="max-w-4xl mx-auto">
+        <RevealBlock className="text-center mb-16">
+          <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">How Read works</p>
+          <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight">
+            Always present. Always ready.
+          </h2>
+          <p className="mt-4 text-molted-muted text-lg max-w-xl mx-auto">
+            Read isn't something you open. It's already there — watching alongside you from the moment you start.
+          </p>
+        </RevealBlock>
+
+        <div className="relative">
+          {/* Vertical connector line */}
+          <div className="absolute left-6 top-8 bottom-8 w-px bg-gradient-to-b from-[#E8A020]/60 via-[#E8A020]/30 to-transparent hidden md:block" aria-hidden />
+
+          <div className="space-y-6">
+            {steps.map((step, i) => (
+              <RevealBlock key={i} delay={i * 130}>
+                <div className="relative flex items-start gap-6 bg-molted-elevated border border-molted-border rounded-2xl p-7 hover:border-[#E8A020]/30 hover:shadow-molted-card-hover transition-all">
+                  {/* Numbered node */}
+                  <div
+                    className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-black text-sm"
+                    style={{
+                      background: 'rgba(232,160,32,0.12)',
+                      border: '1.5px solid rgba(232,160,32,0.35)',
+                      color: '#E8A020',
+                    }}
+                  >
+                    {step.num}
+                  </div>
+                  <div>
+                    <h3 className="text-molted-white font-bold text-lg">{step.title}</h3>
+                    <p className="mt-1.5 text-molted-muted text-sm leading-relaxed">{step.body}</p>
+                  </div>
+                </div>
+              </RevealBlock>
+            ))}
+          </div>
+        </div>
+
+        {/* LMS callout */}
+        <RevealBlock delay={560} className="mt-10">
+          <div
+            className="rounded-2xl p-6 text-center border"
+            style={{
+              background: 'rgba(232,160,32,0.06)',
+              borderColor: 'rgba(232,160,32,0.25)',
+            }}
+          >
+            <p className="text-sm font-semibold uppercase tracking-widest mb-2" style={{ color: '#E8A020' }}>
+              Works on top of your LMS
+            </p>
+            <p className="text-molted-muted leading-relaxed">
+              Canvas, Blackboard, D2L, PDFs, web articles — if it's in your browser, Read works on it. No integration required.
+            </p>
+          </div>
+        </RevealBlock>
       </div>
     </section>
   );
@@ -324,7 +413,7 @@ function CTA() {
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="mailto:hello@molted.ai?subject=pAIgeBreaker Demo Request"
+              href="mailto:hello@molted.ai?subject=Read Demo Request"
               className="group flex items-center gap-2.5 px-8 py-4 rounded-xl bg-molted-violet hover:bg-molted-violet-light text-white font-bold text-lg transition-all hover:-translate-y-px shadow-molted-violet"
             >
               Request a Demo
@@ -350,6 +439,7 @@ export default function MoltedPAIgeBreaker() {
       <Hero />
       <TheInsight />
       <HowItWorks />
+      <HowReadWorks />
       <Features />
       <Audiences />
       <CTA />

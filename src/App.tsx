@@ -29,6 +29,7 @@ import MoltedCampusOS from './pages/molted/MoltedCampusOS';
 import MoltedImagoOS from './pages/molted/MoltedImagoOS';
 import MoltedMasteryAi from './pages/molted/MoltedMasteryAi';
 import MoltedAbout from './pages/molted/MoltedAbout';
+import MoltedFoundingPartners from './pages/molted/MoltedFoundingPartners';
 import DiscussionDemo from './pages/molted/DiscussionDemo';
 import CourseArchitect from './pages/molted/CourseArchitect';
 import AgenticGrader from './pages/molted/AgenticGrader';
@@ -99,6 +100,7 @@ export default function App() {
             <Route path="/molted/imago-os" element={<MoltedImagoOS />} />
             <Route path="/molted/mastery-ai" element={<MoltedMasteryAi />} />
             <Route path="/molted/about" element={<MoltedAbout />} />
+            <Route path="/molted/founding-partners" element={<MoltedFoundingPartners />} />
             <Route path="/molted/teachos/discussion" element={<DiscussionDemo />} />
             <Route path="/molted/teachos/course-architect" element={<CourseArchitect />} />
             <Route path="/molted/teachos/agentic-grader" element={<AgenticGrader />} />

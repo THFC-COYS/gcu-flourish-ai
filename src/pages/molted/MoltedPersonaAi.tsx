@@ -72,8 +72,7 @@ function Hero() {
         </p>
 
         <p className="mt-4 text-lg text-molted-muted/70 max-w-2xl mx-auto leading-relaxed animate-reveal" style={{ animationDelay: '250ms' }}>
-          Every institution has a character — a way of caring, teaching, and showing up.
-          Persona carries all of it into every conversation, at any hour.
+          Not a prototype. Already deployed. Six AI personas, one flagship university, 50,000+ students. Your institution's voice, present everywhere — in every college, every department, every question, at 2 AM.
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 animate-reveal" style={{ animationDelay: '350ms' }}>
@@ -95,6 +94,61 @@ function Hero() {
 
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-molted-subtle animate-pulse-slow">
         <div className="w-px h-10 bg-gradient-to-b from-molted-subtle to-transparent" />
+      </div>
+    </section>
+  );
+}
+
+/* ── Live proof ────────────────────────────────────────────────────────── */
+function LiveProof() {
+  const stats = [
+    { number: '6', label: 'AI personas deployed across 6 colleges' },
+    { number: '50,000+', label: 'Students served' },
+    { number: '24/7', label: 'Always on, no human required' },
+  ];
+
+  return (
+    <section className="py-20 px-6 border-t border-molted-border">
+      <div className="max-w-4xl mx-auto">
+        <RevealBlock className="text-center mb-12">
+          <p className="text-sm font-bold uppercase tracking-widest mb-3" style={{ color: '#E8170F' }}>
+            This is already running.
+          </p>
+          <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight">
+            Already deployed. Already working.
+          </h2>
+          <p className="mt-4 text-molted-muted text-lg max-w-2xl mx-auto leading-relaxed">
+            We didn't build a demo. We built it, deployed it, and ran it at scale. Here's what that looks like.
+          </p>
+        </RevealBlock>
+
+        <RevealBlock delay={150}>
+          <div className="grid grid-cols-3 gap-6 mb-8">
+            {stats.map((stat, i) => (
+              <div
+                key={i}
+                className="bg-molted-elevated border rounded-2xl p-8 text-center"
+                style={{ borderColor: 'rgba(232,23,15,0.25)' }}
+              >
+                <p className="text-5xl md:text-6xl font-black leading-none" style={{ color: '#E8170F' }}>
+                  {stat.number}
+                </p>
+                <p className="mt-3 text-molted-muted text-sm leading-snug">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </RevealBlock>
+
+        <RevealBlock delay={250} className="text-center">
+          <p className="text-molted-muted text-sm">
+            <span
+              className="inline-flex items-center gap-1.5"
+            >
+              <span className="w-2 h-2 rounded-full bg-emerald-400 inline-block animate-pulse" />
+              Live at a flagship university partner · Deployed 2024
+            </span>
+          </p>
+        </RevealBlock>
       </div>
     </section>
   );
@@ -228,8 +282,13 @@ function SpiritShowcase() {
                   }`}
                 >
                   <span className="text-xl flex-shrink-0">{s.icon}</span>
-                  <div className="min-w-0">
-                    <p className={`text-sm font-semibold ${active === i ? 'text-molted-white' : ''}`}>{s.name}</p>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <p className={`text-sm font-semibold ${active === i ? 'text-molted-white' : ''}`}>{s.name}</p>
+                      <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-emerald-400/15 text-emerald-400 border border-emerald-400/25 leading-none">
+                        Live · Deployed
+                      </span>
+                    </div>
                     <p className="text-xs text-molted-muted truncate">{s.tagline}</p>
                   </div>
                 </button>
@@ -469,6 +528,21 @@ function PricingTeaser() {
   );
 }
 
+/* ── Proof callout ─────────────────────────────────────────────────────── */
+function ProofCallout() {
+  return (
+    <section className="py-10 px-6">
+      <div className="max-w-3xl mx-auto text-center">
+        <RevealBlock>
+          <p className="text-xl md:text-2xl font-bold" style={{ color: '#E8170F' }}>
+            The question isn't whether this works. We already proved it.
+          </p>
+        </RevealBlock>
+      </div>
+    </section>
+  );
+}
+
 /* ── CTA ───────────────────────────────────────────────────────────────── */
 function CTA() {
   return (
@@ -509,11 +583,13 @@ export default function MoltedPersonaAi() {
     <MoltedLayout>
       <CampusOSBanner moduleName="Persona" moduleColor="#E8170F" />
       <Hero />
+      <LiveProof />
       <TheSpiritIdea />
       <SpiritShowcase />
       <BuildProcess />
       <WhyDifferent />
       <PricingTeaser />
+      <ProofCallout />
       <CTA />
     </MoltedLayout>
   );
