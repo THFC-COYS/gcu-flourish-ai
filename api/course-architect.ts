@@ -5,6 +5,31 @@
     /api/expand-announcements for Level 2/3 announcement depth)
 */
 
+// Extracts the outermost JSON object '{' or array '[' from a string that may
+// contain markdown fences, model thinking text, or other preamble.
+function extractJSON(raw: string, opener: '{' | '['): any {
+  const closer = opener === '{' ? '}' : ']';
+  // Strip common markdown fences first
+  let text = raw.replace(/```json\s*/gi, '').replace(/```\s*/gi, '').trim();
+  // Walk forward to find each opening bracket and try to parse from there
+  let i = text.indexOf(opener);
+  while (i !== -1) {
+    const candidate = text.slice(i);
+    // Find the matching close by scanning with a depth counter
+    let depth = 0;
+    let end = -1;
+    for (let j = 0; j < candidate.length; j++) {
+      if (candidate[j] === opener) depth++;
+      else if (candidate[j] === closer) { depth--; if (depth === 0) { end = j; break; } }
+    }
+    if (end !== -1) {
+      try { return JSON.parse(candidate.slice(0, end + 1)); } catch { /* try next occurrence */ }
+    }
+    i = text.indexOf(opener, i + 1);
+  }
+  throw new Error('No valid JSON found in response');
+}
+
 const SYSTEM_PROMPT = `You are Course Architect, an AI system built for university faculty inside TeachOS.
 
 Your job is to design a complete semester course structure from the instructor's inputs. Think like an experienced instructional designer who practices backward design — start from outcomes, build assessments, then design learning activities.
@@ -95,7 +120,7 @@ Generate all ${clampedWeeks} weekly modules. Keep each announcement to 60–80 w
       },
       body: JSON.stringify({
         model: 'grok-3-mini',
-        max_tokens: 2500,
+        max_tokens: 4096,
         messages: [
           { role: 'system', content: SYSTEM_PROMPT },
           { role: 'user', content: userMessage },
@@ -113,14 +138,9 @@ Generate all ${clampedWeeks} weekly modules. Keep each announcement to 60–80 w
 
     let parsed;
     try {
-      // Strip markdown fences, then extract the outermost JSON object
-      const stripped = raw.replace(/^```json\s*/i, '').replace(/^```\s*/i, '').replace(/```\s*$/i, '').trim();
-      const start = stripped.indexOf('{');
-      const end = stripped.lastIndexOf('}');
-      if (start === -1 || end === -1) throw new Error('No JSON object found');
-      parsed = JSON.parse(stripped.slice(start, end + 1));
+      parsed = extractJSON(raw, '{');
     } catch {
-      return res.status(500).json({ error: 'Failed to parse Grok response as JSON.', raw });
+      return res.status(500).json({ error: 'Failed to parse Grok response as JSON. Raw: ' + raw.slice(0, 400) });
     }
 
     res.setHeader('Cache-Control', 'no-store');

@@ -9,6 +9,26 @@
 
 export const config = { maxDuration: 60 };
 
+function extractJSON(raw: string, opener: '{' | '['): any {
+  const closer = opener === '{' ? '}' : ']';
+  let text = raw.replace(/```json\s*/gi, '').replace(/```\s*/gi, '').trim();
+  let i = text.indexOf(opener);
+  while (i !== -1) {
+    const candidate = text.slice(i);
+    let depth = 0;
+    let end = -1;
+    for (let j = 0; j < candidate.length; j++) {
+      if (candidate[j] === opener) depth++;
+      else if (candidate[j] === closer) { depth--; if (depth === 0) { end = j; break; } }
+    }
+    if (end !== -1) {
+      try { return JSON.parse(candidate.slice(0, end + 1)); } catch { /* try next occurrence */ }
+    }
+    i = text.indexOf(opener, i + 1);
+  }
+  throw new Error('No valid JSON found in response');
+}
+
 const LEVEL_SPEC: Record<number, { words: string; instruction: string; maxWeeks: number; maxTokens: number }> = {
   2: {
     words: '160–200 words',
@@ -108,14 +128,9 @@ ${moduleList}`;
 
     let parsed;
     try {
-      // Strip markdown fences, then extract the outermost JSON array
-      const stripped = raw.replace(/^```json\s*/i, '').replace(/^```\s*/i, '').replace(/```\s*$/i, '').trim();
-      const start = stripped.indexOf('[');
-      const end = stripped.lastIndexOf(']');
-      if (start === -1 || end === -1) throw new Error('No JSON array found');
-      parsed = JSON.parse(stripped.slice(start, end + 1));
+      parsed = extractJSON(raw, '[');
     } catch {
-      return res.status(500).json({ error: 'Failed to parse announcement response as JSON.', raw });
+      return res.status(500).json({ error: 'Failed to parse announcement response as JSON. Raw: ' + raw.slice(0, 400) });
     }
 
     res.setHeader('Cache-Control', 'no-store');
