@@ -4,6 +4,8 @@ import {
   ArrowRight, BookOpen, MessageSquare, CheckSquare, Zap,
   UploadCloud, Bell, Users, TrendingUp, Shield, Clock,
   ChevronRight, Play, Layers, Bot, Cpu, BarChart3,
+  GraduationCap, Sparkles, Database, Lock, FlaskConical,
+  PieChart, FileCheck, UserCog, BrainCircuit,
 } from 'lucide-react';
 import MoltedLayout from './MoltedLayout';
 
@@ -49,6 +51,7 @@ const TEAL = '#2DD4BF';
 const TEAL_DIM = 'rgba(45,212,191,0.15)';
 const TEAL_BORDER = 'rgba(45,212,191,0.25)';
 const TEAL_GLOW = '0 0 30px rgba(45,212,191,0.15), 0 0 60px rgba(45,212,191,0.07)';
+const GOLD = '#E8A020';
 
 /* ── Hero ──────────────────────────────────────────────────────────────── */
 function Hero() {
@@ -611,6 +614,275 @@ function CoreTools() {
   );
 }
 
+/* ── LMS Killer ────────────────────────────────────────────────────────── */
+function LMSKiller() {
+  const pillars = [
+    {
+      num: '01',
+      problem: 'The LMS is a filing cabinet.',
+      solution: 'TeachOS is a living curriculum.',
+      detail: 'Canvas and Blackboard store files. They\'ve never updated a syllabus, generated an assignment, or noticed that Week 6 confuses every cohort. TeachOS learns — semester over semester — and makes every course smarter than the last.',
+      versus: ['Static content upload', 'Manual date-copying each term', 'Same course forever'],
+      wins:   ['Adaptive paths per student', 'Zero-setup semester cloning', 'Courses that improve automatically'],
+      color: TEAL,
+      colorDim: TEAL_DIM,
+      colorBorder: TEAL_BORDER,
+    },
+    {
+      num: '02',
+      problem: 'The gradebook is a spreadsheet with pretensions.',
+      solution: 'TeachOS closes the loop.',
+      detail: 'Legacy LMS gradebooks record what happened. TeachOS predicts what\'s about to happen — flags the student trending toward a D in week 4, not week 14. Grades become a live signal, not a lagging report card.',
+      versus: ['Manual rubric application', 'Grades discovered at the end', 'Integrity flagged by vendors, not context'],
+      wins:   ['Agentic grading with rubric citations', '8-week grade trajectory forecasting', 'Integrity analysis with style-drift detection'],
+      color: '#A78BFA',
+      colorDim: 'rgba(167,139,250,0.10)',
+      colorBorder: 'rgba(167,139,250,0.22)',
+    },
+    {
+      num: '03',
+      problem: 'When a great professor leaves, everything leaves.',
+      solution: 'TeachOS is institutional memory.',
+      detail: 'Every great instructor has a playbook — the way they explain late work, the discussion prompts that spark real debate, the rubric language students actually understand. Today it disappears when they retire. TeachOS vaults it, transfers it, and compounds it.',
+      versus: ['Knowledge exits with the professor', 'Every section rebuilt from zero', 'Zero cross-course student insight'],
+      wins:   ['Faculty DNA captured and transferable', 'Program-level analytics across all courses', 'Student risk visible institution-wide'],
+      color: GOLD,
+      colorDim: 'rgba(232,160,32,0.10)',
+      colorBorder: 'rgba(232,160,32,0.22)',
+    },
+  ];
+
+  return (
+    <section className="py-28 px-6 border-t border-molted-border relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse at 0% 50%, rgba(45,212,191,0.04) 0%, transparent 50%)' }} />
+
+      <div className="max-w-6xl mx-auto relative">
+        {/* Header */}
+        <div className="mb-16 max-w-2xl">
+          <div
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-5"
+            style={{ background: TEAL_DIM, color: TEAL, border: `1px solid ${TEAL_BORDER}` }}
+          >
+            <Zap size={10} />
+            Why legacy LMS loses
+          </div>
+          <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight mb-4">
+            Three reasons they're<br />
+            <span style={{ color: TEAL }}>already obsolete.</span>
+          </h2>
+          <p className="text-molted-muted text-base leading-relaxed">
+            Legacy LMS platforms have three structural weaknesses they can't patch.
+            TeachOS was designed around all three.
+          </p>
+        </div>
+
+        {/* Pillars */}
+        <div className="space-y-6">
+          {pillars.map((p) => (
+            <div
+              key={p.num}
+              className="rounded-3xl border overflow-hidden"
+              style={{ background: 'rgba(17,17,24,0.6)', borderColor: 'rgba(255,255,255,0.07)' }}
+            >
+              {/* Top bar */}
+              <div
+                className="px-8 py-5 border-b flex flex-wrap items-center gap-4"
+                style={{ background: p.colorDim, borderColor: p.colorBorder }}
+              >
+                <span className="text-5xl font-black opacity-20" style={{ color: p.color }}>{p.num}</span>
+                <div>
+                  <p className="text-xs font-semibold mb-0.5" style={{ color: p.color }}>The problem</p>
+                  <p className="text-lg font-black" style={{ color: '#F5F5F7' }}>{p.problem}</p>
+                </div>
+                <div className="ml-auto hidden md:block">
+                  <p className="text-xs font-semibold mb-0.5 text-right" style={{ color: p.color }}>The fix</p>
+                  <p className="text-lg font-black text-right" style={{ color: p.color }}>{p.solution}</p>
+                </div>
+              </div>
+
+              {/* Body */}
+              <div className="px-8 py-7 grid md:grid-cols-[1fr_auto_1fr] gap-8 items-start">
+                {/* Detail */}
+                <p className="text-sm leading-relaxed" style={{ color: '#86868B' }}>{p.detail}</p>
+
+                {/* Divider arrow */}
+                <div className="hidden md:flex items-center justify-center">
+                  <ChevronRight size={20} style={{ color: p.color, opacity: 0.5 }} />
+                </div>
+
+                {/* Versus */}
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <p className="text-xs font-bold mb-2" style={{ color: '#3A3A40' }}>Legacy LMS</p>
+                    <div className="space-y-1.5">
+                      {p.versus.map((v, i) => (
+                        <div key={i} className="flex items-start gap-2">
+                          <span className="text-xs mt-0.5" style={{ color: '#3A3A40' }}>✕</span>
+                          <span className="text-xs leading-snug" style={{ color: '#586068' }}>{v}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold mb-2" style={{ color: p.color }}>TeachOS</p>
+                    <div className="space-y-1.5">
+                      {p.wins.map((w, i) => (
+                        <div key={i} className="flex items-start gap-2">
+                          <span className="text-xs mt-0.5" style={{ color: p.color }}>✓</span>
+                          <span className="text-xs leading-snug" style={{ color: '#C7C7CC' }}>{w}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ── Coming Soon ───────────────────────────────────────────────────────── */
+function ComingSoon() {
+  const pillars = [
+    {
+      label: 'Content Layer',
+      color: TEAL,
+      colorDim: TEAL_DIM,
+      colorBorder: TEAL_BORDER,
+      items: [
+        { icon: BrainCircuit, name: 'Adaptive Learning Paths', desc: 'Different content sequence per student based on real-time mastery signals.' },
+        { icon: FlaskConical, name: 'Assignment Generator', desc: 'Describe a learning objective — get 5 assignments with rubrics, mapped to your accreditation standards.' },
+        { icon: Sparkles,     name: 'Zero-Setup Semester Clone', desc: 'Import last semester → TeachOS updates all dates, refreshes stale examples, flags outdated citations.' },
+        { icon: Bot,          name: 'Student AI Tutor', desc: 'Answers questions using only your course materials. Escalates to you when it can\'t. Office hours at 2 AM.' },
+      ],
+    },
+    {
+      label: 'Gradebook Layer',
+      color: '#A78BFA',
+      colorDim: 'rgba(167,139,250,0.10)',
+      colorBorder: 'rgba(167,139,250,0.22)',
+      items: [
+        { icon: FileCheck,  name: 'Accreditation Autopilot', desc: 'Every assignment auto-tagged to HLC/SACSCOC/program outcomes. Evidence portfolio built continuously.' },
+        { icon: Users,      name: 'Peer Review Intelligence', desc: 'Calibrates peer scores against your rubric. Flags outlier reviewers before grades land.' },
+        { icon: Shield,     name: 'Academic Integrity Shield', desc: 'Writing style drift over time, cross-cohort pattern matching — evidence, not just a score.' },
+        { icon: PieChart,   name: 'Financial Aid Early Flag', desc: 'Surfaces students approaching SAP thresholds weeks before the registrar does.' },
+      ],
+    },
+    {
+      label: 'Institutional Memory',
+      color: GOLD,
+      colorDim: 'rgba(232,160,32,0.10)',
+      colorBorder: 'rgba(232,160,32,0.22)',
+      items: [
+        { icon: Database,      name: 'Faculty DNA Vault', desc: 'Capture grading philosophy, FAQ banks, discussion style. Course survives faculty turnover.' },
+        { icon: BarChart3,     name: 'Semester Intelligence', desc: '"Week 6 causes grade dips in this course every year. Here\'s what worked last time."' },
+        { icon: GraduationCap, name: 'Program-Level Dashboard', desc: 'How is Student X performing across all 5 courses this semester? Which departments are bleeding retention?' },
+        { icon: UserCog,       name: 'Success Prediction', desc: '8-week-out final grade forecast with specific intervention paths — not just a warning.' },
+      ],
+    },
+  ];
+
+  return (
+    <section className="py-28 px-6 border-t border-molted-border relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(45,212,191,0.04) 0%, transparent 60%)' }} />
+
+      <div className="max-w-6xl mx-auto relative">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <div
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-5"
+            style={{ background: 'rgba(255,255,255,0.05)', color: '#86868B', border: '1px solid rgba(255,255,255,0.08)' }}
+          >
+            <Lock size={10} />
+            What's coming next
+          </div>
+          <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight mb-4">
+            The full extinction event.<br />
+            <span style={{ color: TEAL }}>In three layers.</span>
+          </h2>
+          <p className="text-molted-muted text-base max-w-xl mx-auto leading-relaxed">
+            The five tools above reclaim your time. What's below replaces the LMS entirely —
+            starting with the Student AI Tutor, shipping next.
+          </p>
+        </div>
+
+        {/* Pillars */}
+        <div className="space-y-10">
+          {pillars.map(pillar => (
+            <div key={pillar.label}>
+              {/* Pillar label */}
+              <div className="flex items-center gap-3 mb-5">
+                <div className="h-px flex-1" style={{ background: 'rgba(255,255,255,0.06)' }} />
+                <span
+                  className="text-xs font-bold px-3 py-1 rounded-full"
+                  style={{ background: pillar.colorDim, color: pillar.color, border: `1px solid ${pillar.colorBorder}` }}
+                >
+                  {pillar.label}
+                </span>
+                <div className="h-px flex-1" style={{ background: 'rgba(255,255,255,0.06)' }} />
+              </div>
+
+              {/* Feature cards grid */}
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {pillar.items.map((item, i) => (
+                  <div
+                    key={i}
+                    className="rounded-2xl p-5 border relative group"
+                    style={{
+                      background: 'rgba(17,17,24,0.6)',
+                      borderColor: 'rgba(255,255,255,0.06)',
+                    }}
+                  >
+                    {/* Coming soon badge */}
+                    <div
+                      className="absolute top-3 right-3 flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold"
+                      style={{ background: 'rgba(255,255,255,0.05)', color: '#3A3A40', border: '1px solid rgba(255,255,255,0.06)' }}
+                    >
+                      <Lock size={8} />
+                      Soon
+                    </div>
+
+                    {/* Icon */}
+                    <div
+                      className="w-9 h-9 rounded-xl flex items-center justify-center mb-4"
+                      style={{ background: pillar.colorDim }}
+                    >
+                      <item.icon size={16} style={{ color: pillar.color }} />
+                    </div>
+
+                    <p className="text-sm font-bold mb-1.5" style={{ color: '#F5F5F7' }}>{item.name}</p>
+                    <p className="text-xs leading-relaxed" style={{ color: '#86868B' }}>{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Early access nudge */}
+        <div className="mt-14 text-center">
+          <p className="text-molted-muted text-sm mb-4">
+            Early access subscribers get first access to each tool as it ships.
+          </p>
+          <a
+            href="mailto:hello@molted.ai"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all hover:-translate-y-px"
+            style={{ background: TEAL, color: '#0A0A0F' }}
+          >
+            Get early access
+            <ArrowRight size={14} />
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ── The Agentic Future ────────────────────────────────────────────────── */
 function AgenticFuture() {
   const milestones = [
@@ -987,6 +1259,8 @@ export default function MoltedTeachOS() {
       <Hero />
       <TheProblem />
       <CoreTools />
+      <ComingSoon />
+      <LMSKiller />
       <AgenticFuture />
       <HowItWorks />
       <Integrations />
