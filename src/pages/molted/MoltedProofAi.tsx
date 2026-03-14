@@ -43,7 +43,7 @@ function RevealBlock({ children, delay = 0, className = '' }: {
   );
 }
 
-/* ── ProofAi accent ────────────────────────────────────────────────────── */
+/* ── Proof accent ────────────────────────────────────────────────────── */
 const ORANGE = '#F97316';
 const ORANGE_DIM = 'rgba(249,115,22,0.12)';
 const ORANGE_BORDER = 'rgba(249,115,22,0.25)';
@@ -78,16 +78,11 @@ function Hero() {
 
       {/* Wordmark */}
       <RevealBlock delay={100}>
-        <h1 className="text-6xl md:text-8xl lg:text-9xl font-black leading-none tracking-tight">
-          <span className="text-molted-white/90">Proof</span>
-          <span
-            style={{
-              color: ORANGE,
-              textShadow: `0 0 40px rgba(249,115,22,0.5), 0 0 80px rgba(249,115,22,0.2)`,
-            }}
-          >
-            Ai
-          </span>
+        <h1
+          className="text-6xl md:text-8xl lg:text-9xl font-black leading-none tracking-tight"
+          style={{ color: ORANGE, textShadow: `0 0 40px rgba(249,115,22,0.5), 0 0 80px rgba(249,115,22,0.2)` }}
+        >
+          Proof
         </h1>
       </RevealBlock>
 
@@ -109,7 +104,7 @@ function Hero() {
       {/* Sub */}
       <RevealBlock delay={400}>
         <p className="mt-6 text-molted-muted text-lg max-w-xl leading-relaxed">
-          Every professor knows it. ChatGPT writes every essay. ProofAi rebuilds
+          Every professor knows it. ChatGPT writes every essay. Proof rebuilds
           assessment from the ground up — for a world where AI exists.
         </p>
       </RevealBlock>
@@ -213,7 +208,7 @@ function TheCrisis() {
             }}
           >
             <p className="text-2xl md:text-3xl font-black text-molted-white leading-snug max-w-2xl mx-auto">
-              ProofAi doesn't try to detect AI.
+              Proof doesn't try to detect AI.
             </p>
             <p className="text-2xl md:text-3xl font-black mt-2 leading-snug max-w-2xl mx-auto" style={{ color: ORANGE }}>
               It makes AI irrelevant.
@@ -258,7 +253,7 @@ function OralAssessmentMock() {
         className="rounded-xl p-4 text-xs leading-relaxed"
         style={{ background: 'rgba(17,17,24,0.9)', border: '1px solid rgba(255,255,255,0.06)' }}
       >
-        <p className="text-molted-muted mb-1 font-semibold uppercase tracking-wide text-xs">ProofAi Evaluation</p>
+        <p className="text-molted-muted mb-1 font-semibold uppercase tracking-wide text-xs">Proof Evaluation</p>
         <p className="text-molted-white/80">
           Alexis demonstrates <span style={{ color: ORANGE }}>conceptual understanding</span> of mitosis
           but struggles with application to novel scenarios. Follow-up questions
@@ -276,7 +271,7 @@ function OralAssessmentMock() {
 function DefendYourWorkMock() {
   const messages = [
     {
-      role: 'ProofAi',
+      role: 'Proof',
       text: 'You wrote that mitosis results in genetically identical cells. Can you explain what that means in the context of cancer?',
       ai: true,
     },
@@ -286,7 +281,7 @@ function DefendYourWorkMock() {
       ai: false,
     },
     {
-      role: 'ProofAi',
+      role: 'Proof',
       text: 'Interesting. What mechanism breaks down to allow that uncontrolled division? Walk me through the cell cycle checkpoint.',
       ai: true,
     },
@@ -388,7 +383,7 @@ const MODES = [
     name: 'Oral AI Assessment',
     tagline: 'Can\'t fake a conversation.',
     description:
-      'Student answers questions via voice. ProofAi evaluates depth of understanding in real time, handles follow-up questions, and distinguishes surface recall from genuine conceptual mastery. No script survives the follow-up.',
+      'Student answers questions via voice. Proof evaluates depth of understanding in real time, handles follow-up questions, and distinguishes surface recall from genuine conceptual mastery. No script survives the follow-up.',
     bullets: [
       'Real-time speech evaluation with follow-up logic',
       'Detects surface vs. deep knowledge automatically',
@@ -405,7 +400,7 @@ const MODES = [
       'Student submits work — then defends it in a 10-minute AI conversation about their own submission. If you can\'t answer questions about what you submitted, the submission doesn\'t count. AI-generated work collapses on the first follow-up.',
     bullets: [
       'Student submits, then enters live defense session',
-      'ProofAi asks targeted questions about their specific work',
+      'Proof asks targeted questions about their specific work',
       'Inconsistency detection across submission + defense',
       'Full session transcript available for faculty review',
     ],
@@ -418,7 +413,7 @@ const MODES = [
     description:
       'Every assessment builds a longitudinal record of what a student has actually proven they know. Competency by competency, assessment by assessment — a portfolio of verified mastery that means something.',
     bullets: [
-      'Builds from every ProofAi assessment automatically',
+      'Builds from every Proof assessment automatically',
       'Maps to course learning objectives and accreditation standards',
       'Mastery levels: Developing, Proficient, Mastered',
       'Shareable with advisors, employers, institutions',
@@ -514,7 +509,7 @@ function BeforeAfter() {
   ];
   const after = [
     { step: '01', text: 'Assign topic or learning objective' },
-    { step: '02', text: 'Student submits and defends in ProofAi' },
+    { step: '02', text: 'Student submits and defends in Proof' },
     { step: '03', text: 'AI verifies understanding in real time' },
     { step: '04', text: 'Grade reflects actual mastery' },
     { step: '05', text: 'Portfolio record updated automatically' },
@@ -530,7 +525,7 @@ function BeforeAfter() {
         <RevealBlock className="text-center mb-16">
           <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">The replacement</p>
           <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight leading-tight">
-            How ProofAi replaces the essay.
+            How Proof replaces the essay.
           </h2>
         </RevealBlock>
 
@@ -573,7 +568,7 @@ function BeforeAfter() {
               <div className="flex items-center gap-2.5 mb-6">
                 <CheckCircle size={16} style={{ color: ORANGE }} />
                 <p className="text-sm font-bold uppercase tracking-widest" style={{ color: ORANGE }}>
-                  After — ProofAi
+                  After — Proof
                 </p>
               </div>
               <div className="space-y-3">
@@ -604,12 +599,12 @@ function ForFaculty() {
     {
       icon: Shield,
       title: 'No more plagiarism detection theater',
-      desc: 'Stop feeding submissions to detection tools that don\'t work. ProofAi doesn\'t detect — it makes detection irrelevant.',
+      desc: 'Stop feeding submissions to detection tools that don\'t work. Proof doesn\'t detect — it makes detection irrelevant.',
     },
     {
       icon: Zap,
       title: 'Set once. Adapts per student.',
-      desc: 'Define the learning objective. ProofAi generates unique questions per student based on their submission and prior performance.',
+      desc: 'Define the learning objective. Proof generates unique questions per student based on their submission and prior performance.',
     },
     {
       icon: BarChart3,
@@ -619,12 +614,12 @@ function ForFaculty() {
     {
       icon: BookOpen,
       title: 'Integrity reports, automatically',
-      desc: 'ProofAi generates academic integrity reports for every flagged session — timestamped, transcript-backed, ready for review board.',
+      desc: 'Proof generates academic integrity reports for every flagged session — timestamped, transcript-backed, ready for review board.',
     },
     {
       icon: Users,
       title: 'Integrates with TeachOS',
-      desc: 'ProofAi feeds directly into the TeachOS grading workflow. Assessment scores, portfolio records, and integrity flags — all in one place.',
+      desc: 'Proof feeds directly into the TeachOS grading workflow. Assessment scores, portfolio records, and integrity flags — all in one place.',
     },
   ];
 
@@ -707,7 +702,7 @@ function Pricing() {
       name: 'Institution',
       price: 'Custom',
       period: 'institutional license',
-      desc: 'For institutions deploying ProofAi at scale.',
+      desc: 'For institutions deploying Proof at scale.',
       features: [
         'Everything in Department',
         'Accreditation-ready reporting',
@@ -790,7 +785,7 @@ function FinalCTA() {
             <span style={{ color: ORANGE }}>the essay still works.</span>
           </h2>
           <p className="mt-6 text-molted-muted text-lg leading-relaxed">
-            ProofAi is the assessment infrastructure higher education needs.
+            Proof is the assessment infrastructure higher education needs.
             Your faculty deserve tools built for the world that exists now.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -819,7 +814,7 @@ function FinalCTA() {
 }
 
 /* ── Page ──────────────────────────────────────────────────────────────── */
-export default function MoltedProofAi() {
+export default function MoltedProof() {
   return (
     <MoltedLayout>
       <Hero />

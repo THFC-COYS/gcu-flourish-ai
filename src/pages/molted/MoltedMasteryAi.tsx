@@ -65,8 +65,7 @@ function Hero() {
 
       <RevealBlock delay={100}>
         <h1 className="text-6xl md:text-8xl lg:text-9xl font-black leading-none tracking-tight">
-          <span className="text-molted-white/90">Mastery</span>
-          <span style={{ color: EMERALD, textShadow: `0 0 40px rgba(16,185,129,0.4), 0 0 80px rgba(16,185,129,0.15)` }}>Ai</span>
+          <span style={{ color: EMERALD, textShadow: `0 0 40px rgba(16,185,129,0.4), 0 0 80px rgba(16,185,129,0.15)` }}>Mastery</span>
         </h1>
       </RevealBlock>
 
@@ -79,7 +78,7 @@ function Hero() {
 
       <RevealBlock delay={300}>
         <p className="mt-6 text-molted-muted text-lg max-w-lg leading-relaxed">
-          MasteryAi takes your existing course and rebuilds it as a competency-based
+          Mastery takes your existing course and rebuilds it as a competency-based
           learning experience — where students advance when they prove mastery,
           not when the semester ends.
         </p>
@@ -166,7 +165,7 @@ function TheProblem() {
 
         <RevealBlock className="text-center">
           <p className="text-molted-white text-xl font-semibold max-w-2xl mx-auto leading-relaxed">
-            MasteryAi doesn't improve the time-based model.{' '}
+            Mastery doesn't improve the time-based model.{' '}
             <span style={{ color: EMERALD }}>It replaces it.</span>
           </p>
         </RevealBlock>
@@ -224,7 +223,7 @@ function TheTransformation() {
             <div className="rounded-2xl border p-7 h-full" style={{ borderColor: EMERALD_BORDER, background: `${EMERALD}06`, boxShadow: EMERALD_GLOW }}>
               <div className="flex items-center gap-2 mb-6">
                 <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: EMERALD }} />
-                <p className="text-sm font-semibold uppercase tracking-widest" style={{ color: EMERALD }}>After · MasteryAi Structure</p>
+                <p className="text-sm font-semibold uppercase tracking-widest" style={{ color: EMERALD }}>After · Mastery Structure</p>
               </div>
               <p className="text-molted-white font-bold mb-4">BIO301 · 7 Competencies Mapped</p>
               <div className="space-y-2.5">
@@ -262,12 +261,12 @@ function HowItWorks() {
       num: '01',
       icon: UploadCloud,
       title: 'Upload your existing course.',
-      desc: 'Syllabus, readings, assignments, learning objectives — everything you already have. MasteryAi reads it all.',
+      desc: 'Syllabus, readings, assignments, learning objectives — everything you already have. Mastery reads it all.',
     },
     {
       num: '02',
       icon: Map,
-      title: 'MasteryAi maps your competencies.',
+      title: 'Mastery maps your competencies.',
       desc: 'Extracts implied competencies from your objectives. Identifies prerequisite relationships. Surfaces gaps in the existing structure.',
     },
     {
@@ -319,7 +318,7 @@ function HowItWorks() {
   );
 }
 
-/* ── What MasteryAi Generates ──────────────────────────────────────────── */
+/* ── What Mastery Generates ──────────────────────────────────────────── */
 function WhatItGenerates() {
   const outputs = [
     { icon: Layers, label: 'Competency Framework', desc: '6–12 competencies extracted and organized from your existing objectives' },
@@ -429,7 +428,7 @@ function Integrations() {
         <RevealBlock className="mb-10">
           <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">Built to connect</p>
           <h2 className="text-3xl md:text-4xl font-black text-molted-white tracking-tight">
-            MasteryAi is the foundation.<br />Everything else builds on it.
+            Mastery is the foundation.<br />Everything else builds on it.
           </h2>
         </RevealBlock>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -549,7 +548,7 @@ function CTA() {
             <span style={{ color: EMERALD }}>Mastery is the goal.</span>
           </h2>
           <p className="mt-6 text-molted-muted text-lg leading-relaxed">
-            MasteryAi is accepting early access partners.<br />
+            Mastery is accepting early access partners.<br />
             Help us build the standard for competency-based education.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -575,7 +574,7 @@ function CTA() {
 }
 
 /* ── Page ──────────────────────────────────────────────────────────────── */
-export default function MoltedMasteryAi() {
+export default function MoltedMastery() {
   return (
     <MoltedLayout>
       <Hero />

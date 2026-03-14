@@ -45,7 +45,7 @@ function RevealBlock({ children, delay = 0, className = '' }: {
   );
 }
 
-/* ── RetainAi accent ───────────────────────────────────────────────────── */
+/* ── Retain accent ───────────────────────────────────────────────────── */
 const ROSE = '#F43F5E';
 const ROSE_DIM = 'rgba(244,63,94,0.12)';
 const ROSE_BORDER = 'rgba(244,63,94,0.25)';
@@ -79,16 +79,11 @@ function Hero() {
 
       {/* Wordmark */}
       <RevealBlock delay={100}>
-        <h1 className="text-6xl md:text-8xl lg:text-9xl font-black leading-none tracking-tight">
-          <span className="text-molted-white/90">Retain</span>
-          <span
-            style={{
-              color: ROSE,
-              textShadow: `0 0 40px rgba(244,63,94,0.5), 0 0 80px rgba(244,63,94,0.2)`,
-            }}
-          >
-            Ai
-          </span>
+        <h1
+          className="text-6xl md:text-8xl lg:text-9xl font-black leading-none tracking-tight"
+          style={{ color: ROSE, textShadow: `0 0 40px rgba(244,63,94,0.5), 0 0 80px rgba(244,63,94,0.2)` }}
+        >
+          Retain
         </h1>
       </RevealBlock>
 
@@ -104,7 +99,7 @@ function Hero() {
         <p className="mt-4 text-3xl md:text-4xl font-black text-molted-white tracking-tight leading-snug max-w-3xl">
           40% of students leave before they graduate.
           <br />
-          <span style={{ color: ROSE }}>RetainAi is already working to change that.</span>
+          <span style={{ color: ROSE }}>Retain is already working to change that.</span>
         </p>
       </RevealBlock>
 
@@ -205,7 +200,7 @@ function AgentLoop() {
             <span style={{ color: ROSE }}>It never needs to be asked.</span>
           </h2>
           <p className="mt-6 text-molted-muted text-lg max-w-xl mx-auto">
-            Traditional retention tools wait for humans to act. RetainAi runs a continuous
+            Traditional retention tools wait for humans to act. Retain runs a continuous
             autonomous loop — 24 hours a day, across every student, every signal.
           </p>
         </RevealBlock>
@@ -364,11 +359,11 @@ function SilentDeparture() {
 
             <div className="mt-8 pt-6 border-t border-molted-border grid md:grid-cols-2 gap-4">
               <div className="rounded-xl p-4 text-sm" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
-                <p className="text-molted-muted font-semibold mb-1">Without RetainAi</p>
+                <p className="text-molted-muted font-semibold mb-1">Without Retain</p>
                 <p className="text-molted-subtle text-xs">Advisor discovers withdrawal at Week 12. Sends a survey. Student doesn't respond. Slot stays empty. Revenue gone.</p>
               </div>
               <div className="rounded-xl p-4 text-sm" style={{ background: ROSE_DIM, border: `1px solid ${ROSE_BORDER}` }}>
-                <p className="font-semibold mb-1" style={{ color: ROSE }}>With RetainAi agent</p>
+                <p className="font-semibold mb-1" style={{ color: ROSE }}>With Retain agent</p>
                 <p className="text-molted-white/70 text-xs">Agent detects signal at Week 3. Playbook launched. Advisor receives draft outreach with full context. Student gets support. Student stays.</p>
               </div>
             </div>
@@ -464,7 +459,7 @@ function Playbooks() {
             <span style={{ color: ROSE }}>All running without you.</span>
           </h2>
           <p className="mt-6 text-molted-muted text-lg max-w-xl mx-auto">
-            RetainAi doesn't just alert you. It selects the right playbook,
+            Retain doesn't just alert you. It selects the right playbook,
             executes the steps, and only surfaces what needs a human decision.
           </p>
         </RevealBlock>
@@ -618,7 +613,7 @@ function AgentFeed() {
             <span style={{ color: ROSE }}>It doesn't stop.</span>
           </h2>
           <p className="mt-6 text-molted-muted text-lg max-w-xl mx-auto">
-            A simulated view of RetainAi's agent log.
+            A simulated view of Retain's agent log.
             At a real institution, this runs 24 hours a day.
           </p>
         </RevealBlock>
@@ -698,7 +693,7 @@ function HumanInLoop() {
             <span style={{ color: ROSE }}>You make the call.</span>
           </h2>
           <p className="mt-6 text-molted-muted text-lg max-w-xl mx-auto">
-            RetainAi never contacts students without human approval.
+            Retain never contacts students without human approval.
             Advisors review, approve, and override. The agent handles everything else.
           </p>
         </RevealBlock>
@@ -842,11 +837,11 @@ function EcosystemCoordination() {
         <RevealBlock className="text-center mb-16">
           <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">Platform coordination</p>
           <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight leading-tight">
-            RetainAi doesn't work alone.<br />
+            Retain doesn't work alone.<br />
             <span style={{ color: ROSE }}>It coordinates the whole stack.</span>
           </h2>
           <p className="mt-6 text-molted-muted text-lg max-w-xl mx-auto">
-            This is where the agentic vision becomes real. RetainAi pulls signals from
+            This is where the agentic vision becomes real. Retain pulls signals from
             every Molt product and pushes actions back through them.
           </p>
         </RevealBlock>
@@ -888,7 +883,7 @@ function EcosystemCoordination() {
             style={{ background: 'rgba(17,17,24,0.8)', borderColor: 'rgba(255,255,255,0.06)' }}
           >
             <p className="text-molted-white font-semibold text-sm">
-              RetainAi is the agent that ties the platform together.
+              Retain is the agent that ties the platform together.
               <span style={{ color: ROSE }}> It's what turns tools into a system.</span>
             </p>
           </div>
@@ -914,7 +909,7 @@ function ROISection() {
         <RevealBlock className="text-center mb-16">
           <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">Return on investment</p>
           <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight leading-tight">
-            RetainAi pays for itself<br />
+            Retain pays for itself<br />
             <span style={{ color: ROSE }}>in the first week.</span>
           </h2>
         </RevealBlock>
@@ -984,7 +979,7 @@ function ROISection() {
                   style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}
                 >
                   <p className="text-molted-muted leading-relaxed">
-                    RetainAi Growth at {students.toLocaleString()} students costs{' '}
+                    Retain Growth at {students.toLocaleString()} students costs{' '}
                     <span className="text-molted-white font-semibold">
                       ~${Math.min(Math.ceil(students / 10000) * 4999, 9999).toLocaleString()}/mo
                     </span>.{' '}
@@ -1126,7 +1121,7 @@ function FinalCTA() {
             <span style={{ color: ROSE }}>an agent that never sleeps.</span>
           </h2>
           <p className="mt-6 text-molted-muted text-lg leading-relaxed">
-            While your advisors rest, RetainAi is watching your students,
+            While your advisors rest, Retain is watching your students,
             running playbooks, and making sure the right person gets the right
             support before it's too late.
           </p>
@@ -1156,7 +1151,7 @@ function FinalCTA() {
 }
 
 /* ── Page ──────────────────────────────────────────────────────────────── */
-export default function MoltedRetainAi() {
+export default function MoltedRetain() {
   return (
     <MoltedLayout>
       <Hero />

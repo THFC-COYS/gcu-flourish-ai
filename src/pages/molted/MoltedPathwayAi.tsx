@@ -79,16 +79,11 @@ function Hero() {
         </div>
 
         {/* Wordmark */}
-        <h1 className="animate-reveal">
-          <span className="block text-5xl md:text-7xl lg:text-8xl font-black text-molted-white leading-none tracking-tight">
-            Pathway
-          </span>
-          <span
-            className="block text-5xl md:text-7xl lg:text-8xl font-black leading-none tracking-tight mt-1"
-            style={{ color: VIOLET, textShadow: '0 0 40px rgba(139,92,246,0.35)' }}
-          >
-            Ai
-          </span>
+        <h1
+          className="text-5xl md:text-7xl lg:text-8xl font-black leading-none tracking-tight animate-reveal"
+          style={{ color: VIOLET, textShadow: '0 0 40px rgba(139,92,246,0.35)' }}
+        >
+          Pathway
         </h1>
 
         {/* Headline */}
@@ -104,7 +99,7 @@ function Hero() {
           className="mt-5 text-lg text-molted-muted/80 max-w-2xl mx-auto leading-relaxed animate-reveal"
           style={{ animationDelay: '200ms' }}
         >
-          PathwayAi learns what each student knows, what they're missing, and what they need
+          Pathway learns what each student knows, what they're missing, and what they need
           next — then builds a personalized learning path in real time. Not the same road for
           everyone. A different road for every student.
         </p>
@@ -115,7 +110,7 @@ function Hero() {
           style={{ animationDelay: '280ms' }}
         >
           <a
-            href="mailto:hello@molted.ai?subject=PathwayAi Early Access"
+            href="mailto:hello@molted.ai?subject=Pathway Early Access"
             className="group flex items-center gap-2.5 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 hover:-translate-y-px"
             style={{ background: VIOLET, color: '#0A0A0B', boxShadow: `0 0 28px rgba(139,92,246,0.35)` }}
           >
@@ -223,11 +218,11 @@ function TheProblem() {
                 <p className="text-molted-muted/50 text-xs mt-2 italic">Same road. Every student. No exceptions.</p>
               </div>
 
-              {/* PathwayAi branching road */}
+              {/* Pathway branching road */}
               <div>
                 <p className="text-xs font-semibold mb-3 flex items-center gap-2" style={{ color: VIOLET }}>
                   <span className="w-2 h-2 rounded-full inline-block" style={{ background: VIOLET }} />
-                  PathwayAi
+                  Pathway
                 </p>
                 <div className="space-y-2.5">
                   {/* Entry */}
@@ -274,14 +269,14 @@ function TheProblem() {
   );
 }
 
-/* ── How PathwayAi Learns ───────────────────────────────────────────────── */
+/* ── How Pathway Learns ───────────────────────────────────────────────── */
 function HowItLearns() {
   const steps = [
     {
       num: '01',
       icon: BookOpen,
       title: 'Every interaction is intelligence.',
-      body: 'pAIgeBreaker logs each question, each concept, each struggle. PathwayAi reads the signal.',
+      body: 'pAIgeBreaker logs each question, each concept, each struggle. Pathway reads the signal.',
     },
     {
       num: '02',
@@ -293,7 +288,7 @@ function HowItLearns() {
       num: '03',
       icon: Map,
       title: 'Your path adjusts before you fall.',
-      body: "PathwayAi surfaces what you need next — not what the syllabus says is next. The difference is everything.",
+      body: "Pathway surfaces what you need next — not what the syllabus says is next. The difference is everything.",
     },
   ];
 
@@ -303,7 +298,7 @@ function HowItLearns() {
         <RevealBlock className="text-center mb-16">
           <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">How it works</p>
           <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight">
-            How PathwayAi learns.
+            How Pathway learns.
           </h2>
           <p className="mt-4 text-molted-muted max-w-xl mx-auto">
             No surveys. No onboarding quizzes. It learns by watching students learn.
@@ -439,7 +434,7 @@ function KnowledgeGraphMock() {
               })}
             </div>
 
-            {/* PathwayAi suggestion card */}
+            {/* Pathway suggestion card */}
             <div
               className="rounded-2xl border p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
               style={{ borderColor: VIOLET_BORDER, background: VIOLET_DIM }}
@@ -452,7 +447,7 @@ function KnowledgeGraphMock() {
                   <Lightbulb size={15} style={{ color: VIOLET }} />
                 </div>
                 <div>
-                  <p className="text-molted-muted text-xs font-semibold uppercase tracking-wider mb-1">PathwayAi Suggestion</p>
+                  <p className="text-molted-muted text-xs font-semibold uppercase tracking-wider mb-1">Pathway Suggestion</p>
                   <p className="text-molted-white text-sm leading-relaxed">
                     You've mastered Mitosis but Meiosis is blocking your path to Genetics.
                     Let's fix that now.
@@ -486,7 +481,7 @@ function BeforeAfter() {
 
   const after = [
     'Adaptive path personalized to knowledge state',
-    "PathwayAi tells you exactly what's next",
+    "Pathway tells you exactly what's next",
     'Proactive gap detection in real time',
     'Targeted intervention before falling behind',
     'Teacher gets class-level gap reports weekly',
@@ -498,7 +493,7 @@ function BeforeAfter() {
         <RevealBlock className="text-center mb-16">
           <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">The difference</p>
           <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight">
-            Before PathwayAi. After PathwayAi.
+            Before Pathway. After Pathway.
           </h2>
         </RevealBlock>
 
@@ -511,7 +506,7 @@ function BeforeAfter() {
                   <AlertTriangle size={15} className="text-molted-ember" />
                 </div>
                 <div>
-                  <p className="text-molted-white font-bold text-base">Before PathwayAi</p>
+                  <p className="text-molted-white font-bold text-base">Before Pathway</p>
                   <p className="text-molted-muted text-xs">The old way</p>
                 </div>
               </div>
@@ -542,7 +537,7 @@ function BeforeAfter() {
                   <GitBranch size={15} style={{ color: VIOLET }} />
                 </div>
                 <div>
-                  <p className="text-molted-white font-bold text-base">After PathwayAi</p>
+                  <p className="text-molted-white font-bold text-base">After Pathway</p>
                   <p className="text-xs" style={{ color: VIOLET }}>The right way</p>
                 </div>
               </div>
@@ -573,7 +568,7 @@ function ForInstitutions() {
     {
       icon: BarChart2,
       title: "Completion rates rise when students don't fall through the cracks.",
-      body: "When students get the right content at the right time, they finish. PathwayAi catches the gaps that become quiet departures.",
+      body: "When students get the right content at the right time, they finish. Pathway catches the gaps that become quiet departures.",
     },
     {
       icon: Users,
@@ -588,7 +583,7 @@ function ForInstitutions() {
     {
       icon: Brain,
       title: 'Built on real interaction data — not invented learning science.',
-      body: 'PathwayAi works from actual pAIgeBreaker interactions: what students asked, struggled with, and mastered. Real signal.',
+      body: 'Pathway works from actual pAIgeBreaker interactions: what students asked, struggled with, and mastered. Real signal.',
     },
   ];
 
@@ -598,7 +593,7 @@ function ForInstitutions() {
         <RevealBlock className="text-center mb-16">
           <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">For institutions</p>
           <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight">
-            Why institutions deploy PathwayAi.
+            Why institutions deploy Pathway.
           </h2>
           <p className="mt-4 text-molted-muted max-w-xl mx-auto">
             Personalized learning isn't just a student benefit. It's an institutional outcome.
@@ -720,7 +715,7 @@ function Pricing() {
                   ))}
                 </ul>
                 <a
-                  href={`mailto:hello@molted.ai?subject=PathwayAi ${tier.name} Inquiry`}
+                  href={`mailto:hello@molted.ai?subject=Pathway ${tier.name} Inquiry`}
                   className="mt-8 block text-center px-6 py-3.5 rounded-xl font-semibold text-sm transition-all hover:-translate-y-px"
                   style={
                     tier.highlight
@@ -751,7 +746,7 @@ function CTA() {
             Your students deserve a path built for them.
           </h2>
           <p className="mt-6 text-molted-muted text-xl leading-relaxed max-w-xl mx-auto">
-            PathwayAi is in early access. Be among the first institutions to give every student
+            Pathway is in early access. Be among the first institutions to give every student
             their own road.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
@@ -763,7 +758,7 @@ function CTA() {
               className="flex-1 w-full px-5 py-4 rounded-xl bg-molted-elevated border border-molted-border text-molted-white placeholder:text-molted-muted text-sm focus:outline-none focus:border-violet-500 transition-colors"
             />
             <a
-              href={`mailto:hello@molted.ai?subject=PathwayAi Early Access&body=From: ${email}`}
+              href={`mailto:hello@molted.ai?subject=Pathway Early Access&body=From: ${email}`}
               className="flex-shrink-0 flex items-center gap-2 px-6 py-4 rounded-xl font-bold text-sm transition-all hover:-translate-y-px"
               style={{ background: VIOLET, color: '#0A0A0B', boxShadow: `0 0 20px rgba(139,92,246,0.30)` }}
             >
@@ -792,7 +787,7 @@ function CTA() {
 }
 
 /* ── Page export ────────────────────────────────────────────────────────── */
-export default function MoltedPathwayAi() {
+export default function MoltedPathway() {
   return (
     <MoltedLayout>
       <Hero />

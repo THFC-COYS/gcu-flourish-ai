@@ -77,16 +77,11 @@ function Hero() {
         </div>
 
         {/* Wordmark */}
-        <h1 className="animate-reveal">
-          <span className="block text-5xl md:text-7xl lg:text-8xl font-black text-molted-white leading-none tracking-tight">
-            Outcomes
-          </span>
-          <span
-            className="block text-5xl md:text-7xl lg:text-8xl font-black leading-none tracking-tight mt-1"
-            style={{ color: SKY, textShadow: `0 0 40px ${SKY}40` }}
-          >
-            Ai
-          </span>
+        <h1
+          className="text-5xl md:text-7xl lg:text-8xl font-black leading-none tracking-tight animate-reveal"
+          style={{ color: SKY, textShadow: `0 0 40px ${SKY}40` }}
+        >
+          Outcomes
         </h1>
 
         {/* Position */}
@@ -100,7 +95,7 @@ function Hero() {
         </p>
 
         <p className="mt-5 text-lg text-molted-muted/80 max-w-2xl mx-auto leading-relaxed animate-reveal" style={{ animationDelay: '250ms' }}>
-          Every product Molt builds generates data. OutcomesAi turns that data into decisions.
+          Every product Molt builds generates data. Outcomes turns that data into decisions.
         </p>
 
         {/* Callout chip */}
@@ -115,7 +110,7 @@ function Hero() {
         {/* CTAs */}
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 animate-reveal" style={{ animationDelay: '350ms' }}>
           <a
-            href="mailto:hello@molted.ai?subject=OutcomesAi Demo Request"
+            href="mailto:hello@molted.ai?subject=Outcomes Demo Request"
             className="group flex items-center gap-2.5 px-8 py-4 rounded-xl text-white font-bold text-lg transition-all duration-200 hover:-translate-y-px"
             style={{ background: SKY, boxShadow: `0 0 24px ${SKY}40` }}
           >
@@ -230,7 +225,7 @@ function TheBlindSpot() {
   );
 }
 
-/* ── What OutcomesAi Sees ───────────────────────────────────────────────── */
+/* ── What Outcomes Sees ───────────────────────────────────────────────── */
 function WhatItSees() {
   const metrics = [
     {
@@ -289,7 +284,7 @@ function WhatItSees() {
         <RevealBlock className="text-center mb-16">
           <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">Intelligence</p>
           <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight">
-            What OutcomesAi sees.
+            What Outcomes sees.
           </h2>
           <p className="mt-4 text-molted-muted max-w-xl mx-auto">
             Real metrics. Real time. No spreadsheets required.
@@ -517,7 +512,7 @@ function AccreditationAutopilot() {
             <p className="text-2xl font-bold text-molted-white mb-6 leading-tight">
               SACSCOC. HLC. WASC. ACEN.<br />
               <span className="text-molted-muted font-normal text-xl mt-2 block">
-                Every accreditation cycle takes 6 weeks of faculty time — compiling evidence that OutcomesAi has been collecting all year.
+                Every accreditation cycle takes 6 weeks of faculty time — compiling evidence that Outcomes has been collecting all year.
               </span>
             </p>
             <ul className="space-y-4">
@@ -626,7 +621,7 @@ function Integration() {
         <RevealBlock className="text-center mb-16">
           <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">Ecosystem</p>
           <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight">
-            OutcomesAi reads every<br />Molt product.
+            Outcomes reads every<br />Molt product.
           </h2>
           <p className="mt-4 text-molted-muted max-w-xl mx-auto">
             Every interaction, every session, every signal — unified into one institutional view.
@@ -661,7 +656,7 @@ function Integration() {
                 className="bg-molted-elevated border-2 rounded-2xl px-8 py-6 text-center"
                 style={{ borderColor: SKY, boxShadow: `0 0 32px ${SKY}20` }}
               >
-                <p className="text-lg font-black" style={{ color: SKY }}>OutcomesAi</p>
+                <p className="text-lg font-black" style={{ color: SKY }}>Outcomes</p>
                 <p className="text-molted-muted text-xs mt-1">Intelligence layer</p>
               </div>
             </div>
@@ -752,7 +747,7 @@ function Pricing() {
                   ))}
                 </ul>
                 <a
-                  href={`mailto:hello@molted.ai?subject=OutcomesAi ${tier.name} Inquiry`}
+                  href={`mailto:hello@molted.ai?subject=Outcomes ${tier.name} Inquiry`}
                   className="mt-8 block text-center px-6 py-3.5 rounded-xl font-semibold text-sm transition-all hover:-translate-y-px"
                   style={
                     tier.highlight
@@ -783,7 +778,7 @@ function CTA() {
             Stop flying blind.
           </h2>
           <p className="mt-6 text-molted-muted text-xl leading-relaxed max-w-xl mx-auto">
-            OutcomesAi gives you the view your institution has always deserved.
+            Outcomes gives you the view your institution has always deserved.
             Know what's working. Fix what isn't. Prove it to your board.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
@@ -795,7 +790,7 @@ function CTA() {
               className="flex-1 w-full px-5 py-4 rounded-xl bg-molted-elevated border border-molted-border text-molted-white placeholder:text-molted-muted text-sm focus:outline-none focus:border-sky-500 transition-colors"
             />
             <a
-              href={`mailto:hello@molted.ai?subject=OutcomesAi Demo&body=From: ${email}`}
+              href={`mailto:hello@molted.ai?subject=Outcomes Demo&body=From: ${email}`}
               className="flex-shrink-0 flex items-center gap-2 px-6 py-4 rounded-xl font-bold text-sm text-white transition-all hover:-translate-y-px"
               style={{ background: SKY, boxShadow: `0 0 20px ${SKY}35` }}
             >
@@ -824,7 +819,7 @@ function CTA() {
 }
 
 /* ── Page export ────────────────────────────────────────────────────────── */
-export default function MoltedOutcomesAi() {
+export default function MoltedOutcomes() {
   return (
     <MoltedLayout>
       <Hero />
