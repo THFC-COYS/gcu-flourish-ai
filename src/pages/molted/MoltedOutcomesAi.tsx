@@ -375,7 +375,7 @@ function LiveDashboardMock() {
                 <div className="w-2.5 h-2.5 rounded-full bg-red-500" />
                 <div className="w-2.5 h-2.5 rounded-full bg-yellow-500" />
                 <div className="w-2.5 h-2.5 rounded-full" style={{ background: SKY }} />
-                <span className="ml-2 text-molted-muted text-xs font-mono">outcomes.molted.ai · GCU</span>
+                <span className="ml-2 text-molted-muted text-xs font-mono">outcomes.molted.ai · Live</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
@@ -386,7 +386,7 @@ function LiveDashboardMock() {
             <div className="p-6">
               {/* Institution + semester label */}
               <div className="mb-6">
-                <h3 className="text-molted-white font-bold text-lg">Grand Canyon University</h3>
+                <h3 className="text-molted-white font-bold text-lg">Flagship University</h3>
                 <p className="text-molted-muted text-sm">Spring 2026 · Real-time snapshot</p>
               </div>
 

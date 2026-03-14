@@ -74,7 +74,7 @@ function Hero() {
           style={{ background: TEAL_DIM, border: `1px solid ${TEAL_BORDER}`, color: TEAL }}
         >
           <Cpu size={12} />
-          Product 03 · MoltED Ai
+          Molt · Faculty
         </div>
       </RevealBlock>
 
@@ -82,7 +82,6 @@ function Hero() {
       <RevealBlock delay={100}>
         <h1 className="text-6xl md:text-8xl lg:text-9xl font-black leading-none tracking-tight">
           <span className="text-molted-white/90">Teach</span>
-          <span style={{ color: TEAL, textShadow: `0 0 40px rgba(45,212,191,0.4), 0 0 80px rgba(45,212,191,0.15)` }}>OS</span>
         </h1>
       </RevealBlock>
 
@@ -1256,7 +1255,7 @@ function CTA() {
 export default function MoltedTeachOS() {
   return (
     <MoltedLayout>
-      <CampusOSBanner moduleName="TeachOS" moduleColor="#2DD4BF" />
+      <CampusOSBanner moduleName="Teach" moduleColor="#2DD4BF" />
       <Hero />
       <TheProblem />
       <CoreTools />

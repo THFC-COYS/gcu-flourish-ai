@@ -116,7 +116,7 @@ function Hero() {
       {/* Subtext */}
       <RevealBlock delay={380}>
         <p className="mt-3 text-sm text-molted-subtle tracking-wide max-w-xs mx-auto">
-          Everything else MoltED builds is a feature of this.
+          Everything else Molt builds is a feature of this.
         </p>
       </RevealBlock>
 
@@ -302,14 +302,14 @@ function WhatCampusOSRemoves() {
 
 /* ── Platform Architecture ──────────────────────────────────────────────── */
 const PRODUCT_NODES: { name: string; color: string; desc: string }[] = [
-  { name: 'pAIgeBreaker', color: '#3B82F6', desc: 'Student engagement' },
-  { name: 'Persona Ai', color: '#EC4899', desc: 'Adaptive identity' },
-  { name: 'TeachOS', color: '#F59E0B', desc: 'Faculty dashboard' },
-  { name: 'PathwayAi', color: '#06B6D4', desc: 'Adaptive paths' },
-  { name: 'ProofAi', color: '#F97316', desc: 'AI assessment' },
-  { name: 'RetainAi', color: '#EF4444', desc: 'Student success' },
-  { name: 'OutcomesAi', color: '#A78BFA', desc: 'Institutional outcomes' },
-  { name: 'MasteryAi', color: '#10B981', desc: 'CBE redesign' },
+  { name: 'Read', color: '#E8A020', desc: 'Student engagement' },
+  { name: 'Persona', color: '#E8170F', desc: 'Adaptive identity' },
+  { name: 'Teach', color: '#2DD4BF', desc: 'Faculty dashboard' },
+  { name: 'Pathway', color: '#06B6D4', desc: 'Adaptive paths' },
+  { name: 'Proof', color: '#F97316', desc: 'AI assessment' },
+  { name: 'Retain', color: '#EF4444', desc: 'Student success' },
+  { name: 'Outcomes', color: '#A78BFA', desc: 'Institutional outcomes' },
+  { name: 'Mastery', color: '#10B981', desc: 'CBE redesign' },
 ];
 
 function ProductNode({ node }: { node: (typeof PRODUCT_NODES)[0] }) {
@@ -502,7 +502,7 @@ function VisionStatement() {
 
         <RevealBlock delay={650}>
           <p className="mt-8 text-molted-muted text-sm tracking-widest font-medium">
-            — MoltED Ai
+            — Molt
           </p>
         </RevealBlock>
 
@@ -608,7 +608,7 @@ function WaitlistCTA() {
             to="/molted"
             className="text-molted-muted hover:text-molted-white text-sm transition-colors"
           >
-            See all MoltED products
+            See all Molt products
           </Link>
         </RevealBlock>
       </div>

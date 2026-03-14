@@ -53,7 +53,7 @@ function Hero() {
       <div className="relative z-10 max-w-5xl mx-auto">
         {/* Product badge */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-molted-violet/30 bg-molted-violet/10 text-molted-violet text-xs font-semibold mb-8 animate-fade-in">
-          <BookOpen size={12} /> MoltED Ai · Product 01
+          <BookOpen size={12} /> Molt · Students
         </div>
 
         {/* Hero wordmark */}
@@ -67,10 +67,7 @@ function Hero() {
               backgroundClip: 'text',
             }}
           >
-            pAIge
-          </span>
-          <span className="block text-6xl md:text-8xl lg:text-9xl font-black text-molted-white leading-none tracking-tight mt-1">
-            Breaker
+            Read
           </span>
         </h1>
 
@@ -130,7 +127,7 @@ function TheInsight() {
           </p>
           <p className="mt-8 text-molted-muted text-lg leading-relaxed max-w-2xl mx-auto">
             A student stuck on a passage at 11 PM has no one to ask. They close the book.
-            pAIgeBreaker is the answer that's always there.
+            Read is the answer that's always there.
           </p>
         </RevealBlock>
       </div>
@@ -145,7 +142,7 @@ function HowItWorks() {
       num: '01',
       icon: BookOpen,
       title: 'Upload or open any text',
-      body: 'A chapter. A PDF. A reading assignment. An article. pAIgeBreaker reads anything your curriculum uses.',
+      body: 'A chapter. A PDF. A reading assignment. An article. Read handles anything your curriculum uses.',
     },
     {
       num: '02',
@@ -210,7 +207,7 @@ function Features() {
     {
       icon: Clock,
       title: '24/7 Availability',
-      body: '2 AM before an exam. Sunday morning before a paper is due. pAIgeBreaker is never off-duty.',
+      body: '2 AM before an exam. Sunday morning before a paper is due. Read is never off-duty.',
       color: 'text-sky-400',
       bg: 'bg-sky-400/10 border-sky-400/20',
     },
@@ -232,7 +229,7 @@ function Features() {
             Not a search engine. A tutor.
           </h2>
           <p className="mt-4 text-molted-muted text-lg max-w-xl mx-auto">
-            Every decision in pAIgeBreaker was made asking one question: does this make the student more capable?
+            Every decision in Read was made asking one question: does this make the student more capable?
           </p>
         </RevealBlock>
 
@@ -260,7 +257,7 @@ function Audiences() {
     {
       icon: '🎓',
       title: 'College Students',
-      description: 'Dense textbooks. Late nights. High stakes. pAIgeBreaker is the study partner who actually read the chapter.',
+      description: 'Dense textbooks. Late nights. High stakes. Read is the study partner who actually read the chapter.',
       features: ['Graduate-level text comprehension', 'Citation-ready explanations', 'Essay ideation from source material'],
     },
     {
@@ -272,7 +269,7 @@ function Audiences() {
     {
       icon: '🏢',
       title: 'Professional Training',
-      description: 'Onboarding manuals. Compliance docs. Technical standards. pAIgeBreaker makes training stick.',
+      description: 'Onboarding manuals. Compliance docs. Technical standards. Read makes training stick.',
       features: ['Enterprise documentation', 'Industry-specific knowledge', 'Custom training modules'],
     },
   ];
@@ -318,7 +315,7 @@ function CTA() {
       <div className="max-w-3xl mx-auto text-center">
         <RevealBlock>
           <h2 className="text-4xl md:text-6xl font-black text-molted-white tracking-tight leading-tight">
-            See pAIgeBreaker<br />
+            See Read<br />
             <span className="text-molted-violet">in action.</span>
           </h2>
           <p className="mt-6 text-molted-muted text-lg">
@@ -349,7 +346,7 @@ function CTA() {
 export default function MoltedPAIgeBreaker() {
   return (
     <MoltedLayout>
-      <CampusOSBanner moduleName="pAIgeBreaker" moduleColor="#E8A020" />
+      <CampusOSBanner moduleName="Read" moduleColor="#E8A020" />
       <Hero />
       <TheInsight />
       <HowItWorks />

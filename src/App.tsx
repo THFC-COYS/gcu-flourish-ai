@@ -87,7 +87,9 @@ export default function App() {
             {/* MoltED Ai — public company website */}
             <Route path="/molted" element={<MoltedHome />} />
             <Route path="/molted/paigebreaker" element={<MoltedPAIgeBreaker />} />
+            <Route path="/molted/read" element={<MoltedPAIgeBreaker />} />
             <Route path="/molted/persona-ai" element={<MoltedPersonaAi />} />
+            <Route path="/molted/persona" element={<MoltedPersonaAi />} />
             <Route path="/molted/teachos" element={<MoltedTeachOS />} />
             <Route path="/molted/pathway-ai" element={<MoltedPathwayAi />} />
             <Route path="/molted/proof-ai" element={<MoltedProofAi />} />

@@ -56,22 +56,13 @@ function Hero() {
       <div className="relative z-10 max-w-5xl mx-auto">
         {/* Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-molted-ember/30 bg-molted-ember/10 text-molted-ember text-xs font-semibold mb-8 animate-fade-in">
-          <Sparkles size={12} /> MoltED Ai · Product 02
+          <Sparkles size={12} /> Molt · Institutions
         </div>
 
         {/* Wordmark */}
         <h1 className="animate-reveal">
           <span className="block text-5xl md:text-7xl lg:text-8xl font-black text-molted-white leading-none tracking-tight">
             Persona
-          </span>
-          <span
-            className="block text-5xl md:text-7xl lg:text-8xl font-black leading-none tracking-tight mt-1"
-            style={{
-              color: '#E8170F',
-              textShadow: '0 0 40px rgba(232,23,15,0.25)',
-            }}
-          >
-            Ai
           </span>
         </h1>
 
@@ -82,7 +73,7 @@ function Hero() {
 
         <p className="mt-4 text-lg text-molted-muted/70 max-w-2xl mx-auto leading-relaxed animate-reveal" style={{ animationDelay: '250ms' }}>
           Every institution has a character — a way of caring, teaching, and showing up.
-          Persona Ai carries all of it into every conversation, at any hour.
+          Persona carries all of it into every conversation, at any hour.
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 animate-reveal" style={{ animationDelay: '350ms' }}>
@@ -90,14 +81,14 @@ function Hero() {
             href="mailto:hello@molted.ai?subject=Persona Ai Demo Request"
             className="group flex items-center gap-2.5 px-8 py-4 rounded-xl bg-molted-ember hover:bg-molted-ember-light text-white font-bold text-lg transition-all duration-200 shadow-molted-ember hover:-translate-y-px"
           >
-            Create Your Spirit
+            Create Your Persona
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </a>
           <Link
-            to="/molted/paigebreaker"
+            to="/molted/read"
             className="px-8 py-4 rounded-xl border border-molted-border text-molted-muted hover:text-molted-white font-semibold transition-all hover:border-molted-subtle"
           >
-            See pAIgeBreaker instead →
+            See Read instead →
           </Link>
         </div>
       </div>
@@ -127,7 +118,7 @@ function TheSpiritIdea() {
               backgroundClip: 'text',
             }}
           >
-            Persona Ai gives it a voice.
+            Persona gives it a voice.
           </p>
           <p className="mt-8 text-molted-muted text-lg leading-relaxed max-w-2xl mx-auto">
             Not a generic chatbot. Not "AI assistant." A named, trained, branded persona that speaks
@@ -146,60 +137,60 @@ function SpiritShowcase() {
   const spirits = [
     {
       icon: '🏥',
-      name: 'Spirit Nurse',
-      college: 'College of Nursing & Health Care Professions',
+      name: 'The Nurse Persona',
+      college: 'School of Nursing',
       tagline: 'Clinical care & patient support',
-      detail: 'Every nursing graduate carries clinical competency and compassionate presence. Spirit Nurse carries both — available to any patient at 2 AM when fear is loudest and no one else can be there. Your faculty\'s clinical knowledge. Your graduates\' character. In the room when it matters most.',
+      detail: 'Every nursing graduate carries clinical competency and compassionate presence. The Nurse Persona carries both — available to any patient at 2 AM when fear is loudest and no one else can be there. Your faculty\'s clinical knowledge. Your graduates\' character. In the room when it matters most.',
       color: 'text-rose-400',
       bg: 'bg-rose-400/10 border-rose-400/20',
       accent: '#F87171',
     },
     {
       icon: '📚',
-      name: 'Spirit Teacher',
+      name: 'The Teaching Persona',
       college: 'College of Education',
       tagline: 'Education & learning guidance',
-      detail: 'Spirit Teacher is your faculty\'s pedagogy, your curriculum frameworks, and your best teaching moments — available to any student who is falling behind, any teacher who needs support, any parent trying to understand their child. The patience of your best educators. Always present. Never tired.',
+      detail: 'The Teaching Persona is your faculty\'s pedagogy, your curriculum frameworks, and your best teaching moments — available to any student who is falling behind, any teacher who needs support, any parent trying to understand their child. The patience of your best educators. Always present. Never tired.',
       color: 'text-sky-400',
       bg: 'bg-sky-400/10 border-sky-400/20',
       accent: '#38BDF8',
     },
     {
       icon: '✝️',
-      name: 'Spirit Chaplain',
-      college: 'College of Theology',
+      name: 'The Faith Persona',
+      college: 'School of Divinity',
       tagline: 'Grief, faith & spiritual care',
-      detail: 'Spirit Chaplain carries scripture, grief, and the pastoral wisdom of GCU\'s theology program into every hard conversation about faith, loss, and doubt. A rural pastor at 2 AM. A student losing their faith. A family in the ICU. Your theology — present in the room.',
+      detail: 'The Faith Persona carries scripture, grief, and the pastoral wisdom of the institution\'s theology program into every hard conversation about faith, loss, and doubt. A rural pastor at 2 AM. A student losing their faith. A family in the ICU. Your theology — present in the room.',
       color: 'text-amber-400',
       bg: 'bg-amber-400/10 border-amber-400/20',
       accent: '#FBBF24',
     },
     {
       icon: '💼',
-      name: 'Spirit Advisor',
-      college: 'Colangelo College of Business',
+      name: 'The Business Persona',
+      college: 'School of Business',
       tagline: 'Business ethics & leadership',
-      detail: 'Spirit Advisor brings the Colangelo College\'s ethos on servant leadership, ethical business, and entrepreneurial character into every mentorship moment — career pivots, ethical dilemmas, startup challenges. Your business school\'s wisdom. Available to every graduate.',
+      detail: 'The Business Persona brings our business school\'s ethos on servant leadership, ethical business, and entrepreneurial character into every mentorship moment — career pivots, ethical dilemmas, startup challenges. Your business school\'s wisdom. Available to every graduate.',
       color: 'text-emerald-400',
       bg: 'bg-emerald-400/10 border-emerald-400/20',
       accent: '#34D399',
     },
     {
       icon: '⚖️',
-      name: 'Spirit Counsel',
-      college: 'Rundel School of Law',
+      name: 'The Legal Persona',
+      college: 'School of Law',
       tagline: 'Legal guidance & ethics',
-      detail: 'Spirit Counsel guides law students through landmark cases, ethical dilemmas, and jurisprudence questions. Study partner. Socratic partner. Never bills by the hour.',
+      detail: 'The Legal Persona guides law students through landmark cases, ethical dilemmas, and jurisprudence questions. Study partner. Socratic partner. Never bills by the hour.',
       color: 'text-violet-400',
       bg: 'bg-violet-400/10 border-violet-400/20',
       accent: '#A78BFA',
     },
     {
       icon: '🔬',
-      name: 'Spirit Scientist',
-      college: 'College of Science, Engineering & Technology',
+      name: 'The STEM Persona',
+      college: 'College of Engineering & Technology',
       tagline: 'Research, lab & STEM support',
-      detail: 'From hypothesis design to data analysis interpretation, Spirit Scientist supports research students through the scientific method — while maintaining your program\'s standards for rigor, ethics, and methodology.',
+      detail: 'From hypothesis design to data analysis interpretation, The STEM Persona supports research students through the scientific method — while maintaining your program\'s standards for rigor, ethics, and methodology.',
       color: 'text-cyan-400',
       bg: 'bg-cyan-400/10 border-cyan-400/20',
       accent: '#22D3EE',
@@ -214,11 +205,11 @@ function SpiritShowcase() {
         <RevealBlock className="text-center mb-12">
           <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">Live example</p>
           <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight">
-            GCU Spirit Network
+            One Institution. Six Personas.
           </h2>
           <p className="mt-4 text-molted-muted max-w-xl mx-auto">
-            Grand Canyon University deployed six Persona Ais — one for each college.
-            This is what the platform can do.
+            A flagship university deployed six Personas — one for each college.
+            This is what the platform looks like at scale.
           </p>
         </RevealBlock>
 
@@ -263,7 +254,7 @@ function SpiritShowcase() {
                 <p className="mt-6 text-molted-muted leading-relaxed">{current.detail}</p>
                 <div className="mt-6 flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  <span className="text-molted-muted text-xs">Live on GCU Flourish AI Platform</span>
+                  <span className="text-molted-muted text-xs">Live · Flagship University</span>
                 </div>
               </div>
             </div>
@@ -279,20 +270,20 @@ function BuildProcess() {
   const steps = [
     {
       num: '01',
-      title: 'Define Your Spirit',
+      title: 'Define Your Persona',
       body: 'Name it. Give it a personality. Describe how it speaks, what it cares about, and what it represents of your institution.',
       icon: '✏️',
     },
     {
       num: '02',
       title: 'Train It',
-      body: 'Upload your curriculum, policies, FAQ documents, and program materials. The Spirit learns your content — not the internet.',
+      body: 'Upload your curriculum, policies, FAQ documents, and program materials. The Persona learns your content — not the internet.',
       icon: '🧠',
     },
     {
       num: '03',
       title: 'Deploy Everywhere',
-      body: 'Embed on your website. Integrate into your LMS. Add to your student portal. Spirit goes wherever your community is.',
+      body: 'Embed on your website. Integrate into your LMS. Add to your student portal. Persona goes wherever your community is.',
       icon: '🚀',
     },
   ];
@@ -330,35 +321,35 @@ function WhyDifferent() {
     {
       icon: Heart,
       title: 'A Persona, Not a Chatbot',
-      body: 'Generic AI assistants answer questions. Persona Ai represents your institution — with its name, voice, and values embedded in every response.',
+      body: 'Generic AI assistants answer questions. Persona represents your institution — with its name, voice, and values embedded in every response.',
       color: 'text-rose-400',
       bg: 'bg-rose-400/10 border-rose-400/20',
     },
     {
       icon: Shield,
       title: 'Guardrailed to Your Mission',
-      body: 'Spirit never drifts outside your values or your content. Every response is bounded by what you\'ve defined as appropriate for your community.',
+      body: 'Persona never drifts outside your values or your content. Every response is bounded by what you\'ve defined as appropriate for your community.',
       color: 'text-molted-ember',
       bg: 'bg-molted-ember/10 border-molted-ember/20',
     },
     {
       icon: Globe,
       title: 'Always On, Never Tired',
-      body: 'A human chaplain can\'t be in every hospital room at 3 AM. Spirit Chaplain can. Scale your mission without scaling your headcount.',
+      body: 'A human chaplain can\'t be in every hospital room at 3 AM. The Faith Persona can. Scale your mission without scaling your headcount.',
       color: 'text-sky-400',
       bg: 'bg-sky-400/10 border-sky-400/20',
     },
     {
       icon: Zap,
       title: 'Built on What\'s Proven',
-      body: 'Persona Ai is built on the same architecture that powers the GCU Spirit Network — real deployments, real students, real outcomes.',
+      body: 'Persona is built on the same architecture that powers real deployments at a flagship university — real deployments, real students, real outcomes.',
       color: 'text-molted-violet',
       bg: 'bg-molted-violet/10 border-molted-violet/20',
     },
     {
       icon: Building2,
       title: 'Institution-Scale',
-      body: 'Deploy one Spirit or twenty. Serve a single campus or a global network. The platform scales with your ambition.',
+      body: 'Deploy one Persona or twenty. Serve a single campus or a global network. The platform scales with your ambition.',
       color: 'text-emerald-400',
       bg: 'bg-emerald-400/10 border-emerald-400/20',
     },
@@ -375,7 +366,7 @@ function WhyDifferent() {
     <section className="py-24 px-6 border-t border-molted-border">
       <div className="max-w-6xl mx-auto">
         <RevealBlock className="text-center mb-16">
-          <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">Why Persona Ai</p>
+          <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">Why Persona</p>
           <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight">
             Built for institutions<br />that care about character.
           </h2>
@@ -404,22 +395,22 @@ function PricingTeaser() {
   const tiers = [
     {
       name: 'Starter',
-      tag: 'One Spirit. One campus.',
-      features: ['1 Persona Ai persona', 'Up to 10,000 interactions/mo', 'Standard training pipeline', 'Email support'],
+      tag: 'One Persona. One campus.',
+      features: ['1 Persona', 'Up to 10,000 interactions/mo', 'Standard training pipeline', 'Email support'],
       cta: 'Talk to Us',
       highlight: false,
     },
     {
       name: 'Institution',
-      tag: 'Full Spirit Network.',
-      features: ['Up to 10 Spirit personas', 'Unlimited interactions', 'Custom training & guardrails', 'LMS integration', 'Dedicated success manager'],
+      tag: 'Full Persona Network.',
+      features: ['Up to 10 Personas', 'Unlimited interactions', 'Custom training & guardrails', 'LMS integration', 'Dedicated success manager'],
       cta: 'Most Popular',
       highlight: true,
     },
     {
       name: 'Enterprise',
       tag: 'Multi-campus. Global scale.',
-      features: ['Unlimited Spirits', 'White-label deployment', 'Private model hosting', 'SLA & compliance support', 'Full API access'],
+      features: ['Unlimited Personas', 'White-label deployment', 'Private model hosting', 'SLA & compliance support', 'Full API access'],
       cta: 'Contact Sales',
       highlight: false,
     },
@@ -486,11 +477,11 @@ function CTA() {
         <RevealBlock>
           <h2 className="text-4xl md:text-6xl font-black text-molted-white tracking-tight leading-tight">
             What does your<br />
-            <span className="text-molted-ember">institution's Spirit</span><br />
+            <span className="text-molted-ember">institution's Persona</span><br />
             look like?
           </h2>
           <p className="mt-6 text-molted-muted text-lg">
-            Let's build it together. Every Spirit starts with a conversation.
+            Let's build it together. Every Persona starts with a conversation.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
@@ -516,7 +507,7 @@ function CTA() {
 export default function MoltedPersonaAi() {
   return (
     <MoltedLayout>
-      <CampusOSBanner moduleName="Persona Ai" moduleColor="#E8170F" />
+      <CampusOSBanner moduleName="Persona" moduleColor="#E8170F" />
       <Hero />
       <TheSpiritIdea />
       <SpiritShowcase />

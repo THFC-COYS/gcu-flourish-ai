@@ -49,7 +49,7 @@ function Hero() {
       </div>
       <div className="relative z-10 max-w-4xl mx-auto">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-molted-border bg-molted-elevated text-molted-muted text-xs font-semibold mb-8 animate-fade-in">
-          MoltED Ai · About
+          Molt · About
         </div>
         <h1 className="text-5xl md:text-7xl font-black text-molted-white tracking-tight leading-tight animate-reveal">
           We didn't build<br />
@@ -83,16 +83,16 @@ function Story() {
         <div className="space-y-8">
           {[
             {
-              text: 'MoltED Ai started with a simple observation: the best human moments in education — a patient teacher, a caring chaplain, a knowledgeable nurse — are impossibly scarce. And the students who need them most are usually the ones who have the least access.',
+              text: 'Molt started with a simple observation: the best human moments in education — a patient teacher, a caring chaplain, a knowledgeable nurse — are impossibly scarce. And the students who need them most are usually the ones who have the least access.',
             },
             {
-              text: 'The name "MoltED" is intentional. Molting is transformation through shedding — a snake sheds to grow, a lobster sheds to rebuild. We believe education is overdue for a molt. The old model — lectures at fixed times, one teacher per thirty students, content locked in textbooks — needs to shed.',
+              text: 'The name is intentional. Molting is transformation through shedding — a snake sheds to grow, a lobster sheds to rebuild. We believe education is overdue for a molt. The old model — lectures at fixed times, one teacher per thirty students, content locked in textbooks — needs to shed.',
             },
             {
-              text: 'We started by partnering with Grand Canyon University to build the GCU Flourish AI platform: a network of six custom AI personas, each trained on a college\'s identity, deployed to serve students across nursing, education, theology, business, law, and STEM.',
+              text: 'We proved the concept at a flagship university: six custom AI personas, each trained on a college\'s identity, deployed to serve students across nursing, education, theology, business, law, and STEM. Over 50,000 students. Zero caveats.',
             },
             {
-              text: 'From that work, two products emerged: pAIgeBreaker — for institutions that want to make reading transformative — and Persona Ai — for any institution that wants its values, expertise, and care present everywhere.',
+              text: 'From that work, three products emerged: Read — for any student who needs answers right now. Teach — for faculty drowning in admin. Persona — for institutions that want their values and expertise present everywhere, always.',
             },
           ].map((p, i) => (
             <RevealBlock key={i} delay={i * 100}>
@@ -124,7 +124,7 @@ function Values() {
     {
       icon: Target,
       title: 'Ruthless focus',
-      body: 'Two products. Not twelve. We build fewer things better. Depth over breadth, always.',
+      body: 'Three products. Not thirty. We build fewer things better. Depth over breadth, always.',
       color: 'text-molted-ember',
       bg: 'bg-molted-ember/10 border-molted-ember/20',
     },
@@ -171,13 +171,13 @@ function StatusNote() {
               <div>
                 <h3 className="text-molted-white font-bold text-lg mb-3">Company Formation Status</h3>
                 <p className="text-molted-muted leading-relaxed mb-4">
-                  MoltED Ai LLC is currently in formation. We are actively verifying the name availability
+                  Molt LLC is currently in formation. We are actively verifying the name availability
                   through the appropriate state registry and will complete the LLC filing upon confirmation.
                 </p>
                 <div className="space-y-2">
                   {[
                     { label: 'Business concept', status: '✓ Complete', color: 'text-emerald-400' },
-                    { label: 'Product development (GCU partnership)', status: '✓ Active', color: 'text-emerald-400' },
+                    { label: 'Product development (flagship university partnership)', status: '✓ Active', color: 'text-emerald-400' },
                     { label: 'Name availability check', status: '⏳ In progress', color: 'text-amber-400' },
                     { label: 'LLC filing', status: '⏳ Pending name confirmation', color: 'text-amber-400' },
                     { label: 'Public launch', status: '→ After filing', color: 'text-molted-muted' },
@@ -222,7 +222,7 @@ function Contact() {
               to="/molted"
               className="px-8 py-4 rounded-xl border border-molted-border text-molted-muted hover:text-molted-white font-semibold transition-all hover:border-molted-subtle"
             >
-              ← Back to MoltED Ai
+              ← Back to Molt
             </Link>
           </div>
         </RevealBlock>

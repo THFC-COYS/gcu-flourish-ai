@@ -86,24 +86,29 @@ function Hero() {
 
       {/* Wordmark */}
       <RevealBlock delay={120}>
-        <h1 className="text-7xl md:text-9xl font-black leading-none tracking-tight">
-          <span className="text-molted-white">Imago</span>
-          <span
-            style={{
-              background: IMAGO_GRADIENT,
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-            }}
-          >
-            OS
-          </span>
+        <h1
+          className="text-7xl md:text-9xl font-black leading-none tracking-tight"
+          style={{
+            background: IMAGO_GRADIENT,
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+          }}
+        >
+          Imago
         </h1>
       </RevealBlock>
 
+      {/* Definition */}
+      <RevealBlock delay={200}>
+        <p className="mt-4 text-molted-subtle text-sm tracking-widest font-medium italic">
+          ima·go — the final adult form of an insect, reached after all molts are complete
+        </p>
+      </RevealBlock>
+
       {/* Tagline */}
-      <RevealBlock delay={260}>
-        <p className="mt-8 text-xl md:text-2xl font-semibold tracking-wide" style={{ color: IMAGO_WARM }}>
+      <RevealBlock delay={320}>
+        <p className="mt-6 text-xl md:text-2xl font-semibold tracking-wide" style={{ color: IMAGO_WARM }}>
           The final form.
         </p>
       </RevealBlock>
@@ -175,7 +180,7 @@ function TheMoltMetaphor() {
           >
             "Education is molting.
             <br />
-            MoltED Ai is what it becomes."
+            Molt is what it becomes."
           </p>
         </RevealBlock>
 
@@ -198,7 +203,7 @@ function TheMoltMetaphor() {
 
           <RevealBlock delay={280}>
             <p className="font-semibold text-lg leading-relaxed" style={{ color: IMAGO_AMBER }}>
-              ImagoOS is the end. The institution that emerges on the other side —
+              Imago is the end. The institution that emerges on the other side —
               fully transformed, unrecognizable from what it was.
             </p>
           </RevealBlock>
@@ -237,13 +242,13 @@ function ThreeStages() {
         'All modules unified in one platform',
         'Mastery replaces grades',
         'Continuous learning, no end dates',
-        'TeachOS automates faculty admin',
-        'RetainAi predicts student risk early',
+        'Teach automates faculty admin',
+        'Retain predicts student risk early',
       ],
     },
     {
       label: 'Stage 3',
-      name: 'ImagoOS',
+      name: 'Imago',
       color: IMAGO_AMBER,
       bg: 'rgba(245,183,64,0.06)',
       border: 'rgba(245,183,64,0.25)',
@@ -313,7 +318,7 @@ function ThreeStages() {
           <ChevronRight size={14} />
           <span style={{ color: '#E8A020' }}>CampusOS</span>
           <ChevronRight size={14} />
-          <span style={{ color: IMAGO_AMBER }}>ImagoOS</span>
+          <span style={{ color: IMAGO_AMBER }}>Imago</span>
         </RevealBlock>
       </div>
     </section>
@@ -329,12 +334,12 @@ const DIFFERENCES = [
   },
   {
     headline: 'No one-size.',
-    body: "Every student is on a path built for them — their pace, their strengths, their goals. PathwayAi rebuilds the curriculum around the learner, not the lecture schedule.",
+    body: "Every student is on a path built for them — their pace, their strengths, their goals. Pathway rebuilds the curriculum around the learner, not the lecture schedule.",
     color: IMAGO_GOLD,
   },
   {
     headline: 'No surprises.',
-    body: 'RetainAi surfaces departure risk weeks before students decide. OutcomesAi gives leadership real-time visibility into every outcome metric that matters.',
+    body: 'Retain surfaces departure risk weeks before students decide. Outcomes gives leadership real-time visibility into every outcome metric that matters.',
     color: IMAGO_AMBER,
   },
   {
@@ -401,14 +406,14 @@ function WhatsDifferent() {
 /* ── The Architecture ───────────────────────────────────────────────────── */
 function Architecture() {
   const modules = [
-    { name: 'TeachOS', color: '#2DD4BF', role: 'Faculty' },
-    { name: 'pAIgeBreaker', color: '#E8A020', role: 'Students' },
-    { name: 'Persona Ai', color: '#E8170F', role: 'Institution' },
-    { name: 'PathwayAi', color: '#8B5CF6', role: 'Students' },
-    { name: 'ProofAi', color: '#F97316', role: 'Faculty' },
-    { name: 'RetainAi', color: '#F43F5E', role: 'Institution' },
-    { name: 'OutcomesAi', color: '#0EA5E9', role: 'Leadership' },
-    { name: 'MasteryAi', color: '#10B981', role: 'Curriculum' },
+    { name: 'Teach', color: '#2DD4BF', role: 'Faculty' },
+    { name: 'Read', color: '#E8A020', role: 'Students' },
+    { name: 'Persona', color: '#E8170F', role: 'Institution' },
+    { name: 'Pathway', color: '#8B5CF6', role: 'Students' },
+    { name: 'Proof', color: '#F97316', role: 'Faculty' },
+    { name: 'Retain', color: '#F43F5E', role: 'Institution' },
+    { name: 'Outcomes', color: '#0EA5E9', role: 'Leadership' },
+    { name: 'Mastery', color: '#10B981', role: 'Curriculum' },
   ];
 
   return (
@@ -419,10 +424,10 @@ function Architecture() {
             The stack
           </p>
           <h2 className="text-4xl md:text-6xl font-black text-molted-white tracking-tight leading-tight">
-            ImagoOS = CampusOS +<br />all 8 modules, fully deployed.
+            Imago = Campus +<br />all 8 modules, fully deployed.
           </h2>
           <p className="mt-6 text-molted-muted text-base max-w-xl mx-auto leading-relaxed">
-            Each module can be adopted individually. ImagoOS is the state you reach
+            Each module can be adopted individually. Imago is the state you reach
             when every layer is running — nothing missing, nothing bolted on.
           </p>
         </RevealBlock>
@@ -453,7 +458,7 @@ function Architecture() {
                   backgroundClip: 'text',
                 }}
               >
-                ImagoOS
+                Imago
               </p>
               <p className="text-molted-subtle text-xs mt-1">The final form</p>
             </div>
@@ -562,7 +567,7 @@ function MoltManifesto() {
         </RevealBlock>
         <RevealBlock delay={520}>
           <p className="mt-8 text-molted-subtle text-sm tracking-widest font-medium">
-            — MoltED Ai
+            — Molt
           </p>
         </RevealBlock>
       </div>
@@ -587,7 +592,7 @@ function TransformCTA() {
             Begin the molt
           </p>
           <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight leading-tight">
-            Ready to reach ImagoOS?
+            Ready to reach Imago?
           </h2>
           <p className="mt-6 text-molted-muted text-lg leading-relaxed">
             Start with a single module. Build toward CampusOS.

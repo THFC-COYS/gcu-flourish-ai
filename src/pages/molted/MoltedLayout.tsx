@@ -7,9 +7,8 @@ function MoltedLogo({ size = 'md' }: { size?: 'sm' | 'md' | 'lg' }) {
   return (
     <div className="flex items-center">
       <span className={`${textSize} font-black tracking-tight leading-none`}>
-        <span className="text-molted-white/90">molt</span>
-        <span style={{ color: '#F5B740', textShadow: '0 0 12px rgba(245,183,64,0.9), 0 0 30px rgba(232,160,32,0.5)' }}>ed</span>
-        <span style={{ color: '#E8170F', fontWeight: 900, letterSpacing: '-0.01em' }}>Ai</span>
+        <span className="text-molted-white/90">M</span>
+        <span style={{ color: '#F5B740', textShadow: '0 0 12px rgba(245,183,64,0.8), 0 0 28px rgba(232,160,32,0.4)' }}>olt</span>
       </span>
     </div>
   );
@@ -155,13 +154,13 @@ export function MoltedFooter() {
           <div>
             <div className="mb-4">
               <Link to="/molted/imago-os" className="inline-flex items-center gap-2 text-sm font-black hover:opacity-80 transition-opacity" style={{ background: 'linear-gradient(120deg,#F5B740,#E8A020)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                ImagoOS — The Final Form
+                Imago — The Final Form
               </Link>
               <p className="text-molted-subtle text-xs mt-0.5">The fully transformed institution.</p>
             </div>
             <div className="mb-5">
               <Link to="/molted/campus-os" className="inline-flex items-center gap-2 text-sm font-bold hover:opacity-80 transition-opacity" style={{ background: 'linear-gradient(120deg,#E8A020,#2DD4BF,#8B5CF6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                CampusOS — The Platform
+                Campus — The Platform
               </Link>
               <p className="text-molted-subtle text-xs mt-1">All modules. One AI-native LMS.</p>
             </div>
