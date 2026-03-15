@@ -9,6 +9,13 @@ import { createServer, IncomingMessage, ServerResponse } from 'http';
 import { WebSocketServer, WebSocket } from 'ws';
 import type { StudentEvent, ConnectedSession, AgentMessage } from './types.js';
 import { runDiscussionAgent } from './agents/discussion.js';
+import {
+  getAllAuditResults,
+  getFlaggedAlerts,
+  getWeeklyDigest,
+  submitHumanScore,
+  resolveAlert,
+} from './audit/auditStore.js';
 
 const PORT = Number(process.env.PORT ?? 3001);
 
@@ -16,7 +23,7 @@ const PORT = Number(process.env.PORT ?? 3001);
 const httpServer = createServer((req: IncomingMessage, res: ServerResponse) => {
   // CORS for local dev
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
 
   if (req.method === 'OPTIONS') {
@@ -27,6 +34,38 @@ const httpServer = createServer((req: IncomingMessage, res: ServerResponse) => {
 
   if (req.method === 'POST' && req.url === '/api/reply') {
     handleReplyRequest(req, res);
+    return;
+  }
+
+  // ── Governance / Audit endpoints ──────────────────────────────────────────
+  if (req.method === 'GET' && req.url === '/api/audit/interactions') {
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify(getAllAuditResults()));
+    return;
+  }
+
+  if (req.method === 'GET' && req.url === '/api/audit/alerts') {
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify(getFlaggedAlerts()));
+    return;
+  }
+
+  if (req.method === 'GET' && req.url === '/api/audit/weekly-digest') {
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify(getWeeklyDigest()));
+    return;
+  }
+
+  if (req.method === 'POST' && req.url === '/api/audit/score') {
+    handleHumanScore(req, res);
+    return;
+  }
+
+  if (req.method === 'POST' && req.url?.startsWith('/api/audit/resolve/')) {
+    const auditId = req.url.replace('/api/audit/resolve/', '');
+    const result = resolveAlert(auditId);
+    res.writeHead(result ? 200 : 404, { 'Content-Type': 'application/json' });
+    res.end(JSON.stringify(result ?? { error: 'Not found' }));
     return;
   }
 
@@ -65,6 +104,22 @@ async function handleReplyRequest(req: IncomingMessage, res: ServerResponse) {
       console.error('[Molt] /api/reply error:', err);
       res.writeHead(500, { 'Content-Type': 'application/json' });
       res.end(JSON.stringify({ error: 'Agent failed' }));
+    }
+  });
+}
+
+async function handleHumanScore(req: IncomingMessage, res: ServerResponse) {
+  let body = '';
+  req.on('data', (chunk) => (body += chunk));
+  req.on('end', () => {
+    try {
+      const { auditId, score, notes, scoredBy } = JSON.parse(body);
+      const result = submitHumanScore(auditId, score, notes ?? '', scoredBy ?? 'Department Head');
+      res.writeHead(result ? 200 : 404, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify(result ?? { error: 'Audit record not found' }));
+    } catch (err) {
+      res.writeHead(400, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ error: 'Invalid request body' }));
     }
   });
 }
