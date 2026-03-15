@@ -73,7 +73,7 @@ function Hero() {
           <span
             className="block text-6xl md:text-8xl lg:text-9xl font-black leading-none tracking-tight"
             style={{
-              background: 'linear-gradient(135deg, #F5F5F7 0%, #9D8FFF 50%, #7B61FF 100%)',
+              background: 'linear-gradient(135deg, #3D2DB0 0%, #7B61FF 55%, #9D8FFF 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',

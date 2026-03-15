@@ -769,14 +769,14 @@ function Pricing() {
                 }}
               >
                 <div className="mb-6">
-                  <p className="text-molted-muted text-sm font-semibold mb-1">{tier.name}</p>
-                  <p className="text-4xl font-black text-molted-white">{tier.price}</p>
-                  <p className="text-molted-muted text-sm">{tier.period}</p>
-                  <p className="mt-3 text-molted-muted/80 text-sm leading-relaxed">{tier.desc}</p>
+                  <p className="text-sm font-semibold mb-1" style={{ color: '#86868B' }}>{tier.name}</p>
+                  <p className="text-4xl font-black" style={{ color: '#F5F5F7' }}>{tier.price}</p>
+                  <p className="text-sm" style={{ color: '#86868B' }}>{tier.period}</p>
+                  <p className="mt-3 text-sm leading-relaxed" style={{ color: 'rgba(134,134,139,0.8)' }}>{tier.desc}</p>
                 </div>
                 <ul className="space-y-2.5 flex-1 mb-7">
                   {tier.features.map((f, j) => (
-                    <li key={j} className="flex items-center gap-2.5 text-sm text-molted-muted">
+                    <li key={j} className="flex items-center gap-2.5 text-sm" style={{ color: '#86868B' }}>
                       <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: ORANGE }} />
                       {f}
                     </li>

@@ -56,7 +56,7 @@ export function MoltedNav() {
         className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 hover:bg-black/5 ${active ? 'bg-black/5' : ''}`}
         style={
           active
-            ? { color: color ?? '#F0F0F0' }
+            ? { color: color ?? '#1C1C1E' }
             : color
             ? { background: `linear-gradient(120deg, ${color}, ${color}cc)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }
             : undefined

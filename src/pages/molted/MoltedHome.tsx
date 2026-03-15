@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronRight, Bot, BookOpen, BarChart3, Users } from 'lucide-react';
 import MoltedLayout from './MoltedLayout';
-import MoltedPixelMark from '../../components/MoltedPixelMark';
+
 
 /* ── Scroll reveal ─────────────────────────────────────────────────────── */
 function useReveal() {
@@ -127,10 +127,6 @@ function Hero() {
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto">
-        {/* Pixel mark */}
-        <RevealBlock className="mb-10 flex justify-center">
-          <MoltedPixelMark size={120} />
-        </RevealBlock>
         {/* Kicker */}
         <RevealBlock className="mb-8">
           <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest">
@@ -193,7 +189,7 @@ function TheProblem() {
             Every LMS treats everyone
           </p>
           <p className="text-4xl md:text-6xl font-light leading-tight tracking-tight mt-1"
-            style={{ color: 'rgba(255,255,255,0.2)' }}>
+            style={{ color: 'rgba(0,0,0,0.2)' }}>
             exactly the same.
           </p>
           <p className="mt-16 text-molted-muted text-xl leading-relaxed">
@@ -432,7 +428,7 @@ function InstructorFirst() {
             The agent learns your voice.
           </h2>
           <p className="text-3xl md:text-5xl font-black leading-tight tracking-tight mt-1"
-            style={{ color: 'rgba(255,255,255,0.25)' }}>
+            style={{ color: 'rgba(0,0,0,0.2)' }}>
             Students never lose you.
           </p>
           <p className="mt-6 text-molted-muted text-lg leading-relaxed max-w-2xl mx-auto">
@@ -551,10 +547,10 @@ function CampusBridge() {
                 style={{ background: 'linear-gradient(135deg,#2DD4BF 0%,#E8A020 50%,#E8170F 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                 Outpost
               </h2>
-              <p className="text-xl md:text-2xl text-molted-white/80 font-semibold mb-4 max-w-xl mx-auto">
+              <p className="text-xl md:text-2xl font-semibold mb-4 max-w-xl mx-auto" style={{ color: 'rgba(245,245,247,0.85)' }}>
                 Every agent. Every role. One platform.
               </p>
-              <p className="text-molted-muted text-base max-w-lg mx-auto leading-relaxed mb-8">
+              <p className="text-base max-w-lg mx-auto leading-relaxed mb-8" style={{ color: '#86868B' }}>
                 Forge, Lumen, and Beacon aren't integrations. They're native features of an LMS built from scratch for the AI era.
               </p>
               <div className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all group-hover:-translate-y-0.5"

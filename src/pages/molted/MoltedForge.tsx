@@ -108,7 +108,7 @@ function Hero() {
             <span
               className="block text-6xl md:text-8xl lg:text-9xl font-black leading-none tracking-tight"
               style={{
-                background: 'linear-gradient(135deg, #F5F5F7 0%, #5EF0E3 50%, #2DD4BF 100%)',
+                background: 'linear-gradient(135deg, #0A6B62 0%, #2DD4BF 55%, #5EF0E3 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
@@ -157,10 +157,10 @@ function Hero() {
             className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl border"
             style={{ background: 'rgba(10,10,15,0.8)', borderColor: 'rgba(255,255,255,0.06)' }}
           >
-            <Clock size={14} className="text-molted-muted" />
-            <p className="text-molted-muted text-sm">
+            <Clock size={14} style={{ color: '#86868B' }} />
+            <p className="text-sm" style={{ color: '#86868B' }}>
               The average professor spends{' '}
-              <span className="text-molted-white font-semibold">23 hours/week</span>
+              <span className="font-semibold" style={{ color: '#F5F5F7' }}>23 hours/week</span>
               {' '}on tasks Forge handles automatically.
             </p>
           </div>

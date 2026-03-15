@@ -102,7 +102,7 @@ function Hero() {
           <span
             className="block text-6xl md:text-8xl lg:text-9xl font-black leading-none tracking-tight"
             style={{
-              background: 'linear-gradient(135deg, #F5F5F7 0%, #FF6B6B 50%, #E8170F 100%)',
+              background: 'linear-gradient(135deg, #7A0907 0%, #E8170F 55%, #FF6B6B 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
@@ -381,9 +381,9 @@ function BeaconShowcase() {
                 onClick={() => switchIndustry(ind)}
                 className="px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200"
                 style={{
-                  background: activeIndustry === ind ? RED : 'rgba(255,255,255,0.05)',
-                  color: activeIndustry === ind ? '#fff' : '#86868B',
-                  border: `1px solid ${activeIndustry === ind ? 'transparent' : 'rgba(255,255,255,0.08)'}`,
+                  background: activeIndustry === ind ? RED : 'rgba(0,0,0,0.05)',
+                  color: activeIndustry === ind ? '#fff' : '#636366',
+                  border: `1px solid ${activeIndustry === ind ? 'transparent' : 'rgba(0,0,0,0.12)'}`,
                 }}
               >
                 {ind}
