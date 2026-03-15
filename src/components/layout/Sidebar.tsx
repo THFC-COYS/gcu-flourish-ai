@@ -2,7 +2,8 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import {
   LayoutDashboard, Library, Wand2, FlaskConical,
   TrendingUp, BookOpen, LogOut, ChevronLeft, ChevronRight,
-  Shield, X, Heart, Code2, Rocket, Bot, Briefcase, Award, GraduationCap
+  Shield, X, Heart, Code2, Rocket, Bot, Briefcase, Award, GraduationCap,
+  Building2, Activity, Cpu
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { RoleBadge } from '../ui/Badge';
@@ -16,6 +17,14 @@ const NAV_SECTIONS = [
       { label: 'Spirit Builder', icon: Wand2, to: '/builder' },
       { label: 'Deployment Console', icon: FlaskConical, to: '/testing' },
       { label: 'Training Academy', icon: GraduationCap, to: '/spirit-training' },
+    ],
+  },
+  {
+    label: 'University OS',
+    items: [
+      { label: 'University OS', icon: Building2, to: '/university-os' },
+      { label: 'Command Center', icon: Activity, to: '/university-os/command-center' },
+      { label: 'Dept. Consoles', icon: Cpu, to: '/university-os/department/admissions' },
     ],
   },
   {

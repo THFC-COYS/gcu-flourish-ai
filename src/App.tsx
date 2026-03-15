@@ -4,6 +4,9 @@ import { ThemeProvider } from './context/ThemeContext';
 import Layout from './components/layout/Layout';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
+import UniversityOS from './pages/university-os/UniversityOS';
+import CommandCenter from './pages/university-os/CommandCenter';
+import DepartmentConsole from './pages/university-os/DepartmentConsole';
 import PrototypeLibrary from './pages/PrototypeLibrary';
 import Builder from './pages/Builder';
 import TestingZone from './pages/TestingZone';
@@ -74,6 +77,9 @@ function ProtectedRoutes() {
         <Route path="executive-brief" element={<ExecutiveBriefing />} />
         <Route path="flourish-standard" element={<FlourishStandard />} />
         <Route path="spirit-training" element={<SpiritTraining />} />
+        <Route path="university-os" element={<UniversityOS />} />
+        <Route path="university-os/command-center" element={<CommandCenter />} />
+        <Route path="university-os/department/:deptId" element={<DepartmentConsole />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
