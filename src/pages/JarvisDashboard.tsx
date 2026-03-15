@@ -107,7 +107,13 @@ const DEFAULT_UNIVERSITIES: UniversityConfig[] = [
     weekStart: 3,
     weekType: 'Wed–Tue',
     terms: [
-      { label: 'Spring 2026', start: '2026-03-11', end: '2026-05-05' },
+      // Spring 2026 — Undergraduate Online 8-Wk Sessions
+      { label: 'Spring 2026 Session 1', start: '2026-01-07', end: '2026-03-03' },
+      { label: 'Spring 2026 Session 2', start: '2026-02-11', end: '2026-04-07' },
+      { label: 'Spring 2026 Session 3', start: '2026-03-11', end: '2026-05-05' },
+      // Summer 2026 — Undergraduate Online 8-Wk Sessions
+      { label: 'Summer 2026 Session 1', start: '2026-05-13', end: '2026-07-07' },
+      { label: 'Summer 2026 Session 2', start: '2026-06-10', end: '2026-08-04' },
     ],
   },
 ];
@@ -142,12 +148,15 @@ function getWeekInfo(cfg: UniversityConfig, today: Date): WeekInfo {
 
   const todayMidnight = new Date(today.getFullYear(), today.getMonth(), today.getDate());
 
-  // 1. Find active term (today falls within start..end inclusive)
-  const activeTerm = cfg.terms.find(t => {
-    const s = new Date(t.start + 'T00:00:00');
-    const e = new Date(t.end   + 'T00:00:00');
-    return todayMidnight >= s && todayMidnight <= e;
-  });
+  // 1. Find active term — when sessions overlap (e.g. UMGC), pick the
+  //    most recently *started* one (the current enrollment).
+  const activeTerm = cfg.terms
+    .filter(t => {
+      const s = new Date(t.start + 'T00:00:00');
+      const e = new Date(t.end   + 'T00:00:00');
+      return todayMidnight >= s && todayMidnight <= e;
+    })
+    .sort((a, b) => new Date(b.start).getTime() - new Date(a.start).getTime())[0];
 
   // 2. Find next upcoming term (closest start date after today)
   const upcoming = cfg.terms
@@ -320,9 +329,36 @@ function StatusRow({ label, value, dotClass = 'j-dot-cyan' }: {
   );
 }
 
+/** Spatial tilt hook — moves panel in 3D toward the pointer/gaze */
+function useTilt(maxDeg = 6, tz = 14) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  function onMove(e: React.MouseEvent<HTMLDivElement>) {
+    const el = ref.current;
+    if (!el) return;
+    const { left, top, width, height } = el.getBoundingClientRect();
+    const x = (e.clientX - left) / width  - 0.5;   // -0.5 .. +0.5
+    const y = (e.clientY - top)  / height - 0.5;
+    el.style.setProperty('--rx', `${(-y * maxDeg).toFixed(2)}deg`);
+    el.style.setProperty('--ry', `${ (x * maxDeg).toFixed(2)}deg`);
+    el.style.setProperty('--tz', `${tz}px`);
+  }
+
+  function onLeave() {
+    const el = ref.current;
+    if (!el) return;
+    el.style.setProperty('--rx', '0deg');
+    el.style.setProperty('--ry', '0deg');
+    el.style.setProperty('--tz', '8px');
+  }
+
+  return { ref, onMouseMove: onMove, onMouseLeave: onLeave };
+}
+
 /** University week tracker card */
 function UniversityCard({ cfg, today }: { cfg: UniversityConfig; today: Date }) {
   const info = getWeekInfo(cfg, today);
+  const tilt = useTilt(5, 12);
 
   const badgeClass =
     info.isFirstDay ? 'week-badge-first' :
@@ -338,11 +374,16 @@ function UniversityCard({ cfg, today }: { cfg: UniversityConfig; today: Date }) 
 
   return (
     <div
-      className="j-panel j-panel-inner j-scan-sweep p-3 rounded-sm"
+      ref={tilt.ref}
+      onMouseMove={tilt.onMouseMove}
+      onMouseLeave={tilt.onMouseLeave}
+      className="j-panel j-panel-inner j-scan-sweep j-vros j-tilt j-specular j-ambient-glow p-3 rounded-sm"
       style={{
+        '--glow-color': `rgba(${cfg.accentRgb}, 0.2)`,
+        '--float-z': '8px',
         borderColor: `rgba(${cfg.accentRgb}, 0.35)`,
         animation: 'slide-in-left 0.6s ease both',
-      }}
+      } as React.CSSProperties}
     >
       {/* Header */}
       <div className="flex items-center justify-between mb-2">
@@ -468,9 +509,21 @@ function UniversityCard({ cfg, today }: { cfg: UniversityConfig; today: Date }) 
 }
 
 /** Single news section */
-function NewsSectionCard({ section }: { section: NewsSection }) {
+function NewsSectionCard({ section, delay = 0 }: { section: NewsSection; delay?: number }) {
+  const tilt = useTilt(4, 10);
   return (
-    <div className="j-panel j-panel-inner rounded-sm p-3" style={{ borderColor: `rgba(${section.colorRgb},0.3)` }}>
+    <div
+      ref={tilt.ref}
+      onMouseMove={tilt.onMouseMove}
+      onMouseLeave={tilt.onMouseLeave}
+      className="j-panel j-panel-inner j-vros j-tilt j-specular j-float j-ambient-glow rounded-sm p-3"
+      style={{
+        '--glow-color': `rgba(${section.colorRgb}, 0.15)`,
+        '--float-z': '10px',
+        borderColor: `rgba(${section.colorRgb},0.3)`,
+        animationDelay: `${-delay}s`,
+      } as React.CSSProperties}
+    >
       <div className="flex items-center gap-2 mb-2">
         <span style={{ fontSize: '1rem' }}>{section.icon}</span>
         <span className="j-title" style={{ fontSize: '0.7rem', color: section.color, letterSpacing: '0.15em' }}>
@@ -612,12 +665,18 @@ function AlertOverlay({ alert, onDismiss }: { alert: AlertInfo; onDismiss: () =>
 function ElonPanel({ elon, onRequest }: { elon: ElonState; onRequest: () => void }) {
   const approved  = elon.status === 'approved';
   const requesting = elon.status === 'requesting';
+  const tilt = useTilt(6, 18);
   return (
     <div
-      className="j-panel j-panel-inner j-scan-sweep rounded-sm p-3"
+      ref={tilt.ref}
+      onMouseMove={tilt.onMouseMove}
+      onMouseLeave={tilt.onMouseLeave}
+      className="j-panel j-panel-inner j-scan-sweep j-vros j-tilt j-specular j-float-slow j-ambient-glow rounded-sm p-3"
       style={{
+        '--glow-color': approved ? 'rgba(0,255,136,0.2)' : 'rgba(255,107,0,0.15)',
+        '--float-z': '16px',
         borderColor: approved ? 'rgba(0,255,136,0.4)' : requesting ? 'rgba(255,215,0,0.4)' : 'rgba(255,107,0,0.3)',
-      }}
+      } as React.CSSProperties}
     >
       <div className="flex items-center gap-2 mb-3">
         <div
@@ -1001,10 +1060,10 @@ export default function JarvisDashboard() {
       {activeAlert && <AlertOverlay alert={activeAlert} onDismiss={dismissAlert} />}
       {showSettings && <SettingsModal universities={universities} onSave={saveUniversities} onClose={() => setShowSettings(false)} />}
 
-      <div className="jarvis-content">
+      <div className="jarvis-content jarvis-scene">
 
         {/* HEADER */}
-        <header className="jarvis-header px-4 py-3">
+        <header className="jarvis-header jarvis-header-3d px-4 py-3">
           <div className="flex items-center gap-4">
             <ArcReactor size={48} />
             <div className="flex-1">
@@ -1065,7 +1124,7 @@ export default function JarvisDashboard() {
               )}
             </div>
             <div className="grid gap-3" style={{ gridTemplateColumns: 'repeat(3,1fr)' }}>
-              {newsSections.map((section, i) => <NewsSectionCard key={i} section={section} />)}
+              {newsSections.map((section, i) => <NewsSectionCard key={i} section={section} delay={i * 2} />)}
             </div>
             <div className="j-panel rounded-sm p-3 mt-auto" style={{ border: '1px solid rgba(0,212,255,0.1)' }}>
               <div className="j-label mb-2" style={{ fontSize: '0.5rem' }}>◈ SYSTEM STATUS</div>
@@ -1082,7 +1141,7 @@ export default function JarvisDashboard() {
             <div className="j-label" style={{ fontSize: '0.55rem', letterSpacing: '0.2em' }}>◈ AUTHORIZATION</div>
             <ElonPanel elon={elon} onRequest={requestElonApproval} />
 
-            <div className="j-panel j-panel-inner rounded-sm p-3">
+            <div className="j-panel j-panel-inner j-vros j-depth-2 j-specular rounded-sm p-3">
               <div className="j-label mb-2" style={{ fontSize: '0.55rem' }}>◈ TODAY'S BRIEFING</div>
               <div className="j-divider mb-2" />
               {universities.map(cfg => {
@@ -1112,8 +1171,9 @@ export default function JarvisDashboard() {
               })}
             </div>
 
-            <div className="j-panel j-panel-inner rounded-sm p-3 flex flex-col items-center gap-2">
-              <ArcReactor size={40} />
+            <div className="j-panel j-panel-inner j-vros j-depth-3 j-float-slow j-float-delay-2 j-specular j-ambient-glow rounded-sm p-3 flex flex-col items-center gap-2"
+              style={{ '--glow-color': 'rgba(0,212,255,0.25)', '--float-z': '20px' } as React.CSSProperties}>
+              <div className="arc-reactor-vr"><ArcReactor size={40} /></div>
               <div className="j-title" style={{ fontSize: '0.55rem', letterSpacing: '0.15em', color: 'rgba(0,212,255,0.5)' }}>
                 ARC REACTOR v3
               </div>
