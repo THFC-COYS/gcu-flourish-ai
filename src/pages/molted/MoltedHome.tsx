@@ -160,22 +160,16 @@ function Hero() {
           </p>
         </RevealBlock>
 
-        {/* CTAs */}
-        <RevealBlock delay={320} className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        {/* Single CTA */}
+        <RevealBlock delay={320} className="mt-12">
           <a
             href="mailto:hello@molted.ai?subject=MoltED Demo Request"
-            className="group inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-bold text-base transition-all duration-200 hover:-translate-y-px"
+            className="group inline-flex items-center gap-3 px-10 py-5 rounded-2xl font-bold text-base transition-all duration-200 hover:-translate-y-1 hover:shadow-molted-glow"
             style={{ background: 'linear-gradient(120deg, #2DD4BF 0%, #E8A020 50%, #E8170F 100%)', color: '#0a0a0f' }}
           >
             See It Live
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
           </a>
-          <Link
-            to="/outpost"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl font-semibold text-base text-molted-muted hover:text-molted-white border border-molted-border hover:border-molted-subtle transition-all"
-          >
-            Explore the Platform
-          </Link>
         </RevealBlock>
       </div>
 
@@ -191,23 +185,23 @@ function Hero() {
 /* ── The Problem ───────────────────────────────────────────────────────── */
 function TheProblem() {
   return (
-    <section className="py-24 px-6 border-t border-molted-border">
-      <div className="max-w-4xl mx-auto">
+    <section className="py-48 px-6 border-t border-molted-border">
+      <div className="max-w-3xl mx-auto">
         <RevealBlock className="text-center">
-          <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-8">The problem</p>
-          <p className="text-3xl md:text-5xl font-black text-molted-white leading-tight tracking-tight">
+          <p className="text-molted-muted text-sm font-medium uppercase tracking-widest mb-12">The problem</p>
+          <p className="text-4xl md:text-6xl font-black text-molted-white leading-tight tracking-tight">
             Every LMS treats everyone
           </p>
-          <p className="text-3xl md:text-5xl font-black leading-tight tracking-tight mt-2"
-            style={{ color: 'rgba(255,255,255,0.25)' }}>
+          <p className="text-4xl md:text-6xl font-light leading-tight tracking-tight mt-1"
+            style={{ color: 'rgba(255,255,255,0.2)' }}>
             exactly the same.
           </p>
-          <p className="mt-10 text-molted-muted text-lg leading-relaxed max-w-2xl mx-auto">
-            The professor with 140 students gets the same gradebook the professor with 14 gets.
-            The student failing silently at 11 PM gets the same discussion board as the student who's thriving.
-            The admin watching retention collapse gets the same reports that were built in 2009.
+          <p className="mt-16 text-molted-muted text-xl leading-relaxed">
+            The professor with 140 students gets the same gradebook as the professor with 14.
+            The student failing at 11 PM gets the same discussion board as the student who's thriving.
+            The admin watching retention collapse gets the same reports from 2009.
           </p>
-          <p className="mt-6 text-molted-white text-xl font-bold">
+          <p className="mt-8 text-molted-white text-2xl font-bold">
             The LMS doesn't know any of them.
           </p>
         </RevealBlock>
@@ -224,8 +218,8 @@ function ThePlatform() {
         style={{ background: 'radial-gradient(ellipse at 50% 30%, rgba(45,212,191,0.04) 0%, transparent 65%)' }} />
       <div className="max-w-4xl mx-auto relative z-10">
         <RevealBlock className="text-center">
-          <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-8">The answer</p>
-          <h2 className="text-3xl md:text-5xl font-black text-molted-white leading-tight tracking-tight">
+          <p className="text-molted-muted text-sm font-medium uppercase tracking-widest mb-12">The answer</p>
+          <h2 className="text-4xl md:text-6xl font-black text-molted-white leading-tight tracking-tight">
             MoltED is an agentic LMS.
           </h2>
           <p className="mt-4 text-3xl md:text-5xl font-black leading-tight tracking-tight"

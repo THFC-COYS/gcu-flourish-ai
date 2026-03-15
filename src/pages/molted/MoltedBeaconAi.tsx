@@ -2,8 +2,40 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Sparkles, ArrowRight, Check, Globe, Heart, Shield, Zap, Building2, Mic } from 'lucide-react';
 import MoltedLayout, { OutpostBanner } from './MoltedLayout';
+import AgentFeed, { FeedEvent } from '../../components/AgentFeed';
 
 const RED = '#E8170F';
+
+const BEACON_EVENTS: FeedEvent[] = [
+  { time: '2:14 AM',  event: 'Student in financial distress reaches out at 2 AM', action: 'Beacon deploys — listens, responds in institutional voice, escalates to advisor', role: 'Student', href: '/beacon' },
+  { time: '9:30 AM',  event: 'New nursing cohort onboarded — 340 students', action: 'Beacon persona deployed across all 340 student profiles in 8 seconds', role: 'Admin', href: '/beacon' },
+  { time: '11:22 PM', event: 'Graduate student questioning faith during finals week', action: 'Pastoral care Beacon responds with empathy — no wait, no queue', role: 'Student', href: '/beacon' },
+  { time: '7:45 AM',  event: 'Academic advisor inbox overloaded — 60 pending queries', action: 'Beacon handles tier-1 advising — escalates 4 complex cases to human', role: 'Faculty', href: '/beacon' },
+  { time: '3:58 PM',  event: 'International student struggling with course registration', action: 'Beacon guides through process in student\'s preferred language', role: 'Student', href: '/beacon' },
+  { time: '10:01 AM', event: 'New Beacon persona configured: College of Business values', action: 'Persona live in 12 minutes — faculty approved voice and guardrails', role: 'Admin', href: '/beacon' },
+];
+
+function BeaconLiveFeed() {
+  return (
+    <section className="py-24 px-6 border-t border-molted-border">
+      <div className="max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-16 items-start">
+          <div>
+            <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">Live deployments</p>
+            <h2 className="text-4xl md:text-5xl font-black text-molted-white leading-tight tracking-tight mb-6">
+              Your institution's voice.<br />
+              <span style={{ color: RED }}>Always present.</span>
+            </h2>
+            <p className="text-molted-muted text-lg leading-relaxed">
+              Beacon agents are live around the clock — carrying your values, your voice, and your care into every student interaction. No queue. No office hours. No one left waiting.
+            </p>
+          </div>
+          <AgentFeed events={BEACON_EVENTS} label="Beacon agents deployed" accentColor={RED} />
+        </div>
+      </div>
+    </section>
+  );
+}
 const RED_DIM = 'rgba(232,23,15,0.10)';
 const RED_BORDER = 'rgba(232,23,15,0.25)';
 
@@ -676,6 +708,7 @@ export default function MoltedBeaconAi() {
       <OutpostBanner moduleName="Beacon" moduleColor="#E8170F" />
       <Hero />
       <LiveProof />
+      <BeaconLiveFeed />
       <TheVoiceIdea />
       <BeaconShowcase />
       <BuildProcess />

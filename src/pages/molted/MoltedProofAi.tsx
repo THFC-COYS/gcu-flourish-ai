@@ -5,6 +5,38 @@ import {
   Shield, BarChart3, CheckCircle, Users, BookOpen, Zap, AlertTriangle,
 } from 'lucide-react';
 import MoltedLayout from './MoltedLayout';
+import AgentFeed, { FeedEvent } from '../../components/AgentFeed';
+
+const PROOF_EVENTS: FeedEvent[] = [
+  { time: '10:22 AM', event: 'Student submits essay on healthcare ethics — suspected AI-written', action: 'Proof schedules oral follow-up — student cannot fake a live conversation', role: 'Student', href: '/proof-ai' },
+  { time: '2:15 PM',  event: 'Alexis R. begins oral AI assessment for BIO 402', action: 'Proof evaluates depth in real time — distinguishes recall from understanding', role: 'Student', href: '/proof-ai' },
+  { time: '9:48 AM',  event: 'Student defends research methodology under Proof questioning', action: 'Integrity confirmed — portfolio updated, evidence tagged to SACSCOC outcome', role: 'Student', href: '/proof-ai' },
+  { time: '4:05 PM',  event: 'Faculty requests accreditation evidence for NURS program', action: 'Proof generates SACSCOC-ready report — 6 weeks of evidence in 4 minutes', role: 'Faculty', href: '/proof-ai' },
+  { time: '11:30 AM', event: 'Student claims prior learning — needs competency verification', action: 'Proof runs adaptive oral assessment, awards credit with documented evidence', role: 'Student', href: '/proof-ai' },
+  { time: '8:00 AM',  event: 'End-of-semester portfolio review for 180 students', action: 'Proof maps all work to program outcomes — board report ready by noon', role: 'Admin', href: '/proof-ai' },
+];
+
+function ProofLiveFeed() {
+  return (
+    <section className="py-24 px-6 border-t border-molted-border">
+      <div className="max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-16 items-start">
+          <div>
+            <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">Assessments in progress</p>
+            <h2 className="text-4xl md:text-5xl font-black text-molted-white leading-tight tracking-tight mb-6">
+              Proof runs 24/7.<br />
+              <span style={{ color: '#E8A020' }}>The evidence never sleeps.</span>
+            </h2>
+            <p className="text-molted-muted text-lg leading-relaxed">
+              Every event below is Proof doing what accreditors require but traditional assessment can't deliver — verified understanding, documented continuously, ready when you need it.
+            </p>
+          </div>
+          <AgentFeed events={PROOF_EVENTS} label="Proof assessments running" accentColor="#E8A020" />
+        </div>
+      </div>
+    </section>
+  );
+}
 
 /* ── Scroll reveal ─────────────────────────────────────────────────────── */
 function useReveal() {
@@ -820,6 +852,7 @@ export default function MoltedProof() {
       <Hero />
       <TheCrisis />
       <AssessmentModes />
+      <ProofLiveFeed />
       <BeforeAfter />
       <ForFaculty />
       <Pricing />

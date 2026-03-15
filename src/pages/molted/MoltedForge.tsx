@@ -5,8 +5,41 @@ import {
   AlertTriangle, Cpu, Clock, ChevronRight, Mic,
 } from 'lucide-react';
 import MoltedLayout, { OutpostBanner } from './MoltedLayout';
+import AgentFeed, { FeedEvent } from '../../components/AgentFeed';
 
 const TEAL = '#2DD4BF';
+
+const FORGE_EVENTS: FeedEvent[] = [
+  { time: '8:12 AM',  event: 'Professor uploads syllabus for NURS 301', action: 'Course architect generates full semester infrastructure in 40 seconds', role: 'Faculty', href: '/forge/course-architect' },
+  { time: '11:47 PM', event: 'Student posts confusion about cognitive load theory', action: 'Discussion agent replies with clarity — 4 seconds', role: 'Student', href: '/forge/discussion' },
+  { time: '6:55 AM',  event: 'Auto-respond queue: 14 unanswered student emails', action: 'Drafts all replies — faculty reviews and approves in 2 minutes', role: 'Faculty', href: '/forge/auto-respond' },
+  { time: '1:22 AM',  event: 'Doctoral student submits methodology chapter draft', action: 'Agentic grader returns structured feedback with rubric alignment', role: 'Student', href: '/forge/agentic-grader' },
+  { time: '2:03 AM',  event: 'Marcus T. — no login in 5 days, grade declining', action: 'Early warning flags risk, personalized check-in drafted for advisor', role: 'Admin', href: '/forge/early-warning' },
+  { time: '3:14 PM',  event: 'Student replies to ethics forum — insightful argument', action: 'Agent acknowledges the insight, deepens thread with a follow-up question', role: 'Student', href: '/forge/discussion' },
+  { time: '9:05 AM',  event: 'Faculty inbox: 22 unread messages across 4 courses', action: 'Auto-respond categorises, drafts, and queues — cleared in 3 minutes', role: 'Faculty', href: '/forge/auto-respond' },
+];
+
+function ForgeLiveFeed() {
+  return (
+    <section className="py-24 px-6 border-t border-molted-border">
+      <div className="max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-16 items-start">
+          <div>
+            <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">Always working</p>
+            <h2 className="text-4xl md:text-5xl font-black text-molted-white leading-tight tracking-tight mb-6">
+              Forge doesn't wait<br />
+              <span style={{ color: TEAL }}>for office hours.</span>
+            </h2>
+            <p className="text-molted-muted text-lg leading-relaxed">
+              Every event below is a real workflow Forge handles autonomously — drafting, grading, flagging, responding. Faculty review and approve. The queue never backs up.
+            </p>
+          </div>
+          <AgentFeed events={FORGE_EVENTS} label="Forge agents running now" accentColor={TEAL} />
+        </div>
+      </div>
+    </section>
+  );
+}
 const TEAL_DIM = 'rgba(45,212,191,0.10)';
 const TEAL_BORDER = 'rgba(45,212,191,0.22)';
 
@@ -449,6 +482,7 @@ export default function MoltedForge() {
       <Hero />
       <TheProblem />
       <HowForgeWorks />
+      <ForgeLiveFeed />
       <FeatureDemos />
       <CTA />
     </MoltedLayout>

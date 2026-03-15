@@ -2,6 +2,18 @@ import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { BookOpen, MessageSquare, Zap, GraduationCap, ArrowRight, Check, Users, Target, Clock } from 'lucide-react';
 import MoltedLayout, { OutpostBanner } from './MoltedLayout';
+import AgentFeed, { FeedEvent } from '../../components/AgentFeed';
+
+const GOLD = '#E8A020';
+
+const LUMEN_EVENTS: FeedEvent[] = [
+  { time: '9:30 AM',  event: 'Student opens Week 4 reading on pharmacology', action: 'Lumen activates — answers terminology confusion in context, mid-paragraph', role: 'Student', href: '/lumen' },
+  { time: '11:52 PM', event: 'Student re-reads the same passage on cardiac output 3 times', action: 'Lumen detects struggle, offers an alternative explanation unprompted', role: 'Student', href: '/lumen' },
+  { time: '8:20 AM',  event: 'Cohort of 34 students opens the same pathophysiology chapter', action: 'Lumen logs common confusion points — flags for faculty to address', role: 'Faculty', href: '/lumen' },
+  { time: '2:45 AM',  event: 'Student working through ethics case study at 2 AM', action: 'Lumen surfaces related concepts from Week 2 — connects the dots', role: 'Student', href: '/lumen' },
+  { time: '10:14 AM', event: 'Student highlights 40% of a paragraph — signals overwhelm', action: 'Lumen simplifies the section without dumbing it down', role: 'Student', href: '/lumen' },
+  { time: '4:30 PM',  event: 'Faculty uploads new reading on leadership theory', action: 'Lumen indexes content — ready to answer questions before students open it', role: 'Faculty', href: '/lumen' },
+];
 
 function useReveal() {
   const ref = useRef<HTMLDivElement>(null);
@@ -397,6 +409,29 @@ function Audiences() {
   );
 }
 
+/* ── Live Feed ─────────────────────────────────────────────────────────── */
+function LumenLiveFeed() {
+  return (
+    <section className="py-24 px-6 border-t border-molted-border">
+      <div className="max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-16 items-start">
+          <div>
+            <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">Reading in real time</p>
+            <h2 className="text-4xl md:text-5xl font-black text-molted-white leading-tight tracking-tight mb-6">
+              Lumen watches.<br />
+              <span style={{ color: GOLD }}>Then it answers.</span>
+            </h2>
+            <p className="text-molted-muted text-lg leading-relaxed">
+              Every event below is a student hitting a wall — and Lumen meeting them there. No search. No tab switching. Understanding delivered exactly where the confusion happened.
+            </p>
+          </div>
+          <AgentFeed events={LUMEN_EVENTS} label="Lumen active sessions" accentColor={GOLD} />
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ── CTA ───────────────────────────────────────────────────────────────── */
 function CTA() {
   return (
@@ -440,6 +475,7 @@ export default function MoltedLumen() {
       <TheInsight />
       <HowItWorks />
       <HowLumenWorks />
+      <LumenLiveFeed />
       <Features />
       <Audiences />
       <CTA />
