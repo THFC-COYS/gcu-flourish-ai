@@ -58,7 +58,7 @@ function Hero() {
       {/* Ambient */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden>
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[600px] rounded-full"
-          style={{ background: 'radial-gradient(ellipse at center, rgba(123,97,255,0.10) 0%, transparent 70%)' }}
+          style={{ background: 'radial-gradient(ellipse at center, rgba(123,97,255,0.18) 0%, transparent 70%)' }}
         />
       </div>
 
@@ -271,7 +271,7 @@ function HowLumenWorks() {
           <div
             className="rounded-2xl p-6 text-center border"
             style={{
-              background: 'rgba(232,160,32,0.06)',
+              background: 'rgba(232,160,32,0.14)',
               borderColor: 'rgba(232,160,32,0.25)',
             }}
           >

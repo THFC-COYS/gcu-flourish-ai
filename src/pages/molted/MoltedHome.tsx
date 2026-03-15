@@ -83,7 +83,7 @@ function AgentFeed() {
             to={item.href}
             className="group block rounded-xl p-4 border transition-all duration-300 hover:scale-[1.02]"
             style={{
-              background: 'rgba(45,212,191,0.04)',
+              background: 'rgba(45,212,191,0.10)',
               borderColor: 'rgba(45,212,191,0.1)',
               opacity: isNew ? 1 : i === 0 ? 1 : 1,
               animation: i === 0 ? 'feedSlideIn 0.4s ease' : undefined,
@@ -119,11 +119,11 @@ function Hero() {
       {/* Ambient */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
         <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[1000px] h-[700px] rounded-full"
-          style={{ background: 'radial-gradient(ellipse at center, rgba(45,212,191,0.06) 0%, transparent 65%)' }} />
+          style={{ background: 'radial-gradient(ellipse at center, rgba(45,212,191,0.14) 0%, transparent 65%)' }} />
         <div className="absolute top-1/2 -right-60 w-[600px] h-[600px] rounded-full"
-          style={{ background: 'radial-gradient(ellipse at center, rgba(232,23,15,0.04) 0%, transparent 70%)' }} />
+          style={{ background: 'radial-gradient(ellipse at center, rgba(232,23,15,0.10) 0%, transparent 70%)' }} />
         <div className="absolute bottom-0 left-1/4 w-[500px] h-[400px] rounded-full"
-          style={{ background: 'radial-gradient(ellipse at center, rgba(232,160,32,0.04) 0%, transparent 70%)' }} />
+          style={{ background: 'radial-gradient(ellipse at center, rgba(232,160,32,0.10) 0%, transparent 70%)' }} />
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto">
@@ -215,7 +215,7 @@ function ThePlatform() {
   return (
     <section className="py-24 px-6 border-t border-molted-border relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 50% 30%, rgba(45,212,191,0.04) 0%, transparent 65%)' }} />
+        style={{ background: 'radial-gradient(ellipse at 50% 30%, rgba(45,212,191,0.10) 0%, transparent 65%)' }} />
       <div className="max-w-4xl mx-auto relative z-10">
         <RevealBlock className="text-center">
           <p className="text-molted-muted text-sm font-medium uppercase tracking-widest mb-12">The answer</p>
@@ -262,7 +262,7 @@ function DataFlywheel() {
   return (
     <section className="py-24 px-6 border-t border-molted-border relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 60% 50%, rgba(232,160,32,0.04) 0%, transparent 65%)' }} />
+        style={{ background: 'radial-gradient(ellipse at 60% 50%, rgba(232,160,32,0.10) 0%, transparent 65%)' }} />
       <div className="max-w-5xl mx-auto relative z-10">
         <RevealBlock className="text-center mb-16">
           <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">The moat</p>
@@ -533,13 +533,13 @@ function CampusBridge() {
         <RevealBlock>
           <Link
             to="/outpost"
-            className="group block relative rounded-3xl overflow-hidden border border-molted-border p-12 md:p-16 text-center hover:border-opacity-60 transition-all duration-500"
-            style={{ background: 'rgba(10,10,15,0.8)' }}
+            className="group block relative rounded-3xl overflow-hidden p-12 md:p-16 text-center transition-all duration-500"
+            style={{ background: 'rgba(10,10,15,0.92)', boxShadow: '0 8px 48px rgba(0,0,0,0.14), 0 2px 8px rgba(0,0,0,0.08)', border: '1px solid rgba(255,255,255,0.08)' }}
           >
             <div className="absolute inset-0 pointer-events-none">
-              <div className="absolute top-0 left-1/4 w-[400px] h-[300px] rounded-full" style={{ background: 'radial-gradient(ellipse,rgba(45,212,191,0.06) 0%,transparent 70%)' }} />
-              <div className="absolute top-0 right-1/4 w-[400px] h-[300px] rounded-full" style={{ background: 'radial-gradient(ellipse,rgba(232,160,32,0.06) 0%,transparent 70%)' }} />
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] rounded-full" style={{ background: 'radial-gradient(ellipse,rgba(232,23,15,0.04) 0%,transparent 70%)' }} />
+              <div className="absolute top-0 left-1/4 w-[400px] h-[300px] rounded-full" style={{ background: 'radial-gradient(ellipse,rgba(45,212,191,0.14) 0%,transparent 70%)' }} />
+              <div className="absolute top-0 right-1/4 w-[400px] h-[300px] rounded-full" style={{ background: 'radial-gradient(ellipse,rgba(232,160,32,0.14) 0%,transparent 70%)' }} />
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] rounded-full" style={{ background: 'radial-gradient(ellipse,rgba(232,23,15,0.10) 0%,transparent 70%)' }} />
             </div>
             <div className="relative z-10">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-6"
@@ -574,7 +574,7 @@ function Manifesto() {
   return (
     <section className="py-32 px-6 border-t border-molted-border relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(45,212,191,0.03) 0%, transparent 70%)' }} />
+        style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(45,212,191,0.08) 0%, transparent 70%)' }} />
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <RevealBlock>
           <p className="text-molted-subtle text-sm uppercase tracking-widest mb-8 font-semibold">Our belief</p>

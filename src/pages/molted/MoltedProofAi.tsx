@@ -79,7 +79,7 @@ function RevealBlock({ children, delay = 0, className = '' }: {
 const ORANGE = '#F97316';
 const ORANGE_DIM = 'rgba(249,115,22,0.12)';
 const ORANGE_BORDER = 'rgba(249,115,22,0.25)';
-const ORANGE_GLOW = '0 0 30px rgba(249,115,22,0.12), 0 0 60px rgba(249,115,22,0.06)';
+const ORANGE_GLOW = '0 0 30px rgba(249,115,22,0.12), 0 0 60px rgba(249,115,22,0.14)';
 
 /* ── Hero ──────────────────────────────────────────────────────────────── */
 function Hero() {
@@ -89,11 +89,11 @@ function Hero() {
       <div className="absolute inset-0 pointer-events-none">
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[700px] rounded-full"
-          style={{ background: 'radial-gradient(ellipse at center, rgba(249,115,22,0.06) 0%, transparent 70%)' }}
+          style={{ background: 'radial-gradient(ellipse at center, rgba(249,115,22,0.14) 0%, transparent 70%)' }}
         />
         <div
           className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full"
-          style={{ background: 'radial-gradient(ellipse at center, rgba(232,23,15,0.04) 0%, transparent 70%)' }}
+          style={{ background: 'radial-gradient(ellipse at center, rgba(232,23,15,0.10) 0%, transparent 70%)' }}
         />
       </div>
 
@@ -551,7 +551,7 @@ function BeforeAfter() {
     <section className="py-28 px-6 border-t border-molted-border relative overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(249,115,22,0.03) 0%, transparent 60%)' }}
+        style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(249,115,22,0.08) 0%, transparent 60%)' }}
       />
       <div className="max-w-5xl mx-auto relative z-10">
         <RevealBlock className="text-center mb-16">
@@ -566,7 +566,7 @@ function BeforeAfter() {
           <RevealBlock>
             <div
               className="rounded-2xl p-7 border h-full"
-              style={{ background: 'rgba(232,23,15,0.04)', borderColor: 'rgba(232,23,15,0.12)' }}
+              style={{ background: 'rgba(232,23,15,0.10)', borderColor: 'rgba(232,23,15,0.12)' }}
             >
               <div className="flex items-center gap-2.5 mb-6">
                 <AlertTriangle size={16} style={{ color: '#E8170F' }} />
@@ -584,7 +584,7 @@ function BeforeAfter() {
               </div>
               <div
                 className="mt-6 p-3 rounded-xl text-xs text-center font-semibold"
-                style={{ background: 'rgba(232,23,15,0.08)', color: '#E8170F', border: '1px solid rgba(232,23,15,0.15)' }}
+                style={{ background: 'rgba(232,23,15,0.16)', color: '#E8170F', border: '1px solid rgba(232,23,15,0.15)' }}
               >
                 Grade reflects what AI can produce, not what students know.
               </div>
@@ -808,7 +808,7 @@ function FinalCTA() {
     <section className="py-32 px-6 border-t border-molted-border relative overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 50% 80%, rgba(249,115,22,0.07) 0%, transparent 60%)' }}
+        style={{ background: 'radial-gradient(ellipse at 50% 80%, rgba(249,115,22,0.14) 0%, transparent 60%)' }}
       />
       <div className="max-w-3xl mx-auto text-center relative z-10">
         <RevealBlock>

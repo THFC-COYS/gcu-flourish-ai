@@ -82,10 +82,10 @@ function Hero() {
       {/* Ambient */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden>
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[700px] rounded-full"
-          style={{ background: 'radial-gradient(ellipse at center, rgba(232,23,15,0.08) 0%, transparent 70%)' }}
+          style={{ background: 'radial-gradient(ellipse at center, rgba(232,23,15,0.16) 0%, transparent 70%)' }}
         />
         <div className="absolute bottom-0 right-1/4 w-[500px] h-[400px] rounded-full"
-          style={{ background: 'radial-gradient(circle, rgba(232,160,32,0.04) 0%, transparent 70%)' }}
+          style={{ background: 'radial-gradient(circle, rgba(232,160,32,0.10) 0%, transparent 70%)' }}
         />
       </div>
 

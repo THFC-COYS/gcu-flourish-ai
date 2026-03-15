@@ -65,8 +65,8 @@ function FeedCard({
       to={item.href}
       className="group block rounded-xl p-4 border transition-all duration-300 hover:scale-[1.02]"
       style={{
-        background: `rgba(${rgbMatch},0.04)`,
-        borderColor: `rgba(${rgbMatch},${isTyping ? '0.22' : '0.1'})`,
+        background: `rgba(${rgbMatch},0.07)`,
+        borderColor: `rgba(${rgbMatch},${isTyping ? '0.30' : '0.15'})`,
         animation: isTyping ? 'agentFeedSlideIn 0.4s ease' : undefined,
         transition: 'border-color 0.4s ease',
       }}

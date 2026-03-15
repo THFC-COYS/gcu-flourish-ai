@@ -16,21 +16,21 @@ export default {
           'gold-pale': '#FFF8E1',
         },
         molted: {
-          black: '#000000',
-          surface: '#0A0A0F',
-          elevated: '#111118',
-          border: '#1E1E2E',
+          black: '#FFFFFF',             // page background — white
+          surface: '#FAFAFA',           // slightly off-white surface
+          elevated: '#F2F2F7',          // Apple system gray 6 — card bg
+          border: '#D1D1D6',            // Apple gray 3 — light border
           /* Logo palette — Jobs-refined: amber-gold (alive) · scarlet (statement) */
-          charcoal: '#1E2D3D',
-          gold: '#E8A020',        /* amber-gold: warm, alive, not award-plaque */
+          charcoal: '#1C1C1E',
+          gold: '#E8A020',        /* amber-gold */
           'gold-light': '#F5B740',
           'gold-dark': '#C4841A',
-          red: '#E8170F',         /* scarlet: vibrant, not brick */
+          red: '#E8170F',         /* scarlet */
           'red-light': '#FF3D35',
           'red-dark': '#BF100A',
-          white: '#F5F5F7',
-          muted: '#86868B',
-          subtle: '#3A3A40',
+          white: '#1C1C1E',             // Apple label — near-black headlines
+          muted: '#636366',             // Apple secondary label
+          subtle: '#AEAEB2',            // Apple tertiary — placeholder / quiet
           /* Aliases so existing classes keep working */
           violet: '#E8A020',
           'violet-light': '#F5B740',
@@ -94,13 +94,13 @@ export default {
         'gcu-gold': '0 4px 24px rgba(255, 198, 39, 0.20)',
         'card': '0 2px 12px rgba(0,0,0,0.06)',
         'card-hover': '0 8px 32px rgba(75, 46, 131, 0.15)',
-        'molted-glow': '0 0 60px rgba(232, 160, 32, 0.14), 0 0 120px rgba(232, 160, 32, 0.06)',
+        'molted-glow': '0 0 60px rgba(232, 160, 32, 0.18), 0 0 120px rgba(232, 160, 32, 0.08)',
         'molted-violet': '0 4px 32px rgba(232, 160, 32, 0.28)',
         'molted-ember': '0 4px 32px rgba(232, 23, 15, 0.28)',
         'molted-gold': '0 4px 32px rgba(232, 160, 32, 0.32)',
         'molted-red': '0 4px 32px rgba(232, 23, 15, 0.30)',
-        'molted-card': '0 2px 24px rgba(0, 0, 0, 0.4)',
-        'molted-card-hover': '0 8px 48px rgba(232, 160, 32, 0.18)',
+        'molted-card': '0 1px 3px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04)',
+        'molted-card-hover': '0 4px 20px rgba(0, 0, 0, 0.10), 0 2px 6px rgba(0, 0, 0, 0.06)',
       },
     },
   },

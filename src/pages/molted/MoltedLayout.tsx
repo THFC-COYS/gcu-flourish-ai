@@ -53,7 +53,7 @@ export function MoltedNav() {
       <Link
         key={href}
         to={href}
-        className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 hover:bg-white/5 ${active ? 'bg-white/5' : ''}`}
+        className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 hover:bg-black/5 ${active ? 'bg-black/5' : ''}`}
         style={
           active
             ? { color: color ?? '#F0F0F0' }
@@ -68,7 +68,7 @@ export function MoltedNav() {
   }
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-molted-surface/90 backdrop-blur-xl border-b border-molted-border' : 'bg-transparent'}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-white/90 backdrop-blur-xl border-b border-molted-border' : 'bg-transparent'}`}>
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link to="/" className="flex-shrink-0">
           <MoltedLogo size="sm" />
@@ -103,11 +103,11 @@ export function MoltedNav() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-molted-surface/95 backdrop-blur-xl border-b border-molted-border max-h-[80vh] overflow-y-auto">
+        <div className="md:hidden bg-white/95 backdrop-blur-xl border-b border-molted-border max-h-[80vh] overflow-y-auto">
           <div className="max-w-6xl mx-auto px-6 py-4 space-y-1">
             <p className="text-molted-subtle text-xs font-semibold uppercase tracking-widest px-4 pb-2">Products</p>
             {THREE_PRODUCTS.map(p => (
-              <Link key={p.href} to={p.href} className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-all">
+              <Link key={p.href} to={p.href} className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-black/5 transition-all">
                 <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: p.color }} />
                 <div>
                   <p className="text-molted-white text-sm font-semibold">{p.label}</p>
@@ -116,14 +116,14 @@ export function MoltedNav() {
               </Link>
             ))}
             <div className="border-t border-molted-border pt-3 mt-3">
-              <Link to="/outpost" className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-all border border-molted-border mb-1" style={{ background: 'linear-gradient(90deg,rgba(232,160,32,0.05),rgba(139,92,246,0.05))' }}>
+              <Link to="/outpost" className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-black/5 transition-all border border-molted-border mb-1" style={{ background: 'linear-gradient(90deg,rgba(232,160,32,0.05),rgba(139,92,246,0.05))' }}>
                 <div className="w-5 h-5 rounded-md flex-shrink-0" style={{ background: 'linear-gradient(135deg,#E8A020,#2DD4BF,#8B5CF6)' }} />
                 <div>
                   <p className="text-sm font-bold" style={{ background: 'linear-gradient(120deg,#E8A020,#2DD4BF,#8B5CF6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Outpost</p>
                   <p className="text-molted-subtle text-xs">The AI-native LMS</p>
                 </div>
               </Link>
-              <Link to="/about" className="block px-4 py-3 rounded-lg text-sm font-medium text-molted-muted hover:text-molted-white hover:bg-white/5 transition-all">About</Link>
+              <Link to="/about" className="block px-4 py-3 rounded-lg text-sm font-medium text-molted-muted hover:text-molted-white hover:bg-black/5 transition-all">About</Link>
             </div>
             <div className="pt-3 border-t border-molted-border">
               <a href="mailto:hello@molted.ai" className="block w-full text-center px-5 py-3 rounded-xl text-sm font-semibold bg-molted-violet text-white">Get Started</a>
@@ -138,7 +138,7 @@ export function MoltedNav() {
 /* ── Footer ─────────────────────────────────────────────────────────────── */
 export function MoltedFooter() {
   return (
-    <footer className="bg-molted-black border-t border-molted-border">
+    <footer className="bg-molted-elevated border-t border-molted-border">
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="md:col-span-2">
