@@ -17,6 +17,7 @@ import ExecutiveBriefing from './pages/ExecutiveBriefing';
 import FlourishStandard from './pages/FlourishStandard';
 import SpiritTraining from './pages/SpiritTraining';
 import ExecutiveTour from './pages/ExecutiveTour';
+import JarvisDashboard from './pages/JarvisDashboard';
 
 function ProtectedRoutes() {
   const { user, isLoading } = useAuth();
@@ -67,6 +68,8 @@ export default function App() {
           <Routes>
             <Route path="/login" element={<LoginGuard />} />
             <Route path="/executive-tour" element={<ExecutiveTour />} />
+            {/* Standalone JARVIS dashboard — no auth wrapper, full-screen HUD */}
+            <Route path="/jarvis" element={<JarvisDashboard />} />
             <Route path="/*" element={<ProtectedRoutes />} />
           </Routes>
         </BrowserRouter>
