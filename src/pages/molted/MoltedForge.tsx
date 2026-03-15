@@ -204,7 +204,7 @@ function HowForgeWorks() {
     {
       num: '01',
       title: 'You share your story',
-      body: 'Your years in the field. Your subject obsessions. The hobbies that show up in your lectures. The way you talk to students when they're stuck. You share it once — it informs every response, forever.',
+      body: "Your years in the field. Your subject obsessions. The hobbies that show up in your lectures. The way you talk to students when they're stuck. You share it once — it informs every response, forever.",
     },
     {
       num: '02',

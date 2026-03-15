@@ -28,9 +28,9 @@ const SAMPLE_PROMPTS = [
 
 /* ── Starter voice prompts ─────────────────────────────────────────────── */
 const VOICE_STARTERS = [
-  'I've been teaching human development for 8 years. Former high school counselor turned professor. I love hiking and always use outdoors analogies — "growth is like a trail, you can't see the summit until you're halfway up." Warm but direct. I hate generic textbook answers.',
-  'Nursing faculty with 15 years in the ICU before moving to academia. I speak plainly and don't sugarcoat. I use clinical stories constantly. I expect precision but I also tell students when they've done something genuinely right.',
-  'Business professor and former startup founder. I use sports metaphors constantly — mainly basketball. I push students to apply everything to a real company. I'm impatient with vague answers but generous with students who take intellectual risks.',
+  "I've been teaching human development for 8 years. Former high school counselor turned professor. I love hiking and always use outdoors analogies — \"growth is like a trail, you can't see the summit until you're halfway up.\" Warm but direct. I hate generic textbook answers.",
+  "Nursing faculty with 15 years in the ICU before moving to academia. I speak plainly and don't sugarcoat. I use clinical stories constantly. I expect precision but I also tell students when they've done something genuinely right.",
+  "Business professor and former startup founder. I use sports metaphors constantly — mainly basketball. I push students to apply everything to a real company. I'm impatient with vague answers but generous with students who take intellectual risks.",
 ];
 
 export default function ForgeVoiceDemo() {
