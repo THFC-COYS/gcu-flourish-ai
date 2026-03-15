@@ -233,6 +233,28 @@
   background: rgba(0, 212, 255, 0.05);
 }
 
+/* ── News scroll container ─────────────── */
+.j-news-scroll {
+  position: relative;
+  overflow: hidden;
+  height: 170px;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 88%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 88%, transparent 100%);
+}
+.j-news-scroll-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: scroll-up-news linear infinite;
+}
+.j-news-scroll-inner:hover {
+  animation-play-state: paused;
+}
+@keyframes scroll-up-news {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-50%); }
+}
+
 /* ── Alert Overlay ────────────────────── */
 .j-alert-overlay {
   position: fixed;

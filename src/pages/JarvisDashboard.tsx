@@ -553,25 +553,32 @@ function NewsSectionCard({ section, delay = 0 }: { section: NewsSection; delay?:
         </div>
       )}
 
-      <div className="flex flex-col gap-2">
-        {section.items.map((item, idx) => (
-          <a
-            key={idx}
-            href={item.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="j-news-item pl-2 py-1 no-underline"
-            style={{ textDecoration: 'none', animation: `fade-up 0.4s ease ${idx * 0.07}s both` }}
+      {!section.error && !section.loading && section.items.length > 0 && (
+        <div className="j-news-scroll">
+          <div
+            className="j-news-scroll-inner"
+            style={{ animationDuration: `${section.items.length * 4}s` }}
           >
-            <div style={{ fontSize: '0.7rem', color: 'rgba(220,240,255,0.9)', lineHeight: 1.3, marginBottom: 2 }}>
-              {item.title}
-            </div>
-            <div style={{ fontSize: '0.58rem', color: 'rgba(0,212,255,0.4)' }}>
-              {timeAgo(item.pubDate)}
-            </div>
-          </a>
-        ))}
-      </div>
+            {[...section.items, ...section.items].map((item, idx) => (
+              <a
+                key={idx}
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="j-news-item pl-2 py-1 no-underline"
+                style={{ textDecoration: 'none', flexShrink: 0 }}
+              >
+                <div style={{ fontSize: '0.7rem', color: 'rgba(220,240,255,0.9)', lineHeight: 1.3, marginBottom: 2 }}>
+                  {item.title}
+                </div>
+                <div style={{ fontSize: '0.58rem', color: 'rgba(0,212,255,0.4)' }}>
+                  {timeAgo(item.pubDate)}
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
