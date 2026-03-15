@@ -91,7 +91,7 @@ function Hero() {
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
           </a>
           <Link
-            to="/molted/outpost"
+            to="/outpost"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl font-semibold text-base text-molted-muted hover:text-molted-white border border-molted-border hover:border-molted-subtle transition-all"
           >
             Explore the Platform
@@ -426,7 +426,7 @@ function InstructorFirst() {
 
         <RevealBlock delay={200} className="text-center">
           <Link
-            to="/molted/forge"
+            to="/forge"
             className="inline-flex items-center gap-1.5 text-sm font-bold transition-opacity hover:opacity-70"
             style={{ color: '#2DD4BF' }}
           >
@@ -487,7 +487,7 @@ function CampusBridge() {
       <div className="max-w-6xl mx-auto">
         <RevealBlock>
           <Link
-            to="/molted/outpost"
+            to="/outpost"
             className="group block relative rounded-3xl overflow-hidden border border-molted-border p-12 md:p-16 text-center hover:border-opacity-60 transition-all duration-500"
             style={{ background: 'rgba(10,10,15,0.8)' }}
           >
@@ -590,7 +590,7 @@ function FinalCTA() {
               Schedule a Demo
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </a>
-            <Link to="/molted/founding-partners" className="px-8 py-4 rounded-xl border border-molted-border text-molted-muted hover:text-molted-white hover:border-molted-subtle font-semibold transition-all">
+            <Link to="/founding-partners" className="px-8 py-4 rounded-xl border border-molted-border text-molted-muted hover:text-molted-white hover:border-molted-subtle font-semibold transition-all">
               Founding Partners →
             </Link>
           </div>

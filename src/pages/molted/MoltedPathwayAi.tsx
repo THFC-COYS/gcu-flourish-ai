@@ -768,13 +768,13 @@ function CTA() {
           </div>
           <div className="mt-10 pt-8 border-t border-molted-border flex flex-col sm:flex-row items-center justify-center gap-6">
             <Link
-              to="/molted"
+              to="/"
               className="text-molted-muted hover:text-molted-white text-sm transition-colors"
             >
               ← Back to Molt
             </Link>
             <Link
-              to="/molted/paigebreaker"
+              to="/paigebreaker"
               className="text-molted-muted hover:text-molted-white text-sm transition-colors"
             >
               Explore Lumen →

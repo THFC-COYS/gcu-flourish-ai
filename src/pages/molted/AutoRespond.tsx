@@ -462,7 +462,7 @@ export default function AutoRespond() {
           {/* Header */}
           <div className="mb-10">
             <Link
-              to="/molted/teachos"
+              to="/teachos"
               className="inline-flex items-center gap-1.5 text-xs mb-6 transition-colors hover:opacity-80"
               style={{ color: '#86868B' }}
             >

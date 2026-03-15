@@ -419,7 +419,7 @@ function ThePlatform() {
         </RevealBlock>
 
         <RevealBlock delay={380} className="mt-10">
-          <Link to="/molted/outpost"
+          <Link to="/outpost"
             className="inline-flex items-center gap-2 text-sm font-semibold transition-colors"
             style={{ color: GOLD }}>
             See the full platform <ChevronRight size={14} />
@@ -554,15 +554,15 @@ function TheAsk() {
         </RevealBlock>
 
         <RevealBlock delay={480} className="mt-16 flex items-center justify-center gap-8 text-sm">
-          <Link to="/molted" className="text-molted-muted hover:text-molted-white transition-colors">
+          <Link to="/" className="text-molted-muted hover:text-molted-white transition-colors">
             ← Back to Molt
           </Link>
           <span className="text-molted-border">·</span>
-          <Link to="/molted/outpost" className="text-molted-muted hover:text-molted-white transition-colors flex items-center gap-1">
+          <Link to="/outpost" className="text-molted-muted hover:text-molted-white transition-colors flex items-center gap-1">
             See Outpost <ChevronRight size={13} />
           </Link>
           <span className="text-molted-border">·</span>
-          <Link to="/molted/imago-os" className="text-molted-muted hover:text-molted-white transition-colors flex items-center gap-1">
+          <Link to="/imago-os" className="text-molted-muted hover:text-molted-white transition-colors flex items-center gap-1">
             See Imago <ChevronRight size={13} />
           </Link>
         </RevealBlock>

@@ -62,7 +62,7 @@ function ProtectedRoutes() {
     );
   }
 
-  if (!user) return <Navigate to="/login" replace />;
+  if (!user) return <Navigate to="/gcu/login" replace />;
 
   return (
     <Routes>
@@ -98,31 +98,32 @@ export default function App() {
       <AuthProvider>
         <BrowserRouter>
           <Routes>
-            <Route path="/login" element={<LoginGuard />} />
+            {/* Molt — main public website */}
+            <Route path="/" element={<MoltedHome />} />
+            <Route path="/lumen" element={<MoltedLumen />} />
+            <Route path="/beacon" element={<MoltedBeaconAi />} />
+            <Route path="/forge" element={<MoltedForge />} />
+            <Route path="/pathway-ai" element={<MoltedPathwayAi />} />
+            <Route path="/proof-ai" element={<MoltedProofAi />} />
+            <Route path="/retain-ai" element={<MoltedRetainAi />} />
+            <Route path="/outcomes-ai" element={<MoltedOutcomesAi />} />
+            <Route path="/outpost" element={<MoltedCampusOS />} />
+            <Route path="/imago-os" element={<MoltedImagoOS />} />
+            <Route path="/mastery-ai" element={<MoltedMasteryAi />} />
+            <Route path="/about" element={<MoltedAbout />} />
+            <Route path="/founding-partners" element={<MoltedFoundingPartners />} />
+            <Route path="/investors" element={<MoltedInvestors />} />
+            <Route path="/forge/discussion" element={<DiscussionDemo />} />
+            <Route path="/forge/course-architect" element={<CourseArchitect />} />
+            <Route path="/forge/agentic-grader" element={<AgenticGrader />} />
+            <Route path="/forge/auto-respond" element={<AutoRespond />} />
+            <Route path="/forge/early-warning" element={<EarlyWarning />} />
+            <Route path="/forge/live-demo" element={<LiveAgentDemo />} />
+            <Route path="/forge/voice-demo" element={<ForgeVoiceDemo />} />
+            {/* GCU Flourish — client portal */}
+            <Route path="/gcu/login" element={<LoginGuard />} />
             <Route path="/executive-tour" element={<ExecutiveTour />} />
-            {/* MoltED Ai — public company website */}
-            <Route path="/molted" element={<MoltedHome />} />
-            <Route path="/molted/lumen" element={<MoltedLumen />} />
-            <Route path="/molted/beacon" element={<MoltedBeaconAi />} />
-            <Route path="/molted/forge" element={<MoltedForge />} />
-            <Route path="/molted/pathway-ai" element={<MoltedPathwayAi />} />
-            <Route path="/molted/proof-ai" element={<MoltedProofAi />} />
-            <Route path="/molted/retain-ai" element={<MoltedRetainAi />} />
-            <Route path="/molted/outcomes-ai" element={<MoltedOutcomesAi />} />
-            <Route path="/molted/outpost" element={<MoltedCampusOS />} />
-            <Route path="/molted/imago-os" element={<MoltedImagoOS />} />
-            <Route path="/molted/mastery-ai" element={<MoltedMasteryAi />} />
-            <Route path="/molted/about" element={<MoltedAbout />} />
-            <Route path="/molted/founding-partners" element={<MoltedFoundingPartners />} />
-            <Route path="/molted/investors" element={<MoltedInvestors />} />
-            <Route path="/molted/forge/discussion" element={<DiscussionDemo />} />
-            <Route path="/molted/forge/course-architect" element={<CourseArchitect />} />
-            <Route path="/molted/forge/agentic-grader" element={<AgenticGrader />} />
-            <Route path="/molted/forge/auto-respond" element={<AutoRespond />} />
-            <Route path="/molted/forge/early-warning" element={<EarlyWarning />} />
-            <Route path="/molted/forge/live-demo" element={<LiveAgentDemo />} />
-            <Route path="/molted/forge/voice-demo" element={<ForgeVoiceDemo />} />
-            <Route path="/*" element={<ProtectedRoutes />} />
+            <Route path="/gcu/*" element={<ProtectedRoutes />} />
           </Routes>
         </BrowserRouter>
       </AuthProvider>
@@ -133,6 +134,6 @@ export default function App() {
 function LoginGuard() {
   const { user, isLoading } = useAuth();
   if (isLoading) return null;
-  if (user) return <Navigate to="/" replace />;
+  if (user) return <Navigate to="/gcu" replace />;
   return <Login />;
 }

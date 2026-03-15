@@ -69,7 +69,7 @@ export function MoltedNav() {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-molted-surface/90 backdrop-blur-xl border-b border-molted-border' : 'bg-transparent'}`}>
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link to="/molted" className="flex-shrink-0">
+        <Link to="/" className="flex-shrink-0">
           <MoltedLogo size="sm" />
         </Link>
 
@@ -115,14 +115,14 @@ export function MoltedNav() {
               </Link>
             ))}
             <div className="border-t border-molted-border pt-3 mt-3">
-              <Link to="/molted/outpost" className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-all border border-molted-border mb-1" style={{ background: 'linear-gradient(90deg,rgba(232,160,32,0.05),rgba(139,92,246,0.05))' }}>
+              <Link to="/outpost" className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/5 transition-all border border-molted-border mb-1" style={{ background: 'linear-gradient(90deg,rgba(232,160,32,0.05),rgba(139,92,246,0.05))' }}>
                 <div className="w-5 h-5 rounded-md flex-shrink-0" style={{ background: 'linear-gradient(135deg,#E8A020,#2DD4BF,#8B5CF6)' }} />
                 <div>
                   <p className="text-sm font-bold" style={{ background: 'linear-gradient(120deg,#E8A020,#2DD4BF,#8B5CF6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Outpost</p>
                   <p className="text-molted-subtle text-xs">The AI-native LMS</p>
                 </div>
               </Link>
-              <Link to="/molted/about" className="block px-4 py-3 rounded-lg text-sm font-medium text-molted-muted hover:text-molted-white hover:bg-white/5 transition-all">About</Link>
+              <Link to="/about" className="block px-4 py-3 rounded-lg text-sm font-medium text-molted-muted hover:text-molted-white hover:bg-white/5 transition-all">About</Link>
             </div>
             <div className="pt-3 border-t border-molted-border">
               <a href="mailto:hello@molted.ai" className="block w-full text-center px-5 py-3 rounded-xl text-sm font-semibold bg-molted-violet text-white">Get Started</a>
@@ -150,13 +150,13 @@ export function MoltedFooter() {
 
           <div>
             <div className="mb-4">
-              <Link to="/molted/imago-os" className="inline-flex items-center gap-2 text-sm font-black hover:opacity-80 transition-opacity" style={{ background: 'linear-gradient(120deg,#F5B740,#E8A020)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+              <Link to="/imago-os" className="inline-flex items-center gap-2 text-sm font-black hover:opacity-80 transition-opacity" style={{ background: 'linear-gradient(120deg,#F5B740,#E8A020)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                 Imago — The Final Form
               </Link>
               <p className="text-molted-subtle text-xs mt-0.5">The fully transformed institution.</p>
             </div>
             <div className="mb-5">
-              <Link to="/molted/outpost" className="inline-flex items-center gap-2 text-sm font-bold hover:opacity-80 transition-opacity" style={{ background: 'linear-gradient(120deg,#E8A020,#2DD4BF,#8B5CF6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+              <Link to="/outpost" className="inline-flex items-center gap-2 text-sm font-bold hover:opacity-80 transition-opacity" style={{ background: 'linear-gradient(120deg,#E8A020,#2DD4BF,#8B5CF6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                 Outpost — The Platform
               </Link>
               <p className="text-molted-subtle text-xs mt-1">All modules. One AI-native LMS.</p>
@@ -203,11 +203,11 @@ export function OutpostBanner({ moduleName, moduleColor }: { moduleName: string;
             <span className="font-semibold" style={{ color: moduleColor }}>{moduleName}</span>
             {' '}is a module of
           </span>
-          <Link to="/molted/outpost" className="text-xs font-bold hover:opacity-80 transition-opacity" style={{ background: 'linear-gradient(120deg,#E8A020,#2DD4BF,#8B5CF6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+          <Link to="/outpost" className="text-xs font-bold hover:opacity-80 transition-opacity" style={{ background: 'linear-gradient(120deg,#E8A020,#2DD4BF,#8B5CF6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
             Outpost — the AI-native LMS
           </Link>
         </div>
-        <Link to="/molted/outpost" className="flex-shrink-0 flex items-center gap-1 text-xs font-semibold text-molted-muted hover:text-molted-white transition-colors">
+        <Link to="/outpost" className="flex-shrink-0 flex items-center gap-1 text-xs font-semibold text-molted-muted hover:text-molted-white transition-colors">
           See the full platform <ChevronRight size={11} />
         </Link>
       </div>

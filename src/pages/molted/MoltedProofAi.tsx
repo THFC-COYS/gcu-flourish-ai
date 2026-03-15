@@ -798,7 +798,7 @@ function FinalCTA() {
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </a>
             <Link
-              to="/molted"
+              to="/"
               className="px-8 py-4 rounded-xl border border-molted-border text-molted-muted hover:text-molted-white hover:border-molted-subtle font-semibold transition-all"
             >
               See All Products

@@ -75,7 +75,7 @@ function Hero() {
       {/* Eyebrow */}
       <RevealBlock className="mb-8">
         <Link
-          to="/molted/outpost"
+          to="/outpost"
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border text-xs font-semibold tracking-widest uppercase hover:opacity-80 transition-opacity"
           style={{ borderColor: 'rgba(245,183,64,0.25)', background: 'rgba(245,183,64,0.05)', color: IMAGO_AMBER }}
         >
@@ -131,7 +131,7 @@ function Hero() {
           <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
         </a>
         <Link
-          to="/molted/outpost"
+          to="/outpost"
           className="text-sm font-semibold text-molted-muted hover:text-molted-white transition-colors flex items-center gap-1.5"
         >
           Start with Outpost <ChevronRight size={13} />
@@ -474,7 +474,7 @@ function Architecture() {
             />
           </div>
           <Link
-            to="/molted/outpost"
+            to="/outpost"
             className="group flex justify-center mb-4"
           >
             <div
@@ -613,14 +613,14 @@ function TransformCTA() {
 
         <RevealBlock delay={340} className="mt-10 flex items-center justify-center gap-6 text-sm">
           <Link
-            to="/molted/outpost"
+            to="/outpost"
             className="text-molted-muted hover:text-molted-white transition-colors flex items-center gap-1.5"
           >
             Outpost <ChevronRight size={13} />
           </Link>
           <span className="text-molted-border">·</span>
           <Link
-            to="/molted"
+            to="/"
             className="text-molted-muted hover:text-molted-white transition-colors"
           >
             All modules

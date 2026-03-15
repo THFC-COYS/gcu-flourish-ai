@@ -84,7 +84,7 @@ export default function LiveAgentDemo() {
 
           {/* Back nav */}
           <Link
-            to="/molted/forge"
+            to="/forge"
             className="inline-flex items-center gap-1.5 text-molted-muted text-sm hover:text-molted-white transition-colors mb-8"
           >
             <ChevronLeft size={14} />

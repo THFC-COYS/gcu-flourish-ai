@@ -114,7 +114,7 @@ function Hero() {
           <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
         </a>
         <Link
-          to="/molted"
+          to="/"
           className="group flex items-center gap-2.5 px-7 py-3.5 rounded-xl border border-molted-border hover:border-molted-subtle text-molted-muted hover:text-molted-white font-semibold transition-all duration-200"
         >
           See All Products
@@ -556,7 +556,7 @@ function CoreTools() {
             {/* Try it links */}
             {active.visual === 'architect' && (
               <Link
-                to="/molted/forge/course-architect"
+                to="/forge/course-architect"
                 className="flex items-center justify-center gap-2.5 w-full py-3 rounded-xl text-sm font-bold transition-all duration-200 hover:-translate-y-px"
                 style={{ background: TEAL_DIM, color: TEAL, border: `1px solid ${TEAL_BORDER}` }}
               >
@@ -567,7 +567,7 @@ function CoreTools() {
             )}
             {active.visual === 'discussion' && (
               <Link
-                to="/molted/forge/discussion"
+                to="/forge/discussion"
                 className="flex items-center justify-center gap-2.5 w-full py-3 rounded-xl text-sm font-bold transition-all duration-200 hover:-translate-y-px"
                 style={{ background: TEAL_DIM, color: TEAL, border: `1px solid ${TEAL_BORDER}` }}
               >
@@ -578,7 +578,7 @@ function CoreTools() {
             )}
             {active.visual === 'grader' && (
               <Link
-                to="/molted/forge/agentic-grader"
+                to="/forge/agentic-grader"
                 className="flex items-center justify-center gap-2.5 w-full py-3 rounded-xl text-sm font-bold transition-all duration-200 hover:-translate-y-px"
                 style={{ background: TEAL_DIM, color: TEAL, border: `1px solid ${TEAL_BORDER}` }}
               >
@@ -589,7 +589,7 @@ function CoreTools() {
             )}
             {active.visual === 'autorespond' && (
               <Link
-                to="/molted/forge/auto-respond"
+                to="/forge/auto-respond"
                 className="flex items-center justify-center gap-2.5 w-full py-3 rounded-xl text-sm font-bold transition-all duration-200 hover:-translate-y-px"
                 style={{ background: TEAL_DIM, color: TEAL, border: `1px solid ${TEAL_BORDER}` }}
               >
@@ -600,7 +600,7 @@ function CoreTools() {
             )}
             {active.visual === 'warning' && (
               <Link
-                to="/molted/forge/early-warning"
+                to="/forge/early-warning"
                 className="flex items-center justify-center gap-2.5 w-full py-3 rounded-xl text-sm font-bold transition-all duration-200 hover:-translate-y-px"
                 style={{ background: TEAL_DIM, color: TEAL, border: `1px solid ${TEAL_BORDER}` }}
               >
@@ -1463,7 +1463,7 @@ function CTA() {
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </a>
             <Link
-              to="/molted"
+              to="/"
               className="px-8 py-4 rounded-xl border border-molted-border text-molted-muted hover:text-molted-white hover:border-molted-subtle font-semibold transition-all"
             >
               See All Products

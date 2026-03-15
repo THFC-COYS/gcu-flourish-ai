@@ -89,7 +89,7 @@ function Hero() {
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </a>
           <Link
-            to="/molted/beacon"
+            to="/beacon"
             className="px-8 py-4 rounded-xl border border-molted-border text-molted-muted hover:text-molted-white font-semibold transition-all hover:border-molted-subtle"
           >
             See Beacon instead →
@@ -420,7 +420,7 @@ function CTA() {
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </a>
             <Link
-              to="/molted"
+              to="/"
               className="px-8 py-4 rounded-xl border border-molted-border text-molted-muted hover:text-molted-white font-semibold transition-all hover:border-molted-subtle"
             >
               ← Back to Molt

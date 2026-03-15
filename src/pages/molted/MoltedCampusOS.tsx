@@ -508,7 +508,7 @@ function VisionStatement() {
 
         <RevealBlock delay={800} className="mt-16">
           <Link
-            to="/molted/imago-os"
+            to="/imago-os"
             className="group inline-flex items-center gap-3 px-6 py-3 rounded-2xl border hover:border-opacity-60 transition-all duration-300"
             style={{
               borderColor: 'rgba(245,183,64,0.25)',
@@ -605,7 +605,7 @@ function WaitlistCTA() {
 
         <RevealBlock delay={520} className="mt-10">
           <Link
-            to="/molted"
+            to="/"
             className="text-molted-muted hover:text-molted-white text-sm transition-colors"
           >
             See all Molt products

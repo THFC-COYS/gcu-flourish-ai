@@ -102,7 +102,7 @@ function Hero() {
 
         <RevealBlock delay={380} className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
-            to="/molted/forge/voice-demo"
+            to="/forge/voice-demo"
             className="group flex items-center gap-2.5 px-7 py-3.5 rounded-xl font-bold text-molted-black transition-all duration-200 hover:-translate-y-px"
             style={{ background: TEAL }}
           >
@@ -265,7 +265,7 @@ function HowForgeWorks() {
 
         <RevealBlock delay={450} className="mt-10 text-center">
           <Link
-            to="/molted/forge/voice-demo"
+            to="/forge/voice-demo"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-all hover:-translate-y-px"
             style={{ background: TEAL_DIM, color: TEAL, border: `1px solid ${TEAL_BORDER}` }}
           >
@@ -430,7 +430,7 @@ function CTA() {
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </a>
             <Link
-              to="/molted"
+              to="/"
               className="px-8 py-4 rounded-xl border border-molted-border text-molted-muted hover:text-molted-white font-semibold transition-all hover:border-molted-subtle"
             >
               ← Back to Molt

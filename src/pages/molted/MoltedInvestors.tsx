@@ -93,7 +93,7 @@ function Hero() {
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
           </a>
           <Link
-            to="/molted"
+            to="/"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl font-semibold text-base text-molted-muted hover:text-molted-white border border-molted-border hover:border-molted-subtle transition-all"
           >
             See the Platform
@@ -465,7 +465,7 @@ function CTA() {
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </a>
             <Link
-              to="/molted"
+              to="/"
               className="px-8 py-4 rounded-xl border border-molted-border text-molted-muted hover:text-molted-white hover:border-molted-subtle font-semibold transition-all"
             >
               See the platform <ChevronRight size={14} className="inline" />

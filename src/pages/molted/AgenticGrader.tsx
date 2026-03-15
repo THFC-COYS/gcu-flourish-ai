@@ -415,7 +415,7 @@ export default function AgenticGrader() {
           {/* Header */}
           <div className="mb-10">
             <Link
-              to="/molted/teachos"
+              to="/teachos"
               className="inline-flex items-center gap-1.5 text-molted-muted text-sm hover:text-molted-white transition-colors mb-6"
             >
               <ChevronLeft size={14} />
