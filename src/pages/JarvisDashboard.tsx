@@ -249,19 +249,10 @@ function timeAgo(dateStr: string) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-//  HOOK: NEWS FEED (RSS via rss2json)
+//  HOOK: NEWS FEED (RSS via /api/rss serverless proxy)
 // ─────────────────────────────────────────────────────────────────────────────
 
-const RSS2JSON = 'https://api.rss2json.com/v1/api.json';
-
 const NEWS_FEEDS: Omit<NewsSection, 'items' | 'loading' | 'error'>[] = [
-  {
-    label: 'Apple',
-    icon: '',
-    color: '#aaaaaa',
-    colorRgb: '170,170,170',
-    rssUrl: 'https://feeds.macrumors.com/MacRumors-All',
-  },
   {
     label: 'Nintendo',
     icon: '',
@@ -270,16 +261,30 @@ const NEWS_FEEDS: Omit<NewsSection, 'items' | 'loading' | 'error'>[] = [
     rssUrl: 'https://www.nintendolife.com/feeds/news',
   },
   {
+    label: 'Apple',
+    icon: '',
+    color: '#aaaaaa',
+    colorRgb: '170,170,170',
+    rssUrl: 'https://feeds.macrumors.com/MacRumors-All',
+  },
+  {
+    label: '9to5Mac',
+    icon: '',
+    color: '#00b140',
+    colorRgb: '0,177,64',
+    rssUrl: 'https://9to5mac.com/feed/',
+  },
+  {
     label: 'Spurs',
     icon: '⚽',
     color: '#132257',
     colorRgb: '19,34,87',
-    rssUrl: 'https://www.skysports.com/rss/12040',
+    rssUrl: 'https://feeds.bbci.co.uk/sport/football/teams/tottenham-hotspur/rss.xml',
   },
 ];
 
 async function fetchNewsSection(feed: typeof NEWS_FEEDS[0]): Promise<NewsItem[]> {
-  const url = `${RSS2JSON}?rss_url=${encodeURIComponent(feed.rssUrl)}&count=5`;
+  const url = `/api/rss?rss_url=${encodeURIComponent(feed.rssUrl)}&count=5`;
   const res = await fetch(url);
   if (!res.ok) throw new Error('Network error');
   const data = await res.json();

@@ -284,7 +284,7 @@ const NEWS_FEEDS_COMPAT: Omit<NewsSection, 'items' | 'loading' | 'error'>[] = [
 ];
 
 async function fetchNewsSection(feed: Omit<NewsSection, 'items' | 'loading' | 'error'>, _feedIdx: number): Promise<NewsItem[]> {
-  const url = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.rssUrl)}&count=5`;
+  const url = `/api/rss?rss_url=${encodeURIComponent(feed.rssUrl)}&count=5`;
   const res = await fetch(url);
   if (!res.ok) throw new Error(`HTTP ${res.status}`);
   const data = await res.json();
