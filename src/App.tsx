@@ -22,6 +22,7 @@ import FlourishStandard from './pages/FlourishStandard';
 import SpiritTraining from './pages/SpiritTraining';
 import ExecutiveTour from './pages/ExecutiveTour';
 import MoltedHome from './pages/molted/MoltedHome';
+import MoltedExecTour from './pages/molted/MoltedExecTour';
 import MoltedInvestors from './pages/molted/MoltedInvestors';
 import MoltedLumen from './pages/molted/MoltedLumen';
 import MoltedBeaconAi from './pages/molted/MoltedBeaconAi';
@@ -120,6 +121,7 @@ export default function App() {
             <Route path="/forge/early-warning" element={<EarlyWarning />} />
             <Route path="/forge/live-demo" element={<LiveAgentDemo />} />
             <Route path="/forge/voice-demo" element={<ForgeVoiceDemo />} />
+            <Route path="/exec-tour" element={<MoltedExecTour />} />
             {/* GCU Flourish — client portal */}
             <Route path="/gcu/login" element={<LoginGuard />} />
             <Route path="/executive-tour" element={<ExecutiveTour />} />
