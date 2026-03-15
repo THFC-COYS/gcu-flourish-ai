@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronRight, Bot, BookOpen, BarChart3, Users } from 'lucide-react';
 import MoltedLayout from './MoltedLayout';
+import MoltedPixelMark from '../../components/MoltedPixelMark';
 
 /* ── Scroll reveal ─────────────────────────────────────────────────────── */
 function useReveal() {
@@ -126,6 +127,10 @@ function Hero() {
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto">
+        {/* Pixel mark */}
+        <RevealBlock className="mb-10 flex justify-center">
+          <MoltedPixelMark size={120} />
+        </RevealBlock>
         {/* Kicker */}
         <RevealBlock className="mb-8">
           <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest">
