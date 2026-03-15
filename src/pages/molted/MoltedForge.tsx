@@ -66,7 +66,7 @@ function Hero() {
             style={{ background: TEAL_DIM, border: `1px solid ${TEAL_BORDER}`, color: TEAL }}
           >
             <Cpu size={12} />
-            Molt · Faculty
+            MoltED · Faculty
           </div>
         </RevealBlock>
 
@@ -433,7 +433,7 @@ function CTA() {
               to="/"
               className="px-8 py-4 rounded-xl border border-molted-border text-molted-muted hover:text-molted-white font-semibold transition-all hover:border-molted-subtle"
             >
-              ← Back to Molt
+              ← Back to MoltED
             </Link>
           </div>
         </RevealBlock>

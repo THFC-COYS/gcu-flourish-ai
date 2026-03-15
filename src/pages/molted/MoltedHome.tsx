@@ -76,14 +76,14 @@ function Hero() {
         {/* Sub */}
         <RevealBlock delay={200}>
           <p className="mt-8 text-lg md:text-xl text-molted-muted max-w-2xl mx-auto leading-relaxed">
-            Molt is an agentic learning platform. It watches every discussion, every reading session, every engagement signal — and responds to each teacher, student, and admin as an individual. Not a tool. Not a plugin. A platform that never stops working.
+            MoltED is an agentic learning platform. It watches every discussion, every reading session, every engagement signal — and responds to each teacher, student, and admin as an individual. Not a tool. Not a plugin. A platform that never stops working.
           </p>
         </RevealBlock>
 
         {/* CTAs */}
         <RevealBlock delay={320} className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href="mailto:hello@molted.ai?subject=Molt Demo Request"
+            href="mailto:hello@molted.ai?subject=MoltED Demo Request"
             className="group inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-bold text-base transition-all duration-200 hover:-translate-y-px"
             style={{ background: 'linear-gradient(120deg, #2DD4BF 0%, #E8A020 50%, #E8170F 100%)', color: '#0a0a0f' }}
           >
@@ -146,7 +146,7 @@ function ThePlatform() {
         <RevealBlock className="text-center">
           <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-8">The answer</p>
           <h2 className="text-3xl md:text-5xl font-black text-molted-white leading-tight tracking-tight">
-            Molt is an agentic LMS.
+            MoltED is an agentic LMS.
           </h2>
           <p className="mt-4 text-3xl md:text-5xl font-black leading-tight tracking-tight"
             style={{
@@ -235,7 +235,7 @@ function DataFlywheel() {
             with every interaction.
           </p>
           <p className="mt-8 text-molted-muted text-lg leading-relaxed max-w-2xl mx-auto">
-            Every discussion reply, every intervention, every personalized response feeds back into Molt's understanding of how that student learns. The data flywheel compounds. Institutions that deploy early build an advantage that can't be replicated — the model trained on their students, their courses, their outcomes.
+            Every discussion reply, every intervention, every personalized response feeds back into MoltED's understanding of how that student learns. The data flywheel compounds. Institutions that deploy early build an advantage that can't be replicated — the model trained on their students, their courses, their outcomes.
           </p>
         </RevealBlock>
 
@@ -391,7 +391,7 @@ function InstructorFirst() {
             Students never lose you.
           </p>
           <p className="mt-6 text-molted-muted text-lg leading-relaxed max-w-2xl mx-auto">
-            Molt is not a chatbot standing in for your instructor. It is your instructor's voice, deployed everywhere you cannot be at once. Forge learns your background, your passions, your hobbies, your teaching style — and every response it drafts sounds like you wrote it.
+            MoltED is not a chatbot standing in for your instructor. It is your instructor's voice, deployed everywhere you cannot be at once. Forge learns your background, your passions, your hobbies, your teaching style — and every response it drafts sounds like you wrote it.
           </p>
         </RevealBlock>
 
@@ -545,7 +545,7 @@ function Manifesto() {
           <p className="mt-10 text-molted-muted text-base leading-relaxed max-w-xl mx-auto">
             The LMS was built for a world without AI. The curriculum was built for a world without the internet. The classroom was built for a world without remote work. We are building for what comes next.
           </p>
-          <p className="mt-6 text-molted-subtle text-sm tracking-widest">— Molt Education</p>
+          <p className="mt-6 text-molted-subtle text-sm tracking-widest">— MoltED</p>
         </RevealBlock>
 
         <RevealBlock delay={200} className="mt-16">
@@ -583,7 +583,7 @@ function FinalCTA() {
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="mailto:hello@molted.ai?subject=Molt Demo Request"
+              href="mailto:hello@molted.ai?subject=MoltED Demo Request"
               className="group flex items-center gap-2.5 px-8 py-4 rounded-xl text-white font-bold text-lg transition-all duration-200 hover:-translate-y-px"
               style={{ background: 'linear-gradient(135deg, #2DD4BF 0%, #E8A020 50%, #E8170F 100%)', color: '#0A0A0F' }}
             >

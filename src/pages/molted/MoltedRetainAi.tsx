@@ -1142,7 +1142,7 @@ function FinalCTA() {
             </Link>
           </div>
           <p className="mt-8 text-molted-subtle text-sm italic">
-            "Every student who was about to leave — didn't." — Molt
+            "Every student who was about to leave — didn't." — MoltED
           </p>
         </RevealBlock>
       </div>

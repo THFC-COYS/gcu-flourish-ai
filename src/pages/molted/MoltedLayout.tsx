@@ -9,6 +9,7 @@ function MoltedLogo({ size = 'md' }: { size?: 'sm' | 'md' | 'lg' }) {
       <span className={`${textSize} font-black tracking-tight leading-none`}>
         <span className="text-molted-white/90">M</span>
         <span style={{ color: '#F5B740', textShadow: '0 0 12px rgba(245,183,64,0.8), 0 0 28px rgba(232,160,32,0.4)' }}>olt</span>
+        <span className="text-molted-white/90">ED</span>
       </span>
     </div>
   );
@@ -143,7 +144,7 @@ export function MoltedFooter() {
           <div className="md:col-span-2">
             <MoltedLogo size="md" />
             <p className="mt-4 text-molted-muted text-sm leading-relaxed max-w-xs">
-              Molt builds AI-native tools that transform how institutions teach,
+              MoltED builds AI-native tools that transform how institutions teach,
               how students learn, and how knowledge moves.
             </p>
           </div>
@@ -184,7 +185,7 @@ export function MoltedFooter() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-molted-border flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-molted-subtle text-xs">© {new Date().getFullYear()} Molt Education. All rights reserved.</p>
+          <p className="text-molted-subtle text-xs">© {new Date().getFullYear()} MoltED. All rights reserved.</p>
           <p className="text-molted-subtle text-xs">Built with intent. Designed with purpose.</p>
         </div>
       </div>

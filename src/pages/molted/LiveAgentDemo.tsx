@@ -263,7 +263,7 @@ export default function LiveAgentDemo() {
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-2">
-                      <p className="text-xs font-semibold" style={{ color: AMBER }}>Molt Agent</p>
+                      <p className="text-xs font-semibold" style={{ color: AMBER }}>MoltED Agent</p>
                       <div
                         className="flex items-center gap-1 px-2 py-0.5 rounded-full text-xs"
                         style={{ background: AMBER_DIM, color: AMBER, border: `1px solid ${AMBER_BORDER}` }}

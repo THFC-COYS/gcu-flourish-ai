@@ -502,7 +502,7 @@ function VisionStatement() {
 
         <RevealBlock delay={650}>
           <p className="mt-8 text-molted-muted text-sm tracking-widest font-medium">
-            — Molt
+            — MoltED
           </p>
         </RevealBlock>
 

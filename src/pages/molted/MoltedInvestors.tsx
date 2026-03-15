@@ -79,7 +79,7 @@ function Hero() {
 
         <RevealBlock delay={200}>
           <p className="mt-8 text-lg md:text-xl text-molted-muted max-w-2xl mx-auto leading-relaxed">
-            Molt is not an edtech app. It is the agentic operating system for learning — the platform that sits between every institution and every student, making both smarter with every interaction. We are raising to accelerate what is already working.
+            MoltED is not an edtech app. It is the agentic operating system for learning — the platform that sits between every institution and every student, making both smarter with every interaction. We are raising to accelerate what is already working.
           </p>
         </RevealBlock>
 
@@ -292,7 +292,7 @@ function TwoScenarios() {
                 </div>
               </div>
               <p className="text-molted-muted text-sm leading-relaxed mb-6 flex-1">
-                Molt is the intelligence layer that Cengage, Pearson, Instructure, or Anthology cannot build fast enough. They own distribution, institutional relationships, and content libraries. Molt owns the agentic infrastructure, the faculty voice data, and the student relationship layer. The combination is the category-defining platform in global education.
+                MoltED is the intelligence layer that Cengage, Pearson, Instructure, or Anthology cannot build fast enough. They own distribution, institutional relationships, and content libraries. Molt owns the agentic infrastructure, the faculty voice data, and the student relationship layer. The combination is the category-defining platform in global education.
               </p>
               <div className="space-y-2.5">
                 {[

@@ -805,7 +805,7 @@ function FinalCTA() {
             </Link>
           </div>
           <p className="mt-8 text-molted-subtle text-sm italic">
-            "You can't outsource a conversation." — Molt
+            "You can't outsource a conversation." — MoltED
           </p>
         </RevealBlock>
       </div>

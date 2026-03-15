@@ -74,7 +74,7 @@ function Hero() {
           style={{ background: TEAL_DIM, border: `1px solid ${TEAL_BORDER}`, color: TEAL }}
         >
           <Cpu size={12} />
-          Molt · Faculty
+          MoltED · Faculty
         </div>
       </RevealBlock>
 

@@ -81,7 +81,7 @@ function Cover() {
 
         <RevealBlock delay={250}>
           <p className="mt-8 text-xl md:text-2xl text-molted-muted max-w-2xl mx-auto leading-relaxed">
-            Molt is accepting exactly 12 founding institutional partners.
+            MoltED is accepting exactly 12 founding institutional partners.
             Not 100. Not 50. Twelve — so we can build this right, with you.
           </p>
         </RevealBlock>
@@ -139,7 +139,7 @@ function TheProblem() {
         <div className="space-y-6">
           {[
             'Every EdTech company is building plugins for broken infrastructure. Better gradebooks. Smarter calendars. AI-assisted syllabi. But the foundation is wrong — and you cannot fix a wrong foundation by painting the walls.',
-            'The institutions that partner with Molt now won\'t be adopting AI. They\'ll be rebuilding from the first line of code — with us, ahead of everyone else.',
+            'The institutions that partner with MoltED now won\'t be adopting AI. They\'ll be rebuilding from the first line of code — with us, ahead of everyone else.',
           ].map((p, i) => (
             <RevealBlock key={i} delay={i * 120}>
               <p className="text-molted-white/80 text-lg leading-relaxed">{p}</p>
@@ -297,7 +297,7 @@ function TheAgent() {
             <span style={{ color: TEAL }}>A system that never sleeps.</span>
           </h2>
           <p className="mt-6 text-molted-muted text-lg max-w-2xl mx-auto">
-            Molt's agents don't wait to be asked. They watch. The moment a student
+            MoltED's agents don't wait to be asked. They watch. The moment a student
             posts a question, the agent responds — while the student is still on the page.
           </p>
         </RevealBlock>
@@ -555,7 +555,7 @@ function TheAsk() {
 
         <RevealBlock delay={480} className="mt-16 flex items-center justify-center gap-8 text-sm">
           <Link to="/" className="text-molted-muted hover:text-molted-white transition-colors">
-            ← Back to Molt
+            ← Back to MoltEDED
           </Link>
           <span className="text-molted-border">·</span>
           <Link to="/outpost" className="text-molted-muted hover:text-molted-white transition-colors flex items-center gap-1">

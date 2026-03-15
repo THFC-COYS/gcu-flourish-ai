@@ -73,7 +73,7 @@ function Hero() {
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border text-xs font-semibold mb-8 animate-fade-in"
           style={{ borderColor: `${SKY}40`, background: `${SKY}12`, color: SKY }}
         >
-          <Eye size={12} /> Molt · Institutional Intelligence Layer
+          <Eye size={12} /> MoltED · Institutional Intelligence Layer
         </div>
 
         {/* Wordmark */}
@@ -803,7 +803,7 @@ function CTA() {
               to="/"
               className="text-molted-muted hover:text-molted-white text-sm transition-colors"
             >
-              ← Back to Molt
+              ← Back to MoltED
             </Link>
             <Link
               to="/paigebreaker"

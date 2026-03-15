@@ -53,7 +53,7 @@ function Hero() {
       <div className="relative z-10 max-w-5xl mx-auto">
         {/* Product badge */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-molted-violet/30 bg-molted-violet/10 text-molted-violet text-xs font-semibold mb-8 animate-fade-in">
-          <BookOpen size={12} /> Molt · Students
+          <BookOpen size={12} /> MoltED · Students
         </div>
 
         {/* Hero wordmark */}
@@ -423,7 +423,7 @@ function CTA() {
               to="/"
               className="px-8 py-4 rounded-xl border border-molted-border text-molted-muted hover:text-molted-white font-semibold transition-all hover:border-molted-subtle"
             >
-              ← Back to Molt
+              ← Back to MoltED
             </Link>
           </div>
         </RevealBlock>

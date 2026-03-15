@@ -62,7 +62,7 @@ function Hero() {
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border text-xs font-semibold mb-8 animate-fade-in"
           style={{ borderColor: RED_BORDER, background: RED_DIM, color: RED }}
         >
-          <Mic size={12} /> Molt · Institutions
+          <Mic size={12} /> MoltED · Institutions
         </div>
 
         {/* Wordmark */}
@@ -661,7 +661,7 @@ function CTA() {
               to="/"
               className="px-8 py-4 rounded-xl border border-molted-border text-molted-muted hover:text-molted-white font-semibold transition-all hover:border-molted-subtle"
             >
-              ← Back to Molt
+              ← Back to MoltED
             </Link>
           </div>
         </RevealBlock>

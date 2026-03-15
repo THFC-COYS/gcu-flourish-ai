@@ -180,7 +180,7 @@ function TheMoltMetaphor() {
           >
             "Education is molting.
             <br />
-            Molt is what it becomes."
+            MoltED is what it becomes."
           </p>
         </RevealBlock>
 
@@ -531,7 +531,7 @@ function Architecture() {
   );
 }
 
-/* ── The Molt is Not Optional ───────────────────────────────────────────── */
+/* ── The MoltED is Not Optional ───────────────────────────────────────────── */
 function MoltManifesto() {
   return (
     <section className="py-40 px-6 border-t border-molted-border relative overflow-hidden">
@@ -567,7 +567,7 @@ function MoltManifesto() {
         </RevealBlock>
         <RevealBlock delay={520}>
           <p className="mt-8 text-molted-subtle text-sm tracking-widest font-medium">
-            — Molt
+            — MoltED
           </p>
         </RevealBlock>
       </div>
