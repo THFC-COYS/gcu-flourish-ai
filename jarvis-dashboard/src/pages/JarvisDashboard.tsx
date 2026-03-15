@@ -249,45 +249,62 @@ function timeAgo(dateStr: string) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-//  HOOK: NEWS FEED (RSS via rss2json.com public API)
+//  HOOK: NEWS FEED (X accounts via Nitter RSS + rss2json.com)
 // ─────────────────────────────────────────────────────────────────────────────
 
-const NEWS_FEEDS: Omit<NewsSection, 'items' | 'loading' | 'error'>[] = [
-  {
-    label: 'Apple',
-    icon: '',
-    color: '#aaaaaa',
-    colorRgb: '170,170,170',
-    rssUrl: 'https://feeds.macrumors.com/MacRumors-All',
-  },
-  {
-    label: 'Nintendo',
-    icon: '',
-    color: '#e4000f',
-    colorRgb: '228,0,15',
-    rssUrl: 'https://www.nintendolife.com/feeds/news',
-  },
-  {
-    label: 'Spurs',
-    icon: '⚽',
-    color: '#132257',
-    colorRgb: '19,34,87',
-    rssUrl: 'https://www.skysports.com/rss/12040',
-  },
+// Nitter instances tried in order until one succeeds
+const NITTER_INSTANCES = [
+  'https://nitter.poast.org',
+  'https://nitter.privacydev.net',
+  'https://nitter.net',
 ];
 
-async function fetchNewsSection(feed: typeof NEWS_FEEDS[0]): Promise<NewsItem[]> {
-  const url = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.rssUrl)}&count=5`;
-  const res = await fetch(url);
-  if (!res.ok) throw new Error('Network error');
-  const data = await res.json();
-  if (data.status !== 'ok') throw new Error(data.error || 'Feed error');
-  return (data.items || []).slice(0, 5).map((item: { title?: string; link?: string; pubDate?: string; description?: string }) => ({
-    title: item.title || 'No title',
-    link: item.link || '#',
-    pubDate: item.pubDate || '',
-    description: (item.description || '').replace(/<[^>]+>/g, '').slice(0, 120) + '…',
-  }));
+interface FeedConfig {
+  label: string;
+  icon: string;
+  color: string;
+  colorRgb: string;
+  xHandle: string; // X/Twitter username
+}
+
+const NEWS_FEEDS: FeedConfig[] = [
+  { label: 'Nintendo America', icon: '𝕏', color: '#e4000f',  colorRgb: '228,0,15',   xHandle: 'nintendoamerica' },
+  { label: 'Nintendo Life',    icon: '𝕏', color: '#e4000f',  colorRgb: '228,0,15',   xHandle: 'nintendolife'    },
+  { label: 'Apple',            icon: '𝕏', color: '#aaaaaa',  colorRgb: '170,170,170', xHandle: 'apple'           },
+  { label: '9to5Mac',          icon: '𝕏', color: '#00b140',  colorRgb: '0,177,64',   xHandle: '9to5mac'         },
+  { label: 'Spurs',            icon: '⚽', color: '#132257',  colorRgb: '19,34,87',   xHandle: 'spursofficial'   },
+];
+
+// NewsSection rssUrl is unused now — keep shape compatible via a dummy
+const NEWS_FEEDS_COMPAT: Omit<NewsSection, 'items' | 'loading' | 'error'>[] = NEWS_FEEDS.map(f => ({
+  label: f.label, icon: f.icon, color: f.color, colorRgb: f.colorRgb,
+  rssUrl: `https://nitter.poast.org/${f.xHandle}/rss`,
+}));
+
+async function fetchNewsSection(feed: Omit<NewsSection, 'items' | 'loading' | 'error'>, feedIdx: number): Promise<NewsItem[]> {
+  const handle = NEWS_FEEDS[feedIdx]?.xHandle;
+  const instances = handle ? NITTER_INSTANCES : [feed.rssUrl];
+  let lastErr = 'Unknown error';
+
+  for (const base of instances) {
+    const rssUrl = handle ? `${base}/${handle}/rss` : base;
+    try {
+      const url = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}&count=5`;
+      const res = await fetch(url);
+      if (!res.ok) { lastErr = `HTTP ${res.status}`; continue; }
+      const data = await res.json();
+      if (data.status !== 'ok') { lastErr = data.error || 'Feed error'; continue; }
+      return (data.items || []).slice(0, 5).map((item: { title?: string; link?: string; pubDate?: string; description?: string }) => ({
+        title: item.title || 'No title',
+        link: item.link || '#',
+        pubDate: item.pubDate || '',
+        description: (item.description || '').replace(/<[^>]+>/g, '').slice(0, 120) + '…',
+      }));
+    } catch (e) {
+      lastErr = e instanceof Error ? e.message : 'Error';
+    }
+  }
+  throw new Error(lastErr);
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -1110,7 +1127,7 @@ export default function JarvisDashboard() {
   });
 
   const [newsSections, setNewsSections] = useState<NewsSection[]>(
-    NEWS_FEEDS.map(f => ({ ...f, items: [], loading: true, error: false }))
+    NEWS_FEEDS_COMPAT.map(f => ({ ...f, items: [], loading: true, error: false }))
   );
   const [lastNewsRefresh, setLastNewsRefresh] = useState<Date | null>(null);
   const newsIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -1177,7 +1194,7 @@ export default function JarvisDashboard() {
   // News fetch
   const fetchNews = useCallback(async () => {
     setNewsSections(prev => prev.map(s => ({ ...s, loading: true, error: false })));
-    const results = await Promise.allSettled(NEWS_FEEDS.map(f => fetchNewsSection(f)));
+    const results = await Promise.allSettled(NEWS_FEEDS_COMPAT.map((f, i) => fetchNewsSection(f, i)));
     setNewsSections(prev =>
       prev.map((s, i) => {
         const r = results[i];
