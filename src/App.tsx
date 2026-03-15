@@ -43,6 +43,7 @@ import AutoRespond from './pages/molted/AutoRespond';
 import EarlyWarning from './pages/molted/EarlyWarning';
 import ForgeVoiceDemo from './pages/molted/ForgeVoiceDemo';
 import GovernanceQA from './pages/GovernanceQA';
+import ScalingModel from './pages/ScalingModel';
 
 function ProtectedRoutes() {
   const { user, isLoading } = useAuth();
@@ -73,6 +74,7 @@ function ProtectedRoutes() {
         <Route path="commercialization" element={<Commercialization />} />
         <Route path="resources" element={<Resources />} />
         <Route path="governance-qa" element={<GovernanceQA />} />
+        <Route path="scaling-model" element={<ScalingModel />} />
         <Route path="vision" element={<VisionRoadmap />} />
         <Route path="spirit-network" element={<SpiritNetwork />} />
         <Route path="flourish-api" element={<FlourishAPI />} />

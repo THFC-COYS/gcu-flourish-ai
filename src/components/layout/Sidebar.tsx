@@ -3,7 +3,7 @@ import {
   LayoutDashboard, Library, Wand2, FlaskConical,
   TrendingUp, BookOpen, LogOut, ChevronLeft, ChevronRight,
   Shield, X, Heart, Code2, Rocket, Bot, Briefcase, Award, GraduationCap,
-  Building2, Activity, Cpu, Layers, ShieldCheck
+  Building2, Activity, Cpu, Layers, ShieldCheck, BarChart2
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { RoleBadge } from '../ui/Badge';
@@ -54,6 +54,7 @@ const NAV_SECTIONS = [
     label: 'Governance',
     items: [
       { label: 'Agent QA Board', icon: ShieldCheck, to: '/governance-qa' },
+      { label: 'Scaling Model', icon: BarChart2, to: '/scaling-model' },
       { label: 'Resources', icon: BookOpen, to: '/resources' },
     ],
   },
