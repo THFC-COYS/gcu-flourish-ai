@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronRight, Bot, BookOpen, BarChart3, Users } from 'lucide-react';
 import MoltedLayout from './MoltedLayout';
@@ -37,6 +37,81 @@ function RevealBlock({ children, delay = 0, className = '' }: {
 }
 
 /* ── Hero ──────────────────────────────────────────────────────────────── */
+/* ── Agent Feed ────────────────────────────────────────────────────────── */
+const FEED_EVENTS = [
+  { time: '11:47 PM', event: 'Student posts confusion about cognitive load theory', action: 'Discussion agent replies in 4 seconds', role: 'Student', href: '/forge/discussion' },
+  { time: '8:12 AM',  event: 'Professor uploads syllabus for NURS 301', action: 'Course architect generates full semester infrastructure', role: 'Faculty', href: '/forge/course-architect' },
+  { time: '2:03 AM',  event: 'Marcus T. hasn\'t logged in for 5 days', action: 'Early warning flags risk — personalized check-in drafted', role: 'Admin', href: '/forge/early-warning' },
+  { time: '9:30 AM',  event: 'Student opens Week 4 reading on pharmacology', action: 'Lumen activates — answers in context as they read', role: 'Student', href: '/lumen' },
+  { time: '3:14 PM',  event: 'Student replies to discussion forum on ethics in healthcare', action: 'Agent acknowledges their insight and deepens the thread with a follow-up question', role: 'Student', href: '/forge/discussion' },
+  { time: '6:55 AM',  event: 'Auto-respond queue: 14 unanswered student emails', action: 'Auto-respond drafts replies — faculty reviews in 2 minutes', role: 'Faculty', href: '/forge/auto-respond' },
+  { time: '1:22 AM',  event: 'Doctoral student stuck on methodology chapter', action: 'Agentic grader reviews draft and returns structured feedback', role: 'Student', href: '/forge/agentic-grader' },
+];
+
+function AgentFeed() {
+  const [visibleEvents, setVisibleEvents] = useState(FEED_EVENTS.slice(0, 4));
+  const [nextIndex, setNextIndex] = useState(4);
+  const [fadingIn, setFadingIn] = useState<number | null>(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const incoming = FEED_EVENTS[nextIndex % FEED_EVENTS.length];
+      setFadingIn(0);
+      setTimeout(() => {
+        setVisibleEvents(prev => [incoming, ...prev.slice(0, 3)]);
+        setFadingIn(null);
+      }, 300);
+      setNextIndex(i => i + 1);
+    }, 3500);
+    return () => clearInterval(interval);
+  }, [nextIndex]);
+
+  const roleColor = (role: string) =>
+    role === 'Faculty' ? { bg: 'rgba(45,212,191,0.15)', text: '#2DD4BF' }
+    : role === 'Admin'  ? { bg: 'rgba(232,23,15,0.15)',  text: '#E8170F' }
+    :                     { bg: 'rgba(232,160,32,0.15)', text: '#E8A020' };
+
+  return (
+    <div className="space-y-3">
+      {visibleEvents.map((item, i) => {
+        const c = roleColor(item.role);
+        const isNew = i === 0 && fadingIn === null;
+        return (
+          <Link
+            key={`${item.time}-${item.event}`}
+            to={item.href}
+            className="group block rounded-xl p-4 border transition-all duration-300 hover:scale-[1.02]"
+            style={{
+              background: 'rgba(45,212,191,0.04)',
+              borderColor: 'rgba(45,212,191,0.1)',
+              opacity: isNew ? 1 : i === 0 ? 1 : 1,
+              animation: i === 0 ? 'feedSlideIn 0.4s ease' : undefined,
+            }}
+          >
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-xs font-mono" style={{ color: '#2DD4BF' }}>{item.time}</span>
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full" style={{ background: c.bg, color: c.text }}>
+                  {item.role}
+                </span>
+                <span className="text-[10px] text-molted-muted/0 group-hover:text-molted-muted/60 transition-colors font-medium">Try it →</span>
+              </div>
+            </div>
+            <p className="text-molted-muted text-xs mb-2 leading-relaxed">{item.event}</p>
+            <p className="text-xs font-semibold text-molted-white leading-snug">↳ {item.action}</p>
+          </Link>
+        );
+      })}
+      <style>{`
+        @keyframes feedSlideIn {
+          from { opacity: 0; transform: translateY(-8px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
+    </div>
+  );
+}
+
 function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden">
@@ -175,36 +250,7 @@ function ThePlatform() {
                 Agents running now
               </p>
             </div>
-            <div className="grid md:grid-cols-2 gap-4">
-              {[
-                { time: '11:47 PM', event: 'Student posts confusion about cognitive load theory', action: 'Discussion agent replies in 4 seconds', role: 'Student' },
-                { time: '8:12 AM', event: 'Professor uploads syllabus for NURS 301', action: 'Course architect generates full semester infrastructure', role: 'Faculty' },
-                { time: '2:03 AM', event: 'Marcus T. hasn\'t logged in for 5 days', action: 'Early warning flags risk — personalized check-in drafted', role: 'Admin' },
-                { time: '9:30 AM', event: 'Student opens Week 4 reading on pharmacology', action: 'Lumen activates — answers in context as they read', role: 'Student' },
-                { time: '3:14 PM', event: 'Student replies to discussion forum on ethics in healthcare', action: 'Agent acknowledges their insight and deepens the thread with a follow-up question', role: 'Student' },
-              ].map((item, i) => (
-                <div
-                  key={i}
-                  className="rounded-xl p-4 border"
-                  style={{ background: 'rgba(45,212,191,0.04)', borderColor: 'rgba(45,212,191,0.1)' }}
-                >
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-mono" style={{ color: '#2DD4BF' }}>{item.time}</span>
-                    <span
-                      className="text-[10px] font-bold px-2 py-0.5 rounded-full"
-                      style={{
-                        background: item.role === 'Faculty' ? 'rgba(45,212,191,0.15)' : item.role === 'Admin' ? 'rgba(232,23,15,0.15)' : 'rgba(232,160,32,0.15)',
-                        color: item.role === 'Faculty' ? '#2DD4BF' : item.role === 'Admin' ? '#E8170F' : '#E8A020',
-                      }}
-                    >
-                      {item.role}
-                    </span>
-                  </div>
-                  <p className="text-molted-muted text-xs mb-2 leading-relaxed">{item.event}</p>
-                  <p className="text-xs font-semibold text-molted-white leading-snug">↳ {item.action}</p>
-                </div>
-              ))}
-            </div>
+            <AgentFeed />
           </div>
         </RevealBlock>
       </div>
