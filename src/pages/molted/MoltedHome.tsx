@@ -181,6 +181,7 @@ function ThePlatform() {
                 { time: '8:12 AM', event: 'Professor uploads syllabus for NURS 301', action: 'Course architect generates full semester infrastructure', role: 'Faculty' },
                 { time: '2:03 AM', event: 'Marcus T. hasn\'t logged in for 5 days', action: 'Early warning flags risk — personalized check-in drafted', role: 'Admin' },
                 { time: '9:30 AM', event: 'Student opens Week 4 reading on pharmacology', action: 'Lumen activates — answers in context as they read', role: 'Student' },
+                { time: '3:14 PM', event: 'Student replies to discussion forum on ethics in healthcare', action: 'Agent acknowledges their insight and deepens the thread with a follow-up question', role: 'Student' },
               ].map((item, i) => (
                 <div
                   key={i}
