@@ -249,7 +249,7 @@ function timeAgo(dateStr: string) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-//  HOOK: NEWS FEED (RSS via /api/rss serverless route)
+//  HOOK: NEWS FEED (RSS via rss2json.com public API)
 // ─────────────────────────────────────────────────────────────────────────────
 
 const NEWS_FEEDS: Omit<NewsSection, 'items' | 'loading' | 'error'>[] = [
@@ -277,16 +277,16 @@ const NEWS_FEEDS: Omit<NewsSection, 'items' | 'loading' | 'error'>[] = [
 ];
 
 async function fetchNewsSection(feed: typeof NEWS_FEEDS[0]): Promise<NewsItem[]> {
-  const url = `/api/rss?rss_url=${encodeURIComponent(feed.rssUrl)}&count=5`;
+  const url = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.rssUrl)}&count=5`;
   const res = await fetch(url);
   if (!res.ok) throw new Error('Network error');
   const data = await res.json();
   if (data.status !== 'ok') throw new Error(data.error || 'Feed error');
-  return (data.items || []).slice(0, 5).map((item: NewsItem) => ({
+  return (data.items || []).slice(0, 5).map((item: { title?: string; link?: string; pubDate?: string; description?: string }) => ({
     title: item.title || 'No title',
     link: item.link || '#',
     pubDate: item.pubDate || '',
-    description: item.description || '',
+    description: (item.description || '').replace(/<[^>]+>/g, '').slice(0, 120) + '…',
   }));
 }
 
