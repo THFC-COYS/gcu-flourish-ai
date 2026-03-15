@@ -37,6 +37,7 @@ import CourseArchitect from './pages/molted/CourseArchitect';
 import AgenticGrader from './pages/molted/AgenticGrader';
 import AutoRespond from './pages/molted/AutoRespond';
 import EarlyWarning from './pages/molted/EarlyWarning';
+import ForgeVoiceDemo from './pages/molted/ForgeVoiceDemo';
 
 function ProtectedRoutes() {
   const { user, isLoading } = useAuth();
@@ -108,6 +109,7 @@ export default function App() {
             <Route path="/molted/forge/auto-respond" element={<AutoRespond />} />
             <Route path="/molted/forge/early-warning" element={<EarlyWarning />} />
             <Route path="/molted/forge/live-demo" element={<LiveAgentDemo />} />
+            <Route path="/molted/forge/voice-demo" element={<ForgeVoiceDemo />} />
             <Route path="/*" element={<ProtectedRoutes />} />
           </Routes>
         </BrowserRouter>
