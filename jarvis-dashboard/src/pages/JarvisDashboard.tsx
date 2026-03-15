@@ -249,62 +249,52 @@ function timeAgo(dateStr: string) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-//  HOOK: NEWS FEED (X accounts via Nitter RSS + rss2json.com)
+//  HOOK: NEWS FEED (RSS via rss2json.com public API)
 // ─────────────────────────────────────────────────────────────────────────────
 
-// Nitter instances tried in order until one succeeds
-const NITTER_INSTANCES = [
-  'https://nitter.poast.org',
-  'https://nitter.privacydev.net',
-  'https://nitter.net',
+const NEWS_FEEDS_COMPAT: Omit<NewsSection, 'items' | 'loading' | 'error'>[] = [
+  {
+    label: 'Nintendo',
+    icon: '',
+    color: '#e4000f',
+    colorRgb: '228,0,15',
+    rssUrl: 'https://www.nintendolife.com/feeds/news',
+  },
+  {
+    label: 'Apple',
+    icon: '',
+    color: '#aaaaaa',
+    colorRgb: '170,170,170',
+    rssUrl: 'https://feeds.macrumors.com/MacRumors-All',
+  },
+  {
+    label: '9to5Mac',
+    icon: '',
+    color: '#00b140',
+    colorRgb: '0,177,64',
+    rssUrl: 'https://9to5mac.com/feed/',
+  },
+  {
+    label: 'Spurs',
+    icon: '⚽',
+    color: '#132257',
+    colorRgb: '19,34,87',
+    rssUrl: 'https://feeds.bbci.co.uk/sport/football/teams/tottenham-hotspur/rss.xml',
+  },
 ];
 
-interface FeedConfig {
-  label: string;
-  icon: string;
-  color: string;
-  colorRgb: string;
-  xHandle: string; // X/Twitter username
-}
-
-const NEWS_FEEDS: FeedConfig[] = [
-  { label: 'Nintendo America', icon: '𝕏', color: '#e4000f',  colorRgb: '228,0,15',   xHandle: 'nintendoamerica' },
-  { label: 'Nintendo Life',    icon: '𝕏', color: '#e4000f',  colorRgb: '228,0,15',   xHandle: 'nintendolife'    },
-  { label: 'Apple',            icon: '𝕏', color: '#aaaaaa',  colorRgb: '170,170,170', xHandle: 'apple'           },
-  { label: '9to5Mac',          icon: '𝕏', color: '#00b140',  colorRgb: '0,177,64',   xHandle: '9to5mac'         },
-  { label: 'Spurs',            icon: '⚽', color: '#132257',  colorRgb: '19,34,87',   xHandle: 'spursofficial'   },
-];
-
-// NewsSection rssUrl is unused now — keep shape compatible via a dummy
-const NEWS_FEEDS_COMPAT: Omit<NewsSection, 'items' | 'loading' | 'error'>[] = NEWS_FEEDS.map(f => ({
-  label: f.label, icon: f.icon, color: f.color, colorRgb: f.colorRgb,
-  rssUrl: `https://nitter.poast.org/${f.xHandle}/rss`,
-}));
-
-async function fetchNewsSection(feed: Omit<NewsSection, 'items' | 'loading' | 'error'>, feedIdx: number): Promise<NewsItem[]> {
-  const handle = NEWS_FEEDS[feedIdx]?.xHandle;
-  const instances = handle ? NITTER_INSTANCES : [feed.rssUrl];
-  let lastErr = 'Unknown error';
-
-  for (const base of instances) {
-    const rssUrl = handle ? `${base}/${handle}/rss` : base;
-    try {
-      const url = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}&count=5`;
-      const res = await fetch(url);
-      if (!res.ok) { lastErr = `HTTP ${res.status}`; continue; }
-      const data = await res.json();
-      if (data.status !== 'ok') { lastErr = data.error || 'Feed error'; continue; }
-      return (data.items || []).slice(0, 5).map((item: { title?: string; link?: string; pubDate?: string; description?: string }) => ({
-        title: item.title || 'No title',
-        link: item.link || '#',
-        pubDate: item.pubDate || '',
-        description: (item.description || '').replace(/<[^>]+>/g, '').slice(0, 120) + '…',
-      }));
-    } catch (e) {
-      lastErr = e instanceof Error ? e.message : 'Error';
-    }
-  }
-  throw new Error(lastErr);
+async function fetchNewsSection(feed: Omit<NewsSection, 'items' | 'loading' | 'error'>, _feedIdx: number): Promise<NewsItem[]> {
+  const url = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feed.rssUrl)}&count=5`;
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  const data = await res.json();
+  if (data.status !== 'ok') throw new Error(data.error || 'Feed error');
+  return (data.items || []).slice(0, 5).map((item: { title?: string; link?: string; pubDate?: string; description?: string }) => ({
+    title: item.title || 'No title',
+    link: item.link || '#',
+    pubDate: item.pubDate || '',
+    description: (item.description || '').replace(/<[^>]+>/g, '').slice(0, 120) + '…',
+  }));
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
