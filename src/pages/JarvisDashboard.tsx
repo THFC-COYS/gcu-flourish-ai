@@ -760,6 +760,139 @@ function ElonPanel({ elon, onRequest }: { elon: ElonState; onRequest: () => void
   );
 }
 
+// ── Helper: calculate end date from start + week count ──────────────────────
+function calcEndDate(start: string, weeks: number): string {
+  if (!start) return '';
+  const d = new Date(start + 'T00:00:00');
+  d.setDate(d.getDate() + weeks * 7 - 1);
+  return d.toISOString().split('T')[0];
+}
+
+function autoLabel(start: string, abbr: string): string {
+  if (!start) return 'New Course';
+  const d = new Date(start + 'T00:00:00');
+  const month = d.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+  return `${abbr} ${month}`;
+}
+
+// ── Quick-Add row: pick start date + weeks → end auto-fills ─────────────────
+function QuickAddRow({
+  u,
+  onAdd,
+}: {
+  u: UniversityConfig;
+  onAdd: (term: TermEntry) => void;
+}) {
+  const [start, setStart]   = useState('');
+  const [weeks, setWeeks]   = useState(8);
+
+  const end   = calcEndDate(start, weeks);
+  const label = autoLabel(start, u.abbr);
+
+  const canAdd = start !== '' && end !== '';
+
+  const rowStyle: React.CSSProperties = {
+    background: `rgba(${u.accentRgb}, 0.06)`,
+    border: `1px solid rgba(${u.accentRgb}, 0.25)`,
+    borderRadius: 2,
+    padding: '8px 10px',
+    marginBottom: 8,
+  };
+
+  const inputStyle: React.CSSProperties = {
+    background: 'rgba(0,212,255,0.06)',
+    border: '1px solid rgba(0,212,255,0.2)',
+    color: 'var(--j-cyan)',
+    padding: '4px 6px',
+    fontFamily: 'Orbitron, sans-serif',
+    fontSize: '0.55rem',
+    outline: 'none',
+    width: '100%',
+  };
+
+  return (
+    <div style={rowStyle}>
+      <div className="j-label mb-2" style={{ fontSize: '0.5rem', color: u.accentColor }}>
+        ⚡ QUICK ADD — pick start date, weeks auto-fill end
+      </div>
+      <div className="flex gap-2 items-end">
+        {/* Start date */}
+        <div style={{ flex: 2 }}>
+          <div className="j-label mb-1" style={{ fontSize: '0.45rem' }}>
+            START DATE ({u.weekType.split('–')[0]})
+          </div>
+          <input
+            type="date"
+            style={inputStyle}
+            value={start}
+            onChange={e => setStart(e.target.value)}
+          />
+        </div>
+
+        {/* Weeks */}
+        <div style={{ flex: 1 }}>
+          <div className="j-label mb-1" style={{ fontSize: '0.45rem' }}>WEEKS</div>
+          <select
+            style={{ ...inputStyle, cursor: 'pointer' }}
+            value={weeks}
+            onChange={e => setWeeks(Number(e.target.value))}
+          >
+            {[4, 6, 8, 10, 12, 16].map(w => (
+              <option key={w} value={w}>{w}</option>
+            ))}
+          </select>
+        </div>
+
+        {/* Calculated end date (read-only display) */}
+        <div style={{ flex: 2 }}>
+          <div className="j-label mb-1" style={{ fontSize: '0.45rem' }}>END DATE (AUTO)</div>
+          <div
+            style={{
+              ...inputStyle,
+              color: end ? 'var(--j-green)' : 'rgba(0,212,255,0.25)',
+              pointerEvents: 'none',
+            }}
+          >
+            {end || '—'}
+          </div>
+        </div>
+
+        {/* Add button */}
+        <div>
+          <button
+            disabled={!canAdd}
+            onClick={() => {
+              onAdd({ label, start, end });
+              setStart('');
+              setWeeks(8);
+            }}
+            style={{
+              background: canAdd ? `rgba(${u.accentRgb},0.15)` : 'rgba(0,212,255,0.03)',
+              border: `1px solid ${canAdd ? `rgba(${u.accentRgb},0.5)` : 'rgba(0,212,255,0.1)'}`,
+              color: canAdd ? u.accentColor : 'rgba(0,212,255,0.2)',
+              padding: '4px 10px',
+              cursor: canAdd ? 'pointer' : 'default',
+              fontFamily: 'Orbitron, sans-serif',
+              fontSize: '0.5rem',
+              letterSpacing: '0.1em',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            + ADD
+          </button>
+        </div>
+      </div>
+
+      {/* Preview label */}
+      {canAdd && (
+        <div style={{ marginTop: 4, fontSize: '0.5rem', color: `rgba(${u.accentRgb},0.6)`, fontFamily: 'Orbitron, sans-serif' }}>
+          Will add: "{label}" · {start} → {end} ({weeks} wks)
+        </div>
+      )}
+    </div>
+  );
+}
+
 /** Settings Modal */
 function SettingsModal({
   universities,
@@ -775,6 +908,12 @@ function SettingsModal({
     terms: u.terms.map(t => ({ ...t })),
   })));
 
+  function quickAdd(uId: string, term: TermEntry) {
+    setLocal(prev => prev.map(u =>
+      u.id === uId ? { ...u, terms: [...u.terms, term] } : u
+    ));
+  }
+
   function updateTerm(uId: string, tIdx: number, key: keyof TermEntry, value: string) {
     setLocal(prev => prev.map(u => {
       if (u.id !== uId) return u;
@@ -783,21 +922,18 @@ function SettingsModal({
     }));
   }
 
-  function addTerm(uId: string) {
-    setLocal(prev => prev.map(u => {
-      if (u.id !== uId) return u;
-      return { ...u, terms: [...u.terms, { label: 'New Term', start: '', end: '' }] };
-    }));
+  function autoFillEnd(uId: string, tIdx: number, start: string, weeks = 8) {
+    const end = calcEndDate(start, weeks);
+    if (end) updateTerm(uId, tIdx, 'end', end);
   }
 
   function removeTerm(uId: string, tIdx: number) {
-    setLocal(prev => prev.map(u => {
-      if (u.id !== uId) return u;
-      return { ...u, terms: u.terms.filter((_, i) => i !== tIdx) };
-    }));
+    setLocal(prev => prev.map(u =>
+      u.id === uId ? { ...u, terms: u.terms.filter((_, i) => i !== tIdx) } : u
+    ));
   }
 
-  const inputStyle = {
+  const inputStyle: React.CSSProperties = {
     background: 'rgba(0,212,255,0.05)',
     border: '1px solid rgba(0,212,255,0.2)',
     color: 'var(--j-cyan)',
@@ -810,12 +946,26 @@ function SettingsModal({
 
   return (
     <div className="j-settings-overlay">
-      <div className="j-panel rounded-sm p-5 j-scroll" style={{ width: '90%', maxWidth: 620, maxHeight: '85vh', overflowY: 'auto' }}>
+      <div
+        className="j-panel j-vros rounded-sm p-5 j-scroll"
+        style={{ width: '90%', maxWidth: 660, maxHeight: '88vh', overflowY: 'auto' }}
+      >
         <div className="flex items-center justify-between mb-4">
-          <span className="j-title" style={{ fontSize: '0.8rem', letterSpacing: '0.2em' }}>⚙ SYSTEM CONFIGURATION</span>
+          <span className="j-title" style={{ fontSize: '0.8rem', letterSpacing: '0.2em' }}>
+            ⚙ SYSTEM CONFIGURATION
+          </span>
           <button
             onClick={onClose}
-            style={{ background: 'none', border: '1px solid rgba(0,212,255,0.3)', color: 'var(--j-cyan)', padding: '2px 10px', cursor: 'pointer', fontFamily: 'Orbitron, sans-serif', fontSize: '0.6rem' }}
+            className="j-vros-btn"
+            style={{
+              background: 'none',
+              border: '1px solid rgba(0,212,255,0.3)',
+              color: 'var(--j-cyan)',
+              padding: '2px 10px',
+              cursor: 'pointer',
+              fontFamily: 'Orbitron, sans-serif',
+              fontSize: '0.6rem',
+            }}
           >
             ✕ CLOSE
           </button>
@@ -824,41 +974,83 @@ function SettingsModal({
 
         {local.map(u => (
           <div key={u.id} className="mb-6">
-            <div className="j-title mb-3" style={{ fontSize: '0.65rem', color: u.accentColor, letterSpacing: '0.15em' }}>
+            {/* University header */}
+            <div
+              className="j-title mb-3"
+              style={{ fontSize: '0.65rem', color: u.accentColor, letterSpacing: '0.15em' }}
+            >
               {u.abbr} — {u.name}
+              <span style={{ color: 'rgba(0,212,255,0.3)', marginLeft: 8, fontSize: '0.5rem' }}>
+                {u.weekType}
+              </span>
             </div>
 
+            {/* ── Quick Add row ── */}
+            <QuickAddRow u={u} onAdd={term => quickAdd(u.id, term)} />
+
+            {/* ── Existing terms list ── */}
+            {u.terms.length > 0 && (
+              <div className="j-label mb-2" style={{ fontSize: '0.45rem' }}>LOADED TERMS</div>
+            )}
             {u.terms.map((t, idx) => (
-              <div key={idx} className="mb-2 p-2 rounded-sm" style={{ background: 'rgba(0,212,255,0.03)', border: '1px solid rgba(0,212,255,0.1)' }}>
-                <div className="grid gap-2" style={{ gridTemplateColumns: '1fr 1fr 1fr auto' }}>
-                  <div>
-                    <div className="j-label mb-1" style={{ fontSize: '0.45rem' }}>TERM LABEL</div>
-                    <input style={inputStyle} value={t.label} onChange={e => updateTerm(u.id, idx, 'label', e.target.value)} />
-                  </div>
-                  <div>
-                    <div className="j-label mb-1" style={{ fontSize: '0.45rem' }}>START DATE</div>
-                    <input type="date" style={inputStyle} value={t.start} onChange={e => updateTerm(u.id, idx, 'start', e.target.value)} />
-                  </div>
-                  <div>
-                    <div className="j-label mb-1" style={{ fontSize: '0.45rem' }}>END DATE</div>
-                    <input type="date" style={inputStyle} value={t.end} onChange={e => updateTerm(u.id, idx, 'end', e.target.value)} />
-                  </div>
-                  <div className="flex items-end">
-                    <button
-                      onClick={() => removeTerm(u.id, idx)}
-                      style={{ background: 'rgba(255,32,32,0.1)', border: '1px solid rgba(255,32,32,0.3)', color: 'var(--j-red)', padding: '3px 6px', cursor: 'pointer', fontSize: '0.6rem' }}
-                    >✕</button>
-                  </div>
+              <div
+                key={idx}
+                className="mb-1 px-2 py-1 rounded-sm"
+                style={{ background: 'rgba(0,212,255,0.03)', border: '1px solid rgba(0,212,255,0.08)' }}
+              >
+                <div className="grid gap-2 items-center" style={{ gridTemplateColumns: '1.4fr 1fr 1fr auto auto' }}>
+                  {/* Label */}
+                  <input
+                    style={inputStyle}
+                    value={t.label}
+                    onChange={e => updateTerm(u.id, idx, 'label', e.target.value)}
+                    placeholder="Label"
+                  />
+                  {/* Start */}
+                  <input
+                    type="date"
+                    style={inputStyle}
+                    value={t.start}
+                    onChange={e => updateTerm(u.id, idx, 'start', e.target.value)}
+                  />
+                  {/* End */}
+                  <input
+                    type="date"
+                    style={inputStyle}
+                    value={t.end}
+                    onChange={e => updateTerm(u.id, idx, 'end', e.target.value)}
+                  />
+                  {/* Auto-fill end (8 wks from start) */}
+                  <button
+                    title="Auto-fill end date (8 weeks from start)"
+                    onClick={() => autoFillEnd(u.id, idx, t.start, 8)}
+                    style={{
+                      background: 'rgba(0,212,255,0.06)',
+                      border: '1px solid rgba(0,212,255,0.2)',
+                      color: 'rgba(0,212,255,0.6)',
+                      padding: '3px 5px',
+                      cursor: 'pointer',
+                      fontSize: '0.6rem',
+                      whiteSpace: 'nowrap',
+                    }}
+                  >
+                    8w↻
+                  </button>
+                  {/* Remove */}
+                  <button
+                    onClick={() => removeTerm(u.id, idx)}
+                    style={{
+                      background: 'rgba(255,32,32,0.08)',
+                      border: '1px solid rgba(255,32,32,0.25)',
+                      color: 'var(--j-red)',
+                      padding: '3px 6px',
+                      cursor: 'pointer',
+                      fontSize: '0.6rem',
+                    }}
+                  >✕</button>
                 </div>
               </div>
             ))}
-
-            <button
-              onClick={() => addTerm(u.id)}
-              style={{ background: `rgba(${u.accentRgb},0.08)`, border: `1px solid rgba(${u.accentRgb},0.3)`, color: u.accentColor, padding: '3px 10px', cursor: 'pointer', fontFamily: 'Orbitron, sans-serif', fontSize: '0.5rem', letterSpacing: '0.1em', marginTop: 4 }}
-            >
-              + ADD TERM
-            </button>
 
             <div className="j-divider mt-3" />
           </div>
@@ -866,7 +1058,17 @@ function SettingsModal({
 
         <button
           onClick={() => onSave(local)}
-          style={{ background: 'rgba(0,212,255,0.1)', border: '1px solid rgba(0,212,255,0.5)', color: 'var(--j-cyan)', width: '100%', padding: '8px', fontFamily: 'Orbitron, sans-serif', fontSize: '0.65rem', letterSpacing: '0.15em', cursor: 'pointer' }}
+          style={{
+            background: 'rgba(0,212,255,0.1)',
+            border: '1px solid rgba(0,212,255,0.5)',
+            color: 'var(--j-cyan)',
+            width: '100%',
+            padding: '8px',
+            fontFamily: 'Orbitron, sans-serif',
+            fontSize: '0.65rem',
+            letterSpacing: '0.15em',
+            cursor: 'pointer',
+          }}
         >
           SAVE CONFIGURATION
         </button>
