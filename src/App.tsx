@@ -7,6 +7,7 @@ import Dashboard from './pages/Dashboard';
 import UniversityOS from './pages/university-os/UniversityOS';
 import CommandCenter from './pages/university-os/CommandCenter';
 import DepartmentConsole from './pages/university-os/DepartmentConsole';
+import FullEcosystem from './pages/university-os/FullEcosystem';
 import PrototypeLibrary from './pages/PrototypeLibrary';
 import Builder from './pages/Builder';
 import TestingZone from './pages/TestingZone';
@@ -80,6 +81,7 @@ function ProtectedRoutes() {
         <Route path="university-os" element={<UniversityOS />} />
         <Route path="university-os/command-center" element={<CommandCenter />} />
         <Route path="university-os/department/:deptId" element={<DepartmentConsole />} />
+        <Route path="university-os/full-ecosystem" element={<FullEcosystem />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

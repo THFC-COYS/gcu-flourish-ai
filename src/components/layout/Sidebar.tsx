@@ -3,7 +3,7 @@ import {
   LayoutDashboard, Library, Wand2, FlaskConical,
   TrendingUp, BookOpen, LogOut, ChevronLeft, ChevronRight,
   Shield, X, Heart, Code2, Rocket, Bot, Briefcase, Award, GraduationCap,
-  Building2, Activity, Cpu
+  Building2, Activity, Cpu, Layers
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { RoleBadge } from '../ui/Badge';
@@ -25,6 +25,7 @@ const NAV_SECTIONS = [
       { label: 'University OS', icon: Building2, to: '/university-os' },
       { label: 'Command Center', icon: Activity, to: '/university-os/command-center' },
       { label: 'Dept. Consoles', icon: Cpu, to: '/university-os/department/admissions' },
+      { label: 'Full Ecosystem', icon: Layers, to: '/university-os/full-ecosystem' },
     ],
   },
   {
