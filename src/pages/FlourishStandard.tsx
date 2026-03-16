@@ -348,10 +348,10 @@ export default function FlourishStandard() {
           When GCU publishes the Flourish Standard and 25 institutions adopt it, we become the accrediting authority for ethical AI in Christian higher education. That network effect is irreversible. The institutions that delay will become our customers — not our competitors.
         </p>
         <div className="flex flex-wrap justify-center gap-3">
-          <button onClick={() => navigate('/executive-brief')} className="btn-primary flex items-center gap-2">
+          <button onClick={() => navigate('/gcu/executive-brief')} className="btn-primary flex items-center gap-2">
             <Rocket size={16} /> Executive Briefing <ArrowRight size={14} />
           </button>
-          <button onClick={() => navigate('/flourish-api')} className="btn-secondary flex items-center gap-2">
+          <button onClick={() => navigate('/gcu/flourish-api')} className="btn-secondary flex items-center gap-2">
             <Zap size={16} /> Flourish API
           </button>
         </div>

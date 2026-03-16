@@ -176,7 +176,7 @@ export default function FlourishAPI() {
             <button className="btn-gold flex items-center gap-2 text-sm">
               <Zap size={14} /> Request API Access
             </button>
-            <button onClick={() => navigate('/vision')} className="border border-[#2D2050] text-slate-300 font-semibold px-4 py-2.5 rounded-lg hover:bg-white/5 text-sm flex items-center gap-2 transition-colors">
+            <button onClick={() => navigate('/gcu/vision')} className="border border-[#2D2050] text-slate-300 font-semibold px-4 py-2.5 rounded-lg hover:bg-white/5 text-sm flex items-center gap-2 transition-colors">
               See the Vision <ArrowRight size={14} />
             </button>
           </div>
@@ -343,7 +343,7 @@ export default function FlourishAPI() {
           <button className="btn-gold flex items-center gap-2">
             <Zap size={15} /> Request Access
           </button>
-          <button onClick={() => navigate('/vision')} className="border border-white/30 text-white font-semibold px-4 py-2.5 rounded-lg hover:bg-white/10 text-sm flex items-center gap-2 transition-colors">
+          <button onClick={() => navigate('/gcu/vision')} className="border border-white/30 text-white font-semibold px-4 py-2.5 rounded-lg hover:bg-white/10 text-sm flex items-center gap-2 transition-colors">
             Read the Vision <ArrowRight size={14} />
           </button>
         </div>

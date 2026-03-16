@@ -68,7 +68,7 @@ export default function Builder() {
         <div className="text-4xl mb-3">🔒</div>
         <p className="font-bold text-slate-700 dark:text-slate-300">Access Restricted</p>
         <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">Spirit Builder is available to Faculty and Admin roles.</p>
-        <button onClick={() => navigate('/library')} className="btn-primary mt-4">View Library</button>
+        <button onClick={() => navigate('/gcu/library')} className="btn-primary mt-4">View Library</button>
       </div>
     );
   }
@@ -110,7 +110,7 @@ export default function Builder() {
   const handleSave = () => {
     setSaved(true);
     setTimeout(() => {
-      navigate('/library');
+      navigate('/gcu/library');
     }, 1800);
   };
 

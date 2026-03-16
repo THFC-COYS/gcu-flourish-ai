@@ -12,50 +12,50 @@ const NAV_SECTIONS = [
   {
     label: 'Main',
     items: [
-      { label: 'Dashboard', icon: LayoutDashboard, to: '/' },
-      { label: 'Prototype Library', icon: Library, to: '/library' },
-      { label: 'Spirit Builder', icon: Wand2, to: '/builder' },
-      { label: 'Deployment Console', icon: FlaskConical, to: '/testing' },
-      { label: 'Training Academy', icon: GraduationCap, to: '/spirit-training' },
+      { label: 'Dashboard', icon: LayoutDashboard, to: '/gcu' },
+      { label: 'Prototype Library', icon: Library, to: '/gcu/library' },
+      { label: 'Spirit Builder', icon: Wand2, to: '/gcu/builder' },
+      { label: 'Deployment Console', icon: FlaskConical, to: '/gcu/testing' },
+      { label: 'Training Academy', icon: GraduationCap, to: '/gcu/spirit-training' },
     ],
   },
   {
     label: 'University OS',
     items: [
-      { label: 'University OS', icon: Building2, to: '/university-os' },
-      { label: 'Command Center', icon: Activity, to: '/university-os/command-center' },
-      { label: 'Dept. Consoles', icon: Cpu, to: '/university-os/department/admissions' },
-      { label: 'Full Ecosystem', icon: Layers, to: '/university-os/full-ecosystem' },
+      { label: 'University OS', icon: Building2, to: '/gcu/university-os' },
+      { label: 'Command Center', icon: Activity, to: '/gcu/university-os/command-center' },
+      { label: 'Dept. Consoles', icon: Cpu, to: '/gcu/university-os/department/admissions' },
+      { label: 'Full Ecosystem', icon: Layers, to: '/gcu/university-os/full-ecosystem' },
     ],
   },
   {
     label: 'Network',
     items: [
-      { label: 'Spirit Network', icon: Heart, to: '/spirit-network' },
-      { label: 'Flourish API', icon: Code2, to: '/flourish-api' },
-      { label: 'Flourish Robotics', icon: Bot, to: '/flourish-robotics' },
+      { label: 'Spirit Network', icon: Heart, to: '/gcu/spirit-network' },
+      { label: 'Flourish API', icon: Code2, to: '/gcu/flourish-api' },
+      { label: 'Flourish Robotics', icon: Bot, to: '/gcu/flourish-robotics' },
     ],
   },
   {
     label: 'Commerce',
     items: [
-      { label: 'Impact Tracker', icon: TrendingUp, to: '/commercialization' },
+      { label: 'Impact Tracker', icon: TrendingUp, to: '/gcu/commercialization' },
     ],
   },
   {
     label: 'Vision',
     items: [
-      { label: 'Vision & Roadmap', icon: Rocket, to: '/vision' },
-      { label: 'Flourish Standard', icon: Award, to: '/flourish-standard' },
-      { label: 'Executive Briefing', icon: Briefcase, to: '/executive-brief' },
+      { label: 'Vision & Roadmap', icon: Rocket, to: '/gcu/vision' },
+      { label: 'Flourish Standard', icon: Award, to: '/gcu/flourish-standard' },
+      { label: 'Executive Briefing', icon: Briefcase, to: '/gcu/executive-brief' },
     ],
   },
   {
     label: 'Governance',
     items: [
-      { label: 'Agent QA Board', icon: ShieldCheck, to: '/governance-qa' },
-      { label: 'Scaling Model', icon: BarChart2, to: '/scaling-model' },
-      { label: 'Resources', icon: BookOpen, to: '/resources' },
+      { label: 'Agent QA Board', icon: ShieldCheck, to: '/gcu/governance-qa' },
+      { label: 'Scaling Model', icon: BarChart2, to: '/gcu/scaling-model' },
+      { label: 'Resources', icon: BookOpen, to: '/gcu/resources' },
     ],
   },
 ];
@@ -73,7 +73,7 @@ export default function Sidebar({ collapsed, onToggle, mobileOpen, onMobileClose
 
   const handleLogout = () => {
     logout();
-    navigate('/login');
+    navigate('/gcu/login');
   };
 
   const sidebarContent = (
@@ -152,7 +152,7 @@ export default function Sidebar({ collapsed, onToggle, mobileOpen, onMobileClose
         )}
 
         <NavLink
-          to="/resources"
+          to="/gcu/resources"
           onClick={onMobileClose}
           className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}
         >

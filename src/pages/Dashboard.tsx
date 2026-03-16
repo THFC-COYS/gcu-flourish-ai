@@ -90,10 +90,10 @@ export default function Dashboard() {
             </div>
           </div>
           <div className="flex flex-wrap gap-2 shrink-0">
-            <button onClick={() => navigate('/library')} className="btn-gold text-xs px-4 py-2 flex items-center gap-1.5">
+            <button onClick={() => navigate('/gcu/library')} className="btn-gold text-xs px-4 py-2 flex items-center gap-1.5">
               <Heart size={13} /> Deploy a Spirit Agent
             </button>
-            <button onClick={() => navigate('/vision')} className="border border-white/30 text-white text-xs font-semibold px-4 py-2 rounded-lg hover:bg-white/10 transition-colors flex items-center gap-1.5">
+            <button onClick={() => navigate('/gcu/vision')} className="border border-white/30 text-white text-xs font-semibold px-4 py-2 rounded-lg hover:bg-white/10 transition-colors flex items-center gap-1.5">
               <Rocket size={13} /> See the Vision
             </button>
           </div>
@@ -191,7 +191,7 @@ export default function Dashboard() {
       {/* Phase 2 teaser */}
       <div
         className="page-card p-5 flex items-center gap-4 bg-gradient-to-r from-slate-900 to-gcu-purple-dark border-[#2D2050] cursor-pointer hover:shadow-card-hover transition-all group"
-        onClick={() => navigate('/vision')}
+        onClick={() => navigate('/gcu/vision')}
       >
         <div className="w-12 h-12 rounded-xl bg-gcu-gold/20 border border-gcu-gold/30 flex items-center justify-center flex-shrink-0 text-2xl">🤖</div>
         <div className="flex-1">
@@ -209,7 +209,7 @@ export default function Dashboard() {
       <div className="page-card p-5">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-base font-bold text-slate-900 dark:text-white">All 10 Deployed Spirit Agents</h2>
-          <button onClick={() => navigate('/library')} className="text-xs text-gcu-purple dark:text-purple-400 font-semibold flex items-center gap-1 hover:gap-2 transition-all">
+          <button onClick={() => navigate('/gcu/library')} className="text-xs text-gcu-purple dark:text-purple-400 font-semibold flex items-center gap-1 hover:gap-2 transition-all">
             Full library <ArrowRight size={12} />
           </button>
         </div>
@@ -217,7 +217,7 @@ export default function Dashboard() {
           {MOCK_PROTOTYPES.map(p => (
             <button
               key={p.id}
-              onClick={() => navigate(`/testing?id=${p.id}`)}
+              onClick={() => navigate(`/gcu/testing?id=${p.id}`)}
               className="flex flex-col items-center text-center p-3 rounded-xl bg-slate-50 dark:bg-[#241D35] hover:bg-gcu-purple-pale dark:hover:bg-gcu-purple/10 transition-colors border border-transparent hover:border-gcu-purple/20 group"
             >
               <span className="text-2xl mb-1">{p.icon}</span>
@@ -238,7 +238,7 @@ export default function Dashboard() {
         <div className="lg:col-span-2 space-y-4">
           <div className="flex items-center justify-between">
             <h2 className="text-base font-bold text-slate-900 dark:text-white">Active Pilots</h2>
-            <button onClick={() => navigate('/library')} className="text-xs text-gcu-purple dark:text-purple-400 font-semibold flex items-center gap-1 hover:gap-2 transition-all">
+            <button onClick={() => navigate('/gcu/library')} className="text-xs text-gcu-purple dark:text-purple-400 font-semibold flex items-center gap-1 hover:gap-2 transition-all">
               All vessels <ArrowRight size={12} />
             </button>
           </div>
@@ -272,10 +272,10 @@ export default function Dashboard() {
           <div className="page-card p-4 space-y-1">
             <p className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide mb-2">Explore Platform</p>
             {[
-              { label: 'Training Academy', sub: 'Practice with Spirit in role-play', icon: '🎓', to: '/spirit-training' },
-              { label: 'Spirit Network', sub: '847 alumni contributors', icon: '❤️', to: '/spirit-network' },
-              { label: 'Flourish API', sub: 'License the soul layer', icon: '⚡', to: '/flourish-api' },
-              { label: 'Vision & Roadmap', sub: 'Phase 1 → Phase 2', icon: '🚀', to: '/vision' },
+              { label: 'Training Academy', sub: 'Practice with Spirit in role-play', icon: '🎓', to: '/gcu/spirit-training' },
+              { label: 'Spirit Network', sub: '847 alumni contributors', icon: '❤️', to: '/gcu/spirit-network' },
+              { label: 'Flourish API', sub: 'License the soul layer', icon: '⚡', to: '/gcu/flourish-api' },
+              { label: 'Vision & Roadmap', sub: 'Phase 1 → Phase 2', icon: '🚀', to: '/gcu/vision' },
             ].map(l => (
               <button
                 key={l.to}
