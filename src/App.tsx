@@ -45,7 +45,6 @@ import EarlyWarning from './pages/molted/EarlyWarning';
 import ForgeVoiceDemo from './pages/molted/ForgeVoiceDemo';
 import GovernanceQA from './pages/GovernanceQA';
 import ScalingModel from './pages/ScalingModel';
-import MoltedGate from './components/molted/MoltedGate';
 
 function ProtectedRoutes() {
   const { user, isLoading } = useAuth();
@@ -100,29 +99,29 @@ export default function App() {
       <AuthProvider>
         <BrowserRouter>
           <Routes>
-            {/* Molt — private gated website */}
-            <Route path="/" element={<MoltedGate><MoltedHome /></MoltedGate>} />
-            <Route path="/lumen" element={<MoltedGate><MoltedLumen /></MoltedGate>} />
-            <Route path="/beacon" element={<MoltedGate><MoltedBeaconAi /></MoltedGate>} />
-            <Route path="/forge" element={<MoltedGate><MoltedForge /></MoltedGate>} />
-            <Route path="/pathway-ai" element={<MoltedGate><MoltedPathwayAi /></MoltedGate>} />
-            <Route path="/proof-ai" element={<MoltedGate><MoltedProofAi /></MoltedGate>} />
-            <Route path="/retain-ai" element={<MoltedGate><MoltedRetainAi /></MoltedGate>} />
-            <Route path="/outcomes-ai" element={<MoltedGate><MoltedOutcomesAi /></MoltedGate>} />
-            <Route path="/outpost" element={<MoltedGate><MoltedCampusOS /></MoltedGate>} />
-            <Route path="/imago-os" element={<MoltedGate><MoltedImagoOS /></MoltedGate>} />
-            <Route path="/mastery-ai" element={<MoltedGate><MoltedMasteryAi /></MoltedGate>} />
-            <Route path="/about" element={<MoltedGate><MoltedAbout /></MoltedGate>} />
-            <Route path="/founding-partners" element={<MoltedGate><MoltedFoundingPartners /></MoltedGate>} />
-            <Route path="/investors" element={<MoltedGate><MoltedInvestors /></MoltedGate>} />
-            <Route path="/forge/discussion" element={<MoltedGate><DiscussionDemo /></MoltedGate>} />
-            <Route path="/forge/course-architect" element={<MoltedGate><CourseArchitect /></MoltedGate>} />
-            <Route path="/forge/agentic-grader" element={<MoltedGate><AgenticGrader /></MoltedGate>} />
-            <Route path="/forge/auto-respond" element={<MoltedGate><AutoRespond /></MoltedGate>} />
-            <Route path="/forge/early-warning" element={<MoltedGate><EarlyWarning /></MoltedGate>} />
-            <Route path="/forge/live-demo" element={<MoltedGate><LiveAgentDemo /></MoltedGate>} />
-            <Route path="/forge/voice-demo" element={<MoltedGate><ForgeVoiceDemo /></MoltedGate>} />
-            <Route path="/exec-tour" element={<MoltedGate><MoltedExecTour /></MoltedGate>} />
+            {/* Molt — main public website */}
+            <Route path="/" element={<MoltedHome />} />
+            <Route path="/lumen" element={<MoltedLumen />} />
+            <Route path="/beacon" element={<MoltedBeaconAi />} />
+            <Route path="/forge" element={<MoltedForge />} />
+            <Route path="/pathway-ai" element={<MoltedPathwayAi />} />
+            <Route path="/proof-ai" element={<MoltedProofAi />} />
+            <Route path="/retain-ai" element={<MoltedRetainAi />} />
+            <Route path="/outcomes-ai" element={<MoltedOutcomesAi />} />
+            <Route path="/outpost" element={<MoltedCampusOS />} />
+            <Route path="/imago-os" element={<MoltedImagoOS />} />
+            <Route path="/mastery-ai" element={<MoltedMasteryAi />} />
+            <Route path="/about" element={<MoltedAbout />} />
+            <Route path="/founding-partners" element={<MoltedFoundingPartners />} />
+            <Route path="/investors" element={<MoltedInvestors />} />
+            <Route path="/forge/discussion" element={<DiscussionDemo />} />
+            <Route path="/forge/course-architect" element={<CourseArchitect />} />
+            <Route path="/forge/agentic-grader" element={<AgenticGrader />} />
+            <Route path="/forge/auto-respond" element={<AutoRespond />} />
+            <Route path="/forge/early-warning" element={<EarlyWarning />} />
+            <Route path="/forge/live-demo" element={<LiveAgentDemo />} />
+            <Route path="/forge/voice-demo" element={<ForgeVoiceDemo />} />
+            <Route path="/exec-tour" element={<MoltedExecTour />} />
             {/* GCU Flourish — client portal */}
             <Route path="/gcu/login" element={<LoginGuard />} />
             <Route path="/executive-tour" element={<ExecutiveTour />} />

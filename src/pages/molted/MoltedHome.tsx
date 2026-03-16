@@ -67,39 +67,37 @@ function AgentFeed() {
     return () => clearInterval(interval);
   }, [nextIndex]);
 
-  const roleColor = (role: string) =>
-    role === 'Faculty' ? { bg: 'rgba(37,99,235,0.15)', text: '#2563EB' }
-    : role === 'Admin'  ? { bg: 'rgba(30,58,138,0.15)',  text: '#1E3A8A' }
-    :                     { bg: 'rgba(100,116,139,0.15)', text: '#64748B' };
+  const roleConfig = (role: string) =>
+    role === 'Faculty' ? { bg: 'rgba(37,99,235,0.25)', text: '#93BBFD', border: 'rgba(37,99,235,0.4)' }
+    : role === 'Admin'  ? { bg: 'rgba(99,102,241,0.22)',  text: '#A5B4FC', border: 'rgba(99,102,241,0.4)' }
+    :                     { bg: 'rgba(148,163,184,0.15)', text: '#CBD5E1', border: 'rgba(148,163,184,0.3)' };
 
   return (
     <div className="space-y-3">
       {visibleEvents.map((item, i) => {
-        const c = roleColor(item.role);
-        const isNew = i === 0 && fadingIn === null;
+        const c = roleConfig(item.role);
         return (
           <Link
             key={`${item.time}-${item.event}`}
             to={item.href}
             className="group block rounded-xl p-4 border transition-all duration-300 hover:scale-[1.02]"
             style={{
-              background: 'rgba(37,99,235,0.10)',
-              borderColor: 'rgba(37,99,235,0.1)',
-              opacity: isNew ? 1 : i === 0 ? 1 : 1,
+              background: 'rgba(255,255,255,0.05)',
+              borderColor: 'rgba(255,255,255,0.10)',
               animation: i === 0 ? 'feedSlideIn 0.4s ease' : undefined,
             }}
           >
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-mono" style={{ color: '#2563EB' }}>{item.time}</span>
+              <span className="text-xs font-mono font-semibold" style={{ color: '#60A5FA' }}>{item.time}</span>
               <div className="flex items-center gap-2">
-                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full" style={{ background: c.bg, color: c.text }}>
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full border" style={{ background: c.bg, color: c.text, borderColor: c.border }}>
                   {item.role}
                 </span>
-                <span className="text-[10px] text-molted-muted/0 group-hover:text-molted-muted/60 transition-colors font-medium">Try it →</span>
+                <span className="text-[10px] opacity-0 group-hover:opacity-60 transition-opacity text-white font-medium">Try it →</span>
               </div>
             </div>
-            <p className="text-molted-muted text-xs mb-2 leading-relaxed">{item.event}</p>
-            <p className="text-xs font-semibold text-molted-white leading-snug">↳ {item.action}</p>
+            <p className="text-sm text-slate-300 mb-2 leading-relaxed">{item.event}</p>
+            <p className="text-sm font-semibold text-white leading-snug">↳ {item.action}</p>
           </Link>
         );
       })}
@@ -237,11 +235,11 @@ function ThePlatform() {
         <RevealBlock delay={200} className="mt-16">
           <div
             className="rounded-2xl border p-8"
-            style={{ background: 'rgba(17,17,24,0.8)', borderColor: 'rgba(37,99,235,0.2)' }}
+            style={{ background: 'rgba(10,10,20,0.85)', borderColor: 'rgba(99,155,255,0.25)', boxShadow: '0 0 40px rgba(37,99,235,0.08)' }}
           >
             <div className="flex items-center gap-2 mb-8">
-              <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: '#2563EB' }} />
-              <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: '#2563EB' }}>
+              <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: '#60A5FA' }} />
+              <p className="text-xs font-bold uppercase tracking-widest" style={{ color: '#93BBFD' }}>
                 Agents running now
               </p>
             </div>
