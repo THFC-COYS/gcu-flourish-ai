@@ -8,11 +8,11 @@ import {
 import MoltedLayout from './MoltedLayout';
 
 /* ── Constants ─────────────────────────────────────────────────────────── */
-const TEAL = '#2DD4BF';
-const TEAL_DIM = 'rgba(45,212,191,0.12)';
-const TEAL_BORDER = 'rgba(45,212,191,0.25)';
-const GOLD = '#E8A020';
-const RED = '#E8170F';
+const TEAL = '#2563EB';
+const TEAL_DIM = 'rgba(37,99,235,0.12)';
+const TEAL_BORDER = 'rgba(37,99,235,0.25)';
+const GOLD = '#64748B';
+const RED = '#1E3A8A';
 
 /* ── Types ─────────────────────────────────────────────────────────────── */
 type Confidence = 'conservative' | 'balanced' | 'proactive';
@@ -328,8 +328,8 @@ function Results({ result }: { result: AutoRespondResult }) {
       <div
         className="rounded-2xl p-5 border"
         style={{
-          background: result.shouldAutoRespond ? TEAL_DIM : 'rgba(232,160,32,0.08)',
-          borderColor: result.shouldAutoRespond ? TEAL_BORDER : 'rgba(232,160,32,0.25)',
+          background: result.shouldAutoRespond ? TEAL_DIM : 'rgba(100,116,139,0.08)',
+          borderColor: result.shouldAutoRespond ? TEAL_BORDER : 'rgba(100,116,139,0.25)',
         }}
       >
         <div className="flex items-center gap-3 mb-3">
@@ -363,7 +363,7 @@ function Results({ result }: { result: AutoRespondResult }) {
       {!result.shouldAutoRespond && (
         <div
           className="rounded-2xl p-5 border"
-          style={{ background: 'rgba(232,160,32,0.06)', borderColor: 'rgba(232,160,32,0.18)' }}
+          style={{ background: 'rgba(100,116,139,0.06)', borderColor: 'rgba(100,116,139,0.18)' }}
         >
           <p className="text-xs font-bold mb-1.5" style={{ color: GOLD }}>Why escalation is recommended</p>
           <p className="text-xs leading-relaxed mb-3" style={{ color: '#86868B' }}>{result.escalationReason}</p>
@@ -412,7 +412,7 @@ function Results({ result }: { result: AutoRespondResult }) {
       {/* Insight */}
       <div
         className="rounded-2xl p-5 border"
-        style={{ background: 'rgba(232,160,32,0.07)', borderColor: 'rgba(232,160,32,0.18)' }}
+        style={{ background: 'rgba(100,116,139,0.07)', borderColor: 'rgba(100,116,139,0.18)' }}
       >
         <div className="flex items-start gap-3">
           <Zap size={15} style={{ color: GOLD, flexShrink: 0, marginTop: 2 }} />
@@ -509,7 +509,7 @@ export default function AutoRespond() {
               {error && (
                 <div
                   className="rounded-2xl p-5 border mb-6"
-                  style={{ background: 'rgba(232,23,15,0.08)', borderColor: 'rgba(232,23,15,0.2)' }}
+                  style={{ background: 'rgba(30,58,138,0.08)', borderColor: 'rgba(30,58,138,0.2)' }}
                 >
                   <p className="text-red-400 text-sm font-semibold mb-1">Error</p>
                   <p className="text-molted-muted text-sm">{error}</p>

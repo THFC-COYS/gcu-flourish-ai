@@ -47,11 +47,11 @@ function RevealBlock({ children, delay = 0, className = '' }: {
 }
 
 /* ── Forge accent color ──────────────────────────────────────────────── */
-const TEAL = '#2DD4BF';
-const TEAL_DIM = 'rgba(45,212,191,0.15)';
-const TEAL_BORDER = 'rgba(45,212,191,0.25)';
-const TEAL_GLOW = '0 0 30px rgba(45,212,191,0.15), 0 0 60px rgba(45,212,191,0.07)';
-const GOLD = '#E8A020';
+const TEAL = '#2563EB';
+const TEAL_DIM = 'rgba(37,99,235,0.15)';
+const TEAL_BORDER = 'rgba(37,99,235,0.25)';
+const TEAL_GLOW = '0 0 30px rgba(37,99,235,0.15), 0 0 60px rgba(37,99,235,0.07)';
+const GOLD = '#64748B';
 
 /* ── Hero ──────────────────────────────────────────────────────────────── */
 function Hero() {
@@ -60,10 +60,10 @@ function Hero() {
       {/* Ambient */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] rounded-full"
-          style={{ background: 'radial-gradient(ellipse at center, rgba(45,212,191,0.07) 0%, transparent 70%)' }}
+          style={{ background: 'radial-gradient(ellipse at center, rgba(37,99,235,0.07) 0%, transparent 70%)' }}
         />
         <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full"
-          style={{ background: 'radial-gradient(ellipse at center, rgba(232,160,32,0.05) 0%, transparent 70%)' }}
+          style={{ background: 'radial-gradient(ellipse at center, rgba(100,116,139,0.05) 0%, transparent 70%)' }}
         />
       </div>
 
@@ -303,9 +303,9 @@ function ToolVisual({ type }: { type: string }) {
             <span
               className="text-xs font-semibold px-2 py-0.5 rounded-full flex-shrink-0 mt-0.5"
               style={{
-                background: p.flag ? 'rgba(232,23,15,0.1)' : `${TEAL_DIM}`,
-                color: p.flag ? '#FF3D35' : TEAL,
-                border: `1px solid ${p.flag ? 'rgba(232,23,15,0.2)' : TEAL_BORDER}`,
+                background: p.flag ? 'rgba(30,58,138,0.1)' : `${TEAL_DIM}`,
+                color: p.flag ? '#3B82F6' : TEAL,
+                border: `1px solid ${p.flag ? 'rgba(30,58,138,0.2)' : TEAL_BORDER}`,
               }}
             >
               {p.urgency}
@@ -348,9 +348,9 @@ function ToolVisual({ type }: { type: string }) {
               <span
                 className="text-xs px-2 py-0.5 rounded-full font-semibold"
                 style={{
-                  background: item.status === 'Generated' ? TEAL_DIM : 'rgba(232,160,32,0.1)',
-                  color: item.status === 'Generated' ? TEAL : '#E8A020',
-                  border: `1px solid ${item.status === 'Generated' ? TEAL_BORDER : 'rgba(232,160,32,0.2)'}`,
+                  background: item.status === 'Generated' ? TEAL_DIM : 'rgba(100,116,139,0.1)',
+                  color: item.status === 'Generated' ? TEAL : '#64748B',
+                  border: `1px solid ${item.status === 'Generated' ? TEAL_BORDER : 'rgba(100,116,139,0.2)'}`,
                 }}
               >
                 {item.status}
@@ -373,8 +373,8 @@ function ToolVisual({ type }: { type: string }) {
         <div className="space-y-3">
           {[
             { name: 'Alexis R.', score: '94/100', tag: 'Strong thesis, clear argument structure', color: TEAL },
-            { name: 'Jordan M.', score: '78/100', tag: 'Lacks textual evidence in sections 2–3', color: '#E8A020' },
-            { name: 'Casey T.', score: '61/100', tag: 'Similarity to source material — flagged', color: '#E8170F' },
+            { name: 'Jordan M.', score: '78/100', tag: 'Lacks textual evidence in sections 2–3', color: '#64748B' },
+            { name: 'Casey T.', score: '61/100', tag: 'Similarity to source material — flagged', color: '#1E3A8A' },
           ].map((s, i) => (
             <div key={i} className="bg-molted-surface rounded-xl p-4 border border-molted-border">
               <div className="flex items-center justify-between mb-1.5">
@@ -413,9 +413,9 @@ function ToolVisual({ type }: { type: string }) {
             <div className="flex gap-2 items-start">
               <div
                 className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
-                style={{ background: c.auto ? TEAL_DIM : 'rgba(232,160,32,0.15)' }}
+                style={{ background: c.auto ? TEAL_DIM : 'rgba(100,116,139,0.15)' }}
               >
-                <Bot size={10} style={{ color: c.auto ? TEAL : '#E8A020' }} />
+                <Bot size={10} style={{ color: c.auto ? TEAL : '#64748B' }} />
               </div>
               <p className="text-xs leading-relaxed" style={{ color: c.auto ? '#F5F5F7' : '#86868B' }}>{c.a}</p>
             </div>
@@ -423,9 +423,9 @@ function ToolVisual({ type }: { type: string }) {
               <span
                 className="text-xs px-2 py-0.5 rounded-full font-medium"
                 style={{
-                  background: c.auto ? TEAL_DIM : 'rgba(232,160,32,0.1)',
-                  color: c.auto ? TEAL : '#E8A020',
-                  border: `1px solid ${c.auto ? TEAL_BORDER : 'rgba(232,160,32,0.2)'}`,
+                  background: c.auto ? TEAL_DIM : 'rgba(100,116,139,0.1)',
+                  color: c.auto ? TEAL : '#64748B',
+                  border: `1px solid ${c.auto ? TEAL_BORDER : 'rgba(100,116,139,0.2)'}`,
                 }}
               >
                 {c.auto ? 'Auto-handled' : 'Needs you'}
@@ -449,9 +449,9 @@ function ToolVisual({ type }: { type: string }) {
       </div>
       <div className="space-y-2.5">
         {[
-          { name: 'Marcus T.', signal: 'No login in 5 days · Essay 2 not submitted', risk: 'High', color: '#E8170F' },
-          { name: 'Priya S.', signal: 'Grade drop: A→C over 3 weeks', risk: 'Medium', color: '#E8A020' },
-          { name: 'Alex W.', signal: 'Last 4 discussions: 0 participation', risk: 'Medium', color: '#E8A020' },
+          { name: 'Marcus T.', signal: 'No login in 5 days · Essay 2 not submitted', risk: 'High', color: '#1E3A8A' },
+          { name: 'Priya S.', signal: 'Grade drop: A→C over 3 weeks', risk: 'Medium', color: '#64748B' },
+          { name: 'Alex W.', signal: 'Last 4 discussions: 0 participation', risk: 'Medium', color: '#64748B' },
           { name: 'Jordan L.', signal: 'All submissions on time · Grade: 96%', risk: 'On Track', color: TEAL },
         ].map((s, i) => (
           <div key={i} className="bg-molted-surface rounded-xl p-3 border border-molted-border flex items-center gap-3">
@@ -473,7 +473,7 @@ function ToolVisual({ type }: { type: string }) {
           </div>
         ))}
       </div>
-      <div className="mt-3 p-3 rounded-xl text-xs" style={{ background: 'rgba(232,23,15,0.08)', border: '1px solid rgba(232,23,15,0.15)', color: '#FF3D35' }}>
+      <div className="mt-3 p-3 rounded-xl text-xs" style={{ background: 'rgba(30,58,138,0.08)', border: '1px solid rgba(30,58,138,0.15)', color: '#3B82F6' }}>
         ✦ Personalized check-in drafts ready for Marcus, Priya, and Alex
       </div>
     </div>
@@ -649,15 +649,15 @@ function LMSKiller() {
       versus: ['Knowledge exits with the professor', 'Every section rebuilt from zero', 'Zero cross-course student insight'],
       wins:   ['Faculty DNA captured and transferable', 'Program-level analytics across all courses', 'Student risk visible institution-wide'],
       color: GOLD,
-      colorDim: 'rgba(232,160,32,0.10)',
-      colorBorder: 'rgba(232,160,32,0.22)',
+      colorDim: 'rgba(100,116,139,0.10)',
+      colorBorder: 'rgba(100,116,139,0.22)',
     },
   ];
 
   return (
     <section className="py-28 px-6 border-t border-molted-border relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 0% 50%, rgba(45,212,191,0.04) 0%, transparent 50%)' }} />
+        style={{ background: 'radial-gradient(ellipse at 0% 50%, rgba(37,99,235,0.04) 0%, transparent 50%)' }} />
 
       <div className="max-w-6xl mx-auto relative">
         {/* Header */}
@@ -777,8 +777,8 @@ function ComingSoon() {
     {
       label: 'Institutional Memory',
       color: GOLD,
-      colorDim: 'rgba(232,160,32,0.10)',
-      colorBorder: 'rgba(232,160,32,0.22)',
+      colorDim: 'rgba(100,116,139,0.10)',
+      colorBorder: 'rgba(100,116,139,0.22)',
       items: [
         { icon: Database,      name: 'Faculty DNA Vault', desc: 'Capture grading philosophy, FAQ banks, discussion style. Course survives faculty turnover.' },
         { icon: BarChart3,     name: 'Semester Intelligence', desc: '"Week 6 causes grade dips in this course every year. Here\'s what worked last time."' },
@@ -791,7 +791,7 @@ function ComingSoon() {
   return (
     <section className="py-28 px-6 border-t border-molted-border relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(45,212,191,0.04) 0%, transparent 60%)' }} />
+        style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(37,99,235,0.04) 0%, transparent 60%)' }} />
 
       <div className="max-w-6xl mx-auto relative">
         {/* Header */}
@@ -918,7 +918,7 @@ function AgentLoop() {
     <section className="py-28 px-6 border-t border-molted-border relative overflow-hidden">
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(45,212,191,0.04) 0%, transparent 65%)' }}
+        style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(37,99,235,0.04) 0%, transparent 65%)' }}
       />
       <div className="max-w-5xl mx-auto relative z-10">
         <RevealBlock className="text-center mb-16">
@@ -938,7 +938,7 @@ function AgentLoop() {
           {/* Connecting line */}
           <div
             className="absolute left-7 top-8 bottom-8 w-px hidden md:block"
-            style={{ background: `linear-gradient(to bottom, ${TEAL}, rgba(45,212,191,0.1))` }}
+            style={{ background: `linear-gradient(to bottom, ${TEAL}, rgba(37,99,235,0.1))` }}
           />
 
           <div className="space-y-6">
@@ -984,7 +984,7 @@ function AgentLoop() {
                 <span
                   key={lms}
                   className="px-3 py-1.5 rounded-lg text-xs font-semibold"
-                  style={{ background: 'rgba(45,212,191,0.08)', border: `1px solid ${TEAL_BORDER}`, color: TEAL }}
+                  style={{ background: 'rgba(37,99,235,0.08)', border: `1px solid ${TEAL_BORDER}`, color: TEAL }}
                 >
                   {lms}
                 </span>
@@ -1023,7 +1023,7 @@ function AgenticFuture() {
   return (
     <section className="py-28 px-6 border-t border-molted-border relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(45,212,191,0.04) 0%, transparent 60%)' }}
+        style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(37,99,235,0.04) 0%, transparent 60%)' }}
       />
       <div className="max-w-6xl mx-auto relative z-10">
         <RevealBlock className="text-center mb-16">
@@ -1136,7 +1136,7 @@ function FacultyVoice() {
   return (
     <section className="py-28 px-6 border-t border-molted-border relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 40% 50%, rgba(45,212,191,0.04) 0%, transparent 65%)' }} />
+        style={{ background: 'radial-gradient(ellipse at 40% 50%, rgba(37,99,235,0.04) 0%, transparent 65%)' }} />
       <div className="max-w-5xl mx-auto relative z-10">
         <RevealBlock className="text-center mb-6">
           <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: TEAL }}>
@@ -1175,7 +1175,7 @@ function FacultyVoice() {
                   </div>
                   <div
                     className="rounded-xl px-4 py-3 mb-4 text-xs leading-relaxed italic"
-                    style={{ background: 'rgba(45,212,191,0.06)', borderLeft: `2px solid ${TEAL}`, color: '#A0A0B0' }}
+                    style={{ background: 'rgba(37,99,235,0.06)', borderLeft: `2px solid ${TEAL}`, color: '#A0A0B0' }}
                   >
                     {item.example}
                   </div>
@@ -1189,7 +1189,7 @@ function FacultyVoice() {
         <RevealBlock delay={200}>
           <div
             className="rounded-2xl border p-8 md:p-10 text-center"
-            style={{ background: 'linear-gradient(135deg, rgba(45,212,191,0.05) 0%, rgba(17,17,24,0.8) 100%)', borderColor: TEAL_BORDER, boxShadow: TEAL_GLOW }}
+            style={{ background: 'linear-gradient(135deg, rgba(37,99,235,0.05) 0%, rgba(17,17,24,0.8) 100%)', borderColor: TEAL_BORDER, boxShadow: TEAL_GLOW }}
           >
             <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: TEAL }}>
               The rule
@@ -1441,7 +1441,7 @@ function CTA() {
   return (
     <section className="py-32 px-6 border-t border-molted-border relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 50% 80%, rgba(45,212,191,0.06) 0%, transparent 60%)' }}
+        style={{ background: 'radial-gradient(ellipse at 50% 80%, rgba(37,99,235,0.06) 0%, transparent 60%)' }}
       />
       <div className="max-w-3xl mx-auto text-center relative z-10">
         <RevealBlock>
@@ -1479,7 +1479,7 @@ function CTA() {
 export default function MoltedForge() {
   return (
     <MoltedLayout>
-      <OutpostBanner moduleName="Forge" moduleColor="#2DD4BF" />
+      <OutpostBanner moduleName="Forge" moduleColor="#2563EB" />
       <Hero />
       <TheProblem />
       <CoreTools />

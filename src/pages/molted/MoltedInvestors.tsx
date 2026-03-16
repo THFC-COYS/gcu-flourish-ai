@@ -48,7 +48,7 @@ function Hero() {
         <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[600px] rounded-full"
           style={{ background: 'radial-gradient(ellipse at center, rgba(139,92,246,0.07) 0%, transparent 65%)' }} />
         <div className="absolute bottom-0 right-1/4 w-[500px] h-[400px] rounded-full"
-          style={{ background: 'radial-gradient(ellipse at center, rgba(45,212,191,0.04) 0%, transparent 70%)' }} />
+          style={{ background: 'radial-gradient(ellipse at center, rgba(37,99,235,0.04) 0%, transparent 70%)' }} />
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto">
@@ -67,7 +67,7 @@ function Hero() {
           </h1>
           <h1 className="text-5xl md:text-7xl font-black leading-[1.02] tracking-tight mt-1"
             style={{
-              background: 'linear-gradient(120deg, #8B5CF6 0%, #2DD4BF 60%, #E8A020 100%)',
+              background: 'linear-gradient(120deg, #8B5CF6 0%, #2563EB 60%, #64748B 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
@@ -87,7 +87,7 @@ function Hero() {
           <a
             href="mailto:hello@molted.ai?subject=Investor Inquiry"
             className="group inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-bold text-base transition-all duration-200 hover:-translate-y-px"
-            style={{ background: 'linear-gradient(120deg, #8B5CF6, #2DD4BF)', color: '#0a0a0f' }}
+            style={{ background: 'linear-gradient(120deg, #8B5CF6, #2563EB)', color: '#0a0a0f' }}
           >
             Request Materials
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -134,7 +134,7 @@ function TheMarket() {
                 <p
                   className="text-5xl font-black leading-none mb-3"
                   style={{
-                    background: 'linear-gradient(120deg, #8B5CF6, #2DD4BF)',
+                    background: 'linear-gradient(120deg, #8B5CF6, #2563EB)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                     backgroundClip: 'text',
@@ -158,7 +158,7 @@ function TheMoat() {
   return (
     <section className="py-24 px-6 border-t border-molted-border relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 60% 40%, rgba(45,212,191,0.04) 0%, transparent 65%)' }} />
+        style={{ background: 'radial-gradient(ellipse at 60% 40%, rgba(37,99,235,0.04) 0%, transparent 65%)' }} />
       <div className="max-w-5xl mx-auto relative z-10">
         <RevealBlock className="text-center mb-16">
           <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">Why this is defensible</p>
@@ -171,14 +171,14 @@ function TheMoat() {
           {[
             {
               icon: Database,
-              color: '#2DD4BF',
+              color: '#2563EB',
               title: 'The data flywheel',
               body: 'Every discussion reply, every reading session, every early-warning flag trains the platform on how that institution\'s students learn. An institution running Molt for two years has a model trained on their students, their courses, their outcomes. That data cannot be replicated. A new entrant starts from zero. Molt compounds.',
               tag: 'Data moat',
             },
             {
               icon: Users,
-              color: '#E8A020',
+              color: '#64748B',
               title: 'The faculty relationship',
               body: "Forge doesn't just serve faculty — it learns them. Their background, their teaching style, their hobbies, their voice. A professor who has spent a semester training Forge has built something deeply personal. Switching cost is not a contract term. It's an identity. That relationship is the stickiest asset in edtech.",
               tag: 'Relationship moat',
@@ -244,15 +244,15 @@ function TwoScenarios() {
           <RevealBlock delay={0}>
             <div
               className="rounded-2xl border p-8 h-full flex flex-col"
-              style={{ background: 'rgba(17,17,24,0.7)', borderColor: 'rgba(45,212,191,0.2)' }}
+              style={{ background: 'rgba(17,17,24,0.7)', borderColor: 'rgba(37,99,235,0.2)' }}
             >
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center"
-                  style={{ background: 'rgba(45,212,191,0.12)' }}>
-                  <TrendingUp size={18} style={{ color: '#2DD4BF' }} />
+                  style={{ background: 'rgba(37,99,235,0.12)' }}>
+                  <TrendingUp size={18} style={{ color: '#2563EB' }} />
                 </div>
                 <div>
-                  <p className="text-[10px] font-black uppercase tracking-widest" style={{ color: '#2DD4BF' }}>Path A</p>
+                  <p className="text-[10px] font-black uppercase tracking-widest" style={{ color: '#2563EB' }}>Path A</p>
                   <p className="text-molted-white font-black text-lg leading-tight">Standalone platform</p>
                 </div>
               </div>
@@ -267,7 +267,7 @@ function TwoScenarios() {
                   'Healthcare and workforce training are adjacent markets',
                 ].map((p, i) => (
                   <div key={i} className="flex items-start gap-2 text-xs text-molted-muted">
-                    <div className="w-1.5 h-1.5 rounded-full mt-1 flex-shrink-0" style={{ background: '#2DD4BF' }} />
+                    <div className="w-1.5 h-1.5 rounded-full mt-1 flex-shrink-0" style={{ background: '#2563EB' }} />
                     {p}
                   </div>
                 ))}
@@ -343,10 +343,10 @@ function Traction() {
 
         <div className="grid md:grid-cols-4 gap-5 mb-10">
           {[
-            { value: '50,000+', label: 'Active users', color: '#2DD4BF' },
-            { value: '6', label: 'AI personas deployed', color: '#E8A020' },
+            { value: '50,000+', label: 'Active users', color: '#2563EB' },
+            { value: '6', label: 'AI personas deployed', color: '#64748B' },
             { value: '3', label: 'Core products live', color: '#8B5CF6' },
-            { value: '24/7', label: 'Agents running', color: '#E8170F' },
+            { value: '24/7', label: 'Agents running', color: '#1E3A8A' },
           ].map((s, i) => (
             <RevealBlock key={i} delay={i * 70}>
               <div
@@ -372,8 +372,8 @@ function Traction() {
           >
             <div className="grid md:grid-cols-3 gap-8 text-center">
               {[
-                { icon: BarChart3, label: 'Deployed at a top-25 US university', color: '#2DD4BF' },
-                { icon: Bot, label: 'Agents active across 8 course types', color: '#E8A020' },
+                { icon: BarChart3, label: 'Deployed at a top-25 US university', color: '#2563EB' },
+                { icon: Bot, label: 'Agents active across 8 course types', color: '#64748B' },
                 { icon: Shield, label: 'Zero data incidents. FERPA-aligned architecture', color: '#8B5CF6' },
               ].map((item, i) => {
                 const Icon = item.icon;
@@ -414,10 +414,10 @@ function UseOfFunds() {
 
         <div className="space-y-4">
           {[
-            { pct: '40%', label: 'Platform & infrastructure', detail: 'Outpost expansion — Pathway, Retain, Mastery modules. Data flywheel architecture. Faculty voice at scale.', color: '#2DD4BF' },
+            { pct: '40%', label: 'Platform & infrastructure', detail: 'Outpost expansion — Pathway, Retain, Mastery modules. Data flywheel architecture. Faculty voice at scale.', color: '#2563EB' },
             { pct: '30%', label: 'Institution growth', detail: 'Founding partner expansion. Sales infrastructure for higher ed, healthcare, and enterprise verticals.', color: '#8B5CF6' },
-            { pct: '20%', label: 'Faculty voice & research', detail: "Solving Hansen's challenge: faculty relationship at scale. Voice onboarding, approval workflows, personal AI model training.", color: '#E8A020' },
-            { pct: '10%', label: 'Access initiative', detail: 'Subsidized deployment for community colleges and under-resourced institutions. This is the long game.', color: '#E8170F' },
+            { pct: '20%', label: 'Faculty voice & research', detail: "Solving Hansen's challenge: faculty relationship at scale. Voice onboarding, approval workflows, personal AI model training.", color: '#64748B' },
+            { pct: '10%', label: 'Access initiative', detail: 'Subsidized deployment for community colleges and under-resourced institutions. This is the long game.', color: '#1E3A8A' },
           ].map((item, i) => (
             <RevealBlock key={i} delay={i * 80}>
               <div
@@ -459,7 +459,7 @@ function CTA() {
             <a
               href="mailto:hello@molted.ai?subject=Investor Inquiry"
               className="group flex items-center gap-2.5 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 hover:-translate-y-px"
-              style={{ background: 'linear-gradient(135deg, #8B5CF6 0%, #2DD4BF 100%)', color: '#0A0A0F' }}
+              style={{ background: 'linear-gradient(135deg, #8B5CF6 0%, #2563EB 100%)', color: '#0A0A0F' }}
             >
               Request Data Room
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />

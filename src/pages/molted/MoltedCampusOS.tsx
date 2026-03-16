@@ -47,11 +47,11 @@ function RevealBlock({
 }
 
 /* ── Outpost accent tokens ─────────────────────────────────────────────── */
-const CAMPUS_GOLD = '#E8A020';
-const CAMPUS_TEAL = '#2DD4BF';
+const CAMPUS_GOLD = '#64748B';
+const CAMPUS_TEAL = '#2563EB';
 const CAMPUS_VIOLET = '#8B5CF6';
 const CAMPUS_GRADIENT =
-  'linear-gradient(135deg, #E8A020 0%, #2DD4BF 50%, #8B5CF6 100%)';
+  'linear-gradient(135deg, #64748B 0%, #2563EB 50%, #8B5CF6 100%)';
 
 function hexToRgb(hex: string): string {
   const r = parseInt(hex.slice(1, 3), 16);
@@ -70,14 +70,14 @@ function Hero() {
           className="absolute top-[-10%] left-[15%] w-[700px] h-[700px] rounded-full"
           style={{
             background:
-              'radial-gradient(ellipse at center, rgba(232,160,32,0.07) 0%, transparent 70%)',
+              'radial-gradient(ellipse at center, rgba(100,116,139,0.07) 0%, transparent 70%)',
           }}
         />
         <div
           className="absolute bottom-[0%] right-[5%] w-[600px] h-[600px] rounded-full"
           style={{
             background:
-              'radial-gradient(ellipse at center, rgba(45,212,191,0.07) 0%, transparent 70%)',
+              'radial-gradient(ellipse at center, rgba(37,99,235,0.07) 0%, transparent 70%)',
           }}
         />
         <div
@@ -243,13 +243,13 @@ function WhatOutpostRemoves() {
             <div
               className="rounded-2xl p-8 border h-full"
               style={{
-                background: 'rgba(232,23,15,0.04)',
-                borderColor: 'rgba(232,23,15,0.10)',
+                background: 'rgba(30,58,138,0.04)',
+                borderColor: 'rgba(30,58,138,0.10)',
               }}
             >
               <p
                 className="text-sm font-bold uppercase tracking-widest mb-6"
-                style={{ color: '#E8170F' }}
+                style={{ color: '#1E3A8A' }}
               >
                 The Old Assumptions
               </p>
@@ -271,8 +271,8 @@ function WhatOutpostRemoves() {
             <div
               className="rounded-2xl p-8 border h-full"
               style={{
-                background: 'rgba(45,212,191,0.04)',
-                borderColor: 'rgba(45,212,191,0.15)',
+                background: 'rgba(37,99,235,0.04)',
+                borderColor: 'rgba(37,99,235,0.15)',
               }}
             >
               <p
@@ -302,9 +302,9 @@ function WhatOutpostRemoves() {
 
 /* ── Platform Architecture ──────────────────────────────────────────────── */
 const PRODUCT_NODES: { name: string; color: string; desc: string }[] = [
-  { name: 'Read', color: '#E8A020', desc: 'Student engagement' },
-  { name: 'Beacon', color: '#E8170F', desc: 'Adaptive identity' },
-  { name: 'Teach', color: '#2DD4BF', desc: 'Faculty dashboard' },
+  { name: 'Read', color: '#64748B', desc: 'Student engagement' },
+  { name: 'Beacon', color: '#1E3A8A', desc: 'Adaptive identity' },
+  { name: 'Teach', color: '#2563EB', desc: 'Faculty dashboard' },
   { name: 'Pathway', color: '#06B6D4', desc: 'Adaptive paths' },
   { name: 'Proof', color: '#F97316', desc: 'AI assessment' },
   { name: 'Retain', color: '#EF4444', desc: 'Student success' },
@@ -368,8 +368,8 @@ function PlatformArchitecture() {
               style={{
                 background: 'rgba(10,10,15,0.98)',
                 borderColor: 'transparent',
-                boxShadow: `0 0 0 1px rgba(232,160,32,0.45),
-                             0 0 0 4px rgba(45,212,191,0.18),
+                boxShadow: `0 0 0 1px rgba(100,116,139,0.45),
+                             0 0 0 4px rgba(37,99,235,0.18),
                              0 0 0 8px rgba(139,92,246,0.10),
                              0 0 80px rgba(139,92,246,0.12)`,
               }}
@@ -515,11 +515,11 @@ function VisionStatement() {
               background: 'rgba(245,183,64,0.05)',
             }}
           >
-            <div className="w-5 h-5 rounded-md flex-shrink-0" style={{ background: 'linear-gradient(135deg,#F5B740,#E8A020)', boxShadow: '0 0 10px rgba(245,183,64,0.3)' }} />
+            <div className="w-5 h-5 rounded-md flex-shrink-0" style={{ background: 'linear-gradient(135deg,#94A3B8,#64748B)', boxShadow: '0 0 10px rgba(245,183,64,0.3)' }} />
             <div className="text-left">
               <p
                 className="text-sm font-black"
-                style={{ background: 'linear-gradient(120deg,#F5B740,#E8A020)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}
+                style={{ background: 'linear-gradient(120deg,#94A3B8,#64748B)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}
               >
                 ImagoOS — The final form
               </p>

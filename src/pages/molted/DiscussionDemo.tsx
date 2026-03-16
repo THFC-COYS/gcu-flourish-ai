@@ -26,15 +26,15 @@ interface Analysis {
 }
 
 /* ── Colors ────────────────────────────────────────────────────────────── */
-const TEAL = '#2DD4BF';
-const TEAL_DIM = 'rgba(45,212,191,0.12)';
-const TEAL_BORDER = 'rgba(45,212,191,0.25)';
+const TEAL = '#2563EB';
+const TEAL_DIM = 'rgba(37,99,235,0.12)';
+const TEAL_BORDER = 'rgba(37,99,235,0.25)';
 
 const QUALITY_CONFIG: Record<Quality, { color: string; bg: string; border: string; icon: typeof AlertTriangle }> = {
   misconception: {
-    color: '#FF3D35',
-    bg: 'rgba(232,23,15,0.10)',
-    border: 'rgba(232,23,15,0.22)',
+    color: '#3B82F6',
+    bg: 'rgba(30,58,138,0.10)',
+    border: 'rgba(30,58,138,0.22)',
     icon: AlertTriangle,
   },
   strong: {
@@ -167,7 +167,7 @@ function FilterTabs({
 
   const tabs: { key: Filter; label: string; color: string }[] = [
     { key: 'all', label: 'All Posts', color: '#F5F5F7' },
-    { key: 'misconception', label: 'Misconceptions', color: '#FF3D35' },
+    { key: 'misconception', label: 'Misconceptions', color: '#3B82F6' },
     { key: 'strong', label: 'Highlights', color: TEAL },
   ];
 
@@ -266,7 +266,7 @@ function Results({ analysis }: { analysis: Analysis }) {
         style={{ background: 'rgba(17,17,24,0.9)', borderColor: 'rgba(255,255,255,0.06)' }}
       >
         <div className="flex items-center gap-2 mb-3">
-          <Lightbulb size={14} style={{ color: '#E8A020' }} />
+          <Lightbulb size={14} style={{ color: '#64748B' }} />
           <p className="text-sm font-semibold text-molted-white">Pedagogical Insight</p>
         </div>
         <p className="text-molted-muted text-sm leading-relaxed">{analysis.insights}</p>
@@ -579,7 +579,7 @@ export default function DiscussionDemo() {
               {error && (
                 <div
                   className="rounded-2xl p-5 border mb-6"
-                  style={{ background: 'rgba(232,23,15,0.08)', borderColor: 'rgba(232,23,15,0.2)' }}
+                  style={{ background: 'rgba(30,58,138,0.08)', borderColor: 'rgba(30,58,138,0.2)' }}
                 >
                   <p className="text-red-400 text-sm font-semibold mb-1">Error</p>
                   <p className="text-molted-muted text-sm">{error}</p>

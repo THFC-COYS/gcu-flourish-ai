@@ -7,7 +7,7 @@ import {
 import MoltedLayout, { OutpostBanner } from './MoltedLayout';
 import AgentFeed, { FeedEvent } from '../../components/AgentFeed';
 
-const TEAL = '#2DD4BF';
+const TEAL = '#2563EB';
 
 const FORGE_EVENTS: FeedEvent[] = [
   { time: '8:12 AM',  event: 'Professor uploads syllabus for NURS 301', action: 'Course architect generates full semester infrastructure in 40 seconds', role: 'Faculty', href: '/forge/course-architect' },
@@ -40,8 +40,8 @@ function ForgeLiveFeed() {
     </section>
   );
 }
-const TEAL_DIM = 'rgba(45,212,191,0.10)';
-const TEAL_BORDER = 'rgba(45,212,191,0.22)';
+const TEAL_DIM = 'rgba(37,99,235,0.10)';
+const TEAL_BORDER = 'rgba(37,99,235,0.22)';
 
 function useReveal() {
   const ref = useRef<HTMLDivElement>(null);
@@ -85,10 +85,10 @@ function Hero() {
     <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[600px] rounded-full"
-          style={{ background: 'radial-gradient(ellipse at center, rgba(45,212,191,0.07) 0%, transparent 70%)' }}
+          style={{ background: 'radial-gradient(ellipse at center, rgba(37,99,235,0.07) 0%, transparent 70%)' }}
         />
         <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full"
-          style={{ background: 'radial-gradient(ellipse at center, rgba(232,160,32,0.10) 0%, transparent 70%)' }}
+          style={{ background: 'radial-gradient(ellipse at center, rgba(100,116,139,0.10) 0%, transparent 70%)' }}
         />
       </div>
 
@@ -108,7 +108,7 @@ function Hero() {
             <span
               className="block text-6xl md:text-8xl lg:text-9xl font-black leading-none tracking-tight"
               style={{
-                background: 'linear-gradient(135deg, #0A6B62 0%, #2DD4BF 55%, #5EF0E3 100%)',
+                background: 'linear-gradient(135deg, #0A6B62 0%, #2563EB 55%, #5EF0E3 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
@@ -265,7 +265,7 @@ function HowForgeWorks() {
         </RevealBlock>
 
         <div className="relative">
-          <div className="absolute left-6 top-8 bottom-8 w-px bg-gradient-to-b from-[#2DD4BF]/60 via-[#2DD4BF]/30 to-transparent hidden md:block" aria-hidden />
+          <div className="absolute left-6 top-8 bottom-8 w-px bg-gradient-to-b from-[#2563EB]/60 via-[#2563EB]/30 to-transparent hidden md:block" aria-hidden />
 
           <div className="space-y-6">
             {steps.map((step, i) => (
@@ -279,8 +279,8 @@ function HowForgeWorks() {
                   <div
                     className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-black text-sm"
                     style={{
-                      background: 'rgba(45,212,191,0.12)',
-                      border: '1.5px solid rgba(45,212,191,0.35)',
+                      background: 'rgba(37,99,235,0.12)',
+                      border: '1.5px solid rgba(37,99,235,0.35)',
                       color: TEAL,
                     }}
                   >
@@ -478,7 +478,7 @@ function CTA() {
 export default function MoltedForge() {
   return (
     <MoltedLayout>
-      <OutpostBanner moduleName="Forge" moduleColor="#2DD4BF" />
+      <OutpostBanner moduleName="Forge" moduleColor="#2563EB" />
       <Hero />
       <TheProblem />
       <HowForgeWorks />

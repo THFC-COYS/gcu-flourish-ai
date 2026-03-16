@@ -47,10 +47,10 @@ function RevealBlock({
 }
 
 /* ── ImagoOS color tokens ───────────────────────────────────────────────── */
-const IMAGO_AMBER  = '#F5B740';
-const IMAGO_GOLD   = '#E8A020';
+const IMAGO_AMBER  = '#94A3B8';
+const IMAGO_GOLD   = '#64748B';
 const IMAGO_WARM   = '#FDE68A';
-const IMAGO_GRADIENT = 'linear-gradient(135deg, #F5B740 0%, #E8A020 60%, #D97706 100%)';
+const IMAGO_GRADIENT = 'linear-gradient(135deg, #94A3B8 0%, #64748B 60%, #D97706 100%)';
 
 /* ── Hero ──────────────────────────────────────────────────────────────── */
 function Hero() {
@@ -64,7 +64,7 @@ function Hero() {
         />
         <div
           className="absolute bottom-[-5%] left-[10%] w-[500px] h-[500px] rounded-full"
-          style={{ background: 'radial-gradient(ellipse at center, rgba(232,160,32,0.05) 0%, transparent 70%)' }}
+          style={{ background: 'radial-gradient(ellipse at center, rgba(100,116,139,0.05) 0%, transparent 70%)' }}
         />
         <div
           className="absolute top-[30%] right-[-5%] w-[400px] h-[400px] rounded-full"
@@ -219,9 +219,9 @@ function ThreeStages() {
     {
       label: 'Stage 1',
       name: 'The Old Skin',
-      color: '#E8170F',
-      bg: 'rgba(232,23,15,0.04)',
-      border: 'rgba(232,23,15,0.12)',
+      color: '#1E3A8A',
+      bg: 'rgba(30,58,138,0.04)',
+      border: 'rgba(30,58,138,0.12)',
       traits: [
         'Canvas, Blackboard, or D2L',
         'AI bolted on as a plugin',
@@ -234,9 +234,9 @@ function ThreeStages() {
     {
       label: 'Stage 2',
       name: 'Outpost',
-      color: '#E8A020',
-      bg: 'rgba(232,160,32,0.05)',
-      border: 'rgba(232,160,32,0.2)',
+      color: '#64748B',
+      bg: 'rgba(100,116,139,0.05)',
+      border: 'rgba(100,116,139,0.2)',
       traits: [
         'AI-native LMS from the ground up',
         'All modules unified in one platform',
@@ -314,9 +314,9 @@ function ThreeStages() {
 
         {/* Flow arrows */}
         <RevealBlock delay={500} className="mt-6 flex justify-center items-center gap-4 text-molted-subtle text-xs font-semibold uppercase tracking-widest">
-          <span style={{ color: '#E8170F' }}>Old Skin</span>
+          <span style={{ color: '#1E3A8A' }}>Old Skin</span>
           <ChevronRight size={14} />
-          <span style={{ color: '#E8A020' }}>Outpost</span>
+          <span style={{ color: '#64748B' }}>Outpost</span>
           <ChevronRight size={14} />
           <span style={{ color: IMAGO_AMBER }}>Imago</span>
         </RevealBlock>
@@ -406,9 +406,9 @@ function WhatsDifferent() {
 /* ── The Architecture ───────────────────────────────────────────────────── */
 function Architecture() {
   const modules = [
-    { name: 'Teach', color: '#2DD4BF', role: 'Faculty' },
-    { name: 'Read', color: '#E8A020', role: 'Students' },
-    { name: 'Beacon', color: '#E8170F', role: 'Institution' },
+    { name: 'Teach', color: '#2563EB', role: 'Faculty' },
+    { name: 'Read', color: '#64748B', role: 'Students' },
+    { name: 'Beacon', color: '#1E3A8A', role: 'Institution' },
     { name: 'Pathway', color: '#8B5CF6', role: 'Students' },
     { name: 'Proof', color: '#F97316', role: 'Faculty' },
     { name: 'Retain', color: '#F43F5E', role: 'Institution' },
@@ -470,7 +470,7 @@ function Architecture() {
           <div className="flex justify-center mb-4">
             <div
               className="w-px h-8"
-              style={{ background: `linear-gradient(to bottom, ${IMAGO_AMBER}, rgba(232,160,32,0.3))` }}
+              style={{ background: `linear-gradient(to bottom, ${IMAGO_AMBER}, rgba(100,116,139,0.3))` }}
             />
           </div>
           <Link
@@ -481,13 +481,13 @@ function Architecture() {
               className="rounded-2xl px-10 py-4 text-center border hover:border-opacity-80 transition-colors"
               style={{
                 background: 'rgba(10,10,15,0.95)',
-                boxShadow: '0 0 0 1px rgba(232,160,32,0.35), 0 0 0 3px rgba(45,212,191,0.12), 0 0 0 6px rgba(139,92,246,0.07)',
+                boxShadow: '0 0 0 1px rgba(100,116,139,0.35), 0 0 0 3px rgba(37,99,235,0.12), 0 0 0 6px rgba(139,92,246,0.07)',
               }}
             >
               <p
                 className="text-xl font-black"
                 style={{
-                  background: 'linear-gradient(135deg, #E8A020 0%, #2DD4BF 50%, #8B5CF6 100%)',
+                  background: 'linear-gradient(135deg, #64748B 0%, #2563EB 50%, #8B5CF6 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text',
@@ -503,7 +503,7 @@ function Architecture() {
         {/* Connector */}
         <RevealBlock delay={180}>
           <div className="flex justify-center mb-4">
-            <div className="w-px h-8" style={{ background: 'linear-gradient(to bottom, rgba(232,160,32,0.3), rgba(139,92,246,0.2))' }} />
+            <div className="w-px h-8" style={{ background: 'linear-gradient(to bottom, rgba(100,116,139,0.3), rgba(139,92,246,0.2))' }} />
           </div>
         </RevealBlock>
 

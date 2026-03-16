@@ -344,7 +344,7 @@ function LiveDashboardMock() {
   ];
 
   const severityColor: Record<string, string> = {
-    high: '#E8170F',
+    high: '#1E3A8A',
     medium: '#F59E0B',
     info: SKY,
   };
@@ -609,8 +609,8 @@ function AccreditationAutopilot() {
 /* ── Integration ────────────────────────────────────────────────────────── */
 function Integration() {
   const sources = [
-    { name: 'Lumen', desc: 'Student learning interactions', color: '#E8A020' },
-    { name: 'Persona Ai', desc: 'Student support conversations', color: '#E8170F' },
+    { name: 'Lumen', desc: 'Student learning interactions', color: '#64748B' },
+    { name: 'Persona Ai', desc: 'Student support conversations', color: '#1E3A8A' },
     { name: 'Forge', desc: 'Faculty & curriculum signals', color: '#10B981' },
     { name: 'More coming', desc: 'Expanding ecosystem', color: '#3A3A40' },
   ];

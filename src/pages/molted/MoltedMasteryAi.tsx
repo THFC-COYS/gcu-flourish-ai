@@ -49,7 +49,7 @@ function Hero() {
           style={{ background: 'radial-gradient(ellipse at center, rgba(16,185,129,0.07) 0%, transparent 70%)' }}
         />
         <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full"
-          style={{ background: 'radial-gradient(ellipse at center, rgba(232,160,32,0.04) 0%, transparent 70%)' }}
+          style={{ background: 'radial-gradient(ellipse at center, rgba(100,116,139,0.04) 0%, transparent 70%)' }}
         />
       </div>
 
@@ -231,10 +231,10 @@ function TheTransformation() {
                   { code: 'C1', label: 'Cell structure fundamentals', type: 'Foundation', color: EMERALD },
                   { code: 'C2', label: 'Mitosis mechanics', type: 'Builds on C1', color: EMERALD },
                   { code: 'C3', label: 'Meiosis & genetic variation', type: 'Builds on C2', color: EMERALD },
-                  { code: 'C4', label: 'ATP synthesis pathway', type: 'Parallel to C2', color: '#E8A020' },
+                  { code: 'C4', label: 'ATP synthesis pathway', type: 'Parallel to C2', color: '#64748B' },
                   { code: 'C5', label: 'DNA replication', type: 'Builds on C3+C4', color: EMERALD },
                   { code: 'C6', label: 'Protein synthesis', type: 'Builds on C5', color: EMERALD },
-                  { code: 'C7', label: 'Cell regulation & cancer', type: 'Capstone', color: '#E8170F' },
+                  { code: 'C7', label: 'Cell regulation & cancer', type: 'Capstone', color: '#1E3A8A' },
                 ].map((c, i) => (
                   <div key={i} className="flex items-center gap-3 p-2.5 rounded-xl bg-molted-surface border border-molted-border">
                     <span className="text-xs font-bold w-6 flex-shrink-0" style={{ color: c.color }}>{c.code}</span>
@@ -418,7 +418,7 @@ function Integrations() {
   const connections = [
     { name: 'ProofAi', color: '#F97316', desc: 'Mastery assessments for every competency' },
     { name: 'PathwayAi', color: '#8B5CF6', desc: 'Competencies become adaptive path nodes' },
-    { name: 'Forge', color: '#2DD4BF', desc: 'Faculty dashboard tracks competency progress' },
+    { name: 'Forge', color: '#2563EB', desc: 'Faculty dashboard tracks competency progress' },
     { name: 'OutcomesAi', color: '#0EA5E9', desc: 'Attainment data feeds institutional analytics' },
   ];
 

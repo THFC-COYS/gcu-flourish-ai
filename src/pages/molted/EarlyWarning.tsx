@@ -8,15 +8,15 @@ import {
 import MoltedLayout from './MoltedLayout';
 
 /* ── Constants ─────────────────────────────────────────────────────────── */
-const TEAL = '#2DD4BF';
-const TEAL_DIM = 'rgba(45,212,191,0.12)';
-const TEAL_BORDER = 'rgba(45,212,191,0.25)';
-const GOLD = '#E8A020';
-const RED = '#E8170F';
-const RED_DIM = 'rgba(232,23,15,0.10)';
-const RED_BORDER = 'rgba(232,23,15,0.22)';
-const GOLD_DIM = 'rgba(232,160,32,0.10)';
-const GOLD_BORDER = 'rgba(232,160,32,0.22)';
+const TEAL = '#2563EB';
+const TEAL_DIM = 'rgba(37,99,235,0.12)';
+const TEAL_BORDER = 'rgba(37,99,235,0.25)';
+const GOLD = '#64748B';
+const RED = '#1E3A8A';
+const RED_DIM = 'rgba(30,58,138,0.10)';
+const RED_BORDER = 'rgba(30,58,138,0.22)';
+const GOLD_DIM = 'rgba(100,116,139,0.10)';
+const GOLD_BORDER = 'rgba(100,116,139,0.22)';
 
 /* ── Types ─────────────────────────────────────────────────────────────── */
 type RiskTier = 'high' | 'medium' | 'low';
@@ -617,7 +617,7 @@ export default function EarlyWarning() {
               {error && (
                 <div
                   className="rounded-2xl p-5 border mb-6"
-                  style={{ background: 'rgba(232,23,15,0.08)', borderColor: 'rgba(232,23,15,0.2)' }}
+                  style={{ background: 'rgba(30,58,138,0.08)', borderColor: 'rgba(30,58,138,0.2)' }}
                 >
                   <p className="text-red-400 text-sm font-semibold mb-1">Error</p>
                   <p className="text-molted-muted text-sm">{error}</p>

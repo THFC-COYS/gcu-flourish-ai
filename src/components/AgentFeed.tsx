@@ -10,9 +10,9 @@ export interface FeedEvent {
 }
 
 const roleColor = (role: string) =>
-  role === 'Faculty' ? { bg: 'rgba(45,212,191,0.15)', text: '#2DD4BF' }
-  : role === 'Admin'  ? { bg: 'rgba(232,23,15,0.15)',  text: '#E8170F' }
-  :                     { bg: 'rgba(232,160,32,0.15)', text: '#E8A020' };
+  role === 'Faculty' ? { bg: 'rgba(37,99,235,0.15)', text: '#2563EB' }
+  : role === 'Admin'  ? { bg: 'rgba(30,58,138,0.15)',  text: '#1E3A8A' }
+  :                     { bg: 'rgba(100,116,139,0.15)', text: '#64748B' };
 
 /* Typewriter for the top (newest) event's action line */
 function useTypewriter(text: string, speed = 28) {
@@ -53,8 +53,8 @@ function FeedCard({
   const { displayed, done } = useTypewriter(isTyping ? item.action : '');
   const c = roleColor(item.role);
 
-  const rgbMatch = accentColor === '#E8A020' ? '232,160,32'
-    : accentColor === '#E8170F' ? '232,23,15'
+  const rgbMatch = accentColor === '#64748B' ? '232,160,32'
+    : accentColor === '#1E3A8A' ? '232,23,15'
     : '45,212,191';
 
   const actionText = isTyping ? displayed : item.action;
@@ -106,7 +106,7 @@ function FeedCard({
 export default function AgentFeed({
   events,
   label = 'Agents running now',
-  accentColor = '#2DD4BF',
+  accentColor = '#2563EB',
 }: {
   events: FeedEvent[];
   label?: string;

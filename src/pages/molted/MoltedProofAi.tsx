@@ -25,13 +25,13 @@ function ProofLiveFeed() {
             <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">Assessments in progress</p>
             <h2 className="text-4xl md:text-5xl font-black text-molted-white leading-tight tracking-tight mb-6">
               Proof runs 24/7.<br />
-              <span style={{ color: '#E8A020' }}>The evidence never sleeps.</span>
+              <span style={{ color: '#64748B' }}>The evidence never sleeps.</span>
             </h2>
             <p className="text-molted-muted text-lg leading-relaxed">
               Every event below is Proof doing what accreditors require but traditional assessment can't deliver — verified understanding, documented continuously, ready when you need it.
             </p>
           </div>
-          <AgentFeed events={PROOF_EVENTS} label="Proof assessments running" accentColor="#E8A020" />
+          <AgentFeed events={PROOF_EVENTS} label="Proof assessments running" accentColor="#64748B" />
         </div>
       </div>
     </section>
@@ -93,7 +93,7 @@ function Hero() {
         />
         <div
           className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full"
-          style={{ background: 'radial-gradient(ellipse at center, rgba(232,23,15,0.10) 0%, transparent 70%)' }}
+          style={{ background: 'radial-gradient(ellipse at center, rgba(30,58,138,0.10) 0%, transparent 70%)' }}
         />
       </div>
 
@@ -566,11 +566,11 @@ function BeforeAfter() {
           <RevealBlock>
             <div
               className="rounded-2xl p-7 border h-full"
-              style={{ background: 'rgba(232,23,15,0.10)', borderColor: 'rgba(232,23,15,0.12)' }}
+              style={{ background: 'rgba(30,58,138,0.10)', borderColor: 'rgba(30,58,138,0.12)' }}
             >
               <div className="flex items-center gap-2.5 mb-6">
-                <AlertTriangle size={16} style={{ color: '#E8170F' }} />
-                <p className="text-sm font-bold uppercase tracking-widest" style={{ color: '#E8170F' }}>
+                <AlertTriangle size={16} style={{ color: '#1E3A8A' }} />
+                <p className="text-sm font-bold uppercase tracking-widest" style={{ color: '#1E3A8A' }}>
                   Before — The Essay
                 </p>
               </div>
@@ -584,7 +584,7 @@ function BeforeAfter() {
               </div>
               <div
                 className="mt-6 p-3 rounded-xl text-xs text-center font-semibold"
-                style={{ background: 'rgba(232,23,15,0.16)', color: '#E8170F', border: '1px solid rgba(232,23,15,0.15)' }}
+                style={{ background: 'rgba(30,58,138,0.16)', color: '#1E3A8A', border: '1px solid rgba(30,58,138,0.15)' }}
               >
                 Grade reflects what AI can produce, not what students know.
               </div>

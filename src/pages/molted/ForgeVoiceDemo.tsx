@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import { ChevronLeft, Send, Bot, Loader2, Sparkles, Mic, ChevronDown, ChevronUp, User } from 'lucide-react';
 import MoltedLayout from './MoltedLayout';
 
-const TEAL = '#2DD4BF';
-const TEAL_DIM = 'rgba(45,212,191,0.10)';
-const TEAL_BORDER = 'rgba(45,212,191,0.22)';
-const AMBER = '#F5B740';
+const TEAL = '#2563EB';
+const TEAL_DIM = 'rgba(37,99,235,0.10)';
+const TEAL_BORDER = 'rgba(37,99,235,0.22)';
+const AMBER = '#94A3B8';
 const AMBER_DIM = 'rgba(245,183,64,0.10)';
 const AMBER_BORDER = 'rgba(245,183,64,0.22)';
 
@@ -266,7 +266,7 @@ export default function ForgeVoiceDemo() {
                     disabled={!voice.trim() || loading}
                     className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed hover:-translate-y-px"
                     style={{
-                      background: voice.trim() ? TEAL : 'rgba(45,212,191,0.15)',
+                      background: voice.trim() ? TEAL : 'rgba(37,99,235,0.15)',
                       color: voice.trim() ? '#0A0A0F' : TEAL,
                     }}
                   >
@@ -337,7 +337,7 @@ export default function ForgeVoiceDemo() {
           {error && (
             <div
               className="rounded-xl border p-4 text-sm mb-6"
-              style={{ background: 'rgba(232,23,15,0.08)', borderColor: 'rgba(232,23,15,0.25)', color: '#FF3D35' }}
+              style={{ background: 'rgba(30,58,138,0.08)', borderColor: 'rgba(30,58,138,0.25)', color: '#3B82F6' }}
             >
               {error}
             </div>

@@ -8,9 +8,9 @@ import {
 import MoltedLayout from './MoltedLayout';
 
 /* ── Constants ─────────────────────────────────────────────────────────── */
-const TEAL = '#2DD4BF';
-const TEAL_DIM = 'rgba(45,212,191,0.12)';
-const TEAL_BORDER = 'rgba(45,212,191,0.25)';
+const TEAL = '#2563EB';
+const TEAL_DIM = 'rgba(37,99,235,0.12)';
+const TEAL_BORDER = 'rgba(37,99,235,0.25)';
 
 /* ── Types ─────────────────────────────────────────────────────────────── */
 interface Module {
@@ -351,7 +351,7 @@ function Results({ result }: { result: CourseResult }) {
         style={{ background: 'rgba(17,17,24,0.9)', borderColor: 'rgba(255,255,255,0.06)' }}
       >
         <div className="flex items-center gap-2 mb-3">
-          <Lightbulb size={14} style={{ color: '#E8A020' }} />
+          <Lightbulb size={14} style={{ color: '#64748B' }} />
           <p className="text-sm font-semibold text-molted-white">Design Insight</p>
         </div>
         <p className="text-molted-muted text-sm leading-relaxed">{result.insights}</p>
@@ -521,7 +521,7 @@ function InputForm({ onSubmit, loading, loadingStage }: {
                     {opt.words}
                   </span>
                 </div>
-                <p className="text-xs leading-relaxed" style={{ color: active ? 'rgba(45,212,191,0.75)' : '#3A3A40' }}>
+                <p className="text-xs leading-relaxed" style={{ color: active ? 'rgba(37,99,235,0.75)' : '#3A3A40' }}>
                   {opt.desc}
                 </p>
               </button>
@@ -705,7 +705,7 @@ export default function CourseArchitect() {
               {error && (
                 <div
                   className="rounded-2xl p-5 border mb-6"
-                  style={{ background: 'rgba(232,23,15,0.08)', borderColor: 'rgba(232,23,15,0.2)' }}
+                  style={{ background: 'rgba(30,58,138,0.08)', borderColor: 'rgba(30,58,138,0.2)' }}
                 >
                   <p className="text-red-400 text-sm font-semibold mb-1">Error</p>
                   <p className="text-molted-muted text-sm">{error}</p>

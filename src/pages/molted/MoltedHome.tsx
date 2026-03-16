@@ -68,9 +68,9 @@ function AgentFeed() {
   }, [nextIndex]);
 
   const roleColor = (role: string) =>
-    role === 'Faculty' ? { bg: 'rgba(45,212,191,0.15)', text: '#2DD4BF' }
-    : role === 'Admin'  ? { bg: 'rgba(232,23,15,0.15)',  text: '#E8170F' }
-    :                     { bg: 'rgba(232,160,32,0.15)', text: '#E8A020' };
+    role === 'Faculty' ? { bg: 'rgba(37,99,235,0.15)', text: '#2563EB' }
+    : role === 'Admin'  ? { bg: 'rgba(30,58,138,0.15)',  text: '#1E3A8A' }
+    :                     { bg: 'rgba(100,116,139,0.15)', text: '#64748B' };
 
   return (
     <div className="space-y-3">
@@ -83,14 +83,14 @@ function AgentFeed() {
             to={item.href}
             className="group block rounded-xl p-4 border transition-all duration-300 hover:scale-[1.02]"
             style={{
-              background: 'rgba(45,212,191,0.10)',
-              borderColor: 'rgba(45,212,191,0.1)',
+              background: 'rgba(37,99,235,0.10)',
+              borderColor: 'rgba(37,99,235,0.1)',
               opacity: isNew ? 1 : i === 0 ? 1 : 1,
               animation: i === 0 ? 'feedSlideIn 0.4s ease' : undefined,
             }}
           >
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-mono" style={{ color: '#2DD4BF' }}>{item.time}</span>
+              <span className="text-xs font-mono" style={{ color: '#2563EB' }}>{item.time}</span>
               <div className="flex items-center gap-2">
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded-full" style={{ background: c.bg, color: c.text }}>
                   {item.role}
@@ -119,11 +119,11 @@ function Hero() {
       {/* Ambient */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
         <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[1000px] h-[700px] rounded-full"
-          style={{ background: 'radial-gradient(ellipse at center, rgba(45,212,191,0.14) 0%, transparent 65%)' }} />
+          style={{ background: 'radial-gradient(ellipse at center, rgba(37,99,235,0.14) 0%, transparent 65%)' }} />
         <div className="absolute top-1/2 -right-60 w-[600px] h-[600px] rounded-full"
-          style={{ background: 'radial-gradient(ellipse at center, rgba(232,23,15,0.10) 0%, transparent 70%)' }} />
+          style={{ background: 'radial-gradient(ellipse at center, rgba(30,58,138,0.10) 0%, transparent 70%)' }} />
         <div className="absolute bottom-0 left-1/4 w-[500px] h-[400px] rounded-full"
-          style={{ background: 'radial-gradient(ellipse at center, rgba(232,160,32,0.10) 0%, transparent 70%)' }} />
+          style={{ background: 'radial-gradient(ellipse at center, rgba(100,116,139,0.10) 0%, transparent 70%)' }} />
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto">
@@ -139,7 +139,7 @@ function Hero() {
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-molted-white leading-[1.02] tracking-tight">
             The LMS that knows{' '}
             <span style={{
-              background: 'linear-gradient(120deg, #2DD4BF 0%, #E8A020 55%, #E8170F 100%)',
+              background: 'linear-gradient(120deg, #2563EB 0%, #64748B 55%, #1E3A8A 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
@@ -161,7 +161,7 @@ function Hero() {
           <a
             href="mailto:hello@molted.ai?subject=MoltED Demo Request"
             className="group inline-flex items-center gap-3 px-10 py-5 rounded-2xl font-bold text-base transition-all duration-200 hover:-translate-y-1 hover:shadow-molted-glow"
-            style={{ background: 'linear-gradient(120deg, #2DD4BF 0%, #E8A020 50%, #E8170F 100%)', color: '#0a0a0f' }}
+            style={{ background: 'linear-gradient(120deg, #2563EB 0%, #64748B 50%, #1E3A8A 100%)', color: '#0a0a0f' }}
           >
             See It Live
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -211,7 +211,7 @@ function ThePlatform() {
   return (
     <section className="py-24 px-6 border-t border-molted-border relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 50% 30%, rgba(45,212,191,0.10) 0%, transparent 65%)' }} />
+        style={{ background: 'radial-gradient(ellipse at 50% 30%, rgba(37,99,235,0.10) 0%, transparent 65%)' }} />
       <div className="max-w-4xl mx-auto relative z-10">
         <RevealBlock className="text-center">
           <p className="text-molted-muted text-sm font-medium uppercase tracking-widest mb-12">The answer</p>
@@ -220,7 +220,7 @@ function ThePlatform() {
           </h2>
           <p className="mt-4 text-3xl md:text-5xl font-black leading-tight tracking-tight"
             style={{
-              background: 'linear-gradient(120deg, #2DD4BF, #E8A020)',
+              background: 'linear-gradient(120deg, #2563EB, #64748B)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
@@ -237,11 +237,11 @@ function ThePlatform() {
         <RevealBlock delay={200} className="mt-16">
           <div
             className="rounded-2xl border p-8"
-            style={{ background: 'rgba(17,17,24,0.8)', borderColor: 'rgba(45,212,191,0.2)' }}
+            style={{ background: 'rgba(17,17,24,0.8)', borderColor: 'rgba(37,99,235,0.2)' }}
           >
             <div className="flex items-center gap-2 mb-8">
-              <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: '#2DD4BF' }} />
-              <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: '#2DD4BF' }}>
+              <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: '#2563EB' }} />
+              <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: '#2563EB' }}>
                 Agents running now
               </p>
             </div>
@@ -258,7 +258,7 @@ function DataFlywheel() {
   return (
     <section className="py-24 px-6 border-t border-molted-border relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 60% 50%, rgba(232,160,32,0.10) 0%, transparent 65%)' }} />
+        style={{ background: 'radial-gradient(ellipse at 60% 50%, rgba(100,116,139,0.10) 0%, transparent 65%)' }} />
       <div className="max-w-5xl mx-auto relative z-10">
         <RevealBlock className="text-center mb-16">
           <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">The moat</p>
@@ -267,7 +267,7 @@ function DataFlywheel() {
           </h2>
           <p className="text-3xl md:text-5xl font-black leading-tight tracking-tight mt-2"
             style={{
-              background: 'linear-gradient(120deg, #E8A020, #F5B740)',
+              background: 'linear-gradient(120deg, #64748B, #94A3B8)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
@@ -290,12 +290,12 @@ function DataFlywheel() {
             <RevealBlock key={i} delay={i * 80}>
               <div
                 className="rounded-xl p-5 border h-full"
-                style={{ background: 'rgba(17,17,24,0.6)', borderColor: 'rgba(232,160,32,0.12)' }}
+                style={{ background: 'rgba(17,17,24,0.6)', borderColor: 'rgba(100,116,139,0.12)' }}
               >
                 <p
                   className="text-3xl font-black mb-3 leading-none"
                   style={{
-                    background: 'linear-gradient(120deg, #E8A020, #F5B740)',
+                    background: 'linear-gradient(120deg, #64748B, #94A3B8)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                     backgroundClip: 'text',
@@ -319,7 +319,7 @@ const ROLES = [
   {
     icon: Users,
     role: 'Teachers',
-    color: '#2DD4BF',
+    color: '#2563EB',
     headline: 'An AI that handles the work. You do the teaching.',
     body: 'Discussions answered while students are still online. Grades returned in minutes not weeks. Struggling students flagged before they disappear. The agent handles 23 hours of weekly admin — so you teach instead.',
     features: ['Discussion Intelligence', 'Course Architect', 'Agentic Grader', 'Early Warning Engine', 'Auto-Respond'],
@@ -329,7 +329,7 @@ const ROLES = [
   {
     icon: BookOpen,
     role: 'Students',
-    color: '#E8A020',
+    color: '#64748B',
     headline: "A tutor that's always there. Right where you're reading.",
     body: 'The moment a student hits something confusing, Lumen answers — in context, on the page, without switching tabs. The discussion agent replies before they can close the browser. Every student gets a personalized experience.',
     features: ['Lumen — reading companion', 'Discussion agent replies in real time', 'Personalized to each student\'s history', 'Works on Canvas, Blackboard, D2L'],
@@ -339,7 +339,7 @@ const ROLES = [
   {
     icon: BarChart3,
     role: 'Institutions',
-    color: '#E8170F',
+    color: '#1E3A8A',
     headline: "Your voice. Everywhere. The moment it's needed.",
     body: "Beacon deploys your institution's values as AI — in every college, every department, every touchpoint. The platform tracks retention signals, surfaces risk before it becomes a crisis, and makes your outcomes visible in real time.",
     features: ['Beacon — AI with your institution\'s voice', 'Retention signals across the full roster', 'Outcomes data in real time', 'Higher ed, healthcare, enterprise'],
@@ -421,7 +421,7 @@ function InstructorFirst() {
     <section className="py-24 px-6 border-t border-molted-border">
       <div className="max-w-5xl mx-auto">
         <RevealBlock className="text-center mb-14">
-          <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: '#2DD4BF' }}>
+          <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: '#2563EB' }}>
             Faculty in the loop
           </p>
           <h2 className="text-3xl md:text-5xl font-black text-molted-white leading-tight tracking-tight">
@@ -446,12 +446,12 @@ function InstructorFirst() {
             <RevealBlock key={i} delay={i * 80}>
               <div
                 className="rounded-xl border p-6"
-                style={{ background: 'rgba(17,17,24,0.6)', borderColor: 'rgba(45,212,191,0.12)' }}
+                style={{ background: 'rgba(17,17,24,0.6)', borderColor: 'rgba(37,99,235,0.12)' }}
               >
                 <div className="flex items-start gap-3">
                   <div
                     className="w-6 h-6 rounded-full flex-shrink-0 flex items-center justify-center text-[10px] font-black mt-0.5"
-                    style={{ background: 'rgba(45,212,191,0.15)', color: '#2DD4BF' }}
+                    style={{ background: 'rgba(37,99,235,0.15)', color: '#2563EB' }}
                   >
                     {item.num}
                   </div>
@@ -469,7 +469,7 @@ function InstructorFirst() {
           <Link
             to="/forge"
             className="inline-flex items-center gap-1.5 text-sm font-bold transition-opacity hover:opacity-70"
-            style={{ color: '#2DD4BF' }}
+            style={{ color: '#2563EB' }}
           >
             See how Forge learns your voice <ChevronRight size={14} />
           </Link>
@@ -491,7 +491,7 @@ function Traction() {
               <p
                 className="text-7xl md:text-8xl font-black leading-none"
                 style={{
-                  background: 'linear-gradient(120deg, #F5B740, #E8A020)',
+                  background: 'linear-gradient(120deg, #94A3B8, #64748B)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text',
@@ -533,9 +533,9 @@ function CampusBridge() {
             style={{ background: 'rgba(10,10,15,0.92)', boxShadow: '0 8px 48px rgba(0,0,0,0.14), 0 2px 8px rgba(0,0,0,0.08)', border: '1px solid rgba(255,255,255,0.08)' }}
           >
             <div className="absolute inset-0 pointer-events-none">
-              <div className="absolute top-0 left-1/4 w-[400px] h-[300px] rounded-full" style={{ background: 'radial-gradient(ellipse,rgba(45,212,191,0.14) 0%,transparent 70%)' }} />
-              <div className="absolute top-0 right-1/4 w-[400px] h-[300px] rounded-full" style={{ background: 'radial-gradient(ellipse,rgba(232,160,32,0.14) 0%,transparent 70%)' }} />
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] rounded-full" style={{ background: 'radial-gradient(ellipse,rgba(232,23,15,0.10) 0%,transparent 70%)' }} />
+              <div className="absolute top-0 left-1/4 w-[400px] h-[300px] rounded-full" style={{ background: 'radial-gradient(ellipse,rgba(37,99,235,0.14) 0%,transparent 70%)' }} />
+              <div className="absolute top-0 right-1/4 w-[400px] h-[300px] rounded-full" style={{ background: 'radial-gradient(ellipse,rgba(100,116,139,0.14) 0%,transparent 70%)' }} />
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] rounded-full" style={{ background: 'radial-gradient(ellipse,rgba(30,58,138,0.10) 0%,transparent 70%)' }} />
             </div>
             <div className="relative z-10">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-6"
@@ -544,7 +544,7 @@ function CampusBridge() {
                 The full platform
               </div>
               <h2 className="text-5xl md:text-7xl font-black tracking-tight mb-6"
-                style={{ background: 'linear-gradient(135deg,#2DD4BF 0%,#E8A020 50%,#E8170F 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                style={{ background: 'linear-gradient(135deg,#2563EB 0%,#64748B 50%,#1E3A8A 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                 Outpost
               </h2>
               <p className="text-xl md:text-2xl font-semibold mb-4 max-w-xl mx-auto" style={{ color: 'rgba(245,245,247,0.85)' }}>
@@ -554,7 +554,7 @@ function CampusBridge() {
                 Forge, Lumen, and Beacon aren't integrations. They're native features of an LMS built from scratch for the AI era.
               </p>
               <div className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all group-hover:-translate-y-0.5"
-                style={{ background: 'linear-gradient(120deg,#2DD4BF,#E8A020,#E8170F)', color: '#0A0A0F' }}>
+                style={{ background: 'linear-gradient(120deg,#2563EB,#64748B,#1E3A8A)', color: '#0A0A0F' }}>
                 See Outpost <ArrowRight size={14} />
               </div>
             </div>
@@ -570,7 +570,7 @@ function Manifesto() {
   return (
     <section className="py-32 px-6 border-t border-molted-border relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(45,212,191,0.08) 0%, transparent 70%)' }} />
+        style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(37,99,235,0.08) 0%, transparent 70%)' }} />
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <RevealBlock>
           <p className="text-molted-subtle text-sm uppercase tracking-widest mb-8 font-semibold">Our belief</p>
@@ -626,7 +626,7 @@ function FinalCTA() {
             <a
               href="mailto:hello@molted.ai?subject=MoltED Demo Request"
               className="group flex items-center gap-2.5 px-8 py-4 rounded-xl text-white font-bold text-lg transition-all duration-200 hover:-translate-y-px"
-              style={{ background: 'linear-gradient(135deg, #2DD4BF 0%, #E8A020 50%, #E8170F 100%)', color: '#0A0A0F' }}
+              style={{ background: 'linear-gradient(135deg, #2563EB 0%, #64748B 50%, #1E3A8A 100%)', color: '#0A0A0F' }}
             >
               Schedule a Demo
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />

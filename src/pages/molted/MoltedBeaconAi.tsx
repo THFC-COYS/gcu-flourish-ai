@@ -4,7 +4,7 @@ import { Sparkles, ArrowRight, Check, Globe, Heart, Shield, Zap, Building2, Mic 
 import MoltedLayout, { OutpostBanner } from './MoltedLayout';
 import AgentFeed, { FeedEvent } from '../../components/AgentFeed';
 
-const RED = '#E8170F';
+const RED = '#1E3A8A';
 
 const BEACON_EVENTS: FeedEvent[] = [
   { time: '2:14 AM',  event: 'Student in financial distress reaches out at 2 AM', action: 'Beacon deploys — listens, responds in institutional voice, escalates to advisor', role: 'Student', href: '/beacon' },
@@ -36,8 +36,8 @@ function BeaconLiveFeed() {
     </section>
   );
 }
-const RED_DIM = 'rgba(232,23,15,0.10)';
-const RED_BORDER = 'rgba(232,23,15,0.25)';
+const RED_DIM = 'rgba(30,58,138,0.10)';
+const RED_BORDER = 'rgba(30,58,138,0.25)';
 
 function useReveal() {
   const ref = useRef<HTMLDivElement>(null);
@@ -82,10 +82,10 @@ function Hero() {
       {/* Ambient */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden>
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[700px] rounded-full"
-          style={{ background: 'radial-gradient(ellipse at center, rgba(232,23,15,0.16) 0%, transparent 70%)' }}
+          style={{ background: 'radial-gradient(ellipse at center, rgba(30,58,138,0.16) 0%, transparent 70%)' }}
         />
         <div className="absolute bottom-0 right-1/4 w-[500px] h-[400px] rounded-full"
-          style={{ background: 'radial-gradient(circle, rgba(232,160,32,0.10) 0%, transparent 70%)' }}
+          style={{ background: 'radial-gradient(circle, rgba(100,116,139,0.10) 0%, transparent 70%)' }}
         />
       </div>
 
@@ -102,7 +102,7 @@ function Hero() {
           <span
             className="block text-6xl md:text-8xl lg:text-9xl font-black leading-none tracking-tight"
             style={{
-              background: 'linear-gradient(135deg, #7A0907 0%, #E8170F 55%, #FF6B6B 100%)',
+              background: 'linear-gradient(135deg, #7A0907 0%, #1E3A8A 55%, #FF6B6B 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
@@ -224,7 +224,7 @@ function TheVoiceIdea() {
           </p>
           <p className="mt-4 text-3xl md:text-5xl font-black leading-tight tracking-tight"
             style={{
-              background: 'linear-gradient(135deg, #FF6B35, #E8170F)',
+              background: 'linear-gradient(135deg, #FF6B35, #1E3A8A)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
@@ -705,7 +705,7 @@ function CTA() {
 export default function MoltedBeaconAi() {
   return (
     <MoltedLayout>
-      <OutpostBanner moduleName="Beacon" moduleColor="#E8170F" />
+      <OutpostBanner moduleName="Beacon" moduleColor="#1E3A8A" />
       <Hero />
       <LiveProof />
       <BeaconLiveFeed />

@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import { ChevronLeft, Send, Bot, User, Loader2, Sparkles, ChevronDown, ChevronUp } from 'lucide-react';
 import MoltedLayout from './MoltedLayout';
 
-const TEAL = '#2DD4BF';
-const TEAL_DIM = 'rgba(45,212,191,0.10)';
-const TEAL_BORDER = 'rgba(45,212,191,0.22)';
-const AMBER = '#F5B740';
+const TEAL = '#2563EB';
+const TEAL_DIM = 'rgba(37,99,235,0.10)';
+const TEAL_BORDER = 'rgba(37,99,235,0.22)';
+const AMBER = '#94A3B8';
 const AMBER_DIM = 'rgba(245,183,64,0.10)';
 const AMBER_BORDER = 'rgba(245,183,64,0.22)';
 
@@ -194,7 +194,7 @@ export default function LiveAgentDemo() {
               <div className="flex gap-3">
                 <div
                   className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5"
-                  style={{ background: 'rgba(232,160,32,0.15)', color: '#E8A020' }}
+                  style={{ background: 'rgba(100,116,139,0.15)', color: '#64748B' }}
                 >
                   I
                 </div>
@@ -237,7 +237,7 @@ export default function LiveAgentDemo() {
                       disabled={!studentPost.trim() || loading}
                       className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-200 disabled:opacity-40 disabled:cursor-not-allowed hover:-translate-y-px"
                       style={{
-                        background: studentPost.trim() && !loading ? TEAL : 'rgba(45,212,191,0.15)',
+                        background: studentPost.trim() && !loading ? TEAL : 'rgba(37,99,235,0.15)',
                         color: studentPost.trim() && !loading ? '#0A0A0F' : TEAL,
                       }}
                     >
@@ -292,7 +292,7 @@ export default function LiveAgentDemo() {
           {error && (
             <div
               className="rounded-xl border p-4 text-sm mb-6"
-              style={{ background: 'rgba(232,23,15,0.08)', borderColor: 'rgba(232,23,15,0.25)', color: '#FF3D35' }}
+              style={{ background: 'rgba(30,58,138,0.08)', borderColor: 'rgba(30,58,138,0.25)', color: '#3B82F6' }}
             >
               {error}
             </div>

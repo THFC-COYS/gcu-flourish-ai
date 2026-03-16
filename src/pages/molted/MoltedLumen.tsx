@@ -4,7 +4,7 @@ import { BookOpen, MessageSquare, Zap, GraduationCap, ArrowRight, Check, Users, 
 import MoltedLayout, { OutpostBanner } from './MoltedLayout';
 import AgentFeed, { FeedEvent } from '../../components/AgentFeed';
 
-const GOLD = '#E8A020';
+const GOLD = '#64748B';
 
 const LUMEN_EVENTS: FeedEvent[] = [
   { time: '9:30 AM',  event: 'Student opens Week 4 reading on pharmacology', action: 'Lumen activates — answers terminology confusion in context, mid-paragraph', role: 'Student', href: '/lumen' },
@@ -239,19 +239,19 @@ function HowLumenWorks() {
 
         <div className="relative">
           {/* Vertical connector line */}
-          <div className="absolute left-6 top-8 bottom-8 w-px bg-gradient-to-b from-[#E8A020]/60 via-[#E8A020]/30 to-transparent hidden md:block" aria-hidden />
+          <div className="absolute left-6 top-8 bottom-8 w-px bg-gradient-to-b from-[#64748B]/60 via-[#64748B]/30 to-transparent hidden md:block" aria-hidden />
 
           <div className="space-y-6">
             {steps.map((step, i) => (
               <RevealBlock key={i} delay={i * 130}>
-                <div className="relative flex items-start gap-6 bg-molted-elevated border border-molted-border rounded-2xl p-7 hover:border-[#E8A020]/30 hover:shadow-molted-card-hover transition-all">
+                <div className="relative flex items-start gap-6 bg-molted-elevated border border-molted-border rounded-2xl p-7 hover:border-[#64748B]/30 hover:shadow-molted-card-hover transition-all">
                   {/* Numbered node */}
                   <div
                     className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-black text-sm"
                     style={{
-                      background: 'rgba(232,160,32,0.12)',
-                      border: '1.5px solid rgba(232,160,32,0.35)',
-                      color: '#E8A020',
+                      background: 'rgba(100,116,139,0.12)',
+                      border: '1.5px solid rgba(100,116,139,0.35)',
+                      color: '#64748B',
                     }}
                   >
                     {step.num}
@@ -271,11 +271,11 @@ function HowLumenWorks() {
           <div
             className="rounded-2xl p-6 text-center border"
             style={{
-              background: 'rgba(232,160,32,0.14)',
-              borderColor: 'rgba(232,160,32,0.25)',
+              background: 'rgba(100,116,139,0.14)',
+              borderColor: 'rgba(100,116,139,0.25)',
             }}
           >
-            <p className="text-sm font-semibold uppercase tracking-widest mb-2" style={{ color: '#E8A020' }}>
+            <p className="text-sm font-semibold uppercase tracking-widest mb-2" style={{ color: '#64748B' }}>
               Works on top of your LMS
             </p>
             <p className="text-molted-muted leading-relaxed">
@@ -470,7 +470,7 @@ function CTA() {
 export default function MoltedLumen() {
   return (
     <MoltedLayout>
-      <OutpostBanner moduleName="Lumen" moduleColor="#E8A020" />
+      <OutpostBanner moduleName="Lumen" moduleColor="#64748B" />
       <Hero />
       <TheInsight />
       <HowItWorks />

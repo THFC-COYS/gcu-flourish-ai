@@ -41,11 +41,11 @@ function RevealBlock({ children, delay = 0, className = '' }: {
 }
 
 /* ── Color tokens ──────────────────────────────────────────────────────── */
-const GOLD = '#E8A020';
-const TEAL = '#2DD4BF';
-const EMBER = '#E8170F';
+const GOLD = '#64748B';
+const TEAL = '#2563EB';
+const EMBER = '#1E3A8A';
 const VIOLET = '#8B5CF6';
-const AMBER = '#F5B740';
+const AMBER = '#94A3B8';
 
 /* ── 01 · Cover ────────────────────────────────────────────────────────── */
 function Cover() {
@@ -53,9 +53,9 @@ function Cover() {
     <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[900px] h-[700px] rounded-full"
-          style={{ background: 'radial-gradient(ellipse at center, rgba(232,160,32,0.07) 0%, transparent 70%)' }} />
+          style={{ background: 'radial-gradient(ellipse at center, rgba(100,116,139,0.07) 0%, transparent 70%)' }} />
         <div className="absolute bottom-0 left-[5%] w-[500px] h-[500px] rounded-full"
-          style={{ background: 'radial-gradient(ellipse at center, rgba(45,212,191,0.05) 0%, transparent 70%)' }} />
+          style={{ background: 'radial-gradient(ellipse at center, rgba(37,99,235,0.05) 0%, transparent 70%)' }} />
         <div className="absolute top-[30%] right-[-5%] w-[400px] h-[400px] rounded-full"
           style={{ background: 'radial-gradient(ellipse at center, rgba(139,92,246,0.05) 0%, transparent 70%)' }} />
       </div>
@@ -63,7 +63,7 @@ function Cover() {
       <div className="relative z-10 max-w-4xl mx-auto">
         <RevealBlock>
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border text-xs font-bold tracking-widest uppercase mb-10"
-            style={{ borderColor: 'rgba(232,160,32,0.3)', background: 'rgba(232,160,32,0.06)', color: GOLD }}>
+            style={{ borderColor: 'rgba(100,116,139,0.3)', background: 'rgba(100,116,139,0.06)', color: GOLD }}>
             <Lock size={11} />
             Founding Partner Program · 12 Spots
           </div>
@@ -163,7 +163,7 @@ function TheProof() {
   return (
     <section className="py-32 px-6 border-t border-molted-border relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(232,160,32,0.04) 0%, transparent 65%)' }} />
+        style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(100,116,139,0.04) 0%, transparent 65%)' }} />
       <div className="max-w-5xl mx-auto relative z-10">
         <RevealBlock className="text-center mb-16">
           <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">The proof</p>
@@ -191,7 +191,7 @@ function TheProof() {
 
         <RevealBlock delay={400} className="mt-8">
           <div className="rounded-2xl p-6 border text-center"
-            style={{ background: 'rgba(232,160,32,0.04)', borderColor: 'rgba(232,160,32,0.15)' }}>
+            style={{ background: 'rgba(100,116,139,0.04)', borderColor: 'rgba(100,116,139,0.15)' }}>
             <p className="text-molted-muted text-sm">
               <span className="text-molted-white font-semibold">Flagship university partner</span>
               {' '}· Deployed 2024 · Actively serving students
@@ -288,7 +288,7 @@ function TheAgent() {
   return (
     <section className="py-32 px-6 border-t border-molted-border relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(45,212,191,0.04) 0%, transparent 65%)' }} />
+        style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(37,99,235,0.04) 0%, transparent 65%)' }} />
       <div className="max-w-4xl mx-auto relative z-10">
         <RevealBlock className="text-center mb-16">
           <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">The technology</p>
@@ -305,10 +305,10 @@ function TheAgent() {
         {/* Live loop visual */}
         <RevealBlock delay={100}>
           <div className="rounded-3xl border overflow-hidden"
-            style={{ background: 'rgba(10,10,15,0.95)', borderColor: 'rgba(45,212,191,0.2)' }}>
+            style={{ background: 'rgba(10,10,15,0.95)', borderColor: 'rgba(37,99,235,0.2)' }}>
             {/* Header */}
             <div className="px-6 py-4 border-b flex items-center gap-3"
-              style={{ borderColor: 'rgba(45,212,191,0.15)', background: 'rgba(45,212,191,0.04)' }}>
+              style={{ borderColor: 'rgba(37,99,235,0.15)', background: 'rgba(37,99,235,0.04)' }}>
               <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: TEAL }} />
               <p className="text-xs font-bold uppercase tracking-widest" style={{ color: TEAL }}>
                 Teach Agent · Live · Watching discussion boards
@@ -390,7 +390,7 @@ function ThePlatform() {
         <RevealBlock delay={100}>
           <div className="flex justify-center mb-4">
             <div className="rounded-3xl px-14 py-6 border"
-              style={{ background: 'rgba(10,10,15,0.98)', boxShadow: `0 0 0 1px rgba(232,160,32,0.4), 0 0 0 3px rgba(45,212,191,0.12), 0 0 0 6px rgba(139,92,246,0.08), 0 0 60px rgba(139,92,246,0.08)` }}>
+              style={{ background: 'rgba(10,10,15,0.98)', boxShadow: `0 0 0 1px rgba(100,116,139,0.4), 0 0 0 3px rgba(37,99,235,0.12), 0 0 0 6px rgba(139,92,246,0.08), 0 0 60px rgba(139,92,246,0.08)` }}>
               <p className="text-2xl font-black"
                 style={{ background: `linear-gradient(135deg, ${GOLD}, ${TEAL}, ${VIOLET})`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                 Campus
@@ -402,7 +402,7 @@ function ThePlatform() {
 
         <RevealBlock delay={180}>
           <div className="flex justify-center mb-4">
-            <div className="w-px h-8" style={{ background: `linear-gradient(to bottom, rgba(232,160,32,0.4), rgba(139,92,246,0.15))` }} />
+            <div className="w-px h-8" style={{ background: `linear-gradient(to bottom, rgba(100,116,139,0.4), rgba(139,92,246,0.15))` }} />
           </div>
         </RevealBlock>
 
@@ -462,7 +462,7 @@ function TheOffer() {
   return (
     <section className="py-32 px-6 border-t border-molted-border relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 50% 100%, rgba(232,160,32,0.05) 0%, transparent 60%)' }} />
+        style={{ background: 'radial-gradient(ellipse at 50% 100%, rgba(100,116,139,0.05) 0%, transparent 60%)' }} />
       <div className="max-w-6xl mx-auto relative z-10">
         <RevealBlock className="text-center mb-16">
           <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">What founding partners get</p>
@@ -521,7 +521,7 @@ function TheAsk() {
   return (
     <section className="py-40 px-6 border-t border-molted-border relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(232,160,32,0.06) 0%, transparent 65%)' }} />
+        style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(100,116,139,0.06) 0%, transparent 65%)' }} />
       <div className="max-w-3xl mx-auto text-center relative z-10">
         <RevealBlock>
           <p className="text-xs font-bold uppercase tracking-widest mb-6" style={{ color: GOLD }}>

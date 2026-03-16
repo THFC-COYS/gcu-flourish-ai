@@ -62,7 +62,7 @@ function Hero() {
         />
         <div
           className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full"
-          style={{ background: 'radial-gradient(ellipse at center, rgba(232,23,15,0.03) 0%, transparent 70%)' }}
+          style={{ background: 'radial-gradient(ellipse at center, rgba(30,58,138,0.03) 0%, transparent 70%)' }}
         />
       </div>
 
@@ -807,19 +807,19 @@ function EcosystemCoordination() {
   const connections = [
     {
       product: 'Forge',
-      color: '#2DD4BF',
+      color: '#2563EB',
       role: 'Feeds classroom signals',
       signals: ['Assignment submission timing', 'Discussion participation rate', 'Grade trajectory', 'Faculty early-warning flags'],
     },
     {
       product: 'Persona Ai',
-      color: '#E8170F',
+      color: '#1E3A8A',
       role: 'Delivers outreach in your voice',
       signals: ['Outreach sent in institution voice', 'Tone matched to student history', 'Channel-aware (email vs. SMS vs. portal)'],
     },
     {
       product: 'Lumen',
-      color: '#E8A020',
+      color: '#64748B',
       role: 'Routes academic support',
       signals: ['Struggling students routed to tutoring AI', 'Subject-specific help triggered', 'Engagement with support content tracked'],
     },

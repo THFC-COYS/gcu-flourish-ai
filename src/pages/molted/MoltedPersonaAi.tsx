@@ -49,7 +49,7 @@ function Hero() {
           style={{ background: 'radial-gradient(ellipse at center, rgba(255,107,53,0.09) 0%, transparent 70%)' }}
         />
         <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full"
-          style={{ background: 'radial-gradient(circle, rgba(232,160,32,0.05) 0%, transparent 70%)' }}
+          style={{ background: 'radial-gradient(circle, rgba(100,116,139,0.05) 0%, transparent 70%)' }}
         />
       </div>
 
@@ -111,7 +111,7 @@ function LiveProof() {
     <section className="py-20 px-6 border-t border-molted-border">
       <div className="max-w-4xl mx-auto">
         <RevealBlock className="text-center mb-12">
-          <p className="text-sm font-bold uppercase tracking-widest mb-3" style={{ color: '#E8170F' }}>
+          <p className="text-sm font-bold uppercase tracking-widest mb-3" style={{ color: '#1E3A8A' }}>
             This is already running.
           </p>
           <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight">
@@ -128,9 +128,9 @@ function LiveProof() {
               <div
                 key={i}
                 className="bg-molted-elevated border rounded-2xl p-8 text-center"
-                style={{ borderColor: 'rgba(232,23,15,0.25)' }}
+                style={{ borderColor: 'rgba(30,58,138,0.25)' }}
               >
-                <p className="text-5xl md:text-6xl font-black leading-none" style={{ color: '#E8170F' }}>
+                <p className="text-5xl md:text-6xl font-black leading-none" style={{ color: '#1E3A8A' }}>
                   {stat.number}
                 </p>
                 <p className="mt-3 text-molted-muted text-sm leading-snug">{stat.label}</p>
@@ -322,7 +322,7 @@ function SpiritShowcase() {
                 onClick={() => switchIndustry(ind)}
                 className="px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200"
                 style={{
-                  background: activeIndustry === ind ? '#E8170F' : 'rgba(255,255,255,0.05)',
+                  background: activeIndustry === ind ? '#1E3A8A' : 'rgba(255,255,255,0.05)',
                   color: activeIndustry === ind ? '#fff' : '#86868B',
                   border: `1px solid ${activeIndustry === ind ? 'transparent' : 'rgba(255,255,255,0.08)'}`,
                 }}
@@ -391,7 +391,7 @@ function SpiritShowcase() {
                   </div>
                 ) : (
                   <div className="mt-6 flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full" style={{ background: '#E8170F' }} />
+                    <div className="w-2 h-2 rounded-full" style={{ background: '#1E3A8A' }} />
                     <span className="text-molted-muted text-xs">Available now · Built on proven architecture</span>
                   </div>
                 )}
@@ -614,7 +614,7 @@ function ProofCallout() {
     <section className="py-10 px-6">
       <div className="max-w-3xl mx-auto text-center">
         <RevealBlock>
-          <p className="text-xl md:text-2xl font-bold" style={{ color: '#E8170F' }}>
+          <p className="text-xl md:text-2xl font-bold" style={{ color: '#1E3A8A' }}>
             The question isn't whether this works. We already proved it.
           </p>
         </RevealBlock>
@@ -661,7 +661,7 @@ function CTA() {
 export default function MoltedBeaconAi() {
   return (
     <MoltedLayout>
-      <OutpostBanner moduleName="Beacon" moduleColor="#E8170F" />
+      <OutpostBanner moduleName="Beacon" moduleColor="#1E3A8A" />
       <Hero />
       <LiveProof />
       <TheSpiritIdea />

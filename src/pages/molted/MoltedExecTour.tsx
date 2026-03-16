@@ -41,7 +41,7 @@ function SlideHero() {
         <h1 className="text-6xl md:text-8xl font-black text-molted-white leading-[1.0] tracking-tight mb-8">
           The platform{' '}
           <span style={{
-            background: 'linear-gradient(120deg, #2DD4BF 0%, #E8A020 55%, #E8170F 100%)',
+            background: 'linear-gradient(120deg, #2563EB 0%, #64748B 55%, #1E3A8A 100%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',
@@ -60,10 +60,10 @@ function SlideHero() {
 
 function SlideProblem() {
   const problems = [
-    { stat: '40%', label: 'of students who enroll never graduate', color: '#E8170F' },
-    { stat: '2.3M', label: 'students stopped out in 2023 alone', color: '#E8A020' },
-    { stat: '$6B+', label: 'in tuition revenue lost to stop-out annually', color: '#E8170F' },
-    { stat: '1:400', label: 'average advisor-to-student ratio at scale universities', color: '#E8A020' },
+    { stat: '40%', label: 'of students who enroll never graduate', color: '#1E3A8A' },
+    { stat: '2.3M', label: 'students stopped out in 2023 alone', color: '#64748B' },
+    { stat: '$6B+', label: 'in tuition revenue lost to stop-out annually', color: '#1E3A8A' },
+    { stat: '1:400', label: 'average advisor-to-student ratio at scale universities', color: '#64748B' },
   ];
   return (
     <Slide>
@@ -130,7 +130,7 @@ function SlideMolt() {
       <h2 className="text-5xl md:text-6xl font-black text-molted-white leading-tight mb-8">
         MoltED is not a plugin.<br />
         <span style={{
-          background: 'linear-gradient(120deg, #E8A020 0%, #E8170F 100%)',
+          background: 'linear-gradient(120deg, #64748B 0%, #1E3A8A 100%)',
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
           backgroundClip: 'text',
@@ -151,7 +151,7 @@ function SlideMolt() {
 }
 
 function SlideProductDetail({ product, index }: { product: typeof PRODUCTS[0]; index: number }) {
-  const colors = ['#2DD4BF', '#E8A020', '#E8170F', '#2DD4BF', '#E8A020', '#E8170F'];
+  const colors = ['#2563EB', '#64748B', '#1E3A8A', '#2563EB', '#64748B', '#1E3A8A'];
   const color = colors[index % colors.length];
   return (
     <div className="min-h-full flex items-center justify-center px-8 py-16">
@@ -284,19 +284,19 @@ function SlideModel() {
           {
             tier: 'Platform License',
             price: '$12–28 / student / yr',
-            color: '#2DD4BF',
+            color: '#2563EB',
             items: ['Full Molt OS', 'All agents included', 'Outcomes dashboard', 'Spirit Layer custom encoding'],
           },
           {
             tier: 'Forge SaaS',
             price: '$3,600 / faculty seat / yr',
-            color: '#E8A020',
+            color: '#64748B',
             items: ['Faculty AI workbench', 'Grading automation', 'Course content generation', 'Discussion facilitation'],
           },
           {
             tier: 'Proof Compliance',
             price: '$0.80 / student / yr',
-            color: '#E8170F',
+            color: '#1E3A8A',
             items: ['Accreditation reporting', 'SACSCOC / HLC / WASC', 'Continuous outcomes mapping', 'Audit-ready exports'],
           },
         ].map(m => (
@@ -385,7 +385,7 @@ function SlideLegacy({ onEnter }: { onEnter: () => void }) {
         <h2 className="text-5xl md:text-7xl font-black text-molted-white leading-tight mb-8">
           The LMS that{' '}
           <span style={{
-            background: 'linear-gradient(120deg, #2DD4BF 0%, #E8A020 55%, #E8170F 100%)',
+            background: 'linear-gradient(120deg, #2563EB 0%, #64748B 55%, #1E3A8A 100%)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',
@@ -402,7 +402,7 @@ function SlideLegacy({ onEnter }: { onEnter: () => void }) {
         <button
           onClick={onEnter}
           className="inline-flex items-center gap-3 px-10 py-4 rounded-2xl font-black text-molted-surface text-lg transition-all hover:scale-105"
-          style={{ background: 'linear-gradient(120deg, #E8A020 0%, #E8170F 100%)' }}
+          style={{ background: 'linear-gradient(120deg, #64748B 0%, #1E3A8A 100%)' }}
         >
           Explore the Platform <ChevronRight size={20} />
         </button>
@@ -462,16 +462,16 @@ export default function MoltedExecTour() {
       {/* Ambient */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden>
         <div className="absolute -top-60 left-1/2 -translate-x-1/2 w-[900px] h-[600px] rounded-full opacity-[0.06]"
-          style={{ background: 'radial-gradient(ellipse, #E8A020 0%, transparent 65%)' }} />
+          style={{ background: 'radial-gradient(ellipse, #64748B 0%, transparent 65%)' }} />
         <div className="absolute bottom-0 right-0 w-[500px] h-[400px] rounded-full opacity-[0.04]"
-          style={{ background: 'radial-gradient(ellipse, #E8170F 0%, transparent 70%)' }} />
+          style={{ background: 'radial-gradient(ellipse, #1E3A8A 0%, transparent 70%)' }} />
       </div>
 
       {/* Header */}
       <div className="relative z-10 flex items-center justify-between px-8 py-5 border-b border-white/5 flex-shrink-0">
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 rounded-lg flex items-center justify-center"
-            style={{ background: 'linear-gradient(135deg, #E8A020, #E8170F)' }}>
+            style={{ background: 'linear-gradient(135deg, #64748B, #1E3A8A)' }}>
             <span className="font-black text-white text-xs">M</span>
           </div>
           <span className="text-molted-muted text-sm font-medium">MoltED &nbsp;·&nbsp; Executive Tour</span>
@@ -504,7 +504,7 @@ export default function MoltedExecTour() {
               style={{
                 width: i === slide ? 24 : 8,
                 height: 8,
-                background: i === slide ? '#E8A020' : i < slide ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.08)',
+                background: i === slide ? '#64748B' : i < slide ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.08)',
               }}
             />
           ))}
@@ -523,7 +523,7 @@ export default function MoltedExecTour() {
             <button
               onClick={enterPlatform}
               className="flex items-center gap-2 px-5 py-2 rounded-xl font-black text-molted-surface text-sm transition-all hover:scale-105"
-              style={{ background: 'linear-gradient(120deg, #E8A020, #E8170F)' }}
+              style={{ background: 'linear-gradient(120deg, #64748B, #1E3A8A)' }}
             >
               Explore Molt <ChevronRight size={15} />
             </button>
