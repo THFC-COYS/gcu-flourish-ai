@@ -77,7 +77,7 @@ export default function Dashboard() {
           <div>
             <div className="inline-flex items-center gap-2 bg-gcu-gold/20 border border-gcu-gold/30 text-gcu-gold text-xs font-semibold px-3 py-1 rounded-full mb-3">
               <Sparkles size={12} />
-              GCU Flourish AI · Autonomous Spirit Agents — Creating a New Industry
+              Empyrean LMS · Autonomous Spirit Agents — Creating a New Industry
             </div>
             <h1 className="text-2xl sm:text-3xl font-black text-white mb-1">
               {greeting}, {firstName}! 👋

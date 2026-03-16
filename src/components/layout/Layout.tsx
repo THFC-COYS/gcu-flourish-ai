@@ -4,7 +4,7 @@ import Sidebar from './Sidebar';
 import Header from './Header';
 
 const PAGE_META: Record<string, { title: string; subtitle?: string }> = {
-  '/gcu': { title: 'Dashboard', subtitle: 'Overview of GCU Flourish AI platform' },
+  '/gcu': { title: 'Dashboard', subtitle: 'Overview of Empyrean LMS platform' },
   '/gcu/library': { title: 'Prototype Library', subtitle: 'All 10 college spirit vessels' },
   '/gcu/builder': { title: 'Spirit Infusion Builder', subtitle: 'Create & configure new AI prototypes' },
   '/gcu/testing': { title: 'Deployment Console', subtitle: 'Deploy and interact with live Spirit Agents — your autonomous AI workforce' },
@@ -18,7 +18,7 @@ const PAGE_META: Record<string, { title: string; subtitle?: string }> = {
   '/gcu/flourish-standard': { title: 'The Flourish Standard', subtitle: 'GCU\'s ethical AI certification framework · The industry standard we are creating' },
   '/gcu/spirit-training': { title: 'Spirit Training Academy', subtitle: 'Practice the hardest human moments — Spirit plays the challenge, you play the professional' },
   '/gcu/governance-qa': { title: 'Agent QA Board', subtitle: 'Ethical review, audit logs, and governance protocols' },
-  '/gcu/scaling-model': { title: 'Scaling Model', subtitle: 'GCU Flourish AI global expansion strategy' },
+  '/gcu/scaling-model': { title: 'Scaling Model', subtitle: 'Empyrean LMS global expansion strategy' },
   '/gcu/university-os': { title: 'University OS', subtitle: 'AI-powered command infrastructure for GCU operations' },
   '/gcu/university-os/command-center': { title: 'Command Center', subtitle: 'Real-time university intelligence dashboard' },
   '/gcu/university-os/full-ecosystem': { title: 'Full Ecosystem', subtitle: 'Complete University OS module overview' },
@@ -29,7 +29,7 @@ export default function Layout() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
 
-  const meta = PAGE_META[location.pathname] ?? { title: 'GCU Flourish AI' };
+  const meta = PAGE_META[location.pathname] ?? { title: 'Empyrean LMS' };
 
   return (
     <div className="flex h-screen overflow-hidden bg-slate-50 dark:bg-[#0D0920]">

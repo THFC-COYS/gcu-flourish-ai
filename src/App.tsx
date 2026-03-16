@@ -58,7 +58,7 @@ function ProtectedRoutes() {
             <span className="font-black text-gcu-purple-dark text-lg">GCU</span>
           </div>
           <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin mx-auto" />
-          <p className="text-white/60 text-sm mt-3">Loading GCU Flourish AI…</p>
+          <p className="text-white/60 text-sm mt-3">Loading Empyrean LMS…</p>
         </div>
       </div>
     );

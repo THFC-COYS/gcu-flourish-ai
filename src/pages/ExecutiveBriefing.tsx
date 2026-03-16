@@ -96,7 +96,7 @@ const MOAT_ITEMS = [
   {
     icon: Shield,
     title: '50 Years of Academic Credibility',
-    desc: 'GCU\'s accreditation, biblical foundation, and healthcare/education partnerships give Flourish AI a legitimacy that a startup cannot manufacture. Trust is our unfair advantage.',
+    desc: 'GCU\'s accreditation, biblical foundation, and healthcare/education partnerships give Empyrean LMS a legitimacy that a startup cannot manufacture. Trust is our unfair advantage.',
   },
 ];
 
@@ -148,7 +148,7 @@ export default function ExecutiveBriefing() {
             <span className="text-gcu-gold">GCU Is Creating One.</span>
           </h1>
           <p className="text-white/70 text-lg max-w-2xl mx-auto leading-relaxed">
-            Flourish AI is the world's first Christ-centered ethical AI platform. We are positioned to define the global standard for how AI operates inside faith-based institutions — and to generate transformational revenue in the process.
+            Empyrean LMS is the world's first Christ-centered ethical AI platform. We are positioned to define the global standard for how AI operates inside faith-based institutions — and to generate transformational revenue in the process.
           </p>
           <div className="flex flex-wrap justify-center gap-3 mt-6">
             <span className="bg-white/10 border border-white/20 text-white text-sm px-4 py-1.5 rounded-full font-semibold">~$52M est. Year 3 Revenue Potential</span>
@@ -180,7 +180,7 @@ export default function ExecutiveBriefing() {
         <div className="bg-gcu-purple/5 dark:bg-gcu-purple/10 border border-gcu-purple/20 rounded-xl p-4">
           <p className="text-base font-black text-gcu-purple dark:text-purple-300">I am changing that.</p>
           <p className="text-sm text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
-            Over the last several months, I built GCU Flourish AI — the first platform to deploy the spirit of a university as autonomous agents available to any person, anywhere, at any moment of need. Ten Spirit Agents, one for each college, each carrying GCU's full professional knowledge and values into the world. I had to hit pause when the spring teaching term started. My plan was to pick it back up as a summer project. But I'm starting to think we don't have the time to wait.
+            Over the last several months, I built Empyrean LMS — the first platform to deploy the spirit of a university as autonomous agents available to any person, anywhere, at any moment of need. Ten Spirit Agents, one for each college, each carrying GCU's full professional knowledge and values into the world. I had to hit pause when the spring teaching term started. My plan was to pick it back up as a summer project. But I'm starting to think we don't have the time to wait.
           </p>
         </div>
 
@@ -206,7 +206,7 @@ export default function ExecutiveBriefing() {
 
         <div className="border-t border-slate-100 dark:border-[#2D2050] pt-4 space-y-3">
           <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-            And the platform never stops growing — because GCU never stops growing. Every curriculum update, every published article, every guest speaker who walks onto this campus becomes part of what Flourish AI knows. Students and alumni can enter their own stories directly into the platform — a small business owner who learned servant leadership when layoffs were on the table, a nurse who remembers the conversation with a child's parents that changed her life forever. These voices flow into the platform and become part of what every Spirit Agent carries into every conversation.
+            And the platform never stops growing — because GCU never stops growing. Every curriculum update, every published article, every guest speaker who walks onto this campus becomes part of what Empyrean LMS knows. Students and alumni can enter their own stories directly into the platform — a small business owner who learned servant leadership when layoffs were on the table, a nurse who remembers the conversation with a child's parents that changed her life forever. These voices flow into the platform and become part of what every Spirit Agent carries into every conversation.
           </p>
           <p className="text-sm font-bold text-slate-700 dark:text-slate-200 leading-relaxed">
             This is the digital collective. Not a database. Not a knowledge base. The soul of an institution — alive, growing, and finally available to everyone who needs it.

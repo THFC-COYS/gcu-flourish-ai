@@ -333,7 +333,7 @@ export default function SpiritNetwork() {
                   required
                 />
                 <span className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                  I consent to GCU using my story and wisdom to train and enrich spirit vessel AI models. I understand my contribution will be attributed to me by name (with my approval), and I will receive impact reports showing how many people my wisdom has served. GCU will never sell or share my contribution outside the Flourish AI platform without my explicit consent.
+                  I consent to GCU using my story and wisdom to train and enrich spirit vessel AI models. I understand my contribution will be attributed to me by name (with my approval), and I will receive impact reports showing how many people my wisdom has served. GCU will never sell or share my contribution outside the Empyrean LMS platform without my explicit consent.
                 </span>
               </label>
             </div>

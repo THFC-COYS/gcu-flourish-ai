@@ -86,7 +86,7 @@ export default function Sidebar({ collapsed, onToggle, mobileOpen, onMobileClose
               <span className="font-black text-gcu-purple-dark text-sm leading-none">GCU</span>
             </div>
             <div>
-              <div className="text-white font-bold text-sm leading-tight">Flourish AI</div>
+              <div className="text-white font-bold text-sm leading-tight">Empyrean LMS</div>
               <div className="text-white/50 text-xs">Ethical AI Platform</div>
             </div>
           </div>

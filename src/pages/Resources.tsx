@@ -14,7 +14,7 @@ const ETHICAL_PRINCIPLES: AccordionItem[] = [
   {
     title: '1. Human Flourishing First',
     badge: 'Core Principle',
-    content: 'Every GCU Flourish AI prototype exists to augment human capacity, never to replace human judgment, dignity, or relationship. Success is measured not by efficiency metrics, but by whether human flourishing increases. If an AI interaction diminishes human dignity or replaces needed human connection, it fails—regardless of technical performance.',
+    content: 'Every Empyrean LMS prototype exists to augment human capacity, never to replace human judgment, dignity, or relationship. Success is measured not by efficiency metrics, but by whether human flourishing increases. If an AI interaction diminishes human dignity or replaces needed human connection, it fails—regardless of technical performance.',
   },
   {
     title: '2. Transparent Attribution',
@@ -24,7 +24,7 @@ const ETHICAL_PRINCIPLES: AccordionItem[] = [
   {
     title: '3. Christ-Centered Values Integration',
     badge: 'Worldview',
-    content: 'GCU Flourish AI prototypes reflect the conviction that every person is made in the Imago Dei—image of God—and therefore possesses unconditional dignity. AI responses should embody: compassion (not efficiency), truthfulness (not flattery), servant-heartedness (not self-promotion), and stewardship (not exploitation). Alignment with GCU\'s Christ-centered mission is non-negotiable.',
+    content: 'Empyrean LMS prototypes reflect the conviction that every person is made in the Imago Dei—image of God—and therefore possesses unconditional dignity. AI responses should embody: compassion (not efficiency), truthfulness (not flattery), servant-heartedness (not self-promotion), and stewardship (not exploitation). Alignment with GCU\'s Christ-centered mission is non-negotiable.',
   },
   {
     title: '4. Competence Boundaries & Escalation',
@@ -34,7 +34,7 @@ const ETHICAL_PRINCIPLES: AccordionItem[] = [
   {
     title: '5. Privacy & Data Stewardship',
     badge: 'Governance',
-    content: 'All user interactions with GCU Flourish AI prototypes are logged for ethical oversight. Personally identifiable information is never used to train external AI models without explicit informed consent. GCU owns all prototype IP. Data is stewarded—not mined—in alignment with FERPA, HIPAA (for healthcare applications), and GCU data governance policies.',
+    content: 'All user interactions with Empyrean LMS prototypes are logged for ethical oversight. Personally identifiable information is never used to train external AI models without explicit informed consent. GCU owns all prototype IP. Data is stewarded—not mined—in alignment with FERPA, HIPAA (for healthcare applications), and GCU data governance policies.',
   },
   {
     title: '6. CETLA Ethical Review Process',
@@ -117,7 +117,7 @@ export default function Resources() {
               GCU AI Ethics & Governance Framework
             </h2>
             <p className="text-sm text-slate-700 dark:text-slate-400 leading-relaxed">
-              GCU Flourish AI is built on the conviction that ethical AI is not a constraint on innovation—it is the foundation of innovation that lasts.
+              Empyrean LMS is built on the conviction that ethical AI is not a constraint on innovation—it is the foundation of innovation that lasts.
               Every prototype is governed by GCU's Christ-centered AI philosophy, CETLA's pedagogical standards, and the lived wisdom of our alumni.
             </p>
             <p className="text-xs text-gcu-purple/70 dark:text-purple-400/70 mt-2 font-medium italic">
@@ -238,7 +238,7 @@ export default function Resources() {
 
       {/* Footer note */}
       <div className="text-center text-xs text-slate-400 dark:text-slate-600 pb-2 leading-relaxed">
-        GCU Flourish AI Platform · Governed by GCU AI Ethics Policy v2.1 · Aligned with GCU's Christ-Centered Mission<br />
+        Empyrean LMS Platform · Governed by GCU AI Ethics Policy v2.1 · Aligned with GCU's Christ-Centered Mission<br />
         Questions? Contact: <span className="text-gcu-purple dark:text-purple-400">ai-governance@flourishai.edu</span>
       </div>
     </div>

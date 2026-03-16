@@ -100,7 +100,7 @@ export default function FlourishRobotics() {
             <span className="text-gcu-gold">Get Bodies.</span>
           </h1>
           <p className="text-white/70 text-lg leading-relaxed max-w-2xl mb-6">
-            The next frontier of GCU Flourish AI: physical robots infused with the character,
+            The next frontier of Empyrean LMS: physical robots infused with the character,
             compassion, and ethics of GCU graduates. The world's most human-centered robots —
             serving in hospitals, classrooms, and churches worldwide.
           </p>

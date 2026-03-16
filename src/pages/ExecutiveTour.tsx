@@ -145,7 +145,7 @@ function SlideHero() {
   return (
     <Slide>
       <div className="text-center max-w-3xl mx-auto">
-        <Eyebrow>GCU Flourish AI · Executive Briefing</Eyebrow>
+        <Eyebrow>Empyrean LMS · Executive Briefing</Eyebrow>
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.05] mb-6">
           What if GCU could be present<br />
           <span className="text-gcu-gold">at every moment that matters</span><br />
@@ -453,7 +453,7 @@ function SlideDeliveryRoadmap() {
       statusColor: 'bg-amber-500',
       textColor: 'text-amber-400',
       borderColor: 'border-amber-500',
-      detail: 'A dedicated Flourish AI mobile app — Spirit in your pocket. Push notifications, offline mode, and personalized ongoing relationships. Requires mobile development investment.',
+      detail: 'A dedicated Empyrean LMS mobile app — Spirit in your pocket. Push notifications, offline mode, and personalized ongoing relationships. Requires mobile development investment.',
     },
     {
       icon: '🖥️',
@@ -774,7 +774,7 @@ function SlideLegacy({ onEnter }: { onEnter: () => void }) {
             Enter the Demo <ChevronRight size={18} />
           </button>
         </div>
-        <p className="text-white/20 text-xs mt-10">GCU Flourish AI · 77 years of character, deployed at scale</p>
+        <p className="text-white/20 text-xs mt-10">Empyrean LMS · 77 years of character, deployed at scale</p>
       </div>
     </Slide>
   );
@@ -1066,7 +1066,7 @@ function SlidePlatformOverview() {
         <div className="relative w-full">
           <img
             src="/scenes/platform-overview.png"
-            alt="GCU Flourish AI Platform"
+            alt="Empyrean LMS Platform"
             className="w-full rounded-2xl border border-white/10 shadow-2xl shadow-black/40"
           />
           {annotations.map((a, i) => (
@@ -1260,7 +1260,7 @@ export default function ExecutiveTour() {
           <div className="w-8 h-8 rounded-lg bg-gcu-gold flex items-center justify-center">
             <span className="font-black text-gcu-purple-dark text-sm">GCU</span>
           </div>
-          <span className="text-white/35 text-sm font-medium">Flourish AI &nbsp;·&nbsp; Executive Tour</span>
+          <span className="text-white/35 text-sm font-medium">Empyrean LMS &nbsp;·&nbsp; Executive Tour</span>
         </div>
         <div className="flex items-center gap-6">
           <span className="text-white/20 text-sm tabular-nums">{slide + 1} / {TOTAL_SLIDES}</span>

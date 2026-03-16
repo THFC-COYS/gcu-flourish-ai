@@ -103,7 +103,7 @@ const TIERS = [
       'Everything in Practitioner',
       'Persona Ai Layer configuration',
       'Unlimited API access',
-      'Dedicated Flourish AI advisor',
+      'Dedicated Empyrean LMS advisor',
       'Co-authorship in Standard updates',
       'Early access to Robotics & Wearables modules',
     ],

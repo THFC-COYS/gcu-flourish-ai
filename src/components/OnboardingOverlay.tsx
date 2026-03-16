@@ -27,7 +27,7 @@ const MOMENTS = [
   },
   {
     eyebrow: 'The Platform',
-    headline: 'Flourish AI puts that spirit in the room with anyone who needs it.',
+    headline: 'Empyrean LMS puts that spirit in the room with anyone who needs it.',
     body: 'Ten Spirit Agents — one for each GCU college — available to any person, anywhere, at any moment of need. Not a chatbot. Not a search engine. An autonomous professional who knows what they\'re doing and cares about who they\'re doing it for.',
     cta: 'Enter the platform',
     bg: 'from-[#1A0A30] to-[#3D1F8A]',
@@ -144,7 +144,7 @@ export default function OnboardingOverlay({ onComplete }: { onComplete: () => vo
         {/* Attribution */}
         {moment.last && (
           <p className="text-white/20 text-xs mt-6">
-            GCU Flourish AI · 77 years of character, deployed at scale
+            Empyrean LMS · 77 years of character, deployed at scale
           </p>
         )}
       </div>

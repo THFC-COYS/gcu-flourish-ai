@@ -74,7 +74,7 @@ const GLOBAL_REGIONS = [
 ];
 
 const PHASE1_MILESTONES = [
-  { date: 'Q3 2025', label: 'Platform Launch', desc: 'GCU Flourish AI platform live with 2 pilot spirit vessels (Nursing & Business).', done: true },
+  { date: 'Q3 2025', label: 'Platform Launch', desc: 'Empyrean LMS platform live with 2 pilot spirit vessels (Nursing & Business).', done: true },
   { date: 'Q4 2025', label: 'All 10 Colleges', desc: 'Spirit vessels created for all 10 GCU colleges. Platform open to faculty builders.', done: true },
   { date: 'Q1 2026', label: '3 External Partner Pilots', desc: 'Pilot Spirit Vessels with 3 external partners (Arizona Faith Health System, SUSD, AZ Church Network). First real-world data collected.', done: false },
   { date: 'Q2 2026', label: 'Flourish API Beta', desc: 'External API opens for enterprise partners to license GCU ethical character into their AI.', done: false },
@@ -273,7 +273,7 @@ export default function VisionRoadmap() {
           {
             icon: <Heart size={24} className="text-emerald-600" />,
             title: 'The Solution',
-            desc: 'GCU Flourish AI infuses that proven human character into AI spirit vessels — creating the world\'s first AI that doesn\'t just know more, but IS more. AI with a soul, certified by a university.',
+            desc: 'Empyrean LMS infuses that proven human character into AI spirit vessels — creating the world\'s first AI that doesn\'t just know more, but IS more. AI with a soul, certified by a university.',
             color: 'bg-emerald-50 dark:bg-emerald-900/10 border-emerald-100 dark:border-emerald-900/30',
           },
         ].map(c => (

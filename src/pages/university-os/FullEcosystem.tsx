@@ -779,7 +779,7 @@ export default function FullEcosystem() {
             </div>
             <h1 className="text-3xl sm:text-4xl font-black text-white mb-3 leading-tight">
               The Full GCU<br />
-              <span className="text-gcu-gold">Flourish AI Stack</span>
+              <span className="text-gcu-gold">Empyrean LMS Stack</span>
             </h1>
             <p className="text-white/70 text-sm max-w-xl leading-relaxed">
               From institutional back-office to the student in the seat — every layer, every product,

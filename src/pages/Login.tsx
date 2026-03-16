@@ -93,7 +93,7 @@ export default function Login() {
             <span className="font-black text-gcu-purple-dark text-lg">GCU</span>
           </div>
           <div>
-            <div className="text-white font-bold text-xl">Flourish AI</div>
+            <div className="text-white font-bold text-xl">Empyrean LMS</div>
             <div className="text-white/50 text-sm">Grand Canyon University</div>
           </div>
         </div>
@@ -103,7 +103,7 @@ export default function Login() {
           <div>
             <div className="inline-flex items-center gap-2 bg-gcu-gold/20 border border-gcu-gold/30 text-gcu-gold text-sm font-semibold px-4 py-2 rounded-full mb-5">
               <Sparkles size={14} />
-              GCU Flourish AI · Creating a New Industry
+              Empyrean LMS · Creating a New Industry
             </div>
             <h1 className="text-4xl xl:text-5xl font-black text-white leading-tight mb-4">
               Not AI tools.<br />
@@ -178,7 +178,7 @@ export default function Login() {
         </div>
 
         <div className="z-10 text-white/30 text-xs">
-          © 2026 Grand Canyon University · Flourish AI Platform · All rights reserved.
+          © 2026 Grand Canyon University · Empyrean LMS Platform · All rights reserved.
         </div>
       </div>
 
@@ -192,7 +192,7 @@ export default function Login() {
               <span className="font-black text-gcu-gold text-sm">GCU</span>
             </div>
             <div>
-              <div className="text-slate-900 dark:text-white font-bold text-lg">Flourish AI</div>
+              <div className="text-slate-900 dark:text-white font-bold text-lg">Empyrean LMS</div>
               <div className="text-slate-500 text-xs">Ethical AI Platform</div>
             </div>
           </div>
@@ -227,7 +227,7 @@ export default function Login() {
               <div className="mb-6">
                 <h2 className="text-2xl font-black text-slate-900 dark:text-white">Welcome back</h2>
                 <p className="text-slate-500 dark:text-slate-400 mt-1 text-sm">
-                  Sign in to your Flourish AI workspace.
+                  Sign in to your Empyrean LMS workspace.
                 </p>
               </div>
 
@@ -420,7 +420,7 @@ export default function Login() {
               <h2 className="text-xl font-black text-slate-900 dark:text-white mb-2">You're on the list!</h2>
               <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6">
                 We've received your request for <span className="font-semibold text-slate-700 dark:text-slate-300">{demoOrg}</span>.
-                A Flourish AI specialist will reach out to <span className="font-semibold text-slate-700 dark:text-slate-300">{demoEmail}</span> within 24 hours.
+                A Empyrean LMS specialist will reach out to <span className="font-semibold text-slate-700 dark:text-slate-300">{demoEmail}</span> within 24 hours.
               </p>
               <div className="space-y-2 text-left mb-6">
                 {[
