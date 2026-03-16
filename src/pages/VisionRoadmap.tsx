@@ -245,10 +245,10 @@ export default function VisionRoadmap() {
             The world's first ethical AI character network — carrying the proven wisdom, compassion, and integrity of GCU graduates into every AI interaction on earth. This is our iPhone moment.
           </p>
           <div className="flex flex-wrap gap-3">
-            <button onClick={() => navigate('/library')} className="btn-gold flex items-center gap-2">
+            <button onClick={() => navigate('/gcu/library')} className="btn-gold flex items-center gap-2">
               <Sparkles size={15} /> Explore Spirit Vessels
             </button>
-            <button onClick={() => navigate('/spirit-network')} className="border border-white/30 text-white font-semibold px-4 py-2.5 rounded-lg hover:bg-white/10 text-sm flex items-center gap-2 transition-colors">
+            <button onClick={() => navigate('/gcu/spirit-network')} className="border border-white/30 text-white font-semibold px-4 py-2.5 rounded-lg hover:bg-white/10 text-sm flex items-center gap-2 transition-colors">
               <Heart size={15} /> Join the Spirit Network
             </button>
           </div>
@@ -861,10 +861,10 @@ export default function VisionRoadmap() {
               The accreditation body that gives organizations and the public confidence that their AI has been proven ethical.
             </p>
             <div className="flex flex-wrap gap-3">
-              <button onClick={() => navigate('/flourish-api')} className="btn-primary flex items-center gap-2 text-sm">
+              <button onClick={() => navigate('/gcu/flourish-api')} className="btn-primary flex items-center gap-2 text-sm">
                 <Shield size={14} /> Explore the Flourish API <ArrowRight size={14} />
               </button>
-              <button onClick={() => navigate('/spirit-network')} className="btn-secondary flex items-center gap-2 text-sm">
+              <button onClick={() => navigate('/gcu/spirit-network')} className="btn-secondary flex items-center gap-2 text-sm">
                 <Heart size={14} /> Join the Spirit Network
               </button>
             </div>

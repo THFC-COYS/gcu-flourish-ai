@@ -95,6 +95,15 @@ function AccordionSection({ item }: { item: AccordionItem }) {
 }
 
 export default function Resources() {
+  const [copiedDoc, setCopiedDoc] = useState<string | null>(null);
+
+  const handleDownload = (title: string) => {
+    // Simulate download: copy doc title + request info to clipboard
+    navigator.clipboard.writeText(`Document request: ${title}\nContact: resources@gcu.edu`);
+    setCopiedDoc(title);
+    setTimeout(() => setCopiedDoc(null), 2000);
+  };
+
   return (
     <div className="space-y-6 animate-fade-in max-w-4xl">
       {/* Intro */}
@@ -175,12 +184,20 @@ export default function Resources() {
                 </div>
               </div>
               <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                <button className="p-1 rounded text-slate-400 hover:text-slate-600 dark:hover:text-slate-300">
+                <button
+                  onClick={() => handleDownload(doc.title)}
+                  title={copiedDoc === doc.title ? 'Copied!' : 'Download'}
+                  className={`p-1 rounded transition-colors ${copiedDoc === doc.title ? 'text-gcu-purple' : 'text-slate-400 hover:text-slate-600 dark:hover:text-slate-300'}`}
+                >
                   <Download size={13} />
                 </button>
-                <button className="p-1 rounded text-slate-400 hover:text-slate-600 dark:hover:text-slate-300">
+                <a
+                  href={`mailto:resources@gcu.edu?subject=Document Request: ${encodeURIComponent(doc.title)}`}
+                  title="Request via email"
+                  className="p-1 rounded text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors"
+                >
                   <ExternalLink size={13} />
-                </button>
+                </a>
               </div>
             </div>
           ))}
@@ -195,15 +212,16 @@ export default function Resources() {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           {[
-            { label: 'Submit Ethical Review Request', icon: '📋', sub: 'CETLA review portal' },
-            { label: 'Contribute Alumni Story', icon: '🎓', sub: 'Spirit infusion submissions' },
-            { label: 'Report Ethical Concern', icon: '🚨', sub: 'Anonymous reporting channel' },
-            { label: 'Robotics Lab', icon: '🤖', sub: 'Hardware integration requests' },
-            { label: 'MIRA AI System', icon: '🧠', sub: 'GCU tutoring AI integration' },
-            { label: 'IP & Licensing Office', icon: '⚖️', sub: 'Commercialization inquiries' },
+            { label: 'Submit Ethical Review Request', icon: '📋', sub: 'CETLA review portal', href: 'mailto:cetla@gcu.edu?subject=Ethical Review Request' },
+            { label: 'Contribute Alumni Story', icon: '🎓', sub: 'Spirit infusion submissions', href: 'mailto:flourish@gcu.edu?subject=Alumni Story Contribution' },
+            { label: 'Report Ethical Concern', icon: '🚨', sub: 'Anonymous reporting channel', href: 'mailto:ethics@gcu.edu?subject=Ethical Concern (Anonymous)' },
+            { label: 'Robotics Lab', icon: '🤖', sub: 'Hardware integration requests', href: 'mailto:robotics@gcu.edu?subject=Robotics Lab Inquiry' },
+            { label: 'MIRA AI System', icon: '🧠', sub: 'GCU tutoring AI integration', href: 'mailto:mira@gcu.edu?subject=MIRA Integration Request' },
+            { label: 'IP & Licensing Office', icon: '⚖️', sub: 'Commercialization inquiries', href: 'mailto:licensing@gcu.edu?subject=IP & Licensing Inquiry' },
           ].map(link => (
-            <button
+            <a
               key={link.label}
+              href={link.href}
               className="flex items-center gap-3 p-3 rounded-xl border border-slate-200 dark:border-[#2D2050] hover:border-gcu-purple/40 text-left hover:bg-gcu-purple-pale dark:hover:bg-gcu-purple/10 transition-all group"
             >
               <span className="text-xl">{link.icon}</span>
@@ -213,7 +231,7 @@ export default function Resources() {
                 </p>
                 <p className="text-xs text-slate-400 dark:text-slate-500">{link.sub}</p>
               </div>
-            </button>
+            </a>
           ))}
         </div>
       </div>

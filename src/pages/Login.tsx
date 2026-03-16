@@ -57,7 +57,7 @@ export default function Login() {
     const result = await login(email, password);
     setLoading(false);
     if (result.success) {
-      navigate('/');
+      navigate('/gcu');
     } else {
       setError(result.error ?? 'Login failed.');
     }

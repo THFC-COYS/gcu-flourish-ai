@@ -106,13 +106,13 @@ export default function FlourishRobotics() {
           </p>
           <div className="flex flex-wrap gap-3">
             <button
-              onClick={() => navigate('/vision')}
+              onClick={() => navigate('/gcu/vision')}
               className="btn-gold flex items-center gap-2"
             >
               <ArrowRight size={16} /> Full Vision & Roadmap
             </button>
             <button
-              onClick={() => navigate('/library')}
+              onClick={() => navigate('/gcu/library')}
               className="border border-white/30 text-white font-semibold px-5 py-2.5 rounded-xl hover:bg-white/10 transition-colors flex items-center gap-2"
             >
               <Heart size={16} /> View Spirit Vessels
@@ -253,10 +253,10 @@ export default function FlourishRobotics() {
           That's Flourish Robotics.
         </p>
         <div className="flex flex-wrap gap-3 justify-center">
-          <button onClick={() => navigate('/vision')} className="btn-primary flex items-center gap-2">
+          <button onClick={() => navigate('/gcu/vision')} className="btn-primary flex items-center gap-2">
             <ArrowRight size={16} /> See Full Vision
           </button>
-          <button onClick={() => navigate('/flourish-api')} className="btn-secondary flex items-center gap-2">
+          <button onClick={() => navigate('/gcu/flourish-api')} className="btn-secondary flex items-center gap-2">
             <Zap size={16} /> Flourish API
           </button>
         </div>

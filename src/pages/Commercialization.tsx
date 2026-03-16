@@ -1,4 +1,5 @@
-import { TrendingUp, DollarSign, Award, Heart, Plus, Building2, GraduationCap } from 'lucide-react';
+import { useState } from 'react';
+import { TrendingUp, DollarSign, Award, Heart, Plus, Building2, GraduationCap, X } from 'lucide-react';
 import { MOCK_PARTNERSHIPS, REVENUE_DATA, MOCK_PROTOTYPES } from '../data/mockData';
 import { Badge } from '../components/ui/Badge';
 import { useAuth } from '../context/AuthContext';
@@ -42,6 +43,15 @@ function PartnerTypeIcon({ type }: { type: string }) {
 }
 
 export default function Commercialization() {
+  const [showAddPartner, setShowAddPartner] = useState(false);
+  const [partnerForm, setPartnerForm] = useState({ name: '', type: 'healthcare', status: 'prospecting', contact: '' });
+  const [partnerSaved, setPartnerSaved] = useState(false);
+
+  const handleSavePartner = () => {
+    if (!partnerForm.name.trim()) return;
+    setPartnerSaved(true);
+    setTimeout(() => { setPartnerSaved(false); setShowAddPartner(false); setPartnerForm({ name: '', type: 'healthcare', status: 'prospecting', contact: '' }); }, 1800);
+  };
   const { isRole } = useAuth();
 
   const activePartnerships = MOCK_PARTNERSHIPS.filter(p => p.status === 'active');
@@ -53,6 +63,7 @@ export default function Commercialization() {
   })).sort((a, b) => b.revenue - a.revenue);
 
   return (
+    <>
     <div className="space-y-6 animate-fade-in">
       {/* Summary stats */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -162,7 +173,7 @@ export default function Commercialization() {
             <h3 className="text-sm font-bold text-slate-900 dark:text-white">Partnership Log</h3>
           </div>
           {isRole('admin', 'faculty') && (
-            <button className="btn-secondary text-xs flex items-center gap-1.5 py-1.5">
+            <button onClick={() => setShowAddPartner(true)} className="btn-secondary text-xs flex items-center gap-1.5 py-1.5">
               <Plus size={13} /> Add Partnership
             </button>
           )}
@@ -228,5 +239,65 @@ export default function Commercialization() {
         </div>
       </div>
     </div>
+
+      {/* Add Partnership Modal */}
+      {showAddPartner && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm" onClick={() => setShowAddPartner(false)}>
+          <div className="bg-white dark:bg-[#160D2E] rounded-2xl border border-slate-200 dark:border-[#2D2050] shadow-xl w-full max-w-md p-6" onClick={e => e.stopPropagation()}>
+            <div className="flex items-center justify-between mb-5">
+              <h3 className="text-base font-bold text-slate-900 dark:text-white">Add Partnership</h3>
+              <button onClick={() => setShowAddPartner(false)} className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200"><X size={18} /></button>
+            </div>
+            <div className="space-y-4">
+              <div>
+                <label className="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1">Partner Name *</label>
+                <input
+                  type="text"
+                  className="form-input text-sm"
+                  placeholder="e.g. Banner Health System"
+                  value={partnerForm.name}
+                  onChange={e => setPartnerForm(f => ({ ...f, name: e.target.value }))}
+                />
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1">Type</label>
+                  <select className="form-input text-sm" value={partnerForm.type} onChange={e => setPartnerForm(f => ({ ...f, type: e.target.value }))}>
+                    {['healthcare','business','education','church','government','research','nonprofit'].map(t => (
+                      <option key={t} value={t}>{t.charAt(0).toUpperCase() + t.slice(1)}</option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1">Status</label>
+                  <select className="form-input text-sm" value={partnerForm.status} onChange={e => setPartnerForm(f => ({ ...f, status: e.target.value }))}>
+                    {['prospecting','negotiating','active','paused'].map(s => (
+                      <option key={s} value={s}>{s.charAt(0).toUpperCase() + s.slice(1)}</option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label className="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1">Contact Email</label>
+                <input
+                  type="email"
+                  className="form-input text-sm"
+                  placeholder="partner@org.com"
+                  value={partnerForm.contact}
+                  onChange={e => setPartnerForm(f => ({ ...f, contact: e.target.value }))}
+                />
+              </div>
+              <button
+                onClick={handleSavePartner}
+                disabled={!partnerForm.name.trim()}
+                className="btn-primary w-full text-sm disabled:opacity-40"
+              >
+                {partnerSaved ? '✓ Partnership logged' : 'Save Partnership'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }

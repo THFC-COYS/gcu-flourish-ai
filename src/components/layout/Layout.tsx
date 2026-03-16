@@ -4,19 +4,24 @@ import Sidebar from './Sidebar';
 import Header from './Header';
 
 const PAGE_META: Record<string, { title: string; subtitle?: string }> = {
-  '/': { title: 'Dashboard', subtitle: 'Overview of GCU Flourish AI platform' },
-  '/library': { title: 'Prototype Library', subtitle: 'All 10 college spirit vessels' },
-  '/builder': { title: 'Spirit Infusion Builder', subtitle: 'Create & configure new AI prototypes' },
-  '/testing': { title: 'Deployment Console', subtitle: 'Deploy and interact with live Spirit Agents — your autonomous AI workforce' },
-  '/commercialization': { title: 'Impact & Commercialization Tracker', subtitle: 'Revenue, partnerships, and reinvestment' },
-  '/resources': { title: 'Resources & Governance', subtitle: 'Ethical guidelines, policies, and documentation' },
-  '/spirit-network': { title: 'Spirit Network', subtitle: 'Alumni wisdom — the living source code of our AI' },
-  '/flourish-api': { title: 'Flourish API', subtitle: 'The soul layer for any AI — GCU ethical character as a service' },
-  '/flourish-robotics': { title: 'Flourish Robotics', subtitle: 'Phase 2 — Spirit Vessels get bodies · Launching 2027' },
-  '/vision': { title: 'Vision & Roadmap', subtitle: 'Phase 1: Digital · Phase 2: Physical embodiment · The global standard' },
-  '/executive-brief': { title: 'Executive Briefing', subtitle: 'Presidential summary · The case for GCU as the global authority on ethical AI' },
-  '/flourish-standard': { title: 'The Flourish Standard', subtitle: 'GCU\'s ethical AI certification framework · The industry standard we are creating' },
-  '/spirit-training': { title: 'Spirit Training Academy', subtitle: 'Practice the hardest human moments — Spirit plays the challenge, you play the professional' },
+  '/gcu': { title: 'Dashboard', subtitle: 'Overview of GCU Flourish AI platform' },
+  '/gcu/library': { title: 'Prototype Library', subtitle: 'All 10 college spirit vessels' },
+  '/gcu/builder': { title: 'Spirit Infusion Builder', subtitle: 'Create & configure new AI prototypes' },
+  '/gcu/testing': { title: 'Deployment Console', subtitle: 'Deploy and interact with live Spirit Agents — your autonomous AI workforce' },
+  '/gcu/commercialization': { title: 'Impact & Commercialization Tracker', subtitle: 'Revenue, partnerships, and reinvestment' },
+  '/gcu/resources': { title: 'Resources & Governance', subtitle: 'Ethical guidelines, policies, and documentation' },
+  '/gcu/spirit-network': { title: 'Spirit Network', subtitle: 'Alumni wisdom — the living source code of our AI' },
+  '/gcu/flourish-api': { title: 'Flourish API', subtitle: 'The soul layer for any AI — GCU ethical character as a service' },
+  '/gcu/flourish-robotics': { title: 'Flourish Robotics', subtitle: 'Phase 2 — Spirit Vessels get bodies · Launching 2027' },
+  '/gcu/vision': { title: 'Vision & Roadmap', subtitle: 'Phase 1: Digital · Phase 2: Physical embodiment · The global standard' },
+  '/gcu/executive-brief': { title: 'Executive Briefing', subtitle: 'Presidential summary · The case for GCU as the global authority on ethical AI' },
+  '/gcu/flourish-standard': { title: 'The Flourish Standard', subtitle: 'GCU\'s ethical AI certification framework · The industry standard we are creating' },
+  '/gcu/spirit-training': { title: 'Spirit Training Academy', subtitle: 'Practice the hardest human moments — Spirit plays the challenge, you play the professional' },
+  '/gcu/governance-qa': { title: 'Agent QA Board', subtitle: 'Ethical review, audit logs, and governance protocols' },
+  '/gcu/scaling-model': { title: 'Scaling Model', subtitle: 'GCU Flourish AI global expansion strategy' },
+  '/gcu/university-os': { title: 'University OS', subtitle: 'AI-powered command infrastructure for GCU operations' },
+  '/gcu/university-os/command-center': { title: 'Command Center', subtitle: 'Real-time university intelligence dashboard' },
+  '/gcu/university-os/full-ecosystem': { title: 'Full Ecosystem', subtitle: 'Complete University OS module overview' },
 };
 
 export default function Layout() {
