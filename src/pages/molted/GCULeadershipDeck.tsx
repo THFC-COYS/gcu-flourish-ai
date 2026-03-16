@@ -4,8 +4,8 @@ import { ArrowLeft, ArrowRight, X, ChevronRight, Lock } from 'lucide-react';
 
 /* ── GCU Brand ──────────────────────────────────────────────────────────── */
 const GCU_PURPLE = '#522D80';
-const GCU_GOLD   = '#C5A028';
-const GCU_LIGHT_PURPLE = '#7B4DBF';
+const GCU_WHITE   = '#FFFFFF';
+const GCU_LIGHT_PURPLE = '#9B6FD4';
 
 const TOTAL_SLIDES = 16;
 
@@ -22,7 +22,7 @@ function Eyebrow({ children, gold }: { children: React.ReactNode; gold?: boolean
   return (
     <p
       className="text-xs font-bold uppercase tracking-[0.2em] mb-6"
-      style={{ color: gold ? GCU_GOLD : GCU_LIGHT_PURPLE }}
+      style={{ color: gold ? GCU_WHITE : GCU_LIGHT_PURPLE }}
     >
       {children}
     </p>
@@ -45,7 +45,7 @@ function GCULogo({ size = 'md' }: { size?: 'sm' | 'md' }) {
         GCU
       </div>
       <span className={`${ts} font-black tracking-tight`} style={{ color: '#F8F8F8' }}>
-        Grand Canyon<span style={{ color: GCU_GOLD }}>.</span>
+        Grand Canyon<span style={{ color: GCU_WHITE }}>.</span>
       </span>
     </div>
   );
@@ -59,10 +59,10 @@ function SlideHero() {
       <div className="text-center">
         <div
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full border mb-12"
-          style={{ borderColor: `${GCU_GOLD}40`, background: `${GCU_GOLD}08` }}
+          style={{ borderColor: `${GCU_WHITE}40`, background: `${GCU_WHITE}08` }}
         >
-          <Lock size={10} style={{ color: GCU_GOLD }} />
-          <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: GCU_GOLD }}>
+          <Lock size={10} style={{ color: GCU_WHITE }} />
+          <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: GCU_WHITE }}>
             Confidential · GCU Leadership
           </span>
         </div>
@@ -75,7 +75,7 @@ function SlideHero() {
           Halo was the{' '}
           <span
             style={{
-              background: `linear-gradient(120deg, ${GCU_PURPLE} 0%, ${GCU_LIGHT_PURPLE} 50%, ${GCU_GOLD} 100%)`,
+              background: `linear-gradient(120deg, ${GCU_PURPLE} 0%, ${GCU_LIGHT_PURPLE} 50%, ${GCU_WHITE} 100%)`,
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
@@ -88,7 +88,7 @@ function SlideHero() {
         <p className="text-xl text-white/60 max-w-2xl mx-auto leading-relaxed mb-4">
           What you built proved the thesis: a university that owns its learning infrastructure outperforms one that rents it.
           The next chapter is called{' '}
-          <span className="font-bold" style={{ color: GCU_GOLD }}>Empyrean.</span>
+          <span className="font-bold" style={{ color: GCU_WHITE }}>Empyrean.</span>
         </p>
 
         <p className="mt-8 text-white/30 text-sm">Use arrow keys or the buttons below to navigate</p>
@@ -109,7 +109,7 @@ function SlideHaloLegacy() {
       <Eyebrow>What GCU Built</Eyebrow>
       <h2 className="text-5xl md:text-6xl font-black text-white leading-tight mb-6">
         You didn't buy an LMS.<br />
-        <span style={{ color: GCU_GOLD }}>You built one.</span>
+        <span style={{ color: GCU_WHITE }}>You built one.</span>
       </h2>
       <p className="text-white/60 text-lg max-w-2xl mb-12 leading-relaxed">
         When every vendor fell short, GCU built Halo from scratch. That decision — to own the learning layer — is the single most strategically important infrastructure choice the university has made in two decades.
@@ -119,9 +119,9 @@ function SlideHaloLegacy() {
           <div
             key={a.stat}
             className="p-6 rounded-2xl border text-center"
-            style={{ borderColor: `${GCU_GOLD}25`, background: `${GCU_GOLD}06` }}
+            style={{ borderColor: `${GCU_WHITE}25`, background: `${GCU_WHITE}06` }}
           >
-            <div className="text-4xl font-black mb-2" style={{ color: GCU_GOLD }}>{a.stat}</div>
+            <div className="text-4xl font-black mb-2" style={{ color: GCU_WHITE }}>{a.stat}</div>
             <div className="text-white/55 text-sm leading-snug">{a.label}</div>
           </div>
         ))}
@@ -149,7 +149,7 @@ function SlideHaloGap() {
               'Keeps GCU data inside GCU',
             ].map(i => (
               <li key={i} className="flex items-center gap-3">
-                <span style={{ color: GCU_GOLD }}>✓</span> {i}
+                <span style={{ color: GCU_WHITE }}>✓</span> {i}
               </li>
             ))}
           </ul>
@@ -188,7 +188,7 @@ function SlideEmpyrean() {
         The highest heaven.<br />
         <span
           style={{
-            background: `linear-gradient(120deg, ${GCU_PURPLE} 0%, ${GCU_LIGHT_PURPLE} 50%, ${GCU_GOLD} 100%)`,
+            background: `linear-gradient(120deg, ${GCU_PURPLE} 0%, ${GCU_LIGHT_PURPLE} 50%, ${GCU_WHITE} 100%)`,
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',
@@ -214,7 +214,7 @@ function SlideEmpyrean() {
             className="p-4 rounded-xl border text-center"
             style={{ borderColor: `${GCU_PURPLE}35`, background: `${GCU_PURPLE}08` }}
           >
-            <div className="text-xs font-bold uppercase tracking-wider" style={{ color: GCU_GOLD }}>{p.name}</div>
+            <div className="text-xs font-bold uppercase tracking-wider" style={{ color: GCU_WHITE }}>{p.name}</div>
             <div className="text-white/40 text-[10px] mt-0.5">{p.desc}</div>
           </div>
         ))}
@@ -228,7 +228,7 @@ const GCU_MODULES = [
     icon: '💡',
     name: 'Lumen',
     tagline: 'Adaptive learning for every GCU student',
-    color: GCU_GOLD,
+    color: GCU_WHITE,
     detail: 'GCU serves 25,000 traditional and 100,000+ online students across 200+ programs — each with different learning paces, contexts, and goals. Lumen reads comprehension signals in real time and adjusts pacing, modality, and depth for each student, without adding a single hour to faculty workload. The same course, 125,000 individual paths.',
     stat: '125K',
     statLabel: 'individual learning paths, one course shell',
@@ -255,7 +255,7 @@ const GCU_MODULES = [
     icon: '🛤️',
     name: 'Pathway AI',
     tagline: 'One plan per student, across 200+ programs',
-    color: GCU_GOLD,
+    color: GCU_WHITE,
     detail: 'GCU program breadth is a strength and a complexity. A student changing majors, adding a concentration, or transferring credits faces a maze that advisors currently navigate manually. Pathway AI maps each student declared major, transfer credits, financial aid window, and career goals into a live, adaptive plan — and flags conflicts before they cost a semester.',
     stat: '200+',
     statLabel: 'programs, one intelligent navigation layer',
@@ -317,7 +317,7 @@ function SlideSpiritLayer() {
       <Eyebrow gold>The Spirit Layer</Eyebrow>
       <h2 className="text-5xl md:text-6xl font-black text-white leading-tight mb-8">
         AI that speaks<br />
-        <span style={{ color: GCU_GOLD }}>in GCU's voice.</span>
+        <span style={{ color: GCU_WHITE }}>in GCU's voice.</span>
       </h2>
       <div className="grid md:grid-cols-2 gap-8">
         <div className="space-y-6">
@@ -337,7 +337,7 @@ function SlideSpiritLayer() {
             {
               label: 'Academic Advisor Agent',
               desc: '24/7 advising in GCU\'s voice, with GCU\'s program knowledge and values',
-              color: GCU_GOLD,
+              color: GCU_WHITE,
             },
             {
               label: 'Pastoral Care Agent',
@@ -378,7 +378,7 @@ function SlideEmpyreanVision() {
           {
             title: 'Student View',
             items: ['Personalized learning path', 'Proactive advisor outreach', '24/7 AI support in GCU voice', 'Career-mapped degree plan'],
-            color: GCU_GOLD,
+            color: GCU_WHITE,
           },
           {
             title: 'Faculty View',
@@ -420,7 +420,7 @@ function SlidePartnership() {
       <Eyebrow gold>The Partnership Model</Eyebrow>
       <h2 className="text-5xl font-black text-white leading-tight mb-8">
         GCU doesn't license software.<br />
-        <span style={{ color: GCU_GOLD }}>GCU shapes the category.</span>
+        <span style={{ color: GCU_WHITE }}>GCU shapes the category.</span>
       </h2>
       <div className="grid md:grid-cols-2 gap-8 mb-10">
         <div className="space-y-6">
@@ -433,7 +433,7 @@ function SlidePartnership() {
         </div>
         <div className="space-y-4">
           {[
-            { label: 'Co-development', desc: 'GCU priorities drive the product roadmap. Your edge cases are the platform\'s first-class features.', color: GCU_GOLD },
+            { label: 'Co-development', desc: 'GCU priorities drive the product roadmap. Your edge cases are the platform\'s first-class features.', color: GCU_WHITE },
             { label: 'Data sovereignty', desc: 'Empyrean runs on GCU\'s Halo data. GCU owns the model weights trained on its students.', color: GCU_LIGHT_PURPLE },
             { label: 'Licensing upside', desc: 'License Empyrean to peer institutions under a GCU-originated product model.', color: GCU_PURPLE },
           ].map(r => (
@@ -496,14 +496,14 @@ function SlideTimeline() {
             key={i}
             className="flex items-start gap-6 p-6 rounded-2xl border"
             style={{
-              borderColor: p.active ? `${GCU_GOLD}35` : 'rgba(255,255,255,0.07)',
-              background: p.active ? `${GCU_GOLD}05` : 'rgba(255,255,255,0.02)',
+              borderColor: p.active ? `${GCU_WHITE}35` : 'rgba(255,255,255,0.07)',
+              background: p.active ? `${GCU_WHITE}05` : 'rgba(255,255,255,0.02)',
             }}
           >
             <div className="flex-shrink-0 text-center w-24">
               <div
                 className="text-xs font-bold uppercase tracking-wider"
-                style={{ color: p.active ? GCU_GOLD : 'rgba(255,255,255,0.25)' }}
+                style={{ color: p.active ? GCU_WHITE : 'rgba(255,255,255,0.25)' }}
               >
                 {p.phase}
               </div>
@@ -529,7 +529,7 @@ function SlideTimeline() {
               </div>
             </div>
             {p.active && (
-              <div className="flex-shrink-0 text-xs font-bold px-2.5 py-1 rounded-full" style={{ background: `${GCU_GOLD}20`, color: GCU_GOLD }}>
+              <div className="flex-shrink-0 text-xs font-bold px-2.5 py-1 rounded-full" style={{ background: `${GCU_WHITE}20`, color: GCU_WHITE }}>
                 Start here
               </div>
             )}
@@ -551,7 +551,7 @@ function SlideLegacy({ onExit }: { onExit: () => void }) {
           <br />
           <span
             style={{
-              background: `linear-gradient(120deg, ${GCU_PURPLE} 0%, ${GCU_LIGHT_PURPLE} 50%, ${GCU_GOLD} 100%)`,
+              background: `linear-gradient(120deg, ${GCU_PURPLE} 0%, ${GCU_LIGHT_PURPLE} 50%, ${GCU_WHITE} 100%)`,
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
@@ -570,7 +570,7 @@ function SlideLegacy({ onExit }: { onExit: () => void }) {
           <button
             onClick={onExit}
             className="inline-flex items-center gap-3 px-10 py-4 rounded-2xl font-black text-white text-lg transition-all hover:scale-105"
-            style={{ background: `linear-gradient(120deg, ${GCU_PURPLE} 0%, ${GCU_LIGHT_PURPLE} 50%, ${GCU_GOLD} 100%)` }}
+            style={{ background: `linear-gradient(120deg, ${GCU_PURPLE} 0%, ${GCU_LIGHT_PURPLE} 100%)` }}
           >
             Explore the Platform <ChevronRight size={20} />
           </button>
@@ -637,7 +637,7 @@ export default function GCULeadershipDeck() {
         />
         <div
           className="absolute bottom-0 right-0 w-[600px] h-[500px] rounded-full opacity-[0.05]"
-          style={{ background: `radial-gradient(ellipse, ${GCU_GOLD} 0%, transparent 70%)` }}
+          style={{ background: `radial-gradient(ellipse, ${GCU_WHITE} 0%, transparent 70%)` }}
         />
         <div
           className="absolute top-1/2 -translate-y-1/2 left-0 w-[400px] h-[600px] rounded-full opacity-[0.04]"
@@ -651,9 +651,9 @@ export default function GCULeadershipDeck() {
         style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}
       >
         <GCULogo size="sm" />
-        <div className="flex items-center gap-2 px-3 py-1.5 rounded-full" style={{ background: `${GCU_GOLD}12`, border: `1px solid ${GCU_GOLD}25` }}>
-          <Lock size={9} style={{ color: GCU_GOLD }} />
-          <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: GCU_GOLD }}>Leadership Only</span>
+        <div className="flex items-center gap-2 px-3 py-1.5 rounded-full" style={{ background: `${GCU_WHITE}12`, border: `1px solid ${GCU_WHITE}25` }}>
+          <Lock size={9} style={{ color: GCU_WHITE }} />
+          <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: GCU_WHITE }}>Leadership Only</span>
         </div>
         <div className="flex items-center gap-6">
           <span className="text-white/30 text-sm tabular-nums">{slide + 1} / {TOTAL_SLIDES - 1}</span>
@@ -691,7 +691,7 @@ export default function GCULeadershipDeck() {
                 width: i === slide ? 24 : 8,
                 height: 8,
                 background: i === slide
-                  ? GCU_GOLD
+                  ? GCU_WHITE
                   : i < slide
                   ? `${GCU_LIGHT_PURPLE}60`
                   : 'rgba(255,255,255,0.12)',
@@ -714,7 +714,7 @@ export default function GCULeadershipDeck() {
             <button
               onClick={exitDeck}
               className="flex items-center gap-2 px-5 py-2 rounded-xl font-black text-white text-sm transition-all hover:scale-105"
-              style={{ background: `linear-gradient(120deg, ${GCU_PURPLE}, ${GCU_GOLD})` }}
+              style={{ background: `linear-gradient(120deg, ${GCU_PURPLE}, ${GCU_LIGHT_PURPLE})` }}
             >
               Explore Platform <ChevronRight size={15} />
             </button>
@@ -722,8 +722,8 @@ export default function GCULeadershipDeck() {
             <button
               onClick={goNext}
               className="flex items-center gap-2 px-5 py-2 rounded-xl border font-bold text-sm transition-all"
-              style={{ borderColor: `${GCU_GOLD}35`, color: GCU_GOLD }}
-              onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = `${GCU_GOLD}10`; }}
+              style={{ borderColor: `${GCU_WHITE}35`, color: GCU_WHITE }}
+              onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = `${GCU_WHITE}10`; }}
               onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = 'transparent'; }}
             >
               Next <ArrowRight size={15} />
