@@ -104,7 +104,7 @@ function Hero() {
       <RevealBlock delay={500} className="mt-16">
         <div
           className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl border"
-          style={{ background: 'rgba(10,10,15,0.8)', borderColor: 'rgba(255,255,255,0.06)' }}
+          style={{ background: 'rgba(248,249,252,0.95)', borderColor: 'rgba(0,0,0,0.06)' }}
         >
           <UploadCloud size={14} className="text-molted-muted" />
           <p className="text-molted-muted text-sm">
@@ -349,7 +349,7 @@ function WhatItGenerates() {
               <RevealBlock key={i} delay={i * 60}>
                 <div
                   className="rounded-2xl border p-5 h-full transition-all duration-300 hover:-translate-y-1"
-                  style={{ background: 'rgba(17,17,24,0.6)', borderColor: 'rgba(255,255,255,0.06)' }}
+                  style={{ background: 'rgba(241,243,248,0.85)', borderColor: 'rgba(0,0,0,0.06)' }}
                 >
                   <Icon size={18} className="mb-3" style={{ color: EMERALD }} />
                   <p className="text-molted-white text-sm font-semibold mb-1.5 leading-snug">{o.label}</p>
@@ -495,8 +495,8 @@ function Pricing() {
               <div
                 className="rounded-2xl border p-7 h-full flex flex-col transition-all duration-300"
                 style={{
-                  background: tier.highlight ? `${EMERALD}08` : 'rgba(17,17,24,0.6)',
-                  borderColor: tier.highlight ? EMERALD_BORDER : 'rgba(255,255,255,0.06)',
+                  background: tier.highlight ? `${EMERALD}08` : 'rgba(241,243,248,0.85)',
+                  borderColor: tier.highlight ? EMERALD_BORDER : 'rgba(0,0,0,0.06)',
                   boxShadow: tier.highlight ? EMERALD_GLOW : 'none',
                 }}
               >
@@ -518,9 +518,9 @@ function Pricing() {
                   href="mailto:hello@molted.ai"
                   className="block text-center px-5 py-3 rounded-xl text-sm font-semibold transition-all duration-200 hover:-translate-y-px"
                   style={{
-                    background: tier.highlight ? EMERALD : 'rgba(255,255,255,0.06)',
-                    color: tier.highlight ? '#000000' : '#F5F5F7',
-                    border: tier.highlight ? 'none' : '1px solid rgba(255,255,255,0.08)',
+                    background: tier.highlight ? EMERALD : 'rgba(0,0,0,0.06)',
+                    color: tier.highlight ? '#000000' : '#1C1C1E',
+                    border: tier.highlight ? 'none' : '1px solid rgba(0,0,0,0.07)',
                   }}
                 >
                   {tier.cta}

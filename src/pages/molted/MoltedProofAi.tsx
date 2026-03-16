@@ -213,8 +213,8 @@ function TheCrisis() {
               <div
                 className="rounded-2xl p-7 border h-full"
                 style={{
-                  background: 'rgba(17,17,24,0.8)',
-                  borderColor: 'rgba(255,255,255,0.06)',
+                  background: 'rgba(241,243,248,0.95)',
+                  borderColor: 'rgba(0,0,0,0.06)',
                 }}
               >
                 <p
@@ -283,7 +283,7 @@ function OralAssessmentMock() {
       </div>
       <div
         className="rounded-xl p-4 text-xs leading-relaxed"
-        style={{ background: 'rgba(17,17,24,0.9)', border: '1px solid rgba(255,255,255,0.06)' }}
+        style={{ background: 'rgba(248,249,252,0.95)', border: '1px solid rgba(0,0,0,0.06)' }}
       >
         <p className="text-molted-muted mb-1 font-semibold uppercase tracking-wide text-xs">Proof Evaluation</p>
         <p className="text-molted-white/80">
@@ -336,7 +336,7 @@ function DefendYourWorkMock() {
             <div
               className="w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 text-xs font-bold"
               style={{
-                background: m.ai ? ORANGE_DIM : 'rgba(255,255,255,0.08)',
+                background: m.ai ? ORANGE_DIM : 'rgba(0,0,0,0.07)',
                 color: m.ai ? ORANGE : '#86868B',
               }}
             >
@@ -345,9 +345,9 @@ function DefendYourWorkMock() {
             <div
               className="flex-1 rounded-xl p-3 text-xs leading-relaxed max-w-[85%]"
               style={{
-                background: m.ai ? ORANGE_DIM : 'rgba(255,255,255,0.05)',
-                border: `1px solid ${m.ai ? ORANGE_BORDER : 'rgba(255,255,255,0.06)'}`,
-                color: m.ai ? '#F5F5F7' : '#86868B',
+                background: m.ai ? ORANGE_DIM : 'rgba(0,0,0,0.05)',
+                border: `1px solid ${m.ai ? ORANGE_BORDER : 'rgba(0,0,0,0.06)'}`,
+                color: m.ai ? '#1C1C1E' : '#86868B',
               }}
             >
               {m.text}
@@ -481,8 +481,8 @@ function AssessmentModes() {
                 onClick={() => setActive(i)}
                 className="flex items-center gap-2.5 px-5 py-3 rounded-xl font-semibold text-sm transition-all duration-300"
                 style={{
-                  background: isActive ? ORANGE_DIM : 'rgba(17,17,24,0.6)',
-                  border: `1px solid ${isActive ? ORANGE_BORDER : 'rgba(255,255,255,0.06)'}`,
+                  background: isActive ? ORANGE_DIM : 'rgba(241,243,248,0.85)',
+                  border: `1px solid ${isActive ? ORANGE_BORDER : 'rgba(0,0,0,0.06)'}`,
                   color: isActive ? ORANGE : '#86868B',
                 }}
               >
@@ -497,7 +497,7 @@ function AssessmentModes() {
           {/* Description */}
           <div
             className="rounded-2xl p-7 border"
-            style={{ background: 'rgba(17,17,24,0.8)', borderColor: 'rgba(255,255,255,0.06)' }}
+            style={{ background: 'rgba(241,243,248,0.95)', borderColor: 'rgba(0,0,0,0.06)' }}
           >
             <div
               className="w-12 h-12 rounded-2xl flex items-center justify-center mb-5"
@@ -677,7 +677,7 @@ function ForFaculty() {
               <RevealBlock key={i} delay={i * 80}>
                 <div
                   className="rounded-2xl p-6 border transition-all duration-300 hover:border-orange-500/30"
-                  style={{ background: 'rgba(17,17,24,0.7)', borderColor: 'rgba(255,255,255,0.06)' }}
+                  style={{ background: 'rgba(241,243,248,0.90)', borderColor: 'rgba(0,0,0,0.06)' }}
                 >
                   <div
                     className="w-10 h-10 rounded-xl flex items-center justify-center mb-4"
@@ -763,14 +763,14 @@ function Pricing() {
               <div
                 className="rounded-2xl p-7 h-full flex flex-col border transition-all duration-300"
                 style={{
-                  background: tier.highlight ? ORANGE_DIM : 'rgba(17,17,24,0.6)',
-                  borderColor: tier.highlight ? ORANGE_BORDER : 'rgba(255,255,255,0.06)',
+                  background: tier.highlight ? ORANGE_DIM : 'rgba(241,243,248,0.85)',
+                  borderColor: tier.highlight ? ORANGE_BORDER : 'rgba(0,0,0,0.06)',
                   boxShadow: tier.highlight ? ORANGE_GLOW : 'none',
                 }}
               >
                 <div className="mb-6">
                   <p className="text-sm font-semibold mb-1" style={{ color: '#86868B' }}>{tier.name}</p>
-                  <p className="text-4xl font-black" style={{ color: '#F5F5F7' }}>{tier.price}</p>
+                  <p className="text-4xl font-black" style={{ color: '#1C1C1E' }}>{tier.price}</p>
                   <p className="text-sm" style={{ color: '#86868B' }}>{tier.period}</p>
                   <p className="mt-3 text-sm leading-relaxed" style={{ color: 'rgba(134,134,139,0.8)' }}>{tier.desc}</p>
                 </div>
@@ -786,9 +786,9 @@ function Pricing() {
                   href="mailto:hello@molted.ai"
                   className="block text-center px-5 py-3 rounded-xl text-sm font-semibold transition-all duration-200 hover:-translate-y-px"
                   style={{
-                    background: tier.highlight ? ORANGE : 'rgba(255,255,255,0.06)',
-                    color: tier.highlight ? '#ffffff' : '#F5F5F7',
-                    border: tier.highlight ? 'none' : '1px solid rgba(255,255,255,0.08)',
+                    background: tier.highlight ? ORANGE : 'rgba(0,0,0,0.06)',
+                    color: tier.highlight ? '#ffffff' : '#1C1C1E',
+                    border: tier.highlight ? 'none' : '1px solid rgba(0,0,0,0.07)',
                   }}
                 >
                   {tier.cta}

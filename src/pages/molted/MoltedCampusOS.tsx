@@ -127,7 +127,7 @@ function Hero() {
           className="group inline-flex items-center gap-3 px-9 py-4 rounded-2xl font-bold text-lg transition-all duration-200 hover:-translate-y-px hover:shadow-2xl"
           style={{
             background: CAMPUS_GRADIENT,
-            color: '#0a0a0f',
+            color: '#ffffff',
           }}
         >
           Join the Waitlist
@@ -366,7 +366,7 @@ function PlatformArchitecture() {
             <div
               className="rounded-3xl p-10 text-center w-full max-w-sm border"
               style={{
-                background: 'rgba(10,10,15,0.98)',
+                background: 'rgba(255,255,255,0.98)',
                 borderColor: 'transparent',
                 boxShadow: `0 0 0 1px rgba(100,116,139,0.45),
                              0 0 0 4px rgba(37,99,235,0.18),
@@ -451,7 +451,7 @@ function ThreePrinciples() {
               <div
                 className="rounded-2xl p-10 border h-full"
                 style={{
-                  background: 'rgba(17,17,24,0.6)',
+                  background: 'rgba(241,243,248,0.85)',
                   borderColor: `rgba(${hexToRgb(p.color)}, 0.18)`,
                 }}
               >
@@ -567,7 +567,7 @@ function WaitlistCTA() {
           <a
             href="mailto:hello@molted.ai"
             className="group inline-flex items-center gap-3 px-9 py-4 rounded-2xl font-bold text-lg transition-all duration-200 hover:-translate-y-px"
-            style={{ background: CAMPUS_GRADIENT, color: '#0a0a0f' }}
+            style={{ background: CAMPUS_GRADIENT, color: '#ffffff' }}
           >
             Join the Waitlist
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
@@ -578,7 +578,7 @@ function WaitlistCTA() {
           <div
             className="rounded-2xl p-7 border text-left"
             style={{
-              background: 'rgba(17,17,24,0.7)',
+              background: 'rgba(241,243,248,0.90)',
               borderColor: `rgba(${hexToRgb(CAMPUS_VIOLET)}, 0.2)`,
             }}
           >

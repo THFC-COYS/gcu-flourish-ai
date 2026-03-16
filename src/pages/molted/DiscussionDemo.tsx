@@ -70,9 +70,9 @@ function CopyButton({ text }: { text: string }) {
       onClick={copy}
       className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg transition-all"
       style={{
-        background: copied ? TEAL_DIM : 'rgba(255,255,255,0.06)',
+        background: copied ? TEAL_DIM : 'rgba(0,0,0,0.06)',
         color: copied ? TEAL : '#94A3B8',
-        border: `1px solid ${copied ? TEAL_BORDER : 'rgba(255,255,255,0.08)'}`,
+        border: `1px solid ${copied ? TEAL_BORDER : 'rgba(0,0,0,0.07)'}`,
       }}
     >
       {copied ? <Check size={11} /> : <Copy size={11} />}
@@ -99,7 +99,7 @@ function PostCard({ post }: { post: Post }) {
       >
         <div
           className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold"
-          style={{ background: 'rgba(255,255,255,0.08)', color: '#F5F5F7' }}
+          style={{ background: 'rgba(0,0,0,0.07)', color: '#1C1C1E' }}
         >
           {post.author.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase()}
         </div>
@@ -126,7 +126,7 @@ function PostCard({ post }: { post: Post }) {
           {post.issue && (
             <div
               className="rounded-xl p-3 text-xs leading-relaxed"
-              style={{ background: 'rgba(148,163,184,0.05)', border: '1px solid rgba(255,255,255,0.06)' }}
+              style={{ background: 'rgba(148,163,184,0.05)', border: '1px solid rgba(0,0,0,0.06)' }}
             >
               <p className="text-red-400 font-semibold mb-1">Issue detected</p>
               <p className="text-molted-muted">{post.issue}</p>
@@ -135,7 +135,7 @@ function PostCard({ post }: { post: Post }) {
 
           <div
             className="rounded-xl p-4"
-            style={{ background: 'rgba(148,163,184,0.05)', border: '1px solid rgba(255,255,255,0.06)' }}
+            style={{ background: 'rgba(148,163,184,0.05)', border: '1px solid rgba(0,0,0,0.06)' }}
           >
             <div className="flex items-center justify-between mb-2">
               <p className="text-molted-muted text-xs font-semibold uppercase tracking-wide">
@@ -166,7 +166,7 @@ function FilterTabs({
   };
 
   const tabs: { key: Filter; label: string; color: string }[] = [
-    { key: 'all', label: 'All Posts', color: '#F5F5F7' },
+    { key: 'all', label: 'All Posts', color: '#1C1C1E' },
     { key: 'misconception', label: 'Misconceptions', color: '#3B82F6' },
     { key: 'strong', label: 'Highlights', color: TEAL },
   ];
@@ -179,16 +179,16 @@ function FilterTabs({
           onClick={() => setFilter(tab.key)}
           className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-sm font-semibold transition-all"
           style={{
-            background: filter === tab.key ? 'rgba(255,255,255,0.08)' : 'transparent',
+            background: filter === tab.key ? 'rgba(0,0,0,0.07)' : 'transparent',
             color: filter === tab.key ? tab.color : '#94A3B8',
-            border: `1px solid ${filter === tab.key ? 'rgba(255,255,255,0.15)' : 'rgba(255,255,255,0.06)'}`,
+            border: `1px solid ${filter === tab.key ? 'rgba(0,0,0,0.10)' : 'rgba(0,0,0,0.06)'}`,
           }}
         >
           {tab.label}
           <span
             className="text-xs px-1.5 py-0.5 rounded-full"
             style={{
-              background: filter === tab.key ? `${tab.color}20` : 'rgba(255,255,255,0.05)',
+              background: filter === tab.key ? `${tab.color}20` : 'rgba(0,0,0,0.05)',
               color: filter === tab.key ? tab.color : '#94A3B8',
             }}
           >
@@ -230,7 +230,7 @@ function Results({ analysis }: { analysis: Analysis }) {
       {analysis.instructorPost && (
         <div
           className="rounded-2xl border"
-          style={{ background: 'rgba(17,17,24,0.9)', borderColor: 'rgba(255,255,255,0.08)' }}
+          style={{ background: 'rgba(248,249,252,0.95)', borderColor: 'rgba(0,0,0,0.07)' }}
         >
           <div className="flex items-center justify-between px-5 pt-5 pb-3">
             <div>
@@ -241,7 +241,7 @@ function Results({ analysis }: { analysis: Analysis }) {
           </div>
           <div
             className="mx-4 mb-4 rounded-xl p-4 text-sm leading-relaxed text-molted-white/85 whitespace-pre-wrap"
-            style={{ background: 'rgba(148,163,184,0.05)', border: '1px solid rgba(255,255,255,0.05)' }}
+            style={{ background: 'rgba(148,163,184,0.05)', border: '1px solid rgba(0,0,0,0.05)' }}
           >
             {analysis.instructorPost}
           </div>
@@ -263,7 +263,7 @@ function Results({ analysis }: { analysis: Analysis }) {
       {/* Insights */}
       <div
         className="rounded-2xl p-5 border"
-        style={{ background: 'rgba(17,17,24,0.9)', borderColor: 'rgba(255,255,255,0.06)' }}
+        style={{ background: 'rgba(248,249,252,0.95)', borderColor: 'rgba(0,0,0,0.06)' }}
       >
         <div className="flex items-center gap-2 mb-3">
           <Lightbulb size={14} style={{ color: '#64748B' }} />
@@ -306,9 +306,9 @@ function ChipGroup<T extends string>({
               onClick={() => onChange(opt.value)}
               className="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all"
               style={{
-                background: active ? TEAL_DIM : 'rgba(255,255,255,0.04)',
+                background: active ? TEAL_DIM : 'rgba(0,0,0,0.04)',
                 color: active ? TEAL : '#94A3B8',
-                border: `1px solid ${active ? TEAL_BORDER : 'rgba(255,255,255,0.07)'}`,
+                border: `1px solid ${active ? TEAL_BORDER : 'rgba(0,0,0,0.06)'}`,
               }}
             >
               {opt.label}
@@ -355,8 +355,8 @@ function InputPanel({
           rows={14}
           className="w-full rounded-2xl border text-sm text-molted-white leading-relaxed resize-none p-4 focus:outline-none transition-colors"
           style={{
-            background: 'rgba(17,17,24,0.9)',
-            borderColor: thread.length > 0 ? TEAL_BORDER : 'rgba(255,255,255,0.08)',
+            background: 'rgba(248,249,252,0.95)',
+            borderColor: thread.length > 0 ? TEAL_BORDER : 'rgba(0,0,0,0.07)',
             fontFamily: 'monospace',
           }}
         />
@@ -374,8 +374,8 @@ function InputPanel({
           rows={3}
           className="w-full rounded-2xl border text-sm text-molted-muted leading-relaxed resize-none p-4 focus:outline-none transition-colors"
           style={{
-            background: 'rgba(17,17,24,0.9)',
-            borderColor: context.length > 0 ? TEAL_BORDER : 'rgba(255,255,255,0.08)',
+            background: 'rgba(248,249,252,0.95)',
+            borderColor: context.length > 0 ? TEAL_BORDER : 'rgba(0,0,0,0.07)',
           }}
         />
         <p className="text-molted-muted text-xs mt-1.5">
@@ -386,7 +386,7 @@ function InputPanel({
       {/* Response options */}
       <div
         className="rounded-2xl border p-4 space-y-4"
-        style={{ background: 'rgba(0,0,0,0.25)', borderColor: 'rgba(255,255,255,0.06)' }}
+        style={{ background: 'rgba(0,0,0,0.25)', borderColor: 'rgba(0,0,0,0.06)' }}
       >
         <p className="text-molted-white text-xs font-bold uppercase tracking-wide">
           Response options
@@ -415,7 +415,7 @@ function InputPanel({
               }}
               className="w-24 rounded-lg border text-sm text-molted-white text-center py-1.5 focus:outline-none"
               style={{
-                background: 'rgba(17,17,24,0.9)',
+                background: 'rgba(248,249,252,0.95)',
                 borderColor: TEAL_BORDER,
               }}
             />
@@ -427,9 +427,9 @@ function InputPanel({
                   onClick={() => setOpts(o => ({ ...o, wordCount: n }))}
                   className="px-2.5 py-1 rounded-lg text-xs font-semibold transition-all"
                   style={{
-                    background: opts.wordCount === n ? TEAL_DIM : 'rgba(255,255,255,0.04)',
+                    background: opts.wordCount === n ? TEAL_DIM : 'rgba(0,0,0,0.04)',
                     color: opts.wordCount === n ? TEAL : '#94A3B8',
-                    border: `1px solid ${opts.wordCount === n ? TEAL_BORDER : 'rgba(255,255,255,0.07)'}`,
+                    border: `1px solid ${opts.wordCount === n ? TEAL_BORDER : 'rgba(0,0,0,0.06)'}`,
                   }}
                 >
                   {n}w
@@ -453,9 +453,9 @@ function InputPanel({
                   onClick={() => setOpts(o => ({ ...o, nameStudents: opt.val }))}
                   className="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all"
                   style={{
-                    background: active ? TEAL_DIM : 'rgba(255,255,255,0.04)',
+                    background: active ? TEAL_DIM : 'rgba(0,0,0,0.04)',
                     color: active ? TEAL : '#94A3B8',
-                    border: `1px solid ${active ? TEAL_BORDER : 'rgba(255,255,255,0.07)'}`,
+                    border: `1px solid ${active ? TEAL_BORDER : 'rgba(0,0,0,0.06)'}`,
                   }}
                 >
                   {opt.label}
@@ -569,7 +569,7 @@ export default function DiscussionDemo() {
             {/* Input */}
             <div
               className="rounded-3xl p-6 border sticky top-24"
-              style={{ background: 'rgba(17,17,24,0.7)', borderColor: 'rgba(255,255,255,0.06)' }}
+              style={{ background: 'rgba(241,243,248,0.90)', borderColor: 'rgba(0,0,0,0.06)' }}
             >
               <InputPanel onAnalyze={handleAnalyze} loading={loading} />
             </div>
@@ -589,10 +589,10 @@ export default function DiscussionDemo() {
               {!analysis && !loading && !error && (
                 <div
                   className="rounded-3xl p-10 border text-center"
-                  style={{ background: 'rgba(20,20,32,0.8)', borderColor: 'rgba(148,163,184,0.15)' }}
+                  style={{ background: 'rgba(248,249,252,0.95)', borderColor: 'rgba(148,163,184,0.15)' }}
                 >
                   <MessageSquare size={32} className="mx-auto mb-4" style={{ color: '#64748B' }} />
-                  <p className="font-semibold mb-2" style={{ color: '#F0F0F5' }}>Analysis will appear here</p>
+                  <p className="font-semibold mb-2" style={{ color: '#1C1C1E' }}>Analysis will appear here</p>
                   <p className="text-sm" style={{ color: '#94A3B8' }}>
                     Paste a discussion thread and click Analyze.
                     <br />
@@ -604,7 +604,7 @@ export default function DiscussionDemo() {
               {loading && (
                 <div
                   className="rounded-3xl p-10 border text-center"
-                  style={{ background: 'rgba(17,17,24,0.5)', borderColor: TEAL_BORDER }}
+                  style={{ background: 'rgba(241,243,248,0.80)', borderColor: TEAL_BORDER }}
                 >
                   <div
                     className="w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4"
@@ -627,7 +627,7 @@ export default function DiscussionDemo() {
           {/* Next step nudge */}
           <div
             className="mt-16 rounded-3xl p-8 border text-center"
-            style={{ background: 'rgba(17,17,24,0.7)', borderColor: 'rgba(255,255,255,0.06)' }}
+            style={{ background: 'rgba(241,243,248,0.90)', borderColor: 'rgba(0,0,0,0.06)' }}
           >
             <p className="text-molted-muted text-sm mb-1">This is Forge Discussion Intelligence — beta.</p>
             <p className="text-molted-white font-semibold mb-5">
@@ -636,7 +636,7 @@ export default function DiscussionDemo() {
             <a
               href="mailto:hello@molted.ai"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all hover:-translate-y-px"
-              style={{ background: TEAL, color: '#0A0A0F' }}
+              style={{ background: TEAL, color: '#ffffff' }}
             >
               Join the early access list
               <ArrowRight size={14} />

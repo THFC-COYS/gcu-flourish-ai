@@ -48,7 +48,7 @@ function CopyButton({ text, label = 'Copy' }: { text: string; label?: string }) 
       style={{
         background: copied ? TEAL_DIM : 'rgba(148,163,184,0.10)',
         color: copied ? TEAL : '#94A3B8',
-        border: `1px solid ${copied ? TEAL_BORDER : 'rgba(255,255,255,0.10)'}`,
+        border: `1px solid ${copied ? TEAL_BORDER : 'rgba(0,0,0,0.08)'}`,
       }}
     >
       {copied ? <Check size={11} /> : <Copy size={11} />}
@@ -65,7 +65,7 @@ function ConfidenceBar({ score }: { score: number }) {
         <span className="text-xs" style={{ color: '#94A3B8' }}>Response confidence</span>
         <span className="text-sm font-bold" style={{ color }}>{score}%</span>
       </div>
-      <div className="h-1.5 rounded-full" style={{ background: 'rgba(255,255,255,0.10)' }}>
+      <div className="h-1.5 rounded-full" style={{ background: 'rgba(0,0,0,0.08)' }}>
         <div
           className="h-full rounded-full transition-all duration-700"
           style={{ width: `${score}%`, background: color }}
@@ -88,7 +88,7 @@ function PolicyCard({ ref: pRef, idx }: { ref: PolicyRef; idx: number }) {
       >
         <div className="flex items-center gap-2">
           <BookOpen size={12} style={{ color: TEAL }} />
-          <span className="text-xs font-semibold" style={{ color: '#F5F5F7' }}>
+          <span className="text-xs font-semibold" style={{ color: '#1C1C1E' }}>
             Policy reference {idx + 1}: {pRef.policy}
           </span>
         </div>
@@ -224,8 +224,8 @@ function InputPanel({
           className="w-full rounded-xl px-4 py-3 text-sm resize-none outline-none transition-all"
           style={{
             background: 'rgba(148,163,184,0.08)',
-            border: '1px solid rgba(255,255,255,0.10)',
-            color: '#F5F5F7',
+            border: '1px solid rgba(0,0,0,0.08)',
+            color: '#1C1C1E',
           }}
         />
       </div>
@@ -242,8 +242,8 @@ function InputPanel({
           className="w-full rounded-xl px-4 py-3 text-sm resize-none outline-none transition-all"
           style={{
             background: 'rgba(148,163,184,0.08)',
-            border: '1px solid rgba(255,255,255,0.10)',
-            color: '#F5F5F7',
+            border: '1px solid rgba(0,0,0,0.08)',
+            color: '#1C1C1E',
           }}
         />
       </div>
@@ -260,8 +260,8 @@ function InputPanel({
           className="w-full rounded-xl px-4 py-3 text-sm outline-none"
           style={{
             background: 'rgba(148,163,184,0.08)',
-            border: '1px solid rgba(255,255,255,0.10)',
-            color: '#F5F5F7',
+            border: '1px solid rgba(0,0,0,0.08)',
+            color: '#1C1C1E',
           }}
         />
       </div>
@@ -290,7 +290,7 @@ function InputPanel({
                 )}
               </div>
               <div>
-                <p className="text-xs font-semibold" style={{ color: state.threshold === t.value ? TEAL : '#F5F5F7' }}>
+                <p className="text-xs font-semibold" style={{ color: state.threshold === t.value ? TEAL : '#1C1C1E' }}>
                   {t.label}
                 </p>
                 <p className="text-xs mt-0.5" style={{ color: '#94A3B8' }}>{t.desc}</p>
@@ -376,12 +376,12 @@ function Results({ result }: { result: AutoRespondResult }) {
       {/* Draft response */}
       <div
         className="rounded-2xl border overflow-hidden"
-        style={{ background: 'rgba(17,17,24,0.7)', borderColor: 'rgba(148,163,184,0.12)' }}
+        style={{ background: 'rgba(241,243,248,0.90)', borderColor: 'rgba(148,163,184,0.12)' }}
       >
         <div className="flex items-center justify-between px-5 py-3 border-b" style={{ borderColor: 'rgba(148,163,184,0.10)' }}>
           <div className="flex items-center gap-2">
             <MessageCircle size={13} style={{ color: TEAL }} />
-            <span className="text-xs font-semibold" style={{ color: '#F5F5F7' }}>
+            <span className="text-xs font-semibold" style={{ color: '#1C1C1E' }}>
               Draft response — in your voice
             </span>
           </div>
@@ -494,7 +494,7 @@ export default function AutoRespond() {
             {/* Left: Input */}
             <div
               className="rounded-3xl p-6 border sticky top-24"
-              style={{ background: 'rgba(17,17,24,0.7)', borderColor: 'rgba(148,163,184,0.10)' }}
+              style={{ background: 'rgba(241,243,248,0.90)', borderColor: 'rgba(148,163,184,0.10)' }}
             >
               <InputPanel
                 state={state}
@@ -519,7 +519,7 @@ export default function AutoRespond() {
               {!result && !loading && !error && (
                 <div
                   className="rounded-3xl p-10 border text-center"
-                  style={{ background: 'rgba(17,17,24,0.5)', borderColor: 'rgba(148,163,184,0.08)' }}
+                  style={{ background: 'rgba(241,243,248,0.80)', borderColor: 'rgba(148,163,184,0.08)' }}
                 >
                   <div className="flex justify-center gap-4 mb-6 opacity-30">
                     {[ShieldCheck, MessageCircle, AlertCircle].map((Icon, i) => (
@@ -543,7 +543,7 @@ export default function AutoRespond() {
               {loading && (
                 <div
                   className="rounded-3xl p-10 border text-center"
-                  style={{ background: 'rgba(17,17,24,0.5)', borderColor: TEAL_BORDER }}
+                  style={{ background: 'rgba(241,243,248,0.80)', borderColor: TEAL_BORDER }}
                 >
                   <Loader2 size={28} style={{ color: TEAL }} className="animate-spin mx-auto mb-4" />
                   <p className="text-molted-white font-semibold mb-1">Analyzing question…</p>
@@ -558,7 +558,7 @@ export default function AutoRespond() {
           {/* Footer CTA */}
           <div
             className="mt-16 rounded-3xl p-8 border text-center"
-            style={{ background: 'rgba(17,17,24,0.7)', borderColor: 'rgba(148,163,184,0.10)' }}
+            style={{ background: 'rgba(241,243,248,0.90)', borderColor: 'rgba(148,163,184,0.10)' }}
           >
             <p className="text-molted-muted text-sm mb-1">This is Forge Auto-Respond — beta.</p>
             <p className="text-molted-white font-semibold mb-5">
@@ -567,7 +567,7 @@ export default function AutoRespond() {
             <a
               href="mailto:hello@molted.ai"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all hover:-translate-y-px"
-              style={{ background: TEAL, color: '#0A0A0F' }}
+              style={{ background: TEAL, color: '#ffffff' }}
             >
               Join the early access list
               <ArrowRight size={14} />

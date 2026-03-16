@@ -16,10 +16,10 @@ export default {
           'gold-pale': '#FFF8E1',
         },
         molted: {
-          black: '#0a0a0f',             // page background — deep dark
-          surface: '#0f0f18',           // dark surface
-          elevated: '#141420',          // slightly lighter dark — card/footer bg
-          border: 'rgba(255,255,255,0.09)', // subtle light border on dark
+          black: '#FFFFFF',             // page background — white
+          surface: '#F8F9FC',           // light surface
+          elevated: '#F1F3F8',          // light card background
+          border: 'rgba(0,0,0,0.09)',   // subtle dark border on white
           /* Logo palette — corporate: steel-blue (primary) · navy (statement) */
           charcoal: '#1C1C1E',
           gold: '#64748B',        /* slate-500 — neutral gray */
@@ -28,9 +28,9 @@ export default {
           red: '#1E3A8A',         /* navy blue */
           'red-light': '#3B82F6',
           'red-dark': '#172554',
-          white: '#F0F0F5',             // near-white — primary text on dark bg
-          muted: '#94A3B8',             // slate-400 — readable on dark
-          subtle: '#64748B',            // slate-500 — secondary/quiet on dark
+          white: '#0F172A',             // near-black — primary text on white bg
+          muted: '#475569',             // slate-600 — readable on white
+          subtle: '#94A3B8',            // slate-400 — secondary on white
           /* Aliases so existing classes keep working */
           violet: '#64748B',
           'violet-light': '#94A3B8',

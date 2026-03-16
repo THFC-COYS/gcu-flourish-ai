@@ -68,9 +68,9 @@ function AgentFeed() {
   }, [nextIndex]);
 
   const roleConfig = (role: string) =>
-    role === 'Faculty' ? { bg: 'rgba(37,99,235,0.25)', text: '#93BBFD', border: 'rgba(37,99,235,0.4)' }
-    : role === 'Admin'  ? { bg: 'rgba(99,102,241,0.22)',  text: '#A5B4FC', border: 'rgba(99,102,241,0.4)' }
-    :                     { bg: 'rgba(148,163,184,0.15)', text: '#CBD5E1', border: 'rgba(148,163,184,0.3)' };
+    role === 'Faculty' ? { bg: 'rgba(37,99,235,0.10)', text: '#1D4ED8', border: 'rgba(37,99,235,0.25)' }
+    : role === 'Admin'  ? { bg: 'rgba(99,102,241,0.10)',  text: '#4F46E5', border: 'rgba(99,102,241,0.25)' }
+    :                     { bg: 'rgba(100,116,139,0.10)', text: '#475569', border: 'rgba(100,116,139,0.25)' };
 
   return (
     <div className="space-y-3">
@@ -82,8 +82,8 @@ function AgentFeed() {
             to={item.href}
             className="group block rounded-xl p-4 border transition-all duration-300 hover:scale-[1.02]"
             style={{
-              background: 'rgba(255,255,255,0.05)',
-              borderColor: 'rgba(255,255,255,0.10)',
+              background: 'rgba(0,0,0,0.05)',
+              borderColor: 'rgba(0,0,0,0.08)',
               animation: i === 0 ? 'feedSlideIn 0.4s ease' : undefined,
             }}
           >
@@ -93,11 +93,11 @@ function AgentFeed() {
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded-full border" style={{ background: c.bg, color: c.text, borderColor: c.border }}>
                   {item.role}
                 </span>
-                <span className="text-[10px] opacity-0 group-hover:opacity-60 transition-opacity text-white font-medium">Try it →</span>
+                <span className="text-[10px] opacity-0 group-hover:opacity-60 transition-opacity text-molted-muted font-medium">Try it →</span>
               </div>
             </div>
-            <p className="text-sm text-slate-300 mb-2 leading-relaxed">{item.event}</p>
-            <p className="text-sm font-semibold text-white leading-snug">↳ {item.action}</p>
+            <p className="text-sm text-molted-muted mb-2 leading-relaxed">{item.event}</p>
+            <p className="text-sm font-semibold text-molted-white leading-snug">↳ {item.action}</p>
           </Link>
         );
       })}
@@ -159,7 +159,7 @@ function Hero() {
           <a
             href="mailto:hello@molted.ai?subject=MoltED Demo Request"
             className="group inline-flex items-center gap-3 px-10 py-5 rounded-2xl font-bold text-base transition-all duration-200 hover:-translate-y-1 hover:shadow-molted-glow"
-            style={{ background: 'linear-gradient(120deg, #2563EB 0%, #64748B 50%, #1E3A8A 100%)', color: '#0a0a0f' }}
+            style={{ background: 'linear-gradient(120deg, #2563EB 0%, #64748B 50%, #1E3A8A 100%)', color: '#ffffff' }}
           >
             See It Live
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -235,11 +235,11 @@ function ThePlatform() {
         <RevealBlock delay={200} className="mt-16">
           <div
             className="rounded-2xl border p-8"
-            style={{ background: 'rgba(10,10,20,0.85)', borderColor: 'rgba(99,155,255,0.25)', boxShadow: '0 0 40px rgba(37,99,235,0.08)' }}
+            style={{ background: 'rgba(248,249,252,0.95)', borderColor: 'rgba(99,155,255,0.25)', boxShadow: '0 0 40px rgba(37,99,235,0.08)' }}
           >
             <div className="flex items-center gap-2 mb-8">
               <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: '#60A5FA' }} />
-              <p className="text-xs font-bold uppercase tracking-widest" style={{ color: '#93BBFD' }}>
+              <p className="text-xs font-bold uppercase tracking-widest" style={{ color: '#2563EB' }}>
                 Agents running now
               </p>
             </div>
@@ -288,7 +288,7 @@ function DataFlywheel() {
             <RevealBlock key={i} delay={i * 80}>
               <div
                 className="rounded-xl p-5 border h-full"
-                style={{ background: 'rgba(17,17,24,0.6)', borderColor: 'rgba(100,116,139,0.12)' }}
+                style={{ background: 'rgba(241,243,248,0.85)', borderColor: 'rgba(100,116,139,0.12)' }}
               >
                 <p
                   className="text-3xl font-black mb-3 leading-none"
@@ -444,7 +444,7 @@ function InstructorFirst() {
             <RevealBlock key={i} delay={i * 80}>
               <div
                 className="rounded-xl border p-6"
-                style={{ background: 'rgba(17,17,24,0.6)', borderColor: 'rgba(37,99,235,0.12)' }}
+                style={{ background: 'rgba(241,243,248,0.85)', borderColor: 'rgba(37,99,235,0.12)' }}
               >
                 <div className="flex items-start gap-3">
                   <div
@@ -484,7 +484,7 @@ function Traction() {
       <div className="max-w-6xl mx-auto">
         <RevealBlock>
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 rounded-2xl border border-molted-border p-8 md:p-12"
-            style={{ background: 'rgba(17,17,24,0.6)' }}>
+            style={{ background: 'rgba(241,243,248,0.85)' }}>
             <div className="text-center md:text-left">
               <p
                 className="text-7xl md:text-8xl font-black leading-none"
@@ -528,7 +528,7 @@ function CampusBridge() {
           <Link
             to="/outpost"
             className="group block relative rounded-3xl overflow-hidden p-12 md:p-16 text-center transition-all duration-500"
-            style={{ background: 'rgba(10,10,15,0.92)', boxShadow: '0 8px 48px rgba(0,0,0,0.14), 0 2px 8px rgba(0,0,0,0.08)', border: '1px solid rgba(255,255,255,0.08)' }}
+            style={{ background: 'rgba(255,255,255,0.95)', boxShadow: '0 8px 48px rgba(0,0,0,0.14), 0 2px 8px rgba(0,0,0,0.08)', border: '1px solid rgba(0,0,0,0.07)' }}
           >
             <div className="absolute inset-0 pointer-events-none">
               <div className="absolute top-0 left-1/4 w-[400px] h-[300px] rounded-full" style={{ background: 'radial-gradient(ellipse,rgba(37,99,235,0.14) 0%,transparent 70%)' }} />
@@ -537,7 +537,7 @@ function CampusBridge() {
             </div>
             <div className="relative z-10">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-6"
-                style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: '#86868B' }}>
+                style={{ background: 'rgba(0,0,0,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: '#86868B' }}>
                 <Bot size={11} />
                 The full platform
               </div>
@@ -552,7 +552,7 @@ function CampusBridge() {
                 Forge, Lumen, and Beacon aren't integrations. They're native features of an LMS built from scratch for the AI era.
               </p>
               <div className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all group-hover:-translate-y-0.5"
-                style={{ background: 'linear-gradient(120deg,#2563EB,#64748B,#1E3A8A)', color: '#0A0A0F' }}>
+                style={{ background: 'linear-gradient(120deg,#2563EB,#64748B,#1E3A8A)', color: '#ffffff' }}>
                 See Outpost <ArrowRight size={14} />
               </div>
             </div>
@@ -624,7 +624,7 @@ function FinalCTA() {
             <a
               href="mailto:hello@molted.ai?subject=MoltED Demo Request"
               className="group flex items-center gap-2.5 px-8 py-4 rounded-xl text-white font-bold text-lg transition-all duration-200 hover:-translate-y-px"
-              style={{ background: 'linear-gradient(135deg, #2563EB 0%, #64748B 50%, #1E3A8A 100%)', color: '#0A0A0F' }}
+              style={{ background: 'linear-gradient(135deg, #2563EB 0%, #64748B 50%, #1E3A8A 100%)', color: '#ffffff' }}
             >
               Schedule a Demo
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />

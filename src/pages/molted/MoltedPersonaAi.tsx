@@ -322,9 +322,9 @@ function SpiritShowcase() {
                 onClick={() => switchIndustry(ind)}
                 className="px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200"
                 style={{
-                  background: activeIndustry === ind ? '#1E3A8A' : 'rgba(255,255,255,0.05)',
+                  background: activeIndustry === ind ? '#1E3A8A' : 'rgba(0,0,0,0.05)',
                   color: activeIndustry === ind ? '#fff' : '#86868B',
-                  border: `1px solid ${activeIndustry === ind ? 'transparent' : 'rgba(255,255,255,0.08)'}`,
+                  border: `1px solid ${activeIndustry === ind ? 'transparent' : 'rgba(0,0,0,0.07)'}`,
                 }}
               >
                 {ind}

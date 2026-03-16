@@ -125,7 +125,7 @@ function Hero() {
         <a
           href="mailto:hello@molted.ai"
           className="group inline-flex items-center gap-3 px-9 py-4 rounded-2xl font-bold text-lg transition-all duration-200 hover:-translate-y-px hover:shadow-2xl"
-          style={{ background: IMAGO_GRADIENT, color: '#0a0a0f' }}
+          style={{ background: IMAGO_GRADIENT, color: '#ffffff' }}
         >
           Begin the Transformation
           <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
@@ -383,7 +383,7 @@ function WhatsDifferent() {
               <div
                 className="rounded-2xl p-10 border h-full"
                 style={{
-                  background: 'rgba(17,17,24,0.7)',
+                  background: 'rgba(241,243,248,0.90)',
                   borderColor: `rgba(245,183,64,0.12)`,
                 }}
               >
@@ -438,7 +438,7 @@ function Architecture() {
             <div
               className="rounded-3xl px-12 py-6 text-center border relative overflow-hidden"
               style={{
-                background: 'rgba(10,10,15,0.98)',
+                background: 'rgba(255,255,255,0.98)',
                 borderColor: 'transparent',
                 boxShadow: `0 0 0 1px rgba(245,183,64,0.6),
                              0 0 0 4px rgba(245,183,64,0.15),
@@ -480,7 +480,7 @@ function Architecture() {
             <div
               className="rounded-2xl px-10 py-4 text-center border hover:border-opacity-80 transition-colors"
               style={{
-                background: 'rgba(10,10,15,0.95)',
+                background: 'rgba(255,255,255,0.97)',
                 boxShadow: '0 0 0 1px rgba(100,116,139,0.35), 0 0 0 3px rgba(37,99,235,0.12), 0 0 0 6px rgba(139,92,246,0.07)',
               }}
             >
@@ -604,7 +604,7 @@ function TransformCTA() {
           <a
             href="mailto:hello@molted.ai"
             className="group inline-flex items-center gap-3 px-9 py-4 rounded-2xl font-bold text-lg transition-all duration-200 hover:-translate-y-px"
-            style={{ background: IMAGO_GRADIENT, color: '#0a0a0f' }}
+            style={{ background: IMAGO_GRADIENT, color: '#ffffff' }}
           >
             Begin the Transformation
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />

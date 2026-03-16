@@ -61,7 +61,7 @@ function CopyButton({ text, label = 'Copy' }: { text: string; label?: string }) 
       style={{
         background: copied ? TEAL_DIM : 'rgba(148,163,184,0.10)',
         color: copied ? TEAL : '#94A3B8',
-        border: `1px solid ${copied ? TEAL_BORDER : 'rgba(255,255,255,0.10)'}`,
+        border: `1px solid ${copied ? TEAL_BORDER : 'rgba(0,0,0,0.08)'}`,
       }}
     >
       {copied ? <Check size={11} /> : <Copy size={11} />}
@@ -98,12 +98,12 @@ function StudentCard({ student }: { student: StudentRisk }) {
         <div className="flex items-center gap-3">
           <div
             className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-black flex-shrink-0"
-            style={{ background: 'rgba(255,255,255,0.10)', color }}
+            style={{ background: 'rgba(0,0,0,0.08)', color }}
           >
             {student.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
           </div>
           <div>
-            <p className="text-sm font-semibold" style={{ color: '#F5F5F7' }}>{student.name}</p>
+            <p className="text-sm font-semibold" style={{ color: '#1C1C1E' }}>{student.name}</p>
             <p className="text-xs mt-0.5" style={{ color }}>
               {tierLabel(student.tier)} · {student.riskScore}% risk score
             </p>
@@ -132,7 +132,7 @@ function StudentCard({ student }: { student: StudentRisk }) {
                 className="rounded-xl px-3 py-2 flex flex-col gap-0.5"
                 style={{
                   background: sig.flag ? 'rgba(148,163,184,0.10)' : 'rgba(148,163,184,0.06)',
-                  border: `1px solid ${sig.flag ? 'rgba(255,255,255,0.10)' : 'rgba(148,163,184,0.08)'}`,
+                  border: `1px solid ${sig.flag ? 'rgba(0,0,0,0.08)' : 'rgba(148,163,184,0.08)'}`,
                 }}
               >
                 <span className="text-xs" style={{ color: '#94A3B8' }}>{sig.label}</span>
@@ -147,12 +147,12 @@ function StudentCard({ student }: { student: StudentRisk }) {
           {student.tier !== 'low' && (
             <div
               className="rounded-xl border overflow-hidden"
-              style={{ background: 'rgba(17,17,24,0.6)', borderColor: 'rgba(148,163,184,0.12)' }}
+              style={{ background: 'rgba(241,243,248,0.85)', borderColor: 'rgba(148,163,184,0.12)' }}
             >
               <div className="flex items-center justify-between px-4 py-2.5 border-b" style={{ borderColor: 'rgba(148,163,184,0.10)' }}>
                 <div className="flex items-center gap-1.5">
                   <MessageSquare size={11} style={{ color: TEAL }} />
-                  <span className="text-xs font-semibold" style={{ color: '#F5F5F7' }}>Check-in draft</span>
+                  <span className="text-xs font-semibold" style={{ color: '#1C1C1E' }}>Check-in draft</span>
                 </div>
                 <CopyButton text={student.checkInDraft} label="Copy message" />
               </div>
@@ -335,8 +335,8 @@ function InputPanel({
           className="w-full rounded-xl px-4 py-3 text-sm resize-none outline-none font-mono"
           style={{
             background: 'rgba(148,163,184,0.08)',
-            border: '1px solid rgba(255,255,255,0.10)',
-            color: '#F5F5F7',
+            border: '1px solid rgba(0,0,0,0.08)',
+            color: '#1C1C1E',
           }}
         />
       </div>
@@ -354,8 +354,8 @@ function InputPanel({
             className="w-full rounded-xl px-3 py-2.5 text-sm outline-none"
             style={{
               background: 'rgba(148,163,184,0.08)',
-              border: '1px solid rgba(255,255,255,0.10)',
-              color: '#F5F5F7',
+              border: '1px solid rgba(0,0,0,0.08)',
+              color: '#1C1C1E',
             }}
           />
         </div>
@@ -371,8 +371,8 @@ function InputPanel({
             className="w-full rounded-xl px-3 py-2.5 text-sm outline-none"
             style={{
               background: 'rgba(148,163,184,0.08)',
-              border: '1px solid rgba(255,255,255,0.10)',
-              color: '#F5F5F7',
+              border: '1px solid rgba(0,0,0,0.08)',
+              color: '#1C1C1E',
             }}
           />
         </div>
@@ -402,7 +402,7 @@ function InputPanel({
                 )}
               </div>
               <div>
-                <p className="text-xs font-semibold" style={{ color: state.style === s.value ? TEAL : '#F5F5F7' }}>
+                <p className="text-xs font-semibold" style={{ color: state.style === s.value ? TEAL : '#1C1C1E' }}>
                   {s.label}
                 </p>
                 <p className="text-xs mt-0.5" style={{ color: '#94A3B8' }}>{s.desc}</p>
@@ -493,7 +493,7 @@ function Results({ result }: { result: WarningResult }) {
             {f.label}
             <span
               className="px-1.5 py-0.5 rounded-full text-xs"
-              style={{ background: 'rgba(255,255,255,0.10)', color: 'inherit' }}
+              style={{ background: 'rgba(0,0,0,0.08)', color: 'inherit' }}
             >
               {f.count}
             </span>
@@ -509,7 +509,7 @@ function Results({ result }: { result: WarningResult }) {
         {filtered.length === 0 && (
           <div
             className="rounded-2xl p-8 border text-center"
-            style={{ background: 'rgba(17,17,24,0.5)', borderColor: 'rgba(148,163,184,0.08)' }}
+            style={{ background: 'rgba(241,243,248,0.80)', borderColor: 'rgba(148,163,184,0.08)' }}
           >
             <UserCheck size={24} style={{ color: TEAL }} className="mx-auto mb-2" />
             <p className="text-xs" style={{ color: '#94A3B8' }}>No students in this tier.</p>
@@ -602,7 +602,7 @@ export default function EarlyWarning() {
             {/* Left: Input */}
             <div
               className="rounded-3xl p-6 border sticky top-24"
-              style={{ background: 'rgba(17,17,24,0.7)', borderColor: 'rgba(148,163,184,0.10)' }}
+              style={{ background: 'rgba(241,243,248,0.90)', borderColor: 'rgba(148,163,184,0.10)' }}
             >
               <InputPanel
                 state={state}
@@ -627,7 +627,7 @@ export default function EarlyWarning() {
               {!result && !loading && !error && (
                 <div
                   className="rounded-3xl p-10 border text-center"
-                  style={{ background: 'rgba(17,17,24,0.5)', borderColor: 'rgba(148,163,184,0.08)' }}
+                  style={{ background: 'rgba(241,243,248,0.80)', borderColor: 'rgba(148,163,184,0.08)' }}
                 >
                   <div className="flex justify-center gap-4 mb-6 opacity-30">
                     {[AlertTriangle, TrendingDown, MessageSquare].map((Icon, i) => (
@@ -651,7 +651,7 @@ export default function EarlyWarning() {
               {loading && (
                 <div
                   className="rounded-3xl p-10 border text-center"
-                  style={{ background: 'rgba(17,17,24,0.5)', borderColor: TEAL_BORDER }}
+                  style={{ background: 'rgba(241,243,248,0.80)', borderColor: TEAL_BORDER }}
                 >
                   <Loader2 size={28} style={{ color: TEAL }} className="animate-spin mx-auto mb-4" />
                   <p className="text-molted-white font-semibold mb-1">Scanning roster…</p>
@@ -668,7 +668,7 @@ export default function EarlyWarning() {
           {/* Footer CTA */}
           <div
             className="mt-16 rounded-3xl p-8 border text-center"
-            style={{ background: 'rgba(17,17,24,0.7)', borderColor: 'rgba(148,163,184,0.10)' }}
+            style={{ background: 'rgba(241,243,248,0.90)', borderColor: 'rgba(148,163,184,0.10)' }}
           >
             <p className="text-molted-muted text-sm mb-1">This is Forge Early Warning Engine — beta.</p>
             <p className="text-molted-white font-semibold mb-5">
@@ -677,7 +677,7 @@ export default function EarlyWarning() {
             <a
               href="mailto:hello@molted.ai"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all hover:-translate-y-px"
-              style={{ background: TEAL, color: '#0A0A0F' }}
+              style={{ background: TEAL, color: '#ffffff' }}
             >
               Join the early access list
               <ArrowRight size={14} />

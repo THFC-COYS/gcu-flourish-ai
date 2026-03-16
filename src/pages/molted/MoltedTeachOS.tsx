@@ -126,7 +126,7 @@ function Hero() {
       <RevealBlock delay={500} className="mt-20">
         <div
           className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl border"
-          style={{ background: 'rgba(10,10,15,0.8)', borderColor: 'rgba(255,255,255,0.06)' }}
+          style={{ background: 'rgba(248,249,252,0.95)', borderColor: 'rgba(0,0,0,0.06)' }}
         >
           <Clock size={14} className="text-molted-muted" />
           <p className="text-molted-muted text-sm">
@@ -417,7 +417,7 @@ function ToolVisual({ type }: { type: string }) {
               >
                 <Bot size={10} style={{ color: c.auto ? TEAL : '#64748B' }} />
               </div>
-              <p className="text-xs leading-relaxed" style={{ color: c.auto ? '#F5F5F7' : '#86868B' }}>{c.a}</p>
+              <p className="text-xs leading-relaxed" style={{ color: c.auto ? '#1C1C1E' : '#86868B' }}>{c.a}</p>
             </div>
             <div className="flex justify-end">
               <span
@@ -510,18 +510,18 @@ function CoreTools() {
                   className="w-full text-left p-4 rounded-2xl transition-all duration-300"
                   style={{
                     background: isActive ? TEAL_DIM : 'transparent',
-                    border: `1px solid ${isActive ? TEAL_BORDER : 'rgba(255,255,255,0.06)'}`,
+                    border: `1px solid ${isActive ? TEAL_BORDER : 'rgba(0,0,0,0.06)'}`,
                   }}
                 >
                   <div className="flex items-center gap-3">
                     <div
                       className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
-                      style={{ background: isActive ? `${TEAL}20` : 'rgba(255,255,255,0.05)' }}
+                      style={{ background: isActive ? `${TEAL}20` : 'rgba(0,0,0,0.05)' }}
                     >
                       <Icon size={15} style={{ color: isActive ? TEAL : '#86868B' }} />
                     </div>
                     <div>
-                      <p className="text-sm font-semibold" style={{ color: isActive ? '#F5F5F7' : '#86868B' }}>
+                      <p className="text-sm font-semibold" style={{ color: isActive ? '#1C1C1E' : '#86868B' }}>
                         {tool.name}
                       </p>
                       <p className="text-xs mt-0.5 text-molted-muted">{tool.tagline}</p>
@@ -537,7 +537,7 @@ function CoreTools() {
             {/* Description */}
             <div
               className="rounded-2xl p-6 border"
-              style={{ background: 'rgba(17,17,24,0.8)', borderColor: 'rgba(255,255,255,0.06)' }}
+              style={{ background: 'rgba(241,243,248,0.95)', borderColor: 'rgba(0,0,0,0.06)' }}
             >
               <p className="text-molted-white text-lg leading-relaxed mb-6">{active.description}</p>
               <div className="space-y-2.5">
@@ -685,7 +685,7 @@ function LMSKiller() {
             <div
               key={p.num}
               className="rounded-3xl border overflow-hidden"
-              style={{ background: 'rgba(17,17,24,0.6)', borderColor: 'rgba(255,255,255,0.07)' }}
+              style={{ background: 'rgba(241,243,248,0.85)', borderColor: 'rgba(0,0,0,0.06)' }}
             >
               {/* Top bar */}
               <div
@@ -695,7 +695,7 @@ function LMSKiller() {
                 <span className="text-5xl font-black opacity-20" style={{ color: p.color }}>{p.num}</span>
                 <div>
                   <p className="text-xs font-semibold mb-0.5" style={{ color: p.color }}>The problem</p>
-                  <p className="text-lg font-black" style={{ color: '#F5F5F7' }}>{p.problem}</p>
+                  <p className="text-lg font-black" style={{ color: '#1C1C1E' }}>{p.problem}</p>
                 </div>
                 <div className="ml-auto hidden md:block">
                   <p className="text-xs font-semibold mb-0.5 text-right" style={{ color: p.color }}>The fix</p>
@@ -798,7 +798,7 @@ function ComingSoon() {
         <div className="text-center mb-16">
           <div
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-5"
-            style={{ background: 'rgba(255,255,255,0.05)', color: '#86868B', border: '1px solid rgba(255,255,255,0.08)' }}
+            style={{ background: 'rgba(0,0,0,0.05)', color: '#86868B', border: '1px solid rgba(0,0,0,0.07)' }}
           >
             <Lock size={10} />
             What's coming next
@@ -819,14 +819,14 @@ function ComingSoon() {
             <div key={pillar.label}>
               {/* Pillar label */}
               <div className="flex items-center gap-3 mb-5">
-                <div className="h-px flex-1" style={{ background: 'rgba(255,255,255,0.06)' }} />
+                <div className="h-px flex-1" style={{ background: 'rgba(0,0,0,0.06)' }} />
                 <span
                   className="text-xs font-bold px-3 py-1 rounded-full"
                   style={{ background: pillar.colorDim, color: pillar.color, border: `1px solid ${pillar.colorBorder}` }}
                 >
                   {pillar.label}
                 </span>
-                <div className="h-px flex-1" style={{ background: 'rgba(255,255,255,0.06)' }} />
+                <div className="h-px flex-1" style={{ background: 'rgba(0,0,0,0.06)' }} />
               </div>
 
               {/* Feature cards grid */}
@@ -836,14 +836,14 @@ function ComingSoon() {
                     key={i}
                     className="rounded-2xl p-5 border relative group"
                     style={{
-                      background: 'rgba(17,17,24,0.6)',
-                      borderColor: 'rgba(255,255,255,0.06)',
+                      background: 'rgba(241,243,248,0.85)',
+                      borderColor: 'rgba(0,0,0,0.06)',
                     }}
                   >
                     {/* Coming soon badge */}
                     <div
                       className="absolute top-3 right-3 flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold"
-                      style={{ background: 'rgba(255,255,255,0.05)', color: '#3A3A40', border: '1px solid rgba(255,255,255,0.06)' }}
+                      style={{ background: 'rgba(0,0,0,0.05)', color: '#3A3A40', border: '1px solid rgba(0,0,0,0.06)' }}
                     >
                       <Lock size={8} />
                       Soon
@@ -857,7 +857,7 @@ function ComingSoon() {
                       <item.icon size={16} style={{ color: pillar.color }} />
                     </div>
 
-                    <p className="text-sm font-bold mb-1.5" style={{ color: '#F5F5F7' }}>{item.name}</p>
+                    <p className="text-sm font-bold mb-1.5" style={{ color: '#1C1C1E' }}>{item.name}</p>
                     <p className="text-xs leading-relaxed" style={{ color: '#86868B' }}>{item.desc}</p>
                   </div>
                 ))}
@@ -874,7 +874,7 @@ function ComingSoon() {
           <a
             href="mailto:hello@molted.ai"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all hover:-translate-y-px"
-            style={{ background: TEAL, color: '#0A0A0F' }}
+            style={{ background: TEAL, color: '#ffffff' }}
           >
             Get early access
             <ArrowRight size={14} />
@@ -955,7 +955,7 @@ function AgentLoop() {
                   {/* Content */}
                   <div
                     className="flex-1 rounded-2xl p-6 border"
-                    style={{ background: 'rgba(17,17,24,0.6)', borderColor: 'rgba(255,255,255,0.06)' }}
+                    style={{ background: 'rgba(241,243,248,0.85)', borderColor: 'rgba(0,0,0,0.06)' }}
                   >
                     <p className="text-molted-white font-bold text-lg mb-1">{step.label}</p>
                     <p className="text-molted-muted text-sm leading-relaxed">{step.detail}</p>
@@ -1044,8 +1044,8 @@ function AgenticFuture() {
               <div
                 className="rounded-2xl p-7 h-full border transition-all duration-300"
                 style={{
-                  background: m.live ? `${TEAL}08` : 'rgba(17,17,24,0.6)',
-                  borderColor: m.live ? TEAL_BORDER : 'rgba(255,255,255,0.06)',
+                  background: m.live ? `${TEAL}08` : 'rgba(241,243,248,0.85)',
+                  borderColor: m.live ? TEAL_BORDER : 'rgba(0,0,0,0.06)',
                   boxShadow: m.live ? TEAL_GLOW : 'none',
                 }}
               >
@@ -1053,9 +1053,9 @@ function AgenticFuture() {
                   <span
                     className="text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full"
                     style={{
-                      background: m.live ? TEAL_DIM : 'rgba(255,255,255,0.05)',
+                      background: m.live ? TEAL_DIM : 'rgba(0,0,0,0.05)',
                       color: m.live ? TEAL : '#86868B',
-                      border: `1px solid ${m.live ? TEAL_BORDER : 'rgba(255,255,255,0.08)'}`,
+                      border: `1px solid ${m.live ? TEAL_BORDER : 'rgba(0,0,0,0.07)'}`,
                     }}
                   >
                     {m.phase}
@@ -1070,7 +1070,7 @@ function AgenticFuture() {
 
                 <h3
                   className="text-2xl font-black mb-5 tracking-tight"
-                  style={{ color: m.live ? TEAL : '#F5F5F7' }}
+                  style={{ color: m.live ? TEAL : '#1C1C1E' }}
                 >
                   {m.title}
                 </h3>
@@ -1146,7 +1146,7 @@ function FacultyVoice() {
             The agent learns your voice.
           </h2>
           <p className="text-3xl md:text-4xl font-black leading-tight tracking-tight mt-2"
-            style={{ color: 'rgba(255,255,255,0.25)' }}>
+            style={{ color: 'rgba(15,23,42,0.35)' }}>
             Students never lose you.
           </p>
         </RevealBlock>
@@ -1164,7 +1164,7 @@ function FacultyVoice() {
               <RevealBlock key={i} delay={i * 80}>
                 <div
                   className="rounded-2xl border p-6 h-full"
-                  style={{ background: 'rgba(17,17,24,0.7)', borderColor: TEAL_BORDER }}
+                  style={{ background: 'rgba(241,243,248,0.90)', borderColor: TEAL_BORDER }}
                 >
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
@@ -1189,7 +1189,7 @@ function FacultyVoice() {
         <RevealBlock delay={200}>
           <div
             className="rounded-2xl border p-8 md:p-10 text-center"
-            style={{ background: 'linear-gradient(135deg, rgba(37,99,235,0.05) 0%, rgba(17,17,24,0.8) 100%)', borderColor: TEAL_BORDER, boxShadow: TEAL_GLOW }}
+            style={{ background: 'linear-gradient(135deg, rgba(37,99,235,0.05) 0%, rgba(241,243,248,0.95) 100%)', borderColor: TEAL_BORDER, boxShadow: TEAL_GLOW }}
           >
             <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: TEAL }}>
               The rule
@@ -1329,8 +1329,8 @@ function TeachStats() {
                 <div
                   className="rounded-2xl p-6 text-center border hover:scale-[1.02] transition-transform"
                   style={{
-                    background: 'rgba(17,17,24,0.6)',
-                    borderColor: 'rgba(255,255,255,0.06)',
+                    background: 'rgba(241,243,248,0.85)',
+                    borderColor: 'rgba(0,0,0,0.06)',
                   }}
                 >
                   <Icon size={22} className="mx-auto mb-4" style={{ color: TEAL }} />
@@ -1395,8 +1395,8 @@ function PricingTeaser() {
               <div
                 className="rounded-2xl p-7 h-full flex flex-col border transition-all duration-300"
                 style={{
-                  background: tier.highlight ? `${TEAL}0A` : 'rgba(17,17,24,0.6)',
-                  borderColor: tier.highlight ? TEAL_BORDER : 'rgba(255,255,255,0.06)',
+                  background: tier.highlight ? `${TEAL}0A` : 'rgba(241,243,248,0.85)',
+                  borderColor: tier.highlight ? TEAL_BORDER : 'rgba(0,0,0,0.06)',
                   boxShadow: tier.highlight ? TEAL_GLOW : 'none',
                 }}
               >
@@ -1420,9 +1420,9 @@ function PricingTeaser() {
                   href="mailto:hello@molted.ai"
                   className="block text-center px-5 py-3 rounded-xl text-sm font-semibold transition-all duration-200 hover:-translate-y-px"
                   style={{
-                    background: tier.highlight ? TEAL : 'rgba(255,255,255,0.06)',
-                    color: tier.highlight ? '#000000' : '#F5F5F7',
-                    border: tier.highlight ? 'none' : '1px solid rgba(255,255,255,0.08)',
+                    background: tier.highlight ? TEAL : 'rgba(0,0,0,0.06)',
+                    color: tier.highlight ? '#000000' : '#1C1C1E',
+                    border: tier.highlight ? 'none' : '1px solid rgba(0,0,0,0.07)',
                   }}
                 >
                   {tier.cta}

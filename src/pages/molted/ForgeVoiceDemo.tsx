@@ -127,8 +127,8 @@ export default function ForgeVoiceDemo() {
           <div
             className="rounded-2xl border mb-6 overflow-hidden"
             style={{
-              borderColor: voice.trim() ? TEAL_BORDER : 'rgba(255,255,255,0.08)',
-              background: 'rgba(17,17,24,0.8)',
+              borderColor: voice.trim() ? TEAL_BORDER : 'rgba(0,0,0,0.07)',
+              background: 'rgba(241,243,248,0.95)',
               boxShadow: voice.trim() ? `0 0 0 1px ${TEAL_BORDER}` : 'none',
             }}
           >
@@ -170,8 +170,8 @@ export default function ForgeVoiceDemo() {
                   rows={5}
                   className="w-full rounded-xl border text-sm text-molted-muted leading-relaxed resize-none p-3 focus:outline-none transition-colors"
                   style={{
-                    background: 'rgba(10,10,15,0.9)',
-                    borderColor: voice.length > 0 ? TEAL_BORDER : 'rgba(255,255,255,0.08)',
+                    background: 'rgba(248,249,252,0.97)',
+                    borderColor: voice.length > 0 ? TEAL_BORDER : 'rgba(0,0,0,0.07)',
                   }}
                 />
 
@@ -185,8 +185,8 @@ export default function ForgeVoiceDemo() {
                         onClick={() => setVoice(starter)}
                         className="w-full text-left px-3 py-2 rounded-xl border text-xs text-molted-muted hover:text-molted-white transition-all line-clamp-1"
                         style={{
-                          borderColor: voice === starter ? TEAL_BORDER : 'rgba(255,255,255,0.06)',
-                          background: voice === starter ? TEAL_DIM : 'rgba(255,255,255,0.02)',
+                          borderColor: voice === starter ? TEAL_BORDER : 'rgba(0,0,0,0.06)',
+                          background: voice === starter ? TEAL_DIM : 'rgba(0,0,0,0.03)',
                           color: voice === starter ? TEAL : undefined,
                         }}
                       >
@@ -211,8 +211,8 @@ export default function ForgeVoiceDemo() {
                   onClick={() => { setSelectedPromptIdx(i); setReply(null); }}
                   className="w-full text-left p-4 rounded-2xl border transition-all duration-200"
                   style={{
-                    background: selectedPromptIdx === i ? TEAL_DIM : 'rgba(17,17,24,0.6)',
-                    borderColor: selectedPromptIdx === i ? TEAL_BORDER : 'rgba(255,255,255,0.06)',
+                    background: selectedPromptIdx === i ? TEAL_DIM : 'rgba(241,243,248,0.85)',
+                    borderColor: selectedPromptIdx === i ? TEAL_BORDER : 'rgba(0,0,0,0.06)',
                   }}
                 >
                   <p className="text-xs font-semibold mb-1" style={{ color: selectedPromptIdx === i ? TEAL : '#86868B' }}>
@@ -227,9 +227,9 @@ export default function ForgeVoiceDemo() {
           {/* Preview card: what student post Forge will reply to */}
           <div
             className="rounded-2xl border overflow-hidden mb-6"
-            style={{ borderColor: 'rgba(255,255,255,0.08)', background: 'rgba(17,17,24,0.8)' }}
+            style={{ borderColor: 'rgba(0,0,0,0.07)', background: 'rgba(241,243,248,0.95)' }}
           >
-            <div className="px-5 py-4 border-b" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
+            <div className="px-5 py-4 border-b" style={{ borderColor: 'rgba(0,0,0,0.06)' }}>
               <div className="flex items-center justify-between">
                 <p className="text-molted-white text-sm font-semibold">{selected.topic} · Student post</p>
                 <p className="text-molted-muted text-xs">Forge will reply to this</p>
@@ -237,11 +237,11 @@ export default function ForgeVoiceDemo() {
             </div>
 
             {/* Student post preview */}
-            <div className="p-5 border-b" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
+            <div className="p-5 border-b" style={{ borderColor: 'rgba(0,0,0,0.06)' }}>
               <div className="flex gap-3">
                 <div
                   className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
-                  style={{ background: 'rgba(255,255,255,0.06)' }}
+                  style={{ background: 'rgba(0,0,0,0.06)' }}
                 >
                   <User size={14} className="text-molted-muted" />
                 </div>
@@ -300,9 +300,9 @@ export default function ForgeVoiceDemo() {
                       {loading && !reply
                         ? (
                           <div className="space-y-2">
-                            <div className="h-3 rounded-full w-3/4 animate-pulse" style={{ background: 'rgba(255,255,255,0.06)' }} />
-                            <div className="h-3 rounded-full w-5/6 animate-pulse" style={{ background: 'rgba(255,255,255,0.06)' }} />
-                            <div className="h-3 rounded-full w-2/3 animate-pulse" style={{ background: 'rgba(255,255,255,0.06)' }} />
+                            <div className="h-3 rounded-full w-3/4 animate-pulse" style={{ background: 'rgba(0,0,0,0.06)' }} />
+                            <div className="h-3 rounded-full w-5/6 animate-pulse" style={{ background: 'rgba(0,0,0,0.06)' }} />
+                            <div className="h-3 rounded-full w-2/3 animate-pulse" style={{ background: 'rgba(0,0,0,0.06)' }} />
                           </div>
                         )
                         : <p className="text-molted-muted text-sm leading-relaxed">{reply}</p>
@@ -346,7 +346,7 @@ export default function ForgeVoiceDemo() {
           {/* How to run */}
           <div
             className="rounded-2xl border p-5 text-xs leading-relaxed"
-            style={{ borderColor: 'rgba(255,255,255,0.06)', background: 'rgba(17,17,24,0.5)', color: '#86868B' }}
+            style={{ borderColor: 'rgba(0,0,0,0.06)', background: 'rgba(241,243,248,0.80)', color: '#86868B' }}
           >
             <p className="font-semibold text-molted-muted mb-2">To run this demo locally:</p>
             <code className="block space-y-1" style={{ fontFamily: 'monospace' }}>

@@ -87,7 +87,7 @@ function Hero() {
           <a
             href="mailto:hello@molted.ai?subject=Investor Inquiry"
             className="group inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-bold text-base transition-all duration-200 hover:-translate-y-px"
-            style={{ background: 'linear-gradient(120deg, #8B5CF6, #2563EB)', color: '#0a0a0f' }}
+            style={{ background: 'linear-gradient(120deg, #8B5CF6, #2563EB)', color: '#ffffff' }}
           >
             Request Materials
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -113,7 +113,7 @@ function TheMarket() {
           <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">The opportunity</p>
           <h2 className="text-4xl md:text-5xl font-black text-molted-white leading-tight tracking-tight">
             A $300B industry running on<br />
-            <span style={{ color: 'rgba(255,255,255,0.3)' }}>2008 infrastructure.</span>
+            <span style={{ color: 'rgba(15,23,42,0.4)' }}>2008 infrastructure.</span>
           </h2>
           <p className="mt-8 text-molted-muted text-lg leading-relaxed max-w-2xl mx-auto">
             Canvas was built before the iPhone 3G. Blackboard before the iPad. The global LMS market is $25B and growing — but every incumbent is a content or workflow tool. Nobody has built the intelligence layer. Until now.
@@ -129,7 +129,7 @@ function TheMarket() {
             <RevealBlock key={i} delay={i * 80}>
               <div
                 className="rounded-2xl border p-8 text-center"
-                style={{ background: 'rgba(17,17,24,0.7)', borderColor: 'rgba(139,92,246,0.15)' }}
+                style={{ background: 'rgba(241,243,248,0.90)', borderColor: 'rgba(139,92,246,0.15)' }}
               >
                 <p
                   className="text-5xl font-black leading-none mb-3"
@@ -196,7 +196,7 @@ function TheMoat() {
               <RevealBlock key={i} delay={i * 100}>
                 <div
                   className="rounded-2xl border p-8 flex flex-col md:flex-row gap-6"
-                  style={{ background: 'rgba(17,17,24,0.7)', borderColor: `${item.color}20` }}
+                  style={{ background: 'rgba(241,243,248,0.90)', borderColor: `${item.color}20` }}
                 >
                   <div className="flex-shrink-0 flex flex-col items-center md:items-start gap-3">
                     <div
@@ -235,7 +235,7 @@ function TwoScenarios() {
           <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">The paths</p>
           <h2 className="text-4xl md:text-5xl font-black text-molted-white leading-tight tracking-tight">
             Two ways Molt wins.<br />
-            <span style={{ color: 'rgba(255,255,255,0.3)' }}>Both are large.</span>
+            <span style={{ color: 'rgba(15,23,42,0.4)' }}>Both are large.</span>
           </h2>
         </RevealBlock>
 
@@ -244,7 +244,7 @@ function TwoScenarios() {
           <RevealBlock delay={0}>
             <div
               className="rounded-2xl border p-8 h-full flex flex-col"
-              style={{ background: 'rgba(17,17,24,0.7)', borderColor: 'rgba(37,99,235,0.2)' }}
+              style={{ background: 'rgba(241,243,248,0.90)', borderColor: 'rgba(37,99,235,0.2)' }}
             >
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center"
@@ -279,7 +279,7 @@ function TwoScenarios() {
           <RevealBlock delay={120}>
             <div
               className="rounded-2xl border p-8 h-full flex flex-col"
-              style={{ background: 'rgba(17,17,24,0.7)', borderColor: 'rgba(139,92,246,0.2)' }}
+              style={{ background: 'rgba(241,243,248,0.90)', borderColor: 'rgba(139,92,246,0.2)' }}
             >
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center"
@@ -351,7 +351,7 @@ function Traction() {
             <RevealBlock key={i} delay={i * 70}>
               <div
                 className="rounded-2xl border p-6 text-center"
-                style={{ background: 'rgba(17,17,24,0.7)', borderColor: `${s.color}18` }}
+                style={{ background: 'rgba(241,243,248,0.90)', borderColor: `${s.color}18` }}
               >
                 <p
                   className="text-4xl font-black leading-none mb-2"
@@ -368,7 +368,7 @@ function Traction() {
         <RevealBlock delay={200}>
           <div
             className="rounded-2xl border p-8 md:p-10"
-            style={{ background: 'rgba(17,17,24,0.6)', borderColor: 'rgba(255,255,255,0.06)' }}
+            style={{ background: 'rgba(241,243,248,0.85)', borderColor: 'rgba(0,0,0,0.06)' }}
           >
             <div className="grid md:grid-cols-3 gap-8 text-center">
               {[
@@ -422,7 +422,7 @@ function UseOfFunds() {
             <RevealBlock key={i} delay={i * 80}>
               <div
                 className="rounded-xl border p-6 flex flex-col md:flex-row items-start md:items-center gap-4"
-                style={{ background: 'rgba(17,17,24,0.6)', borderColor: `${item.color}18` }}
+                style={{ background: 'rgba(241,243,248,0.85)', borderColor: `${item.color}18` }}
               >
                 <p
                   className="text-3xl font-black flex-shrink-0 w-16"
@@ -459,7 +459,7 @@ function CTA() {
             <a
               href="mailto:hello@molted.ai?subject=Investor Inquiry"
               className="group flex items-center gap-2.5 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 hover:-translate-y-px"
-              style={{ background: 'linear-gradient(135deg, #8B5CF6 0%, #2563EB 100%)', color: '#0A0A0F' }}
+              style={{ background: 'linear-gradient(135deg, #8B5CF6 0%, #2563EB 100%)', color: '#ffffff' }}
             >
               Request Data Room
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />

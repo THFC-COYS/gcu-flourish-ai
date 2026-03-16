@@ -504,7 +504,7 @@ export default function MoltedExecTour() {
               style={{
                 width: i === slide ? 24 : 8,
                 height: 8,
-                background: i === slide ? '#64748B' : i < slide ? 'rgba(255,255,255,0.3)' : 'rgba(255,255,255,0.08)',
+                background: i === slide ? '#64748B' : i < slide ? 'rgba(255,255,255,0.3)' : 'rgba(0,0,0,0.07)',
               }}
             />
           ))}

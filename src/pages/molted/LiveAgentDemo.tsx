@@ -111,7 +111,7 @@ export default function LiveAgentDemo() {
           {/* Instructor voice setup */}
           <div
             className="rounded-2xl border mb-6 overflow-hidden"
-            style={{ borderColor: voice.trim() ? TEAL_BORDER : 'rgba(255,255,255,0.08)', background: 'rgba(17,17,24,0.8)' }}
+            style={{ borderColor: voice.trim() ? TEAL_BORDER : 'rgba(0,0,0,0.07)', background: 'rgba(241,243,248,0.95)' }}
           >
             <button
               onClick={() => setVoiceOpen(v => !v)}
@@ -140,8 +140,8 @@ export default function LiveAgentDemo() {
                   rows={4}
                   className="w-full rounded-xl border text-sm text-molted-muted leading-relaxed resize-none p-3 focus:outline-none transition-colors"
                   style={{
-                    background: 'rgba(10,10,15,0.9)',
-                    borderColor: voice.length > 0 ? TEAL_BORDER : 'rgba(255,255,255,0.08)',
+                    background: 'rgba(248,249,252,0.97)',
+                    borderColor: voice.length > 0 ? TEAL_BORDER : 'rgba(0,0,0,0.07)',
                   }}
                 />
               </div>
@@ -160,8 +160,8 @@ export default function LiveAgentDemo() {
                   onClick={() => { setSelectedPromptIdx(i); setReply(null); setStudentPost(''); }}
                   className="w-full text-left p-4 rounded-2xl border transition-all duration-200"
                   style={{
-                    background: selectedPromptIdx === i ? TEAL_DIM : 'rgba(17,17,24,0.6)',
-                    borderColor: selectedPromptIdx === i ? TEAL_BORDER : 'rgba(255,255,255,0.06)',
+                    background: selectedPromptIdx === i ? TEAL_DIM : 'rgba(241,243,248,0.85)',
+                    borderColor: selectedPromptIdx === i ? TEAL_BORDER : 'rgba(0,0,0,0.06)',
                   }}
                 >
                   <p className="text-xs font-semibold mb-1" style={{ color: selectedPromptIdx === i ? TEAL : '#86868B' }}>
@@ -176,10 +176,10 @@ export default function LiveAgentDemo() {
           {/* Thread view */}
           <div
             className="rounded-2xl border overflow-hidden mb-6"
-            style={{ borderColor: 'rgba(255,255,255,0.08)', background: 'rgba(17,17,24,0.8)' }}
+            style={{ borderColor: 'rgba(0,0,0,0.07)', background: 'rgba(241,243,248,0.95)' }}
           >
             {/* Thread header */}
-            <div className="px-5 py-4 border-b" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
+            <div className="px-5 py-4 border-b" style={{ borderColor: 'rgba(0,0,0,0.06)' }}>
               <div className="flex items-center justify-between">
                 <p className="text-molted-white text-sm font-semibold">{selected.topic} · Week Discussion</p>
                 <div className="flex items-center gap-1.5 text-xs" style={{ color: TEAL }}>
@@ -190,7 +190,7 @@ export default function LiveAgentDemo() {
             </div>
 
             {/* Instructor prompt post */}
-            <div className="p-5 border-b" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
+            <div className="p-5 border-b" style={{ borderColor: 'rgba(0,0,0,0.06)' }}>
               <div className="flex gap-3">
                 <div
                   className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5"
@@ -206,11 +206,11 @@ export default function LiveAgentDemo() {
             </div>
 
             {/* Student response input */}
-            <div className="p-5 border-b" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
+            <div className="p-5 border-b" style={{ borderColor: 'rgba(0,0,0,0.06)' }}>
               <div className="flex gap-3">
                 <div
                   className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
-                  style={{ background: 'rgba(255,255,255,0.06)' }}
+                  style={{ background: 'rgba(0,0,0,0.06)' }}
                 >
                   <User size={14} className="text-molted-muted" />
                 </div>
@@ -223,8 +223,8 @@ export default function LiveAgentDemo() {
                     rows={4}
                     className="w-full rounded-xl border text-sm text-molted-muted leading-relaxed resize-none p-3 focus:outline-none transition-colors"
                     style={{
-                      background: 'rgba(10,10,15,0.9)',
-                      borderColor: studentPost.length > 0 ? 'rgba(255,255,255,0.15)' : 'rgba(255,255,255,0.06)',
+                      background: 'rgba(248,249,252,0.97)',
+                      borderColor: studentPost.length > 0 ? 'rgba(0,0,0,0.10)' : 'rgba(0,0,0,0.06)',
                     }}
                     onKeyDown={e => {
                       if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) handleSubmit();
@@ -275,9 +275,9 @@ export default function LiveAgentDemo() {
                     {loading && !reply
                       ? (
                         <div className="space-y-2">
-                          <div className="h-3 rounded-full w-3/4 animate-pulse" style={{ background: 'rgba(255,255,255,0.06)' }} />
-                          <div className="h-3 rounded-full w-5/6 animate-pulse" style={{ background: 'rgba(255,255,255,0.06)' }} />
-                          <div className="h-3 rounded-full w-2/3 animate-pulse" style={{ background: 'rgba(255,255,255,0.06)' }} />
+                          <div className="h-3 rounded-full w-3/4 animate-pulse" style={{ background: 'rgba(0,0,0,0.06)' }} />
+                          <div className="h-3 rounded-full w-5/6 animate-pulse" style={{ background: 'rgba(0,0,0,0.06)' }} />
+                          <div className="h-3 rounded-full w-2/3 animate-pulse" style={{ background: 'rgba(0,0,0,0.06)' }} />
                         </div>
                       )
                       : <p className="text-molted-muted text-sm leading-relaxed">{reply}</p>
@@ -301,7 +301,7 @@ export default function LiveAgentDemo() {
           {/* How to run */}
           <div
             className="rounded-2xl border p-5 text-xs leading-relaxed"
-            style={{ borderColor: 'rgba(255,255,255,0.06)', background: 'rgba(17,17,24,0.5)', color: '#86868B' }}
+            style={{ borderColor: 'rgba(0,0,0,0.06)', background: 'rgba(241,243,248,0.80)', color: '#86868B' }}
           >
             <p className="font-semibold text-molted-muted mb-2">To run this demo locally:</p>
             <code className="block space-y-1" style={{ fontFamily: 'monospace' }}>

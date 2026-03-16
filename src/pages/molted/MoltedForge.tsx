@@ -155,12 +155,12 @@ function Hero() {
         <RevealBlock delay={480} className="mt-16">
           <div
             className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl border"
-            style={{ background: 'rgba(10,10,15,0.8)', borderColor: 'rgba(255,255,255,0.06)' }}
+            style={{ background: 'rgba(248,249,252,0.95)', borderColor: 'rgba(0,0,0,0.06)' }}
           >
             <Clock size={14} style={{ color: '#86868B' }} />
             <p className="text-sm" style={{ color: '#86868B' }}>
               The average professor spends{' '}
-              <span className="font-semibold" style={{ color: '#F5F5F7' }}>23 hours/week</span>
+              <span className="font-semibold" style={{ color: '#1C1C1E' }}>23 hours/week</span>
               {' '}on tasks Forge handles automatically.
             </p>
           </div>

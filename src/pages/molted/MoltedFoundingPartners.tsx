@@ -90,7 +90,7 @@ function Cover() {
           <a
             href="mailto:hello@molted.ai?subject=Founding Partner Inquiry"
             className="group inline-flex items-center gap-3 px-10 py-5 rounded-2xl font-bold text-lg transition-all duration-200 hover:-translate-y-px hover:shadow-2xl"
-            style={{ background: `linear-gradient(135deg, ${GOLD}, ${TEAL})`, color: '#0a0a0f' }}
+            style={{ background: `linear-gradient(135deg, ${GOLD}, ${TEAL})`, color: '#ffffff' }}
           >
             Schedule a Conversation
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
@@ -181,7 +181,7 @@ function TheProof() {
           {stats.map((s, i) => (
             <RevealBlock key={i} delay={i * 80}>
               <div className="rounded-2xl p-6 border text-center h-full"
-                style={{ background: `rgba(10,10,15,0.8)`, borderColor: `${s.color}25` }}>
+                style={{ background: `rgba(248,249,252,0.95)`, borderColor: `${s.color}25` }}>
                 <p className="text-4xl md:text-5xl font-black mb-2" style={{ color: s.color }}>{s.num}</p>
                 <p className="text-molted-muted text-sm leading-snug">{s.label}</p>
               </div>
@@ -305,7 +305,7 @@ function TheAgent() {
         {/* Live loop visual */}
         <RevealBlock delay={100}>
           <div className="rounded-3xl border overflow-hidden"
-            style={{ background: 'rgba(10,10,15,0.95)', borderColor: 'rgba(37,99,235,0.2)' }}>
+            style={{ background: 'rgba(255,255,255,0.97)', borderColor: 'rgba(37,99,235,0.2)' }}>
             {/* Header */}
             <div className="px-6 py-4 border-b flex items-center gap-3"
               style={{ borderColor: 'rgba(37,99,235,0.15)', background: 'rgba(37,99,235,0.04)' }}>
@@ -347,7 +347,7 @@ function TheAgent() {
             const Icon = item.icon;
             return (
               <div key={i} className="rounded-xl p-5 border"
-                style={{ background: 'rgba(17,17,24,0.7)', borderColor: 'rgba(255,255,255,0.06)' }}>
+                style={{ background: 'rgba(241,243,248,0.90)', borderColor: 'rgba(0,0,0,0.06)' }}>
                 <Icon size={18} className="mb-3" style={{ color: item.color }} />
                 <p className="text-molted-white font-bold text-sm mb-1.5">{item.label}</p>
                 <p className="text-molted-muted text-xs leading-relaxed">{item.body}</p>
@@ -390,7 +390,7 @@ function ThePlatform() {
         <RevealBlock delay={100}>
           <div className="flex justify-center mb-4">
             <div className="rounded-3xl px-14 py-6 border"
-              style={{ background: 'rgba(10,10,15,0.98)', boxShadow: `0 0 0 1px rgba(100,116,139,0.4), 0 0 0 3px rgba(37,99,235,0.12), 0 0 0 6px rgba(139,92,246,0.08), 0 0 60px rgba(139,92,246,0.08)` }}>
+              style={{ background: 'rgba(255,255,255,0.98)', boxShadow: `0 0 0 1px rgba(100,116,139,0.4), 0 0 0 3px rgba(37,99,235,0.12), 0 0 0 6px rgba(139,92,246,0.08), 0 0 60px rgba(139,92,246,0.08)` }}>
               <p className="text-2xl font-black"
                 style={{ background: `linear-gradient(135deg, ${GOLD}, ${TEAL}, ${VIOLET})`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                 Campus
@@ -482,7 +482,7 @@ function TheOffer() {
             return (
               <RevealBlock key={i} delay={i * 100}>
                 <div className="rounded-2xl p-8 border h-full"
-                  style={{ background: 'rgba(17,17,24,0.7)', borderColor: `${p.color}18` }}>
+                  style={{ background: 'rgba(241,243,248,0.90)', borderColor: `${p.color}18` }}>
                   <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-5 border"
                     style={{ background: `${p.color}12`, borderColor: `${p.color}25` }}>
                     <Icon size={18} style={{ color: p.color }} />
@@ -542,7 +542,7 @@ function TheAsk() {
           <a
             href="mailto:hello@molted.ai?subject=Founding Partner — Let's Talk"
             className="group inline-flex items-center gap-3 px-12 py-5 rounded-2xl font-bold text-xl transition-all duration-200 hover:-translate-y-px hover:shadow-2xl"
-            style={{ background: `linear-gradient(135deg, ${GOLD}, ${TEAL})`, color: '#0a0a0f' }}
+            style={{ background: `linear-gradient(135deg, ${GOLD}, ${TEAL})`, color: '#ffffff' }}
           >
             hello@molted.ai
             <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />

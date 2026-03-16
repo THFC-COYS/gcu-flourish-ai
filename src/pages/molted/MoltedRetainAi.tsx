@@ -208,7 +208,7 @@ function AgentLoop() {
         <RevealBlock>
           <div
             className="rounded-3xl p-8 md:p-12 border"
-            style={{ background: 'rgba(17,17,24,0.9)', borderColor: 'rgba(255,255,255,0.06)' }}
+            style={{ background: 'rgba(248,249,252,0.95)', borderColor: 'rgba(0,0,0,0.06)' }}
           >
             {/* Loop visualization */}
             <div className="flex items-center justify-center gap-0 mb-12 flex-wrap">
@@ -224,8 +224,8 @@ function AgentLoop() {
                       <div
                         className="w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-500"
                         style={{
-                          background: isActive ? ROSE_DIM : 'rgba(255,255,255,0.04)',
-                          border: `2px solid ${isActive ? ROSE : 'rgba(255,255,255,0.08)'}`,
+                          background: isActive ? ROSE_DIM : 'rgba(0,0,0,0.04)',
+                          border: `2px solid ${isActive ? ROSE : 'rgba(0,0,0,0.07)'}`,
                           boxShadow: isActive ? ROSE_GLOW : 'none',
                           transform: isActive ? 'scale(1.15)' : 'scale(1)',
                         }}
@@ -242,7 +242,7 @@ function AgentLoop() {
                     {i < LOOP_STEPS.length - 1 && (
                       <div
                         className="w-6 h-px mb-6 transition-all duration-500"
-                        style={{ background: active > i ? ROSE_BORDER : 'rgba(255,255,255,0.08)' }}
+                        style={{ background: active > i ? ROSE_BORDER : 'rgba(0,0,0,0.07)' }}
                       />
                     )}
                   </div>
@@ -314,7 +314,7 @@ function SilentDeparture() {
         <RevealBlock>
           <div
             className="rounded-3xl p-8 border overflow-x-auto"
-            style={{ background: 'rgba(17,17,24,0.8)', borderColor: 'rgba(255,255,255,0.06)' }}
+            style={{ background: 'rgba(241,243,248,0.95)', borderColor: 'rgba(0,0,0,0.06)' }}
           >
             <div className="flex justify-end mb-3">
               <div className="flex items-center gap-2 text-xs text-molted-muted">
@@ -347,7 +347,7 @@ function SilentDeparture() {
                     {w.traditionalSpot && (
                       <div
                         className="mt-2 px-2 py-1 rounded-lg text-xs font-semibold text-center"
-                        style={{ background: 'rgba(255,255,255,0.05)', color: '#86868B', border: '1px solid rgba(255,255,255,0.08)' }}
+                        style={{ background: 'rgba(0,0,0,0.05)', color: '#86868B', border: '1px solid rgba(0,0,0,0.07)' }}
                       >
                         Traditional<br />finds out
                       </div>
@@ -358,7 +358,7 @@ function SilentDeparture() {
             </div>
 
             <div className="mt-8 pt-6 border-t border-molted-border grid md:grid-cols-2 gap-4">
-              <div className="rounded-xl p-4 text-sm" style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}>
+              <div className="rounded-xl p-4 text-sm" style={{ background: 'rgba(0,0,0,0.03)', border: '1px solid rgba(0,0,0,0.06)' }}>
                 <p className="text-molted-muted font-semibold mb-1">Without Retain</p>
                 <p className="text-molted-subtle text-xs">Advisor discovers withdrawal at Week 12. Sends a survey. Student doesn't respond. Slot stays empty. Revenue gone.</p>
               </div>
@@ -475,8 +475,8 @@ function Playbooks() {
                   onClick={() => setActive(i)}
                   className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200"
                   style={{
-                    background: active === i ? `${pb.color}15` : 'rgba(255,255,255,0.04)',
-                    border: `1px solid ${active === i ? pb.color + '40' : 'rgba(255,255,255,0.08)'}`,
+                    background: active === i ? `${pb.color}15` : 'rgba(0,0,0,0.04)',
+                    border: `1px solid ${active === i ? pb.color + '40' : 'rgba(0,0,0,0.07)'}`,
                     color: active === i ? pb.color : '#86868B',
                   }}
                 >
@@ -493,7 +493,7 @@ function Playbooks() {
           {/* Playbook detail */}
           <div
             className="rounded-3xl p-8 border transition-all duration-300"
-            style={{ background: 'rgba(17,17,24,0.9)', borderColor: 'rgba(255,255,255,0.06)' }}
+            style={{ background: 'rgba(248,249,252,0.95)', borderColor: 'rgba(0,0,0,0.06)' }}
           >
             {/* Header */}
             <div className="flex items-start justify-between mb-6 flex-wrap gap-4">
@@ -524,30 +524,30 @@ function Playbooks() {
                     <div
                       className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold"
                       style={{
-                        background: step.human ? 'rgba(255,255,255,0.08)' : `${p.color}20`,
-                        border: `1px solid ${step.human ? 'rgba(255,255,255,0.15)' : p.color + '40'}`,
-                        color: step.human ? '#F5F5F7' : p.color,
+                        background: step.human ? 'rgba(0,0,0,0.07)' : `${p.color}20`,
+                        border: `1px solid ${step.human ? 'rgba(0,0,0,0.10)' : p.color + '40'}`,
+                        color: step.human ? '#1C1C1E' : p.color,
                       }}
                     >
                       {i + 1}
                     </div>
                     {i < p.steps.length - 1 && (
-                      <div className="w-px h-2 mt-1" style={{ background: 'rgba(255,255,255,0.06)' }} />
+                      <div className="w-px h-2 mt-1" style={{ background: 'rgba(0,0,0,0.06)' }} />
                     )}
                   </div>
 
                   <div
                     className="flex-1 flex items-center justify-between rounded-xl px-4 py-2.5 text-sm"
                     style={{
-                      background: step.human ? 'rgba(255,255,255,0.05)' : `${p.color}08`,
-                      border: `1px solid ${step.human ? 'rgba(255,255,255,0.08)' : p.color + '15'}`,
+                      background: step.human ? 'rgba(0,0,0,0.05)' : `${p.color}08`,
+                      border: `1px solid ${step.human ? 'rgba(0,0,0,0.07)' : p.color + '15'}`,
                     }}
                   >
-                    <p style={{ color: step.human ? '#F5F5F7' : '#D1D1D6' }}>{step.text}</p>
+                    <p style={{ color: step.human ? '#1C1C1E' : '#D1D1D6' }}>{step.text}</p>
                     <span
                       className="ml-4 text-xs font-semibold flex-shrink-0 px-2 py-0.5 rounded-full"
                       style={{
-                        background: step.human ? 'rgba(255,255,255,0.08)' : `${p.color}15`,
+                        background: step.human ? 'rgba(0,0,0,0.07)' : `${p.color}15`,
                         color: step.human ? '#86868B' : p.color,
                       }}
                     >
@@ -621,12 +621,12 @@ function AgentFeed() {
         <RevealBlock>
           <div
             className="rounded-3xl border overflow-hidden"
-            style={{ background: 'rgba(10,10,15,0.95)', borderColor: 'rgba(255,255,255,0.06)' }}
+            style={{ background: 'rgba(255,255,255,0.97)', borderColor: 'rgba(0,0,0,0.06)' }}
           >
             {/* Terminal header */}
             <div
               className="flex items-center justify-between px-6 py-3 border-b"
-              style={{ borderColor: 'rgba(255,255,255,0.06)', background: 'rgba(255,255,255,0.03)' }}
+              style={{ borderColor: 'rgba(0,0,0,0.06)', background: 'rgba(0,0,0,0.03)' }}
             >
               <div className="flex items-center gap-2">
                 <div className="flex gap-1.5">
@@ -649,8 +649,8 @@ function AgentFeed() {
                   key={i}
                   className="flex items-start gap-4 rounded-xl p-4 transition-all duration-700"
                   style={{
-                    background: event.urgent ? ROSE_DIM : 'rgba(255,255,255,0.03)',
-                    border: `1px solid ${event.urgent ? ROSE_BORDER : 'rgba(255,255,255,0.06)'}`,
+                    background: event.urgent ? ROSE_DIM : 'rgba(0,0,0,0.03)',
+                    border: `1px solid ${event.urgent ? ROSE_BORDER : 'rgba(0,0,0,0.06)'}`,
                     animation: i === visibleCount - 1 ? 'fadeIn 0.5s ease-out' : 'none',
                   }}
                 >
@@ -703,7 +703,7 @@ function HumanInLoop() {
             {/* Advisor queue mock */}
             <div
               className="rounded-2xl border p-6"
-              style={{ background: 'rgba(17,17,24,0.9)', borderColor: 'rgba(255,255,255,0.06)', boxShadow: ROSE_GLOW }}
+              style={{ background: 'rgba(248,249,252,0.95)', borderColor: 'rgba(0,0,0,0.06)', boxShadow: ROSE_GLOW }}
             >
               <div className="flex items-center justify-between mb-5">
                 <p className="text-molted-white font-bold text-sm">Your Review Queue</p>
@@ -723,7 +723,7 @@ function HumanInLoop() {
                 <div
                   key={i}
                   className="mb-3 p-4 rounded-xl border transition-all"
-                  style={{ background: 'rgba(255,255,255,0.03)', borderColor: 'rgba(255,255,255,0.07)' }}
+                  style={{ background: 'rgba(0,0,0,0.03)', borderColor: 'rgba(0,0,0,0.06)' }}
                 >
                   <div className="flex items-center justify-between mb-2">
                     <div>
@@ -880,7 +880,7 @@ function EcosystemCoordination() {
 
           <div
             className="mt-6 rounded-2xl p-5 border text-center"
-            style={{ background: 'rgba(17,17,24,0.8)', borderColor: 'rgba(255,255,255,0.06)' }}
+            style={{ background: 'rgba(241,243,248,0.95)', borderColor: 'rgba(0,0,0,0.06)' }}
           >
             <p className="text-molted-white font-semibold text-sm">
               Retain is the agent that ties the platform together.
@@ -917,7 +917,7 @@ function ROISection() {
         <RevealBlock>
           <div
             className="rounded-3xl p-8 md:p-12 border"
-            style={{ background: 'rgba(17,17,24,0.9)', borderColor: 'rgba(255,255,255,0.06)' }}
+            style={{ background: 'rgba(248,249,252,0.95)', borderColor: 'rgba(0,0,0,0.06)' }}
           >
             <div className="grid md:grid-cols-2 gap-10 items-center">
               <div className="space-y-7">
@@ -976,7 +976,7 @@ function ROISection() {
                 <p className="text-molted-muted text-sm">per year in retained tuition revenue</p>
                 <div
                   className="mt-8 p-4 rounded-2xl text-sm"
-                  style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)' }}
+                  style={{ background: 'rgba(0,0,0,0.03)', border: '1px solid rgba(0,0,0,0.06)' }}
                 >
                   <p className="text-molted-muted leading-relaxed">
                     Retain Growth at {students.toLocaleString()} students costs{' '}
@@ -1067,8 +1067,8 @@ function Pricing() {
               <div
                 className="rounded-2xl p-7 h-full flex flex-col border transition-all duration-300"
                 style={{
-                  background: tier.highlight ? ROSE_DIM : 'rgba(17,17,24,0.6)',
-                  borderColor: tier.highlight ? ROSE_BORDER : 'rgba(255,255,255,0.06)',
+                  background: tier.highlight ? ROSE_DIM : 'rgba(241,243,248,0.85)',
+                  borderColor: tier.highlight ? ROSE_BORDER : 'rgba(0,0,0,0.06)',
                   boxShadow: tier.highlight ? ROSE_GLOW : 'none',
                 }}
               >
@@ -1090,9 +1090,9 @@ function Pricing() {
                   href="mailto:hello@molted.ai"
                   className="block text-center px-5 py-3 rounded-xl text-sm font-semibold transition-all duration-200 hover:-translate-y-px"
                   style={{
-                    background: tier.highlight ? ROSE : 'rgba(255,255,255,0.06)',
-                    color: tier.highlight ? '#ffffff' : '#F5F5F7',
-                    border: tier.highlight ? 'none' : '1px solid rgba(255,255,255,0.08)',
+                    background: tier.highlight ? ROSE : 'rgba(0,0,0,0.06)',
+                    color: tier.highlight ? '#ffffff' : '#1C1C1E',
+                    border: tier.highlight ? 'none' : '1px solid rgba(0,0,0,0.07)',
                   }}
                 >
                   {tier.cta}

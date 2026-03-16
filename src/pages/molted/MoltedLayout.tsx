@@ -8,7 +8,7 @@ function MoltedLogo({ size = 'md' }: { size?: 'sm' | 'md' | 'lg' }) {
     <div className="flex items-center">
       <span className={`${textSize} font-black tracking-tight leading-none`}>
         <span className="text-molted-white/90">M</span>
-        <span style={{ color: '#94A3B8', textShadow: '0 0 12px rgba(245,183,64,0.8), 0 0 28px rgba(100,116,139,0.4)' }}>olt</span>
+        <span style={{ color: '#2563EB' }}>olt</span>
         <span className="text-molted-white/90">ED</span>
       </span>
     </div>
@@ -55,12 +55,12 @@ export function MoltedNav() {
         to={href}
         className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 ${active ? '' : ''}`}
         style={{
-          background: active ? 'rgba(255,255,255,0.07)' : undefined,
+          background: active ? 'rgba(0,0,0,0.06)' : undefined,
           color: active
-            ? (color ?? '#F0F0F5')
+            ? (color ?? '#0F172A')
             : color
             ? color
-            : '#94A3B8',
+            : '#475569',
         }}
       >
         {label}
@@ -70,7 +70,7 @@ export function MoltedNav() {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'backdrop-blur-xl border-b' : 'bg-transparent'}`}
-      style={scrolled ? { background: 'rgba(10,10,15,0.92)', borderColor: 'rgba(255,255,255,0.08)' } : undefined}
+      style={scrolled ? { background: 'rgba(255,255,255,0.95)', borderColor: 'rgba(0,0,0,0.08)' } : undefined}
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link to="/" className="flex-shrink-0">
@@ -80,7 +80,7 @@ export function MoltedNav() {
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-1">
           {THREE_PRODUCTS.map(p => navLink(p.href, p.label, p.color))}
-          <span className="w-px h-4 mx-1" style={{ background: 'rgba(255,255,255,0.12)' }} />
+          <span className="w-px h-4 mx-1" style={{ background: 'rgba(0,0,0,0.12)' }} />
           {navLink('/outpost', 'Outpost')}
           {navLink('/about', 'About')}
         </div>
@@ -107,14 +107,14 @@ export function MoltedNav() {
       {/* Mobile menu */}
       {menuOpen && (
         <div className="md:hidden backdrop-blur-xl border-b max-h-[80vh] overflow-y-auto"
-          style={{ background: 'rgba(10,10,15,0.97)', borderColor: 'rgba(255,255,255,0.08)' }}
+          style={{ background: 'rgba(255,255,255,0.98)', borderColor: 'rgba(0,0,0,0.08)' }}
         >
           <div className="max-w-6xl mx-auto px-6 py-4 space-y-1">
             <p className="text-xs font-semibold uppercase tracking-widest px-4 pb-2" style={{ color: '#64748B' }}>Products</p>
             {THREE_PRODUCTS.map(p => (
               <Link key={p.href} to={p.href} className="flex items-center gap-3 px-4 py-3 rounded-lg transition-all"
                 style={{ background: 'transparent' }}
-                onMouseEnter={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.05)')}
+                onMouseEnter={e => (e.currentTarget.style.background = 'rgba(0,0,0,0.04)')}
                 onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
               >
                 <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: p.color }} />
@@ -124,9 +124,9 @@ export function MoltedNav() {
                 </div>
               </Link>
             ))}
-            <div className="pt-3 mt-3" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+            <div className="pt-3 mt-3" style={{ borderTop: '1px solid rgba(0,0,0,0.08)' }}>
               <Link to="/outpost" className="flex items-center gap-3 px-4 py-3 rounded-lg mb-1"
-                style={{ background: 'rgba(37,99,235,0.08)', border: '1px solid rgba(37,99,235,0.2)' }}
+                style={{ background: 'rgba(37,99,235,0.06)', border: '1px solid rgba(37,99,235,0.2)' }}
               >
                 <div className="w-5 h-5 rounded-md flex-shrink-0" style={{ background: 'linear-gradient(135deg,#64748B,#2563EB)' }} />
                 <div>
@@ -136,7 +136,7 @@ export function MoltedNav() {
               </Link>
               <Link to="/about" className="block px-4 py-3 rounded-lg text-sm font-medium text-molted-muted hover:text-molted-white transition-all">About</Link>
             </div>
-            <div className="pt-3" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+            <div className="pt-3" style={{ borderTop: '1px solid rgba(0,0,0,0.08)' }}>
               <a href="mailto:hello@molted.ai" className="block w-full text-center px-5 py-3 rounded-xl text-sm font-semibold text-white"
                 style={{ background: 'linear-gradient(120deg, #2563EB, #1E3A8A)' }}
               >Get Started</a>
@@ -151,7 +151,7 @@ export function MoltedNav() {
 /* ── Footer ─────────────────────────────────────────────────────────────── */
 export function MoltedFooter() {
   return (
-    <footer style={{ background: '#0d0d16', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+    <footer style={{ background: '#F8F9FC', borderTop: '1px solid rgba(0,0,0,0.08)' }}>
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="md:col-span-2">
@@ -164,13 +164,13 @@ export function MoltedFooter() {
 
           <div>
             <div className="mb-4">
-              <Link to="/imago-os" className="inline-flex items-center gap-2 text-sm font-black hover:opacity-80 transition-opacity" style={{ background: 'linear-gradient(120deg,#94A3B8,#64748B)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+              <Link to="/imago-os" className="inline-flex items-center gap-2 text-sm font-black hover:opacity-80 transition-opacity" style={{ background: 'linear-gradient(120deg,#64748B,#475569)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                 Imago — The Final Form
               </Link>
               <p className="text-molted-subtle text-xs mt-0.5">The fully transformed institution.</p>
             </div>
             <div className="mb-5">
-              <Link to="/outpost" className="inline-flex items-center gap-2 text-sm font-bold hover:opacity-80 transition-opacity" style={{ background: 'linear-gradient(120deg,#64748B,#2563EB,#8B5CF6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+              <Link to="/outpost" className="inline-flex items-center gap-2 text-sm font-bold hover:opacity-80 transition-opacity" style={{ background: 'linear-gradient(120deg,#2563EB,#1E3A8A)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                 Outpost — The Platform
               </Link>
               <p className="text-molted-subtle text-xs mt-1">All modules. One AI-native LMS.</p>
@@ -197,7 +197,7 @@ export function MoltedFooter() {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4" style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>
+        <div className="mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4" style={{ borderTop: '1px solid rgba(0,0,0,0.07)' }}>
           <p className="text-molted-subtle text-xs">© {new Date().getFullYear()} MoltED. All rights reserved.</p>
           <p className="text-molted-subtle text-xs">Built with intent. Designed with purpose.</p>
         </div>
@@ -209,7 +209,7 @@ export function MoltedFooter() {
 /* ── Outpost Module Banner ─────────────────────────────────────────────── */
 export function OutpostBanner({ moduleName, moduleColor }: { moduleName: string; moduleColor: string }) {
   return (
-    <div style={{ background: 'rgba(10,10,15,0.8)', borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
+    <div style={{ background: 'rgba(248,249,252,0.95)', borderBottom: '1px solid rgba(0,0,0,0.07)' }}>
       <div className="max-w-6xl mx-auto px-6 py-2.5 flex items-center justify-between gap-4">
         <div className="flex items-center gap-2.5 min-w-0">
           <div className="w-4 h-4 rounded-md flex-shrink-0" style={{ background: 'linear-gradient(135deg,#64748B,#2563EB,#8B5CF6)' }} />
