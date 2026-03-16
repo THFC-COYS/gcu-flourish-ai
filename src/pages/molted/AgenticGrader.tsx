@@ -43,9 +43,9 @@ function CopyButton({ text, label = 'Copy' }: { text: string; label?: string }) 
       onClick={() => { navigator.clipboard.writeText(text); setCopied(true); setTimeout(() => setCopied(false), 1800); }}
       className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg transition-all"
       style={{
-        background: copied ? TEAL_DIM : 'rgba(255,255,255,0.06)',
-        color: copied ? TEAL : '#86868B',
-        border: `1px solid ${copied ? TEAL_BORDER : 'rgba(255,255,255,0.08)'}`,
+        background: copied ? TEAL_DIM : 'rgba(148,163,184,0.10)',
+        color: copied ? TEAL : '#94A3B8',
+        border: `1px solid ${copied ? TEAL_BORDER : 'rgba(255,255,255,0.10)'}`,
       }}
     >
       {copied ? <Check size={11} /> : <Copy size={11} />}
@@ -76,7 +76,7 @@ function CriterionCard({ c, index }: { c: Criterion; index: number }) {
   return (
     <div
       className="rounded-2xl border transition-all"
-      style={{ background: 'rgba(17,17,24,0.8)', borderColor: 'rgba(255,255,255,0.07)' }}
+      style={{ background: 'rgba(17,17,24,0.8)', borderColor: 'rgba(148,163,184,0.12)' }}
     >
       <button
         className="w-full flex items-center gap-4 p-4 text-left"
@@ -194,7 +194,7 @@ function GradeView({ result, assignmentTitle }: { result: GradeResult; assignmen
       <div className="grid sm:grid-cols-2 gap-4">
         <div
           className="rounded-2xl border p-4"
-          style={{ background: 'rgba(17,17,24,0.8)', borderColor: 'rgba(255,255,255,0.07)' }}
+          style={{ background: 'rgba(17,17,24,0.8)', borderColor: 'rgba(148,163,184,0.12)' }}
         >
           <div className="flex items-center gap-2 mb-3">
             <ThumbsUp size={13} style={{ color: TEAL }} />
@@ -211,7 +211,7 @@ function GradeView({ result, assignmentTitle }: { result: GradeResult; assignmen
         </div>
         <div
           className="rounded-2xl border p-4"
-          style={{ background: 'rgba(17,17,24,0.8)', borderColor: 'rgba(255,255,255,0.07)' }}
+          style={{ background: 'rgba(17,17,24,0.8)', borderColor: 'rgba(148,163,184,0.12)' }}
         >
           <div className="flex items-center gap-2 mb-3">
             <TrendingUp size={13} style={{ color: GOLD }} />
@@ -266,7 +266,7 @@ function InputForm({ onSubmit, loading }: {
             className="w-full rounded-xl border text-sm text-molted-white p-3 focus:outline-none"
             style={{
               background: 'rgba(17,17,24,0.9)',
-              borderColor: form.assignmentTitle ? TEAL_BORDER : 'rgba(255,255,255,0.08)',
+              borderColor: form.assignmentTitle ? TEAL_BORDER : 'rgba(255,255,255,0.10)',
             }}
           />
         </div>
@@ -282,9 +282,9 @@ function InputForm({ onSubmit, loading }: {
                   onClick={() => setForm(f => ({ ...f, assignmentType: t }))}
                   className="px-2.5 py-1 rounded-lg text-xs font-semibold transition-all"
                   style={{
-                    background: active ? TEAL_DIM : 'rgba(255,255,255,0.04)',
-                    color: active ? TEAL : '#86868B',
-                    border: `1px solid ${active ? TEAL_BORDER : 'rgba(255,255,255,0.07)'}`,
+                    background: active ? TEAL_DIM : 'rgba(148,163,184,0.08)',
+                    color: active ? TEAL : '#94A3B8',
+                    border: `1px solid ${active ? TEAL_BORDER : 'rgba(148,163,184,0.12)'}`,
                   }}
                 >
                   {t}
@@ -311,7 +311,7 @@ function InputForm({ onSubmit, loading }: {
           className="w-full rounded-xl border text-sm text-molted-white leading-relaxed resize-none p-3 focus:outline-none"
           style={{
             background: 'rgba(17,17,24,0.9)',
-            borderColor: form.rubric ? TEAL_BORDER : 'rgba(255,255,255,0.08)',
+            borderColor: form.rubric ? TEAL_BORDER : 'rgba(255,255,255,0.10)',
           }}
         />
       </div>
@@ -332,7 +332,7 @@ function InputForm({ onSubmit, loading }: {
           className="w-full rounded-xl border text-sm text-molted-white leading-relaxed resize-none p-3 focus:outline-none"
           style={{
             background: 'rgba(17,17,24,0.9)',
-            borderColor: form.submission ? TEAL_BORDER : 'rgba(255,255,255,0.08)',
+            borderColor: form.submission ? TEAL_BORDER : 'rgba(255,255,255,0.10)',
           }}
         />
       </div>
@@ -353,7 +353,7 @@ function InputForm({ onSubmit, loading }: {
           className="w-full rounded-xl border text-sm text-molted-muted leading-relaxed resize-none p-3 focus:outline-none"
           style={{
             background: 'rgba(17,17,24,0.9)',
-            borderColor: form.voice ? TEAL_BORDER : 'rgba(255,255,255,0.08)',
+            borderColor: form.voice ? TEAL_BORDER : 'rgba(255,255,255,0.10)',
           }}
         />
       </div>
@@ -363,8 +363,8 @@ function InputForm({ onSubmit, loading }: {
         disabled={!ready}
         className="w-full flex items-center justify-center gap-2.5 py-3.5 rounded-xl font-bold text-sm transition-all"
         style={{
-          background: ready ? TEAL : 'rgba(255,255,255,0.06)',
-          color: ready ? '#0A0A0F' : '#3A3A40',
+          background: ready ? TEAL : 'rgba(148,163,184,0.10)',
+          color: ready ? '#0A0A0F' : '#64748B',
           cursor: ready ? 'pointer' : 'not-allowed',
         }}
       >
@@ -448,7 +448,7 @@ export default function AgenticGrader() {
             {/* Input */}
             <div
               className="rounded-3xl p-6 border sticky top-24"
-              style={{ background: 'rgba(17,17,24,0.7)', borderColor: 'rgba(255,255,255,0.06)' }}
+              style={{ background: 'rgba(17,17,24,0.7)', borderColor: 'rgba(148,163,184,0.10)' }}
             >
               <InputForm onSubmit={handleSubmit} loading={loading} />
             </div>
@@ -468,7 +468,7 @@ export default function AgenticGrader() {
               {!result && !loading && !error && (
                 <div
                   className="rounded-3xl p-10 border text-center"
-                  style={{ background: 'rgba(17,17,24,0.5)', borderColor: 'rgba(255,255,255,0.04)' }}
+                  style={{ background: 'rgba(17,17,24,0.5)', borderColor: 'rgba(148,163,184,0.08)' }}
                 >
                   <div className="grid grid-cols-3 gap-3 mb-8 max-w-xs mx-auto">
                     {[
@@ -479,7 +479,7 @@ export default function AgenticGrader() {
                       <div
                         key={label}
                         className="rounded-2xl p-4 flex flex-col items-center gap-2"
-                        style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.05)' }}
+                        style={{ background: 'rgba(148,163,184,0.07)', border: '1px solid rgba(148,163,184,0.08)' }}
                       >
                         <Icon size={18} className="text-molted-subtle" />
                         <p className="text-molted-subtle text-xs text-center">{label}</p>
@@ -519,7 +519,7 @@ export default function AgenticGrader() {
           {/* Footer nudge */}
           <div
             className="mt-16 rounded-3xl p-8 border text-center"
-            style={{ background: 'rgba(17,17,24,0.7)', borderColor: 'rgba(255,255,255,0.06)' }}
+            style={{ background: 'rgba(17,17,24,0.7)', borderColor: 'rgba(148,163,184,0.10)' }}
           >
             <p className="text-molted-muted text-sm mb-1">This is Forge Agentic Grader — beta.</p>
             <p className="text-molted-white font-semibold mb-5">

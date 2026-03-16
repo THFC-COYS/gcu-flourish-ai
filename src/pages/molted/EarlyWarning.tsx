@@ -59,9 +59,9 @@ function CopyButton({ text, label = 'Copy' }: { text: string; label?: string }) 
       }}
       className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg transition-all"
       style={{
-        background: copied ? TEAL_DIM : 'rgba(255,255,255,0.06)',
-        color: copied ? TEAL : '#86868B',
-        border: `1px solid ${copied ? TEAL_BORDER : 'rgba(255,255,255,0.08)'}`,
+        background: copied ? TEAL_DIM : 'rgba(148,163,184,0.10)',
+        color: copied ? TEAL : '#94A3B8',
+        border: `1px solid ${copied ? TEAL_BORDER : 'rgba(255,255,255,0.10)'}`,
       }}
     >
       {copied ? <Check size={11} /> : <Copy size={11} />}
@@ -98,7 +98,7 @@ function StudentCard({ student }: { student: StudentRisk }) {
         <div className="flex items-center gap-3">
           <div
             className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-black flex-shrink-0"
-            style={{ background: 'rgba(255,255,255,0.08)', color }}
+            style={{ background: 'rgba(255,255,255,0.10)', color }}
           >
             {student.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
           </div>
@@ -113,12 +113,12 @@ function StudentCard({ student }: { student: StudentRisk }) {
           {student.tier !== 'low' && (
             <span
               className="text-xs px-2 py-0.5 rounded-full font-semibold"
-              style={{ background: 'rgba(255,255,255,0.07)', color }}
+              style={{ background: 'rgba(148,163,184,0.12)', color }}
             >
               {student.signals.filter(s => s.flag).length} signals
             </span>
           )}
-          {open ? <ChevronUp size={14} style={{ color: '#86868B' }} /> : <ChevronDown size={14} style={{ color: '#86868B' }} />}
+          {open ? <ChevronUp size={14} style={{ color: '#94A3B8' }} /> : <ChevronDown size={14} style={{ color: '#94A3B8' }} />}
         </div>
       </button>
 
@@ -131,12 +131,12 @@ function StudentCard({ student }: { student: StudentRisk }) {
                 key={i}
                 className="rounded-xl px-3 py-2 flex flex-col gap-0.5"
                 style={{
-                  background: sig.flag ? 'rgba(255,255,255,0.06)' : 'rgba(255,255,255,0.02)',
-                  border: `1px solid ${sig.flag ? 'rgba(255,255,255,0.10)' : 'rgba(255,255,255,0.04)'}`,
+                  background: sig.flag ? 'rgba(148,163,184,0.10)' : 'rgba(148,163,184,0.06)',
+                  border: `1px solid ${sig.flag ? 'rgba(255,255,255,0.10)' : 'rgba(148,163,184,0.08)'}`,
                 }}
               >
-                <span className="text-xs" style={{ color: '#86868B' }}>{sig.label}</span>
-                <span className="text-xs font-semibold" style={{ color: sig.flag ? color : '#86868B' }}>
+                <span className="text-xs" style={{ color: '#94A3B8' }}>{sig.label}</span>
+                <span className="text-xs font-semibold" style={{ color: sig.flag ? color : '#94A3B8' }}>
                   {sig.value}
                 </span>
               </div>
@@ -147,9 +147,9 @@ function StudentCard({ student }: { student: StudentRisk }) {
           {student.tier !== 'low' && (
             <div
               className="rounded-xl border overflow-hidden"
-              style={{ background: 'rgba(17,17,24,0.6)', borderColor: 'rgba(255,255,255,0.07)' }}
+              style={{ background: 'rgba(17,17,24,0.6)', borderColor: 'rgba(148,163,184,0.12)' }}
             >
-              <div className="flex items-center justify-between px-4 py-2.5 border-b" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
+              <div className="flex items-center justify-between px-4 py-2.5 border-b" style={{ borderColor: 'rgba(148,163,184,0.10)' }}>
                 <div className="flex items-center gap-1.5">
                   <MessageSquare size={11} style={{ color: TEAL }} />
                   <span className="text-xs font-semibold" style={{ color: '#F5F5F7' }}>Check-in draft</span>
@@ -321,10 +321,10 @@ function InputPanel({
   return (
     <div className="space-y-5">
       <div>
-        <label className="block text-xs font-semibold mb-1.5" style={{ color: '#86868B' }}>
+        <label className="block text-xs font-semibold mb-1.5" style={{ color: '#94A3B8' }}>
           STUDENT ROSTER DATA
         </label>
-        <p className="text-xs mb-2" style={{ color: '#3A3A40' }}>
+        <p className="text-xs mb-2" style={{ color: '#64748B' }}>
           One student per line: Name, days since login, assignments submitted/total, grade%
         </p>
         <textarea
@@ -334,8 +334,8 @@ function InputPanel({
           placeholder={`Jordan Martinez, 14, 2/7, 48%\nTaylor Kim, 1, 6/7, 88%\nCasey Brown, 9, 4/7, 62%\n\nLeave blank to use sample data`}
           className="w-full rounded-xl px-4 py-3 text-sm resize-none outline-none font-mono"
           style={{
-            background: 'rgba(255,255,255,0.04)',
-            border: '1px solid rgba(255,255,255,0.08)',
+            background: 'rgba(148,163,184,0.08)',
+            border: '1px solid rgba(255,255,255,0.10)',
             color: '#F5F5F7',
           }}
         />
@@ -343,7 +343,7 @@ function InputPanel({
 
       <div className="grid grid-cols-2 gap-3">
         <div>
-          <label className="block text-xs font-semibold mb-1.5" style={{ color: '#86868B' }}>
+          <label className="block text-xs font-semibold mb-1.5" style={{ color: '#94A3B8' }}>
             COURSE NAME
           </label>
           <input
@@ -353,14 +353,14 @@ function InputPanel({
             placeholder="e.g. PSYC 201"
             className="w-full rounded-xl px-3 py-2.5 text-sm outline-none"
             style={{
-              background: 'rgba(255,255,255,0.04)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              background: 'rgba(148,163,184,0.08)',
+              border: '1px solid rgba(255,255,255,0.10)',
               color: '#F5F5F7',
             }}
           />
         </div>
         <div>
-          <label className="block text-xs font-semibold mb-1.5" style={{ color: '#86868B' }}>
+          <label className="block text-xs font-semibold mb-1.5" style={{ color: '#94A3B8' }}>
             CURRENT WEEK
           </label>
           <input
@@ -370,8 +370,8 @@ function InputPanel({
             placeholder="e.g. 8"
             className="w-full rounded-xl px-3 py-2.5 text-sm outline-none"
             style={{
-              background: 'rgba(255,255,255,0.04)',
-              border: '1px solid rgba(255,255,255,0.08)',
+              background: 'rgba(148,163,184,0.08)',
+              border: '1px solid rgba(255,255,255,0.10)',
               color: '#F5F5F7',
             }}
           />
@@ -379,7 +379,7 @@ function InputPanel({
       </div>
 
       <div>
-        <label className="block text-xs font-semibold mb-2" style={{ color: '#86868B' }}>
+        <label className="block text-xs font-semibold mb-2" style={{ color: '#94A3B8' }}>
           CHECK-IN STYLE
         </label>
         <div className="flex flex-col gap-2">
@@ -389,13 +389,13 @@ function InputPanel({
               onClick={() => set('style')(s.value)}
               className="flex items-start gap-3 px-4 py-3 rounded-xl text-left transition-all"
               style={{
-                background: state.style === s.value ? TEAL_DIM : 'rgba(255,255,255,0.03)',
-                border: `1px solid ${state.style === s.value ? TEAL_BORDER : 'rgba(255,255,255,0.06)'}`,
+                background: state.style === s.value ? TEAL_DIM : 'rgba(148,163,184,0.07)',
+                border: `1px solid ${state.style === s.value ? TEAL_BORDER : 'rgba(148,163,184,0.10)'}`,
               }}
             >
               <div
                 className="mt-0.5 w-3.5 h-3.5 rounded-full flex-shrink-0 border-2 flex items-center justify-center"
-                style={{ borderColor: state.style === s.value ? TEAL : '#3A3A40' }}
+                style={{ borderColor: state.style === s.value ? TEAL : '#64748B' }}
               >
                 {state.style === s.value && (
                   <div className="w-1.5 h-1.5 rounded-full" style={{ background: TEAL }} />
@@ -405,7 +405,7 @@ function InputPanel({
                 <p className="text-xs font-semibold" style={{ color: state.style === s.value ? TEAL : '#F5F5F7' }}>
                   {s.label}
                 </p>
-                <p className="text-xs mt-0.5" style={{ color: '#86868B' }}>{s.desc}</p>
+                <p className="text-xs mt-0.5" style={{ color: '#94A3B8' }}>{s.desc}</p>
               </div>
             </button>
           ))}
@@ -417,8 +417,8 @@ function InputPanel({
         disabled={!ready || loading}
         className="w-full py-3 rounded-xl text-sm font-bold transition-all flex items-center justify-center gap-2"
         style={{
-          background: !loading ? TEAL : 'rgba(255,255,255,0.06)',
-          color: !loading ? '#0A0A0F' : '#3A3A40',
+          background: !loading ? TEAL : 'rgba(148,163,184,0.10)',
+          color: !loading ? '#0A0A0F' : '#64748B',
           cursor: !loading ? 'pointer' : 'not-allowed',
         }}
       >
@@ -468,10 +468,10 @@ function Results({ result }: { result: WarningResult }) {
             <div
               key={stat.label}
               className="rounded-xl p-3 text-center"
-              style={{ background: 'rgba(255,255,255,0.05)' }}
+              style={{ background: 'rgba(148,163,184,0.08)' }}
             >
               <p className="text-2xl font-black" style={{ color: stat.color }}>{stat.count}</p>
-              <p className="text-xs mt-0.5" style={{ color: '#86868B' }}>{stat.label}</p>
+              <p className="text-xs mt-0.5" style={{ color: '#94A3B8' }}>{stat.label}</p>
             </div>
           ))}
         </div>
@@ -485,15 +485,15 @@ function Results({ result }: { result: WarningResult }) {
             onClick={() => setActiveFilter(f.value)}
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all"
             style={{
-              background: activeFilter === f.value ? TEAL_DIM : 'rgba(255,255,255,0.04)',
-              color: activeFilter === f.value ? TEAL : '#86868B',
-              border: `1px solid ${activeFilter === f.value ? TEAL_BORDER : 'rgba(255,255,255,0.07)'}`,
+              background: activeFilter === f.value ? TEAL_DIM : 'rgba(148,163,184,0.08)',
+              color: activeFilter === f.value ? TEAL : '#94A3B8',
+              border: `1px solid ${activeFilter === f.value ? TEAL_BORDER : 'rgba(148,163,184,0.12)'}`,
             }}
           >
             {f.label}
             <span
               className="px-1.5 py-0.5 rounded-full text-xs"
-              style={{ background: 'rgba(255,255,255,0.08)', color: 'inherit' }}
+              style={{ background: 'rgba(255,255,255,0.10)', color: 'inherit' }}
             >
               {f.count}
             </span>
@@ -509,10 +509,10 @@ function Results({ result }: { result: WarningResult }) {
         {filtered.length === 0 && (
           <div
             className="rounded-2xl p-8 border text-center"
-            style={{ background: 'rgba(17,17,24,0.5)', borderColor: 'rgba(255,255,255,0.04)' }}
+            style={{ background: 'rgba(17,17,24,0.5)', borderColor: 'rgba(148,163,184,0.08)' }}
           >
             <UserCheck size={24} style={{ color: TEAL }} className="mx-auto mb-2" />
-            <p className="text-xs" style={{ color: '#86868B' }}>No students in this tier.</p>
+            <p className="text-xs" style={{ color: '#94A3B8' }}>No students in this tier.</p>
           </div>
         )}
       </div>
@@ -526,7 +526,7 @@ function Results({ result }: { result: WarningResult }) {
           <Zap size={15} style={{ color: GOLD, flexShrink: 0, marginTop: 2 }} />
           <div>
             <p className="text-xs font-bold mb-1" style={{ color: GOLD }}>Forge insight</p>
-            <p className="text-xs leading-relaxed" style={{ color: '#86868B' }}>{result.insight}</p>
+            <p className="text-xs leading-relaxed" style={{ color: '#94A3B8' }}>{result.insight}</p>
           </div>
         </div>
       </div>
@@ -572,7 +572,7 @@ export default function EarlyWarning() {
             <Link
               to="/teachos"
               className="inline-flex items-center gap-1.5 text-xs mb-6 transition-colors hover:opacity-80"
-              style={{ color: '#86868B' }}
+              style={{ color: '#94A3B8' }}
             >
               <ChevronLeft size={14} /> Forge
             </Link>
@@ -602,7 +602,7 @@ export default function EarlyWarning() {
             {/* Left: Input */}
             <div
               className="rounded-3xl p-6 border sticky top-24"
-              style={{ background: 'rgba(17,17,24,0.7)', borderColor: 'rgba(255,255,255,0.06)' }}
+              style={{ background: 'rgba(17,17,24,0.7)', borderColor: 'rgba(148,163,184,0.10)' }}
             >
               <InputPanel
                 state={state}
@@ -627,7 +627,7 @@ export default function EarlyWarning() {
               {!result && !loading && !error && (
                 <div
                   className="rounded-3xl p-10 border text-center"
-                  style={{ background: 'rgba(17,17,24,0.5)', borderColor: 'rgba(255,255,255,0.04)' }}
+                  style={{ background: 'rgba(17,17,24,0.5)', borderColor: 'rgba(148,163,184,0.08)' }}
                 >
                   <div className="flex justify-center gap-4 mb-6 opacity-30">
                     {[AlertTriangle, TrendingDown, MessageSquare].map((Icon, i) => (
@@ -668,7 +668,7 @@ export default function EarlyWarning() {
           {/* Footer CTA */}
           <div
             className="mt-16 rounded-3xl p-8 border text-center"
-            style={{ background: 'rgba(17,17,24,0.7)', borderColor: 'rgba(255,255,255,0.06)' }}
+            style={{ background: 'rgba(17,17,24,0.7)', borderColor: 'rgba(148,163,184,0.10)' }}
           >
             <p className="text-molted-muted text-sm mb-1">This is Forge Early Warning Engine — beta.</p>
             <p className="text-molted-white font-semibold mb-5">

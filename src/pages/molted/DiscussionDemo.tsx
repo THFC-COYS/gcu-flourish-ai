@@ -44,15 +44,15 @@ const QUALITY_CONFIG: Record<Quality, { color: string; bg: string; border: strin
     icon: Star,
   },
   adequate: {
-    color: '#86868B',
-    bg: 'rgba(255,255,255,0.04)',
-    border: 'rgba(255,255,255,0.08)',
+    color: '#94A3B8',
+    bg: 'rgba(148,163,184,0.08)',
+    border: 'rgba(148,163,184,0.18)',
     icon: Minus,
   },
   minimal: {
-    color: '#3A3A40',
-    bg: 'rgba(255,255,255,0.02)',
-    border: 'rgba(255,255,255,0.06)',
+    color: '#64748B',
+    bg: 'rgba(100,116,139,0.06)',
+    border: 'rgba(100,116,139,0.15)',
     icon: Minus,
   },
 };
@@ -71,7 +71,7 @@ function CopyButton({ text }: { text: string }) {
       className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg transition-all"
       style={{
         background: copied ? TEAL_DIM : 'rgba(255,255,255,0.06)',
-        color: copied ? TEAL : '#86868B',
+        color: copied ? TEAL : '#94A3B8',
         border: `1px solid ${copied ? TEAL_BORDER : 'rgba(255,255,255,0.08)'}`,
       }}
     >
@@ -126,7 +126,7 @@ function PostCard({ post }: { post: Post }) {
           {post.issue && (
             <div
               className="rounded-xl p-3 text-xs leading-relaxed"
-              style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.06)' }}
+              style={{ background: 'rgba(148,163,184,0.05)', border: '1px solid rgba(255,255,255,0.06)' }}
             >
               <p className="text-red-400 font-semibold mb-1">Issue detected</p>
               <p className="text-molted-muted">{post.issue}</p>
@@ -135,7 +135,7 @@ function PostCard({ post }: { post: Post }) {
 
           <div
             className="rounded-xl p-4"
-            style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.06)' }}
+            style={{ background: 'rgba(148,163,184,0.05)', border: '1px solid rgba(255,255,255,0.06)' }}
           >
             <div className="flex items-center justify-between mb-2">
               <p className="text-molted-muted text-xs font-semibold uppercase tracking-wide">
@@ -180,7 +180,7 @@ function FilterTabs({
           className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-sm font-semibold transition-all"
           style={{
             background: filter === tab.key ? 'rgba(255,255,255,0.08)' : 'transparent',
-            color: filter === tab.key ? tab.color : '#86868B',
+            color: filter === tab.key ? tab.color : '#94A3B8',
             border: `1px solid ${filter === tab.key ? 'rgba(255,255,255,0.15)' : 'rgba(255,255,255,0.06)'}`,
           }}
         >
@@ -189,7 +189,7 @@ function FilterTabs({
             className="text-xs px-1.5 py-0.5 rounded-full"
             style={{
               background: filter === tab.key ? `${tab.color}20` : 'rgba(255,255,255,0.05)',
-              color: filter === tab.key ? tab.color : '#3A3A40',
+              color: filter === tab.key ? tab.color : '#94A3B8',
             }}
           >
             {counts[tab.key]}
@@ -241,7 +241,7 @@ function Results({ analysis }: { analysis: Analysis }) {
           </div>
           <div
             className="mx-4 mb-4 rounded-xl p-4 text-sm leading-relaxed text-molted-white/85 whitespace-pre-wrap"
-            style={{ background: 'rgba(0,0,0,0.35)', border: '1px solid rgba(255,255,255,0.05)' }}
+            style={{ background: 'rgba(148,163,184,0.05)', border: '1px solid rgba(255,255,255,0.05)' }}
           >
             {analysis.instructorPost}
           </div>
@@ -307,7 +307,7 @@ function ChipGroup<T extends string>({
               className="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all"
               style={{
                 background: active ? TEAL_DIM : 'rgba(255,255,255,0.04)',
-                color: active ? TEAL : '#86868B',
+                color: active ? TEAL : '#94A3B8',
                 border: `1px solid ${active ? TEAL_BORDER : 'rgba(255,255,255,0.07)'}`,
               }}
             >
@@ -428,7 +428,7 @@ function InputPanel({
                   className="px-2.5 py-1 rounded-lg text-xs font-semibold transition-all"
                   style={{
                     background: opts.wordCount === n ? TEAL_DIM : 'rgba(255,255,255,0.04)',
-                    color: opts.wordCount === n ? TEAL : '#86868B',
+                    color: opts.wordCount === n ? TEAL : '#94A3B8',
                     border: `1px solid ${opts.wordCount === n ? TEAL_BORDER : 'rgba(255,255,255,0.07)'}`,
                   }}
                 >
@@ -454,7 +454,7 @@ function InputPanel({
                   className="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all"
                   style={{
                     background: active ? TEAL_DIM : 'rgba(255,255,255,0.04)',
-                    color: active ? TEAL : '#86868B',
+                    color: active ? TEAL : '#94A3B8',
                     border: `1px solid ${active ? TEAL_BORDER : 'rgba(255,255,255,0.07)'}`,
                   }}
                 >
@@ -471,8 +471,8 @@ function InputPanel({
         disabled={!ready}
         className="w-full flex items-center justify-center gap-2.5 py-3.5 rounded-xl font-bold text-sm transition-all duration-200"
         style={{
-          background: ready ? TEAL : 'rgba(255,255,255,0.06)',
-          color: ready ? '#0A0A0F' : '#3A3A40',
+          background: ready ? TEAL : 'rgba(148,163,184,0.12)',
+          color: ready ? '#0A0A0F' : '#64748B',
           cursor: ready ? 'pointer' : 'not-allowed',
         }}
       >
@@ -589,11 +589,11 @@ export default function DiscussionDemo() {
               {!analysis && !loading && !error && (
                 <div
                   className="rounded-3xl p-10 border text-center"
-                  style={{ background: 'rgba(17,17,24,0.5)', borderColor: 'rgba(255,255,255,0.04)' }}
+                  style={{ background: 'rgba(20,20,32,0.8)', borderColor: 'rgba(148,163,184,0.15)' }}
                 >
-                  <MessageSquare size={32} className="mx-auto mb-4 text-molted-subtle" />
-                  <p className="text-molted-muted font-semibold mb-2">Analysis will appear here</p>
-                  <p className="text-molted-subtle text-sm">
+                  <MessageSquare size={32} className="mx-auto mb-4" style={{ color: '#64748B' }} />
+                  <p className="font-semibold mb-2" style={{ color: '#F0F0F5' }}>Analysis will appear here</p>
+                  <p className="text-sm" style={{ color: '#94A3B8' }}>
                     Paste a discussion thread and click Analyze.
                     <br />
                     Works with Canvas, Blackboard, D2L, or any plain text.

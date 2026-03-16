@@ -52,9 +52,9 @@ function CopyButton({ text, label = 'Copy' }: { text: string; label?: string }) 
       onClick={() => { navigator.clipboard.writeText(text); setCopied(true); setTimeout(() => setCopied(false), 1800); }}
       className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg transition-all"
       style={{
-        background: copied ? TEAL_DIM : 'rgba(255,255,255,0.06)',
-        color: copied ? TEAL : '#86868B',
-        border: `1px solid ${copied ? TEAL_BORDER : 'rgba(255,255,255,0.08)'}`,
+        background: copied ? TEAL_DIM : 'rgba(148,163,184,0.10)',
+        color: copied ? TEAL : '#94A3B8',
+        border: `1px solid ${copied ? TEAL_BORDER : 'rgba(255,255,255,0.10)'}`,
       }}
     >
       {copied ? <Check size={11} /> : <Copy size={11} />}
@@ -78,9 +78,9 @@ function SelectChip({ options, value, onChange }: {
             onClick={() => onChange(opt)}
             className="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all"
             style={{
-              background: active ? TEAL_DIM : 'rgba(255,255,255,0.04)',
-              color: active ? TEAL : '#86868B',
-              border: `1px solid ${active ? TEAL_BORDER : 'rgba(255,255,255,0.07)'}`,
+              background: active ? TEAL_DIM : 'rgba(148,163,184,0.08)',
+              color: active ? TEAL : '#94A3B8',
+              border: `1px solid ${active ? TEAL_BORDER : 'rgba(148,163,184,0.12)'}`,
             }}
           >
             {opt}
@@ -112,7 +112,7 @@ function ModuleCard({ module }: { module: Module }) {
   return (
     <div
       className="rounded-2xl border transition-all duration-200"
-      style={{ background: 'rgba(17,17,24,0.8)', borderColor: 'rgba(255,255,255,0.07)' }}
+      style={{ background: 'rgba(17,17,24,0.8)', borderColor: 'rgba(148,163,184,0.12)' }}
     >
       <button
         className="w-full flex items-center gap-4 p-4 text-left"
@@ -157,7 +157,7 @@ function ModuleCard({ module }: { module: Module }) {
               <span
                 key={i}
                 className="text-xs px-2.5 py-1 rounded-full"
-                style={{ background: 'rgba(255,255,255,0.06)', color: '#86868B', border: '1px solid rgba(255,255,255,0.07)' }}
+                style={{ background: 'rgba(148,163,184,0.10)', color: '#94A3B8', border: '1px solid rgba(148,163,184,0.12)' }}
               >
                 {t}
               </span>
@@ -168,14 +168,14 @@ function ModuleCard({ module }: { module: Module }) {
           <div className="grid sm:grid-cols-2 gap-3">
             <div
               className="rounded-xl p-3"
-              style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.05)' }}
+              style={{ background: 'rgba(148,163,184,0.05)', border: '1px solid rgba(148,163,184,0.08)' }}
             >
               <p className="text-xs font-semibold text-molted-muted mb-1.5">Discussion prompt</p>
               <p className="text-sm text-molted-white/80 leading-relaxed">{module.discussionPrompt}</p>
             </div>
             <div
               className="rounded-xl p-3"
-              style={{ background: 'rgba(0,0,0,0.3)', border: '1px solid rgba(255,255,255,0.05)' }}
+              style={{ background: 'rgba(148,163,184,0.05)', border: '1px solid rgba(148,163,184,0.08)' }}
             >
               <p className="text-xs font-semibold text-molted-muted mb-1.5">Assignment</p>
               <p className="text-sm text-molted-white/80 leading-relaxed">{module.assignment}</p>
@@ -192,7 +192,7 @@ function AnnouncementCard({ module }: { module: Module }) {
   return (
     <div
       className="rounded-2xl border"
-      style={{ background: 'rgba(17,17,24,0.8)', borderColor: 'rgba(255,255,255,0.07)' }}
+      style={{ background: 'rgba(17,17,24,0.8)', borderColor: 'rgba(148,163,184,0.12)' }}
     >
       <div className="flex items-center justify-between px-5 pt-4 pb-3">
         <div className="flex items-center gap-2">
@@ -208,7 +208,7 @@ function AnnouncementCard({ module }: { module: Module }) {
       </div>
       <div
         className="mx-4 mb-4 rounded-xl p-4 text-sm leading-relaxed text-molted-white/80 whitespace-pre-wrap"
-        style={{ background: 'rgba(0,0,0,0.35)', border: '1px solid rgba(255,255,255,0.05)' }}
+        style={{ background: 'rgba(148,163,184,0.05)', border: '1px solid rgba(148,163,184,0.08)' }}
       >
         {module.announcement}
       </div>
@@ -222,7 +222,7 @@ function FaqCard({ item, index }: { item: FAQ; index: number }) {
   return (
     <div
       className="rounded-2xl border"
-      style={{ background: 'rgba(17,17,24,0.8)', borderColor: 'rgba(255,255,255,0.07)' }}
+      style={{ background: 'rgba(17,17,24,0.8)', borderColor: 'rgba(148,163,184,0.12)' }}
     >
       <button className="w-full flex items-center justify-between gap-3 p-4 text-left" onClick={() => setOpen(o => !o)}>
         <p className="text-molted-white text-sm font-semibold">{item.question}</p>
@@ -278,7 +278,7 @@ function Results({ result }: { result: CourseResult }) {
             <div
               key={i}
               className="rounded-xl px-3 py-2 text-xs"
-              style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}
+              style={{ background: 'rgba(148,163,184,0.08)', border: '1px solid rgba(148,163,184,0.12)' }}
             >
               <p className="text-molted-white font-semibold">{a.name}</p>
               <p className="text-molted-muted mt-0.5">{a.type} · {a.weight}</p>
@@ -288,7 +288,7 @@ function Results({ result }: { result: CourseResult }) {
       )}
 
       {/* Tabs */}
-      <div className="flex gap-2 border-b" style={{ borderColor: 'rgba(255,255,255,0.07)' }}>
+      <div className="flex gap-2 border-b" style={{ borderColor: 'rgba(148,163,184,0.12)' }}>
         {tabs.map(t => {
           const Icon = t.icon;
           const active = tab === t.key;
@@ -298,7 +298,7 @@ function Results({ result }: { result: CourseResult }) {
               onClick={() => setTab(t.key)}
               className="flex items-center gap-2 px-4 py-2.5 text-sm font-semibold transition-all border-b-2 -mb-px"
               style={{
-                color: active ? TEAL : '#86868B',
+                color: active ? TEAL : '#94A3B8',
                 borderColor: active ? TEAL : 'transparent',
               }}
             >
@@ -308,8 +308,8 @@ function Results({ result }: { result: CourseResult }) {
                 <span
                   className="text-xs px-1.5 py-0.5 rounded-full"
                   style={{
-                    background: active ? `${TEAL}20` : 'rgba(255,255,255,0.05)',
-                    color: active ? TEAL : '#3A3A40',
+                    background: active ? `${TEAL}20` : 'rgba(148,163,184,0.08)',
+                    color: active ? TEAL : '#64748B',
                   }}
                 >
                   {t.count}
@@ -348,7 +348,7 @@ function Results({ result }: { result: CourseResult }) {
       {/* Insight */}
       <div
         className="rounded-2xl p-5 border"
-        style={{ background: 'rgba(17,17,24,0.9)', borderColor: 'rgba(255,255,255,0.06)' }}
+        style={{ background: 'rgba(17,17,24,0.9)', borderColor: 'rgba(148,163,184,0.10)' }}
       >
         <div className="flex items-center gap-2 mb-3">
           <Lightbulb size={14} style={{ color: '#64748B' }} />
@@ -395,7 +395,7 @@ function InputForm({ onSubmit, loading, loadingStage }: {
           className="w-full rounded-xl border text-sm text-molted-white p-3 focus:outline-none transition-colors"
           style={{
             background: 'rgba(17,17,24,0.9)',
-            borderColor: form.title.length > 0 ? TEAL_BORDER : 'rgba(255,255,255,0.08)',
+            borderColor: form.title.length > 0 ? TEAL_BORDER : 'rgba(255,255,255,0.10)',
           }}
         />
       </div>
@@ -433,9 +433,9 @@ function InputForm({ onSubmit, loading, loadingStage }: {
                 onClick={() => setForm(f => ({ ...f, weeks: n }))}
                 className="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all"
                 style={{
-                  background: active ? TEAL_DIM : 'rgba(255,255,255,0.04)',
-                  color: active ? TEAL : '#86868B',
-                  border: `1px solid ${active ? TEAL_BORDER : 'rgba(255,255,255,0.07)'}`,
+                  background: active ? TEAL_DIM : 'rgba(148,163,184,0.08)',
+                  color: active ? TEAL : '#94A3B8',
+                  border: `1px solid ${active ? TEAL_BORDER : 'rgba(148,163,184,0.12)'}`,
                 }}
               >
                 {n}w
@@ -461,7 +461,7 @@ function InputForm({ onSubmit, loading, loadingStage }: {
           className="w-full rounded-xl border text-sm text-molted-white leading-relaxed resize-none p-3 focus:outline-none transition-colors"
           style={{
             background: 'rgba(17,17,24,0.9)',
-            borderColor: form.objectives.length > 0 ? TEAL_BORDER : 'rgba(255,255,255,0.08)',
+            borderColor: form.objectives.length > 0 ? TEAL_BORDER : 'rgba(255,255,255,0.10)',
           }}
         />
       </div>
@@ -503,8 +503,8 @@ function InputForm({ onSubmit, loading, loadingStage }: {
                 onClick={() => setForm(f => ({ ...f, announcementLevel: opt.value }))}
                 className="w-full text-left rounded-xl border p-3.5 transition-all"
                 style={{
-                  background: active ? TEAL_DIM : 'rgba(255,255,255,0.02)',
-                  borderColor: active ? TEAL_BORDER : 'rgba(255,255,255,0.07)',
+                  background: active ? TEAL_DIM : 'rgba(148,163,184,0.06)',
+                  borderColor: active ? TEAL_BORDER : 'rgba(148,163,184,0.12)',
                 }}
               >
                 <div className="flex items-center justify-between mb-1">
@@ -514,14 +514,14 @@ function InputForm({ onSubmit, loading, loadingStage }: {
                   <span
                     className="text-xs px-2 py-0.5 rounded-full font-semibold"
                     style={{
-                      background: active ? `${TEAL}20` : 'rgba(255,255,255,0.05)',
-                      color: active ? TEAL : '#3A3A40',
+                      background: active ? `${TEAL}20` : 'rgba(148,163,184,0.08)',
+                      color: active ? TEAL : '#64748B',
                     }}
                   >
                     {opt.words}
                   </span>
                 </div>
-                <p className="text-xs leading-relaxed" style={{ color: active ? 'rgba(37,99,235,0.75)' : '#3A3A40' }}>
+                <p className="text-xs leading-relaxed" style={{ color: active ? 'rgba(37,99,235,0.75)' : '#64748B' }}>
                   {opt.desc}
                 </p>
               </button>
@@ -547,7 +547,7 @@ function InputForm({ onSubmit, loading, loadingStage }: {
           className="w-full rounded-xl border text-sm text-molted-muted leading-relaxed resize-none p-3 focus:outline-none transition-colors"
           style={{
             background: 'rgba(17,17,24,0.9)',
-            borderColor: form.voice.length > 0 ? TEAL_BORDER : 'rgba(255,255,255,0.08)',
+            borderColor: form.voice.length > 0 ? TEAL_BORDER : 'rgba(255,255,255,0.10)',
           }}
         />
       </div>
@@ -568,7 +568,7 @@ function InputForm({ onSubmit, loading, loadingStage }: {
           className="w-full rounded-xl border text-sm text-molted-muted leading-relaxed resize-none p-3 focus:outline-none transition-colors"
           style={{
             background: 'rgba(17,17,24,0.9)',
-            borderColor: form.syllabus.length > 0 ? TEAL_BORDER : 'rgba(255,255,255,0.08)',
+            borderColor: form.syllabus.length > 0 ? TEAL_BORDER : 'rgba(255,255,255,0.10)',
           }}
         />
       </div>
@@ -578,8 +578,8 @@ function InputForm({ onSubmit, loading, loadingStage }: {
         disabled={!ready}
         className="w-full flex items-center justify-center gap-2.5 py-3.5 rounded-xl font-bold text-sm transition-all duration-200"
         style={{
-          background: ready ? TEAL : 'rgba(255,255,255,0.06)',
-          color: ready ? '#0A0A0F' : '#3A3A40',
+          background: ready ? TEAL : 'rgba(148,163,184,0.10)',
+          color: ready ? '#0A0A0F' : '#64748B',
           cursor: ready ? 'pointer' : 'not-allowed',
         }}
       >
@@ -695,7 +695,7 @@ export default function CourseArchitect() {
             {/* Input */}
             <div
               className="rounded-3xl p-6 border sticky top-24"
-              style={{ background: 'rgba(17,17,24,0.7)', borderColor: 'rgba(255,255,255,0.06)' }}
+              style={{ background: 'rgba(17,17,24,0.7)', borderColor: 'rgba(148,163,184,0.10)' }}
             >
               <InputForm onSubmit={handleSubmit} loading={loading} loadingStage={loadingStage} />
             </div>
@@ -715,7 +715,7 @@ export default function CourseArchitect() {
               {!result && !loading && !error && (
                 <div
                   className="rounded-3xl p-10 border text-center"
-                  style={{ background: 'rgba(17,17,24,0.5)', borderColor: 'rgba(255,255,255,0.04)' }}
+                  style={{ background: 'rgba(17,17,24,0.5)', borderColor: 'rgba(148,163,184,0.08)' }}
                 >
                   <div className="grid grid-cols-3 gap-3 mb-8 max-w-xs mx-auto">
                     {[
@@ -726,7 +726,7 @@ export default function CourseArchitect() {
                       <div
                         key={label}
                         className="rounded-2xl p-4 flex flex-col items-center gap-2 text-center"
-                        style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.05)' }}
+                        style={{ background: 'rgba(148,163,184,0.07)', border: '1px solid rgba(148,163,184,0.08)' }}
                       >
                         <Icon size={18} className="text-molted-subtle" />
                         <p className="text-molted-subtle text-xs">{label}</p>
@@ -769,7 +769,7 @@ export default function CourseArchitect() {
           {/* Footer nudge */}
           <div
             className="mt-16 rounded-3xl p-8 border text-center"
-            style={{ background: 'rgba(17,17,24,0.7)', borderColor: 'rgba(255,255,255,0.06)' }}
+            style={{ background: 'rgba(17,17,24,0.7)', borderColor: 'rgba(148,163,184,0.10)' }}
           >
             <p className="text-molted-muted text-sm mb-1">This is Forge Course Architect — beta.</p>
             <p className="text-molted-white font-semibold mb-5">

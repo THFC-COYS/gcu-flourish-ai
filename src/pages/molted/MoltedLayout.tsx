@@ -53,14 +53,15 @@ export function MoltedNav() {
       <Link
         key={href}
         to={href}
-        className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 hover:bg-black/5 ${active ? 'bg-black/5' : ''}`}
-        style={
-          active
-            ? { color: color ?? '#1C1C1E' }
+        className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 ${active ? '' : ''}`}
+        style={{
+          background: active ? 'rgba(255,255,255,0.07)' : undefined,
+          color: active
+            ? (color ?? '#F0F0F5')
             : color
-            ? { background: `linear-gradient(120deg, ${color}, ${color}cc)`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }
-            : undefined
-        }
+            ? color
+            : '#94A3B8',
+        }}
       >
         {label}
       </Link>
@@ -68,7 +69,9 @@ export function MoltedNav() {
   }
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-white/90 backdrop-blur-xl border-b border-molted-border' : 'bg-transparent'}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'backdrop-blur-xl border-b' : 'bg-transparent'}`}
+      style={scrolled ? { background: 'rgba(10,10,15,0.92)', borderColor: 'rgba(255,255,255,0.08)' } : undefined}
+    >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link to="/" className="flex-shrink-0">
           <MoltedLogo size="sm" />
@@ -76,17 +79,17 @@ export function MoltedNav() {
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-1">
-          {/* Separator */}
           {THREE_PRODUCTS.map(p => navLink(p.href, p.label, p.color))}
-          <span className="w-px h-4 bg-molted-border mx-1" />
-          {navLink('/molted/outpost', 'Outpost')}
-          {navLink('/molted/about', 'About')}
+          <span className="w-px h-4 mx-1" style={{ background: 'rgba(255,255,255,0.12)' }} />
+          {navLink('/outpost', 'Outpost')}
+          {navLink('/about', 'About')}
         </div>
 
         <div className="hidden md:flex items-center gap-3">
           <a
             href="mailto:hello@molted.ai"
-            className="px-5 py-2 rounded-xl text-sm font-semibold bg-molted-violet hover:bg-molted-violet-light text-white transition-all duration-200 hover:-translate-y-px"
+            className="px-5 py-2 rounded-xl text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-px"
+            style={{ background: 'linear-gradient(120deg, #2563EB, #1E3A8A)' }}
           >
             Get Started
           </a>
@@ -103,11 +106,17 @@ export function MoltedNav() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-white/95 backdrop-blur-xl border-b border-molted-border max-h-[80vh] overflow-y-auto">
+        <div className="md:hidden backdrop-blur-xl border-b max-h-[80vh] overflow-y-auto"
+          style={{ background: 'rgba(10,10,15,0.97)', borderColor: 'rgba(255,255,255,0.08)' }}
+        >
           <div className="max-w-6xl mx-auto px-6 py-4 space-y-1">
-            <p className="text-molted-subtle text-xs font-semibold uppercase tracking-widest px-4 pb-2">Products</p>
+            <p className="text-xs font-semibold uppercase tracking-widest px-4 pb-2" style={{ color: '#64748B' }}>Products</p>
             {THREE_PRODUCTS.map(p => (
-              <Link key={p.href} to={p.href} className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-black/5 transition-all">
+              <Link key={p.href} to={p.href} className="flex items-center gap-3 px-4 py-3 rounded-lg transition-all"
+                style={{ background: 'transparent' }}
+                onMouseEnter={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.05)')}
+                onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
+              >
                 <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: p.color }} />
                 <div>
                   <p className="text-molted-white text-sm font-semibold">{p.label}</p>
@@ -115,18 +124,22 @@ export function MoltedNav() {
                 </div>
               </Link>
             ))}
-            <div className="border-t border-molted-border pt-3 mt-3">
-              <Link to="/outpost" className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-black/5 transition-all border border-molted-border mb-1" style={{ background: 'linear-gradient(90deg,rgba(100,116,139,0.05),rgba(139,92,246,0.05))' }}>
-                <div className="w-5 h-5 rounded-md flex-shrink-0" style={{ background: 'linear-gradient(135deg,#64748B,#2563EB,#8B5CF6)' }} />
+            <div className="pt-3 mt-3" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+              <Link to="/outpost" className="flex items-center gap-3 px-4 py-3 rounded-lg mb-1"
+                style={{ background: 'rgba(37,99,235,0.08)', border: '1px solid rgba(37,99,235,0.2)' }}
+              >
+                <div className="w-5 h-5 rounded-md flex-shrink-0" style={{ background: 'linear-gradient(135deg,#64748B,#2563EB)' }} />
                 <div>
-                  <p className="text-sm font-bold" style={{ background: 'linear-gradient(120deg,#64748B,#2563EB,#8B5CF6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Outpost</p>
-                  <p className="text-molted-subtle text-xs">The AI-native LMS</p>
+                  <p className="text-sm font-bold text-molted-white">Outpost</p>
+                  <p className="text-molted-muted text-xs">The AI-native LMS</p>
                 </div>
               </Link>
-              <Link to="/about" className="block px-4 py-3 rounded-lg text-sm font-medium text-molted-muted hover:text-molted-white hover:bg-black/5 transition-all">About</Link>
+              <Link to="/about" className="block px-4 py-3 rounded-lg text-sm font-medium text-molted-muted hover:text-molted-white transition-all">About</Link>
             </div>
-            <div className="pt-3 border-t border-molted-border">
-              <a href="mailto:hello@molted.ai" className="block w-full text-center px-5 py-3 rounded-xl text-sm font-semibold bg-molted-violet text-white">Get Started</a>
+            <div className="pt-3" style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+              <a href="mailto:hello@molted.ai" className="block w-full text-center px-5 py-3 rounded-xl text-sm font-semibold text-white"
+                style={{ background: 'linear-gradient(120deg, #2563EB, #1E3A8A)' }}
+              >Get Started</a>
             </div>
           </div>
         </div>
@@ -138,7 +151,7 @@ export function MoltedNav() {
 /* ── Footer ─────────────────────────────────────────────────────────────── */
 export function MoltedFooter() {
   return (
-    <footer className="bg-molted-elevated border-t border-molted-border">
+    <footer style={{ background: '#0d0d16', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="md:col-span-2">
@@ -184,7 +197,7 @@ export function MoltedFooter() {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-molted-border flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4" style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>
           <p className="text-molted-subtle text-xs">© {new Date().getFullYear()} MoltED. All rights reserved.</p>
           <p className="text-molted-subtle text-xs">Built with intent. Designed with purpose.</p>
         </div>
@@ -196,7 +209,7 @@ export function MoltedFooter() {
 /* ── Outpost Module Banner ─────────────────────────────────────────────── */
 export function OutpostBanner({ moduleName, moduleColor }: { moduleName: string; moduleColor: string }) {
   return (
-    <div className="border-b border-molted-border" style={{ background: 'linear-gradient(90deg,rgba(100,116,139,0.05) 0%,rgba(37,99,235,0.04) 50%,rgba(139,92,246,0.05) 100%)' }}>
+    <div style={{ background: 'rgba(10,10,15,0.8)', borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
       <div className="max-w-6xl mx-auto px-6 py-2.5 flex items-center justify-between gap-4">
         <div className="flex items-center gap-2.5 min-w-0">
           <div className="w-4 h-4 rounded-md flex-shrink-0" style={{ background: 'linear-gradient(135deg,#64748B,#2563EB,#8B5CF6)' }} />

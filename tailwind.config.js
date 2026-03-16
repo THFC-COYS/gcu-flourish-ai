@@ -16,10 +16,10 @@ export default {
           'gold-pale': '#FFF8E1',
         },
         molted: {
-          black: '#FFFFFF',             // page background — white
-          surface: '#FAFAFA',           // slightly off-white surface
-          elevated: '#F2F2F7',          // Apple system gray 6 — card bg
-          border: '#D1D1D6',            // Apple gray 3 — light border
+          black: '#0a0a0f',             // page background — deep dark
+          surface: '#0f0f18',           // dark surface
+          elevated: '#141420',          // slightly lighter dark — card/footer bg
+          border: 'rgba(255,255,255,0.09)', // subtle light border on dark
           /* Logo palette — corporate: steel-blue (primary) · navy (statement) */
           charcoal: '#1C1C1E',
           gold: '#64748B',        /* slate-500 — neutral gray */
@@ -28,9 +28,9 @@ export default {
           red: '#1E3A8A',         /* navy blue */
           'red-light': '#3B82F6',
           'red-dark': '#172554',
-          white: '#1C1C1E',             // Apple label — near-black headlines
-          muted: '#636366',             // Apple secondary label
-          subtle: '#AEAEB2',            // Apple tertiary — placeholder / quiet
+          white: '#F0F0F5',             // near-white — primary text on dark bg
+          muted: '#94A3B8',             // slate-400 — readable on dark
+          subtle: '#64748B',            // slate-500 — secondary/quiet on dark
           /* Aliases so existing classes keep working */
           violet: '#64748B',
           'violet-light': '#94A3B8',

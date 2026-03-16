@@ -46,9 +46,9 @@ function CopyButton({ text, label = 'Copy' }: { text: string; label?: string }) 
       }}
       className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg transition-all"
       style={{
-        background: copied ? TEAL_DIM : 'rgba(255,255,255,0.06)',
-        color: copied ? TEAL : '#86868B',
-        border: `1px solid ${copied ? TEAL_BORDER : 'rgba(255,255,255,0.08)'}`,
+        background: copied ? TEAL_DIM : 'rgba(148,163,184,0.10)',
+        color: copied ? TEAL : '#94A3B8',
+        border: `1px solid ${copied ? TEAL_BORDER : 'rgba(255,255,255,0.10)'}`,
       }}
     >
       {copied ? <Check size={11} /> : <Copy size={11} />}
@@ -62,10 +62,10 @@ function ConfidenceBar({ score }: { score: number }) {
   return (
     <div className="w-full">
       <div className="flex justify-between items-center mb-1.5">
-        <span className="text-xs" style={{ color: '#86868B' }}>Response confidence</span>
+        <span className="text-xs" style={{ color: '#94A3B8' }}>Response confidence</span>
         <span className="text-sm font-bold" style={{ color }}>{score}%</span>
       </div>
-      <div className="h-1.5 rounded-full" style={{ background: 'rgba(255,255,255,0.08)' }}>
+      <div className="h-1.5 rounded-full" style={{ background: 'rgba(255,255,255,0.10)' }}>
         <div
           className="h-full rounded-full transition-all duration-700"
           style={{ width: `${score}%`, background: color }}
@@ -80,7 +80,7 @@ function PolicyCard({ ref: pRef, idx }: { ref: PolicyRef; idx: number }) {
   return (
     <div
       className="rounded-xl border overflow-hidden"
-      style={{ borderColor: 'rgba(255,255,255,0.07)', background: 'rgba(255,255,255,0.03)' }}
+      style={{ borderColor: 'rgba(148,163,184,0.12)', background: 'rgba(148,163,184,0.07)' }}
     >
       <button
         className="w-full flex items-center justify-between px-4 py-3 text-left"
@@ -92,11 +92,11 @@ function PolicyCard({ ref: pRef, idx }: { ref: PolicyRef; idx: number }) {
             Policy reference {idx + 1}: {pRef.policy}
           </span>
         </div>
-        {open ? <ChevronUp size={13} style={{ color: '#86868B' }} /> : <ChevronDown size={13} style={{ color: '#86868B' }} />}
+        {open ? <ChevronUp size={13} style={{ color: '#94A3B8' }} /> : <ChevronDown size={13} style={{ color: '#94A3B8' }} />}
       </button>
       {open && (
         <div className="px-4 pb-3">
-          <p className="text-xs leading-relaxed" style={{ color: '#86868B' }}>"{pRef.excerpt}"</p>
+          <p className="text-xs leading-relaxed" style={{ color: '#94A3B8' }}>"{pRef.excerpt}"</p>
         </div>
       )}
     </div>
@@ -213,7 +213,7 @@ function InputPanel({
   return (
     <div className="space-y-5">
       <div>
-        <label className="block text-xs font-semibold mb-2" style={{ color: '#86868B' }}>
+        <label className="block text-xs font-semibold mb-2" style={{ color: '#94A3B8' }}>
           INSTRUCTOR POLICIES & VOICE
         </label>
         <textarea
@@ -223,15 +223,15 @@ function InputPanel({
           placeholder="Paste your syllabus policies, late work rules, grading approach, or describe how you speak to students. Forge uses this as your voice baseline."
           className="w-full rounded-xl px-4 py-3 text-sm resize-none outline-none transition-all"
           style={{
-            background: 'rgba(255,255,255,0.04)',
-            border: '1px solid rgba(255,255,255,0.08)',
+            background: 'rgba(148,163,184,0.08)',
+            border: '1px solid rgba(255,255,255,0.10)',
             color: '#F5F5F7',
           }}
         />
       </div>
 
       <div>
-        <label className="block text-xs font-semibold mb-2" style={{ color: '#86868B' }}>
+        <label className="block text-xs font-semibold mb-2" style={{ color: '#94A3B8' }}>
           STUDENT QUESTION
         </label>
         <textarea
@@ -241,16 +241,16 @@ function InputPanel({
           placeholder="Paste the student's question exactly as received…"
           className="w-full rounded-xl px-4 py-3 text-sm resize-none outline-none transition-all"
           style={{
-            background: 'rgba(255,255,255,0.04)',
-            border: '1px solid rgba(255,255,255,0.08)',
+            background: 'rgba(148,163,184,0.08)',
+            border: '1px solid rgba(255,255,255,0.10)',
             color: '#F5F5F7',
           }}
         />
       </div>
 
       <div>
-        <label className="block text-xs font-semibold mb-2" style={{ color: '#86868B' }}>
-          COURSE CONTEXT <span style={{ color: '#3A3A40' }}>(optional)</span>
+        <label className="block text-xs font-semibold mb-2" style={{ color: '#94A3B8' }}>
+          COURSE CONTEXT <span style={{ color: '#64748B' }}>(optional)</span>
         </label>
         <input
           type="text"
@@ -259,15 +259,15 @@ function InputPanel({
           placeholder="e.g. PSYC 201 — Week 8, midterm graded last Friday"
           className="w-full rounded-xl px-4 py-3 text-sm outline-none"
           style={{
-            background: 'rgba(255,255,255,0.04)',
-            border: '1px solid rgba(255,255,255,0.08)',
+            background: 'rgba(148,163,184,0.08)',
+            border: '1px solid rgba(255,255,255,0.10)',
             color: '#F5F5F7',
           }}
         />
       </div>
 
       <div>
-        <label className="block text-xs font-semibold mb-2" style={{ color: '#86868B' }}>
+        <label className="block text-xs font-semibold mb-2" style={{ color: '#94A3B8' }}>
           AUTO-RESPOND THRESHOLD
         </label>
         <div className="flex flex-col gap-2">
@@ -277,13 +277,13 @@ function InputPanel({
               onClick={() => set('threshold')(t.value)}
               className="flex items-start gap-3 px-4 py-3 rounded-xl text-left transition-all"
               style={{
-                background: state.threshold === t.value ? TEAL_DIM : 'rgba(255,255,255,0.03)',
-                border: `1px solid ${state.threshold === t.value ? TEAL_BORDER : 'rgba(255,255,255,0.06)'}`,
+                background: state.threshold === t.value ? TEAL_DIM : 'rgba(148,163,184,0.07)',
+                border: `1px solid ${state.threshold === t.value ? TEAL_BORDER : 'rgba(148,163,184,0.10)'}`,
               }}
             >
               <div
                 className="mt-0.5 w-3.5 h-3.5 rounded-full flex-shrink-0 border-2 flex items-center justify-center"
-                style={{ borderColor: state.threshold === t.value ? TEAL : '#3A3A40' }}
+                style={{ borderColor: state.threshold === t.value ? TEAL : '#64748B' }}
               >
                 {state.threshold === t.value && (
                   <div className="w-1.5 h-1.5 rounded-full" style={{ background: TEAL }} />
@@ -293,7 +293,7 @@ function InputPanel({
                 <p className="text-xs font-semibold" style={{ color: state.threshold === t.value ? TEAL : '#F5F5F7' }}>
                   {t.label}
                 </p>
-                <p className="text-xs mt-0.5" style={{ color: '#86868B' }}>{t.desc}</p>
+                <p className="text-xs mt-0.5" style={{ color: '#94A3B8' }}>{t.desc}</p>
               </div>
             </button>
           ))}
@@ -305,8 +305,8 @@ function InputPanel({
         disabled={!ready || loading}
         className="w-full py-3 rounded-xl text-sm font-bold transition-all flex items-center justify-center gap-2"
         style={{
-          background: ready && !loading ? TEAL : 'rgba(255,255,255,0.06)',
-          color: ready && !loading ? '#0A0A0F' : '#3A3A40',
+          background: ready && !loading ? TEAL : 'rgba(148,163,184,0.10)',
+          color: ready && !loading ? '#0A0A0F' : '#64748B',
           cursor: ready && !loading ? 'pointer' : 'not-allowed',
         }}
       >
@@ -340,7 +340,7 @@ function Results({ result }: { result: AutoRespondResult }) {
             <p className="text-sm font-black" style={{ color: result.shouldAutoRespond ? TEAL : GOLD }}>
               {result.shouldAutoRespond ? 'Safe to auto-respond' : 'Escalate to instructor'}
             </p>
-            <p className="text-xs mt-0.5" style={{ color: '#86868B' }}>
+            <p className="text-xs mt-0.5" style={{ color: '#94A3B8' }}>
               {result.categoryIcon} {result.category}
             </p>
           </div>
@@ -348,7 +348,7 @@ function Results({ result }: { result: AutoRespondResult }) {
             <span
               className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold"
               style={{
-                background: 'rgba(255,255,255,0.06)',
+                background: 'rgba(148,163,184,0.10)',
                 color: result.shouldAutoRespond ? TEAL : GOLD,
               }}
             >
@@ -366,7 +366,7 @@ function Results({ result }: { result: AutoRespondResult }) {
           style={{ background: 'rgba(100,116,139,0.06)', borderColor: 'rgba(100,116,139,0.18)' }}
         >
           <p className="text-xs font-bold mb-1.5" style={{ color: GOLD }}>Why escalation is recommended</p>
-          <p className="text-xs leading-relaxed mb-3" style={{ color: '#86868B' }}>{result.escalationReason}</p>
+          <p className="text-xs leading-relaxed mb-3" style={{ color: '#94A3B8' }}>{result.escalationReason}</p>
           {result.escalationSuggestion && (
             <p className="text-xs leading-relaxed" style={{ color: '#C0A060' }}>{result.escalationSuggestion}</p>
           )}
@@ -376,9 +376,9 @@ function Results({ result }: { result: AutoRespondResult }) {
       {/* Draft response */}
       <div
         className="rounded-2xl border overflow-hidden"
-        style={{ background: 'rgba(17,17,24,0.7)', borderColor: 'rgba(255,255,255,0.07)' }}
+        style={{ background: 'rgba(17,17,24,0.7)', borderColor: 'rgba(148,163,184,0.12)' }}
       >
-        <div className="flex items-center justify-between px-5 py-3 border-b" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
+        <div className="flex items-center justify-between px-5 py-3 border-b" style={{ borderColor: 'rgba(148,163,184,0.10)' }}>
           <div className="flex items-center gap-2">
             <MessageCircle size={13} style={{ color: TEAL }} />
             <span className="text-xs font-semibold" style={{ color: '#F5F5F7' }}>
@@ -400,7 +400,7 @@ function Results({ result }: { result: AutoRespondResult }) {
       {/* Policy references */}
       {result.policyRefs.length > 0 && (
         <div>
-          <p className="text-xs font-semibold mb-2" style={{ color: '#86868B' }}>POLICIES CITED</p>
+          <p className="text-xs font-semibold mb-2" style={{ color: '#94A3B8' }}>POLICIES CITED</p>
           <div className="space-y-2">
             {result.policyRefs.map((p, i) => (
               <PolicyCard key={i} ref={p} idx={i} />
@@ -418,7 +418,7 @@ function Results({ result }: { result: AutoRespondResult }) {
           <Zap size={15} style={{ color: GOLD, flexShrink: 0, marginTop: 2 }} />
           <div>
             <p className="text-xs font-bold mb-1" style={{ color: GOLD }}>Forge insight</p>
-            <p className="text-xs leading-relaxed" style={{ color: '#86868B' }}>{result.insight}</p>
+            <p className="text-xs leading-relaxed" style={{ color: '#94A3B8' }}>{result.insight}</p>
           </div>
         </div>
       </div>
@@ -464,7 +464,7 @@ export default function AutoRespond() {
             <Link
               to="/teachos"
               className="inline-flex items-center gap-1.5 text-xs mb-6 transition-colors hover:opacity-80"
-              style={{ color: '#86868B' }}
+              style={{ color: '#94A3B8' }}
             >
               <ChevronLeft size={14} /> Forge
             </Link>
@@ -494,7 +494,7 @@ export default function AutoRespond() {
             {/* Left: Input */}
             <div
               className="rounded-3xl p-6 border sticky top-24"
-              style={{ background: 'rgba(17,17,24,0.7)', borderColor: 'rgba(255,255,255,0.06)' }}
+              style={{ background: 'rgba(17,17,24,0.7)', borderColor: 'rgba(148,163,184,0.10)' }}
             >
               <InputPanel
                 state={state}
@@ -519,7 +519,7 @@ export default function AutoRespond() {
               {!result && !loading && !error && (
                 <div
                   className="rounded-3xl p-10 border text-center"
-                  style={{ background: 'rgba(17,17,24,0.5)', borderColor: 'rgba(255,255,255,0.04)' }}
+                  style={{ background: 'rgba(17,17,24,0.5)', borderColor: 'rgba(148,163,184,0.08)' }}
                 >
                   <div className="flex justify-center gap-4 mb-6 opacity-30">
                     {[ShieldCheck, MessageCircle, AlertCircle].map((Icon, i) => (
@@ -558,7 +558,7 @@ export default function AutoRespond() {
           {/* Footer CTA */}
           <div
             className="mt-16 rounded-3xl p-8 border text-center"
-            style={{ background: 'rgba(17,17,24,0.7)', borderColor: 'rgba(255,255,255,0.06)' }}
+            style={{ background: 'rgba(17,17,24,0.7)', borderColor: 'rgba(148,163,184,0.10)' }}
           >
             <p className="text-molted-muted text-sm mb-1">This is Forge Auto-Respond — beta.</p>
             <p className="text-molted-white font-semibold mb-5">
