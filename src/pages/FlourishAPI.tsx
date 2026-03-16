@@ -173,9 +173,9 @@ export default function FlourishAPI() {
             Any model. Any platform. Any use case. The same spirit of GCU graduates — serving your users.
           </p>
           <div className="flex flex-wrap gap-3">
-            <button className="btn-gold flex items-center gap-2 text-sm">
+            <a href="mailto:api@gcu.edu?subject=Flourish API Access Request" className="btn-gold flex items-center gap-2 text-sm">
               <Zap size={14} /> Request API Access
-            </button>
+            </a>
             <button onClick={() => navigate('/gcu/vision')} className="border border-[#2D2050] text-slate-300 font-semibold px-4 py-2.5 rounded-lg hover:bg-white/5 text-sm flex items-center gap-2 transition-colors">
               See the Vision <ArrowRight size={14} />
             </button>
@@ -340,9 +340,9 @@ export default function FlourishAPI() {
           Join leading healthcare systems, Christian universities, and mission-driven organizations in building AI that doesn't just perform — it cares.
         </p>
         <div className="flex flex-wrap gap-3 justify-center">
-          <button className="btn-gold flex items-center gap-2">
+          <a href="mailto:api@gcu.edu?subject=Flourish API Access Request" className="btn-gold flex items-center gap-2" target="_blank" rel="noreferrer">
             <Zap size={15} /> Request Access
-          </button>
+          </a>
           <button onClick={() => navigate('/gcu/vision')} className="border border-white/30 text-white font-semibold px-4 py-2.5 rounded-lg hover:bg-white/10 text-sm flex items-center gap-2 transition-colors">
             Read the Vision <ArrowRight size={14} />
           </button>

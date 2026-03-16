@@ -56,6 +56,8 @@ export default function TestingZone() {
   const [submitted, setSubmitted] = useState(false);
   const [deployMsg, setDeployMsg] = useState('');
   const [voiceMode, setVoiceMode] = useState(false);
+  const [sentiment, setSentiment] = useState<'helpful' | 'needs-work' | null>(null);
+  const [copied, setCopied] = useState<'code' | 'link' | null>(null);
 
   useEffect(() => {
     const id = searchParams.get('id');
@@ -76,6 +78,20 @@ export default function TestingZone() {
   const handleDeploy = () => {
     const link = `https://gcu-flourish-ai.vercel.app/pilot/${selected.id}?token=${Math.random().toString(36).slice(2, 10)}`;
     setDeployMsg(link);
+  };
+
+  const handleCopyCode = () => {
+    const snippet = `import { FlourishAPI } from '@gcu/flourish-sdk';\n\nconst spirit = new FlourishAPI({ vessel: '${selected.id}' });\nconst result = await spirit.infuse(userMessage);\nconsole.log(result.infusedResponse);`;
+    navigator.clipboard.writeText(snippet);
+    setCopied('code');
+    setTimeout(() => setCopied(null), 2000);
+  };
+
+  const handleShareLink = () => {
+    const link = deployMsg || `https://gcu-flourish-ai.vercel.app/demo/${selected.id}`;
+    navigator.clipboard.writeText(link);
+    setCopied('link');
+    setTimeout(() => setCopied(null), 2000);
   };
 
   return (
@@ -243,10 +259,16 @@ export default function TestingZone() {
               </div>
 
               <div className="flex gap-2">
-                <button className="flex items-center gap-1.5 text-xs text-emerald-600 border border-emerald-200 dark:border-emerald-800 dark:text-emerald-400 px-3 py-1.5 rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-colors">
+                <button
+                  onClick={() => setSentiment(s => s === 'helpful' ? null : 'helpful')}
+                  className={`flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg transition-colors ${sentiment === 'helpful' ? 'bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700 font-semibold' : 'text-emerald-600 border border-emerald-200 dark:border-emerald-800 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-900/20'}`}
+                >
                   <ThumbsUp size={12} /> Helpful
                 </button>
-                <button className="flex items-center gap-1.5 text-xs text-red-500 border border-red-200 dark:border-red-800 dark:text-red-400 px-3 py-1.5 rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors">
+                <button
+                  onClick={() => setSentiment(s => s === 'needs-work' ? null : 'needs-work')}
+                  className={`flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg transition-colors ${sentiment === 'needs-work' ? 'bg-red-100 dark:bg-red-900/40 text-red-700 dark:text-red-300 border border-red-300 dark:border-red-700 font-semibold' : 'text-red-500 border border-red-200 dark:border-red-800 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20'}`}
+                >
                   <ThumbsDown size={12} /> Needs work
                 </button>
               </div>
@@ -286,12 +308,12 @@ export default function TestingZone() {
               </div>
             )}
 
-            <button className="btn-secondary w-full text-xs flex items-center justify-center gap-2">
-              <Download size={13} /> Export Code (GitHub)
+            <button onClick={handleCopyCode} className="btn-secondary w-full text-xs flex items-center justify-center gap-2">
+              <Download size={13} /> {copied === 'code' ? '✓ Copied to clipboard' : 'Export Code (GitHub)'}
             </button>
 
-            <button className="w-full text-xs text-slate-500 dark:text-slate-400 border border-slate-200 dark:border-[#2D2050] hover:border-gcu-purple/40 rounded-lg py-2 flex items-center justify-center gap-2 transition-colors">
-              <Share2 size={13} /> Share Demo Link
+            <button onClick={handleShareLink} className="w-full text-xs text-slate-500 dark:text-slate-400 border border-slate-200 dark:border-[#2D2050] hover:border-gcu-purple/40 rounded-lg py-2 flex items-center justify-center gap-2 transition-colors">
+              <Share2 size={13} /> {copied === 'link' ? '✓ Link copied' : 'Share Demo Link'}
             </button>
 
             {selected.pilotPartner && (

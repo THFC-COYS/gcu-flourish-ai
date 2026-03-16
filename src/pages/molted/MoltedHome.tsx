@@ -321,7 +321,7 @@ const ROLES = [
     headline: 'An AI that handles the work. You do the teaching.',
     body: 'Discussions answered while students are still online. Grades returned in minutes not weeks. Struggling students flagged before they disappear. The agent handles 23 hours of weekly admin — so you teach instead.',
     features: ['Discussion Intelligence', 'Course Architect', 'Agentic Grader', 'Early Warning Engine', 'Auto-Respond'],
-    href: '/molted/forge',
+    href: '/forge',
     product: 'Forge',
   },
   {
@@ -331,7 +331,7 @@ const ROLES = [
     headline: "A tutor that's always there. Right where you're reading.",
     body: 'The moment a student hits something confusing, Lumen answers — in context, on the page, without switching tabs. The discussion agent replies before they can close the browser. Every student gets a personalized experience.',
     features: ['Lumen — reading companion', 'Discussion agent replies in real time', 'Personalized to each student\'s history', 'Works on Canvas, Blackboard, D2L'],
-    href: '/molted/lumen',
+    href: '/lumen',
     product: 'Lumen',
   },
   {
@@ -341,7 +341,7 @@ const ROLES = [
     headline: "Your voice. Everywhere. The moment it's needed.",
     body: "Beacon deploys your institution's values as AI — in every college, every department, every touchpoint. The platform tracks retention signals, surfaces risk before it becomes a crisis, and makes your outcomes visible in real time.",
     features: ['Beacon — AI with your institution\'s voice', 'Retention signals across the full roster', 'Outcomes data in real time', 'Higher ed, healthcare, enterprise'],
-    href: '/molted/beacon',
+    href: '/beacon',
     product: 'Beacon',
   },
 ];

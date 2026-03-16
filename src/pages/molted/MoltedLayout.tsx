@@ -17,20 +17,20 @@ function MoltedLogo({ size = 'md' }: { size?: 'sm' | 'md' | 'lg' }) {
 
 /* ── Nav data ───────────────────────────────────────────────────────────── */
 const THREE_PRODUCTS = [
-  { label: 'Lumen', href: '/molted/lumen', segment: 'Students', color: '#64748B', pain: 'For the student at midnight' },
-  { label: 'Forge', href: '/molted/forge', segment: 'Faculty', color: '#2563EB', pain: 'For the professor drowning in admin' },
-  { label: 'Beacon', href: '/molted/beacon', segment: 'Institutions', color: '#1E3A8A', pain: 'For the provost facing the board' },
+  { label: 'Lumen', href: '/lumen', segment: 'Students', color: '#64748B', pain: 'For the student at midnight' },
+  { label: 'Forge', href: '/forge', segment: 'Faculty', color: '#2563EB', pain: 'For the professor drowning in admin' },
+  { label: 'Beacon', href: '/beacon', segment: 'Institutions', color: '#1E3A8A', pain: 'For the provost facing the board' },
 ];
 
 const CAMPUS_MODULES = [
-  { label: 'Lumen', href: '/molted/lumen' },
-  { label: 'Forge', href: '/molted/forge' },
-  { label: 'Beacon', href: '/molted/beacon' },
-  { label: 'Pathway', href: '/molted/pathway-ai' },
-  { label: 'Proof', href: '/molted/proof-ai' },
-  { label: 'Retain', href: '/molted/retain-ai' },
-  { label: 'Outcomes', href: '/molted/outcomes-ai' },
-  { label: 'Mastery', href: '/molted/mastery-ai' },
+  { label: 'Lumen', href: '/lumen' },
+  { label: 'Forge', href: '/forge' },
+  { label: 'Beacon', href: '/beacon' },
+  { label: 'Pathway', href: '/pathway-ai' },
+  { label: 'Proof', href: '/proof-ai' },
+  { label: 'Retain', href: '/retain-ai' },
+  { label: 'Outcomes', href: '/outcomes-ai' },
+  { label: 'Mastery', href: '/mastery-ai' },
 ];
 
 /* ── Nav ────────────────────────────────────────────────────────────────── */
@@ -188,7 +188,7 @@ export function MoltedFooter() {
           <div>
             <p className="text-molted-white text-sm font-semibold mb-4">Company</p>
             <ul className="space-y-2.5">
-              {[{ label: 'About', href: '/molted/about' }, { label: 'Investors', href: '/molted/investors' }, { label: 'Contact', href: 'mailto:hello@molted.ai' }].map(l => (
+              {[{ label: 'About', href: '/about' }, { label: 'Investors', href: '/investors' }, { label: 'Contact', href: 'mailto:hello@molted.ai' }].map(l => (
                 <li key={l.label}>
                   <a href={l.href} className="text-molted-muted text-sm hover:text-molted-white transition-colors">{l.label}</a>
                 </li>

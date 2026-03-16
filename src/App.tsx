@@ -88,7 +88,7 @@ function ProtectedRoutes() {
         <Route path="university-os/department/:deptId" element={<DepartmentConsole />} />
         <Route path="university-os/full-ecosystem" element={<FullEcosystem />} />
       </Route>
-      <Route path="*" element={<Navigate to="/" replace />} />
+      <Route path="*" element={<Navigate to="/gcu" replace />} />
     </Routes>
   );
 }
