@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronRight, ChevronLeft, Check, Save, Wand2, Upload, Eye } from 'lucide-react';
 import { COLLEGES } from '../data/mockData';
@@ -61,6 +61,20 @@ export default function Builder() {
   const [form, setForm] = useState<BuilderFormData>(INITIAL_FORM);
   const [saved, setSaved] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const curriculumFileRef = useRef<HTMLInputElement>(null);
+  const alumniFileRef = useRef<HTMLInputElement>(null);
+
+  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>, field: 'curriculumContent' | 'alumniExemplars') => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = ev => {
+      const text = ev.target?.result as string;
+      setForm(prev => ({ ...prev, [field]: (prev[field] ? prev[field] + '\n\n' : '') + `[Uploaded: ${file.name}]\n${text.slice(0, 3000)}` }));
+    };
+    reader.readAsText(file);
+    e.target.value = '';
+  };
 
   if (!isRole('admin', 'faculty')) {
     return (
@@ -237,7 +251,8 @@ export default function Builder() {
             <div>
               <label className="form-label">Curriculum Content *</label>
               <div className="flex gap-2 mb-2">
-                <button className="flex items-center gap-1.5 text-xs text-gcu-purple dark:text-purple-400 border border-gcu-purple/30 px-3 py-1.5 rounded-lg hover:bg-gcu-purple-pale dark:hover:bg-gcu-purple/10 transition-colors">
+                <input ref={curriculumFileRef} type="file" accept=".txt,.pdf,.doc,.docx" className="hidden" onChange={e => handleFileUpload(e, 'curriculumContent')} />
+                <button onClick={() => curriculumFileRef.current?.click()} className="flex items-center gap-1.5 text-xs text-gcu-purple dark:text-purple-400 border border-gcu-purple/30 px-3 py-1.5 rounded-lg hover:bg-gcu-purple-pale dark:hover:bg-gcu-purple/10 transition-colors">
                   <Upload size={12} /> Upload PDF/Doc
                 </button>
                 <span className="text-xs text-slate-400 self-center">or paste text below</span>
@@ -254,7 +269,8 @@ export default function Builder() {
             <div>
               <label className="form-label">Alumni Exemplars & Stories *</label>
               <div className="flex gap-2 mb-2">
-                <button className="flex items-center gap-1.5 text-xs text-gcu-purple dark:text-purple-400 border border-gcu-purple/30 px-3 py-1.5 rounded-lg hover:bg-gcu-purple-pale dark:hover:bg-gcu-purple/10 transition-colors">
+                <input ref={alumniFileRef} type="file" accept=".txt,.pdf,.doc,.docx" className="hidden" onChange={e => handleFileUpload(e, 'alumniExemplars')} />
+                <button onClick={() => alumniFileRef.current?.click()} className="flex items-center gap-1.5 text-xs text-gcu-purple dark:text-purple-400 border border-gcu-purple/30 px-3 py-1.5 rounded-lg hover:bg-gcu-purple-pale dark:hover:bg-gcu-purple/10 transition-colors">
                   <Upload size={12} /> Upload Stories
                 </button>
               </div>

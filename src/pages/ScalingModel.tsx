@@ -181,21 +181,21 @@ export default function ScalingModel() {
         <div className="md:col-span-3 bg-gcu-purple/20 border border-gcu-purple/40 rounded-xl p-5">
           <div className="flex flex-wrap gap-8 items-center justify-center text-center">
             <div>
-              <p className="text-white/50 text-sm mb-1">Traditional model to serve 150K students</p>
+              <p className="text-white/75 text-sm mb-1">Traditional model to serve 150K students</p>
               <p className="text-3xl font-black text-red-400">10,260 <span className="text-lg font-normal">staff</span></p>
-              <p className="text-white/40 text-xs mt-1">+3,060 new hires over 4 years</p>
+              <p className="text-white/65 text-xs mt-1">+3,060 new hires over 4 years</p>
             </div>
             <ArrowRight size={28} className="text-white/20 hidden md:block" />
             <div>
-              <p className="text-white/50 text-sm mb-1">AI-assisted model to serve 150K students</p>
+              <p className="text-white/75 text-sm mb-1">AI-assisted model to serve 150K students</p>
               <p className="text-3xl font-black text-emerald-400">7,650 <span className="text-lg font-normal">staff</span></p>
-              <p className="text-white/40 text-xs mt-1">Natural attrition fills the gap. Zero layoffs.</p>
+              <p className="text-white/65 text-xs mt-1">Natural attrition fills the gap. Zero layoffs.</p>
             </div>
             <ArrowRight size={28} className="text-white/20 hidden md:block" />
             <div>
-              <p className="text-white/50 text-sm mb-1">Redirected to student scholarships</p>
+              <p className="text-white/75 text-sm mb-1">Redirected to student scholarships</p>
               <p className="text-3xl font-black text-gcu-gold">$118M <span className="text-lg font-normal">fund</span></p>
-              <p className="text-white/40 text-xs mt-1">vs. $68M in the traditional model</p>
+              <p className="text-white/65 text-xs mt-1">vs. $68M in the traditional model</p>
             </div>
           </div>
         </div>
@@ -213,7 +213,7 @@ export default function ScalingModel() {
               className={`flex-1 py-2 rounded-lg text-sm font-medium transition-all ${
                 selectedYear === i
                   ? 'bg-gcu-purple text-white'
-                  : 'bg-white/5 text-white/40 hover:text-white hover:bg-white/10'
+                  : 'bg-white/5 text-white/65 hover:text-white hover:bg-white/10'
               }`}
             >
               {s.year}
@@ -223,31 +223,31 @@ export default function ScalingModel() {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="bg-white/5 rounded-xl p-4">
-            <p className="text-white/40 text-xs font-semibold uppercase tracking-wider mb-1">Enrollment</p>
+            <p className="text-white/65 text-xs font-semibold uppercase tracking-wider mb-1">Enrollment</p>
             <p className="text-white text-2xl font-bold">{fmtNum(scenario.enrollment)}</p>
-            <p className="text-white/30 text-xs mt-0.5">students</p>
+            <p className="text-white/55 text-xs mt-0.5">students</p>
           </div>
           <div className="bg-white/5 rounded-xl p-4">
-            <p className="text-white/40 text-xs font-semibold uppercase tracking-wider mb-1">Headcount w/ AI</p>
+            <p className="text-white/65 text-xs font-semibold uppercase tracking-wider mb-1">Headcount w/ AI</p>
             <p className="text-emerald-400 text-2xl font-bold">{fmtNum(scenario.headcountWithAI)}</p>
-            <p className="text-white/30 text-xs mt-0.5">vs. {fmtNum(scenario.headcountTraditional)} traditional</p>
+            <p className="text-white/55 text-xs mt-0.5">vs. {fmtNum(scenario.headcountTraditional)} traditional</p>
           </div>
           <div className="bg-white/5 rounded-xl p-4">
-            <p className="text-white/40 text-xs font-semibold uppercase tracking-wider mb-1">Hires Avoided</p>
+            <p className="text-white/65 text-xs font-semibold uppercase tracking-wider mb-1">Hires Avoided</p>
             <p className="text-gcu-gold text-2xl font-bold">{fmtNum(headcountSaved)}</p>
-            <p className="text-white/30 text-xs mt-0.5">positions not created</p>
+            <p className="text-white/55 text-xs mt-0.5">positions not created</p>
           </div>
           <div className="bg-white/5 rounded-xl p-4">
-            <p className="text-white/40 text-xs font-semibold uppercase tracking-wider mb-1">Scholarship Fund</p>
+            <p className="text-white/65 text-xs font-semibold uppercase tracking-wider mb-1">Scholarship Fund</p>
             <p className="text-gcu-gold text-2xl font-bold">{fmt(scenario.scholarshipFundWithAI)}</p>
-            <p className="text-white/30 text-xs mt-0.5">+{fmt(scholarshipDelta)} vs traditional</p>
+            <p className="text-white/55 text-xs mt-0.5">+{fmt(scholarshipDelta)} vs traditional</p>
           </div>
         </div>
 
         {/* Visual bar comparison */}
         <div className="space-y-3">
           <div>
-            <div className="flex justify-between text-xs text-white/50 mb-1.5">
+            <div className="flex justify-between text-xs text-white/75 mb-1.5">
               <span>Traditional headcount</span>
               <span>{fmtNum(scenario.headcountTraditional)} staff</span>
             </div>
@@ -256,7 +256,7 @@ export default function ScalingModel() {
             </div>
           </div>
           <div>
-            <div className="flex justify-between text-xs text-white/50 mb-1.5">
+            <div className="flex justify-between text-xs text-white/75 mb-1.5">
               <span>AI-assisted headcount</span>
               <span>{fmtNum(scenario.headcountWithAI)} staff</span>
             </div>
@@ -265,7 +265,7 @@ export default function ScalingModel() {
             </div>
           </div>
           <div>
-            <div className="flex justify-between text-xs text-white/50 mb-1.5">
+            <div className="flex justify-between text-xs text-white/75 mb-1.5">
               <span>Scholarship fund (AI model)</span>
               <span>{fmt(scenario.scholarshipFundWithAI)}</span>
             </div>
@@ -275,7 +275,7 @@ export default function ScalingModel() {
           </div>
         </div>
 
-        <p className="text-white/40 text-sm italic border-l-2 border-gcu-gold/40 pl-3">{scenario.note}</p>
+        <p className="text-white/65 text-sm italic border-l-2 border-gcu-gold/40 pl-3">{scenario.note}</p>
       </div>
 
       {/* How it actually happens */}
@@ -322,7 +322,7 @@ export default function ScalingModel() {
               className={`px-3 py-1.5 rounded-lg text-sm transition-all ${
                 activeRole === i
                   ? 'bg-gcu-purple text-white font-medium'
-                  : 'bg-white/5 text-white/50 hover:text-white hover:bg-white/10'
+                  : 'bg-white/5 text-white/75 hover:text-white hover:bg-white/10'
               }`}
             >
               {r.role}
@@ -339,7 +339,7 @@ export default function ScalingModel() {
                   <div>
                     <h3 className="text-white font-semibold">{r.role}</h3>
                     <div className="flex items-center gap-3 mt-1 text-sm">
-                      <span className="text-white/40 line-through">{r.current}</span>
+                      <span className="text-white/65 line-through">{r.current}</span>
                       <ChevronRight size={14} className="text-white/20" />
                       <span className="text-emerald-400 font-medium">{r.withAI}</span>
                     </div>
@@ -414,7 +414,7 @@ export default function ScalingModel() {
                   }
                   <div>
                     <p className="text-white font-medium text-sm">{c.criterion}</p>
-                    <p className="text-white/50 text-xs mt-0.5 italic">{c.requirement}</p>
+                    <p className="text-white/75 text-xs mt-0.5 italic">{c.requirement}</p>
                   </div>
                 </div>
                 <span className={`px-2.5 py-1 rounded-full text-xs font-bold border flex-shrink-0 ${
@@ -461,7 +461,7 @@ export default function ScalingModel() {
             ].map((s) => (
               <div key={s} className="flex items-start gap-2">
                 <div className="w-3 h-3 rounded-full border border-red-400/50 flex-shrink-0 mt-1" />
-                <span className="text-white/50 text-sm">{s}</span>
+                <span className="text-white/75 text-sm">{s}</span>
               </div>
             ))}
           </div>
@@ -469,7 +469,7 @@ export default function ScalingModel() {
       </div>
 
       {/* Footnote */}
-      <div className="flex items-start gap-3 px-4 py-3 rounded-xl bg-white/3 border border-white/8 text-white/40 text-xs leading-relaxed">
+      <div className="flex items-start gap-3 px-4 py-3 rounded-xl bg-white/3 border border-white/8 text-white/65 text-xs leading-relaxed">
         <BookOpen size={13} className="flex-shrink-0 mt-0.5" />
         <p>
           Headcount and scholarship projections are illustrative and based on GCU's publicly reported enrollment data and

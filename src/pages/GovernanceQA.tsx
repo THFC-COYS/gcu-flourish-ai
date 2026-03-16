@@ -178,7 +178,7 @@ function DimensionBars({ scores }: { scores: AuditDimensionScore }) {
     <div className="space-y-2 mt-3">
       {(Object.entries(scores) as [keyof AuditDimensionScore, number][]).map(([key, val]) => (
         <div key={key} className="flex items-center gap-3">
-          <span className="text-white/50 text-xs w-36 flex-shrink-0">{dimensionLabels[key]}</span>
+          <span className="text-white/75 text-xs w-36 flex-shrink-0">{dimensionLabels[key]}</span>
           <div className="flex-1 h-1.5 bg-white/10 rounded-full overflow-hidden">
             <div
               className={`h-full rounded-full transition-all ${val >= 16 ? 'bg-emerald-400' : val >= 10 ? 'bg-amber-400' : 'bg-red-400'}`}
@@ -217,25 +217,25 @@ function AuditRow({ result, onResolve }: { result: AuditResult; onResolve?: (id:
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 flex-wrap">
             <span className="text-white text-sm font-medium">{result.agentType}</span>
-            <span className="text-white/30 text-xs">·</span>
-            <span className="text-white/50 text-xs">{result.college}</span>
+            <span className="text-white/55 text-xs">·</span>
+            <span className="text-white/75 text-xs">{result.college}</span>
             {result.alertSent && (
               <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-red-900/50 border border-red-700/50 text-red-400 text-xs">
                 <Bell size={10} /> Alert sent
               </span>
             )}
             {result.resolvedAt && (
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white/10 text-white/40 text-xs">
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-white/10 text-white/65 text-xs">
                 Resolved
               </span>
             )}
           </div>
-          <p className="text-white/40 text-xs mt-0.5 truncate">{result.studentInput}</p>
+          <p className="text-white/65 text-xs mt-0.5 truncate">{result.studentInput}</p>
         </div>
         <div className="flex items-center gap-3 flex-shrink-0">
           <ScoreBadge score={result.totalScore} status={result.status} />
-          <span className="text-white/30 text-xs">{timeAgo(result.timestamp)}</span>
-          {expanded ? <ChevronUp size={14} className="text-white/30" /> : <ChevronDown size={14} className="text-white/30" />}
+          <span className="text-white/55 text-xs">{timeAgo(result.timestamp)}</span>
+          {expanded ? <ChevronUp size={14} className="text-white/55" /> : <ChevronDown size={14} className="text-white/55" />}
         </div>
       </button>
 
@@ -243,26 +243,26 @@ function AuditRow({ result, onResolve }: { result: AuditResult; onResolve?: (id:
         <div className="px-5 pb-5 border-t border-white/8 space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
             <div className="bg-white/5 rounded-lg p-4">
-              <p className="text-white/40 text-xs font-semibold uppercase tracking-wider mb-2">Student Input</p>
+              <p className="text-white/65 text-xs font-semibold uppercase tracking-wider mb-2">Student Input</p>
               <p className="text-white/80 text-sm leading-relaxed">{result.studentInput}</p>
             </div>
             <div className="bg-white/5 rounded-lg p-4">
-              <p className="text-white/40 text-xs font-semibold uppercase tracking-wider mb-2">Agent Response</p>
+              <p className="text-white/65 text-xs font-semibold uppercase tracking-wider mb-2">Agent Response</p>
               <p className="text-white/80 text-sm leading-relaxed">{result.agentResponse}</p>
             </div>
           </div>
 
           <div className="bg-white/5 rounded-lg p-4">
-            <p className="text-white/40 text-xs font-semibold uppercase tracking-wider mb-1">AI QA Rationale</p>
+            <p className="text-white/65 text-xs font-semibold uppercase tracking-wider mb-1">AI QA Rationale</p>
             <p className={`text-sm leading-relaxed ${result.status === 'flagged' ? 'text-red-300' : 'text-white/70'}`}>{result.aiRationale}</p>
           </div>
 
           <div className="bg-white/5 rounded-lg p-4">
-            <p className="text-white/40 text-xs font-semibold uppercase tracking-wider mb-1">Dimension Scores</p>
+            <p className="text-white/65 text-xs font-semibold uppercase tracking-wider mb-1">Dimension Scores</p>
             <DimensionBars scores={result.scores} />
           </div>
 
-          <div className="flex items-center justify-between text-xs text-white/30">
+          <div className="flex items-center justify-between text-xs text-white/55">
             <span>Dept. Head: {result.departmentHead}</span>
             <span>Audited {timeAgo(result.auditedAt)}</span>
           </div>
@@ -280,7 +280,7 @@ function AuditRow({ result, onResolve }: { result: AuditResult; onResolve?: (id:
             <div className="flex items-center gap-3 px-4 py-3 bg-gcu-gold/10 border border-gcu-gold/30 rounded-lg">
               <Star size={14} className="text-gcu-gold" />
               <span className="text-gcu-gold text-sm font-medium">Human score: {result.humanScore}/100</span>
-              {result.humanNotes && <span className="text-white/50 text-xs">— {result.humanNotes}</span>}
+              {result.humanNotes && <span className="text-white/75 text-xs">— {result.humanNotes}</span>}
             </div>
           )}
         </div>
@@ -313,11 +313,11 @@ function HumanReviewCard({
         <div>
           <div className="flex items-center gap-2 flex-wrap">
             <span className="text-white font-medium text-sm">#{index + 1} · {result.agentType}</span>
-            <span className="text-white/30 text-xs">·</span>
-            <span className="text-white/50 text-xs">{result.college}</span>
+            <span className="text-white/55 text-xs">·</span>
+            <span className="text-white/75 text-xs">{result.college}</span>
             <ScoreBadge score={result.totalScore} status={result.status} />
           </div>
-          <p className="text-white/40 text-xs mt-1">Dept. Head Review · {result.departmentHead}</p>
+          <p className="text-white/65 text-xs mt-1">Dept. Head Review · {result.departmentHead}</p>
         </div>
         {submitted && (
           <span className="flex items-center gap-1.5 text-emerald-400 text-sm font-medium flex-shrink-0">
@@ -328,17 +328,17 @@ function HumanReviewCard({
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         <div className="bg-white/5 rounded-lg p-3">
-          <p className="text-white/40 text-xs font-semibold uppercase tracking-wider mb-1.5">Student Input</p>
+          <p className="text-white/65 text-xs font-semibold uppercase tracking-wider mb-1.5">Student Input</p>
           <p className="text-white/75 text-sm leading-relaxed line-clamp-4">{result.studentInput}</p>
         </div>
         <div className="bg-white/5 rounded-lg p-3">
-          <p className="text-white/40 text-xs font-semibold uppercase tracking-wider mb-1.5">Agent Response</p>
+          <p className="text-white/65 text-xs font-semibold uppercase tracking-wider mb-1.5">Agent Response</p>
           <p className="text-white/75 text-sm leading-relaxed line-clamp-4">{result.agentResponse}</p>
         </div>
       </div>
 
       <div className="bg-white/5 rounded-lg p-3">
-        <p className="text-white/40 text-xs font-semibold uppercase tracking-wider mb-1">AI QA Rationale</p>
+        <p className="text-white/65 text-xs font-semibold uppercase tracking-wider mb-1">AI QA Rationale</p>
         <p className="text-white/60 text-sm">{result.aiRationale}</p>
       </div>
 
@@ -354,7 +354,7 @@ function HumanReviewCard({
               onChange={(e) => setScore(Number(e.target.value))}
               className="w-full h-2 rounded-full appearance-none bg-white/10 accent-gcu-gold cursor-pointer"
             />
-            <div className="flex justify-between text-white/30 text-xs mt-1">
+            <div className="flex justify-between text-white/55 text-xs mt-1">
               <span>0 — Unacceptable</span><span>50 — Needs Work</span><span>100 — Excellent</span>
             </div>
           </div>
@@ -455,12 +455,12 @@ export default function GovernanceQA() {
             </div>
             <div>
               <h1 className="text-white text-xl font-bold">Agent QA Governance Board</h1>
-              <p className="text-white/50 text-sm">Continuous spot-checking · Auto-alerts · Weekly human review</p>
+              <p className="text-white/75 text-sm">Continuous spot-checking · Auto-alerts · Weekly human review</p>
             </div>
           </div>
         </div>
         <div className="flex items-center gap-3">
-          <span className="text-white/30 text-xs">Last refresh: {lastRefresh.toLocaleTimeString()}</span>
+          <span className="text-white/55 text-xs">Last refresh: {lastRefresh.toLocaleTimeString()}</span>
           <button
             onClick={handleRefresh}
             className={`flex items-center gap-2 px-3 py-2 rounded-lg border border-white/10 text-white/60 hover:text-white hover:border-white/20 text-sm transition-all ${loading ? 'opacity-50 pointer-events-none' : ''}`}
@@ -474,18 +474,18 @@ export default function GovernanceQA() {
       {/* Stats row */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {[
-          { label: 'Total Audited', value: results.length, sub: 'this week', color: 'text-white', icon: <ClipboardCheck size={16} className="text-white/40" /> },
+          { label: 'Total Audited', value: results.length, sub: 'this week', color: 'text-white', icon: <ClipboardCheck size={16} className="text-white/65" /> },
           { label: 'Pass Rate', value: `${passRate}%`, sub: `${passes.length} passed`, color: 'text-emerald-400', icon: <CheckCircle2 size={16} className="text-emerald-400/60" /> },
-          { label: 'Active Alerts', value: unresolvedAlerts.length, sub: 'need action', color: unresolvedAlerts.length > 0 ? 'text-red-400' : 'text-white', icon: <AlertTriangle size={16} className={unresolvedAlerts.length > 0 ? 'text-red-400/60' : 'text-white/40'} /> },
-          { label: 'Avg Score', value: avgScore, sub: 'out of 100', color: avgScore >= 80 ? 'text-emerald-400' : avgScore >= 60 ? 'text-amber-400' : 'text-red-400', icon: <BarChart3 size={16} className="text-white/40" /> },
+          { label: 'Active Alerts', value: unresolvedAlerts.length, sub: 'need action', color: unresolvedAlerts.length > 0 ? 'text-red-400' : 'text-white', icon: <AlertTriangle size={16} className={unresolvedAlerts.length > 0 ? 'text-red-400/60' : 'text-white/65'} /> },
+          { label: 'Avg Score', value: avgScore, sub: 'out of 100', color: avgScore >= 80 ? 'text-emerald-400' : avgScore >= 60 ? 'text-amber-400' : 'text-red-400', icon: <BarChart3 size={16} className="text-white/65" /> },
         ].map((stat) => (
           <div key={stat.label} className="bg-white/5 border border-white/10 rounded-xl p-4">
             <div className="flex items-start justify-between mb-1">
-              <p className="text-white/50 text-xs font-medium">{stat.label}</p>
+              <p className="text-white/75 text-xs font-medium">{stat.label}</p>
               {stat.icon}
             </div>
             <p className={`text-2xl font-bold ${stat.color}`}>{stat.value}</p>
-            <p className="text-white/30 text-xs mt-0.5">{stat.sub}</p>
+            <p className="text-white/55 text-xs mt-0.5">{stat.sub}</p>
           </div>
         ))}
       </div>
@@ -515,7 +515,7 @@ export default function GovernanceQA() {
             key={t.id}
             onClick={() => setTab(t.id)}
             className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all relative ${
-              tab === t.id ? 'bg-gcu-purple text-white shadow' : 'text-white/50 hover:text-white'
+              tab === t.id ? 'bg-gcu-purple text-white shadow' : 'text-white/75 hover:text-white'
             }`}
           >
             {t.icon}
@@ -536,7 +536,7 @@ export default function GovernanceQA() {
             <h2 className="text-white font-semibold">Recent Spot-Checks</h2>
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="text-white/40 text-xs">AI QA team auditing continuously</span>
+              <span className="text-white/65 text-xs">AI QA team auditing continuously</span>
             </div>
           </div>
           {results.map((result) => (
@@ -550,11 +550,11 @@ export default function GovernanceQA() {
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <h2 className="text-white font-semibold">Flagged Interactions — Department Head Notifications</h2>
-            <span className="text-white/40 text-xs">{unresolvedAlerts.length} unresolved</span>
+            <span className="text-white/65 text-xs">{unresolvedAlerts.length} unresolved</span>
           </div>
 
           {flagged.length === 0 && (
-            <div className="text-center py-16 text-white/30">
+            <div className="text-center py-16 text-white/55">
               <CheckCircle2 size={40} className="mx-auto mb-3 text-emerald-400/40" />
               <p>No flagged interactions. All clear.</p>
             </div>
@@ -564,15 +564,15 @@ export default function GovernanceQA() {
             <div key={result.id} className={`border rounded-xl overflow-hidden ${result.resolvedAt ? 'border-white/10 opacity-60' : 'border-red-700/60 bg-red-950/20'}`}>
               <div className="px-5 py-4 flex items-start justify-between gap-4 flex-wrap">
                 <div className="flex items-start gap-3">
-                  <AlertOctagon size={20} className={result.resolvedAt ? 'text-white/30' : 'text-red-400'} />
+                  <AlertOctagon size={20} className={result.resolvedAt ? 'text-white/55' : 'text-red-400'} />
                   <div>
                     <div className="flex items-center gap-2 flex-wrap">
                       <span className="text-white font-medium">{result.agentType}</span>
-                      <span className="text-white/30">·</span>
+                      <span className="text-white/55">·</span>
                       <span className="text-white/60 text-sm">{result.college}</span>
                       <ScoreBadge score={result.totalScore} status={result.status} />
                     </div>
-                    <p className="text-white/50 text-sm mt-1">Dept. Head: <strong className="text-white/80">{result.departmentHead}</strong></p>
+                    <p className="text-white/75 text-sm mt-1">Dept. Head: <strong className="text-white/80">{result.departmentHead}</strong></p>
                     {result.alertSentAt && (
                       <p className="text-red-400/70 text-xs mt-0.5 flex items-center gap-1">
                         <Bell size={10} /> Alert sent {timeAgo(result.alertSentAt)}
@@ -596,11 +596,11 @@ export default function GovernanceQA() {
               <div className="px-5 pb-5 border-t border-white/8 space-y-3 pt-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   <div className="bg-white/5 rounded-lg p-3">
-                    <p className="text-white/40 text-xs font-semibold uppercase tracking-wider mb-1">Student Input</p>
+                    <p className="text-white/65 text-xs font-semibold uppercase tracking-wider mb-1">Student Input</p>
                     <p className="text-white/80 text-sm">{result.studentInput}</p>
                   </div>
                   <div className="bg-white/5 rounded-lg p-3">
-                    <p className="text-white/40 text-xs font-semibold uppercase tracking-wider mb-1">Agent Response</p>
+                    <p className="text-white/65 text-xs font-semibold uppercase tracking-wider mb-1">Agent Response</p>
                     <p className="text-white/80 text-sm">{result.agentResponse}</p>
                   </div>
                 </div>
@@ -620,11 +620,11 @@ export default function GovernanceQA() {
           <div className="flex items-start justify-between flex-wrap gap-4">
             <div>
               <h2 className="text-white font-semibold">Weekly Human Review</h2>
-              <p className="text-white/50 text-sm">10 interactions selected for department head scoring · Week of {digest.weekOf}</p>
+              <p className="text-white/75 text-sm">10 interactions selected for department head scoring · Week of {digest.weekOf}</p>
             </div>
             <div className="flex gap-3 text-sm">
               <div className="px-3 py-2 rounded-lg bg-white/5 border border-white/10">
-                <span className="text-white/50">Scored: </span>
+                <span className="text-white/75">Scored: </span>
                 <span className="text-white font-medium">
                   {digest.interactions.filter((r) => r.humanScore !== undefined).length}/{digest.interactions.length}
                 </span>
@@ -725,7 +725,7 @@ export default function GovernanceQA() {
                   </div>
                   <div className="min-w-0">
                     <p className="text-white text-sm font-medium truncate">{member.head}</p>
-                    <p className="text-white/40 text-xs truncate">{member.college}</p>
+                    <p className="text-white/65 text-xs truncate">{member.college}</p>
                   </div>
                   <span className={`text-xs font-bold flex-shrink-0 ${member.score >= 80 ? 'text-emerald-400' : member.score >= 60 ? 'text-amber-400' : 'text-red-400'}`}>
                     {member.score}
@@ -740,15 +740,15 @@ export default function GovernanceQA() {
             <h3 className="text-white font-medium mb-3">Audit Cadence & Protocol</h3>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
               <div>
-                <p className="text-white/40 text-xs font-semibold uppercase tracking-wider mb-2">Continuous</p>
+                <p className="text-white/65 text-xs font-semibold uppercase tracking-wider mb-2">Continuous</p>
                 <p className="text-white/70">AI QA agent spot-checks every 3rd interaction in real time. Any score below 60 triggers an immediate alert to the department head.</p>
               </div>
               <div>
-                <p className="text-white/40 text-xs font-semibold uppercase tracking-wider mb-2">Weekly</p>
+                <p className="text-white/65 text-xs font-semibold uppercase tracking-wider mb-2">Weekly</p>
                 <p className="text-white/70">10 interactions — prioritizing REVIEW-status — sent to each department head for human scoring. Submissions logged to immutable audit trail.</p>
               </div>
               <div>
-                <p className="text-white/40 text-xs font-semibold uppercase tracking-wider mb-2">Monthly</p>
+                <p className="text-white/65 text-xs font-semibold uppercase tracking-wider mb-2">Monthly</p>
                 <p className="text-white/70">Governance board reviews aggregate metrics. Patterns of low scores trigger model retraining or protocol update. CETLA reviews agent personas annually.</p>
               </div>
             </div>
