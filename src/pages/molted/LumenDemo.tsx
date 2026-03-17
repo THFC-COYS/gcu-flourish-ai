@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ChevronLeft, Loader2, BookOpen, MessageSquare, RefreshCw, Link2,
-  AlertTriangle, Check, ArrowRight, Zap,
+  AlertTriangle, Check, ArrowRight, Zap, Eye,
 } from 'lucide-react';
 import MoltedLayout from './MoltedLayout';
 
@@ -10,6 +10,20 @@ import MoltedLayout from './MoltedLayout';
 const VIOLET = '#7B61FF';
 const VIOLET_DIM = 'rgba(123,97,255,0.10)';
 const VIOLET_BORDER = 'rgba(123,97,255,0.25)';
+
+/* ── Sentence annotation types ─────────────────────────────────────────── */
+type AnnotationType = 'medical' | 'core' | 'dense';
+
+interface SentenceAnnotation {
+  sentenceIndex: number;
+  type: AnnotationType;
+  comment: string;
+}
+
+interface AnnotatedPassage {
+  sentences: string[];
+  annotations: SentenceAnnotation[];
+}
 
 /* ── Sample passages ───────────────────────────────────────────────────── */
 const SAMPLE_PASSAGES = [
@@ -48,14 +62,116 @@ Other essential proteins include: helicase (unwinds the double helix at the repl
   },
 ];
 
+/* ── Pre-seeded annotations per passage ────────────────────────────────── */
+// Sentences are indexed after splitting on ". " within each passage.
+// We split on period+space to match the parsing logic.
+const PASSAGE_ANNOTATIONS: SentenceAnnotation[][] = [
+  // Passage 0: Nursing · Cardiac Output
+  [
+    {
+      sentenceIndex: 0,
+      type: 'medical',
+      comment:
+        'Lumen: This is where most students get tripped up. CO = HR × SV looks simple, but the clinical exam question usually hides one variable and asks you to infer the third — make sure you can solve for any of the three.',
+    },
+    {
+      sentenceIndex: 4,
+      type: 'core',
+      comment:
+        'Lumen: This is the core insight of the whole paragraph — if you understand this, the rest falls into place. The Frank-Starling mechanism explains why your heart pumps harder when it\'s filled more: more stretch → more recoil force.',
+    },
+    {
+      sentenceIndex: 6,
+      type: 'medical',
+      comment:
+        'Lumen: This is where most students get tripped up. "SVR" and "afterload" are often used interchangeably in early coursework but aren\'t identical — afterload is the total load, SVR is one major contributor. Know both terms.',
+    },
+    {
+      sentenceIndex: 9,
+      type: 'dense',
+      comment:
+        'Lumen: Want me to break this down with an analogy? This sentence packs autonomic pharmacology, receptor subtypes, and cardiac physiology into one sentence — it\'s dense on purpose because exams love to test beta-1 vs beta-2 distinctions.',
+    },
+  ],
+  // Passage 1: Pharmacology · First-Pass Metabolism
+  [
+    {
+      sentenceIndex: 0,
+      type: 'core',
+      comment:
+        'Lumen: This is the core insight of the whole paragraph — if you understand this, the rest falls into place. First-pass metabolism is the reason why oral and IV doses of the same drug can be radically different.',
+    },
+    {
+      sentenceIndex: 2,
+      type: 'medical',
+      comment:
+        'Lumen: This is where most students get tripped up. CYP3A4 is the most clinically important isoenzyme — it metabolizes half of all drugs AND is the target of most drug-drug interactions. If a question mentions "enzyme induction," CYP3A4 is almost always involved.',
+    },
+    {
+      sentenceIndex: 5,
+      type: 'medical',
+      comment:
+        'Lumen: This is where most students get tripped up. The morphine example is high-yield: 25–33% oral bioavailability means you need roughly 3× the oral dose to match IV. If you see a dosing conversion question on an exam, this ratio is the math behind it.',
+    },
+    {
+      sentenceIndex: 7,
+      type: 'dense',
+      comment:
+        'Lumen: Want me to break this down with an analogy? This sentence lists four independent variables that all converge on the same pathway — hepatic blood flow, enzyme activity, disease state, and genetics. Each one is a separate exam question in disguise.',
+    },
+  ],
+  // Passage 2: Biology · DNA Replication
+  [
+    {
+      sentenceIndex: 1,
+      type: 'core',
+      comment:
+        'Lumen: This is the core insight of the whole paragraph — if you understand this, the rest falls into place. "Semi-conservative" means every new DNA molecule is half old, half new — this was proven by the Meselson-Stahl experiment, which professors love to ask about.',
+    },
+    {
+      sentenceIndex: 3,
+      type: 'medical',
+      comment:
+        'Lumen: This is where most students get tripped up. The eukaryote vs. prokaryote origin-of-replication distinction is a classic compare/contrast question. The key number to remember: eukaryotes have thousands of origins firing in parallel — otherwise replication would take days.',
+    },
+    {
+      sentenceIndex: 4,
+      type: 'dense',
+      comment:
+        'Lumen: Want me to break this down with an analogy? DNA polymerase only works 5\'→3\', which forces the lagging strand to be built in fragments — this directionality constraint is the source of every Okazaki fragment question you\'ll ever see.',
+    },
+    {
+      sentenceIndex: 6,
+      type: 'medical',
+      comment:
+        'Lumen: This is where most students get tripped up. This sentence names five different proteins. On exams you\'ll be given a function and asked to name the enzyme — helicase, primase, SSBPs, topoisomerase, and ligase each have exactly one job. Map each name to its function.',
+    },
+  ],
+];
+
+/* ── Passage sentence parser ────────────────────────────────────────────── */
+function parsePassageToSentences(text: string): string[] {
+  // Split on sentence-ending punctuation followed by whitespace or end-of-string
+  const raw = text.split(/(?<=[.!?])\s+/);
+  return raw.filter(s => s.trim().length > 0);
+}
+
+function buildAnnotatedPassage(passageIdx: number): AnnotatedPassage {
+  const text = SAMPLE_PASSAGES[passageIdx].text;
+  const sentences = parsePassageToSentences(text);
+  const annotations = PASSAGE_ANNOTATIONS[passageIdx] ?? [];
+  return { sentences, annotations };
+}
+
 /* ── Mode tabs ─────────────────────────────────────────────────────────── */
-type Mode = 'qa' | 'explain3ways' | 'spacedRep' | 'crossCourse';
+type Mode = 'qa' | 'explain3ways' | 'spacedRep' | 'crossCourse' | 'readingMode';
 
 const MODES: { id: Mode; label: string; icon: typeof BookOpen; description: string }[] = [
   { id: 'qa',           label: 'Q&A',            icon: MessageSquare, description: 'Ask anything about the passage' },
   { id: 'explain3ways', label: 'Explain 3 Ways',  icon: Zap,           description: 'Visual · Narrative · Analogy' },
   { id: 'spacedRep',    label: 'Spaced Review',   icon: RefreshCw,     description: 'Surface concepts to review now' },
   { id: 'crossCourse',  label: 'Cross-Course',    icon: Link2,         description: 'Connect to what you learned before' },
+  { id: 'readingMode',  label: 'Reading Mode',    icon: Eye,           description: 'Annotated sentence-by-sentence' },
 ];
 
 /* ── Result renderers ──────────────────────────────────────────────────── */
@@ -238,6 +354,271 @@ function CrossCourseResult({ data }: { data: any }) {
   );
 }
 
+/* ── Reading Mode ───────────────────────────────────────────────────────── */
+function ReadingMode({ passageIdx }: { passageIdx: number }) {
+  const { sentences, annotations } = buildAnnotatedPassage(passageIdx);
+  const annotationMap = new Map<number, SentenceAnnotation>(
+    annotations.map(a => [a.sentenceIndex, a])
+  );
+
+  const [activeSentence, setActiveSentence] = useState<number | null>(null);
+  const [followUpLoading, setFollowUpLoading] = useState(false);
+  const [followUpResult, setFollowUpResult] = useState<string | null>(null);
+  const [followUpError, setFollowUpError] = useState('');
+  const [followUpAction, setFollowUpAction] = useState<string | null>(null);
+  const sidebarRef = useRef<HTMLDivElement>(null);
+
+  const activeAnnotation = activeSentence !== null ? annotationMap.get(activeSentence) : undefined;
+  const activeSentenceText = activeSentence !== null ? sentences[activeSentence] : '';
+
+  useEffect(() => {
+    // Reset follow-up when changing sentences
+    setFollowUpResult(null);
+    setFollowUpError('');
+    setFollowUpAction(null);
+  }, [activeSentence]);
+
+  const handleFollowUp = async (action: 'explain' | 'analogy' | 'test') => {
+    if (!activeSentenceText || followUpLoading) return;
+    setFollowUpLoading(true);
+    setFollowUpError('');
+    setFollowUpResult(null);
+    setFollowUpAction(action);
+
+    const actionModeMap: Record<string, string> = {
+      explain: 'qa',
+      analogy: 'explain3ways',
+      test: 'spacedRep',
+    };
+    const questionMap: Record<string, string> = {
+      explain: `Please explain this sentence in deeper detail: "${activeSentenceText}"`,
+      analogy: `Give me a memorable analogy to understand: "${activeSentenceText}"`,
+      test: `Create a short quiz question to test my understanding of: "${activeSentenceText}"`,
+    };
+
+    try {
+      const res = await fetch('/api/lumen-companion', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          mode: 'qa',
+          passage: SAMPLE_PASSAGES[passageIdx].text,
+          question: questionMap[action],
+          sentenceContext: activeSentenceText,
+          followUpAction: action,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Request failed');
+      setFollowUpResult(data.answer ?? data.explanation ?? JSON.stringify(data));
+    } catch (err: any) {
+      setFollowUpError(err.message ?? 'Something went wrong.');
+    } finally {
+      setFollowUpLoading(false);
+    }
+  };
+
+  const annotationTypeStyles: Record<AnnotationType, { badge: string; badgeBg: string; badgeBorder: string }> = {
+    medical:  { badge: 'Tricky term', badgeBg: 'rgba(239,68,68,0.10)',    badgeBorder: 'rgba(239,68,68,0.30)' },
+    core:     { badge: 'Core insight', badgeBg: 'rgba(123,97,255,0.12)',  badgeBorder: VIOLET_BORDER },
+    dense:    { badge: 'Dense concept', badgeBg: 'rgba(245,158,11,0.10)', badgeBorder: 'rgba(245,158,11,0.30)' },
+  };
+  const annotationTypeColors: Record<AnnotationType, string> = {
+    medical: '#EF4444',
+    core: VIOLET,
+    dense: '#F59E0B',
+  };
+
+  return (
+    <div className="flex flex-col lg:flex-row gap-6 min-h-[600px]">
+      {/* Left: Passage (60%) */}
+      <div className="lg:w-[60%] flex-shrink-0">
+        <div className="bg-molted-elevated border border-molted-border rounded-2xl p-6">
+          <div className="flex items-center gap-2 mb-4">
+            <Eye size={14} style={{ color: VIOLET }} />
+            <p className="text-xs font-semibold uppercase tracking-wider" style={{ color: VIOLET }}>Reading Mode</p>
+            <span className="text-xs text-molted-muted ml-auto">
+              {annotations.length} annotations · click any sentence
+            </span>
+          </div>
+          <div className="text-sm leading-[1.9] text-molted-white/85 font-normal">
+            {sentences.map((sentence, i) => {
+              const hasAnnotation = annotationMap.has(i);
+              const isActive = activeSentence === i;
+
+              return (
+                <span
+                  key={i}
+                  onClick={() => setActiveSentence(isActive ? null : i)}
+                  className="cursor-pointer rounded transition-all duration-150 relative"
+                  style={{
+                    background: isActive
+                      ? 'rgba(123,97,255,0.22)'
+                      : hasAnnotation
+                      ? 'rgba(123,97,255,0.07)'
+                      : 'transparent',
+                    outline: isActive ? `1.5px solid ${VIOLET_BORDER}` : 'none',
+                    outlineOffset: '1px',
+                    padding: '1px 2px',
+                    marginRight: '1px',
+                    // Underline dot indicator for annotated sentences
+                    textDecoration: hasAnnotation && !isActive ? 'underline dotted' : 'none',
+                    textDecorationColor: VIOLET,
+                    textUnderlineOffset: '3px',
+                  }}
+                  title={hasAnnotation ? 'Click to see Lumen\'s note' : undefined}
+                >
+                  {sentence}{' '}
+                </span>
+              );
+            })}
+          </div>
+          <div className="mt-4 pt-4 border-t border-molted-border flex items-center gap-4 text-[10px] text-molted-muted">
+            <span className="flex items-center gap-1.5">
+              <span className="inline-block w-3 h-0.5 border-b border-dotted" style={{ borderColor: VIOLET }} />
+              Lumen annotation
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="inline-block w-3 h-3 rounded-sm" style={{ background: 'rgba(123,97,255,0.22)', border: `1px solid ${VIOLET_BORDER}` }} />
+              Selected
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* Right: Lumen sidebar (40%) */}
+      <div className="lg:w-[40%]" ref={sidebarRef}>
+        {activeSentence === null ? (
+          <div className="bg-molted-elevated border border-molted-border rounded-2xl p-6 flex flex-col items-center justify-center text-center h-full min-h-[300px]">
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style={{ background: VIOLET_DIM, border: `1px solid ${VIOLET_BORDER}` }}>
+              <Eye size={20} style={{ color: VIOLET }} />
+            </div>
+            <p className="text-molted-white font-bold text-sm mb-2">Lumen is watching.</p>
+            <p className="text-molted-muted text-xs leading-relaxed max-w-[220px]">
+              Click any sentence in the passage — dotted underlines mark where Lumen has a note for you.
+            </p>
+          </div>
+        ) : (
+          <div className="space-y-4">
+            {/* Active sentence preview */}
+            <div className="rounded-2xl border p-4" style={{ background: 'rgba(123,97,255,0.06)', borderColor: VIOLET_BORDER }}>
+              <p className="text-[10px] font-semibold uppercase tracking-wider text-molted-muted mb-2">Selected sentence</p>
+              <p className="text-xs text-molted-white/80 leading-relaxed italic">"{activeSentenceText}"</p>
+            </div>
+
+            {/* Annotation card */}
+            {activeAnnotation ? (
+              <div className="rounded-2xl border p-5 space-y-4" style={{ background: VIOLET_DIM, borderColor: VIOLET_BORDER }}>
+                <div className="flex items-start gap-3">
+                  <div
+                    className="w-7 h-7 rounded-lg flex-shrink-0 flex items-center justify-center mt-0.5"
+                    style={{ background: `${annotationTypeColors[activeAnnotation.type]}20`, border: `1px solid ${annotationTypeColors[activeAnnotation.type]}40` }}
+                  >
+                    <BookOpen size={12} style={{ color: annotationTypeColors[activeAnnotation.type] }} />
+                  </div>
+                  <div className="flex-1">
+                    <span
+                      className="text-[10px] font-bold uppercase tracking-wide px-1.5 py-0.5 rounded mb-2 inline-block"
+                      style={{
+                        color: annotationTypeColors[activeAnnotation.type],
+                        background: annotationTypeStyles[activeAnnotation.type].badgeBg,
+                        border: `1px solid ${annotationTypeStyles[activeAnnotation.type].badgeBorder}`,
+                      }}
+                    >
+                      {annotationTypeStyles[activeAnnotation.type].badge}
+                    </span>
+                    <p className="text-sm text-molted-white/90 leading-relaxed">{activeAnnotation.comment}</p>
+                  </div>
+                </div>
+
+                {/* Action buttons */}
+                <div className="flex flex-col sm:flex-row gap-2 pt-2 border-t border-molted-border/50">
+                  {[
+                    { id: 'explain', label: 'Explain deeper' },
+                    { id: 'analogy', label: 'Give an analogy' },
+                    { id: 'test',    label: 'Test me on this' },
+                  ].map(btn => (
+                    <button
+                      key={btn.id}
+                      onClick={() => handleFollowUp(btn.id as 'explain' | 'analogy' | 'test')}
+                      disabled={followUpLoading}
+                      className="flex-1 text-xs font-semibold py-2 px-3 rounded-lg border transition-all hover:-translate-y-px disabled:opacity-50 disabled:cursor-not-allowed disabled:translate-y-0"
+                      style={{
+                        borderColor: followUpAction === btn.id && followUpLoading ? VIOLET_BORDER : 'rgba(123,97,255,0.20)',
+                        background: followUpAction === btn.id && followUpLoading ? VIOLET_DIM : 'rgba(123,97,255,0.06)',
+                        color: VIOLET,
+                      }}
+                    >
+                      {followUpAction === btn.id && followUpLoading ? (
+                        <span className="flex items-center justify-center gap-1.5">
+                          <Loader2 size={10} className="animate-spin" />
+                          Thinking…
+                        </span>
+                      ) : btn.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <div className="rounded-2xl border p-5" style={{ borderColor: 'rgba(100,116,139,0.20)', background: 'rgba(100,116,139,0.05)' }}>
+                <p className="text-xs text-molted-muted leading-relaxed">
+                  No specific annotation for this sentence. Use the buttons below to ask Lumen about it.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-2 mt-3">
+                  {[
+                    { id: 'explain', label: 'Explain deeper' },
+                    { id: 'analogy', label: 'Give an analogy' },
+                    { id: 'test',    label: 'Test me on this' },
+                  ].map(btn => (
+                    <button
+                      key={btn.id}
+                      onClick={() => handleFollowUp(btn.id as 'explain' | 'analogy' | 'test')}
+                      disabled={followUpLoading}
+                      className="flex-1 text-xs font-semibold py-2 px-3 rounded-lg border transition-all hover:-translate-y-px disabled:opacity-50 disabled:cursor-not-allowed disabled:translate-y-0"
+                      style={{
+                        borderColor: 'rgba(123,97,255,0.20)',
+                        background: 'rgba(123,97,255,0.06)',
+                        color: VIOLET,
+                      }}
+                    >
+                      {followUpAction === btn.id && followUpLoading ? (
+                        <span className="flex items-center justify-center gap-1.5">
+                          <Loader2 size={10} className="animate-spin" />
+                          Thinking…
+                        </span>
+                      ) : btn.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Follow-up response */}
+            {followUpError && (
+              <div className="rounded-xl border border-red-500/30 bg-red-500/08 p-4 flex gap-2">
+                <AlertTriangle size={13} className="text-red-400 flex-shrink-0 mt-0.5" />
+                <p className="text-xs text-red-400">{followUpError}</p>
+              </div>
+            )}
+
+            {followUpResult && !followUpLoading && (
+              <div className="rounded-2xl border p-5" style={{ background: 'rgba(123,97,255,0.06)', borderColor: VIOLET_BORDER }}>
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-2 h-2 rounded-full" style={{ background: VIOLET }} />
+                  <p className="text-[10px] font-semibold uppercase tracking-wider text-molted-muted">
+                    Lumen · {followUpAction === 'explain' ? 'Deeper explanation' : followUpAction === 'analogy' ? 'Analogy' : 'Quiz question'}
+                  </p>
+                </div>
+                <p className="text-sm text-molted-white/90 leading-relaxed whitespace-pre-line">{followUpResult}</p>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 /* ── Main demo ─────────────────────────────────────────────────────────── */
 export default function LumenDemo() {
   const [activeMode, setActiveMode] = useState<Mode>('qa');
@@ -289,6 +670,8 @@ export default function LumenDemo() {
     return true; // spacedRep and crossCourse just need the passage
   };
 
+  const isReadingMode = activeMode === 'readingMode';
+
   return (
     <MoltedLayout>
       {/* Header */}
@@ -315,184 +698,210 @@ export default function LumenDemo() {
       </div>
 
       <div className="max-w-6xl mx-auto px-6 py-10">
-        <div className="grid lg:grid-cols-2 gap-8">
-          {/* Left: passage + controls */}
-          <div className="space-y-5">
-            {/* Passage selector */}
-            <div className="bg-molted-elevated border border-molted-border rounded-2xl p-5">
-              <div className="flex items-center justify-between mb-3">
-                <p className="text-molted-white font-bold text-sm">Reading</p>
-                <div className="flex gap-1">
-                  {SAMPLE_PASSAGES.map((_, i) => (
-                    <button
-                      key={i}
-                      onClick={() => { setPassageIdx(i); setCustomPassage(''); setResult(null); }}
-                      className="text-xs px-2.5 py-1 rounded-lg border transition-all"
-                      style={{
-                        borderColor: passageIdx === i && !customPassage ? VIOLET_BORDER : 'rgba(100,116,139,0.20)',
-                        background: passageIdx === i && !customPassage ? VIOLET_DIM : 'transparent',
-                        color: passageIdx === i && !customPassage ? VIOLET : '#94A3B8',
-                      }}
-                    >
-                      {SAMPLE_PASSAGES[i].label.split(' · ')[0]}
-                    </button>
-                  ))}
-                </div>
+        {/* Mode tabs — full-width row of 5 */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 mb-8">
+          {MODES.map(m => (
+            <button
+              key={m.id}
+              onClick={() => { setActiveMode(m.id); setResult(null); }}
+              className="flex items-center gap-2.5 px-4 py-3 rounded-xl border text-left transition-all"
+              style={{
+                borderColor: activeMode === m.id ? VIOLET_BORDER : 'rgba(100,116,139,0.20)',
+                background: activeMode === m.id ? VIOLET_DIM : 'transparent',
+              }}
+            >
+              <m.icon size={14} style={{ color: activeMode === m.id ? VIOLET : '#64748B', flexShrink: 0 }} />
+              <div>
+                <p className="text-xs font-bold" style={{ color: activeMode === m.id ? VIOLET : '#94A3B8' }}>{m.label}</p>
+                <p className="text-[10px] text-molted-subtle hidden sm:block">{m.description}</p>
               </div>
-              {!customPassage && (
-                <div className="mb-3 flex items-center gap-2">
-                  <span className="text-xs px-2 py-0.5 rounded-md border border-molted-border text-molted-muted">{SAMPLE_PASSAGES[passageIdx].course}</span>
-                  <span className="text-xs text-molted-muted">{SAMPLE_PASSAGES[passageIdx].label.split(' · ')[1]}</span>
-                </div>
-              )}
-              <textarea
-                value={customPassage || passage}
-                onChange={e => { setCustomPassage(e.target.value); setResult(null); }}
-                rows={12}
-                className="w-full rounded-xl border text-xs text-molted-muted/90 p-4 focus:outline-none resize-none leading-relaxed"
-                style={{
-                  background: 'rgba(10,10,11,0.5)',
-                  borderColor: customPassage ? VIOLET_BORDER : 'rgba(100,116,139,0.18)',
-                }}
-              />
-              {customPassage && (
-                <button
-                  onClick={() => { setCustomPassage(''); setResult(null); }}
-                  className="mt-2 text-xs text-molted-muted hover:text-molted-white transition-colors"
-                >
-                  ← Use sample passage
-                </button>
-              )}
-            </div>
+            </button>
+          ))}
+        </div>
 
-            {/* Mode tabs */}
-            <div className="grid grid-cols-2 gap-2">
-              {MODES.map(m => (
+        {/* Reading Mode: full-width two-column layout */}
+        {isReadingMode ? (
+          <div className="space-y-5">
+            {/* Passage selector for reading mode */}
+            <div className="flex items-center gap-3 flex-wrap">
+              <p className="text-xs text-molted-muted font-semibold uppercase tracking-wide">Passage:</p>
+              {SAMPLE_PASSAGES.map((p, i) => (
                 <button
-                  key={m.id}
-                  onClick={() => { setActiveMode(m.id); setResult(null); }}
-                  className="flex items-center gap-2.5 px-4 py-3 rounded-xl border text-left transition-all"
+                  key={i}
+                  onClick={() => setPassageIdx(i)}
+                  className="text-xs px-3 py-1.5 rounded-lg border transition-all"
                   style={{
-                    borderColor: activeMode === m.id ? VIOLET_BORDER : 'rgba(100,116,139,0.20)',
-                    background: activeMode === m.id ? VIOLET_DIM : 'transparent',
+                    borderColor: passageIdx === i ? VIOLET_BORDER : 'rgba(100,116,139,0.20)',
+                    background: passageIdx === i ? VIOLET_DIM : 'transparent',
+                    color: passageIdx === i ? VIOLET : '#94A3B8',
                   }}
                 >
-                  <m.icon size={14} style={{ color: activeMode === m.id ? VIOLET : '#64748B', flexShrink: 0 }} />
-                  <div>
-                    <p className="text-xs font-bold" style={{ color: activeMode === m.id ? VIOLET : '#94A3B8' }}>{m.label}</p>
-                    <p className="text-[10px] text-molted-subtle">{m.description}</p>
-                  </div>
+                  {p.label}
                 </button>
               ))}
             </div>
-
-            {/* Mode-specific inputs */}
-            {activeMode === 'qa' && (
-              <div>
-                <label className="block text-molted-muted text-xs font-semibold uppercase tracking-wide mb-2">Your question</label>
-                <textarea
-                  value={question}
-                  onChange={e => { setQuestion(e.target.value); setResult(null); }}
-                  placeholder="e.g. Why does increased afterload reduce stroke volume? What's the clinical implication in hypertension?"
-                  rows={3}
-                  className="w-full rounded-xl border text-sm text-molted-white p-4 focus:outline-none resize-none"
-                  style={{
-                    background: 'rgba(10,10,11,0.6)',
-                    borderColor: question.trim() ? VIOLET_BORDER : 'rgba(100,116,139,0.20)',
-                  }}
-                />
-              </div>
-            )}
-
-            {activeMode === 'explain3ways' && (
-              <div>
-                <label className="block text-molted-muted text-xs font-semibold uppercase tracking-wide mb-2">Concept to explain</label>
-                <input
-                  type="text"
-                  value={concept}
-                  onChange={e => { setConcept(e.target.value); setResult(null); }}
-                  placeholder="e.g. Frank-Starling mechanism, first-pass metabolism, DNA replication fork"
-                  className="w-full rounded-xl border text-sm text-molted-white p-4 focus:outline-none"
-                  style={{
-                    background: 'rgba(10,10,11,0.6)',
-                    borderColor: concept.trim() ? VIOLET_BORDER : 'rgba(100,116,139,0.20)',
-                  }}
-                />
-                <p className="text-molted-subtle text-xs mt-1.5">Type any concept — from the passage or from your course</p>
-              </div>
-            )}
-
-            {(activeMode === 'spacedRep' || activeMode === 'crossCourse') && (
-              <div
-                className="rounded-xl border p-4"
-                style={{ borderColor: VIOLET_BORDER, background: VIOLET_DIM }}
-              >
-                <p className="text-xs font-semibold mb-1" style={{ color: VIOLET }}>
-                  {activeMode === 'spacedRep' ? 'Spaced Repetition' : 'Cross-Course Intelligence'}
-                </p>
-                <p className="text-xs text-molted-muted">
-                  {activeMode === 'spacedRep'
-                    ? 'Lumen will analyze the passage and surface concepts from earlier courses that need review right now — with targeted review questions.'
-                    : 'Lumen will identify what you learned in prior courses that directly applies to this reading — and make those connections explicit.'}
-                </p>
-              </div>
-            )}
-
-            <button
-              onClick={handleRun}
-              disabled={!canRun()}
-              className="w-full flex items-center justify-center gap-2.5 py-4 rounded-xl font-bold text-sm transition-all hover:-translate-y-px disabled:opacity-40 disabled:cursor-not-allowed disabled:translate-y-0"
-              style={{ background: VIOLET, color: '#0A0A0B', boxShadow: `0 0 24px rgba(123,97,255,0.30)` }}
-            >
-              {loading ? <Loader2 size={16} className="animate-spin" /> : <BookOpen size={16} />}
-              {loading ? 'Lumen is thinking…' : `Run ${MODES.find(m => m.id === activeMode)?.label}`}
-            </button>
+            <ReadingMode passageIdx={passageIdx} />
           </div>
-
-          {/* Right: result */}
-          <div className="space-y-4">
-            {!result && !loading && !error && (
-              <div className="h-full flex flex-col items-center justify-center text-center py-20 px-6">
-                <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-4 bg-molted-violet/10 border border-molted-violet/20">
-                  <BookOpen size={24} className="text-molted-violet" />
+        ) : (
+          /* Other modes: original two-column layout */
+          <div className="grid lg:grid-cols-2 gap-8">
+            {/* Left: passage + controls */}
+            <div className="space-y-5">
+              {/* Passage selector */}
+              <div className="bg-molted-elevated border border-molted-border rounded-2xl p-5">
+                <div className="flex items-center justify-between mb-3">
+                  <p className="text-molted-white font-bold text-sm">Reading</p>
+                  <div className="flex gap-1">
+                    {SAMPLE_PASSAGES.map((_, i) => (
+                      <button
+                        key={i}
+                        onClick={() => { setPassageIdx(i); setCustomPassage(''); setResult(null); }}
+                        className="text-xs px-2.5 py-1 rounded-lg border transition-all"
+                        style={{
+                          borderColor: passageIdx === i && !customPassage ? VIOLET_BORDER : 'rgba(100,116,139,0.20)',
+                          background: passageIdx === i && !customPassage ? VIOLET_DIM : 'transparent',
+                          color: passageIdx === i && !customPassage ? VIOLET : '#94A3B8',
+                        }}
+                      >
+                        {SAMPLE_PASSAGES[i].label.split(' · ')[0]}
+                      </button>
+                    ))}
+                  </div>
                 </div>
-                <p className="text-molted-white font-bold text-lg mb-2">Lumen is watching.</p>
-                <p className="text-molted-muted text-sm max-w-xs leading-relaxed">
-                  Choose a mode, fill in the input, and hit Run. Lumen responds to what you're reading — not the internet.
-                </p>
+                {!customPassage && (
+                  <div className="mb-3 flex items-center gap-2">
+                    <span className="text-xs px-2 py-0.5 rounded-md border border-molted-border text-molted-muted">{SAMPLE_PASSAGES[passageIdx].course}</span>
+                    <span className="text-xs text-molted-muted">{SAMPLE_PASSAGES[passageIdx].label.split(' · ')[1]}</span>
+                  </div>
+                )}
+                <textarea
+                  value={customPassage || passage}
+                  onChange={e => { setCustomPassage(e.target.value); setResult(null); }}
+                  rows={12}
+                  className="w-full rounded-xl border text-xs text-molted-muted/90 p-4 focus:outline-none resize-none leading-relaxed"
+                  style={{
+                    background: 'rgba(10,10,11,0.5)',
+                    borderColor: customPassage ? VIOLET_BORDER : 'rgba(100,116,139,0.18)',
+                  }}
+                />
+                {customPassage && (
+                  <button
+                    onClick={() => { setCustomPassage(''); setResult(null); }}
+                    className="mt-2 text-xs text-molted-muted hover:text-molted-white transition-colors"
+                  >
+                    ← Use sample passage
+                  </button>
+                )}
               </div>
-            )}
 
-            {loading && (
-              <div className="h-full flex flex-col items-center justify-center text-center py-20">
-                <Loader2 size={28} className="animate-spin mb-4" style={{ color: VIOLET }} />
-                <p className="text-molted-muted text-sm">Lumen is thinking…</p>
-              </div>
-            )}
+              {/* Mode-specific inputs */}
+              {activeMode === 'qa' && (
+                <div>
+                  <label className="block text-molted-muted text-xs font-semibold uppercase tracking-wide mb-2">Your question</label>
+                  <textarea
+                    value={question}
+                    onChange={e => { setQuestion(e.target.value); setResult(null); }}
+                    placeholder="e.g. Why does increased afterload reduce stroke volume? What's the clinical implication in hypertension?"
+                    rows={3}
+                    className="w-full rounded-xl border text-sm text-molted-white p-4 focus:outline-none resize-none"
+                    style={{
+                      background: 'rgba(10,10,11,0.6)',
+                      borderColor: question.trim() ? VIOLET_BORDER : 'rgba(100,116,139,0.20)',
+                    }}
+                  />
+                </div>
+              )}
 
-            {error && (
-              <div className="rounded-2xl border border-red-500/30 bg-red-500/08 p-5 flex gap-3">
-                <AlertTriangle size={15} className="text-red-400 flex-shrink-0 mt-0.5" />
-                <p className="text-sm text-red-400">{error}</p>
-              </div>
-            )}
+              {activeMode === 'explain3ways' && (
+                <div>
+                  <label className="block text-molted-muted text-xs font-semibold uppercase tracking-wide mb-2">Concept to explain</label>
+                  <input
+                    type="text"
+                    value={concept}
+                    onChange={e => { setConcept(e.target.value); setResult(null); }}
+                    placeholder="e.g. Frank-Starling mechanism, first-pass metabolism, DNA replication fork"
+                    className="w-full rounded-xl border text-sm text-molted-white p-4 focus:outline-none"
+                    style={{
+                      background: 'rgba(10,10,11,0.6)',
+                      borderColor: concept.trim() ? VIOLET_BORDER : 'rgba(100,116,139,0.20)',
+                    }}
+                  />
+                  <p className="text-molted-subtle text-xs mt-1.5">Type any concept — from the passage or from your course</p>
+                </div>
+              )}
 
-            {result && !loading && (
-              <>
-                <div className="flex items-center gap-2 mb-4">
-                  <div className="w-2 h-2 rounded-full bg-molted-violet" />
-                  <p className="text-xs text-molted-muted font-semibold uppercase tracking-wide">
-                    {MODES.find(m => m.id === activeMode)?.label} · Lumen response
+              {(activeMode === 'spacedRep' || activeMode === 'crossCourse') && (
+                <div
+                  className="rounded-xl border p-4"
+                  style={{ borderColor: VIOLET_BORDER, background: VIOLET_DIM }}
+                >
+                  <p className="text-xs font-semibold mb-1" style={{ color: VIOLET }}>
+                    {activeMode === 'spacedRep' ? 'Spaced Repetition' : 'Cross-Course Intelligence'}
+                  </p>
+                  <p className="text-xs text-molted-muted">
+                    {activeMode === 'spacedRep'
+                      ? 'Lumen will analyze the passage and surface concepts from earlier courses that need review right now — with targeted review questions.'
+                      : 'Lumen will identify what you learned in prior courses that directly applies to this reading — and make those connections explicit.'}
                   </p>
                 </div>
-                {activeMode === 'qa'           && <QAResult data={result} />}
-                {activeMode === 'explain3ways' && <Explain3WaysResult data={result} />}
-                {activeMode === 'spacedRep'    && <SpacedRepResult data={result} />}
-                {activeMode === 'crossCourse'  && <CrossCourseResult data={result} />}
-              </>
-            )}
+              )}
+
+              <button
+                onClick={handleRun}
+                disabled={!canRun()}
+                className="w-full flex items-center justify-center gap-2.5 py-4 rounded-xl font-bold text-sm transition-all hover:-translate-y-px disabled:opacity-40 disabled:cursor-not-allowed disabled:translate-y-0"
+                style={{ background: VIOLET, color: '#0A0A0B', boxShadow: `0 0 24px rgba(123,97,255,0.30)` }}
+              >
+                {loading ? <Loader2 size={16} className="animate-spin" /> : <BookOpen size={16} />}
+                {loading ? 'Lumen is thinking…' : `Run ${MODES.find(m => m.id === activeMode)?.label}`}
+              </button>
+            </div>
+
+            {/* Right: result */}
+            <div className="space-y-4">
+              {!result && !loading && !error && (
+                <div className="h-full flex flex-col items-center justify-center text-center py-20 px-6">
+                  <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-4 bg-molted-violet/10 border border-molted-violet/20">
+                    <BookOpen size={24} className="text-molted-violet" />
+                  </div>
+                  <p className="text-molted-white font-bold text-lg mb-2">Lumen is watching.</p>
+                  <p className="text-molted-muted text-sm max-w-xs leading-relaxed">
+                    Choose a mode, fill in the input, and hit Run. Lumen responds to what you're reading — not the internet.
+                  </p>
+                </div>
+              )}
+
+              {loading && (
+                <div className="h-full flex flex-col items-center justify-center text-center py-20">
+                  <Loader2 size={28} className="animate-spin mb-4" style={{ color: VIOLET }} />
+                  <p className="text-molted-muted text-sm">Lumen is thinking…</p>
+                </div>
+              )}
+
+              {error && (
+                <div className="rounded-2xl border border-red-500/30 bg-red-500/08 p-5 flex gap-3">
+                  <AlertTriangle size={15} className="text-red-400 flex-shrink-0 mt-0.5" />
+                  <p className="text-sm text-red-400">{error}</p>
+                </div>
+              )}
+
+              {result && !loading && (
+                <>
+                  <div className="flex items-center gap-2 mb-4">
+                    <div className="w-2 h-2 rounded-full bg-molted-violet" />
+                    <p className="text-xs text-molted-muted font-semibold uppercase tracking-wide">
+                      {MODES.find(m => m.id === activeMode)?.label} · Lumen response
+                    </p>
+                  </div>
+                  {activeMode === 'qa'           && <QAResult data={result} />}
+                  {activeMode === 'explain3ways' && <Explain3WaysResult data={result} />}
+                  {activeMode === 'spacedRep'    && <SpacedRepResult data={result} />}
+                  {activeMode === 'crossCourse'  && <CrossCourseResult data={result} />}
+                </>
+              )}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Footer nav */}
         <div className="mt-10 pt-6 border-t border-molted-border flex items-center justify-between text-sm">
