@@ -332,7 +332,7 @@ function FeatureDemos() {
       label: 'Discussion Agent',
       title: 'Live discussion reply',
       description: 'Post a student response to a real discussion prompt. Watch the agent reply in real time — in the instructor\'s voice.',
-      href: '/forge/live-demo',
+      href: '/forge/discussion',
       cta: 'Try it live',
       accent: TEAL,
       accentDim: TEAL_DIM,
