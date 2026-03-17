@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import {
   MessageSquare, AlertTriangle, Star, Minus, Users,
-  Copy, Check, ChevronLeft, Loader2, ArrowRight, Lightbulb,
-  Zap, BookOpen,
+  Copy, Check, ChevronLeft, ChevronDown, Loader2, ArrowRight,
+  Lightbulb, Zap, BookOpen, GitBranch, Quote,
 } from 'lucide-react';
 import MoltedLayout from './MoltedLayout';
 
@@ -21,7 +21,106 @@ const QUALITY_CONFIG: Record<Quality, { color: string; bg: string; border: strin
   minimal:       { color: '#64748B', bg: 'rgba(100,116,139,0.06)', border: 'rgba(100,116,139,0.15)', icon: Minus },
 };
 
+type RoutingManual = 'reply' | 'highlight' | 'skip';
+type RoutingAgentic = 'reply' | 'flag' | 'acknowledge';
+type Depth = 'scaffolding' | 'probing' | 'synthesis-level';
+
+const ROUTING_MANUAL_CONFIG: Record<RoutingManual, { color: string; bg: string; border: string; label: string }> = {
+  reply:     { color: TEAL,      bg: TEAL_DIM,                      border: TEAL_BORDER,                      label: 'Reply' },
+  highlight: { color: '#F59E0B', bg: 'rgba(245,158,11,0.10)',        border: 'rgba(245,158,11,0.25)',           label: 'Highlight' },
+  skip:      { color: '#64748B', bg: 'rgba(100,116,139,0.08)',       border: 'rgba(100,116,139,0.15)',          label: 'Skip' },
+};
+
+const ROUTING_AGENTIC_CONFIG: Record<RoutingAgentic, { color: string; bg: string; border: string; label: string }> = {
+  reply:      { color: TEAL,      bg: TEAL_DIM,                      border: TEAL_BORDER,                      label: 'Reply' },
+  flag:       { color: '#EF4444', bg: 'rgba(239,68,68,0.08)',        border: 'rgba(239,68,68,0.20)',            label: 'Flag' },
+  acknowledge:{ color: '#34D399', bg: 'rgba(52,211,153,0.08)',       border: 'rgba(52,211,153,0.20)',           label: 'Acknowledge' },
+};
+
+const DEPTH_CONFIG: Record<Depth, { color: string; label: string }> = {
+  'scaffolding':     { color: '#F59E0B', label: 'Scaffolding' },
+  'probing':         { color: TEAL,      label: 'Probing' },
+  'synthesis-level': { color: '#A78BFA', label: 'Synthesis' },
+};
+
+const TRACE_TYPE_CONFIG: Record<string, { color: string }> = {
+  parse:      { color: '#94A3B8' },
+  plan:       { color: '#A78BFA' },
+  generate:   { color: '#34D399' },
+  analyze:    { color: '#3B82F6' },
+  route:      { color: '#F59E0B' },
+  draft:      { color: TEAL },
+  revise:     { color: '#F97316' },
+  synthesize: { color: '#8B5CF6' },
+  insights:   { color: '#EC4899' },
+};
+
+/* ── Types ──────────────────────────────────────────────────────────────── */
+
+interface TraceEvent {
+  step: string;
+  type: string;
+  timestamp: number;
+}
+
+interface ManualPost {
+  author: string;
+  excerpt: string;
+  quality: Quality;
+  label: string;
+  confidence: number;
+  quotedEvidence: string | null;
+  routingDecision: RoutingManual;
+  routingReason: string;
+  issue: string | null;
+  draftResponse: string | null;
+  draftCritique: string | null;
+  draftResponseFinal: string | null;
+}
+interface ManualAnalysis {
+  summary: string;
+  instructorPost: string;
+  posts: ManualPost[];
+  classPattern: string | null;
+  followUpPrompt: string | null;
+  insights: string;
+}
+
+interface StudentPersona {
+  name: string;
+  year: string;
+  major: string;
+  background: string;
+  likelyWeakness: string;
+}
+
+interface AgenticPost {
+  author: string;
+  post: string;
+  quality: Quality;
+  label: string;
+  confidence: number;
+  quotedEvidence: string | null;
+  routingDecision: RoutingAgentic;
+  routingReason: string;
+  depth: Depth;
+  issue: string | null;
+  draftReply: string;
+  draftCritique: string;
+  facultyReply: string;
+}
+interface AgenticAnalysis {
+  topic: string;
+  summary: string;
+  personas: StudentPersona[];
+  posts: AgenticPost[];
+  classPattern: string | null;
+  followUpPrompt: string | null;
+  insights: string;
+}
+
 /* ── Shared helpers ─────────────────────────────────────────────────────── */
+
 function CopyButton({ text }: { text: string }) {
   const [copied, setCopied] = useState(false);
   const copy = () => {
@@ -49,29 +148,116 @@ function initials(name: string) {
   return name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase();
 }
 
+/* ── Trace log ──────────────────────────────────────────────────────────── */
+
+function TraceLog({ events, loading }: { events: TraceEvent[]; loading: boolean }) {
+  const [expanded, setExpanded] = useState(true);
+  const bottomRef = useRef<HTMLDivElement>(null);
+
+  // Auto-scroll to bottom as events come in
+  useEffect(() => {
+    if (expanded) bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [events.length, expanded]);
+
+  // Auto-collapse 1.2s after loading finishes
+  useEffect(() => {
+    if (!loading && events.length > 0) {
+      const t = setTimeout(() => setExpanded(false), 1200);
+      return () => clearTimeout(t);
+    }
+  }, [loading, events.length]);
+
+  if (events.length === 0 && !loading) return null;
+
+  return (
+    <div
+      className="rounded-2xl border overflow-hidden transition-all"
+      style={{ background: 'rgba(6,8,18,0.70)', borderColor: 'rgba(148,163,184,0.12)' }}
+    >
+      <button
+        className="w-full flex items-center justify-between px-4 py-3"
+        onClick={() => setExpanded(e => !e)}
+      >
+        <div className="flex items-center gap-2.5">
+          {loading && (
+            <span className="flex gap-0.5">
+              {[0, 1, 2].map(i => (
+                <span
+                  key={i}
+                  className="block w-1 h-1 rounded-full"
+                  style={{
+                    background: '#34D399',
+                    animation: `pulse 1.2s ease-in-out ${i * 0.2}s infinite`,
+                  }}
+                />
+              ))}
+            </span>
+          )}
+          {!loading && events.length > 0 && (
+            <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#34D399' }} />
+          )}
+          <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: '#64748B' }}>
+            Agent trace
+          </span>
+          <span className="text-[10px]" style={{ color: '#475569' }}>
+            {events.length} step{events.length !== 1 ? 's' : ''}
+          </span>
+        </div>
+        <ChevronDown
+          size={12}
+          style={{
+            color: '#475569',
+            transform: expanded ? 'rotate(180deg)' : 'rotate(0deg)',
+            transition: 'transform 200ms',
+          }}
+        />
+      </button>
+
+      {expanded && (
+        <div className="px-4 pb-4 max-h-60 overflow-y-auto space-y-1.5 font-mono">
+          {events.map((e, i) => {
+            const cfg = TRACE_TYPE_CONFIG[e.type] ?? { color: '#94A3B8' };
+            return (
+              <div
+                key={i}
+                className="flex items-start gap-2.5"
+                style={{ animation: 'fadeInUp 200ms ease both' }}
+              >
+                <span
+                  className="text-[9px] px-1.5 py-0.5 rounded font-black uppercase shrink-0 mt-0.5 tracking-wide"
+                  style={{ background: `${cfg.color}18`, color: cfg.color }}
+                >
+                  {e.type}
+                </span>
+                <span className="text-xs leading-relaxed" style={{ color: '#8892A4' }}>
+                  {e.step}
+                </span>
+              </div>
+            );
+          })}
+          {loading && (
+            <div className="flex items-center gap-1.5 pt-1">
+              <span className="text-xs animate-pulse" style={{ color: '#475569' }}>›_ processing...</span>
+            </div>
+          )}
+          <div ref={bottomRef} />
+        </div>
+      )}
+    </div>
+  );
+}
+
 /* ══════════════════════════════════════════════════════════════════════════
    MANUAL MODE
 ══════════════════════════════════════════════════════════════════════════ */
 
-interface ManualPost {
-  author: string;
-  excerpt: string;
-  quality: Quality;
-  label: string;
-  issue: string | null;
-  draftResponse: string | null;
-}
-interface ManualAnalysis {
-  summary: string;
-  instructorPost: string;
-  posts: ManualPost[];
-  insights: string;
-}
-
 function ManualPostCard({ post }: { post: ManualPost }) {
-  const [expanded, setExpanded] = useState(post.quality === 'misconception');
+  const [expanded, setExpanded] = useState(post.routingDecision !== 'skip');
+  const [showDraft, setShowDraft] = useState(false);
   const cfg = QUALITY_CONFIG[post.quality];
+  const rcfg = ROUTING_MANUAL_CONFIG[post.routingDecision] ?? ROUTING_MANUAL_CONFIG.skip;
   const Icon = cfg.icon;
+  const responseText = showDraft ? post.draftResponse : (post.draftResponseFinal ?? post.draftResponse);
 
   return (
     <div className="rounded-2xl border transition-all duration-200" style={{ background: cfg.bg, borderColor: cfg.border }}>
@@ -84,31 +270,97 @@ function ManualPostCard({ post }: { post: ManualPost }) {
           <p className="text-molted-white text-sm font-semibold">{post.author}</p>
           <p className="text-molted-muted text-xs mt-0.5 truncate">{post.excerpt}</p>
         </div>
-        <div className="flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-full font-semibold flex-shrink-0"
-          style={{ background: cfg.bg, color: cfg.color, border: `1px solid ${cfg.border}` }}>
-          <Icon size={11} />
-          {post.label}
+        <div className="flex items-center gap-1.5 flex-shrink-0 flex-wrap justify-end">
+          {/* Quality + confidence */}
+          <div className="flex items-center gap-1 text-xs px-2.5 py-1 rounded-full font-semibold"
+            style={{ background: cfg.bg, color: cfg.color, border: `1px solid ${cfg.border}` }}>
+            <Icon size={11} />
+            {post.label}
+            {post.confidence != null && (
+              <span className="text-[10px] opacity-65 ml-0.5">{post.confidence}%</span>
+            )}
+          </div>
+          {/* Routing badge */}
+          <div className="text-[10px] px-2.5 py-1 rounded-full font-black"
+            style={{ background: rcfg.bg, color: rcfg.color, border: `1px solid ${rcfg.border}` }}>
+            {rcfg.label}
+          </div>
         </div>
       </button>
 
-      {expanded && post.draftResponse && (
+      {expanded && (
         <div className="px-4 pb-4 space-y-3">
+          {/* Routing reason */}
+          {post.routingReason && (
+            <p className="text-xs italic" style={{ color: '#64748B' }}>{post.routingReason}</p>
+          )}
+
+          {/* Quoted evidence */}
+          {post.quotedEvidence && (
+            <div className="flex items-start gap-2 rounded-xl px-3 py-2.5 text-xs leading-relaxed"
+              style={{ background: 'rgba(0,0,0,0.12)', borderLeft: `2px solid ${cfg.color}` }}>
+              <Quote size={11} className="shrink-0 mt-0.5" style={{ color: cfg.color }} />
+              <span className="italic" style={{ color: '#94A3B8' }}>"{post.quotedEvidence}"</span>
+            </div>
+          )}
+
+          {/* Issue */}
           {post.issue && (
             <div className="rounded-xl p-3 text-xs leading-relaxed"
-              style={{ background: 'rgba(148,163,184,0.05)', border: '1px solid rgba(0,0,0,0.06)' }}>
-              <p className="text-red-400 font-semibold mb-1">Issue detected</p>
+              style={{ background: 'rgba(30,58,138,0.07)', border: '1px solid rgba(30,58,138,0.15)' }}>
+              <p className="text-red-400 font-semibold mb-1">Misconception detected</p>
               <p className="text-molted-muted">{post.issue}</p>
             </div>
           )}
-          <div className="rounded-xl p-4" style={{ background: 'rgba(148,163,184,0.05)', border: '1px solid rgba(0,0,0,0.06)' }}>
-            <div className="flex items-center justify-between mb-2">
-              <p className="text-molted-muted text-xs font-semibold uppercase tracking-wide">
-                {post.quality === 'strong' ? 'Suggested highlight' : 'Draft response'}
-              </p>
-              <CopyButton text={post.draftResponse} />
+
+          {/* Response + draft/revised toggle */}
+          {(post.draftResponse || post.draftResponseFinal) && (
+            <div className="rounded-xl p-4" style={{ background: 'rgba(148,163,184,0.05)', border: '1px solid rgba(0,0,0,0.06)' }}>
+              <div className="flex items-center justify-between mb-3 gap-2 flex-wrap">
+                <div className="flex items-center gap-2">
+                  <p className="text-molted-muted text-xs font-semibold uppercase tracking-wide">
+                    {post.quality === 'strong' ? 'Suggested highlight' : 'Draft response'}
+                  </p>
+                  {post.draftResponseFinal && (
+                    <div className="flex rounded-lg overflow-hidden border text-[10px] font-black"
+                      style={{ borderColor: 'rgba(0,0,0,0.10)' }}>
+                      <button
+                        onClick={() => setShowDraft(true)}
+                        className="px-2.5 py-0.5 transition-colors"
+                        style={{
+                          background: showDraft ? 'rgba(249,115,22,0.12)' : 'transparent',
+                          color: showDraft ? '#F97316' : '#64748B',
+                        }}
+                      >
+                        Draft
+                      </button>
+                      <button
+                        onClick={() => setShowDraft(false)}
+                        className="px-2.5 py-0.5 transition-colors"
+                        style={{
+                          background: !showDraft ? TEAL_DIM : 'transparent',
+                          color: !showDraft ? TEAL : '#64748B',
+                        }}
+                      >
+                        Revised ✓
+                      </button>
+                    </div>
+                  )}
+                </div>
+                <CopyButton text={responseText ?? ''} />
+              </div>
+
+              {/* Critique shown when viewing draft */}
+              {showDraft && post.draftCritique && (
+                <div className="mb-3 px-3 py-2 rounded-lg text-xs italic"
+                  style={{ background: 'rgba(249,115,22,0.07)', border: '1px solid rgba(249,115,22,0.15)', color: '#FB923C' }}>
+                  Critique: {post.draftCritique}
+                </div>
+              )}
+
+              <p className="text-molted-white/85 text-sm leading-relaxed">{responseText}</p>
             </div>
-            <p className="text-molted-white/85 text-sm leading-relaxed">{post.draftResponse}</p>
-          </div>
+          )}
         </div>
       )}
     </div>
@@ -117,7 +369,7 @@ function ManualPostCard({ post }: { post: ManualPost }) {
 
 type ManualFilter = 'all' | 'misconception' | 'strong';
 
-function ManualResults({ analysis }: { analysis: ManualAnalysis }) {
+function ManualResults({ analysis, traceEvents }: { analysis: ManualAnalysis; traceEvents: TraceEvent[] }) {
   const [filter, setFilter] = useState<ManualFilter>('all');
   const miscCount = analysis.posts.filter(p => p.quality === 'misconception').length;
   const strongCount = analysis.posts.filter(p => p.quality === 'strong').length;
@@ -130,16 +382,24 @@ function ManualResults({ analysis }: { analysis: ManualAnalysis }) {
   ];
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-5">
+      {/* Trace log (auto-collapsed) */}
+      {traceEvents.length > 0 && <TraceLog events={traceEvents} loading={false} />}
+
+      {/* Summary bar */}
       <div className="rounded-2xl p-5 border" style={{ background: TEAL_DIM, borderColor: TEAL_BORDER }}>
         <p className="text-molted-white text-sm font-semibold mb-1">{analysis.summary}</p>
-        <div className="flex gap-4 mt-3 text-xs text-molted-muted">
+        <div className="flex gap-4 mt-2 text-xs text-molted-muted flex-wrap">
           <span>{analysis.posts.length} posts analyzed</span>
           {miscCount > 0 && <span className="text-red-400">{miscCount} misconception{miscCount > 1 ? 's' : ''}</span>}
           {strongCount > 0 && <span style={{ color: TEAL }}>{strongCount} strong post{strongCount > 1 ? 's' : ''}</span>}
+          <span style={{ color: '#64748B' }}>
+            {analysis.posts.filter(p => p.routingDecision === 'skip').length} skipped
+          </span>
         </div>
       </div>
 
+      {/* Instructor post */}
       {analysis.instructorPost && (
         <div className="rounded-2xl border" style={{ background: 'rgba(248,249,252,0.95)', borderColor: 'rgba(0,0,0,0.07)' }}>
           <div className="flex items-center justify-between px-5 pt-5 pb-3">
@@ -156,8 +416,9 @@ function ManualResults({ analysis }: { analysis: ManualAnalysis }) {
         </div>
       )}
 
+      {/* Filter tabs + post cards */}
       <div>
-        <div className="flex gap-2 flex-wrap mb-5">
+        <div className="flex gap-2 flex-wrap mb-4">
           {tabs.map(tab => (
             <button key={tab.key} onClick={() => setFilter(tab.key)}
               className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-sm font-semibold transition-all"
@@ -184,6 +445,34 @@ function ManualResults({ analysis }: { analysis: ManualAnalysis }) {
         </div>
       </div>
 
+      {/* Class-wide pattern */}
+      {analysis.classPattern && (
+        <div className="rounded-2xl p-5 border" style={{ background: 'rgba(139,92,246,0.08)', borderColor: 'rgba(139,92,246,0.22)' }}>
+          <div className="flex items-center gap-2 mb-2">
+            <Users size={13} style={{ color: '#8B5CF6' }} />
+            <p className="text-xs font-bold uppercase tracking-wide" style={{ color: '#8B5CF6' }}>Class-wide pattern</p>
+          </div>
+          <p className="text-molted-white text-sm leading-relaxed">{analysis.classPattern}</p>
+        </div>
+      )}
+
+      {/* Follow-up prompt */}
+      {analysis.followUpPrompt && (
+        <div className="rounded-2xl border" style={{ background: 'rgba(248,249,252,0.95)', borderColor: 'rgba(0,0,0,0.06)' }}>
+          <div className="flex items-center justify-between px-5 pt-4 pb-2">
+            <div className="flex items-center gap-2">
+              <ArrowRight size={13} style={{ color: TEAL }} />
+              <p className="text-xs font-bold uppercase tracking-wide" style={{ color: TEAL }}>Suggested follow-up prompt</p>
+            </div>
+            <CopyButton text={analysis.followUpPrompt} />
+          </div>
+          <p className="px-5 pb-4 text-sm leading-relaxed italic" style={{ color: '#CBD5E1' }}>
+            "{analysis.followUpPrompt}"
+          </p>
+        </div>
+      )}
+
+      {/* Pedagogical insight */}
       <div className="rounded-2xl p-5 border" style={{ background: 'rgba(248,249,252,0.95)', borderColor: 'rgba(0,0,0,0.06)' }}>
         <div className="flex items-center gap-2 mb-3">
           <Lightbulb size={14} style={{ color: '#64748B' }} />
@@ -341,21 +630,6 @@ function ManualInputPanel({ onAnalyze, loading }: {
    AGENTIC MODE
 ══════════════════════════════════════════════════════════════════════════ */
 
-interface AgenticPost {
-  author: string;
-  post: string;
-  quality: Quality;
-  label: string;
-  issue: string | null;
-  facultyReply: string;
-}
-interface AgenticAnalysis {
-  topic: string;
-  summary: string;
-  posts: AgenticPost[];
-  insights: string;
-}
-
 const TOPIC_PRESETS = [
   'The ethics of AI in hiring decisions',
   'Whether social media accelerates political polarization',
@@ -391,7 +665,6 @@ function AgenticInputPanel({ onRun, loading }: {
         />
       </div>
 
-      {/* Preset chips */}
       <div>
         <p className="text-molted-muted text-xs font-semibold mb-2">Or try a preset</p>
         <div className="flex flex-wrap gap-2">
@@ -479,17 +752,75 @@ function AgenticInputPanel({ onRun, loading }: {
   );
 }
 
+/* ── Cohort persona cards ─────────────────────────────────────────────────── */
+
+function PersonaSection({ personas }: { personas: StudentPersona[] }) {
+  const [expanded, setExpanded] = useState(true);
+
+  if (!personas?.length) return null;
+
+  return (
+    <div className="rounded-2xl border overflow-hidden"
+      style={{ background: 'rgba(124,58,237,0.06)', borderColor: 'rgba(124,58,237,0.20)' }}>
+      <button className="w-full flex items-center justify-between px-5 py-3.5"
+        onClick={() => setExpanded(e => !e)}>
+        <div className="flex items-center gap-2">
+          <Users size={13} style={{ color: '#A78BFA' }} />
+          <p className="text-xs font-bold uppercase tracking-wide" style={{ color: '#A78BFA' }}>
+            Cohort plan — {personas.length} students
+          </p>
+        </div>
+        <ChevronDown size={12} style={{
+          color: '#7C3AED',
+          transform: expanded ? 'rotate(180deg)' : 'rotate(0deg)',
+          transition: 'transform 200ms',
+        }} />
+      </button>
+
+      {expanded && (
+        <div className="px-5 pb-5 grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {personas.map((p, i) => (
+            <div key={i} className="rounded-xl p-3.5 border"
+              style={{ background: 'rgba(255,255,255,0.025)', borderColor: 'rgba(124,58,237,0.15)' }}>
+              <div className="flex items-center gap-2.5 mb-2">
+                <div className="w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-black flex-shrink-0"
+                  style={{ background: 'rgba(124,58,237,0.20)', color: '#A78BFA', border: '1px solid rgba(124,58,237,0.25)' }}>
+                  {initials(p.name)}
+                </div>
+                <div>
+                  <p className="text-xs font-bold text-molted-white">{p.name}</p>
+                  <p className="text-[10px]" style={{ color: '#64748B' }}>{p.year} · {p.major}</p>
+                </div>
+              </div>
+              <p className="text-[11px] leading-relaxed mb-1.5" style={{ color: '#94A3B8' }}>{p.background}</p>
+              <div className="flex items-start gap-1.5">
+                <AlertTriangle size={9} className="shrink-0 mt-0.5" style={{ color: '#F87171' }} />
+                <p className="text-[10px] italic" style={{ color: '#F87171' }}>{p.likelyWeakness}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 /* ── Agentic thread card ─────────────────────────────────────────────────── */
+
 function AgenticThreadCard({ post, index, visible }: { post: AgenticPost; index: number; visible: boolean }) {
+  const [showDraft, setShowDraft] = useState(false);
   const cfg = QUALITY_CONFIG[post.quality];
+  const rcfg = ROUTING_AGENTIC_CONFIG[post.routingDecision] ?? ROUTING_AGENTIC_CONFIG.reply;
+  const dcfg = DEPTH_CONFIG[post.depth] ?? DEPTH_CONFIG.probing;
   const Icon = cfg.icon;
+  const replyText = showDraft ? post.draftReply : post.facultyReply;
 
   return (
     <div
       className="transition-all duration-500"
       style={{
         opacity: visible ? 1 : 0,
-        transform: visible ? 'translateY(0)' : 'translateY(12px)',
+        transform: visible ? 'translateY(0)' : 'translateY(14px)',
         transitionDelay: `${index * 80}ms`,
       }}
     >
@@ -500,31 +831,57 @@ function AgenticThreadCard({ post, index, visible }: { post: AgenticPost; index:
             style={{ background: cfg.bg, color: cfg.color, border: `1px solid ${cfg.border}` }}>
             {initials(post.author)}
           </div>
-          <div className="w-px flex-1 min-h-[24px]" style={{ background: 'rgba(148,163,184,0.15)' }} />
+          <div className="w-px flex-1 min-h-[24px]" style={{ background: 'rgba(148,163,184,0.12)' }} />
         </div>
         <div className="flex-1 pb-2">
-          <div className="flex items-center gap-2 mb-1.5">
+          <div className="flex items-center gap-2 mb-1.5 flex-wrap">
             <span className="text-sm font-semibold text-molted-white">{post.author}</span>
+            {/* Quality + confidence */}
             <div className="flex items-center gap-1 text-xs px-2 py-0.5 rounded-full font-semibold"
               style={{ background: cfg.bg, color: cfg.color, border: `1px solid ${cfg.border}` }}>
               <Icon size={9} />
               {post.label}
+              {post.confidence != null && (
+                <span className="text-[9px] opacity-65 ml-0.5">{post.confidence}%</span>
+              )}
+            </div>
+            {/* Routing badge */}
+            <div className="text-[10px] px-2 py-0.5 rounded-full font-black"
+              style={{ background: rcfg.bg, color: rcfg.color, border: `1px solid ${rcfg.border}` }}>
+              {rcfg.label}
             </div>
           </div>
+
           <div className="rounded-2xl rounded-tl-sm p-4 text-sm text-molted-white/85 leading-relaxed"
             style={{ background: 'rgba(248,249,252,0.06)', border: '1px solid rgba(148,163,184,0.10)' }}>
             {post.post}
+            {/* Quoted evidence inline */}
+            {post.quotedEvidence && (
+              <div className="mt-3 pt-3 border-t border-white/5 flex items-start gap-2">
+                <Quote size={10} className="shrink-0 mt-0.5 opacity-50" style={{ color: cfg.color }} />
+                <p className="text-xs italic opacity-60">
+                  Evidence: "<span style={{ color: cfg.color }}>{post.quotedEvidence}</span>"
+                </p>
+              </div>
+            )}
             {post.issue && (
-              <div className="mt-3 pt-3 border-t border-blue-900/30">
-                <p className="text-xs text-blue-400 font-semibold">Misconception detected: <span className="font-normal text-molted-muted">{post.issue}</span></p>
+              <div className="mt-2 pt-2 border-t border-blue-900/30">
+                <p className="text-xs text-blue-400 font-semibold">
+                  Misconception: <span className="font-normal text-molted-muted">{post.issue}</span>
+                </p>
               </div>
             )}
           </div>
+
+          {/* Routing reason */}
+          {post.routingReason && (
+            <p className="text-xs italic mt-1.5 px-1" style={{ color: '#475569' }}>{post.routingReason}</p>
+          )}
         </div>
       </div>
 
       {/* Faculty reply */}
-      <div className="flex gap-3 mb-6 pl-2">
+      <div className="flex gap-3 mb-7 pl-2">
         <div className="flex-shrink-0">
           <div className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold"
             style={{ background: TEAL_DIM, color: TEAL, border: `1px solid ${TEAL_BORDER}` }}>
@@ -532,19 +889,59 @@ function AgenticThreadCard({ post, index, visible }: { post: AgenticPost; index:
           </div>
         </div>
         <div className="flex-1">
-          <div className="flex items-center justify-between mb-1.5">
-            <div className="flex items-center gap-2">
+          <div className="flex items-center justify-between mb-1.5 flex-wrap gap-2">
+            <div className="flex items-center gap-1.5 flex-wrap">
               <span className="text-sm font-semibold" style={{ color: TEAL }}>Faculty</span>
               <span className="text-xs px-2 py-0.5 rounded-full font-semibold"
                 style={{ background: TEAL_DIM, color: TEAL, border: `1px solid ${TEAL_BORDER}` }}>
                 AI Reply
               </span>
+              {/* Depth badge */}
+              <span className="text-[10px] px-2 py-0.5 rounded-full font-black"
+                style={{ background: `${dcfg.color}18`, color: dcfg.color, border: `1px solid ${dcfg.color}30` }}>
+                {dcfg.label}
+              </span>
+              {/* Draft / Revised toggle */}
+              {post.draftReply && post.facultyReply && (
+                <div className="flex rounded-lg overflow-hidden border text-[10px] font-black"
+                  style={{ borderColor: 'rgba(255,255,255,0.08)' }}>
+                  <button
+                    onClick={() => setShowDraft(true)}
+                    className="px-2.5 py-0.5 transition-colors"
+                    style={{
+                      background: showDraft ? 'rgba(249,115,22,0.15)' : 'transparent',
+                      color: showDraft ? '#F97316' : '#475569',
+                    }}
+                  >
+                    Draft
+                  </button>
+                  <button
+                    onClick={() => setShowDraft(false)}
+                    className="px-2.5 py-0.5 transition-colors"
+                    style={{
+                      background: !showDraft ? TEAL_DIM : 'transparent',
+                      color: !showDraft ? TEAL : '#475569',
+                    }}
+                  >
+                    Revised ✓
+                  </button>
+                </div>
+              )}
             </div>
-            <CopyButton text={post.facultyReply} />
+            <CopyButton text={replyText ?? ''} />
           </div>
+
+          {/* Draft critique */}
+          {showDraft && post.draftCritique && (
+            <div className="mb-2 px-3 py-2 rounded-lg text-xs italic"
+              style={{ background: 'rgba(249,115,22,0.07)', border: '1px solid rgba(249,115,22,0.15)', color: '#FB923C' }}>
+              Critique: {post.draftCritique}
+            </div>
+          )}
+
           <div className="rounded-2xl rounded-tl-sm p-4 text-sm leading-relaxed"
             style={{ background: 'rgba(30,58,138,0.75)', border: `1px solid ${TEAL_BORDER}`, color: '#F1F5F9' }}>
-            {post.facultyReply}
+            {replyText}
           </div>
         </div>
       </div>
@@ -552,17 +949,13 @@ function AgenticThreadCard({ post, index, visible }: { post: AgenticPost; index:
   );
 }
 
-function AgenticResults({ analysis }: { analysis: AgenticAnalysis }) {
+function AgenticResults({ analysis, traceEvents }: { analysis: AgenticAnalysis; traceEvents: TraceEvent[] }) {
   const [visibleCount, setVisibleCount] = useState(0);
 
   useEffect(() => {
-    // Stagger reveal of each thread card
     const interval = setInterval(() => {
       setVisibleCount(c => {
-        if (c >= analysis.posts.length) {
-          clearInterval(interval);
-          return c;
-        }
+        if (c >= analysis.posts.length) { clearInterval(interval); return c; }
         return c + 1;
       });
     }, 400);
@@ -571,9 +964,13 @@ function AgenticResults({ analysis }: { analysis: AgenticAnalysis }) {
 
   const miscCount = analysis.posts.filter(p => p.quality === 'misconception').length;
   const strongCount = analysis.posts.filter(p => p.quality === 'strong').length;
+  const allVisible = visibleCount >= analysis.posts.length;
 
   return (
     <div className="space-y-6">
+      {/* Trace log (auto-collapsed) */}
+      {traceEvents.length > 0 && <TraceLog events={traceEvents} loading={false} />}
+
       {/* Summary bar */}
       <div className="rounded-2xl p-5 border" style={{ background: 'rgba(124,58,237,0.12)', borderColor: 'rgba(124,58,237,0.25)' }}>
         <div className="flex items-center gap-2 mb-2">
@@ -582,12 +979,15 @@ function AgenticResults({ analysis }: { analysis: AgenticAnalysis }) {
         </div>
         <p className="text-molted-white text-sm font-semibold mb-1">{analysis.topic}</p>
         <p className="text-molted-muted text-xs">{analysis.summary}</p>
-        <div className="flex gap-4 mt-3 text-xs text-molted-muted">
-          <span>{analysis.posts.length} students simulated</span>
+        <div className="flex gap-4 mt-3 text-xs flex-wrap">
+          <span className="text-molted-muted">{analysis.posts.length} students simulated</span>
           {miscCount > 0 && <span className="text-red-400">{miscCount} misconception{miscCount > 1 ? 's' : ''} flagged</span>}
           {strongCount > 0 && <span style={{ color: TEAL }}>{strongCount} strong post{strongCount > 1 ? 's' : ''}</span>}
         </div>
       </div>
+
+      {/* Cohort persona cards */}
+      {analysis.personas?.length > 0 && <PersonaSection personas={analysis.personas} />}
 
       {/* Thread */}
       <div>
@@ -596,10 +996,36 @@ function AgenticResults({ analysis }: { analysis: AgenticAnalysis }) {
         ))}
       </div>
 
-      {/* Insights */}
-      {visibleCount >= analysis.posts.length && (
-        <div className="rounded-2xl p-5 border animate-fade-in"
-          style={{ background: 'rgba(248,249,252,0.95)', borderColor: 'rgba(0,0,0,0.06)' }}>
+      {/* Class-wide pattern */}
+      {allVisible && analysis.classPattern && (
+        <div className="rounded-2xl p-5 border" style={{ background: 'rgba(139,92,246,0.08)', borderColor: 'rgba(139,92,246,0.22)' }}>
+          <div className="flex items-center gap-2 mb-2">
+            <GitBranch size={13} style={{ color: '#8B5CF6' }} />
+            <p className="text-xs font-bold uppercase tracking-wide" style={{ color: '#8B5CF6' }}>Class-wide pattern</p>
+          </div>
+          <p className="text-molted-white text-sm leading-relaxed">{analysis.classPattern}</p>
+        </div>
+      )}
+
+      {/* Follow-up prompt */}
+      {allVisible && analysis.followUpPrompt && (
+        <div className="rounded-2xl border" style={{ background: 'rgba(248,249,252,0.95)', borderColor: 'rgba(0,0,0,0.06)' }}>
+          <div className="flex items-center justify-between px-5 pt-4 pb-2">
+            <div className="flex items-center gap-2">
+              <ArrowRight size={13} style={{ color: TEAL }} />
+              <p className="text-xs font-bold uppercase tracking-wide" style={{ color: TEAL }}>Follow-up prompt for next session</p>
+            </div>
+            <CopyButton text={analysis.followUpPrompt} />
+          </div>
+          <p className="px-5 pb-4 text-sm leading-relaxed italic" style={{ color: '#CBD5E1' }}>
+            "{analysis.followUpPrompt}"
+          </p>
+        </div>
+      )}
+
+      {/* Pedagogical insight */}
+      {allVisible && (
+        <div className="rounded-2xl p-5 border" style={{ background: 'rgba(248,249,252,0.95)', borderColor: 'rgba(0,0,0,0.06)' }}>
           <div className="flex items-center gap-2 mb-3">
             <Lightbulb size={14} style={{ color: '#64748B' }} />
             <p className="text-sm font-semibold text-molted-white">Pedagogical Insight</p>
@@ -621,12 +1047,14 @@ export default function DiscussionDemo() {
   const [mode, setMode] = useState<Mode>('manual');
   const [manualAnalysis, setManualAnalysis] = useState<ManualAnalysis | null>(null);
   const [agenticAnalysis, setAgenticAnalysis] = useState<AgenticAnalysis | null>(null);
+  const [traceEvents, setTraceEvents] = useState<TraceEvent[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   async function callAPI(body: Record<string, unknown>) {
     setLoading(true);
     setError(null);
+    setTraceEvents([]);
 
     try {
       const res = await fetch('/api/discuss', {
@@ -635,23 +1063,49 @@ export default function DiscussionDemo() {
         body: JSON.stringify(body),
       });
 
-      if (!res.ok) {
-        let errMsg = 'Something went wrong.';
-        try {
-          const errData = await res.json();
-          errMsg = errData.error ?? errMsg;
-        } catch {
-          errMsg = `Server error (${res.status})`;
-        }
+      if (!res.ok || !res.body) {
+        let errMsg = `Server error (${res.status})`;
+        try { errMsg = (await res.json()).error ?? errMsg; } catch {}
         setError(errMsg);
         return;
       }
 
-      const data = await res.json();
-      if (body.mode === 'agentic') {
-        setAgenticAnalysis(data);
-      } else {
-        setManualAnalysis(data);
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = '';
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        buffer += decoder.decode(value, { stream: true });
+
+        // Parse complete SSE events (terminated by \n\n)
+        const parts = buffer.split('\n\n');
+        buffer = parts.pop() ?? '';
+
+        for (const part of parts) {
+          if (!part.trim()) continue;
+          let eventType = 'message';
+          let eventData = '';
+          for (const line of part.split('\n')) {
+            if (line.startsWith('event: ')) eventType = line.slice(7).trim();
+            else if (line.startsWith('data: ')) eventData = line.slice(6).trim();
+          }
+          if (!eventData) continue;
+          try {
+            const parsed = JSON.parse(eventData);
+            if (eventType === 'trace') {
+              setTraceEvents(prev => [...prev, { ...parsed, timestamp: Date.now() }]);
+            } else if (eventType === 'result') {
+              if (body.mode === 'agentic') setAgenticAnalysis(parsed);
+              else setManualAnalysis(parsed);
+            } else if (eventType === 'error') {
+              setError(parsed.message ?? 'Stream error');
+            }
+          } catch {
+            // ignore malformed events
+          }
+        }
       }
     } catch {
       setError('Network error — check your connection.');
@@ -670,11 +1124,7 @@ export default function DiscussionDemo() {
     callAPI({ mode: 'agentic', topic, courseLevel, facultyVoice, numStudents, facultyPersona });
   }
 
-  const switchMode = (m: Mode) => {
-    setMode(m);
-    setError(null);
-  };
-
+  const switchMode = (m: Mode) => { setMode(m); setError(null); };
   const hasResult = mode === 'manual' ? !!manualAnalysis : !!agenticAnalysis;
 
   return (
@@ -689,7 +1139,6 @@ export default function DiscussionDemo() {
               <ChevronLeft size={14} />
               Forge
             </Link>
-
             <h1 className="text-3xl md:text-4xl font-black text-molted-white tracking-tight">
               Discussion Intelligence
               <br />
@@ -743,13 +1192,37 @@ export default function DiscussionDemo() {
             {/* Results panel */}
             <div>
               {error && (
-                <div className="rounded-2xl p-5 border mb-6"
+                <div className="rounded-2xl p-5 border mb-5"
                   style={{ background: 'rgba(30,58,138,0.08)', borderColor: 'rgba(30,58,138,0.2)' }}>
                   <p className="text-red-400 text-sm font-semibold mb-1">Error</p>
                   <p className="text-molted-muted text-sm">{error}</p>
                 </div>
               )}
 
+              {/* Loading — show live trace log */}
+              {loading && (
+                <div className="space-y-4">
+                  <TraceLog events={traceEvents} loading={true} />
+                  <div className="rounded-2xl p-6 border text-center"
+                    style={{
+                      background: mode === 'agentic' ? 'rgba(124,58,237,0.04)' : 'rgba(241,243,248,0.06)',
+                      borderColor: mode === 'agentic' ? 'rgba(124,58,237,0.15)' : 'rgba(148,163,184,0.10)',
+                    }}>
+                    <Loader2
+                      size={18}
+                      className="animate-spin mx-auto mb-2"
+                      style={{ color: mode === 'agentic' ? '#A78BFA' : TEAL }}
+                    />
+                    <p className="text-molted-muted text-xs">
+                      {mode === 'agentic'
+                        ? 'Simulating cohort, generating posts, drafting and revising replies...'
+                        : 'Parsing thread, routing posts, drafting and self-revising responses...'}
+                    </p>
+                  </div>
+                </div>
+              )}
+
+              {/* Empty state */}
               {!hasResult && !loading && !error && (
                 <div className="rounded-3xl p-10 border text-center"
                   style={{ background: 'rgba(248,249,252,0.95)', borderColor: 'rgba(148,163,184,0.15)' }}>
@@ -759,41 +1232,20 @@ export default function DiscussionDemo() {
                   <p className="font-semibold mb-2" style={{ color: '#1C1C1E' }}>
                     {mode === 'manual' ? 'Analysis will appear here' : 'Simulated thread will appear here'}
                   </p>
-                  <p className="text-sm" style={{ color: '#94A3B8' }}>
+                  <p className="text-sm whitespace-pre-line" style={{ color: '#94A3B8' }}>
                     {mode === 'manual'
                       ? 'Paste a discussion thread and click Analyze.\nWorks with Canvas, Blackboard, D2L, or any plain text.'
-                      : 'Enter a topic and click Run Agentic Simulation.\nThe agent will generate student posts and reply to each one.'}
+                      : 'Enter a topic and click Run Agentic Simulation.\nThe agent will plan a student cohort, simulate posts,\nand draft + self-revise every faculty reply.'}
                   </p>
                 </div>
               )}
 
-              {loading && (
-                <div className="rounded-3xl p-10 border text-center"
-                  style={{
-                    background: mode === 'agentic' ? 'rgba(124,58,237,0.06)' : 'rgba(241,243,248,0.80)',
-                    borderColor: mode === 'agentic' ? 'rgba(124,58,237,0.25)' : TEAL_BORDER,
-                  }}>
-                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-4"
-                    style={{
-                      background: mode === 'agentic' ? 'rgba(124,58,237,0.15)' : TEAL_DIM,
-                      border: `1px solid ${mode === 'agentic' ? 'rgba(124,58,237,0.30)' : TEAL_BORDER}`,
-                    }}>
-                    <Loader2 size={20} className="animate-spin"
-                      style={{ color: mode === 'agentic' ? '#A78BFA' : TEAL }} />
-                  </div>
-                  <p className="text-molted-white font-semibold mb-1">
-                    {mode === 'agentic' ? 'Simulating discussion...' : 'Reading the thread...'}
-                  </p>
-                  <p className="text-molted-muted text-sm">
-                    {mode === 'agentic'
-                      ? 'Generating student posts, flagging misconceptions, drafting faculty replies with follow-up questions.'
-                      : 'Detecting misconceptions, scoring reasoning quality, drafting responses.'}
-                  </p>
-                </div>
+              {mode === 'manual' && manualAnalysis && (
+                <ManualResults analysis={manualAnalysis} traceEvents={traceEvents} />
               )}
-
-              {mode === 'manual' && manualAnalysis && <ManualResults analysis={manualAnalysis} />}
-              {mode === 'agentic' && agenticAnalysis && <AgenticResults analysis={agenticAnalysis} />}
+              {mode === 'agentic' && agenticAnalysis && (
+                <AgenticResults analysis={agenticAnalysis} traceEvents={traceEvents} />
+              )}
             </div>
           </div>
 
