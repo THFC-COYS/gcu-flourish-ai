@@ -46,6 +46,7 @@ import ForgeVoiceDemo from './pages/molted/ForgeVoiceDemo';
 import GCULeadershipDeck from './pages/molted/GCULeadershipDeck';
 import GovernanceQA from './pages/GovernanceQA';
 import ScalingModel from './pages/ScalingModel';
+import LearningSystemsModernization from './pages/LearningSystemsModernization';
 
 function ProtectedRoutes() {
   const { user, isLoading } = useAuth();
@@ -77,6 +78,7 @@ function ProtectedRoutes() {
         <Route path="resources" element={<Resources />} />
         <Route path="governance-qa" element={<GovernanceQA />} />
         <Route path="scaling-model" element={<ScalingModel />} />
+        <Route path="learning-systems" element={<LearningSystemsModernization />} />
         <Route path="vision" element={<VisionRoadmap />} />
         <Route path="spirit-network" element={<SpiritNetwork />} />
         <Route path="flourish-api" element={<FlourishAPI />} />

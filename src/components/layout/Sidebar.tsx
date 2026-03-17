@@ -3,7 +3,7 @@ import {
   LayoutDashboard, Library, Wand2, FlaskConical,
   TrendingUp, BookOpen, LogOut, ChevronLeft, ChevronRight,
   Shield, X, Heart, Code2, Rocket, Bot, Briefcase, Award, GraduationCap,
-  Building2, Activity, Cpu, Layers, ShieldCheck, BarChart2
+  Building2, Activity, Cpu, Layers, ShieldCheck, BarChart2, BrainCircuit
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { RoleBadge } from '../ui/Badge';
@@ -45,6 +45,7 @@ const NAV_SECTIONS = [
   {
     label: 'Vision',
     items: [
+      { label: 'Learning Systems', icon: BrainCircuit, to: '/gcu/learning-systems' },
       { label: 'Vision & Roadmap', icon: Rocket, to: '/gcu/vision' },
       { label: 'Flourish Standard', icon: Award, to: '/gcu/flourish-standard' },
       { label: 'Executive Briefing', icon: Briefcase, to: '/gcu/executive-brief' },
