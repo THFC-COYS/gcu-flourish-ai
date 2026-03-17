@@ -525,7 +525,7 @@ function AgenticThreadCard({ post, index, visible }: { post: AgenticPost; index:
             <CopyButton text={post.facultyReply} />
           </div>
           <div className="rounded-2xl rounded-tl-sm p-4 text-sm leading-relaxed"
-            style={{ background: TEAL_DIM, border: `1px solid ${TEAL_BORDER}`, color: '#E2E8F0' }}>
+            style={{ background: 'rgba(30,58,138,0.75)', border: `1px solid ${TEAL_BORDER}`, color: '#F1F5F9' }}>
             {post.facultyReply}
           </div>
         </div>
