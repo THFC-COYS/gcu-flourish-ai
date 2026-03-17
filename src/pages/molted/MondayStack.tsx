@@ -429,10 +429,9 @@ type Phase = 'setup' | 'processing' | 'results';
 
 export default function MondayStack() {
   const [phase, setPhase] = useState<Phase>('setup');
+  const [stepIdx, setStepIdx] = useState(-1); // -1 = idle
   const [logLines, setLogLines] = useState<string[]>([]);
   const logRef = useRef<HTMLDivElement>(null);
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
-  const resultsTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Auto-scroll log
   useEffect(() => {
@@ -446,32 +445,26 @@ export default function MondayStack() {
     if (phase === 'results') window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [phase]);
 
-  // Processing animation
+  // Step-by-step processing animation — one cancellable timeout per step
   useEffect(() => {
-    if (phase !== 'processing') return;
-    setLogLines([]);
-    let index = 0;
-    intervalRef.current = setInterval(() => {
-      if (index < LOG_STEPS.length) {
-        setLogLines(prev => [...prev, LOG_STEPS[index]]);
-        index++;
-        if (index === LOG_STEPS.length) {
-          // Last step added — clear interval and schedule results
-          if (intervalRef.current) { clearInterval(intervalRef.current); intervalRef.current = null; }
-          resultsTimerRef.current = setTimeout(() => setPhase('results'), 600);
-        }
-      }
+    if (phase !== 'processing' || stepIdx < 0) return;
+
+    if (stepIdx >= LOG_STEPS.length) {
+      // All steps shown — wait briefly then show results
+      const t = setTimeout(() => setPhase('results'), 600);
+      return () => clearTimeout(t);
+    }
+
+    const t = setTimeout(() => {
+      setLogLines(prev => [...prev, LOG_STEPS[stepIdx]]);
+      setStepIdx(s => s + 1);
     }, 400);
-    return () => {
-      if (intervalRef.current) { clearInterval(intervalRef.current); intervalRef.current = null; }
-      if (resultsTimerRef.current) { clearTimeout(resultsTimerRef.current); resultsTimerRef.current = null; }
-    };
-  }, [phase]);
+    return () => clearTimeout(t);
+  }, [phase, stepIdx]);
 
   function handleReset() {
-    if (intervalRef.current) { clearInterval(intervalRef.current); intervalRef.current = null; }
-    if (resultsTimerRef.current) { clearTimeout(resultsTimerRef.current); resultsTimerRef.current = null; }
     setLogLines([]);
+    setStepIdx(-1);
     setPhase('setup');
   }
 
@@ -621,7 +614,7 @@ export default function MondayStack() {
               {/* CTA */}
               <div className="px-8 pb-8">
                 <button
-                  onClick={() => setPhase('processing')}
+                  onClick={() => { setLogLines([]); setStepIdx(0); setPhase('processing'); }}
                   className="w-full flex items-center justify-center gap-3 rounded-2xl py-5 text-lg font-bold text-white transition-all duration-200 hover:scale-[1.01] active:scale-[0.99]"
                   style={{
                     background: `linear-gradient(135deg, ${PURPLE}, #5B21B6)`,
@@ -686,7 +679,7 @@ export default function MondayStack() {
 
           {/* ── RESULTS PHASE ── */}
           {phase === 'results' && (
-            <>
+            <div className="space-y-6">
               {/* Time saved banner */}
               <div
                 className="rounded-3xl border px-8 py-7 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5"
@@ -815,7 +808,7 @@ export default function MondayStack() {
                   Get Forge for your faculty <ArrowRight size={15} />
                 </a>
               </div>
-            </>
+            </div>
           )}
 
         </div>
