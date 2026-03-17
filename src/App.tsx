@@ -134,6 +134,7 @@ export default function App() {
             <Route path="/forge/early-warning" element={<EarlyWarning />} />
             <Route path="/forge/live-demo" element={<LiveAgentDemo />} />
             <Route path="/forge/voice-demo" element={<ForgeVoiceDemo />} />
+            <Route path="/command-center" element={<CommandCenter />} />
             <Route path="/exec-tour" element={<MoltedExecTour />} />
             <Route path="/gcu-deck" element={<GCULeadershipDeck />} />
             {/* GCU Flourish — client portal */}

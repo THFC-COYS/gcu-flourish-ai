@@ -187,7 +187,7 @@ const LIVE_DEMOS = [
   { label: 'Discussion', description: 'AI responds in instructor\'s voice', href: '/forge/discussion', color: '#2563EB', pill: '' },
   { label: 'Agentic Grader', description: 'Grades with rubric feedback', href: '/forge/agentic-grader', color: '#2563EB', pill: '' },
   { label: 'Course Architect', description: 'Full course from a description', href: '/forge/course-architect', color: '#2563EB', pill: '' },
-  { label: 'Command Center', description: 'Ask the University OS anything', href: '/gcu/university-os/command-center', color: '#F59E0B', pill: 'NEW' },
+  { label: 'Command Center', description: 'Ask the University OS anything', href: '/command-center', color: '#F59E0B', pill: 'NEW' },
 ];
 
 function NowLive() {

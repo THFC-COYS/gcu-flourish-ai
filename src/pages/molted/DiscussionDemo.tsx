@@ -510,13 +510,19 @@ export default function DiscussionDemo() {
         body: JSON.stringify({ thread, context, opts }),
       });
 
-      const data = await res.json();
-
       if (!res.ok) {
-        setError(data.error ?? 'Something went wrong.');
+        let errMsg = 'Something went wrong.';
+        try {
+          const errData = await res.json();
+          errMsg = errData.error ?? errMsg;
+        } catch {
+          errMsg = `Server error (${res.status})`;
+        }
+        setError(errMsg);
         return;
       }
 
+      const data = await res.json();
       setAnalysis(data);
     } catch {
       setError('Network error — check your connection.');
