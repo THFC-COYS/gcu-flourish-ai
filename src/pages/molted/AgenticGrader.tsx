@@ -849,7 +849,7 @@ function LiveStudentView() {
     setError(null);
 
     try {
-      const res = await fetch('/api/grader-stream', {
+      const res = await fetch('/api/agentic-grader?stream=true', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

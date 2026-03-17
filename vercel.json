@@ -11,7 +11,6 @@
   "functions": {
     "api/course-architect.ts": { "maxDuration": 60 },
     "api/agentic-grader.ts": { "maxDuration": 60 },
-    "api/grader-stream.ts": { "maxDuration": 60 },
     "api/expand-announcements.ts": { "maxDuration": 60 },
     "api/discuss.ts": { "maxDuration": 30 },
     "api/reply.ts": { "maxDuration": 30 }
