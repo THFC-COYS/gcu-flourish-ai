@@ -451,19 +451,25 @@ export default function MondayStack() {
         index++;
       } else {
         if (timerRef.current) clearInterval(timerRef.current);
-        setTimeout(() => setPhase('results'), 600);
+        timerRef.current = null;
       }
     }, 400);
-    return () => { if (timerRef.current) clearInterval(timerRef.current); };
+    return () => { if (timerRef.current) { clearInterval(timerRef.current); timerRef.current = null; } };
   }, [phase]);
 
+  // Transition to results once last log line is shown
+  const isDone = phase === 'processing' && logLines[logLines.length - 1] === LOG_STEPS[LOG_STEPS.length - 1];
+  useEffect(() => {
+    if (!isDone) return;
+    const t = setTimeout(() => setPhase('results'), 600);
+    return () => clearTimeout(t);
+  }, [isDone]);
+
   function handleReset() {
-    if (timerRef.current) clearInterval(timerRef.current);
+    if (timerRef.current) { clearInterval(timerRef.current); timerRef.current = null; }
     setLogLines([]);
     setPhase('setup');
   }
-
-  const isDone = logLines[logLines.length - 1] === LOG_STEPS[LOG_STEPS.length - 1];
 
   return (
     <MoltedLayout>
