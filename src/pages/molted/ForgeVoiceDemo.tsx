@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronLeft, Send, Bot, Loader2, Sparkles, Mic, ChevronDown, ChevronUp, User } from 'lucide-react';
+import { ChevronLeft, Send, Bot, Loader2, Sparkles, Mic, ChevronDown, ChevronUp, User, Zap } from 'lucide-react';
 import MoltedLayout from './MoltedLayout';
 
 const TEAL = '#2563EB';
@@ -32,6 +32,56 @@ const VOICE_STARTERS = [
   "Nursing faculty with 15 years in the ICU before moving to academia. I speak plainly and don't sugarcoat. I use clinical stories constantly. I expect precision but I also tell students when they've done something genuinely right.",
   "Business professor and former startup founder. I use sports metaphors constantly — mainly basketball. I push students to apply everything to a real company. I'm impatient with vague answers but generous with students who take intellectual risks.",
 ];
+
+const LIVE_DEMOS = [
+  { label: 'Forge Voice', href: '/forge/voice-demo', color: '#2563EB', active: true },
+  { label: 'Beacon', href: '/beacon/demo', color: '#1E3A8A', pill: 'NEW' },
+  { label: 'RetainAI', href: '/retain-ai/demo', color: '#F43F5E', pill: 'NEW' },
+  { label: 'OutcomesAI', href: '/outcomes-ai/demo', color: '#0EA5E9', pill: 'NEW' },
+  { label: 'ProofAI', href: '/proof-ai/demo', color: '#7C3AED', pill: 'NEW' },
+  { label: 'Lumen', href: '/lumen/demo', color: '#7B61FF' },
+  { label: 'Discussion', href: '/forge/discussion', color: '#2563EB' },
+  { label: 'Agentic Grader', href: '/forge/agentic-grader', color: '#2563EB' },
+  { label: 'Command Center', href: '/gcu/university-os/command-center', color: '#F59E0B', pill: 'NEW' },
+];
+
+function NowLiveBanner() {
+  return (
+    <div className="border-b border-molted-border" style={{ background: 'rgba(0,0,0,0.30)' }}>
+      <div className="flex items-center overflow-hidden">
+        {/* Badge */}
+        <div className="flex items-center gap-2 px-4 py-2.5 border-r border-molted-border flex-shrink-0"
+          style={{ background: 'rgba(37,99,235,0.15)' }}>
+          <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
+          <Zap size={11} className="text-blue-400" />
+          <span className="text-[11px] font-black uppercase tracking-widest text-blue-400 whitespace-nowrap">Now Live</span>
+        </div>
+
+        {/* Scrollable pill list */}
+        <div className="flex items-center gap-2 overflow-x-auto px-4 py-2" style={{ scrollbarWidth: 'none' }}>
+          {LIVE_DEMOS.map(demo => (
+            <Link key={demo.href} to={demo.href}
+              className="flex-shrink-0 flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold transition-all hover:scale-105 whitespace-nowrap"
+              style={{
+                background: demo.active ? `${demo.color}20` : 'rgba(255,255,255,0.04)',
+                border: `1px solid ${demo.active ? `${demo.color}50` : 'rgba(255,255,255,0.08)'}`,
+                color: demo.active ? demo.color : '#64748b',
+              }}>
+              {demo.active && <span className="w-1 h-1 rounded-full animate-pulse" style={{ background: demo.color }} />}
+              {demo.label}
+              {demo.pill && (
+                <span className="text-[8px] font-black px-1 py-0.5 rounded-full ml-0.5"
+                  style={{ background: `${demo.color}25`, color: demo.color }}>
+                  {demo.pill}
+                </span>
+              )}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function ForgeVoiceDemo() {
   const [voiceOpen, setVoiceOpen] = useState(true);
@@ -93,6 +143,7 @@ export default function ForgeVoiceDemo() {
 
   return (
     <MoltedLayout>
+      <NowLiveBanner />
       <div className="min-h-screen pt-24 pb-32 px-6">
         <div className="max-w-3xl mx-auto">
 
