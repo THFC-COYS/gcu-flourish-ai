@@ -1,10 +1,49 @@
 /*
   TeachOS · Discussion Intelligence API
-  POST { thread: string, context?: string }
-  → structured analysis via Claude
+  POST { mode: 'manual', thread: string, context?: string, opts? }
+  POST { mode: 'agentic', topic: string, courseLevel: string, facultyVoice: string, numStudents?: number }
 */
 
-const SYSTEM_PROMPT = `You are Discussion Intelligence, an AI system built for university faculty inside TeachOS.
+/* ── Shared helpers ──────────────────────────────────────────────────────── */
+
+function stripFences(raw: string): string {
+  return raw
+    .replace(/^```json\s*/i, '')
+    .replace(/^```\s*/i, '')
+    .replace(/```\s*$/i, '')
+    .trim();
+}
+
+async function callGrok(apiKey: string, systemPrompt: string, userMessage: string, maxTokens = 2048) {
+  const response = await fetch('https://api.x.ai/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${apiKey}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      model: 'grok-3',
+      max_tokens: maxTokens,
+      messages: [
+        { role: 'system', content: systemPrompt },
+        { role: 'user', content: userMessage },
+      ],
+    }),
+  });
+
+  if (!response.ok) {
+    const err = await response.text();
+    throw new Error(`Grok API error (${response.status}): ${err}`);
+  }
+
+  const data = await response.json();
+  const raw = data.choices?.[0]?.message?.content ?? '';
+  return JSON.parse(stripFences(raw));
+}
+
+/* ── Manual mode ─────────────────────────────────────────────────────────── */
+
+const MANUAL_SYSTEM = `You are Discussion Intelligence, an AI system built for university faculty inside TeachOS.
 
 Your job is to analyze a raw discussion board thread and return a structured JSON analysis. The instructor has pasted the thread text directly — it may be messy, copied from Canvas or Blackboard, with inconsistent formatting.
 
@@ -42,15 +81,44 @@ Return ONLY valid JSON — no markdown, no preamble, no explanation. Use this ex
   "insights": "2–3 sentences of pedagogical insight for the instructor: what does this discussion reveal about class understanding, and what should the instructor address next?"
 }`;
 
+/* ── Agentic mode ────────────────────────────────────────────────────────── */
+
+const AGENTIC_SYSTEM = `You are a university discussion board simulator. Given a topic, course level, and faculty voice persona, you will:
+
+1. Generate a realistic student discussion thread (the number of posts is specified by the user). Make the posts feel authentic — varied length, different writing styles, one or two students with genuine misconceptions, one strong analytical post, the rest adequate or minimal.
+
+2. For EVERY student post, write an individual faculty reply that:
+   - Addresses that specific student by first name
+   - Acknowledges what they got right before pushing further
+   - Gently surfaces any misconception through questioning, never direct correction
+   - Deepens their thinking with a follow-up observation or reframe
+   - ALWAYS ends with a single open-ended question that invites them to go further
+   - Matches the faculty voice/tone specified
+   - Is 60–120 words
+
+Return ONLY valid JSON — no markdown, no preamble. Use this exact schema:
+
+{
+  "topic": "the discussion topic as stated",
+  "summary": "one sentence describing how this simulated discussion played out pedagogically",
+  "posts": [
+    {
+      "author": "FirstName LastName",
+      "post": "the full student post text (80–200 words, authentic student voice)",
+      "quality": "misconception | strong | adequate | minimal",
+      "label": "Misconception | Highlight | Adequate | Minimal",
+      "issue": "clearly describe the misconception if present, otherwise null",
+      "facultyReply": "the faculty reply — addresses student by name, nudges deeper, ENDS with an open-ended question"
+    }
+  ],
+  "insights": "2–3 sentences of pedagogical insight: what patterns does this thread reveal, and what should the instructor address in the next class session?"
+}`;
+
+/* ── Handler ─────────────────────────────────────────────────────────────── */
+
 export default async function handler(req: any, res: any) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
-  }
-
-  const { thread, context, opts } = req.body;
-
-  if (!thread || typeof thread !== 'string' || thread.trim().length < 20) {
-    return res.status(400).json({ error: 'Please paste at least some discussion content.' });
   }
 
   const apiKey = process.env.GROK_API_KEY;
@@ -58,57 +126,60 @@ export default async function handler(req: any, res: any) {
     return res.status(500).json({ error: 'GROK_API_KEY not configured on server.' });
   }
 
-  const contextBlock = context?.trim()
-    ? `\n\nInstructor context (learning objectives / topic):\n${context.trim()}`
-    : '';
+  const { mode = 'manual' } = req.body;
 
-  const tone = opts?.tone ?? 'conversational';
-  const wordCount = Math.min(600, Math.max(50, Number(opts?.wordCount) || 200));
-  const nameStudents = opts?.nameStudents !== false;
+  try {
+    res.setHeader('Cache-Control', 'no-store');
 
-  const optsBlock = `\n\nInstructor response requirements:
+    /* ── Manual ── */
+    if (mode === 'manual') {
+      const { thread, context, opts } = req.body;
+
+      if (!thread || typeof thread !== 'string' || thread.trim().length < 20) {
+        return res.status(400).json({ error: 'Please paste at least some discussion content.' });
+      }
+
+      const contextBlock = context?.trim()
+        ? `\n\nInstructor context (learning objectives / topic):\n${context.trim()}`
+        : '';
+
+      const tone = opts?.tone ?? 'conversational';
+      const wordCount = Math.min(600, Math.max(50, Number(opts?.wordCount) || 200));
+      const nameStudents = opts?.nameStudents !== false;
+
+      const optsBlock = `\n\nInstructor response requirements:
 - Tone: ${tone} (${tone === 'formal' ? 'professional and academic' : tone === 'socratic' ? 'question-driven, never stating answers directly' : 'warm, approachable, collegial'})
 - Target length: approximately ${wordCount} words
 - Name students: ${nameStudents ? 'yes — you may refer to students by first name' : 'no — keep the response anonymous, do not name individual students'}`;
 
-  const userMessage = `Analyze this discussion thread:${contextBlock}${optsBlock}\n\n---\n\n${thread.trim()}`;
-
-  try {
-    const response = await fetch('https://api.x.ai/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${apiKey}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        model: 'grok-4-latest',
-        max_tokens: 2048,
-        messages: [
-          { role: 'system', content: SYSTEM_PROMPT },
-          { role: 'user', content: userMessage },
-        ],
-      }),
-    });
-
-    if (!response.ok) {
-      const err = await response.text();
-      return res.status(response.status).json({ error: `Grok API error: ${err}` });
+      const userMessage = `Analyze this discussion thread:${contextBlock}${optsBlock}\n\n---\n\n${thread.trim()}`;
+      const parsed = await callGrok(apiKey, MANUAL_SYSTEM, userMessage);
+      return res.status(200).json(parsed);
     }
 
-    const data = await response.json();
-    const raw = data.choices?.[0]?.message?.content ?? '';
+    /* ── Agentic ── */
+    if (mode === 'agentic') {
+      const { topic, courseLevel, facultyVoice, numStudents = 4 } = req.body;
 
-    let parsed;
-    try {
-      // Strip any accidental markdown fences
-      const clean = raw.replace(/^```json\s*/i, '').replace(/^```\s*/i, '').replace(/```\s*$/i, '').trim();
-      parsed = JSON.parse(clean);
-    } catch {
-      return res.status(500).json({ error: 'Failed to parse Grok response as JSON.', raw });
+      if (!topic || typeof topic !== 'string' || topic.trim().length < 5) {
+        return res.status(400).json({ error: 'Please provide a discussion topic.' });
+      }
+
+      const clampedStudents = Math.min(6, Math.max(2, Number(numStudents) || 4));
+
+      const userMessage = `Discussion topic: "${topic.trim()}"
+Course level: ${courseLevel ?? 'undergraduate'}
+Faculty voice/persona: ${facultyVoice ?? 'warm and Socratic — intellectually curious, never condescending, uses student names'}
+Number of student posts to generate: ${clampedStudents}
+
+Generate the full discussion thread and faculty replies now.`;
+
+      const parsed = await callGrok(apiKey, AGENTIC_SYSTEM, userMessage, 3000);
+      return res.status(200).json(parsed);
     }
 
-    res.setHeader('Cache-Control', 'no-store');
-    return res.status(200).json(parsed);
+    return res.status(400).json({ error: `Unknown mode: ${mode}` });
+
   } catch (err: any) {
     return res.status(500).json({ error: err?.message ?? 'Unexpected server error.' });
   }
