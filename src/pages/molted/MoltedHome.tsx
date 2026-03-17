@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronRight, Bot, BookOpen, BarChart3, Users } from 'lucide-react';
+import { ArrowRight, ChevronRight, Bot, BookOpen, BarChart3, Users, Zap } from 'lucide-react';
 import MoltedLayout from './MoltedLayout';
 
 
@@ -171,6 +171,118 @@ function Hero() {
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-molted-subtle animate-pulse">
         <span className="text-xs tracking-widest uppercase">Scroll</span>
         <div className="w-px h-8 bg-gradient-to-b from-molted-subtle to-transparent" />
+      </div>
+    </section>
+  );
+}
+
+/* ── Now Live ──────────────────────────────────────────────────────────── */
+const LIVE_DEMOS = [
+  { label: 'Beacon', description: 'Chat with your institution\'s AI voice', href: '/beacon/demo', color: '#1E3A8A', pill: 'NEW' },
+  { label: 'RetainAI', description: 'Student risk analysis + intervention plan', href: '/retain-ai/demo', color: '#F43F5E', pill: 'NEW' },
+  { label: 'OutcomesAI', description: 'HLC accreditation · Board report · Rankings', href: '/outcomes-ai/demo', color: '#0EA5E9', pill: 'NEW' },
+  { label: 'ProofAI', description: 'Competency verification + credentials', href: '/proof-ai/demo', color: '#7C3AED', pill: 'NEW' },
+  { label: 'PathwayAI', description: 'Adaptive learning map per student', href: '/pathway-ai/demo', color: '#10B981', pill: '' },
+  { label: 'Lumen', description: 'In-context AI tutor while reading', href: '/lumen/demo', color: '#7B61FF', pill: '' },
+  { label: 'Discussion', description: 'AI responds in instructor\'s voice', href: '/forge/discussion', color: '#2563EB', pill: '' },
+  { label: 'Agentic Grader', description: 'Grades with rubric feedback', href: '/forge/agentic-grader', color: '#2563EB', pill: '' },
+  { label: 'Course Architect', description: 'Full course from a description', href: '/forge/course-architect', color: '#2563EB', pill: '' },
+  { label: 'Command Center', description: 'Ask the University OS anything', href: '/gcu/university-os/command-center', color: '#F59E0B', pill: 'NEW' },
+];
+
+function NowLive() {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const t = setInterval(() => setCurrent(i => (i + 1) % LIVE_DEMOS.length), 2800);
+    return () => clearInterval(t);
+  }, []);
+
+  return (
+    <section className="border-t border-b border-molted-border py-0 overflow-hidden" style={{ background: 'rgba(0,0,0,0.25)' }}>
+      {/* Ticker bar */}
+      <div className="flex items-stretch">
+        {/* Label */}
+        <div className="flex items-center gap-2 px-5 py-3 border-r border-molted-border flex-shrink-0"
+          style={{ background: 'rgba(37,99,235,0.15)' }}>
+          <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse flex-shrink-0" />
+          <span className="text-xs font-black uppercase tracking-widest text-blue-400 whitespace-nowrap">Now Live</span>
+        </div>
+
+        {/* Scrolling demos */}
+        <div className="flex-1 overflow-hidden relative">
+          <div className="flex items-center gap-0 overflow-x-auto scrollbar-none py-3 px-4"
+            style={{ scrollbarWidth: 'none' }}>
+            {LIVE_DEMOS.map((demo, i) => (
+              <Link key={demo.href} to={demo.href}
+                className="group flex-shrink-0 flex items-center gap-2.5 px-4 py-1.5 rounded-full mx-1.5 transition-all hover:scale-105"
+                style={{
+                  background: i === current ? `${demo.color}18` : 'rgba(255,255,255,0.04)',
+                  border: `1px solid ${i === current ? `${demo.color}40` : 'rgba(255,255,255,0.07)'}`,
+                }}>
+                {demo.pill && (
+                  <span className="text-[9px] font-black px-1.5 py-0.5 rounded-full"
+                    style={{ background: `${demo.color}30`, color: demo.color }}>
+                    {demo.pill}
+                  </span>
+                )}
+                <span className="text-xs font-bold whitespace-nowrap"
+                  style={{ color: i === current ? demo.color : '#94a3b8' }}>
+                  {demo.label}
+                </span>
+                <span className="text-xs text-slate-600 whitespace-nowrap hidden sm:block">{demo.description}</span>
+                <ArrowRight size={11} className="opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0"
+                  style={{ color: demo.color }} />
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Count */}
+        <div className="flex items-center px-5 border-l border-molted-border flex-shrink-0">
+          <span className="text-xs font-semibold text-slate-500 whitespace-nowrap">{LIVE_DEMOS.length} demos</span>
+        </div>
+      </div>
+
+      {/* Demo cards grid */}
+      <div className="max-w-7xl mx-auto px-6 py-10">
+        <div className="flex items-center gap-3 mb-6">
+          <Zap size={14} className="text-blue-400" />
+          <p className="text-xs font-black uppercase tracking-widest text-slate-500">Interactive demos — try them now</p>
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+          {LIVE_DEMOS.map(demo => (
+            <Link key={demo.href} to={demo.href}
+              className="group p-4 rounded-xl border transition-all duration-200 hover:-translate-y-0.5"
+              style={{
+                background: 'rgba(255,255,255,0.03)',
+                borderColor: 'rgba(255,255,255,0.07)',
+              }}
+              onMouseEnter={e => {
+                (e.currentTarget as HTMLElement).style.background = `${demo.color}10`;
+                (e.currentTarget as HTMLElement).style.borderColor = `${demo.color}30`;
+              }}
+              onMouseLeave={e => {
+                (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.03)';
+                (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.07)';
+              }}>
+              <div className="flex items-start justify-between mb-2">
+                <span className="text-xs font-black" style={{ color: demo.color }}>{demo.label}</span>
+                {demo.pill && (
+                  <span className="text-[9px] font-black px-1.5 py-0.5 rounded-full"
+                    style={{ background: `${demo.color}25`, color: demo.color }}>
+                    {demo.pill}
+                  </span>
+                )}
+              </div>
+              <p className="text-xs text-slate-500 leading-relaxed">{demo.description}</p>
+              <div className="mt-3 flex items-center gap-1 text-[10px] font-semibold opacity-0 group-hover:opacity-100 transition-opacity"
+                style={{ color: demo.color }}>
+                Try it <ArrowRight size={10} />
+              </div>
+            </Link>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -644,6 +756,7 @@ export default function MoltedHome() {
   return (
     <MoltedLayout>
       <Hero />
+      <NowLive />
       <TheProblem />
       <ThePlatform />
       <DataFlywheel />
