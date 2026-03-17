@@ -366,13 +366,14 @@ const TOPIC_PRESETS = [
 ];
 
 function AgenticInputPanel({ onRun, loading }: {
-  onRun: (topic: string, courseLevel: string, facultyVoice: string, numStudents: number) => void;
+  onRun: (topic: string, courseLevel: string, facultyVoice: string, numStudents: number, facultyPersona: string) => void;
   loading: boolean;
 }) {
   const [topic, setTopic] = useState('');
   const [courseLevel, setCourseLevel] = useState('undergraduate');
   const [facultyVoice, setFacultyVoice] = useState('conversational');
   const [numStudents, setNumStudents] = useState(4);
+  const [facultyPersona, setFacultyPersona] = useState('');
   const ready = topic.trim().length > 5 && !loading;
 
   return (
@@ -429,6 +430,23 @@ function AgenticInputPanel({ onRun, loading }: {
         />
 
         <div>
+          <p className="text-molted-muted text-xs font-semibold mb-1">About you <span className="font-normal opacity-60">(optional)</span></p>
+          <p className="text-molted-subtle text-xs mb-2">Share your personality, passions, hobbies, or teaching background — the agent will weave these into every reply.</p>
+          <textarea
+            value={facultyPersona}
+            onChange={e => setFacultyPersona(e.target.value)}
+            placeholder="e.g. I'm a former software engineer who pivoted to teaching. I'm passionate about ethics in tech, love hiking, and often use sports analogies to explain complex systems. I believe learning happens through productive discomfort."
+            rows={4}
+            className="w-full rounded-xl border text-xs text-molted-white leading-relaxed resize-none p-3 focus:outline-none transition-colors"
+            style={{
+              background: 'rgba(248,249,252,0.06)',
+              borderColor: facultyPersona.length > 0 ? TEAL_BORDER : 'rgba(148,163,184,0.15)',
+              color: '#CBD5E1',
+            }}
+          />
+        </div>
+
+        <div>
           <p className="text-molted-muted text-xs font-semibold mb-2">Number of students</p>
           <div className="flex gap-2">
             {[2, 3, 4, 5, 6].map(n => (
@@ -446,7 +464,7 @@ function AgenticInputPanel({ onRun, loading }: {
         </div>
       </div>
 
-      <button onClick={() => onRun(topic, courseLevel, facultyVoice, numStudents)} disabled={!ready}
+      <button onClick={() => onRun(topic, courseLevel, facultyVoice, numStudents, facultyPersona)} disabled={!ready}
         className="w-full flex items-center justify-center gap-2.5 py-3.5 rounded-xl font-bold text-sm transition-all duration-200"
         style={{
           background: ready ? '#7C3AED' : 'rgba(148,163,184,0.12)',
@@ -647,9 +665,9 @@ export default function DiscussionDemo() {
     callAPI({ mode: 'manual', thread, context, opts });
   }
 
-  function handleAgentic(topic: string, courseLevel: string, facultyVoice: string, numStudents: number) {
+  function handleAgentic(topic: string, courseLevel: string, facultyVoice: string, numStudents: number, facultyPersona: string) {
     setAgenticAnalysis(null);
-    callAPI({ mode: 'agentic', topic, courseLevel, facultyVoice, numStudents });
+    callAPI({ mode: 'agentic', topic, courseLevel, facultyVoice, numStudents, facultyPersona });
   }
 
   const switchMode = (m: Mode) => {

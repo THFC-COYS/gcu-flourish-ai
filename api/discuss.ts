@@ -159,7 +159,7 @@ export default async function handler(req: any, res: any) {
 
     /* ── Agentic ── */
     if (mode === 'agentic') {
-      const { topic, courseLevel, facultyVoice, numStudents = 4 } = req.body;
+      const { topic, courseLevel, facultyVoice, numStudents = 4, facultyPersona } = req.body;
 
       if (!topic || typeof topic !== 'string' || topic.trim().length < 5) {
         return res.status(400).json({ error: 'Please provide a discussion topic.' });
@@ -167,9 +167,13 @@ export default async function handler(req: any, res: any) {
 
       const clampedStudents = Math.min(6, Math.max(2, Number(numStudents) || 4));
 
+      const personaBlock = facultyPersona?.trim()
+        ? `\nFaculty personal background (weave naturally into replies — use analogies, references, or phrasing that reflect these traits without forcing it):\n${facultyPersona.trim()}`
+        : '';
+
       const userMessage = `Discussion topic: "${topic.trim()}"
 Course level: ${courseLevel ?? 'undergraduate'}
-Faculty voice/persona: ${facultyVoice ?? 'warm and Socratic — intellectually curious, never condescending, uses student names'}
+Faculty tone: ${facultyVoice ?? 'conversational'}${personaBlock}
 Number of student posts to generate: ${clampedStudents}
 
 Generate the full discussion thread and faculty replies now.`;
