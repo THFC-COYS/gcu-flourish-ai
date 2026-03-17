@@ -83,10 +83,18 @@ function NowLiveBanner() {
   );
 }
 
+const DEFAULT_STUDENT_POSTS = [
+  "I think the Identity vs. Role Confusion stage has the biggest impact because that's when you figure out who you really are. If you don't get that right you spend your whole adult life confused about what you want. I've seen this with my older brother who still doesn't know what career he wants at 28.",
+  "I looked up Nike's mission and vision statements. Their mission is 'to bring inspiration and innovation to every athlete in the world.' and their vision is about being the best athletic company in the world. I think the distinction matters because the mission is what you do every day and the vision is where you're trying to get to.",
+  "I think communication is super important in nursing because if a patient doesn't understand what you're telling them they might not follow the care plan. A nurse should speak clearly and make sure the patient understands. I would use therapeutic communication techniques.",
+];
+
 export default function ForgeVoiceDemo() {
   const [voiceOpen, setVoiceOpen] = useState(true);
   const [voice, setVoice] = useState('');
   const [selectedPromptIdx, setSelectedPromptIdx] = useState(0);
+  const [studentPost, setStudentPost] = useState(DEFAULT_STUDENT_POSTS[0]);
+  const [editingPost, setEditingPost] = useState(false);
   const [reply, setReply] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -94,18 +102,12 @@ export default function ForgeVoiceDemo() {
 
   const selected = SAMPLE_PROMPTS[selectedPromptIdx];
 
-  // A realistic placeholder student post that will be used as context
-  const STUDENT_POSTS = [
-    "I think the Identity vs. Role Confusion stage has the biggest impact because that's when you figure out who you really are. If you don't get that right you spend your whole adult life confused about what you want. I've seen this with my older brother who still doesn't know what career he wants at 28.",
-    "I looked up Nike's mission and vision statements. Their mission is 'to bring inspiration and innovation to every athlete in the world.' and their vision is about being the best athletic company in the world. I think the distinction matters because the mission is what you do every day and the vision is where you're trying to get to.",
-    "I think communication is super important in nursing because if a patient doesn't understand what you're telling them they might not follow the care plan. A nurse should speak clearly and make sure the patient understands. I would use therapeutic communication techniques.",
-  ];
-
   async function handleSubmit() {
     if (!voice.trim() || loading) return;
     setLoading(true);
     setError(null);
     setReply(null);
+    setEditingPost(false);
 
     try {
       const res = await fetch('/api/reply', {
@@ -113,7 +115,7 @@ export default function ForgeVoiceDemo() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           prompt: selected.prompt,
-          studentPost: STUDENT_POSTS[selectedPromptIdx],
+          studentPost: studentPost.trim(),
           courseId: `forge-voice-demo-${selected.topic.replace(/\s+/g, '-').toLowerCase()}`,
           voice: voice.trim(),
         }),
@@ -259,7 +261,7 @@ export default function ForgeVoiceDemo() {
               {SAMPLE_PROMPTS.map((p, i) => (
                 <button
                   key={i}
-                  onClick={() => { setSelectedPromptIdx(i); setReply(null); }}
+                  onClick={() => { setSelectedPromptIdx(i); setStudentPost(DEFAULT_STUDENT_POSTS[i]); setReply(null); setEditingPost(false); }}
                   className="w-full text-left p-4 rounded-2xl border transition-all duration-200"
                   style={{
                     background: selectedPromptIdx === i ? TEAL_DIM : 'rgba(241,243,248,0.85)',
@@ -283,11 +285,17 @@ export default function ForgeVoiceDemo() {
             <div className="px-5 py-4 border-b" style={{ borderColor: 'rgba(0,0,0,0.06)' }}>
               <div className="flex items-center justify-between">
                 <p className="text-molted-white text-sm font-semibold">{selected.topic} · Student post</p>
-                <p className="text-molted-muted text-xs">Forge will reply to this</p>
+                <button
+                  onClick={() => setEditingPost(e => !e)}
+                  className="text-xs font-semibold transition-colors"
+                  style={{ color: editingPost ? TEAL : '#64748b' }}
+                >
+                  {editingPost ? 'Done editing' : 'Edit post'}
+                </button>
               </div>
             </div>
 
-            {/* Student post preview */}
+            {/* Student post — read or edit */}
             <div className="p-5 border-b" style={{ borderColor: 'rgba(0,0,0,0.06)' }}>
               <div className="flex gap-3">
                 <div
@@ -298,7 +306,19 @@ export default function ForgeVoiceDemo() {
                 </div>
                 <div className="flex-1">
                   <p className="text-xs font-semibold text-molted-muted mb-2">Student</p>
-                  <p className="text-molted-muted text-sm leading-relaxed">{STUDENT_POSTS[selectedPromptIdx]}</p>
+                  {editingPost
+                    ? (
+                      <textarea
+                        value={studentPost}
+                        onChange={e => setStudentPost(e.target.value)}
+                        rows={4}
+                        className="w-full rounded-xl border text-sm text-molted-muted leading-relaxed resize-none p-3 focus:outline-none transition-colors"
+                        style={{ background: 'rgba(248,249,252,0.97)', borderColor: TEAL_BORDER }}
+                        placeholder="Type the student's post here…"
+                      />
+                    )
+                    : <p className="text-molted-muted text-sm leading-relaxed">{studentPost}</p>
+                  }
                 </div>
               </div>
             </div>
