@@ -135,7 +135,7 @@ export default function ForgeVoiceDemo() {
         setReply('[Agent decided no response needed for this post.]');
       }
     } catch {
-      setError('Network error — make sure the agent backend is running on port 3001.');
+      setError('Something went wrong. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -394,17 +394,6 @@ export default function ForgeVoiceDemo() {
             </div>
           )}
 
-          {/* How to run */}
-          <div
-            className="rounded-2xl border p-5 text-xs leading-relaxed"
-            style={{ borderColor: 'rgba(0,0,0,0.06)', background: 'rgba(241,243,248,0.80)', color: '#86868B' }}
-          >
-            <p className="font-semibold text-molted-muted mb-2">To run this demo locally:</p>
-            <code className="block space-y-1" style={{ fontFamily: 'monospace' }}>
-              <span className="block">cd molt-agent/agent && npm run dev</span>
-              <span className="block text-molted-subtle"># Then reload this page and enter your voice</span>
-            </code>
-          </div>
 
         </div>
       </div>
