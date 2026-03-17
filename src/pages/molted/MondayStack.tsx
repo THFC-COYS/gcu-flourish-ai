@@ -431,7 +431,8 @@ export default function MondayStack() {
   const [phase, setPhase] = useState<Phase>('setup');
   const [logLines, setLogLines] = useState<string[]>([]);
   const logRef = useRef<HTMLDivElement>(null);
-  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const resultsTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Auto-scroll log
   useEffect(() => {
@@ -440,33 +441,36 @@ export default function MondayStack() {
     }
   }, [logLines]);
 
+  // Scroll to top when results appear
+  useEffect(() => {
+    if (phase === 'results') window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [phase]);
+
   // Processing animation
   useEffect(() => {
     if (phase !== 'processing') return;
     setLogLines([]);
     let index = 0;
-    timerRef.current = setInterval(() => {
+    intervalRef.current = setInterval(() => {
       if (index < LOG_STEPS.length) {
         setLogLines(prev => [...prev, LOG_STEPS[index]]);
         index++;
-      } else {
-        if (timerRef.current) clearInterval(timerRef.current);
-        timerRef.current = null;
+        if (index === LOG_STEPS.length) {
+          // Last step added — clear interval and schedule results
+          if (intervalRef.current) { clearInterval(intervalRef.current); intervalRef.current = null; }
+          resultsTimerRef.current = setTimeout(() => setPhase('results'), 600);
+        }
       }
     }, 400);
-    return () => { if (timerRef.current) { clearInterval(timerRef.current); timerRef.current = null; } };
+    return () => {
+      if (intervalRef.current) { clearInterval(intervalRef.current); intervalRef.current = null; }
+      if (resultsTimerRef.current) { clearTimeout(resultsTimerRef.current); resultsTimerRef.current = null; }
+    };
   }, [phase]);
 
-  // Transition to results once last log line is shown
-  const isDone = phase === 'processing' && logLines[logLines.length - 1] === LOG_STEPS[LOG_STEPS.length - 1];
-  useEffect(() => {
-    if (!isDone) return;
-    const t = setTimeout(() => setPhase('results'), 600);
-    return () => clearTimeout(t);
-  }, [isDone]);
-
   function handleReset() {
-    if (timerRef.current) { clearInterval(timerRef.current); timerRef.current = null; }
+    if (intervalRef.current) { clearInterval(intervalRef.current); intervalRef.current = null; }
+    if (resultsTimerRef.current) { clearTimeout(resultsTimerRef.current); resultsTimerRef.current = null; }
     setLogLines([]);
     setPhase('setup');
   }
@@ -495,7 +499,7 @@ export default function MondayStack() {
             </div>
             <div>
               <p className="text-xs font-semibold uppercase tracking-widest" style={{ color: PURPLE }}>Forge · Composite Demo</p>
-              <h1 className="text-2xl font-black text-white leading-tight">The Monday Stack</h1>
+              <h1 className="text-2xl font-black leading-tight" style={{ color: '#0F172A' }}>The Monday Stack</h1>
             </div>
           </div>
           <p className="text-base leading-relaxed max-w-xl" style={{ color: '#94A3B8' }}>
