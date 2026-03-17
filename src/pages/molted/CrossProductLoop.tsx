@@ -464,11 +464,9 @@ export default function CrossProductLoop() {
 
   function handleStart() {
     setPhase('playing');
-    setCurrentStep(0);
+    setCurrentStep(1);
     setBeaconSignals(0);
     setEmailCopied(false);
-    // kick off the first step immediately
-    setTimeout(() => setCurrentStep(1), 300);
   }
 
   function handleReplay() {

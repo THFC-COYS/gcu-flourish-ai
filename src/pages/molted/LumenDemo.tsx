@@ -244,6 +244,41 @@ function Explain3WaysResult({ data }: { data: any }) {
   );
 }
 
+function ReviewCard({ concept: c, strengthColors }: { concept: any; strengthColors: Record<string, { color: string; border: string; bg: string }> }) {
+  const [showAnswer, setShowAnswer] = useState(false);
+  const s = strengthColors[c.strength] ?? strengthColors.fading;
+  return (
+    <div className="rounded-2xl border bg-molted-elevated p-5" style={{ borderColor: s.border }}>
+      <div className="flex items-start justify-between gap-4 mb-3">
+        <div>
+          <p className="text-molted-white font-bold text-sm">{c.concept}</p>
+          <p className="text-molted-muted text-xs mt-0.5">{c.course} · {c.weeksAgo} weeks ago</p>
+        </div>
+        <span className="text-xs font-semibold px-2 py-0.5 rounded-full flex-shrink-0" style={{ color: s.color, background: s.bg, border: `1px solid ${s.border}` }}>
+          {c.strength}
+        </span>
+      </div>
+      <p className="text-molted-muted text-sm leading-relaxed mb-4">{c.connectionToCurrentReading}</p>
+      <div className="rounded-xl border p-3" style={{ borderColor: VIOLET_BORDER, background: VIOLET_DIM }}>
+        <p className="text-xs font-semibold mb-2" style={{ color: VIOLET }}>Quick review</p>
+        <p className="text-sm text-molted-white/90 mb-3">{c.reviewQuestion}</p>
+        <button
+          onClick={() => setShowAnswer(a => !a)}
+          className="text-xs font-semibold transition-colors"
+          style={{ color: VIOLET }}
+        >
+          {showAnswer ? 'Hide answer ↑' : 'Show answer ↓'}
+        </button>
+        {showAnswer && (
+          <p className="text-sm text-molted-muted leading-relaxed mt-2 pt-2 border-t" style={{ borderColor: VIOLET_BORDER }}>
+            {c.reviewAnswer}
+          </p>
+        )}
+      </div>
+    </div>
+  );
+}
+
 function SpacedRepResult({ data }: { data: any }) {
   const strengthColors: Record<string, { color: string; border: string; bg: string }> = {
     strong:  { color: '#14B8A6', border: 'rgba(20,184,166,0.30)',  bg: 'rgba(20,184,166,0.08)' },
@@ -258,40 +293,9 @@ function SpacedRepResult({ data }: { data: any }) {
         <p className="text-molted-white text-sm font-semibold">{data.currentTopic}</p>
       </div>
       <div className="space-y-3">
-        {data.reviewConcepts?.map((c: any, i: number) => {
-          const s = strengthColors[c.strength] ?? strengthColors.fading;
-          const [showAnswer, setShowAnswer] = useState(false);
-          return (
-            <div key={i} className="rounded-2xl border bg-molted-elevated p-5" style={{ borderColor: s.border }}>
-              <div className="flex items-start justify-between gap-4 mb-3">
-                <div>
-                  <p className="text-molted-white font-bold text-sm">{c.concept}</p>
-                  <p className="text-molted-muted text-xs mt-0.5">{c.course} · {c.weeksAgo} weeks ago</p>
-                </div>
-                <span className="text-xs font-semibold px-2 py-0.5 rounded-full flex-shrink-0" style={{ color: s.color, background: s.bg, border: `1px solid ${s.border}` }}>
-                  {c.strength}
-                </span>
-              </div>
-              <p className="text-molted-muted text-sm leading-relaxed mb-4">{c.connectionToCurrentReading}</p>
-              <div className="rounded-xl border p-3" style={{ borderColor: VIOLET_BORDER, background: VIOLET_DIM }}>
-                <p className="text-xs font-semibold mb-2" style={{ color: VIOLET }}>Quick review</p>
-                <p className="text-sm text-molted-white/90 mb-3">{c.reviewQuestion}</p>
-                <button
-                  onClick={() => setShowAnswer(a => !a)}
-                  className="text-xs font-semibold transition-colors"
-                  style={{ color: VIOLET }}
-                >
-                  {showAnswer ? 'Hide answer ↑' : 'Show answer ↓'}
-                </button>
-                {showAnswer && (
-                  <p className="text-sm text-molted-muted leading-relaxed mt-2 pt-2 border-t" style={{ borderColor: VIOLET_BORDER }}>
-                    {c.reviewAnswer}
-                  </p>
-                )}
-              </div>
-            </div>
-          );
-        })}
+        {data.reviewConcepts?.map((c: any, i: number) => (
+          <ReviewCard key={i} concept={c} strengthColors={strengthColors} />
+        ))}
       </div>
       {data.priorityReview && (
         <div className="rounded-xl border p-4" style={{ borderColor: VIOLET_BORDER, background: VIOLET_DIM }}>
