@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import {
   MessageSquare, AlertTriangle, Star, Minus, Users,
   Copy, Check, ChevronLeft, ChevronDown, Loader2, ArrowRight,
-  Lightbulb, Zap, BookOpen, GitBranch, Quote,
+  Lightbulb, Zap, BookOpen, Quote, Send, Bot, Sparkles, Mic, User,
 } from 'lucide-react';
 import MoltedLayout from './MoltedLayout';
 
@@ -22,8 +22,6 @@ const QUALITY_CONFIG: Record<Quality, { color: string; bg: string; border: strin
 };
 
 type RoutingManual = 'reply' | 'highlight' | 'skip';
-type RoutingAgentic = 'reply' | 'flag' | 'acknowledge';
-type Depth = 'scaffolding' | 'probing' | 'synthesis-level';
 
 const ROUTING_MANUAL_CONFIG: Record<RoutingManual, { color: string; bg: string; border: string; label: string }> = {
   reply:     { color: TEAL,      bg: TEAL_DIM,                      border: TEAL_BORDER,                      label: 'Reply' },
@@ -31,17 +29,39 @@ const ROUTING_MANUAL_CONFIG: Record<RoutingManual, { color: string; bg: string; 
   skip:      { color: '#64748B', bg: 'rgba(100,116,139,0.08)',       border: 'rgba(100,116,139,0.15)',          label: 'Skip' },
 };
 
-const ROUTING_AGENTIC_CONFIG: Record<RoutingAgentic, { color: string; bg: string; border: string; label: string }> = {
-  reply:      { color: TEAL,      bg: TEAL_DIM,                      border: TEAL_BORDER,                      label: 'Reply' },
-  flag:       { color: '#EF4444', bg: 'rgba(239,68,68,0.08)',        border: 'rgba(239,68,68,0.20)',            label: 'Flag' },
-  acknowledge:{ color: '#34D399', bg: 'rgba(52,211,153,0.08)',       border: 'rgba(52,211,153,0.20)',           label: 'Acknowledge' },
-};
+/* ── Live Reply constants ─────────────────────────────────────────────────── */
 
-const DEPTH_CONFIG: Record<Depth, { color: string; label: string }> = {
-  'scaffolding':     { color: '#F59E0B', label: 'Scaffolding' },
-  'probing':         { color: TEAL,      label: 'Probing' },
-  'synthesis-level': { color: '#A78BFA', label: 'Synthesis' },
-};
+const LIVE_PROMPTS = [
+  {
+    topic: 'Human Development',
+    prompt: "Week 5: Reflect on Erikson's stages of psychosocial development. Which stage do you think has the most lasting impact on adult identity, and why? Use a real-world example.",
+  },
+  {
+    topic: 'Intro to Business',
+    prompt: "Week 3: Explain the difference between a company's mission statement and its vision statement. Find a real company and critique whether their published mission and vision are effective.",
+  },
+  {
+    topic: 'Nursing Fundamentals',
+    prompt: "Week 2: Describe a situation where a nurse's communication style could directly affect patient outcomes. What communication principles would you apply?",
+  },
+  {
+    topic: 'Ethics in AI',
+    prompt: "Week 6: Should universities use AI to grade student essays? What are the ethical implications for students and faculty?",
+  },
+];
+
+const LIVE_DEFAULT_POSTS = [
+  "I think the Identity vs. Role Confusion stage has the biggest impact because that's when you figure out who you really are. If you don't resolve it you spend your whole adult life unsure of what you want. I've seen this with my older brother who still doesn't know what career he wants at 28.",
+  "I looked up Nike's mission statement — 'to bring inspiration and innovation to every athlete in the world.' Their vision is about being the best athletic company. I think the difference is that the mission is what you do daily and the vision is the long-term destination.",
+  "I think communication is super important in nursing because if a patient doesn't understand what you're telling them they might not follow the care plan. I would use therapeutic communication techniques and make sure the patient understands before they leave.",
+  "I think AI grading could save professors a lot of time, but it feels unfair because an algorithm can't really understand creativity or context the way a human can. Also students might game the system by writing what the AI wants to hear instead of what they actually think.",
+];
+
+const LIVE_VOICE_STARTERS = [
+  "I've been teaching human development for 8 years. Former high school counselor turned professor. I love hiking and always use outdoors analogies — 'growth is like a trail, you can't see the summit until you're halfway up.' Warm but direct. I hate generic textbook answers.",
+  "Nursing faculty with 15 years in the ICU before moving to academia. I speak plainly and don't sugarcoat. I use clinical stories constantly. I expect precision but I genuinely celebrate students who take intellectual risks.",
+  "Business professor and former startup founder. I use sports metaphors constantly — mainly basketball. I push students to apply everything to a real company. I'm impatient with vague answers but generous with students who show original thinking.",
+];
 
 const TRACE_TYPE_CONFIG: Record<string, { color: string }> = {
   parse:      { color: '#94A3B8' },
@@ -86,38 +106,6 @@ interface ManualAnalysis {
   insights: string;
 }
 
-interface StudentPersona {
-  name: string;
-  year: string;
-  major: string;
-  background: string;
-  likelyWeakness: string;
-}
-
-interface AgenticPost {
-  author: string;
-  post: string;
-  quality: Quality;
-  label: string;
-  confidence: number;
-  quotedEvidence: string | null;
-  routingDecision: RoutingAgentic;
-  routingReason: string;
-  depth: Depth;
-  issue: string | null;
-  draftReply: string;
-  draftCritique: string;
-  facultyReply: string;
-}
-interface AgenticAnalysis {
-  topic: string;
-  summary: string;
-  personas: StudentPersona[];
-  posts: AgenticPost[];
-  classPattern: string | null;
-  followUpPrompt: string | null;
-  insights: string;
-}
 
 /* ── Shared helpers ─────────────────────────────────────────────────────── */
 
@@ -627,412 +615,192 @@ function ManualInputPanel({ onAnalyze, loading }: {
 }
 
 /* ══════════════════════════════════════════════════════════════════════════
-   AGENTIC MODE
+   LIVE REPLY MODE
 ══════════════════════════════════════════════════════════════════════════ */
 
-const TOPIC_PRESETS = [
-  'The ethics of AI in hiring decisions',
-  'Whether social media accelerates political polarization',
-  'The role of the Federal Reserve in managing inflation',
-  'Nature vs. nurture in personality development',
-  'Photosynthesis: light reactions vs. the Calvin cycle',
-  'Is globalization a net positive for developing economies?',
-];
-
-function AgenticInputPanel({ onRun, loading }: {
-  onRun: (topic: string, courseLevel: string, facultyVoice: string, numStudents: number, facultyPersona: string) => void;
+function LiveReplyPanel({ onSubmit, loading }: {
+  onSubmit: (prompt: string, studentPost: string, voice: string) => void;
   loading: boolean;
 }) {
-  const [topic, setTopic] = useState('');
-  const [courseLevel, setCourseLevel] = useState('undergraduate');
-  const [facultyVoice, setFacultyVoice] = useState('conversational');
-  const [numStudents, setNumStudents] = useState(4);
-  const [facultyPersona, setFacultyPersona] = useState('');
-  const ready = topic.trim().length > 5 && !loading;
+  const [selectedIdx, setSelectedIdx] = useState(0);
+  const [studentPost, setStudentPost] = useState(LIVE_DEFAULT_POSTS[0]);
+  const [voice, setVoice] = useState('');
+  const [voiceOpen, setVoiceOpen] = useState(true);
+  const ready = studentPost.trim().length > 10 && !loading;
+  const selected = LIVE_PROMPTS[selectedIdx];
 
   return (
     <div className="space-y-5">
+      {/* Prompt picker */}
       <div>
-        <label className="block text-molted-white text-sm font-semibold mb-2">Discussion topic</label>
-        <p className="text-molted-muted text-xs mb-3">
-          Describe the topic or question you've posted to your class. The agent will generate realistic student responses and reply to each one.
+        <p className="text-molted-muted text-xs font-semibold uppercase tracking-widest mb-3">
+          Pick a discussion prompt
         </p>
-        <textarea value={topic} onChange={e => setTopic(e.target.value)}
-          placeholder="e.g. Should universities use AI to grade student essays?"
-          rows={3}
-          className="w-full rounded-2xl border text-sm text-molted-white leading-relaxed resize-none p-4 focus:outline-none transition-colors"
-          style={{ background: 'rgba(248,249,252,0.95)', borderColor: topic.length > 0 ? TEAL_BORDER : 'rgba(0,0,0,0.07)' }}
-        />
-      </div>
-
-      <div>
-        <p className="text-molted-muted text-xs font-semibold mb-2">Or try a preset</p>
-        <div className="flex flex-wrap gap-2">
-          {TOPIC_PRESETS.map(t => (
-            <button key={t} type="button" onClick={() => setTopic(t)}
-              className="px-3 py-1.5 rounded-full text-xs transition-all"
+        <div className="space-y-2">
+          {LIVE_PROMPTS.map((p, i) => (
+            <button key={i} type="button"
+              onClick={() => { setSelectedIdx(i); setStudentPost(LIVE_DEFAULT_POSTS[i]); }}
+              className="w-full text-left p-4 rounded-2xl border transition-all duration-200"
               style={{
-                background: topic === t ? TEAL_DIM : 'rgba(0,0,0,0.04)',
-                color: topic === t ? TEAL : '#94A3B8',
-                border: `1px solid ${topic === t ? TEAL_BORDER : 'rgba(0,0,0,0.06)'}`,
+                background: selectedIdx === i ? TEAL_DIM : 'rgba(248,249,252,0.85)',
+                borderColor: selectedIdx === i ? TEAL_BORDER : 'rgba(0,0,0,0.06)',
               }}>
-              {t}
+              <p className="text-xs font-semibold mb-1"
+                style={{ color: selectedIdx === i ? TEAL : '#86868B' }}>
+                {p.topic}
+              </p>
+              <p className="text-molted-muted text-xs leading-relaxed line-clamp-2">{p.prompt}</p>
             </button>
           ))}
         </div>
       </div>
 
-      <div className="rounded-2xl border p-4 space-y-4"
-        style={{ background: 'rgba(0,0,0,0.25)', borderColor: 'rgba(0,0,0,0.06)' }}>
-        <p className="text-molted-white text-xs font-bold uppercase tracking-wide">Simulation settings</p>
-
-        <ChipGroup label="Course level" value={courseLevel} onChange={setCourseLevel}
-          options={[
-            { value: 'undergraduate', label: 'Undergraduate' },
-            { value: 'graduate', label: 'Graduate' },
-            { value: 'doctoral', label: 'Doctoral' },
-          ]}
-        />
-
-        <ChipGroup label="Faculty voice" value={facultyVoice} onChange={setFacultyVoice}
-          options={[
-            { value: 'conversational', label: 'Conversational' },
-            { value: 'socratic', label: 'Socratic' },
-            { value: 'formal', label: 'Formal' },
-          ]}
-        />
-
-        <div>
-          <p className="text-molted-muted text-xs font-semibold mb-1">About you <span className="font-normal opacity-60">(optional)</span></p>
-          <p className="text-molted-subtle text-xs mb-2">Share your personality, passions, hobbies, or teaching background — the agent will weave these into every reply.</p>
-          <textarea
-            value={facultyPersona}
-            onChange={e => setFacultyPersona(e.target.value)}
-            placeholder="e.g. I'm a former software engineer who pivoted to teaching. I'm passionate about ethics in tech, love hiking, and often use sports analogies to explain complex systems. I believe learning happens through productive discomfort."
-            rows={4}
-            className="w-full rounded-xl border text-xs text-molted-white leading-relaxed resize-none p-3 focus:outline-none transition-colors"
+      {/* Student post */}
+      <div>
+        <div className="flex items-center justify-between mb-2">
+          <label className="text-molted-white text-sm font-semibold">Student response</label>
+          <span className="text-molted-subtle text-xs">Edit to try your own</span>
+        </div>
+        <div className="flex gap-3">
+          <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+            style={{ background: 'rgba(0,0,0,0.07)' }}>
+            <User size={14} className="text-molted-muted" />
+          </div>
+          <textarea value={studentPost} onChange={e => setStudentPost(e.target.value)} rows={5}
+            className="flex-1 rounded-2xl border text-sm text-molted-white leading-relaxed resize-none p-4 focus:outline-none transition-colors"
             style={{
-              background: 'rgba(248,249,252,0.06)',
-              borderColor: facultyPersona.length > 0 ? TEAL_BORDER : 'rgba(148,163,184,0.15)',
-              color: '#CBD5E1',
+              background: 'rgba(248,249,252,0.95)',
+              borderColor: studentPost.length > 0 ? TEAL_BORDER : 'rgba(0,0,0,0.07)',
             }}
           />
         </div>
-
-        <div>
-          <p className="text-molted-muted text-xs font-semibold mb-2">Number of students</p>
-          <div className="flex gap-2">
-            {[2, 3, 4, 5, 6].map(n => (
-              <button key={n} type="button" onClick={() => setNumStudents(n)}
-                className="w-10 h-9 rounded-lg text-xs font-bold transition-all"
-                style={{
-                  background: numStudents === n ? TEAL_DIM : 'rgba(0,0,0,0.04)',
-                  color: numStudents === n ? TEAL : '#94A3B8',
-                  border: `1px solid ${numStudents === n ? TEAL_BORDER : 'rgba(0,0,0,0.06)'}`,
-                }}>
-                {n}
-              </button>
-            ))}
-          </div>
-        </div>
       </div>
 
-      <button onClick={() => onRun(topic, courseLevel, facultyVoice, numStudents, facultyPersona)} disabled={!ready}
+      {/* Instructor voice */}
+      <div className="rounded-2xl border overflow-hidden"
+        style={{
+          borderColor: voice.trim() ? TEAL_BORDER : 'rgba(0,0,0,0.07)',
+          background: 'rgba(241,243,248,0.90)',
+          boxShadow: voice.trim() ? `0 0 0 1px ${TEAL_BORDER}` : 'none',
+        }}>
+        <button type="button" onClick={() => setVoiceOpen(v => !v)}
+          className="w-full flex items-center justify-between p-4 text-left">
+          <div className="flex items-center gap-2">
+            <Mic size={13} style={{ color: TEAL }} />
+            <p className="text-sm font-semibold text-molted-white">Instructor voice</p>
+            {voice.trim() && (
+              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full"
+                style={{ background: TEAL_DIM, color: TEAL, border: `1px solid ${TEAL_BORDER}` }}>
+                Captured
+              </span>
+            )}
+            {!voice.trim() && (
+              <span className="text-[10px] text-molted-muted">(optional)</span>
+            )}
+          </div>
+          <ChevronDown size={14} className="text-molted-muted"
+            style={{ transform: voiceOpen ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 200ms' }} />
+        </button>
+
+        {voiceOpen && (
+          <div className="px-4 pb-4 space-y-3">
+            <textarea value={voice} onChange={e => setVoice(e.target.value)} rows={4}
+              placeholder="e.g. I've been teaching for 10 years. Former practitioner turned professor. I love hiking and use nature analogies. Warm but direct — I hate generic textbook answers."
+              className="w-full rounded-xl border text-xs text-molted-white leading-relaxed resize-none p-3 focus:outline-none transition-colors"
+              style={{
+                background: 'rgba(248,249,252,0.06)',
+                borderColor: voice.length > 0 ? TEAL_BORDER : 'rgba(148,163,184,0.15)',
+                color: '#CBD5E1',
+              }}
+            />
+            <div className="space-y-1.5">
+              <p className="text-molted-muted text-xs mb-1">Or try one of these:</p>
+              {LIVE_VOICE_STARTERS.map((s, i) => (
+                <button key={i} type="button" onClick={() => setVoice(s)}
+                  className="w-full text-left px-3 py-2 rounded-xl border text-xs transition-all line-clamp-1"
+                  style={{
+                    borderColor: voice === s ? TEAL_BORDER : 'rgba(0,0,0,0.06)',
+                    background: voice === s ? TEAL_DIM : 'rgba(0,0,0,0.03)',
+                    color: voice === s ? TEAL : '#94A3B8',
+                  }}>
+                  {s}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+
+      <button type="button" onClick={() => onSubmit(selected.prompt, studentPost, voice)} disabled={!ready}
         className="w-full flex items-center justify-center gap-2.5 py-3.5 rounded-xl font-bold text-sm transition-all duration-200"
         style={{
-          background: ready ? '#7C3AED' : 'rgba(148,163,184,0.12)',
-          color: ready ? '#ffffff' : '#64748B',
+          background: ready ? TEAL : 'rgba(148,163,184,0.12)',
+          color: ready ? '#0A0A0F' : '#64748B',
           cursor: ready ? 'pointer' : 'not-allowed',
         }}>
-        {loading
-          ? <><Loader2 size={16} className="animate-spin" /> Running simulation...</>
-          : <><Zap size={16} /> Run Agentic Simulation</>}
+        {loading ? <><Loader2 size={16} className="animate-spin" /> Drafting reply...</>
+          : <><Send size={16} /> Get instructor reply</>}
       </button>
     </div>
   );
 }
 
-/* ── Cohort persona cards ─────────────────────────────────────────────────── */
-
-function PersonaSection({ personas }: { personas: StudentPersona[] }) {
-  const [expanded, setExpanded] = useState(true);
-
-  if (!personas?.length) return null;
-
+function LiveReplyCard({ reply, studentPost, onReset, onRetry }: {
+  reply: string;
+  studentPost: string;
+  onReset: () => void;
+  onRetry: () => void;
+}) {
   return (
-    <div className="rounded-2xl border overflow-hidden"
-      style={{ background: 'rgba(124,58,237,0.06)', borderColor: 'rgba(124,58,237,0.20)' }}>
-      <button className="w-full flex items-center justify-between px-5 py-3.5"
-        onClick={() => setExpanded(e => !e)}>
-        <div className="flex items-center gap-2">
-          <Users size={13} style={{ color: '#A78BFA' }} />
-          <p className="text-xs font-bold uppercase tracking-wide" style={{ color: '#A78BFA' }}>
-            Cohort plan — {personas.length} students
-          </p>
-        </div>
-        <ChevronDown size={12} style={{
-          color: '#7C3AED',
-          transform: expanded ? 'rotate(180deg)' : 'rotate(0deg)',
-          transition: 'transform 200ms',
-        }} />
-      </button>
-
-      {expanded && (
-        <div className="px-5 pb-5 grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {personas.map((p, i) => (
-            <div key={i} className="rounded-xl p-3.5 border"
-              style={{ background: 'rgba(255,255,255,0.025)', borderColor: 'rgba(124,58,237,0.15)' }}>
-              <div className="flex items-center gap-2.5 mb-2">
-                <div className="w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-black flex-shrink-0"
-                  style={{ background: 'rgba(124,58,237,0.20)', color: '#A78BFA', border: '1px solid rgba(124,58,237,0.25)' }}>
-                  {initials(p.name)}
-                </div>
-                <div>
-                  <p className="text-xs font-bold text-molted-white">{p.name}</p>
-                  <p className="text-[10px]" style={{ color: '#64748B' }}>{p.year} · {p.major}</p>
-                </div>
-              </div>
-              <p className="text-[11px] leading-relaxed mb-1.5" style={{ color: '#94A3B8' }}>{p.background}</p>
-              <div className="flex items-start gap-1.5">
-                <AlertTriangle size={9} className="shrink-0 mt-0.5" style={{ color: '#F87171' }} />
-                <p className="text-[10px] italic" style={{ color: '#F87171' }}>{p.likelyWeakness}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-}
-
-/* ── Agentic thread card ─────────────────────────────────────────────────── */
-
-function AgenticThreadCard({ post, index, visible }: { post: AgenticPost; index: number; visible: boolean }) {
-  const [showDraft, setShowDraft] = useState(false);
-  const cfg = QUALITY_CONFIG[post.quality];
-  const rcfg = ROUTING_AGENTIC_CONFIG[post.routingDecision] ?? ROUTING_AGENTIC_CONFIG.reply;
-  const dcfg = DEPTH_CONFIG[post.depth] ?? DEPTH_CONFIG.probing;
-  const Icon = cfg.icon;
-  const replyText = showDraft ? post.draftReply : post.facultyReply;
-
-  return (
-    <div
-      className="transition-all duration-500"
-      style={{
-        opacity: visible ? 1 : 0,
-        transform: visible ? 'translateY(0)' : 'translateY(14px)',
-        transitionDelay: `${index * 80}ms`,
-      }}
-    >
+    <div className="space-y-4">
       {/* Student post */}
-      <div className="flex gap-3 mb-3">
-        <div className="flex flex-col items-center gap-1 flex-shrink-0">
-          <div className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold"
-            style={{ background: cfg.bg, color: cfg.color, border: `1px solid ${cfg.border}` }}>
-            {initials(post.author)}
-          </div>
-          <div className="w-px flex-1 min-h-[24px]" style={{ background: 'rgba(148,163,184,0.12)' }} />
-        </div>
-        <div className="flex-1 pb-2">
-          <div className="flex items-center gap-2 mb-1.5 flex-wrap">
-            <span className="text-sm font-semibold text-molted-white">{post.author}</span>
-            {/* Quality + confidence */}
-            <div className="flex items-center gap-1 text-xs px-2 py-0.5 rounded-full font-semibold"
-              style={{ background: cfg.bg, color: cfg.color, border: `1px solid ${cfg.border}` }}>
-              <Icon size={9} />
-              {post.label}
-              {post.confidence != null && (
-                <span className="text-[9px] opacity-65 ml-0.5">{post.confidence}%</span>
-              )}
-            </div>
-            {/* Routing badge */}
-            <div className="text-[10px] px-2 py-0.5 rounded-full font-black"
-              style={{ background: rcfg.bg, color: rcfg.color, border: `1px solid ${rcfg.border}` }}>
-              {rcfg.label}
-            </div>
-          </div>
-
-          <div className="rounded-2xl rounded-tl-sm p-4 text-sm text-molted-white/85 leading-relaxed"
-            style={{ background: 'rgba(248,249,252,0.06)', border: '1px solid rgba(148,163,184,0.10)' }}>
-            {post.post}
-            {/* Quoted evidence inline */}
-            {post.quotedEvidence && (
-              <div className="mt-3 pt-3 border-t border-white/5 flex items-start gap-2">
-                <Quote size={10} className="shrink-0 mt-0.5 opacity-50" style={{ color: cfg.color }} />
-                <p className="text-xs italic opacity-60">
-                  Evidence: "<span style={{ color: cfg.color }}>{post.quotedEvidence}</span>"
-                </p>
-              </div>
-            )}
-            {post.issue && (
-              <div className="mt-2 pt-2 border-t border-blue-900/30">
-                <p className="text-xs text-blue-400 font-semibold">
-                  Misconception: <span className="font-normal text-molted-muted">{post.issue}</span>
-                </p>
-              </div>
-            )}
-          </div>
-
-          {/* Routing reason */}
-          {post.routingReason && (
-            <p className="text-xs italic mt-1.5 px-1" style={{ color: '#475569' }}>{post.routingReason}</p>
-          )}
-        </div>
-      </div>
-
-      {/* Faculty reply */}
-      <div className="flex gap-3 mb-7 pl-2">
-        <div className="flex-shrink-0">
-          <div className="w-9 h-9 rounded-full flex items-center justify-center text-xs font-bold"
-            style={{ background: TEAL_DIM, color: TEAL, border: `1px solid ${TEAL_BORDER}` }}>
-            FA
-          </div>
+      <div className="flex gap-3">
+        <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+          style={{ background: 'rgba(0,0,0,0.07)' }}>
+          <User size={14} className="text-molted-muted" />
         </div>
         <div className="flex-1">
-          <div className="flex items-center justify-between mb-1.5 flex-wrap gap-2">
-            <div className="flex items-center gap-1.5 flex-wrap">
-              <span className="text-sm font-semibold" style={{ color: TEAL }}>Faculty</span>
-              <span className="text-xs px-2 py-0.5 rounded-full font-semibold"
-                style={{ background: TEAL_DIM, color: TEAL, border: `1px solid ${TEAL_BORDER}` }}>
-                AI Reply
-              </span>
-              {/* Depth badge */}
-              <span className="text-[10px] px-2 py-0.5 rounded-full font-black"
-                style={{ background: `${dcfg.color}18`, color: dcfg.color, border: `1px solid ${dcfg.color}30` }}>
-                {dcfg.label}
-              </span>
-              {/* Draft / Revised toggle */}
-              {post.draftReply && post.facultyReply && (
-                <div className="flex rounded-lg overflow-hidden border text-[10px] font-black"
-                  style={{ borderColor: 'rgba(255,255,255,0.08)' }}>
-                  <button
-                    onClick={() => setShowDraft(true)}
-                    className="px-2.5 py-0.5 transition-colors"
-                    style={{
-                      background: showDraft ? 'rgba(249,115,22,0.15)' : 'transparent',
-                      color: showDraft ? '#F97316' : '#475569',
-                    }}
-                  >
-                    Draft
-                  </button>
-                  <button
-                    onClick={() => setShowDraft(false)}
-                    className="px-2.5 py-0.5 transition-colors"
-                    style={{
-                      background: !showDraft ? TEAL_DIM : 'transparent',
-                      color: !showDraft ? TEAL : '#475569',
-                    }}
-                  >
-                    Revised ✓
-                  </button>
-                </div>
-              )}
-            </div>
-            <CopyButton text={replyText ?? ''} />
+          <p className="text-xs font-semibold text-molted-muted mb-2">Student</p>
+          <div className="rounded-2xl rounded-tl-sm p-4 text-sm text-molted-white/85 leading-relaxed"
+            style={{ background: 'rgba(248,249,252,0.06)', border: '1px solid rgba(148,163,184,0.10)' }}>
+            {studentPost}
           </div>
+        </div>
+      </div>
 
-          {/* Draft critique */}
-          {showDraft && post.draftCritique && (
-            <div className="mb-2 px-3 py-2 rounded-lg text-xs italic"
-              style={{ background: 'rgba(249,115,22,0.07)', border: '1px solid rgba(249,115,22,0.15)', color: '#FB923C' }}>
-              Critique: {post.draftCritique}
+      {/* Instructor reply */}
+      <div className="flex gap-3 pl-2">
+        <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+          style={{ background: TEAL_DIM, border: `1px solid ${TEAL_BORDER}` }}>
+          <Bot size={14} style={{ color: TEAL }} />
+        </div>
+        <div className="flex-1">
+          <div className="flex items-center gap-2 mb-2 flex-wrap">
+            <span className="text-sm font-semibold" style={{ color: TEAL }}>Forge · Instructor reply</span>
+            <span className="flex items-center gap-1 px-2 py-0.5 rounded-full text-xs"
+              style={{ background: TEAL_DIM, color: TEAL, border: `1px solid ${TEAL_BORDER}` }}>
+              <Sparkles size={9} />
+              Drafted in your voice
+            </span>
+            <div className="ml-auto">
+              <CopyButton text={reply} />
             </div>
-          )}
-
+          </div>
           <div className="rounded-2xl rounded-tl-sm p-4 text-sm leading-relaxed"
             style={{ background: 'rgba(30,58,138,0.75)', border: `1px solid ${TEAL_BORDER}`, color: '#F1F5F9' }}>
-            {replyText}
+            {reply}
+          </div>
+          <div className="mt-3 flex items-center gap-3">
+            <button onClick={onReset} className="text-xs text-molted-muted hover:text-molted-white transition-colors">
+              Try different post
+            </button>
+            <span style={{ color: '#334155' }}>·</span>
+            <button onClick={onRetry} className="text-xs transition-colors" style={{ color: TEAL }}>
+              Regenerate
+            </button>
           </div>
         </div>
       </div>
-    </div>
-  );
-}
-
-function AgenticResults({ analysis, traceEvents }: { analysis: AgenticAnalysis; traceEvents: TraceEvent[] }) {
-  const [visibleCount, setVisibleCount] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setVisibleCount(c => {
-        if (c >= analysis.posts.length) { clearInterval(interval); return c; }
-        return c + 1;
-      });
-    }, 400);
-    return () => clearInterval(interval);
-  }, [analysis]);
-
-  const miscCount = analysis.posts.filter(p => p.quality === 'misconception').length;
-  const strongCount = analysis.posts.filter(p => p.quality === 'strong').length;
-  const allVisible = visibleCount >= analysis.posts.length;
-
-  return (
-    <div className="space-y-6">
-      {/* Trace log (auto-collapsed) */}
-      {traceEvents.length > 0 && <TraceLog events={traceEvents} loading={false} />}
-
-      {/* Summary bar */}
-      <div className="rounded-2xl p-5 border" style={{ background: 'rgba(124,58,237,0.12)', borderColor: 'rgba(124,58,237,0.25)' }}>
-        <div className="flex items-center gap-2 mb-2">
-          <Zap size={13} style={{ color: '#7C3AED' }} />
-          <p className="text-xs font-bold uppercase tracking-wide" style={{ color: '#7C3AED' }}>Agentic Simulation</p>
-        </div>
-        <p className="text-molted-white text-sm font-semibold mb-1">{analysis.topic}</p>
-        <p className="text-molted-muted text-xs">{analysis.summary}</p>
-        <div className="flex gap-4 mt-3 text-xs flex-wrap">
-          <span className="text-molted-muted">{analysis.posts.length} students simulated</span>
-          {miscCount > 0 && <span className="text-red-400">{miscCount} misconception{miscCount > 1 ? 's' : ''} flagged</span>}
-          {strongCount > 0 && <span style={{ color: TEAL }}>{strongCount} strong post{strongCount > 1 ? 's' : ''}</span>}
-        </div>
-      </div>
-
-      {/* Cohort persona cards */}
-      {analysis.personas?.length > 0 && <PersonaSection personas={analysis.personas} />}
-
-      {/* Thread */}
-      <div>
-        {analysis.posts.map((post, i) => (
-          <AgenticThreadCard key={i} post={post} index={i} visible={i < visibleCount} />
-        ))}
-      </div>
-
-      {/* Class-wide pattern */}
-      {allVisible && analysis.classPattern && (
-        <div className="rounded-2xl p-5 border" style={{ background: 'rgba(139,92,246,0.08)', borderColor: 'rgba(139,92,246,0.22)' }}>
-          <div className="flex items-center gap-2 mb-2">
-            <GitBranch size={13} style={{ color: '#8B5CF6' }} />
-            <p className="text-xs font-bold uppercase tracking-wide" style={{ color: '#8B5CF6' }}>Class-wide pattern</p>
-          </div>
-          <p className="text-molted-white text-sm leading-relaxed">{analysis.classPattern}</p>
-        </div>
-      )}
-
-      {/* Follow-up prompt */}
-      {allVisible && analysis.followUpPrompt && (
-        <div className="rounded-2xl border" style={{ background: 'rgba(248,249,252,0.95)', borderColor: 'rgba(0,0,0,0.06)' }}>
-          <div className="flex items-center justify-between px-5 pt-4 pb-2">
-            <div className="flex items-center gap-2">
-              <ArrowRight size={13} style={{ color: TEAL }} />
-              <p className="text-xs font-bold uppercase tracking-wide" style={{ color: TEAL }}>Follow-up prompt for next session</p>
-            </div>
-            <CopyButton text={analysis.followUpPrompt} />
-          </div>
-          <p className="px-5 pb-4 text-sm leading-relaxed italic" style={{ color: '#CBD5E1' }}>
-            "{analysis.followUpPrompt}"
-          </p>
-        </div>
-      )}
-
-      {/* Pedagogical insight */}
-      {allVisible && (
-        <div className="rounded-2xl p-5 border" style={{ background: 'rgba(248,249,252,0.95)', borderColor: 'rgba(0,0,0,0.06)' }}>
-          <div className="flex items-center gap-2 mb-3">
-            <Lightbulb size={14} style={{ color: '#64748B' }} />
-            <p className="text-sm font-semibold text-molted-white">Pedagogical Insight</p>
-          </div>
-          <p className="text-molted-muted text-sm leading-relaxed">{analysis.insights}</p>
-        </div>
-      )}
     </div>
   );
 }
@@ -1041,17 +809,19 @@ function AgenticResults({ analysis, traceEvents }: { analysis: AgenticAnalysis; 
    PAGE
 ══════════════════════════════════════════════════════════════════════════ */
 
-type Mode = 'manual' | 'agentic';
+type Mode = 'manual' | 'live';
 
 export default function DiscussionDemo() {
-  const [mode, setMode] = useState<Mode>('manual');
+  const [mode, setMode] = useState<Mode>('live');
   const [manualAnalysis, setManualAnalysis] = useState<ManualAnalysis | null>(null);
-  const [agenticAnalysis, setAgenticAnalysis] = useState<AgenticAnalysis | null>(null);
+  const [liveReply, setLiveReply] = useState<string | null>(null);
+  const [liveStudentPost, setLiveStudentPost] = useState<string>('');
+  const [liveSubmitArgs, setLiveSubmitArgs] = useState<{ prompt: string; studentPost: string; voice: string } | null>(null);
   const [traceEvents, setTraceEvents] = useState<TraceEvent[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  async function callAPI(body: Record<string, unknown>) {
+  async function callManualAPI(body: Record<string, unknown>) {
     setLoading(true);
     setError(null);
     setTraceEvents([]);
@@ -1079,7 +849,6 @@ export default function DiscussionDemo() {
         if (done) break;
         buffer += decoder.decode(value, { stream: true });
 
-        // Parse complete SSE events (terminated by \n\n)
         const parts = buffer.split('\n\n');
         buffer = parts.pop() ?? '';
 
@@ -1097,15 +866,47 @@ export default function DiscussionDemo() {
             if (eventType === 'trace') {
               setTraceEvents(prev => [...prev, { ...parsed, timestamp: Date.now() }]);
             } else if (eventType === 'result') {
-              if (body.mode === 'agentic') setAgenticAnalysis(parsed);
-              else setManualAnalysis(parsed);
+              setManualAnalysis(parsed);
             } else if (eventType === 'error') {
               setError(parsed.message ?? 'Stream error');
             }
-          } catch {
-            // ignore malformed events
-          }
+          } catch { /* ignore malformed */ }
         }
+      }
+    } catch {
+      setError('Network error — check your connection.');
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  async function handleLiveReply(prompt: string, studentPost: string, voice: string) {
+    setLiveReply(null);
+    setLiveStudentPost(studentPost);
+    setLiveSubmitArgs({ prompt, studentPost, voice });
+    setLoading(true);
+    setError(null);
+
+    try {
+      const res = await fetch('/api/reply', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt, studentPost, voice, courseId: 'discussion-demo' }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setError(data.error ?? 'Agent failed. Is the backend running?');
+        return;
+      }
+
+      if (data.type === 'reply') {
+        setLiveReply(data.content);
+      } else if (data.type === 'flag') {
+        setLiveReply(`[Flagged for instructor review: ${data.reason}]`);
+      } else {
+        setLiveReply('[Agent decided no response needed for this post.]');
       }
     } catch {
       setError('Network error — check your connection.');
@@ -1116,16 +917,11 @@ export default function DiscussionDemo() {
 
   function handleManual(thread: string, context: string, opts: ResponseOptions) {
     setManualAnalysis(null);
-    callAPI({ mode: 'manual', thread, context, opts });
-  }
-
-  function handleAgentic(topic: string, courseLevel: string, facultyVoice: string, numStudents: number, facultyPersona: string) {
-    setAgenticAnalysis(null);
-    callAPI({ mode: 'agentic', topic, courseLevel, facultyVoice, numStudents, facultyPersona });
+    callManualAPI({ mode: 'manual', thread, context, opts });
   }
 
   const switchMode = (m: Mode) => { setMode(m); setError(null); };
-  const hasResult = mode === 'manual' ? !!manualAnalysis : !!agenticAnalysis;
+  const hasResult = mode === 'manual' ? !!manualAnalysis : !!liveReply;
 
   return (
     <MoltedLayout>
@@ -1140,12 +936,12 @@ export default function DiscussionDemo() {
               Forge
             </Link>
             <h1 className="text-3xl md:text-4xl font-black text-molted-white tracking-tight">
-              Discussion Intelligence
+              Discussion Agent
               <br />
-              <span style={{ color: TEAL }}>Two ways to use it.</span>
+              <span style={{ color: TEAL }}>Replies in the instructor's voice.</span>
             </h1>
             <p className="mt-3 text-molted-muted text-base max-w-lg leading-relaxed">
-              Paste a real thread for analysis — or let the agent simulate a full discussion and respond to every student in your voice.
+              Post a student response. Watch the agent reply in real time — in the instructor's voice.
             </p>
           </div>
 
@@ -1162,19 +958,16 @@ export default function DiscussionDemo() {
               <BookOpen size={14} />
               Manual
             </button>
-            <button onClick={() => switchMode('agentic')}
+            <button onClick={() => switchMode('live')}
               className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-200"
               style={{
-                background: mode === 'agentic' ? 'rgba(124,58,237,0.15)' : 'transparent',
-                color: mode === 'agentic' ? '#A78BFA' : '#64748B',
-                border: mode === 'agentic' ? '1px solid rgba(124,58,237,0.30)' : '1px solid transparent',
+                background: mode === 'live' ? TEAL_DIM : 'transparent',
+                color: mode === 'live' ? TEAL : '#64748B',
+                border: mode === 'live' ? `1px solid ${TEAL_BORDER}` : '1px solid transparent',
               }}>
               <Zap size={14} />
-              Agentic
-              <span className="text-[10px] px-1.5 py-0.5 rounded-full font-black"
-                style={{ background: 'rgba(124,58,237,0.20)', color: '#A78BFA' }}>
-                NEW
-              </span>
+              Live Reply
+              <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#34D399' }} />
             </button>
           </div>
 
@@ -1186,7 +979,7 @@ export default function DiscussionDemo() {
               style={{ background: 'rgba(241,243,248,0.90)', borderColor: 'rgba(0,0,0,0.06)' }}>
               {mode === 'manual'
                 ? <ManualInputPanel onAnalyze={handleManual} loading={loading} />
-                : <AgenticInputPanel onRun={handleAgentic} loading={loading} />}
+                : <LiveReplyPanel onSubmit={handleLiveReply} loading={loading} />}
             </div>
 
             {/* Results panel */}
@@ -1202,20 +995,13 @@ export default function DiscussionDemo() {
               {/* Loading — show live trace log */}
               {loading && (
                 <div className="space-y-4">
-                  <TraceLog events={traceEvents} loading={true} />
+                  {mode === 'manual' && <TraceLog events={traceEvents} loading={true} />}
                   <div className="rounded-2xl p-6 border text-center"
-                    style={{
-                      background: mode === 'agentic' ? 'rgba(124,58,237,0.04)' : 'rgba(241,243,248,0.06)',
-                      borderColor: mode === 'agentic' ? 'rgba(124,58,237,0.15)' : 'rgba(148,163,184,0.10)',
-                    }}>
-                    <Loader2
-                      size={18}
-                      className="animate-spin mx-auto mb-2"
-                      style={{ color: mode === 'agentic' ? '#A78BFA' : TEAL }}
-                    />
+                    style={{ background: 'rgba(241,243,248,0.06)', borderColor: 'rgba(148,163,184,0.10)' }}>
+                    <Loader2 size={18} className="animate-spin mx-auto mb-2" style={{ color: TEAL }} />
                     <p className="text-molted-muted text-xs">
-                      {mode === 'agentic'
-                        ? 'Simulating cohort, generating posts, drafting and revising replies...'
+                      {mode === 'live'
+                        ? 'Drafting reply in the instructor\'s voice...'
                         : 'Parsing thread, routing posts, drafting and self-revising responses...'}
                     </p>
                   </div>
@@ -1228,14 +1014,14 @@ export default function DiscussionDemo() {
                   style={{ background: 'rgba(248,249,252,0.95)', borderColor: 'rgba(148,163,184,0.15)' }}>
                   {mode === 'manual'
                     ? <MessageSquare size={32} className="mx-auto mb-4" style={{ color: '#64748B' }} />
-                    : <Zap size={32} className="mx-auto mb-4" style={{ color: '#7C3AED' }} />}
+                    : <Bot size={32} className="mx-auto mb-4" style={{ color: TEAL }} />}
                   <p className="font-semibold mb-2" style={{ color: '#1C1C1E' }}>
-                    {mode === 'manual' ? 'Analysis will appear here' : 'Simulated thread will appear here'}
+                    {mode === 'manual' ? 'Analysis will appear here' : 'Reply will appear here'}
                   </p>
                   <p className="text-sm whitespace-pre-line" style={{ color: '#94A3B8' }}>
                     {mode === 'manual'
                       ? 'Paste a discussion thread and click Analyze.\nWorks with Canvas, Blackboard, D2L, or any plain text.'
-                      : 'Enter a topic and click Run Agentic Simulation.\nThe agent will plan a student cohort, simulate posts,\nand draft + self-revise every faculty reply.'}
+                      : 'Pick a prompt, type a student response, and click\n"Get instructor reply" to see it in action.'}
                   </p>
                 </div>
               )}
@@ -1243,8 +1029,13 @@ export default function DiscussionDemo() {
               {mode === 'manual' && manualAnalysis && (
                 <ManualResults analysis={manualAnalysis} traceEvents={traceEvents} />
               )}
-              {mode === 'agentic' && agenticAnalysis && (
-                <AgenticResults analysis={agenticAnalysis} traceEvents={traceEvents} />
+              {mode === 'live' && liveReply && (
+                <LiveReplyCard
+                  reply={liveReply}
+                  studentPost={liveStudentPost}
+                  onReset={() => setLiveReply(null)}
+                  onRetry={() => liveSubmitArgs && handleLiveReply(liveSubmitArgs.prompt, liveSubmitArgs.studentPost, liveSubmitArgs.voice)}
+                />
               )}
             </div>
           </div>
