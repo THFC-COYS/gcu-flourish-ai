@@ -109,14 +109,14 @@ function Hero() {
 
         {/* CTAs */}
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 animate-reveal" style={{ animationDelay: '350ms' }}>
-          <a
-            href="mailto:hello@molted.ai?subject=Outcomes Demo Request"
+          <Link
+            to="/outcomes-ai/demo"
             className="group flex items-center gap-2.5 px-8 py-4 rounded-xl text-white font-bold text-lg transition-all duration-200 hover:-translate-y-px"
             style={{ background: SKY, boxShadow: `0 0 24px ${SKY}40` }}
           >
-            See a Demo
+            Try Live Demo
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-          </a>
+          </Link>
           <Link
             to="/"
             className="px-8 py-4 rounded-xl border border-molted-border text-molted-muted hover:text-molted-white font-semibold transition-all hover:border-molted-subtle"

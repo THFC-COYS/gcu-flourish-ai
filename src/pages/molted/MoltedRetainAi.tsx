@@ -113,14 +113,14 @@ function Hero() {
 
       {/* CTAs */}
       <RevealBlock delay={500} className="mt-10 flex flex-col sm:flex-row items-center gap-4">
-        <a
-          href="#playbooks"
+        <Link
+          to="/retain-ai/demo"
           className="group flex items-center gap-2.5 px-7 py-3.5 rounded-xl font-bold transition-all duration-200 hover:-translate-y-px text-white"
           style={{ background: ROSE }}
         >
-          See the Agent Playbooks
+          Try Live Demo
           <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-        </a>
+        </Link>
         <a
           href="#roi"
           className="group flex items-center gap-2.5 px-7 py-3.5 rounded-xl border border-molted-border hover:border-molted-subtle text-molted-muted hover:text-molted-white font-semibold transition-all duration-200"

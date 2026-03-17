@@ -48,6 +48,10 @@ import ForgeVoiceDemo from './pages/molted/ForgeVoiceDemo';
 import GCULeadershipDeck from './pages/molted/GCULeadershipDeck';
 import GovernanceQA from './pages/GovernanceQA';
 import ScalingModel from './pages/ScalingModel';
+import BeaconDemo from './pages/molted/demos/BeaconDemo';
+import RetainAIDemo from './pages/molted/demos/RetainAIDemo';
+import OutcomesAIDemo from './pages/molted/demos/OutcomesAIDemo';
+import ProofAIDemo from './pages/molted/demos/ProofAIDemo';
 
 function ProtectedRoutes() {
   const { user, isLoading } = useAuth();
@@ -107,12 +111,16 @@ export default function App() {
             <Route path="/lumen" element={<MoltedLumen />} />
             <Route path="/lumen/demo" element={<LumenDemo />} />
             <Route path="/beacon" element={<MoltedBeaconAi />} />
+            <Route path="/beacon/demo" element={<BeaconDemo />} />
             <Route path="/forge" element={<MoltedForge />} />
             <Route path="/pathway-ai" element={<MoltedPathwayAi />} />
             <Route path="/pathway-ai/demo" element={<PathwayDemo />} />
             <Route path="/proof-ai" element={<MoltedProofAi />} />
+            <Route path="/proof-ai/demo" element={<ProofAIDemo />} />
             <Route path="/retain-ai" element={<MoltedRetainAi />} />
+            <Route path="/retain-ai/demo" element={<RetainAIDemo />} />
             <Route path="/outcomes-ai" element={<MoltedOutcomesAi />} />
+            <Route path="/outcomes-ai/demo" element={<OutcomesAIDemo />} />
             <Route path="/outpost" element={<MoltedCampusOS />} />
             <Route path="/imago-os" element={<MoltedImagoOS />} />
             <Route path="/mastery-ai" element={<MoltedMasteryAi />} />

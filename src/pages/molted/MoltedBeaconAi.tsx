@@ -135,14 +135,14 @@ function Hero() {
         </div>
 
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 animate-reveal" style={{ animationDelay: '400ms' }}>
-          <a
-            href="mailto:hello@molted.ai?subject=Beacon Demo Request"
+          <Link
+            to="/beacon/demo"
             className="group flex items-center gap-2.5 px-8 py-4 rounded-xl text-white font-bold text-lg transition-all duration-200 hover:-translate-y-px"
             style={{ background: RED }}
           >
-            Create Your Beacon
+            Try Live Demo
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-          </a>
+          </Link>
           <Link
             to="/lumen"
             className="px-8 py-4 rounded-xl border border-molted-border text-molted-muted hover:text-molted-white font-semibold transition-all hover:border-molted-subtle"

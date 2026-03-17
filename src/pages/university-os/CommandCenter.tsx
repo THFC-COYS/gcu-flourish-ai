@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import {
   Activity, Bot, CheckCircle2, AlertCircle, Clock, Zap,
   Users, TrendingUp, ArrowLeft, RefreshCw, ChevronRight,
-  Shield, Cpu, Globe, ArrowRight, Radio
+  Shield, Cpu, Globe, ArrowRight, Radio, Send, Sparkles,
+  TrendingDown, Minus,
 } from 'lucide-react';
 import { DEPARTMENTS } from './UniversityOS';
 
@@ -103,6 +104,147 @@ function AgentStatusRow({ dept }: { dept: typeof DEPARTMENTS[0] }) {
         </div>
       </div>
       <ChevronRight size={12} className="text-slate-300 dark:text-slate-600 group-hover:text-gcu-purple transition-colors flex-shrink-0" />
+    </div>
+  );
+}
+
+// ─── Ask the OS ──────────────────────────────────────────────────────────────
+
+const SAMPLE_QUERIES = [
+  'How is student retention trending this semester?',
+  'Are there any at-risk students I should know about?',
+  'What is our admissions pipeline looking like right now?',
+  'Give me a board-ready summary of this week\'s performance.',
+  'What are the top 3 things needing my attention today?',
+];
+
+interface OSResponse {
+  answer: string;
+  relevantDepts: string[];
+  keyMetrics: { label: string; value: string; trend: string }[];
+  alerts: string[];
+  recommendation: string;
+  confidence: string;
+  humanNote: string;
+}
+
+function AskTheOS() {
+  const [query, setQuery] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [result, setResult] = useState<OSResponse | null>(null);
+  const [error, setError] = useState('');
+
+  async function handleAsk() {
+    if (!query.trim()) return;
+    setLoading(true); setError(''); setResult(null);
+    try {
+      const res = await fetch('/api/command-center', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query }),
+      });
+      if (!res.ok) throw new Error(await res.text());
+      setResult(await res.json());
+    } catch (e) {
+      setError(String(e));
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  const trendIcon = (t: string) => t === 'up' ? <TrendingUp size={12} className="text-emerald-400" /> : t === 'down' ? <TrendingDown size={12} className="text-red-400" /> : <Minus size={12} className="text-slate-400" />;
+
+  return (
+    <div className="page-card p-5 border-l-4 border-gcu-purple">
+      <div className="flex items-center gap-2 mb-4">
+        <Sparkles size={15} className="text-gcu-purple dark:text-purple-400" />
+        <h3 className="text-sm font-bold text-slate-900 dark:text-white">Ask the University OS</h3>
+        <span className="text-xs bg-gcu-purple-pale dark:bg-gcu-purple/10 text-gcu-purple dark:text-purple-400 px-2 py-0.5 rounded-full font-semibold">AI</span>
+      </div>
+
+      {/* Sample queries */}
+      <div className="flex flex-wrap gap-2 mb-3">
+        {SAMPLE_QUERIES.map(q => (
+          <button key={q} onClick={() => setQuery(q)}
+            className="text-xs px-2.5 py-1 rounded-full transition-colors hover:bg-gcu-purple/10 dark:hover:bg-gcu-purple/20"
+            style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', color: '#94a3b8' }}>
+            {q}
+          </button>
+        ))}
+      </div>
+
+      <div className="flex gap-2 mb-4">
+        <input
+          value={query}
+          onChange={e => setQuery(e.target.value)}
+          onKeyDown={e => e.key === 'Enter' && handleAsk()}
+          placeholder="Ask anything about your university..."
+          className="flex-1 px-3 py-2 rounded-lg text-sm outline-none dark:bg-[#1A1235] dark:text-white dark:border-slate-700 bg-slate-50 border border-slate-200 text-slate-800"
+        />
+        <button onClick={handleAsk} disabled={loading || !query.trim()}
+          className="px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-1.5 transition-all disabled:opacity-40"
+          style={{ background: 'linear-gradient(135deg, #4f1d96, #6d28d9)', color: '#fff' }}>
+          {loading ? <RefreshCw size={13} className="animate-spin" /> : <Send size={13} />}
+          Ask
+        </button>
+      </div>
+
+      {error && <p className="text-xs text-red-400 mb-3">{error}</p>}
+
+      {loading && (
+        <div className="flex items-center gap-2 py-4 text-sm text-slate-400">
+          <RefreshCw size={14} className="animate-spin text-gcu-purple" />
+          Querying all 15 department pods...
+        </div>
+      )}
+
+      {result && (
+        <div className="space-y-3">
+          {/* Main answer */}
+          <div className="p-4 rounded-xl bg-gcu-purple-pale dark:bg-gcu-purple/10 border border-gcu-purple/20">
+            <p className="text-sm text-slate-800 dark:text-slate-200 leading-relaxed">{result.answer}</p>
+          </div>
+
+          {/* Metrics */}
+          {result.keyMetrics?.length > 0 && (
+            <div className="grid grid-cols-3 gap-2">
+              {result.keyMetrics.map((m, i) => (
+                <div key={i} className="p-3 rounded-lg bg-slate-50 dark:bg-[#1A1235] border border-slate-100 dark:border-slate-700 text-center">
+                  <div className="flex items-center justify-center gap-1 mb-1">{trendIcon(m.trend)}</div>
+                  <p className="text-sm font-black text-slate-900 dark:text-white">{m.value}</p>
+                  <p className="text-xs text-slate-400 leading-tight mt-0.5">{m.label}</p>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Alerts */}
+          {result.alerts?.length > 0 && (
+            <div className="p-3 rounded-lg bg-amber-50 dark:bg-amber-900/10 border border-amber-200 dark:border-amber-800">
+              <p className="text-xs font-semibold text-amber-600 dark:text-amber-400 mb-1 uppercase tracking-widest">Active Alerts</p>
+              {result.alerts.map((a, i) => <p key={i} className="text-xs text-amber-700 dark:text-amber-300">• {a}</p>)}
+            </div>
+          )}
+
+          {/* Recommendation */}
+          {result.recommendation && (
+            <div className="p-3 rounded-lg bg-emerald-50 dark:bg-emerald-900/10 border border-emerald-200 dark:border-emerald-800">
+              <p className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 mb-1 uppercase tracking-widest">Strategic Recommendation</p>
+              <p className="text-xs text-emerald-700 dark:text-emerald-300">{result.recommendation}</p>
+            </div>
+          )}
+
+          {/* Human note */}
+          {result.humanNote && (
+            <p className="text-xs text-slate-400 italic">⚠ {result.humanNote}</p>
+          )}
+
+          <button onClick={() => { setResult(null); setQuery(''); }}
+            className="text-xs text-slate-400 hover:text-slate-600 transition-colors">
+            Ask another question →
+          </button>
+        </div>
+      )}
     </div>
   );
 }
@@ -302,6 +444,9 @@ export default function CommandCenter() {
           ))}
         </div>
       </div>
+
+      {/* Ask the OS */}
+      <AskTheOS />
 
       {/* Ethics & Escalation Summary */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
