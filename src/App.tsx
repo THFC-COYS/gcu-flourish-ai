@@ -52,6 +52,9 @@ import BeaconDemo from './pages/molted/demos/BeaconDemo';
 import RetainAIDemo from './pages/molted/demos/RetainAIDemo';
 import OutcomesAIDemo from './pages/molted/demos/OutcomesAIDemo';
 import ProofAIDemo from './pages/molted/demos/ProofAIDemo';
+import MondayStack from './pages/molted/MondayStack';
+import CrossProductLoop from './pages/molted/CrossProductLoop';
+import VoiceABDemo from './pages/molted/VoiceABDemo';
 
 function ProtectedRoutes() {
   const { user, isLoading } = useAuth();
@@ -134,6 +137,9 @@ export default function App() {
             <Route path="/forge/early-warning" element={<EarlyWarning />} />
             <Route path="/forge/live-demo" element={<LiveAgentDemo />} />
             <Route path="/forge/voice-demo" element={<ForgeVoiceDemo />} />
+            <Route path="/forge/monday-stack" element={<MondayStack />} />
+            <Route path="/forge/voice-ab" element={<VoiceABDemo />} />
+            <Route path="/cross-product-loop" element={<CrossProductLoop />} />
             <Route path="/command-center" element={<CommandCenter />} />
             <Route path="/exec-tour" element={<MoltedExecTour />} />
             <Route path="/gcu-deck" element={<GCULeadershipDeck />} />
