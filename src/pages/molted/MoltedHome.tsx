@@ -191,94 +191,59 @@ const LIVE_DEMOS = [
 ];
 
 function NowLive() {
-  const [current, setCurrent] = useState(0);
-
-  useEffect(() => {
-    const t = setInterval(() => setCurrent(i => (i + 1) % LIVE_DEMOS.length), 2800);
-    return () => clearInterval(t);
-  }, []);
-
   return (
-    <section className="border-t border-b border-molted-border py-0 overflow-hidden" style={{ background: 'rgba(0,0,0,0.25)' }}>
-      {/* Ticker bar */}
-      <div className="flex items-stretch">
-        {/* Label */}
-        <div className="flex items-center gap-2 px-5 py-3 border-r border-molted-border flex-shrink-0"
-          style={{ background: 'rgba(37,99,235,0.15)' }}>
-          <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse flex-shrink-0" />
-          <span className="text-xs font-black uppercase tracking-widest text-blue-400 whitespace-nowrap">Now Live</span>
+    <section className="py-20 px-6" style={{ background: '#ffffff' }}>
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400 mb-3">Interactive Demos</p>
+          <h2 className="text-3xl font-bold text-slate-900 tracking-tight">Try them now</h2>
+          <p className="text-slate-500 mt-2 text-sm">Live AI demos. No login required.</p>
         </div>
 
-        {/* Scrolling demos */}
-        <div className="flex-1 overflow-hidden relative">
-          <div className="flex items-center gap-0 overflow-x-auto scrollbar-none py-3 px-4"
-            style={{ scrollbarWidth: 'none' }}>
-            {LIVE_DEMOS.map((demo, i) => (
-              <Link key={demo.href} to={demo.href}
-                className="group flex-shrink-0 flex items-center gap-2.5 px-4 py-1.5 rounded-full mx-1.5 transition-all hover:scale-105"
-                style={{
-                  background: i === current ? `${demo.color}18` : 'rgba(255,255,255,0.04)',
-                  border: `1px solid ${i === current ? `${demo.color}40` : 'rgba(255,255,255,0.07)'}`,
-                }}>
-                {demo.pill && (
-                  <span className="text-[9px] font-black px-1.5 py-0.5 rounded-full"
-                    style={{ background: `${demo.color}30`, color: demo.color }}>
-                    {demo.pill}
-                  </span>
-                )}
-                <span className="text-xs font-bold whitespace-nowrap"
-                  style={{ color: i === current ? demo.color : '#94a3b8' }}>
-                  {demo.label}
-                </span>
-                <span className="text-xs text-slate-600 whitespace-nowrap hidden sm:block">{demo.description}</span>
-                <ArrowRight size={11} className="opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0"
-                  style={{ color: demo.color }} />
-              </Link>
-            ))}
-          </div>
-        </div>
-
-        {/* Count */}
-        <div className="flex items-center px-5 border-l border-molted-border flex-shrink-0">
-          <span className="text-xs font-semibold text-slate-500 whitespace-nowrap">{LIVE_DEMOS.length} demos</span>
-        </div>
-      </div>
-
-      {/* Demo cards grid */}
-      <div className="max-w-7xl mx-auto px-6 py-10">
-        <div className="flex items-center gap-3 mb-6">
-          <Zap size={14} className="text-blue-400" />
-          <p className="text-xs font-black uppercase tracking-widest text-slate-500">Interactive demos — try them now</p>
-        </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+        {/* Demo cards grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
           {LIVE_DEMOS.map(demo => (
             <Link key={demo.href} to={demo.href}
-              className="group p-4 rounded-xl border transition-all duration-200 hover:-translate-y-0.5"
+              className="group flex flex-col p-5 rounded-2xl border transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
               style={{
-                background: 'rgba(255,255,255,0.03)',
-                borderColor: 'rgba(255,255,255,0.07)',
+                background: '#f8fafc',
+                borderColor: '#e2e8f0',
+                boxShadow: '0 1px 3px rgba(0,0,0,0.06)',
               }}
               onMouseEnter={e => {
-                (e.currentTarget as HTMLElement).style.background = `${demo.color}10`;
-                (e.currentTarget as HTMLElement).style.borderColor = `${demo.color}30`;
+                (e.currentTarget as HTMLElement).style.background = `#ffffff`;
+                (e.currentTarget as HTMLElement).style.borderColor = `${demo.color}35`;
+                (e.currentTarget as HTMLElement).style.boxShadow = `0 8px 24px rgba(0,0,0,0.10), 0 0 0 1px ${demo.color}20`;
               }}
               onMouseLeave={e => {
-                (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.03)';
-                (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255,255,255,0.07)';
+                (e.currentTarget as HTMLElement).style.background = '#f8fafc';
+                (e.currentTarget as HTMLElement).style.borderColor = '#e2e8f0';
+                (e.currentTarget as HTMLElement).style.boxShadow = '0 1px 3px rgba(0,0,0,0.06)';
               }}>
-              <div className="flex items-start justify-between mb-2">
-                <span className="text-xs font-black" style={{ color: demo.color }}>{demo.label}</span>
+              {/* Color dot + pill */}
+              <div className="flex items-center justify-between mb-3">
+                <div className="w-8 h-8 rounded-xl flex items-center justify-center"
+                  style={{ background: `${demo.color}12` }}>
+                  <div className="w-2.5 h-2.5 rounded-full" style={{ background: demo.color }} />
+                </div>
                 {demo.pill && (
-                  <span className="text-[9px] font-black px-1.5 py-0.5 rounded-full"
-                    style={{ background: `${demo.color}25`, color: demo.color }}>
+                  <span className="text-[9px] font-bold px-2 py-0.5 rounded-full"
+                    style={{ background: `${demo.color}12`, color: demo.color }}>
                     {demo.pill}
                   </span>
                 )}
               </div>
-              <p className="text-xs text-slate-500 leading-relaxed">{demo.description}</p>
-              <div className="mt-3 flex items-center gap-1 text-[10px] font-semibold opacity-0 group-hover:opacity-100 transition-opacity"
+
+              {/* Label + description */}
+              <p className="text-sm font-bold text-slate-800 mb-1">{demo.label}</p>
+              <p className="text-xs text-slate-500 leading-relaxed flex-1">{demo.description}</p>
+
+              {/* CTA */}
+              <div className="mt-4 flex items-center gap-1 text-xs font-semibold transition-colors"
                 style={{ color: demo.color }}>
-                Try it <ArrowRight size={10} />
+                Try it
+                <ArrowRight size={11} className="transition-transform group-hover:translate-x-0.5" />
               </div>
             </Link>
           ))}
