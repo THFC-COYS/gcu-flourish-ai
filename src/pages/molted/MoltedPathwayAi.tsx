@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import {
   ArrowRight, Check, GitBranch, Zap, Map, Brain,
   BookOpen, AlertTriangle, ChevronRight, Users, BarChart2, Lightbulb,
+  RefreshCw, Activity, Shield, TrendingUp, Eye, Layers,
 } from 'lucide-react';
 import MoltedLayout from './MoltedLayout';
 
@@ -117,12 +118,12 @@ function Hero() {
             Get Early Access
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </a>
-          <a
-            href="#how-it-learns"
+          <Link
+            to="/pathway-ai/demo"
             className="px-8 py-4 rounded-xl border border-molted-border text-molted-muted hover:text-molted-white font-semibold transition-all hover:border-molted-subtle"
           >
-            Learn More →
-          </a>
+            Try the Demo →
+          </Link>
         </div>
 
         {/* Callout chip */}
@@ -621,6 +622,222 @@ function ForInstitutions() {
   );
 }
 
+/* ── Adaptive Engine ────────────────────────────────────────────────────── */
+function AdaptiveEngine() {
+  const behaviors = [
+    {
+      icon: Eye,
+      title: 'Watches how you read, not just what you read',
+      body: 'Re-read the same paragraph twice? Paused mid-sentence? Skimmed a section you later asked about? Pathway reads those signals and treats them as data.',
+    },
+    {
+      icon: RefreshCw,
+      title: 'Re-sequences content in real time',
+      body: "If you're flying through foundational material but hitting a wall on application, Pathway compresses the easy stuff and expands the hard stuff — mid-course, without waiting for exam results.",
+    },
+    {
+      icon: Activity,
+      title: 'Detects mastery differently than a quiz does',
+      body: "A student who answers correctly after 30 seconds learned it. A student who answered correctly after 8 minutes of re-reading didn't. Pathway knows the difference.",
+    },
+    {
+      icon: Layers,
+      title: 'Builds a dependency graph, not a checklist',
+      body: "Understanding protein synthesis depends on transcription, which depends on DNA structure. Pathway maps those relationships and ensures foundations are solid before building higher.",
+    },
+  ];
+
+  return (
+    <section className="py-24 px-6 border-t border-molted-border">
+      <div className="max-w-6xl mx-auto">
+        <RevealBlock className="text-center mb-16">
+          <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">The adaptive engine</p>
+          <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight leading-tight">
+            Not a path generator.<br />
+            <span style={{ color: VIOLET }}>An engine that watches you learn.</span>
+          </h2>
+          <p className="mt-6 text-molted-muted text-lg max-w-2xl mx-auto leading-relaxed">
+            Most "adaptive" learning tools assign a path at the start and adjust it once at midterm.
+            Pathway re-sequences content continuously — every session, every interaction, every signal.
+          </p>
+        </RevealBlock>
+
+        <div className="grid md:grid-cols-2 gap-6">
+          {behaviors.map((b, i) => (
+            <RevealBlock key={i} delay={i * 100}>
+              <div
+                className="bg-molted-elevated border border-molted-border rounded-2xl p-7 h-full hover:-translate-y-px transition-all"
+                style={i === 1 ? { borderColor: VIOLET_BORDER } : {}}
+              >
+                <div
+                  className="w-10 h-10 rounded-xl flex items-center justify-center mb-5"
+                  style={{ background: VIOLET_DIM, border: `1px solid ${VIOLET_BORDER}` }}
+                >
+                  <b.icon size={18} style={{ color: VIOLET }} />
+                </div>
+                <h3 className="text-molted-white font-bold text-base mb-2 leading-snug">{b.title}</h3>
+                <p className="text-molted-muted text-sm leading-relaxed">{b.body}</p>
+              </div>
+            </RevealBlock>
+          ))}
+        </div>
+
+        {/* Re-sequencing example */}
+        <RevealBlock delay={200} className="mt-8">
+          <div
+            className="rounded-2xl border p-6 md:p-8"
+            style={{ borderColor: VIOLET_BORDER, background: VIOLET_DIM }}
+          >
+            <p className="text-xs font-semibold uppercase tracking-widest mb-5" style={{ color: VIOLET }}>
+              Live re-sequence example — Biology 201, Week 8
+            </p>
+            <div className="grid md:grid-cols-3 gap-4">
+              {[
+                { label: 'Signal detected', detail: 'Student re-read the Meiosis II section 4× in 12 minutes. Answered practice question correctly but took 6 minutes.', color: 'rgba(245,158,11,0.40)', textColor: '#F59E0B', bg: 'rgba(245,158,11,0.08)' },
+                { label: 'Pathway decision', detail: 'Meiosis II is shallow mastery — will crack under pressure. Insert a visual walkthrough module before moving to Genetics Unit.', color: VIOLET_BORDER, textColor: VIOLET, bg: VIOLET_DIM },
+                { label: 'Outcome', detail: 'Student completes targeted reinforcement. Next week: zero re-reads on Genetics concepts that build on Meiosis II.', color: 'rgba(20,184,166,0.40)', textColor: '#14B8A6', bg: 'rgba(20,184,166,0.08)' },
+              ].map((col, i) => (
+                <div
+                  key={i}
+                  className="rounded-xl p-4 border"
+                  style={{ borderColor: col.color, background: col.bg }}
+                >
+                  <p className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: col.textColor }}>{col.label}</p>
+                  <p className="text-molted-muted text-sm leading-relaxed">{col.detail}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </RevealBlock>
+      </div>
+    </section>
+  );
+}
+
+/* ── Signal Integration ─────────────────────────────────────────────────── */
+function SignalIntegration() {
+  return (
+    <section className="py-24 px-6 border-t border-molted-border">
+      <div className="max-w-6xl mx-auto">
+        <RevealBlock className="text-center mb-16">
+          <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">Ecosystem integration</p>
+          <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight leading-tight">
+            Pathway doesn't work alone.<br />
+            <span style={{ color: VIOLET }}>It listens to every product.</span>
+          </h2>
+          <p className="mt-6 text-molted-muted text-lg max-w-2xl mx-auto">
+            Struggle signals from Lumen. Grading patterns from Forge. Risk flags from RetainAI.
+            Pathway ingests them all — and acts before the student knows they're falling behind.
+          </p>
+        </RevealBlock>
+
+        {/* Signal flow diagram */}
+        <RevealBlock delay={100}>
+          <div className="bg-molted-elevated border border-molted-border rounded-2xl p-8">
+            <div className="grid md:grid-cols-4 gap-4 items-center">
+              {/* Input signals */}
+              <div className="space-y-3">
+                <p className="text-molted-muted text-xs font-semibold uppercase tracking-widest mb-4">Input signals</p>
+                {[
+                  { name: 'Lumen', signal: 'Confusion patterns, re-read frequency, question types', color: '#7B61FF', border: 'rgba(123,97,246,0.30)', bg: 'rgba(123,97,246,0.08)' },
+                  { name: 'Forge', signal: 'Submission quality, rubric gaps, grading patterns', color: '#F59E0B', border: 'rgba(245,158,11,0.30)', bg: 'rgba(245,158,11,0.08)' },
+                ].map((source, i) => (
+                  <div key={i} className="rounded-xl border p-4" style={{ borderColor: source.border, background: source.bg }}>
+                    <p className="font-bold text-sm" style={{ color: source.color }}>{source.name}</p>
+                    <p className="text-molted-muted text-xs mt-1 leading-relaxed">{source.signal}</p>
+                  </div>
+                ))}
+              </div>
+
+              {/* Arrow */}
+              <div className="hidden md:flex flex-col items-center justify-center gap-2 text-molted-subtle">
+                <div className="w-full h-px" style={{ background: `linear-gradient(90deg, ${VIOLET_BORDER}, ${VIOLET})` }} />
+                <ArrowRight size={18} style={{ color: VIOLET }} />
+              </div>
+
+              {/* Pathway core */}
+              <div
+                className="rounded-2xl border-2 p-6 text-center"
+                style={{ borderColor: VIOLET, background: VIOLET_DIM, boxShadow: `0 0 40px rgba(139,92,246,0.15)` }}
+              >
+                <div
+                  className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3"
+                  style={{ background: VIOLET, boxShadow: `0 0 20px rgba(139,92,246,0.40)` }}
+                >
+                  <Brain size={20} style={{ color: '#0A0A0B' }} />
+                </div>
+                <p className="text-molted-white font-black text-lg">Pathway</p>
+                <p className="text-xs mt-1" style={{ color: VIOLET }}>Adaptive engine</p>
+                <div className="mt-4 space-y-2">
+                  {['Re-sequences content', 'Adjusts difficulty', 'Flags intervention needs'].map((fn, i) => (
+                    <div key={i} className="flex items-center gap-2 text-xs text-molted-muted">
+                      <Check size={10} style={{ color: VIOLET }} className="flex-shrink-0" />
+                      {fn}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Arrow + RetainAI */}
+              <div className="space-y-3">
+                <div className="hidden md:flex items-center gap-2 mb-4">
+                  <div className="flex-1 h-px" style={{ background: `linear-gradient(90deg, ${VIOLET}, rgba(20,184,166,0.60))` }} />
+                  <ArrowRight size={14} className="text-teal-400 flex-shrink-0" />
+                </div>
+                <p className="text-molted-muted text-xs font-semibold uppercase tracking-widest mb-4">Proactive action</p>
+                <div
+                  className="rounded-xl border p-4"
+                  style={{ borderColor: 'rgba(20,184,166,0.35)', background: 'rgba(20,184,166,0.08)' }}
+                >
+                  <p className="font-bold text-sm text-teal-400">RetainAI</p>
+                  <p className="text-molted-muted text-xs mt-1 leading-relaxed">Triggers intervention before the student fails — not after. Path adjustment + advisor alert fires in tandem.</p>
+                </div>
+                <div
+                  className="rounded-xl border p-4"
+                  style={{ borderColor: 'rgba(20,184,166,0.20)', background: 'rgba(20,184,166,0.05)' }}
+                >
+                  <div className="flex items-center gap-2 mb-1">
+                    <Shield size={12} className="text-teal-400 flex-shrink-0" />
+                    <p className="font-bold text-xs text-teal-400">Student protected</p>
+                  </div>
+                  <p className="text-molted-muted text-xs leading-relaxed">They get a targeted path adjustment. They never see the risk flag. They just feel the support.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Callout */}
+            <div className="mt-8 pt-6 border-t border-molted-border">
+              <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                <div className="flex items-start gap-3">
+                  <div
+                    className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
+                    style={{ background: VIOLET_DIM, border: `1px solid ${VIOLET_BORDER}` }}
+                  >
+                    <TrendingUp size={15} style={{ color: VIOLET }} />
+                  </div>
+                  <div>
+                    <p className="text-molted-white font-semibold text-sm">The signal loop is what makes it different.</p>
+                    <p className="text-molted-muted text-xs mt-1 max-w-lg leading-relaxed">
+                      Any system can generate a learning path at enrollment. Only Pathway continuously closes the loop — watching every interaction, adjusting every day, and acting before the tipping point.
+                    </p>
+                  </div>
+                </div>
+                <a
+                  href="mailto:hello@molted.ai?subject=Pathway Integration Demo"
+                  className="flex-shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold whitespace-nowrap transition-all hover:-translate-y-px"
+                  style={{ background: VIOLET, color: '#0A0A0B' }}
+                >
+                  See the integration →
+                </a>
+              </div>
+            </div>
+          </div>
+        </RevealBlock>
+      </div>
+    </section>
+  );
+}
+
 /* ── Pricing ────────────────────────────────────────────────────────────── */
 function Pricing() {
   const tiers = [
@@ -793,7 +1010,9 @@ export default function MoltedPathway() {
       <Hero />
       <TheProblem />
       <HowItLearns />
+      <AdaptiveEngine />
       <KnowledgeGraphMock />
+      <SignalIntegration />
       <BeforeAfter />
       <ForInstitutions />
       <Pricing />

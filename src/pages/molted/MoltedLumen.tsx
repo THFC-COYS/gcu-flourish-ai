@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { BookOpen, MessageSquare, Zap, GraduationCap, ArrowRight, Check, Users, Target, Clock } from 'lucide-react';
+import { BookOpen, MessageSquare, Zap, GraduationCap, ArrowRight, Check, Users, Target, Clock, Video, Mic, Image, AlignLeft, RefreshCw, Link2 } from 'lucide-react';
 import MoltedLayout, { OutpostBanner } from './MoltedLayout';
 import AgentFeed, { FeedEvent } from '../../components/AgentFeed';
 
@@ -101,10 +101,10 @@ function Hero() {
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </a>
           <Link
-            to="/beacon"
+            to="/lumen/demo"
             className="px-8 py-4 rounded-xl border border-molted-border text-molted-muted hover:text-molted-white font-semibold transition-all hover:border-molted-subtle"
           >
-            See Beacon instead →
+            Try the Demo →
           </Link>
         </div>
       </div>
@@ -432,6 +432,358 @@ function LumenLiveFeed() {
   );
 }
 
+/* ── Multi-Modal ───────────────────────────────────────────────────────── */
+const VIOLET = '#7B61FF';
+const VIOLET_DIM = 'rgba(123,97,255,0.10)';
+const VIOLET_BORDER = 'rgba(123,97,255,0.25)';
+
+function MultiModal() {
+  const formats = [
+    {
+      icon: AlignLeft,
+      title: 'Text passages',
+      body: 'PDFs, Canvas readings, web articles, textbook chapters. The original Lumen capability — and it still works everywhere.',
+      tag: 'Available now',
+      tagColor: '#7B61FF',
+      tagBg: VIOLET_DIM,
+      tagBorder: VIOLET_BORDER,
+    },
+    {
+      icon: Video,
+      title: 'Lecture videos',
+      body: "Lumen transcribes and understands recorded lectures. Students ask questions about the video's content the same way they ask about a chapter.",
+      tag: 'In development',
+      tagColor: '#F59E0B',
+      tagBg: 'rgba(245,158,11,0.08)',
+      tagBorder: 'rgba(245,158,11,0.25)',
+    },
+    {
+      icon: Mic,
+      title: 'Audio recordings',
+      body: 'Podcasts, oral explanations, professor voice notes, interview recordings — Lumen listens and answers from what it heard.',
+      tag: 'In development',
+      tagColor: '#F59E0B',
+      tagBg: 'rgba(245,158,11,0.08)',
+      tagBorder: 'rgba(245,158,11,0.25)',
+    },
+    {
+      icon: Image,
+      title: 'Visual content',
+      body: 'Diagrams, charts, lab images, slides. Lumen reads what the image shows and connects it to the surrounding curriculum.',
+      tag: 'Coming soon',
+      tagColor: '#64748B',
+      tagBg: 'rgba(100,116,139,0.08)',
+      tagBorder: 'rgba(100,116,139,0.20)',
+    },
+  ];
+
+  return (
+    <section className="py-24 px-6 border-t border-molted-border">
+      <div className="max-w-6xl mx-auto">
+        <RevealBlock className="text-center mb-16">
+          <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">Multi-modal learning</p>
+          <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight leading-tight">
+            Students don't just read.<br />
+            <span className="text-molted-violet">Lumen knows that now.</span>
+          </h2>
+          <p className="mt-6 text-molted-muted text-lg max-w-2xl mx-auto">
+            A nursing lecture video. A chemistry diagram. A recorded discussion. Lumen meets students in whatever format their course delivers content.
+          </p>
+        </RevealBlock>
+
+        <div className="grid md:grid-cols-2 gap-5">
+          {formats.map((f, i) => (
+            <RevealBlock key={i} delay={i * 100}>
+              <div className="bg-molted-elevated border border-molted-border rounded-2xl p-7 h-full hover:-translate-y-px transition-all">
+                <div className="flex items-start justify-between gap-4 mb-5">
+                  <div className="w-11 h-11 rounded-xl bg-molted-violet/10 border border-molted-violet/20 flex items-center justify-center flex-shrink-0">
+                    <f.icon size={20} className="text-molted-violet" />
+                  </div>
+                  <span
+                    className="text-xs font-semibold px-2.5 py-1 rounded-full border flex-shrink-0"
+                    style={{ color: f.tagColor, background: f.tagBg, borderColor: f.tagBorder }}
+                  >
+                    {f.tag}
+                  </span>
+                </div>
+                <h3 className="text-molted-white font-bold text-lg mb-2">{f.title}</h3>
+                <p className="text-molted-muted text-sm leading-relaxed">{f.body}</p>
+              </div>
+            </RevealBlock>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ── Explain 3 Ways ────────────────────────────────────────────────────── */
+function ExplainThreeWays() {
+  const modes = [
+    {
+      label: 'Visual',
+      icon: Image,
+      color: '#14B8A6',
+      border: 'rgba(20,184,166,0.30)',
+      bg: 'rgba(20,184,166,0.08)',
+      description: 'Described as a spatial diagram or process map you can picture.',
+      example: '"Think of the cell membrane as a nightclub bouncer. The phospholipid bilayer is the velvet rope — nonpolar molecules slip through, polar ones need a pass."',
+    },
+    {
+      label: 'Narrative',
+      icon: BookOpen,
+      color: '#7B61FF',
+      border: VIOLET_BORDER,
+      bg: VIOLET_DIM,
+      description: 'Told as a story with characters, cause and effect, and stakes.',
+      example: '"When a pathogen enters your bloodstream, it\'s like an intruder in a fortress. The innate immune system is the first responder — fast, non-specific, and already on patrol."',
+    },
+    {
+      label: 'Analogy',
+      icon: Link2,
+      color: '#F59E0B',
+      border: 'rgba(245,158,11,0.30)',
+      bg: 'rgba(245,158,11,0.08)',
+      description: 'Mapped to something the student already understands from daily life.',
+      example: '"ATP is the currency of the cell. Every process that needs energy — movement, building proteins, sending signals — pays in ATP. Run out, and the cell goes bankrupt."',
+    },
+  ];
+
+  return (
+    <section className="py-24 px-6 border-t border-molted-border">
+      <div className="max-w-6xl mx-auto">
+        <RevealBlock className="text-center mb-16">
+          <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">Explain 3 ways</p>
+          <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight">
+            One concept.<br />
+            <span className="text-molted-violet">Three doorways in.</span>
+          </h2>
+          <p className="mt-6 text-molted-muted text-lg max-w-2xl mx-auto">
+            When a student is stuck, the answer isn't always more of the same explanation. Lumen tries again — in a completely different mode — until something clicks.
+          </p>
+        </RevealBlock>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {modes.map((m, i) => (
+            <RevealBlock key={i} delay={i * 120}>
+              <div
+                className="rounded-2xl border p-7 h-full flex flex-col hover:-translate-y-px transition-all"
+                style={{ borderColor: m.border, background: m.bg }}
+              >
+                <div className="flex items-center gap-3 mb-5">
+                  <div
+                    className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                    style={{ background: m.bg, border: `1px solid ${m.border}` }}
+                  >
+                    <m.icon size={18} style={{ color: m.color }} />
+                  </div>
+                  <span className="font-black text-lg" style={{ color: m.color }}>{m.label}</span>
+                </div>
+                <p className="text-molted-muted text-sm mb-4 leading-relaxed">{m.description}</p>
+                <div
+                  className="rounded-xl p-4 border text-xs text-molted-muted leading-relaxed italic flex-1 mt-auto"
+                  style={{ background: 'rgba(0,0,0,0.15)', borderColor: 'rgba(255,255,255,0.06)' }}
+                >
+                  {m.example}
+                </div>
+              </div>
+            </RevealBlock>
+          ))}
+        </div>
+
+        <RevealBlock delay={400} className="mt-8">
+          <div
+            className="rounded-2xl border p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4"
+            style={{ borderColor: VIOLET_BORDER, background: VIOLET_DIM }}
+          >
+            <div>
+              <p className="text-molted-white font-bold text-sm">Live in the Lumen demo</p>
+              <p className="text-molted-muted text-xs mt-1">
+                Type any concept from your curriculum and watch Lumen explain it three different ways — in real time.
+              </p>
+            </div>
+            <Link
+              to="/lumen/demo"
+              className="flex-shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold whitespace-nowrap transition-all hover:-translate-y-px"
+              style={{ background: VIOLET, color: '#0A0A0B' }}
+            >
+              Try it now →
+            </Link>
+          </div>
+        </RevealBlock>
+      </div>
+    </section>
+  );
+}
+
+/* ── Spaced Repetition ─────────────────────────────────────────────────── */
+function SpacedRepetition() {
+  const cards = [
+    { concept: 'Cardiac Output', course: 'NURS 220', daysAgo: 12, strength: 'Weak', color: '#EF4444', border: 'rgba(239,68,68,0.30)', bg: 'rgba(239,68,68,0.08)' },
+    { concept: 'Pharmacokinetics', course: 'PHARM 310', daysAgo: 8, strength: 'Fading', color: '#F59E0B', border: 'rgba(245,158,11,0.30)', bg: 'rgba(245,158,11,0.08)' },
+    { concept: 'Homeostasis', course: 'BIO 101', daysAgo: 21, strength: 'Strong', color: '#14B8A6', border: 'rgba(20,184,166,0.30)', bg: 'rgba(20,184,166,0.08)' },
+  ];
+
+  return (
+    <section className="py-24 px-6 border-t border-molted-border">
+      <div className="max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-16 items-start">
+          <RevealBlock>
+            <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">Spaced repetition</p>
+            <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight leading-tight mb-6">
+              Learning doesn't end<br />
+              <span className="text-molted-violet">when the chapter does.</span>
+            </h2>
+            <p className="text-molted-muted text-lg leading-relaxed mb-6">
+              Lumen tracks which concepts a student struggled with — and resurfaces them at exactly the right interval before they fade. Not at the end of the semester. Before the student needs them.
+            </p>
+            <div className="space-y-3">
+              {['Resurfaces weak concepts before exam season', 'Calculates optimal review timing per student', 'Weaves review into current reading — not a separate app', 'Flagged concepts feed back into PathwayAI for path adjustments'].map((item, i) => (
+                <div key={i} className="flex items-start gap-2.5 text-sm text-molted-muted">
+                  <Check size={14} className="text-molted-violet flex-shrink-0 mt-0.5" />
+                  {item}
+                </div>
+              ))}
+            </div>
+          </RevealBlock>
+
+          <RevealBlock delay={150}>
+            <div className="bg-molted-elevated border border-molted-border rounded-2xl p-6">
+              <div className="flex items-center justify-between mb-5">
+                <p className="text-molted-white font-bold text-sm">Jordan M. — Review Queue</p>
+                <div className="flex items-center gap-2 px-3 py-1 rounded-full border border-molted-violet/30 bg-molted-violet/10">
+                  <RefreshCw size={11} className="text-molted-violet" />
+                  <span className="text-xs font-semibold text-molted-violet">3 concepts due</span>
+                </div>
+              </div>
+              <div className="space-y-3">
+                {cards.map((card, i) => (
+                  <div key={i} className="rounded-xl border p-4" style={{ borderColor: card.border, background: card.bg }}>
+                    <div className="flex items-center justify-between mb-2">
+                      <p className="font-bold text-sm text-molted-white">{card.concept}</p>
+                      <span className="text-xs font-semibold px-2 py-0.5 rounded-full" style={{ color: card.color, background: `${card.color}15` }}>{card.strength}</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <p className="text-xs text-molted-muted">{card.course} · {card.daysAgo} days ago</p>
+                      <button
+                        className="text-xs font-semibold px-3 py-1 rounded-lg transition-all hover:-translate-y-px"
+                        style={{ color: card.color, background: `${card.color}15`, border: `1px solid ${card.border}` }}
+                      >
+                        Review now →
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div
+                className="mt-4 rounded-xl border p-4"
+                style={{ borderColor: VIOLET_BORDER, background: VIOLET_DIM }}
+              >
+                <p className="text-xs text-molted-muted leading-relaxed">
+                  <span className="font-semibold text-molted-violet">Lumen insight:</span> Cardiac Output shows up in your current NURS 340 reading. Reviewing it now will compound your understanding — want to do a quick re-visit before continuing?
+                </p>
+              </div>
+            </div>
+          </RevealBlock>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ── Cross-Course ──────────────────────────────────────────────────────── */
+function CrossCourse() {
+  const connections = [
+    {
+      currentCourse: 'NURS 340',
+      currentConcept: 'Fluid-Electrolyte Balance',
+      priorCourse: 'BIO 101',
+      priorConcept: 'Osmosis & Diffusion',
+      insight: 'The osmotic pressure driving fluid shifts in NURS 340 is the same mechanism you studied in BIO 101 Week 3. Your notes on semipermeable membranes apply directly here.',
+    },
+    {
+      currentCourse: 'PHARM 310',
+      currentConcept: 'Drug Metabolism',
+      priorCourse: 'BIO 202',
+      priorConcept: 'Liver Function & Enzymes',
+      insight: "The CYP450 enzyme system in PHARM 310 is the same enzyme family you explored in BIO 202. Understanding that context makes first-pass metabolism significantly easier.",
+    },
+    {
+      currentCourse: 'NURS 420',
+      currentConcept: 'Sepsis Management',
+      priorCourse: 'NURS 220',
+      priorConcept: 'Cardiac Output',
+      insight: "Septic shock's hemodynamic instability is a direct extension of the cardiac output principles from NURS 220. You already understand the mechanism — now you're applying it under crisis.",
+    },
+  ];
+
+  return (
+    <section className="py-24 px-6 border-t border-molted-border">
+      <div className="max-w-6xl mx-auto">
+        <RevealBlock className="text-center mb-16">
+          <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">Cross-course intelligence</p>
+          <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight leading-tight">
+            "You learned this in BIO 101.<br />
+            <span className="text-molted-violet">Here it is in NURS 340."</span>
+          </h2>
+          <p className="mt-6 text-molted-muted text-lg max-w-2xl mx-auto">
+            Every course a student has taken is context for every course they're taking now. Lumen makes those connections visible — exactly when the student needs them.
+          </p>
+        </RevealBlock>
+
+        <div className="space-y-4">
+          {connections.map((conn, i) => (
+            <RevealBlock key={i} delay={i * 120}>
+              <div className="bg-molted-elevated border border-molted-border rounded-2xl p-6 hover:border-molted-violet/30 transition-all">
+                <div className="flex flex-col md:flex-row md:items-center gap-4 mb-4">
+                  {/* Prior course */}
+                  <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-molted-border/20 border border-molted-border">
+                    <p className="text-xs font-semibold text-molted-muted">{conn.priorCourse}</p>
+                    <span className="text-molted-subtle">·</span>
+                    <p className="text-xs text-molted-white font-medium">{conn.priorConcept}</p>
+                  </div>
+                  <ArrowRight size={14} className="text-molted-violet flex-shrink-0 hidden md:block" />
+                  {/* Current course */}
+                  <div
+                    className="flex items-center gap-2 px-3 py-2 rounded-lg border"
+                    style={{ borderColor: VIOLET_BORDER, background: VIOLET_DIM }}
+                  >
+                    <p className="text-xs font-semibold" style={{ color: VIOLET }}>{conn.currentCourse}</p>
+                    <span className="text-molted-subtle">·</span>
+                    <p className="text-xs font-medium text-molted-white">{conn.currentConcept}</p>
+                  </div>
+                </div>
+                <p className="text-sm text-molted-muted leading-relaxed border-l-2 pl-4" style={{ borderColor: VIOLET_BORDER }}>
+                  <span className="font-semibold text-molted-violet">Lumen: </span>{conn.insight}
+                </p>
+              </div>
+            </RevealBlock>
+          ))}
+        </div>
+
+        <RevealBlock delay={400} className="mt-8">
+          <div
+            className="rounded-2xl border p-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4"
+            style={{ borderColor: VIOLET_BORDER, background: VIOLET_DIM }}
+          >
+            <div>
+              <p className="text-molted-white font-bold text-sm">See it live in the Lumen demo</p>
+              <p className="text-molted-muted text-xs mt-1">Paste any reading and watch Lumen surface cross-course connections in real time.</p>
+            </div>
+            <Link
+              to="/lumen/demo"
+              className="flex-shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold whitespace-nowrap transition-all hover:-translate-y-px"
+              style={{ background: VIOLET, color: '#0A0A0B' }}
+            >
+              Try the demo →
+            </Link>
+          </div>
+        </RevealBlock>
+      </div>
+    </section>
+  );
+}
+
 /* ── CTA ───────────────────────────────────────────────────────────────── */
 function CTA() {
   return (
@@ -476,6 +828,10 @@ export default function MoltedLumen() {
       <HowItWorks />
       <HowLumenWorks />
       <LumenLiveFeed />
+      <MultiModal />
+      <ExplainThreeWays />
+      <SpacedRepetition />
+      <CrossCourse />
       <Features />
       <Audiences />
       <CTA />

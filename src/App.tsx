@@ -34,6 +34,8 @@ import MoltedOutcomesAi from './pages/molted/MoltedOutcomesAi';
 import MoltedCampusOS from './pages/molted/MoltedCampusOS';
 import MoltedImagoOS from './pages/molted/MoltedImagoOS';
 import MoltedMasteryAi from './pages/molted/MoltedMasteryAi';
+import PathwayDemo from './pages/molted/PathwayDemo';
+import LumenDemo from './pages/molted/LumenDemo';
 import MoltedAbout from './pages/molted/MoltedAbout';
 import MoltedFoundingPartners from './pages/molted/MoltedFoundingPartners';
 import LiveAgentDemo from './pages/molted/LiveAgentDemo';
@@ -103,9 +105,11 @@ export default function App() {
             {/* Molt — main public website */}
             <Route path="/" element={<MoltedHome />} />
             <Route path="/lumen" element={<MoltedLumen />} />
+            <Route path="/lumen/demo" element={<LumenDemo />} />
             <Route path="/beacon" element={<MoltedBeaconAi />} />
             <Route path="/forge" element={<MoltedForge />} />
             <Route path="/pathway-ai" element={<MoltedPathwayAi />} />
+            <Route path="/pathway-ai/demo" element={<PathwayDemo />} />
             <Route path="/proof-ai" element={<MoltedProofAi />} />
             <Route path="/retain-ai" element={<MoltedRetainAi />} />
             <Route path="/outcomes-ai" element={<MoltedOutcomesAi />} />
