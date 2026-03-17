@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ChevronLeft, Loader2, Brain, GitBranch, AlertTriangle, Check,
@@ -85,11 +85,11 @@ const SIGNAL_PRESETS = [
 
 /* ── Status styles ─────────────────────────────────────────────────────── */
 const STATUS_STYLE: Record<ConceptStatus, { color: string; border: string; bg: string; label: string }> = {
-  mastered:    { color: VIOLET,      border: VIOLET_BORDER,              bg: VIOLET_DIM,              label: 'Mastered' },
-  solid:       { color: '#14B8A6',   border: 'rgba(20,184,166,0.35)',    bg: 'rgba(20,184,166,0.08)', label: 'Solid' },
+  mastered:    { color: '#14B8A6',   border: 'rgba(20,184,166,0.35)',    bg: 'rgba(20,184,166,0.10)', label: 'Mastered' },
+  solid:       { color: '#3B82F6',   border: 'rgba(59,130,246,0.35)',    bg: 'rgba(59,130,246,0.10)', label: 'Solid' },
   shaky:       { color: '#F59E0B',   border: 'rgba(245,158,11,0.35)',    bg: 'rgba(245,158,11,0.08)', label: 'Shaky' },
   struggling:  { color: '#EF4444',   border: 'rgba(239,68,68,0.35)',     bg: 'rgba(239,68,68,0.08)',  label: 'Struggling' },
-  gap:         { color: '#F97316',   border: 'rgba(249,115,22,0.35)',    bg: 'rgba(249,115,22,0.08)', label: 'Gap detected' },
+  gap:         { color: '#EF4444',   border: 'rgba(239,68,68,0.60)',     bg: 'transparent',           label: 'Gap detected' },
   not_started: { color: '#64748B',   border: 'rgba(100,116,139,0.25)',   bg: 'rgba(100,116,139,0.06)',label: 'Not started' },
 };
 
@@ -108,7 +108,7 @@ const ACTION_STYLE: Record<string, { color: string; label: string }> = {
   stay_course:  { color: '#64748B',  label: 'Stay course' },
 };
 
-/* ── Knowledge Graph ───────────────────────────────────────────────────── */
+/* ── Knowledge Graph (grid) ────────────────────────────────────────────── */
 function KnowledgeGraph({ concepts }: { concepts: Concept[] }) {
   return (
     <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
@@ -135,10 +135,505 @@ function KnowledgeGraph({ concepts }: { concepts: Concept[] }) {
   );
 }
 
+/* ── SVG Path Visualization ────────────────────────────────────────────── */
+const NODE_W = 108;
+const NODE_H = 52;
+const NODE_RX = 10;
+const H_GAP = 28;   // horizontal gap between nodes
+const V_GAP = 44;   // vertical gap between rows
+const ROW_MAX = 4;  // nodes per row
+const SVG_PAD = 20;
+
+type GraphNode = {
+  id: string;
+  label: string;
+  status: ConceptStatus | 'inserted' | 'skipped';
+  col: number;
+  row: number;
+  x: number;
+  y: number;
+};
+
+type GraphEdge = {
+  fromId: string;
+  toId: string;
+};
+
+function buildGraph(
+  concepts: Concept[],
+  insertConcepts: string[],
+  skipConcepts: string[],
+): { nodes: GraphNode[]; edges: GraphEdge[]; svgW: number; svgH: number } {
+  // Build ordered list: interleave inserted concepts before the first "not_started" concept
+  const baseNames = concepts.map(c => c.concept);
+  const insertSet = new Set(insertConcepts.map(s => s.toLowerCase()));
+  const skipSet = new Set(skipConcepts.map(s => s.toLowerCase()));
+
+  // Build merged sequence
+  const sequence: Array<{ label: string; status: ConceptStatus | 'inserted' | 'skipped' }> = [];
+
+  for (const c of concepts) {
+    const isSkipped = skipSet.has(c.concept.toLowerCase());
+    sequence.push({
+      label: c.concept,
+      status: isSkipped ? 'skipped' : c.status,
+    });
+  }
+
+  // Insert remediation nodes after the last "struggling" / "gap" node
+  let insertAfterIdx = -1;
+  for (let i = sequence.length - 1; i >= 0; i--) {
+    const st = sequence[i].status;
+    if (st === 'struggling' || st === 'gap' || st === 'shaky') {
+      insertAfterIdx = i;
+      break;
+    }
+  }
+  if (insertAfterIdx < 0) insertAfterIdx = sequence.length - 1;
+
+  const insertItems = insertConcepts
+    .filter(ic => !baseNames.some(b => b.toLowerCase() === ic.toLowerCase()))
+    .map(ic => ({ label: ic, status: 'inserted' as const }));
+
+  // Splice inserted items in
+  sequence.splice(insertAfterIdx + 1, 0, ...insertItems);
+
+  // Assign grid positions
+  const nodes: GraphNode[] = sequence.map((item, i) => {
+    const col = i % ROW_MAX;
+    const row = Math.floor(i / ROW_MAX);
+    return {
+      id: `node-${i}`,
+      label: item.label,
+      status: item.status,
+      col,
+      row,
+      x: SVG_PAD + col * (NODE_W + H_GAP),
+      y: SVG_PAD + row * (NODE_H + V_GAP),
+    };
+  });
+
+  // Edges: sequential chain
+  const edges: GraphEdge[] = [];
+  for (let i = 0; i < nodes.length - 1; i++) {
+    edges.push({ fromId: nodes[i].id, toId: nodes[i + 1].id });
+  }
+
+  const cols = Math.min(sequence.length, ROW_MAX);
+  const rows = Math.ceil(sequence.length / ROW_MAX);
+  const svgW = SVG_PAD * 2 + cols * NODE_W + (cols - 1) * H_GAP;
+  const svgH = SVG_PAD * 2 + rows * NODE_H + (rows - 1) * V_GAP;
+
+  return { nodes, edges, svgW, svgH };
+}
+
+function nodeColor(status: ConceptStatus | 'inserted' | 'skipped'): { fill: string; stroke: string; text: string } {
+  if (status === 'inserted')  return { fill: 'rgba(139,92,246,0.18)', stroke: '#8B5CF6', text: '#C4B5FD' };
+  if (status === 'skipped')   return { fill: 'rgba(100,116,139,0.08)', stroke: 'rgba(100,116,139,0.30)', text: '#475569' };
+  const s = STATUS_STYLE[status as ConceptStatus] ?? STATUS_STYLE.not_started;
+  return { fill: s.bg, stroke: s.border, text: s.color };
+}
+
+function ArrowMarker({ id, color }: { id: string; color: string }) {
+  return (
+    <marker id={id} markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill={color} />
+    </marker>
+  );
+}
+
+function PathVisualization({
+  concepts,
+  insertConcepts,
+  skipConcepts,
+  animate,
+}: {
+  concepts: Concept[];
+  insertConcepts: string[];
+  skipConcepts: string[];
+  animate: boolean;
+}) {
+  const [phase, setPhase] = useState<'before' | 'after'>('before');
+
+  useEffect(() => {
+    if (animate) {
+      setPhase('before');
+      const t = setTimeout(() => setPhase('after'), 1200);
+      return () => clearTimeout(t);
+    } else {
+      setPhase('after');
+    }
+  }, [animate]);
+
+  // BEFORE: just original concepts, no inserted/skipped transforms
+  const beforeGraph = buildGraph(concepts, [], []);
+  // AFTER: with inserted + skipped
+  const afterGraph = buildGraph(concepts, insertConcepts, skipConcepts);
+
+  const { nodes, edges, svgW, svgH } = phase === 'before' ? beforeGraph : afterGraph;
+
+  return (
+    <div>
+      <div className="flex items-center gap-3 mb-4 flex-wrap">
+        <p className="text-xs font-semibold uppercase tracking-wider" style={{ color: VIOLET }}>
+          {phase === 'before' ? 'Original path' : 'Adapted path'}
+        </p>
+        {animate && phase === 'before' && (
+          <span className="text-xs text-molted-muted animate-pulse">Pathway is adapting…</span>
+        )}
+        {phase === 'after' && (
+          <span className="text-xs font-semibold px-2 py-0.5 rounded-full" style={{ color: VIOLET, background: VIOLET_DIM, border: `1px solid ${VIOLET_BORDER}` }}>
+            AI adapted
+          </span>
+        )}
+
+        {/* Legend */}
+        <div className="ml-auto flex items-center gap-3 flex-wrap">
+          {[
+            { label: 'Mastered', color: '#14B8A6' },
+            { label: 'Solid', color: '#3B82F6' },
+            { label: 'Shaky', color: '#F59E0B' },
+            { label: 'Gap / Struggling', color: '#EF4444' },
+            { label: 'Remediation', color: '#8B5CF6' },
+            { label: 'Skipped', color: '#64748B' },
+          ].map(l => (
+            <span key={l.label} className="flex items-center gap-1 text-[10px] text-molted-muted">
+              <span className="w-2.5 h-2.5 rounded-sm inline-block flex-shrink-0" style={{ background: `${l.color}30`, border: `1.5px solid ${l.color}80` }} />
+              {l.label}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div className="overflow-x-auto rounded-xl border border-molted-border bg-molted-surface/40 p-3">
+        <svg
+          width={svgW}
+          height={svgH}
+          viewBox={`0 0 ${svgW} ${svgH}`}
+          style={{ minWidth: svgW, display: 'block' }}
+        >
+          <defs>
+            <ArrowMarker id="arrow-default" color="rgba(100,116,139,0.60)" />
+            <ArrowMarker id="arrow-inserted" color="#8B5CF6" />
+          </defs>
+
+          {/* Edges */}
+          {edges.map((edge, i) => {
+            const fromNode = nodes.find(n => n.id === edge.fromId)!;
+            const toNode = nodes.find(n => n.id === edge.toId)!;
+            if (!fromNode || !toNode) return null;
+
+            const isInsertedEdge =
+              fromNode.status === 'inserted' || toNode.status === 'inserted';
+
+            // Same row: horizontal arrow
+            if (fromNode.row === toNode.row) {
+              const x1 = fromNode.x + NODE_W;
+              const y1 = fromNode.y + NODE_H / 2;
+              const x2 = toNode.x - 2;
+              const y2 = toNode.y + NODE_H / 2;
+              return (
+                <line
+                  key={i}
+                  x1={x1} y1={y1} x2={x2} y2={y2}
+                  stroke={isInsertedEdge ? '#8B5CF6' : 'rgba(100,116,139,0.45)'}
+                  strokeWidth={isInsertedEdge ? 2 : 1.5}
+                  strokeDasharray={isInsertedEdge ? '4 3' : undefined}
+                  markerEnd={isInsertedEdge ? 'url(#arrow-inserted)' : 'url(#arrow-default)'}
+                />
+              );
+            }
+
+            // Row wrap: elbow down-then-across
+            const x1 = fromNode.x + NODE_W / 2;
+            const y1 = fromNode.y + NODE_H;
+            const mid_y = fromNode.y + NODE_H + V_GAP / 2;
+            const x2 = toNode.x + NODE_W / 2;
+            const y2 = toNode.y - 2;
+            const pathD = `M ${x1} ${y1} L ${x1} ${mid_y} L ${x2} ${mid_y} L ${x2} ${y2}`;
+            return (
+              <path
+                key={i}
+                d={pathD}
+                fill="none"
+                stroke={isInsertedEdge ? '#8B5CF6' : 'rgba(100,116,139,0.45)'}
+                strokeWidth={isInsertedEdge ? 2 : 1.5}
+                strokeDasharray={isInsertedEdge ? '4 3' : undefined}
+                markerEnd={isInsertedEdge ? 'url(#arrow-inserted)' : 'url(#arrow-default)'}
+              />
+            );
+          })}
+
+          {/* Nodes */}
+          {nodes.map(node => {
+            const colors = nodeColor(node.status);
+            const isInserted = node.status === 'inserted';
+            const isSkipped = node.status === 'skipped';
+            const isAnimatingIn = animate && phase === 'after' && isInserted;
+
+            return (
+              <g
+                key={node.id}
+                style={{
+                  opacity: isAnimatingIn ? undefined : 1,
+                  animation: isAnimatingIn ? 'fadeSlideIn 0.45s ease forwards' : undefined,
+                }}
+              >
+                <rect
+                  x={node.x}
+                  y={node.y}
+                  width={NODE_W}
+                  height={NODE_H}
+                  rx={NODE_RX}
+                  ry={NODE_RX}
+                  fill={colors.fill}
+                  stroke={colors.stroke}
+                  strokeWidth={isInserted ? 2 : 1.5}
+                  strokeDasharray={isSkipped ? '4 3' : undefined}
+                />
+
+                {/* "New →" badge for inserted nodes */}
+                {isInserted && (
+                  <g>
+                    <rect
+                      x={node.x + NODE_W - 34}
+                      y={node.y - 9}
+                      width={34}
+                      height={14}
+                      rx={5}
+                      fill="#8B5CF6"
+                    />
+                    <text
+                      x={node.x + NODE_W - 17}
+                      y={node.y - 1}
+                      textAnchor="middle"
+                      fontSize={8}
+                      fontWeight="bold"
+                      fill="white"
+                    >
+                      New →
+                    </text>
+                  </g>
+                )}
+
+                {/* Label text (two lines if long) */}
+                {(() => {
+                  const words = node.label.split(' ');
+                  const mid = Math.ceil(words.length / 2);
+                  const line1 = words.slice(0, mid).join(' ');
+                  const line2 = words.slice(mid).join(' ');
+                  const hasTwo = words.length > 2 && line2;
+                  return hasTwo ? (
+                    <>
+                      <text
+                        x={node.x + NODE_W / 2}
+                        y={node.y + NODE_H / 2 - 6}
+                        textAnchor="middle"
+                        fontSize={10}
+                        fontWeight="600"
+                        fill={colors.text}
+                        style={{ textDecoration: isSkipped ? 'line-through' : 'none' }}
+                      >
+                        {line1}
+                      </text>
+                      <text
+                        x={node.x + NODE_W / 2}
+                        y={node.y + NODE_H / 2 + 8}
+                        textAnchor="middle"
+                        fontSize={10}
+                        fontWeight="600"
+                        fill={colors.text}
+                        style={{ textDecoration: isSkipped ? 'line-through' : 'none' }}
+                      >
+                        {line2}
+                      </text>
+                    </>
+                  ) : (
+                    <text
+                      x={node.x + NODE_W / 2}
+                      y={node.y + NODE_H / 2 + 4}
+                      textAnchor="middle"
+                      fontSize={10}
+                      fontWeight="600"
+                      fill={colors.text}
+                      style={{ textDecoration: isSkipped ? 'line-through' : 'none' }}
+                    >
+                      {node.label}
+                    </text>
+                  );
+                })()}
+              </g>
+            );
+          })}
+        </svg>
+      </div>
+
+      {/* CSS animation for nodes sliding in */}
+      <style>{`
+        @keyframes fadeSlideIn {
+          from { opacity: 0; transform: translateY(-8px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
+    </div>
+  );
+}
+
+/* ── Before / After Comparison ─────────────────────────────────────────── */
+function BeforeAfterComparison({
+  originalConcepts,
+  result,
+}: {
+  originalConcepts: Concept[];
+  result: PathwayResult;
+}) {
+  const insertSet = new Set(result.pathAdjustment.insertConcepts.map(s => s.toLowerCase()));
+  const skipSet = new Set(result.pathAdjustment.skipConcepts.map(s => s.toLowerCase()));
+  const updatedMap = new Map(result.updatedConcepts.map(c => [c.concept.toLowerCase(), c]));
+
+  // After list: insert remediation concepts before the next scheduled concept
+  const nextIdx = originalConcepts.findIndex(
+    c => c.concept.toLowerCase() === result.pathAdjustment.nextConcept?.toLowerCase()
+  );
+  const insertBeforeIdx = nextIdx >= 0 ? nextIdx : originalConcepts.length;
+
+  const afterList: Array<{ label: string; tag: 'inserted' | 'skipped' | 'changed' | 'normal' }> = [];
+  for (let i = 0; i < originalConcepts.length; i++) {
+    if (i === insertBeforeIdx) {
+      for (const ic of result.pathAdjustment.insertConcepts) {
+        afterList.push({ label: ic, tag: 'inserted' });
+      }
+    }
+    const c = originalConcepts[i];
+    const isSkipped = skipSet.has(c.concept.toLowerCase());
+    const updated = updatedMap.get(c.concept.toLowerCase());
+    const hasChanged = updated && updated.status !== c.status;
+    afterList.push({
+      label: c.concept,
+      tag: isSkipped ? 'skipped' : hasChanged ? 'changed' : 'normal',
+    });
+  }
+  if (insertBeforeIdx >= originalConcepts.length) {
+    for (const ic of result.pathAdjustment.insertConcepts) {
+      if (!afterList.find(a => a.label.toLowerCase() === ic.toLowerCase())) {
+        afterList.push({ label: ic, tag: 'inserted' });
+      }
+    }
+  }
+
+  const tagStyle = {
+    inserted: { color: '#A78BFA', bg: 'rgba(139,92,246,0.15)', border: 'rgba(139,92,246,0.35)', strikethrough: false },
+    skipped:  { color: '#64748B', bg: 'rgba(100,116,139,0.08)', border: 'rgba(100,116,139,0.20)', strikethrough: true },
+    changed:  { color: '#F59E0B', bg: 'rgba(245,158,11,0.10)', border: 'rgba(245,158,11,0.30)', strikethrough: false },
+    normal:   { color: '#94A3B8', bg: 'transparent', border: 'rgba(100,116,139,0.15)', strikethrough: false },
+  };
+
+  return (
+    <div className="rounded-2xl border border-molted-border bg-molted-elevated p-6">
+      <div className="flex items-center gap-2 mb-5">
+        <GitBranch size={14} style={{ color: VIOLET }} />
+        <p className="text-xs font-semibold uppercase tracking-wider" style={{ color: VIOLET }}>Before / After Comparison</p>
+      </div>
+
+      <div className="grid sm:grid-cols-[1fr_auto_1fr] gap-4 items-start">
+        {/* Before */}
+        <div>
+          <p className="text-xs font-semibold text-molted-muted uppercase tracking-wide mb-3">Original path</p>
+          <div className="space-y-1.5">
+            {originalConcepts.map((c, i) => {
+              const s = STATUS_STYLE[c.status] ?? STATUS_STYLE.not_started;
+              return (
+                <div
+                  key={i}
+                  className="flex items-center gap-2 px-3 py-2 rounded-lg border text-xs transition-all"
+                  style={{ borderColor: s.border, background: s.bg, color: s.color }}
+                >
+                  <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: s.color }} />
+                  <span className="font-medium">{c.concept}</span>
+                  <span className="ml-auto text-[10px] opacity-70">{s.label}</span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Arrow connector */}
+        <div className="flex flex-col items-center justify-center gap-2 py-8 hidden sm:flex">
+          <div className="w-px flex-1 bg-molted-border" />
+          <div className="rounded-full px-3 py-2 text-center text-[10px] font-bold whitespace-nowrap" style={{ background: VIOLET_DIM, border: `1px solid ${VIOLET_BORDER}`, color: VIOLET }}>
+            Pathway AI<br />adapted
+          </div>
+          <ArrowRight size={16} style={{ color: VIOLET }} />
+          <div className="w-px flex-1 bg-molted-border" />
+        </div>
+
+        {/* After */}
+        <div>
+          <p className="text-xs font-semibold text-molted-muted uppercase tracking-wide mb-3">Adapted path</p>
+          <div className="space-y-1.5">
+            {afterList.map((item, i) => {
+              const ts = tagStyle[item.tag];
+              return (
+                <div
+                  key={i}
+                  className="flex items-center gap-2 px-3 py-2 rounded-lg border text-xs transition-all"
+                  style={{ borderColor: ts.border, background: ts.bg, color: ts.color }}
+                >
+                  {item.tag === 'inserted' && (
+                    <span className="text-[9px] font-bold px-1 rounded" style={{ background: '#8B5CF6', color: 'white' }}>New</span>
+                  )}
+                  {item.tag !== 'inserted' && (
+                    <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: ts.color }} />
+                  )}
+                  <span
+                    className="font-medium"
+                    style={{ textDecoration: ts.strikethrough ? 'line-through' : 'none' }}
+                  >
+                    {item.label}
+                  </span>
+                  {item.tag === 'inserted' && (
+                    <span className="ml-auto text-[10px] opacity-80">Remediation</span>
+                  )}
+                  {item.tag === 'skipped' && (
+                    <span className="ml-auto text-[10px] opacity-70">Skipped</span>
+                  )}
+                  {item.tag === 'changed' && (
+                    <span className="ml-auto text-[10px] opacity-70">Updated</span>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile arrow */}
+      <div className="flex sm:hidden items-center justify-center gap-2 mt-3 mb-1">
+        <div className="flex-1 h-px bg-molted-border" />
+        <span className="text-[10px] font-bold px-2" style={{ color: VIOLET }}>Pathway AI adapted ↓</span>
+        <div className="flex-1 h-px bg-molted-border" />
+      </div>
+    </div>
+  );
+}
+
 /* ── Result Panel ──────────────────────────────────────────────────────── */
-function ResultPanel({ result }: { result: PathwayResult }) {
+function ResultPanel({
+  result,
+  originalConcepts,
+}: {
+  result: PathwayResult;
+  originalConcepts: Concept[];
+}) {
   const riskStyle = RISK_STYLE[result.retainAI.riskLevel] ?? RISK_STYLE.none;
   const actionStyle = ACTION_STYLE[result.pathAdjustment.action] ?? ACTION_STYLE.stay_course;
+  const [graphVisible, setGraphVisible] = useState(false);
+
+  // Trigger animation after mount
+  useEffect(() => {
+    const t = setTimeout(() => setGraphVisible(true), 100);
+    return () => clearTimeout(t);
+  }, []);
 
   return (
     <div className="space-y-5">
@@ -262,6 +757,29 @@ function ResultPanel({ result }: { result: PathwayResult }) {
           </p>
         </div>
       </div>
+
+      {/* ── Path Visualization section ── */}
+      <div className="rounded-2xl border border-molted-border bg-molted-elevated p-6">
+        <div className="flex items-center gap-2 mb-1">
+          <GitBranch size={14} style={{ color: VIOLET }} />
+          <p className="text-molted-white font-bold text-sm">Path Visualization</p>
+        </div>
+        <p className="text-xs text-molted-muted mb-5">
+          Visual representation of the learning path. Purple nodes with "New →" badge are remediation concepts inserted by PathwayAI. Strikethrough nodes were skipped.
+        </p>
+        <PathVisualization
+          concepts={result.updatedConcepts}
+          insertConcepts={result.pathAdjustment.insertConcepts}
+          skipConcepts={result.pathAdjustment.skipConcepts}
+          animate={graphVisible}
+        />
+      </div>
+
+      {/* ── Before / After Comparison ── */}
+      <BeforeAfterComparison
+        originalConcepts={originalConcepts}
+        result={result}
+      />
     </div>
   );
 }
@@ -269,6 +787,7 @@ function ResultPanel({ result }: { result: PathwayResult }) {
 /* ── Main demo ─────────────────────────────────────────────────────────── */
 export default function PathwayDemo() {
   const [concepts, setConcepts] = useState<Concept[]>(DEFAULT_CONCEPTS);
+  const [originalConcepts, setOriginalConcepts] = useState<Concept[]>(DEFAULT_CONCEPTS);
   const [course, setCourse] = useState(COURSES[0]);
   const [studentName] = useState('Jordan M.');
   const [signal, setSignal] = useState('');
@@ -288,6 +807,9 @@ export default function PathwayDemo() {
     setError('');
     setResult(null);
 
+    // Snapshot the concepts before the API call for Before/After
+    const snapshotConcepts = [...concepts];
+
     try {
       const res = await fetch('/api/pathway-adapt', {
         method: 'POST',
@@ -297,6 +819,7 @@ export default function PathwayDemo() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Request failed');
       setResult(data);
+      setOriginalConcepts(snapshotConcepts);
       if (data.updatedConcepts?.length > 0) setConcepts(data.updatedConcepts);
     } catch (err: any) {
       setError(err.message ?? 'Something went wrong.');
@@ -351,7 +874,7 @@ export default function PathwayDemo() {
             <RefreshCw
               size={14}
               className="text-molted-muted cursor-pointer hover:text-molted-white transition-colors"
-              onClick={() => { setConcepts(DEFAULT_CONCEPTS); setResult(null); }}
+              onClick={() => { setConcepts(DEFAULT_CONCEPTS); setOriginalConcepts(DEFAULT_CONCEPTS); setResult(null); }}
             />
             <span className="text-xs text-molted-muted">Reset map</span>
           </div>
@@ -431,7 +954,7 @@ export default function PathwayDemo() {
         )}
 
         {/* Result */}
-        {result && <ResultPanel result={result} />}
+        {result && <ResultPanel result={result} originalConcepts={originalConcepts} />}
 
         {/* Footer nav */}
         <div className="pt-4 border-t border-molted-border flex items-center justify-between text-sm">
