@@ -79,10 +79,10 @@ export default function BeaconDemo() {
     if (!message.trim()) return;
     setLoading(true); setError(''); setResult(null);
     try {
-      const res = await fetch('/api/beacon', {
+      const res = await fetch('/api/demos', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ studentMessage: message, persona: selectedPersona.name, touchpoint: selectedTouchpoint }),
+        body: JSON.stringify({ type: 'beacon', studentMessage: message, persona: selectedPersona.name, touchpoint: selectedTouchpoint }),
       });
       if (!res.ok) throw new Error(await res.text());
       setResult(await res.json());

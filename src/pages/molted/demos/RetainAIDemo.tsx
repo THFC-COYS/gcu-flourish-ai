@@ -142,10 +142,10 @@ export default function RetainAIDemo() {
   async function handleAnalyze() {
     setLoading(true); setError(''); setResult(null); setEmailOpen(false);
     try {
-      const res = await fetch('/api/retain-ai', {
+      const res = await fetch('/api/demos', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ student: selectedStudent }),
+        body: JSON.stringify({ type: 'retain-ai', student: selectedStudent }),
       });
       if (!res.ok) throw new Error(await res.text());
       setResult(await res.json());

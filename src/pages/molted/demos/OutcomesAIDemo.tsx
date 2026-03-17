@@ -225,10 +225,10 @@ export default function OutcomesAIDemo() {
   async function handleGenerate() {
     setLoading(true); setError(''); setResult(null);
     try {
-      const res = await fetch('/api/outcomes-ai', {
+      const res = await fetch('/api/demos', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ reportType, institution: GCU_SAMPLE_DATA.institution, data: GCU_SAMPLE_DATA }),
+        body: JSON.stringify({ type: 'outcomes-ai', reportType, institution: GCU_SAMPLE_DATA.institution, data: GCU_SAMPLE_DATA }),
       });
       if (!res.ok) throw new Error(await res.text());
       setResult(await res.json());

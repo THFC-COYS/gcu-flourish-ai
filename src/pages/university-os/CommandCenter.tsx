@@ -138,10 +138,10 @@ function AskTheOS() {
     if (!query.trim()) return;
     setLoading(true); setError(''); setResult(null);
     try {
-      const res = await fetch('/api/command-center', {
+      const res = await fetch('/api/demos', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ query }),
+        body: JSON.stringify({ type: 'command-center', query }),
       });
       if (!res.ok) throw new Error(await res.text());
       setResult(await res.json());

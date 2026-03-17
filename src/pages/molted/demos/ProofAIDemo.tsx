@@ -114,10 +114,10 @@ export default function ProofAIDemo() {
     if (!submission.trim()) return;
     setLoading(true); setError(''); setResult(null);
     try {
-      const res = await fetch('/api/proof-ai', {
+      const res = await fetch('/api/demos', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
+        body: JSON.stringify({ type: 'proof-ai',
           studentName,
           program: selectedProgram.label,
           submission,
