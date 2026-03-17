@@ -680,7 +680,7 @@ export default function MondayStack() {
               {/* Time saved banner */}
               <div
                 className="rounded-3xl border px-8 py-7 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5"
-                style={{ background: GREEN_DIM, borderColor: GREEN_BORDER }}
+                style={{ background: 'rgba(15,23,42,0.92)', borderColor: GREEN_BORDER }}
               >
                 <div className="flex items-center gap-4">
                   <div
