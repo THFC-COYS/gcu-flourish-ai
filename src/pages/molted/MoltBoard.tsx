@@ -181,7 +181,7 @@ const INITIAL_COLUMNS: Column[] = [
       {
         id: 'c12',
         title: 'Lumen — AI reading companion',
-        description: 'Activates in-context as students read. Deployed at 170K students.',
+        description: 'Activates in-context as students read. Deployed at a major U.S. university.',
         labels: [LABEL_MAP.ai],
         assignee: 'Shipped',
         demo: {
@@ -280,7 +280,7 @@ const INITIAL_COLUMNS: Column[] = [
           accentColor: '#1D4ED8',
           icon: BarChart3,
           label: 'Beacon',
-          mockLines: ['Live dashboard: 170K students', 'Risk signals: 47 flagged today', 'Outcomes trending: +12% YoY'],
+          mockLines: ['Live institutional dashboard', 'Risk signals: 47 flagged today', 'Outcomes trending: +12% YoY'],
         },
       },
       {

@@ -650,19 +650,8 @@ function Traction() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 rounded-2xl border border-molted-border p-8 md:p-12"
             style={{ background: 'rgba(241,243,248,0.85)' }}>
             <div className="text-center md:text-left">
-              <p
-                className="text-7xl md:text-8xl font-black leading-none"
-                style={{
-                  background: 'linear-gradient(120deg, #2563EB, #1E3A8A)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                }}
-              >
-                170K+
-              </p>
-              <p className="text-molted-white font-semibold text-xl mt-2">students. One ALP.</p>
-              <p className="text-molted-muted text-base mt-1">Live today. Not a projection.</p>
+              <p className="text-molted-white font-semibold text-xl mt-2">One ALP. Every agent. Live.</p>
+              <p className="text-molted-muted text-base mt-1">Built for institutions ready to move now.</p>
             </div>
             <div className="flex flex-col gap-4 text-center md:text-right">
               {[
@@ -879,7 +868,7 @@ const DEMOS = [
     name: 'Beacon',
     segment: 'Institutions',
     tagline: 'Institutional analytics AI',
-    preview: ['Live: 170K students monitored', 'Risk signals: 47 flagged today', '→ Board report ready to export'],
+    preview: ['Live institutional dashboard', 'Risk signals: 47 flagged today', '→ Board report ready to export'],
   },
   {
     href: '/pathway-ai',
