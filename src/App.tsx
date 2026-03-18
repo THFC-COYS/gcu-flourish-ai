@@ -52,6 +52,9 @@ import BeaconDemo from './pages/molted/demos/BeaconDemo';
 import RetainAIDemo from './pages/molted/demos/RetainAIDemo';
 import OutcomesAIDemo from './pages/molted/demos/OutcomesAIDemo';
 import ProofAIDemo from './pages/molted/demos/ProofAIDemo';
+import SyllabusSyncDemo from './pages/molted/demos/SyllabusSyncDemo';
+import ClinicalAIDemo from './pages/molted/demos/ClinicalAIDemo';
+import AdaptiveExamDemo from './pages/molted/demos/AdaptiveExamDemo';
 import MondayStack from './pages/molted/MondayStack';
 import CrossProductLoop from './pages/molted/CrossProductLoop';
 import VoiceABDemo from './pages/molted/VoiceABDemo';
@@ -139,6 +142,9 @@ export default function App() {
             <Route path="/forge/voice-demo" element={<ForgeVoiceDemo />} />
             <Route path="/forge/monday-stack" element={<MondayStack />} />
             <Route path="/forge/voice-ab" element={<VoiceABDemo />} />
+            <Route path="/syllabussync/demo" element={<SyllabusSyncDemo />} />
+            <Route path="/clinical-ai/demo" element={<ClinicalAIDemo />} />
+            <Route path="/adaptive-exam/demo" element={<AdaptiveExamDemo />} />
             <Route path="/cross-product-loop" element={<CrossProductLoop />} />
             <Route path="/command-center" element={<CommandCenter />} />
             <Route path="/exec-tour" element={<MoltedExecTour />} />

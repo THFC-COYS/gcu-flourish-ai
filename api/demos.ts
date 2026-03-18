@@ -115,6 +115,126 @@ Return ONLY valid JSON:
   return callGrok(system, `Leadership query: ${query}`, { temp: 0.5, maxTokens: 900 });
 }
 
+async function handleSyllabusSync(body: any) {
+  const { syllabusText, courseType } = body;
+  const system = `You are SyllabusSync, an AI that reads a course syllabus and auto-builds a complete LMS course structure.
+
+Return ONLY valid JSON:
+{
+  "courseName": "Full course name",
+  "courseCode": "e.g. NUR-412",
+  "credits": 3,
+  "term": "e.g. 8 weeks",
+  "totalPoints": 1000,
+  "learningObjectives": ["objective 1", "objective 2", "objective 3", "objective 4"],
+  "modules": [
+    {
+      "week": 1,
+      "title": "Module title",
+      "topics": ["topic 1", "topic 2"],
+      "assignments": [
+        { "title": "Assignment title", "type": "discussion|paper|quiz|reflection|project", "points": 50, "due": "Wednesday|Sunday|Friday" }
+      ]
+    }
+  ],
+  "gradingBreakdown": [
+    { "category": "Discussions", "weight": 30, "points": 300 },
+    { "category": "Papers", "weight": 40, "points": 400 },
+    { "category": "Quizzes", "weight": 20, "points": 200 },
+    { "category": "Participation", "weight": 10, "points": 100 }
+  ],
+  "accreditationTags": ["HLC 4.A", "ACEN Standard 4"],
+  "syllabusGaps": ["Missing late work policy", "No accessibility statement"],
+  "autoCreated": {
+    "discussions": 4,
+    "rubrics": 3,
+    "assignments": 8,
+    "quizzes": 2,
+    "gradebook": true,
+    "calendarEvents": 12
+  },
+  "timeSavedHours": 9
+}
+
+Generate 4-6 weeks of modules with realistic assignments. Make it specific to the course type.`;
+  return callGrok(system, `Course type: ${courseType}\n\nSyllabus:\n${syllabusText}`, { temp: 0.4, maxTokens: 2000 });
+}
+
+async function handleClinicalAI(body: any) {
+  const { action, scenario, studentMessage, conversationHistory, conversation } = body;
+
+  if (action === 'respond') {
+    const system = `You are a standardized patient in a nursing clinical simulation. The patient is: ${scenario.patientName}, ${scenario.age} year old ${scenario.gender}. Chief complaint: ${scenario.chiefComplaint}. Underlying condition: ${scenario.condition}.
+
+Respond ONLY as the patient would — use realistic, natural language. Reveal information gradually as the student asks good questions. If asked about symptoms, describe them authentically. Update vitals slightly as conversation progresses.
+
+Return ONLY valid JSON:
+{
+  "patientResponse": "Natural patient dialogue — first person, realistic, may show pain/anxiety",
+  "vitals": { "bp": "120/80", "hr": 88, "rr": 16, "temp": 98.6, "o2sat": 97, "pain": 6 },
+  "newSymptomRevealed": "symptom revealed or empty string",
+  "escalating": false
+}`;
+    const history = (conversationHistory || []).map((m: any) => `${m.role}: ${m.content}`).join('\n');
+    return callGrok(system, `Conversation so far:\n${history}\n\nStudent nurse asks: ${studentMessage}`, { temp: 0.7, maxTokens: 600 });
+  }
+
+  if (action === 'assess') {
+    const system = `You are a clinical nursing education AI assessing a student's patient interview for QSEN competency verification.
+
+Return ONLY valid JSON:
+{
+  "overallScore": 82,
+  "grade": "B",
+  "clinicalReasoning": "2-3 sentence summary of the student's clinical thinking",
+  "priorityDiagnosis": "Most likely diagnosis the student should have identified",
+  "competencies": [
+    { "name": "History Taking", "score": 85, "feedback": "specific feedback", "level": "emerging|developing|proficient|mastered" },
+    { "name": "Physical Assessment", "score": 78, "feedback": "...", "level": "..." },
+    { "name": "Clinical Reasoning", "score": 80, "feedback": "...", "level": "..." },
+    { "name": "Safety Awareness", "score": 90, "feedback": "...", "level": "..." },
+    { "name": "Communication", "score": 88, "feedback": "...", "level": "..." }
+  ],
+  "findingsElicited": ["finding 1", "finding 2", "finding 3"],
+  "missedFindings": ["critical finding they missed 1", "finding 2"],
+  "strengthSummary": "What the student did well",
+  "improvementSummary": "Key areas to improve",
+  "nclex_readiness": "high|medium|low"
+}`;
+    const convoText = (conversation || []).map((m: any) => `${m.role}: ${m.content}`).join('\n');
+    return callGrok(system, `Patient: ${scenario.patientName} — ${scenario.chiefComplaint}\nCondition: ${scenario.condition}\n\nConversation:\n${convoText}`, { temp: 0.3, maxTokens: 1200 });
+  }
+
+  throw new Error('Invalid clinical-ai action');
+}
+
+async function handleAdaptiveExam(body: any) {
+  const { topic, questionCount } = body;
+  const system = `You are AdaptiveExam, an AI that generates unique, high-quality exam questions for higher education. Generate ${questionCount || 8} questions on the topic, spanning difficulty levels 1-5 (1=recall, 5=application/analysis). Mix across sub-topics. Make every question unique — these are AI-generated fresh each time, making sharing useless.
+
+Return ONLY valid JSON:
+{
+  "examTitle": "...",
+  "topic": "...",
+  "questions": [
+    {
+      "id": "q1",
+      "question": "Full question text",
+      "options": { "A": "...", "B": "...", "C": "...", "D": "..." },
+      "correct": "B",
+      "explanation": "Why B is correct and why others are wrong — 2-3 sentences",
+      "difficulty": 2,
+      "subtopic": "specific sub-topic",
+      "competency": "What skill/knowledge this tests",
+      "bloom": "remember|understand|apply|analyze|evaluate|create"
+    }
+  ]
+}
+
+Vary difficulty: 1-2 questions at level 1, 2 at level 2, 2 at level 3, 1-2 at level 4, 1 at level 5. Order them randomly (not by difficulty).`;
+  return callGrok(system, `Topic: ${topic}`, { temp: 0.8, maxTokens: 3000 });
+}
+
 // ── Router ────────────────────────────────────────────────────────────────
 
 export default async function handler(req: any, res: any) {
@@ -130,6 +250,9 @@ export default async function handler(req: any, res: any) {
       case 'outcomes-ai':     result = await handleOutcomesAI(body); break;
       case 'proof-ai':        result = await handleProofAI(body); break;
       case 'command-center':  result = await handleCommandCenter(body); break;
+      case 'syllabussync':    result = await handleSyllabusSync(body); break;
+      case 'clinical-ai':     result = await handleClinicalAI(body); break;
+      case 'adaptive-exam':   result = await handleAdaptiveExam(body); break;
       default: return res.status(400).json({ error: `Unknown demo type: ${type}` });
     }
     return res.status(200).json(result);
