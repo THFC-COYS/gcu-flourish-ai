@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { ThemeProvider } from './context/ThemeContext';
 import Layout from './components/layout/Layout';
@@ -57,6 +58,7 @@ import ClinicalAIDemo from './pages/molted/demos/ClinicalAIDemo';
 import AdaptiveExamDemo from './pages/molted/demos/AdaptiveExamDemo';
 import PathwayDemo from './pages/molted/PathwayDemo';
 import LumenDemo from './pages/molted/LumenDemo';
+import MondayStack from './pages/molted/MondayStack';
 
 function ProtectedRoutes() {
   const { user, isLoading } = useAuth();
@@ -139,6 +141,7 @@ export default function App() {
             <Route path="/adaptive-exam/demo" element={<AdaptiveExamDemo />} />
             <Route path="/pathway-ai/demo" element={<PathwayDemo />} />
             <Route path="/lumen/demo" element={<LumenDemo />} />
+            <Route path="/forge/monday-stack" element={<MondayStack />} />
             <Route path="/command-center" element={<CommandCenter />} />
             <Route path="/forge/auto-respond" element={<AutoRespond />} />
             <Route path="/forge/early-warning" element={<EarlyWarning />} />
@@ -154,6 +157,7 @@ export default function App() {
           </Routes>
         </BrowserRouter>
       </AuthProvider>
+      <Analytics />
     </ThemeProvider>
   );
 }
