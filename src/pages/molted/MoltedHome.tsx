@@ -38,11 +38,26 @@ function RevealBlock({ children, delay = 0, className = '' }: {
   );
 }
 
+const LMS_LABELS = ['The Static LMS', 'The Non-Agentic LMS', 'Your LMS', 'The Old LMS', 'The LMS'];
+
 /* ── Hero ──────────────────────────────────────────────────────────────── */
 function Hero() {
   const { login } = useAuth();
   const navigate = useNavigate();
   const [entering, setEntering] = useState(false);
+  const [labelIndex, setLabelIndex] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setVisible(false);
+      setTimeout(() => {
+        setLabelIndex(i => (i + 1) % LMS_LABELS.length);
+        setVisible(true);
+      }, 350);
+    }, 2200);
+    return () => clearInterval(id);
+  }, []);
 
   const enterDemo = async () => {
     setEntering(true);
@@ -82,9 +97,20 @@ function Hero() {
 
         {/* Headline */}
         <RevealBlock delay={60}>
-          <h1 className="font-black leading-[1.0] tracking-tight"
-            style={{ fontSize: 'clamp(3.5rem, 12vw, 9rem)' }}>
-            <span style={{ color: '#ffffff' }}>The LMS</span>
+          <h1 className="font-black leading-[1.05] tracking-tight"
+            style={{ fontSize: 'clamp(3rem, 10vw, 7.5rem)' }}>
+            <span
+              style={{
+                color: '#ffffff',
+                display: 'inline-block',
+                transition: 'opacity 0.35s ease, transform 0.35s ease',
+                opacity: visible ? 1 : 0,
+                transform: visible ? 'translateY(0)' : 'translateY(-10px)',
+                minWidth: '1ch',
+              }}
+            >
+              {LMS_LABELS[labelIndex]}
+            </span>
             <br />
             <span style={{ color: '#6366f1' }}>is dead.</span>
           </h1>
