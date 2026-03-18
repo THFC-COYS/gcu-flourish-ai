@@ -19,13 +19,13 @@ function ProductSwitcher() {
           PAIgeBreaker
         </div>
         {/* Molted tab */}
-        <Link
-          to="/"
+        <a
+          href="https://molted.ai"
           className="px-4 py-1.5 rounded-lg text-sm font-semibold transition-all hover:bg-white/10"
           style={{ color: 'rgba(245,245,247,0.50)' }}
         >
           Molted →
-        </Link>
+        </a>
       </div>
     </div>
   );

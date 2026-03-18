@@ -990,12 +990,12 @@ function CTA() {
             >
               ← Back to MoltED
             </Link>
-            <Link
-              to="/paigebreaker"
+            <a
+              href="https://paigebreaker.com"
               className="text-molted-muted hover:text-molted-white text-sm transition-colors"
             >
               Explore Lumen →
-            </Link>
+            </a>
           </div>
         </RevealBlock>
       </div>
