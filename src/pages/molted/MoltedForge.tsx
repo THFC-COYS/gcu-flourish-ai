@@ -2,12 +2,15 @@ import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight, MessageSquare, CheckSquare, Bell, FileText,
-  AlertTriangle, Cpu, Clock, ChevronRight, Mic,
+  AlertTriangle, Cpu, Clock, ChevronRight, Mic, Zap,
 } from 'lucide-react';
 import MoltedLayout, { OutpostBanner } from './MoltedLayout';
 import AgentFeed, { FeedEvent } from '../../components/AgentFeed';
 
-const TEAL = '#2563EB';
+const TEAL        = '#2563EB';
+const TEAL_DIM    = 'rgba(37,99,235,0.12)';
+const TEAL_BORDER = 'rgba(37,99,235,0.28)';
+const PURPLE      = '#7C3AED';
 
 const FORGE_EVENTS: FeedEvent[] = [
   { time: '8:12 AM',  event: 'Professor uploads syllabus for NURS 301', action: 'Course architect generates full semester infrastructure in 40 seconds', role: 'Faculty', href: '/forge/course-architect' },
@@ -40,9 +43,6 @@ function ForgeLiveFeed() {
     </section>
   );
 }
-const TEAL_DIM = 'rgba(37,99,235,0.10)';
-const TEAL_BORDER = 'rgba(37,99,235,0.22)';
-
 function useReveal() {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -396,6 +396,41 @@ function FeatureDemos() {
           <p className="mt-4 text-molted-muted text-lg max-w-xl mx-auto">
             Don't take our word for it. Run them yourself.
           </p>
+        </RevealBlock>
+
+        {/* Monday Stack — featured composite demo */}
+        <RevealBlock className="mb-6">
+          <Link
+            to="/forge/monday-stack"
+            className="group block rounded-2xl border overflow-hidden transition-all hover:-translate-y-px"
+            style={{ background: `linear-gradient(135deg, rgba(124,58,237,0.10) 0%, rgba(37,99,235,0.07) 100%)`, borderColor: 'rgba(124,58,237,0.30)' }}
+            onMouseEnter={e => (e.currentTarget.style.borderColor = PURPLE)}
+            onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(124,58,237,0.30)')}
+          >
+            <div className="px-8 py-7 flex flex-col md:flex-row md:items-center gap-6">
+              <div
+                className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0"
+                style={{ background: `linear-gradient(135deg, ${PURPLE}, #5B21B6)` }}
+              >
+                <Zap size={22} className="text-white" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-3 mb-1 flex-wrap">
+                  <p className="text-xs font-black uppercase tracking-widest" style={{ color: PURPLE }}>Composite Demo · Start Here</p>
+                  <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full" style={{ background: 'rgba(124,58,237,0.15)', color: PURPLE, border: '1px solid rgba(124,58,237,0.30)' }}>
+                    Featured
+                  </span>
+                </div>
+                <h3 className="text-molted-white font-black text-xl mb-1">The Monday Stack</h3>
+                <p className="text-molted-muted text-sm leading-relaxed max-w-2xl">
+                  It's 8 AM Monday. Dr. Chen faces 47 discussion posts, 18 ungraded assignments, 9 student emails, 2 at-risk alerts, and a course announcement to write — 4h 20min of work. Watch Forge handle all of it in minutes, then review and approve.
+                </p>
+              </div>
+              <div className="flex items-center gap-2 text-sm font-bold flex-shrink-0" style={{ color: PURPLE }}>
+                Run the demo <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </div>
+            </div>
+          </Link>
         </RevealBlock>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
