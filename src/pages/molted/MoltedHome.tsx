@@ -177,14 +177,6 @@ function Hero() {
 
         {/* CTA row */}
         <RevealBlock delay={480} className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a
-            href="mailto:greg.lucas@paigebreaker.com?subject=MoltALP Demo"
-            className="group inline-flex items-center gap-3 px-10 py-5 rounded-2xl font-bold text-base transition-all duration-200 hover:-translate-y-1 hover:shadow-molted-glow"
-            style={{ background: 'linear-gradient(120deg, #2563EB 0%, #64748B 50%, #1E3A8A 100%)', color: '#ffffff' }}
-          >
-            See the ALP Live
-            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-          </a>
           <Link
             to="/outpost"
             className="inline-flex items-center gap-2 px-8 py-5 rounded-2xl font-semibold text-sm transition-all duration-200 hover:-translate-y-1"
