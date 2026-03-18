@@ -1230,7 +1230,7 @@ export default function ExecutiveTour() {
 
   const goNext = useCallback(() => setSlide(s => Math.min(s + 1, TOTAL_SLIDES - 1)), []);
   const goPrev = useCallback(() => setSlide(s => Math.max(s - 1, 0)), []);
-  const enterPlatform = useCallback(() => navigate('/gcu/login'), [navigate]);
+  const enterPlatform = useCallback(() => navigate('/portal/login'), [navigate]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {

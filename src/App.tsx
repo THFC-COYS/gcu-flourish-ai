@@ -76,7 +76,7 @@ function ProtectedRoutes() {
     );
   }
 
-  if (!user) return <Navigate to="/gcu/login" replace />;
+  if (!user) return <Navigate to="/portal/login" replace />;
 
   return (
     <Routes>
@@ -101,7 +101,7 @@ function ProtectedRoutes() {
         <Route path="university-os/department/:deptId" element={<DepartmentConsole />} />
         <Route path="university-os/full-ecosystem" element={<FullEcosystem />} />
       </Route>
-      <Route path="*" element={<Navigate to="/gcu" replace />} />
+      <Route path="*" element={<Navigate to="/portal" replace />} />
     </Routes>
   );
 }
@@ -150,9 +150,9 @@ export default function App() {
             <Route path="/exec-tour" element={<MoltLMSExecTour />} />
             <Route path="/gcu-deck" element={<GCULeadershipDeck />} />
             {/* GCU Flourish — client portal */}
-            <Route path="/gcu/login" element={<LoginGuard />} />
+            <Route path="/portal/login" element={<LoginGuard />} />
             <Route path="/executive-tour" element={<ExecutiveTour />} />
-            <Route path="/gcu/*" element={<ProtectedRoutes />} />
+            <Route path="/portal/*" element={<ProtectedRoutes />} />
           </Routes>
         </BrowserRouter>
       </AuthProvider>
@@ -163,6 +163,6 @@ export default function App() {
 function LoginGuard() {
   const { user, isLoading } = useAuth();
   if (isLoading) return null;
-  if (user) return <Navigate to="/gcu" replace />;
+  if (user) return <Navigate to="/portal" replace />;
   return <Login />;
 }

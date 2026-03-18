@@ -62,7 +62,7 @@ function Hero() {
   const enterDemo = async () => {
     setEntering(true);
     const result = await login('demoadmin@flourishai.edu', 'admin123');
-    if (result.success) navigate('/gcu');
+    if (result.success) navigate('/portal');
     else setEntering(false);
   };
 

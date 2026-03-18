@@ -397,13 +397,13 @@ export default function ExecutiveBriefing() {
       </div>
 
       <div className="flex flex-wrap gap-3 justify-center pb-4">
-        <button onClick={() => navigate('/gcu/flourish-standard')} className="btn-primary flex items-center gap-2">
+        <button onClick={() => navigate('/portal/flourish-standard')} className="btn-primary flex items-center gap-2">
           <Award size={16} /> View the Flourish Standard <ArrowRight size={14} />
         </button>
-        <button onClick={() => navigate('/gcu/vision')} className="btn-secondary flex items-center gap-2">
+        <button onClick={() => navigate('/portal/vision')} className="btn-secondary flex items-center gap-2">
           <Rocket size={16} /> Full Vision & Roadmap
         </button>
-        <button onClick={() => navigate('/gcu/commercialization')} className="btn-secondary flex items-center gap-2">
+        <button onClick={() => navigate('/portal/commercialization')} className="btn-secondary flex items-center gap-2">
           <TrendingUp size={16} /> Impact Tracker
         </button>
       </div>

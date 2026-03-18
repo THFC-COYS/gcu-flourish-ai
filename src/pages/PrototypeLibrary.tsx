@@ -48,7 +48,7 @@ export default function PrototypeLibrary() {
         </div>
         {isRole('admin', 'faculty') && (
           <button
-            onClick={() => navigate('/gcu/builder')}
+            onClick={() => navigate('/portal/builder')}
             className="btn-primary flex items-center gap-2 self-start"
           >
             <Plus size={16} /> New Spirit Vessel
@@ -160,7 +160,7 @@ export default function PrototypeLibrary() {
             <div
               key={p.id}
               className="page-card p-4 flex items-center gap-4 hover:shadow-card-hover hover:-translate-y-0.5 transition-all cursor-pointer group"
-              onClick={() => navigate(`/gcu/testing?id=${p.id}`)}
+              onClick={() => navigate(`/portal/testing?id=${p.id}`)}
             >
               <div
                 className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl flex-shrink-0"
@@ -184,7 +184,7 @@ export default function PrototypeLibrary() {
                 <span className="text-xs text-slate-500">{p.metrics.usersReached.toLocaleString()} reached</span>
               </div>
               <button
-                onClick={e => { e.stopPropagation(); navigate(`/gcu/testing?id=${p.id}`); }}
+                onClick={e => { e.stopPropagation(); navigate(`/portal/testing?id=${p.id}`); }}
                 className="btn-primary text-xs px-3 py-2 flex-shrink-0"
               >
                 Demo

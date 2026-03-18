@@ -57,7 +57,7 @@ export default function Login() {
     const result = await login(email, password);
     setLoading(false);
     if (result.success) {
-      navigate('/gcu');
+      navigate('/portal');
     } else {
       setError(result.error ?? 'Login failed.');
     }
@@ -78,7 +78,7 @@ export default function Login() {
     setLoading(true);
     const result = await login('demoadmin@flourishai.edu', 'admin123');
     setLoading(false);
-    if (result.success) navigate('/gcu');
+    if (result.success) navigate('/portal');
   };
 
   return (

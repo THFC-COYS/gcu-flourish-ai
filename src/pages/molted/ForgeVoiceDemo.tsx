@@ -42,7 +42,7 @@ const LIVE_DEMOS = [
   { label: 'Lumen', href: '/lumen/demo', color: '#7B61FF' },
   { label: 'Discussion', href: '/forge/discussion', color: '#2563EB' },
   { label: 'Agentic Grader', href: '/forge/agentic-grader', color: '#2563EB' },
-  { label: 'Command Center', href: '/gcu/university-os/command-center', color: '#F59E0B', pill: 'NEW' },
+  { label: 'Command Center', href: '/portal/university-os/command-center', color: '#F59E0B', pill: 'NEW' },
 ];
 
 function NowLiveBanner() {
