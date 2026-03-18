@@ -1,22 +1,32 @@
 import { useState, useRef } from 'react';
-import { Plus, X, GripVertical, Tag, ChevronDown } from 'lucide-react';
+import { Plus, X, GripVertical, Tag, ChevronDown, ExternalLink, MessageSquare, BookOpen, BarChart3, AlertTriangle, Mail, Mic, Bot, Zap, GraduationCap, TrendingUp, Users, Shield } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import MoltedLayout from './MoltedLayout';
 
 /* ── Types ──────────────────────────────────────────────────────────────── */
 type Label = { text: string; color: string };
+type DemoPreview = {
+  href: string;
+  color: string;
+  accentColor: string;
+  icon: React.ElementType;
+  label: string;
+  mockLines: string[];
+};
 type Card = {
   id: string;
   title: string;
   description?: string;
   labels?: Label[];
   assignee?: string;
+  demo?: DemoPreview;
 };
 type Column = { id: string; title: string; accent: string; cards: Card[] };
 
 /* ── Seed data ──────────────────────────────────────────────────────────── */
 const LABEL_MAP: Record<string, Label> = {
   ai:       { text: 'AI Agent',   color: '#2563EB' },
-  lms:      { text: 'Platform',   color: '#7C3AED' },
+  alp:      { text: 'ALP',        color: '#7C3AED' },
   infra:    { text: 'Infra',      color: '#475569' },
   analytics:{ text: 'Analytics',  color: '#0891B2' },
   ux:       { text: 'UX',         color: '#D97706' },
@@ -29,10 +39,39 @@ const INITIAL_COLUMNS: Column[] = [
     title: 'Backlog',
     accent: '#94A3B8',
     cards: [
-      { id: 'c1', title: 'Imago OS — Full Institution Transformation Layer', description: 'The final-form product: fully transformed AI-native university. Spec and roadmap needed.', labels: [LABEL_MAP.lms, LABEL_MAP.ai], assignee: 'Roadmap' },
-      { id: 'c2', title: 'Mastery AI — Competency-based progression engine', description: 'Replaces credits with verified competency tracking across every course.', labels: [LABEL_MAP.ai, LABEL_MAP.lms] },
-      { id: 'c3', title: 'Flourish Robotics integration spec', description: 'Physical-digital bridge for campus AI presence.', labels: [LABEL_MAP.infra] },
-      { id: 'c4', title: 'University-OS multi-tenant expansion', description: 'Scale command center to 5+ partner institutions with separate data isolation.', labels: [LABEL_MAP.infra, LABEL_MAP.lms] },
+      {
+        id: 'c1',
+        title: 'Imago OS — Full Institution Transformation Layer',
+        description: 'The final-form product: fully transformed AI-native university. Spec and roadmap needed.',
+        labels: [LABEL_MAP.alp, LABEL_MAP.ai],
+        assignee: 'Roadmap',
+      },
+      {
+        id: 'c2',
+        title: 'Mastery AI — Competency-based progression engine',
+        description: 'Replaces credits with verified competency tracking across every course.',
+        labels: [LABEL_MAP.ai, LABEL_MAP.alp],
+        demo: {
+          href: '/mastery-ai',
+          color: '#6D28D9',
+          accentColor: '#8B5CF6',
+          icon: GraduationCap,
+          label: 'Mastery AI',
+          mockLines: ['Competency: Research Methods ████░ 78%', 'Competency: Data Analysis  ███░░ 60%', 'Next unlock: Advanced Stats →'],
+        },
+      },
+      {
+        id: 'c3',
+        title: 'Flourish Robotics integration spec',
+        description: 'Physical-digital bridge for campus AI presence.',
+        labels: [LABEL_MAP.infra],
+      },
+      {
+        id: 'c4',
+        title: 'University-OS multi-tenant expansion',
+        description: 'Scale command center to 5+ partner institutions with separate data isolation.',
+        labels: [LABEL_MAP.infra, LABEL_MAP.alp],
+      },
     ],
   },
   {
@@ -40,10 +79,56 @@ const INITIAL_COLUMNS: Column[] = [
     title: 'In Progress',
     accent: '#2563EB',
     cards: [
-      { id: 'c5', title: 'Outpost — AI-native LMS (full build)', description: 'Core platform replacing Canvas/Blackboard. All 8 modules must integrate cleanly.', labels: [LABEL_MAP.lms, LABEL_MAP.ai], assignee: 'Platform Team' },
-      { id: 'c6', title: 'Proof AI — Outcomes credentialing system', description: 'Generates verified outcome proofs tied to student learning history.', labels: [LABEL_MAP.ai, LABEL_MAP.analytics] },
-      { id: 'c7', title: 'Retain AI — Stop-out risk detection', description: 'Behavioral pattern analysis to flag at-risk students before they disengage.', labels: [LABEL_MAP.ai, LABEL_MAP.analytics], assignee: 'AI Team' },
-      { id: 'c8', title: 'Browser extension — Canvas/Blackboard overlay', description: 'Zero-integration deployment layer. Works on any LMS without API access.', labels: [LABEL_MAP.infra, LABEL_MAP.ux] },
+      {
+        id: 'c5',
+        title: 'Outpost — AI-native ALP (full build)',
+        description: 'Core platform replacing Canvas/Blackboard. All 8 modules must integrate cleanly.',
+        labels: [LABEL_MAP.alp, LABEL_MAP.ai],
+        assignee: 'Platform Team',
+        demo: {
+          href: '/outpost',
+          color: '#1E3A8A',
+          accentColor: '#2563EB',
+          icon: Zap,
+          label: 'Outpost',
+          mockLines: ['8 modules active', 'Lumen · Forge · Beacon · Pathway', 'Retain · Proof · Mastery · Imago'],
+        },
+      },
+      {
+        id: 'c6',
+        title: 'Proof AI — Outcomes credentialing system',
+        description: 'Generates verified outcome proofs tied to student learning history.',
+        labels: [LABEL_MAP.ai, LABEL_MAP.analytics],
+        demo: {
+          href: '/proof-ai',
+          color: '#065F46',
+          accentColor: '#10B981',
+          icon: Shield,
+          label: 'Proof AI',
+          mockLines: ['Credential verified ✓', 'Learning trajectory: 14 courses', 'Outcome proof generated →'],
+        },
+      },
+      {
+        id: 'c7',
+        title: 'Retain AI — Stop-out risk detection',
+        description: 'Behavioral pattern analysis to flag at-risk students before they disengage.',
+        labels: [LABEL_MAP.ai, LABEL_MAP.analytics],
+        assignee: 'AI Team',
+        demo: {
+          href: '/retain-ai',
+          color: '#7C2D12',
+          accentColor: '#F97316',
+          icon: TrendingUp,
+          label: 'Retain AI',
+          mockLines: ['⚠ 3 students — high risk', '→ Marcus T. — 5 days offline', '→ Check-in drafted automatically'],
+        },
+      },
+      {
+        id: 'c8',
+        title: 'Browser extension — Canvas/Blackboard overlay',
+        description: 'Zero-integration deployment layer. Works on any existing LMS without API access.',
+        labels: [LABEL_MAP.infra, LABEL_MAP.ux],
+      },
     ],
   },
   {
@@ -51,9 +136,41 @@ const INITIAL_COLUMNS: Column[] = [
     title: 'Review / Testing',
     accent: '#D97706',
     cards: [
-      { id: 'c9', title: 'Outcomes AI — Institutional intelligence dashboard', description: 'Dean and provost-level reporting. Real-time outcome signals across all colleges.', labels: [LABEL_MAP.analytics, LABEL_MAP.ux], assignee: 'Design' },
-      { id: 'c10', title: 'Early Warning System — 5-signal risk model', description: 'Login gaps + grade drops + discussion silence + financial flags + course load.', labels: [LABEL_MAP.ai, LABEL_MAP.analytics] },
-      { id: 'c11', title: 'Founding Partner deck — GCU co-dev agreement', description: 'Governance rights, preferred pricing, licensing terms for first university partner.', labels: [LABEL_MAP.revenue] },
+      {
+        id: 'c9',
+        title: 'Outcomes AI — Institutional intelligence dashboard',
+        description: 'Dean and provost-level reporting. Real-time outcome signals across all colleges.',
+        labels: [LABEL_MAP.analytics, LABEL_MAP.ux],
+        assignee: 'Design',
+        demo: {
+          href: '/outcomes-ai',
+          color: '#1E40AF',
+          accentColor: '#3B82F6',
+          icon: BarChart3,
+          label: 'Outcomes AI',
+          mockLines: ['Retention rate: 91.4% ↑', 'At-risk flags: 47 active', 'Board report: ready to export'],
+        },
+      },
+      {
+        id: 'c10',
+        title: 'Early Warning System — 5-signal risk model',
+        description: 'Login gaps + grade drops + discussion silence + financial flags + course load.',
+        labels: [LABEL_MAP.ai, LABEL_MAP.analytics],
+        demo: {
+          href: '/forge/early-warning',
+          color: '#92400E',
+          accentColor: '#F59E0B',
+          icon: AlertTriangle,
+          label: 'Early Warning',
+          mockLines: ['Signal: No login — 5 days', 'Signal: Grade drop — 2 assignments', 'Action: Check-in scheduled ✓'],
+        },
+      },
+      {
+        id: 'c11',
+        title: 'Founding Partner deck — GCU co-dev agreement',
+        description: 'Governance rights, preferred pricing, licensing terms for first university partner.',
+        labels: [LABEL_MAP.revenue],
+      },
     ],
   },
   {
@@ -61,14 +178,188 @@ const INITIAL_COLUMNS: Column[] = [
     title: 'Live',
     accent: '#16A34A',
     cards: [
-      { id: 'c12', title: 'Lumen — AI reading companion', description: 'Activates in-context as students read. Deployed at 170K students.', labels: [LABEL_MAP.ai], assignee: 'Shipped' },
-      { id: 'c13', title: 'Forge — Faculty AI toolkit', description: 'Course architect, agentic grader, auto-respond, discussion agent. All live.', labels: [LABEL_MAP.ai, LABEL_MAP.ux], assignee: 'Shipped' },
-      { id: 'c14', title: 'Beacon — Institutional analytics', description: 'Provost-facing intelligence layer. Enrollment, retention, outcomes.', labels: [LABEL_MAP.analytics], assignee: 'Shipped' },
-      { id: 'c15', title: 'Pathway AI — Career outcome mapping', description: 'Post-graduation career trajectory intelligence tied to program completion.', labels: [LABEL_MAP.ai, LABEL_MAP.analytics], assignee: 'Shipped' },
-      { id: 'c16', title: 'Agentic Grader — AI feedback engine', description: 'Doctoral and undergraduate submission review. Structured rubric-based feedback.', labels: [LABEL_MAP.ai], assignee: 'Shipped' },
+      {
+        id: 'c12',
+        title: 'Lumen — AI reading companion',
+        description: 'Activates in-context as students read. Deployed at 170K students.',
+        labels: [LABEL_MAP.ai],
+        assignee: 'Shipped',
+        demo: {
+          href: '/lumen',
+          color: '#1E3A8A',
+          accentColor: '#60A5FA',
+          icon: BookOpen,
+          label: 'Lumen',
+          mockLines: ['Student reading: Pharmacology Ch.4', 'Lumen: "Want me to explain that?"', '→ Answers in context, instantly'],
+        },
+      },
+      {
+        id: 'c13',
+        title: 'Forge — Faculty AI toolkit',
+        description: 'Course architect, agentic grader, auto-respond, discussion agent. All live.',
+        labels: [LABEL_MAP.ai, LABEL_MAP.ux],
+        assignee: 'Shipped',
+        demo: {
+          href: '/forge',
+          color: '#1E40AF',
+          accentColor: '#2563EB',
+          icon: Users,
+          label: 'Forge',
+          mockLines: ['Discussion agent — 4 replies sent', 'Grader — 12 submissions reviewed', 'Auto-respond — 8 emails drafted'],
+        },
+      },
+      {
+        id: 'c14',
+        title: 'Discussion Agent — live in-thread AI',
+        description: 'Replies to student discussion posts in real time. Deepens threads, answers questions.',
+        labels: [LABEL_MAP.ai],
+        assignee: 'Shipped',
+        demo: {
+          href: '/forge/discussion',
+          color: '#1D4ED8',
+          accentColor: '#3B82F6',
+          icon: MessageSquare,
+          label: 'Discussion Demo',
+          mockLines: ['"What is cognitive load theory?"', '→ Agent replies in 4 seconds', 'Faculty reviews before publish'],
+        },
+      },
+      {
+        id: 'c15',
+        title: 'Agentic Grader — AI feedback engine',
+        description: 'Doctoral and undergraduate submission review. Structured rubric-based feedback.',
+        labels: [LABEL_MAP.ai],
+        assignee: 'Shipped',
+        demo: {
+          href: '/forge/agentic-grader',
+          color: '#4C1D95',
+          accentColor: '#7C3AED',
+          icon: Bot,
+          label: 'Agentic Grader',
+          mockLines: ['Submission: Week 4 Essay', 'Rubric matched: 4 criteria', 'Feedback drafted — ready to send'],
+        },
+      },
+      {
+        id: 'c16',
+        title: 'Auto-Respond — faculty email AI',
+        description: 'Drafts replies to student email queues. Faculty approves before sending.',
+        labels: [LABEL_MAP.ai],
+        assignee: 'Shipped',
+        demo: {
+          href: '/forge/auto-respond',
+          color: '#065F46',
+          accentColor: '#10B981',
+          icon: Mail,
+          label: 'Auto-Respond',
+          mockLines: ['Queue: 14 unanswered emails', '→ 14 drafts ready in 90 seconds', 'Faculty review time: ~2 min'],
+        },
+      },
+      {
+        id: 'c17',
+        title: 'Course Architect — syllabus-to-course AI',
+        description: 'Generates full semester course infrastructure from a single syllabus upload.',
+        labels: [LABEL_MAP.ai, LABEL_MAP.ux],
+        assignee: 'Shipped',
+        demo: {
+          href: '/forge/course-architect',
+          color: '#1E3A8A',
+          accentColor: '#0891B2',
+          icon: GraduationCap,
+          label: 'Course Architect',
+          mockLines: ['Syllabus: NURS 301 uploaded', '→ 16-week plan generated', 'Discussion prompts: 32 created'],
+        },
+      },
+      {
+        id: 'c18',
+        title: 'Beacon — Institutional analytics AI',
+        description: 'Provost-facing intelligence layer. Enrollment, retention, outcomes in real time.',
+        labels: [LABEL_MAP.analytics],
+        assignee: 'Shipped',
+        demo: {
+          href: '/beacon',
+          color: '#1E3A8A',
+          accentColor: '#1D4ED8',
+          icon: BarChart3,
+          label: 'Beacon',
+          mockLines: ['Live dashboard: 170K students', 'Risk signals: 47 flagged today', 'Outcomes trending: +12% YoY'],
+        },
+      },
+      {
+        id: 'c19',
+        title: 'Pathway AI — Career outcome mapping',
+        description: 'Post-graduation career trajectory intelligence tied to program completion.',
+        labels: [LABEL_MAP.ai, LABEL_MAP.analytics],
+        assignee: 'Shipped',
+        demo: {
+          href: '/pathway-ai',
+          color: '#065F46',
+          accentColor: '#059669',
+          icon: TrendingUp,
+          label: 'Pathway AI',
+          mockLines: ['Program: BSN Nursing', 'Top outcome: RN placement 94%', 'Career pathway mapped: 8 roles'],
+        },
+      },
+      {
+        id: 'c20',
+        title: 'Voice Demo — live agent in conversation',
+        description: 'Interactive voice-mode AI agent demo. Showcases real-time conversational ALP.',
+        labels: [LABEL_MAP.ai, LABEL_MAP.ux],
+        assignee: 'Shipped',
+        demo: {
+          href: '/forge/voice-demo',
+          color: '#1E3A8A',
+          accentColor: '#6366F1',
+          icon: Mic,
+          label: 'Voice Demo',
+          mockLines: ['Agent listening…', 'Student: "I don\'t understand..."', '→ Agent responds in real time'],
+        },
+      },
     ],
   },
 ];
+
+/* ── Demo Preview Thumbnail ─────────────────────────────────────────────── */
+function DemoThumbnail({ demo }: { demo: DemoPreview }) {
+  const Icon = demo.icon;
+  return (
+    <Link
+      to={demo.href}
+      className="group/demo block mt-3 rounded-lg overflow-hidden border transition-all duration-200 hover:shadow-md hover:-translate-y-0.5"
+      style={{ borderColor: `${demo.accentColor}30` }}
+      onClick={e => e.stopPropagation()}
+    >
+      {/* Mock screen */}
+      <div className="px-3 pt-3 pb-2" style={{ background: `linear-gradient(135deg, ${demo.color}08, ${demo.accentColor}12)` }}>
+        {/* Fake browser bar */}
+        <div className="flex items-center gap-1.5 mb-2.5">
+          <div className="w-2 h-2 rounded-full" style={{ background: `${demo.accentColor}50` }} />
+          <div className="flex-1 h-1.5 rounded-full" style={{ background: `${demo.accentColor}20` }} />
+        </div>
+        {/* Header row */}
+        <div className="flex items-center gap-2 mb-2">
+          <div className="w-5 h-5 rounded-md flex items-center justify-center flex-shrink-0"
+            style={{ background: `linear-gradient(135deg, ${demo.color}, ${demo.accentColor})` }}>
+            <Icon size={10} color="white" />
+          </div>
+          <span className="text-xs font-black" style={{ color: demo.color }}>{demo.label}</span>
+        </div>
+        {/* Mock content lines */}
+        <div className="space-y-1">
+          {demo.mockLines.map((line, i) => (
+            <p key={i} className="text-[10px] leading-snug font-mono" style={{ color: i === 0 ? '#475569' : i === demo.mockLines.length - 1 ? demo.accentColor : '#64748B' }}>
+              {line}
+            </p>
+          ))}
+        </div>
+      </div>
+      {/* Link footer */}
+      <div className="flex items-center justify-between px-3 py-1.5"
+        style={{ background: `${demo.accentColor}10`, borderTop: `1px solid ${demo.accentColor}20` }}>
+        <span className="text-[10px] font-semibold" style={{ color: demo.accentColor }}>View live demo</span>
+        <ExternalLink size={9} style={{ color: demo.accentColor }} className="group-hover/demo:translate-x-0.5 group-hover/demo:-translate-y-0.5 transition-transform" />
+      </div>
+    </Link>
+  );
+}
 
 /* ── Drag state ref type ─────────────────────────────────────────────────── */
 type DragState = { cardId: string; fromColId: string } | null;
@@ -140,6 +431,13 @@ function BoardCard({
         <p className="mt-2 text-xs leading-relaxed pl-5" style={{ color: '#64748B' }}>
           {card.description}
         </p>
+      )}
+
+      {/* Demo preview thumbnail */}
+      {card.demo && (
+        <div className="pl-5">
+          <DemoThumbnail demo={card.demo} />
+        </div>
       )}
 
       {/* Assignee */}
@@ -216,7 +514,7 @@ function BoardColumn({
     <div
       className="flex-shrink-0 rounded-2xl flex flex-col transition-all duration-200"
       style={{
-        width: 280,
+        width: 300,
         background: dragOver ? `rgba(37,99,235,0.04)` : '#F8F9FC',
         border: dragOver ? `2px solid ${col.accent}50` : '2px solid transparent',
       }}
@@ -279,7 +577,7 @@ function AddColumnForm({ onAdd, onCancel }: { onAdd: (title: string) => void; on
   const [value, setValue] = useState('');
   const submit = () => { if (value.trim()) onAdd(value.trim()); };
   return (
-    <div className="flex-shrink-0 rounded-2xl p-4 flex flex-col gap-3" style={{ width: 280, background: '#F8F9FC', border: '2px dashed rgba(0,0,0,0.12)' }}>
+    <div className="flex-shrink-0 rounded-2xl p-4 flex flex-col gap-3" style={{ width: 300, background: '#F8F9FC', border: '2px dashed rgba(0,0,0,0.12)' }}>
       <input
         autoFocus
         value={value}
@@ -300,7 +598,7 @@ function AddColumnForm({ onAdd, onCancel }: { onAdd: (title: string) => void; on
 }
 
 /* ── Main board ─────────────────────────────────────────────────────────── */
-let nextId = 100;
+let nextId = 200;
 const uid = () => `card-${++nextId}`;
 const colUid = () => `col-${++nextId}`;
 
@@ -354,6 +652,7 @@ export default function MoltBoard() {
   };
 
   const totalCards = columns.reduce((s, c) => s + c.cards.length, 0);
+  const demoCount = columns.reduce((s, c) => s + c.cards.filter(cd => cd.demo).length, 0);
 
   return (
     <MoltedLayout>
@@ -366,15 +665,15 @@ export default function MoltBoard() {
                 <div className="w-6 h-6 rounded-lg flex items-center justify-center" style={{ background: 'linear-gradient(135deg,#2563EB,#1E3A8A)' }}>
                   <span className="text-white text-xs font-black">M</span>
                 </div>
-                <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: '#94A3B8' }}>Molt Platform</span>
+                <span className="text-xs font-semibold uppercase tracking-widest" style={{ color: '#94A3B8' }}>Molt ALP</span>
               </div>
               <h1 className="text-2xl font-black tracking-tight" style={{ color: '#0F172A' }}>Product Board</h1>
               <p className="text-sm mt-1" style={{ color: '#64748B' }}>
-                Track modules, features, and milestones across the Molt intelligence platform.
+                Track modules, features, and milestones across the Molt Agentic Learning Platform.
               </p>
             </div>
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 flex-wrap">
               <div className="flex items-center gap-5">
                 {columns.map(col => (
                   <div key={col.id} className="flex items-center gap-1.5">
@@ -386,7 +685,10 @@ export default function MoltBoard() {
               </div>
               <div className="h-4 w-px" style={{ background: 'rgba(0,0,0,0.1)' }} />
               <span className="text-xs font-semibold px-2.5 py-1 rounded-full" style={{ background: 'rgba(37,99,235,0.08)', color: '#2563EB' }}>
-                {totalCards} total
+                {totalCards} cards
+              </span>
+              <span className="text-xs font-semibold px-2.5 py-1 rounded-full" style={{ background: 'rgba(16,185,129,0.08)', color: '#059669' }}>
+                {demoCount} live demos
               </span>
             </div>
           </div>
@@ -418,7 +720,7 @@ export default function MoltBoard() {
               onClick={() => setAddingCol(true)}
               className="flex-shrink-0 flex items-center gap-2 px-4 py-3 rounded-2xl text-sm font-semibold transition-all hover:opacity-80 group"
               style={{
-                width: 280,
+                width: 300,
                 background: 'rgba(37,99,235,0.06)',
                 border: '2px dashed rgba(37,99,235,0.25)',
                 color: '#2563EB',
