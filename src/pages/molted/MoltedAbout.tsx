@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Lightbulb, Target, Heart } from 'lucide-react';
 import MoltedLayout from './MoltedLayout';
@@ -230,6 +230,29 @@ function Contact() {
   );
 }
 
+function FounderPhoto() {
+  const [failed, setFailed] = useState(false);
+  return (
+    <div className="w-48 h-48 md:w-56 md:h-56 rounded-2xl overflow-hidden border-2 border-molted-border shadow-lg flex-shrink-0">
+      {!failed ? (
+        <img
+          src="/greg-lucas.jpg"
+          alt="Greg Lucas, Founder & CEO of MoltALP"
+          className="w-full h-full object-cover object-top"
+          onError={() => setFailed(true)}
+        />
+      ) : (
+        <div
+          className="w-full h-full flex items-center justify-center text-5xl font-black text-white"
+          style={{ background: 'linear-gradient(135deg, #7C3AED 0%, #1E3A8A 100%)' }}
+        >
+          GL
+        </div>
+      )}
+    </div>
+  );
+}
+
 function Founder() {
   return (
     <section className="py-24 px-6 border-t border-molted-border">
@@ -246,16 +269,7 @@ function Founder() {
           <div className="flex flex-col md:flex-row items-center md:items-start gap-12 bg-molted-elevated border border-molted-border rounded-3xl p-10">
             {/* Photo */}
             <div className="flex-shrink-0">
-              <div className="w-48 h-48 md:w-56 md:h-56 rounded-2xl overflow-hidden border-2 border-molted-border shadow-lg">
-                <img
-                  src="/greg-lucas.jpg"
-                  alt="Greg Lucas, Founder & CEO of MoltALP"
-                  className="w-full h-full object-cover object-top"
-                  onError={e => {
-                    (e.currentTarget as HTMLImageElement).style.display = 'none';
-                  }}
-                />
-              </div>
+              <FounderPhoto />
             </div>
 
             {/* Bio */}
@@ -269,7 +283,7 @@ function Founder() {
                   An established education futurist and AI expert with over 16 years in higher education, Greg serves as Faculty Chair at a leading college of business where he leads AI ethics research, generative AI workshops, and immersive tech integrations.
                 </p>
                 <p>
-                  As owner of Mark85 Labs, he develops AI-driven spatial environments for education and collaboration — the same vision powering pAIgeBreaker™. His diverse background spanning renewable energy, real estate, and manufacturing at Intel brings strategic business acumen to edtech innovation.
+                  As owner of PaigeBreaker LLC, he develops AI-driven spatial environments for education and collaboration — the same vision powering MoltALP. His diverse background spanning renewable energy, real estate, and manufacturing at Intel brings strategic business acumen to edtech innovation.
                 </p>
               </div>
               <div className="mt-8 flex flex-wrap gap-3">
