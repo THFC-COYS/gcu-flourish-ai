@@ -287,7 +287,7 @@ function Founder() {
                 </p>
               </div>
               <div className="mt-8 flex flex-wrap gap-3">
-                {['16+ years higher education', 'Faculty Chair', 'AI Ethics Research', 'Generative AI', 'Mark85 Labs', 'Intel alumnus'].map(tag => (
+                {['16+ years higher education', 'Faculty Chair', 'AI Ethics Research', 'Generative AI', 'PaigeBreaker LLC', 'Intel alumnus'].map(tag => (
                   <span
                     key={tag}
                     className="text-xs font-semibold px-3 py-1.5 rounded-full border border-molted-border text-molted-muted"
