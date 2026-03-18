@@ -2,14 +2,17 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronRight } from 'lucide-react';
 
-function MoltLMSLogo({ size = 'md' }: { size?: 'sm' | 'md' | 'lg' }) {
-  const textSize = { sm: 'text-lg', md: 'text-2xl', lg: 'text-4xl' }[size];
+function MoltLMSLogo({ size = 'md', dark = false }: { size?: 'sm' | 'md' | 'lg'; dark?: boolean }) {
+  const textSize = { sm: 'text-base', md: 'text-2xl', lg: 'text-4xl' }[size];
+  const nameColor = dark ? '#0f172a' : '#ffffff';
+  const byColor   = dark ? 'rgba(0,0,0,0.35)' : 'rgba(255,255,255,0.38)';
   return (
-    <div className="flex items-center">
-      <span className={`${textSize} font-black tracking-tight leading-none`}>
-        <span className="text-molted-white/90">M</span>
-        <span style={{ color: '#2563EB' }}>olt</span>
-        <span className="text-molted-white/90">ED</span>
+    <div className="flex flex-col leading-none">
+      <span className={`${textSize} font-black tracking-tight`} style={{ color: nameColor }}>
+        Molt<span style={{ color: '#6366f1' }}>LMS</span>
+      </span>
+      <span className="text-[9px] font-semibold uppercase tracking-[0.18em] mt-0.5" style={{ color: byColor }}>
+        by PaigeBreaker LLC
       </span>
     </div>
   );
@@ -47,20 +50,18 @@ export function MoltLMSNav() {
 
   useEffect(() => { setMenuOpen(false); }, [location]);
 
-  function navLink(href: string, label: string, color?: string) {
+  function navLink(href: string, label: string, accentColor?: string) {
     const active = location.pathname === href || location.pathname.startsWith(href + '/');
+    const defaultColor = scrolled ? '#475569' : 'rgba(255,255,255,0.75)';
+    const activeColor  = scrolled ? (accentColor ?? '#0f172a') : '#ffffff';
     return (
       <Link
         key={href}
         to={href}
-        className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 ${active ? '' : ''}`}
+        className="px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 hover:opacity-100"
         style={{
-          background: active ? 'rgba(0,0,0,0.06)' : undefined,
-          color: active
-            ? (color ?? '#0F172A')
-            : color
-            ? color
-            : '#475569',
+          background: active ? (scrolled ? 'rgba(0,0,0,0.06)' : 'rgba(255,255,255,0.10)') : undefined,
+          color: active ? activeColor : defaultColor,
         }}
       >
         {label}
@@ -74,7 +75,7 @@ export function MoltLMSNav() {
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link to="/" className="flex-shrink-0">
-          <MoltLMSLogo size="sm" />
+          <MoltLMSLogo size="sm" dark={scrolled} />
         </Link>
 
         {/* Desktop nav */}
@@ -88,8 +89,11 @@ export function MoltLMSNav() {
         <div className="hidden md:flex items-center gap-3">
           <a
             href="mailto:greg.lucas@paigebreaker.com"
-            className="px-5 py-2 rounded-xl text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-px"
-            style={{ background: 'linear-gradient(120deg, #2563EB, #1E3A8A)' }}
+            className="px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-200 hover:-translate-y-px"
+            style={scrolled
+              ? { background: 'linear-gradient(120deg, #6366f1, #4f46e5)', color: '#fff' }
+              : { background: 'rgba(255,255,255,0.15)', color: '#fff', border: '1px solid rgba(255,255,255,0.25)' }
+            }
           >
             Get Started
           </a>
