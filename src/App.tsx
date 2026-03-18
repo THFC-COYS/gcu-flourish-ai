@@ -44,6 +44,7 @@ import AutoRespond from './pages/molted/AutoRespond';
 import EarlyWarning from './pages/molted/EarlyWarning';
 import ForgeVoiceDemo from './pages/molted/ForgeVoiceDemo';
 import GCULeadershipDeck from './pages/molted/GCULeadershipDeck';
+import MoltBoard from './pages/molted/MoltBoard';
 import GovernanceQA from './pages/GovernanceQA';
 import ScalingModel from './pages/ScalingModel';
 import LearningSystemsModernization from './pages/LearningSystemsModernization';
@@ -126,6 +127,7 @@ export default function App() {
             <Route path="/forge/voice-demo" element={<ForgeVoiceDemo />} />
             <Route path="/exec-tour" element={<MoltedExecTour />} />
             <Route path="/gcu-deck" element={<GCULeadershipDeck />} />
+            <Route path="/board" element={<MoltBoard />} />
             {/* GCU Flourish — client portal */}
             <Route path="/gcu/login" element={<LoginGuard />} />
             <Route path="/executive-tour" element={<ExecutiveTour />} />
