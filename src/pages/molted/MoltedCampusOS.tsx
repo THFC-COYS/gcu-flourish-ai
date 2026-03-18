@@ -123,7 +123,7 @@ function Hero() {
       {/* CTA */}
       <RevealBlock delay={520} className="mt-12">
         <a
-          href="mailto:hello@molted.ai"
+          href="mailto:greg.lucas@paigebreaker.com"
           className="group inline-flex items-center gap-3 px-9 py-4 rounded-2xl font-bold text-lg transition-all duration-200 hover:-translate-y-px hover:shadow-2xl"
           style={{
             background: CAMPUS_GRADIENT,
@@ -502,7 +502,7 @@ function VisionStatement() {
 
         <RevealBlock delay={650}>
           <p className="mt-8 text-molted-muted text-sm tracking-widest font-medium">
-            — MoltED
+            — MoltALP
           </p>
         </RevealBlock>
 
@@ -565,7 +565,7 @@ function WaitlistCTA() {
 
         <RevealBlock delay={200} className="mt-10">
           <a
-            href="mailto:hello@molted.ai"
+            href="mailto:greg.lucas@paigebreaker.com"
             className="group inline-flex items-center gap-3 px-9 py-4 rounded-2xl font-bold text-lg transition-all duration-200 hover:-translate-y-px"
             style={{ background: CAMPUS_GRADIENT, color: '#ffffff' }}
           >

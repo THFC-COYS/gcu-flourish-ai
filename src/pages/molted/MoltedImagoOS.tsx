@@ -123,7 +123,7 @@ function Hero() {
       {/* CTA */}
       <RevealBlock delay={520} className="mt-12 flex flex-col sm:flex-row items-center gap-4">
         <a
-          href="mailto:hello@molted.ai"
+          href="mailto:greg.lucas@paigebreaker.com"
           className="group inline-flex items-center gap-3 px-9 py-4 rounded-2xl font-bold text-lg transition-all duration-200 hover:-translate-y-px hover:shadow-2xl"
           style={{ background: IMAGO_GRADIENT, color: '#ffffff' }}
         >
@@ -180,7 +180,7 @@ function TheMoltMetaphor() {
           >
             "Education is molting.
             <br />
-            MoltED is what it becomes."
+            MoltALP is what it becomes."
           </p>
         </RevealBlock>
 
@@ -531,7 +531,7 @@ function Architecture() {
   );
 }
 
-/* ── The MoltED is Not Optional ───────────────────────────────────────────── */
+/* ── The MoltALP is Not Optional ───────────────────────────────────────────── */
 function MoltManifesto() {
   return (
     <section className="py-40 px-6 border-t border-molted-border relative overflow-hidden">
@@ -567,7 +567,7 @@ function MoltManifesto() {
         </RevealBlock>
         <RevealBlock delay={520}>
           <p className="mt-8 text-molted-subtle text-sm tracking-widest font-medium">
-            — MoltED
+            — MoltALP
           </p>
         </RevealBlock>
       </div>
@@ -602,7 +602,7 @@ function TransformCTA() {
 
         <RevealBlock delay={200} className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href="mailto:hello@molted.ai"
+            href="mailto:greg.lucas@paigebreaker.com"
             className="group inline-flex items-center gap-3 px-9 py-4 rounded-2xl font-bold text-lg transition-all duration-200 hover:-translate-y-px"
             style={{ background: IMAGO_GRADIENT, color: '#ffffff' }}
           >

@@ -73,7 +73,7 @@ function Hero() {
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border text-xs font-semibold mb-8 animate-fade-in"
           style={{ borderColor: `${SKY}40`, background: `${SKY}12`, color: SKY }}
         >
-          <Eye size={12} /> MoltED · Institutional Intelligence Layer
+          <Eye size={12} /> MoltALP · Institutional Intelligence Layer
         </div>
 
         {/* Wordmark */}
@@ -110,7 +110,7 @@ function Hero() {
         {/* CTAs */}
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 animate-reveal" style={{ animationDelay: '350ms' }}>
           <a
-            href="mailto:hello@molted.ai?subject=Outcomes Demo Request"
+            href="mailto:greg.lucas@paigebreaker.com?subject=Outcomes Demo Request"
             className="group flex items-center gap-2.5 px-8 py-4 rounded-xl text-white font-bold text-lg transition-all duration-200 hover:-translate-y-px"
             style={{ background: SKY, boxShadow: `0 0 24px ${SKY}40` }}
           >
@@ -747,7 +747,7 @@ function Pricing() {
                   ))}
                 </ul>
                 <a
-                  href={`mailto:hello@molted.ai?subject=Outcomes ${tier.name} Inquiry`}
+                  href={`mailto:greg.lucas@paigebreaker.com?subject=Outcomes ${tier.name} Inquiry`}
                   className="mt-8 block text-center px-6 py-3.5 rounded-xl font-semibold text-sm transition-all hover:-translate-y-px"
                   style={
                     tier.highlight
@@ -790,7 +790,7 @@ function CTA() {
               className="flex-1 w-full px-5 py-4 rounded-xl bg-molted-elevated border border-molted-border text-molted-white placeholder:text-molted-muted text-sm focus:outline-none focus:border-sky-500 transition-colors"
             />
             <a
-              href={`mailto:hello@molted.ai?subject=Outcomes Demo&body=From: ${email}`}
+              href={`mailto:greg.lucas@paigebreaker.com?subject=Outcomes Demo&body=From: ${email}`}
               className="flex-shrink-0 flex items-center gap-2 px-6 py-4 rounded-xl font-bold text-sm text-white transition-all hover:-translate-y-px"
               style={{ background: SKY, boxShadow: `0 0 20px ${SKY}35` }}
             >
@@ -803,7 +803,7 @@ function CTA() {
               to="/"
               className="text-molted-muted hover:text-molted-white text-sm transition-colors"
             >
-              ← Back to MoltED
+              ← Back to MoltALP
             </Link>
             <Link
               to="/paigebreaker"

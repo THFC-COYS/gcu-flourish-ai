@@ -110,7 +110,7 @@ function Hero() {
           style={{ animationDelay: '280ms' }}
         >
           <a
-            href="mailto:hello@molted.ai?subject=Pathway Early Access"
+            href="mailto:greg.lucas@paigebreaker.com?subject=Pathway Early Access"
             className="group flex items-center gap-2.5 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 hover:-translate-y-px"
             style={{ background: VIOLET, color: '#0A0A0B', boxShadow: `0 0 28px rgba(139,92,246,0.35)` }}
           >
@@ -715,7 +715,7 @@ function Pricing() {
                   ))}
                 </ul>
                 <a
-                  href={`mailto:hello@molted.ai?subject=Pathway ${tier.name} Inquiry`}
+                  href={`mailto:greg.lucas@paigebreaker.com?subject=Pathway ${tier.name} Inquiry`}
                   className="mt-8 block text-center px-6 py-3.5 rounded-xl font-semibold text-sm transition-all hover:-translate-y-px"
                   style={
                     tier.highlight
@@ -758,7 +758,7 @@ function CTA() {
               className="flex-1 w-full px-5 py-4 rounded-xl bg-molted-elevated border border-molted-border text-molted-white placeholder:text-molted-muted text-sm focus:outline-none focus:border-violet-500 transition-colors"
             />
             <a
-              href={`mailto:hello@molted.ai?subject=Pathway Early Access&body=From: ${email}`}
+              href={`mailto:greg.lucas@paigebreaker.com?subject=Pathway Early Access&body=From: ${email}`}
               className="flex-shrink-0 flex items-center gap-2 px-6 py-4 rounded-xl font-bold text-sm transition-all hover:-translate-y-px"
               style={{ background: VIOLET, color: '#0A0A0B', boxShadow: `0 0 20px rgba(139,92,246,0.30)` }}
             >
@@ -771,7 +771,7 @@ function CTA() {
               to="/"
               className="text-molted-muted hover:text-molted-white text-sm transition-colors"
             >
-              ← Back to MoltED
+              ← Back to MoltALP
             </Link>
             <Link
               to="/paigebreaker"

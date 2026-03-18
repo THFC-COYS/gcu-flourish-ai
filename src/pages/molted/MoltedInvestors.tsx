@@ -79,13 +79,13 @@ function Hero() {
 
         <RevealBlock delay={200}>
           <p className="mt-8 text-lg md:text-xl text-molted-muted max-w-2xl mx-auto leading-relaxed">
-            MoltED is not an edtech app. It is the agentic operating system for learning — the platform that sits between every institution and every student, making both smarter with every interaction. We are raising to accelerate what is already working.
+            MoltALP is not an edtech app. It is the agentic operating system for learning — the platform that sits between every institution and every student, making both smarter with every interaction. We are raising to accelerate what is already working.
           </p>
         </RevealBlock>
 
         <RevealBlock delay={320} className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href="mailto:hello@molted.ai?subject=Investor Inquiry"
+            href="mailto:greg.lucas@paigebreaker.com?subject=Investor Inquiry"
             className="group inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-bold text-base transition-all duration-200 hover:-translate-y-px"
             style={{ background: 'linear-gradient(120deg, #8B5CF6, #2563EB)', color: '#ffffff' }}
           >
@@ -292,7 +292,7 @@ function TwoScenarios() {
                 </div>
               </div>
               <p className="text-molted-muted text-sm leading-relaxed mb-6 flex-1">
-                MoltED is the intelligence layer that Cengage, Pearson, Instructure, or Anthology cannot build fast enough. They own distribution, institutional relationships, and content libraries. Molt owns the agentic infrastructure, the faculty voice data, and the student relationship layer. The combination is the category-defining platform in global education.
+                MoltALP is the intelligence layer that Cengage, Pearson, Instructure, or Anthology cannot build fast enough. They own distribution, institutional relationships, and content libraries. Molt owns the agentic infrastructure, the faculty voice data, and the student relationship layer. The combination is the category-defining platform in global education.
               </p>
               <div className="space-y-2.5">
                 {[
@@ -457,7 +457,7 @@ function CTA() {
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="mailto:hello@molted.ai?subject=Investor Inquiry"
+              href="mailto:greg.lucas@paigebreaker.com?subject=Investor Inquiry"
               className="group flex items-center gap-2.5 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 hover:-translate-y-px"
               style={{ background: 'linear-gradient(135deg, #8B5CF6 0%, #2563EB 100%)', color: '#ffffff' }}
             >

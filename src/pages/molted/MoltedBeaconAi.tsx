@@ -94,7 +94,7 @@ function Hero() {
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border text-xs font-semibold mb-8 animate-fade-in"
           style={{ borderColor: RED_BORDER, background: RED_DIM, color: RED }}
         >
-          <Mic size={12} /> MoltED · Institutions
+          <Mic size={12} /> MoltALP · Institutions
         </div>
 
         {/* Wordmark */}
@@ -136,7 +136,7 @@ function Hero() {
 
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 animate-reveal" style={{ animationDelay: '400ms' }}>
           <a
-            href="mailto:hello@molted.ai?subject=Beacon Demo Request"
+            href="mailto:greg.lucas@paigebreaker.com?subject=Beacon Demo Request"
             className="group flex items-center gap-2.5 px-8 py-4 rounded-xl text-white font-bold text-lg transition-all duration-200 hover:-translate-y-px"
             style={{ background: RED }}
           >
@@ -649,7 +649,7 @@ function PricingTeaser() {
                   ))}
                 </ul>
                 <a
-                  href="mailto:hello@molted.ai?subject=Beacon Pricing Inquiry"
+                  href="mailto:greg.lucas@paigebreaker.com?subject=Beacon Pricing Inquiry"
                   className={`mt-8 block text-center px-6 py-3 rounded-xl font-semibold text-sm transition-all ${
                     tier.highlight
                       ? 'bg-molted-ember hover:bg-molted-ember-light text-white shadow-molted-ember'
@@ -683,7 +683,7 @@ function CTA() {
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="mailto:hello@molted.ai?subject=Beacon Demo Request"
+              href="mailto:greg.lucas@paigebreaker.com?subject=Beacon Demo Request"
               className="group flex items-center gap-2.5 px-8 py-4 rounded-xl bg-molted-ember hover:bg-molted-ember-light text-white font-bold text-lg transition-all hover:-translate-y-px shadow-molted-ember"
             >
               Start the Conversation
@@ -693,7 +693,7 @@ function CTA() {
               to="/"
               className="px-8 py-4 rounded-xl border border-molted-border text-molted-muted hover:text-molted-white font-semibold transition-all hover:border-molted-subtle"
             >
-              ← Back to MoltED
+              ← Back to MoltALP
             </Link>
           </div>
         </RevealBlock>

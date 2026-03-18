@@ -9,7 +9,7 @@ function MoltedLogo({ size = 'md' }: { size?: 'sm' | 'md' | 'lg' }) {
       <span className={`${textSize} font-black tracking-tight leading-none`}>
         <span className="text-molted-white/90">M</span>
         <span style={{ color: '#2563EB' }}>olt</span>
-        <span className="text-molted-white/90">ED</span>
+        <span className="text-molted-white/90">ALP</span>
       </span>
     </div>
   );
@@ -87,7 +87,7 @@ export function MoltedNav() {
 
         <div className="hidden md:flex items-center gap-3">
           <a
-            href="mailto:hello@molted.ai"
+            href="mailto:greg.lucas@paigebreaker.com"
             className="px-5 py-2 rounded-xl text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-px"
             style={{ background: 'linear-gradient(120deg, #2563EB, #1E3A8A)' }}
           >
@@ -137,7 +137,7 @@ export function MoltedNav() {
               <Link to="/about" className="block px-4 py-3 rounded-lg text-sm font-medium text-molted-muted hover:text-molted-white transition-all">About</Link>
             </div>
             <div className="pt-3" style={{ borderTop: '1px solid rgba(0,0,0,0.08)' }}>
-              <a href="mailto:hello@molted.ai" className="block w-full text-center px-5 py-3 rounded-xl text-sm font-semibold text-white"
+              <a href="mailto:greg.lucas@paigebreaker.com" className="block w-full text-center px-5 py-3 rounded-xl text-sm font-semibold text-white"
                 style={{ background: 'linear-gradient(120deg, #2563EB, #1E3A8A)' }}
               >Get Started</a>
             </div>
@@ -157,7 +157,7 @@ export function MoltedFooter() {
           <div className="md:col-span-2">
             <MoltedLogo size="md" />
             <p className="mt-4 text-molted-muted text-sm leading-relaxed max-w-xs">
-              MoltED builds AI-native tools that transform how institutions teach,
+              MoltALP builds AI-native tools that transform how institutions teach,
               how students learn, and how knowledge moves.
             </p>
           </div>
@@ -188,7 +188,7 @@ export function MoltedFooter() {
           <div>
             <p className="text-molted-white text-sm font-semibold mb-4">Company</p>
             <ul className="space-y-2.5">
-              {[{ label: 'About', href: '/about' }, { label: 'Investors', href: '/investors' }, { label: 'Contact', href: 'mailto:hello@molted.ai' }].map(l => (
+              {[{ label: 'About', href: '/about' }, { label: 'Investors', href: '/investors' }, { label: 'Contact', href: 'mailto:greg.lucas@paigebreaker.com' }].map(l => (
                 <li key={l.label}>
                   <a href={l.href} className="text-molted-muted text-sm hover:text-molted-white transition-colors">{l.label}</a>
                 </li>
@@ -198,7 +198,7 @@ export function MoltedFooter() {
         </div>
 
         <div className="mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4" style={{ borderTop: '1px solid rgba(0,0,0,0.07)' }}>
-          <p className="text-molted-subtle text-xs">© {new Date().getFullYear()} MoltED. All rights reserved.</p>
+          <p className="text-molted-subtle text-xs">© {new Date().getFullYear()} MoltALP. All rights reserved.</p>
           <p className="text-molted-subtle text-xs">Built with intent. Designed with purpose.</p>
         </div>
       </div>

@@ -1,4 +1,4 @@
-// Pixel-art SVG brand mark for MoltED — "education molting its skin"
+// Pixel-art SVG brand mark for MoltALP — "education molting its skin"
 // 280×280 viewBox · all <rect> elements · strict symmetry across x=140
 // Phoenix wings (gold/scarlet) rise from a cracked graduation mortarboard
 
@@ -17,7 +17,7 @@ export default function MoltedPixelMark({
       height={size}
       className={className}
       style={{ imageRendering: 'pixelated' }}
-      aria-label="MoltED mark"
+      aria-label="MoltALP mark"
       role="img"
     >
       {/* Background */}

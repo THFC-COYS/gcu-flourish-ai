@@ -50,7 +50,7 @@ function SlideHero() {
           </span>
         </h1>
         <p className="text-xl text-molted-muted max-w-2xl mx-auto leading-relaxed">
-          MoltED is an agentic learning platform built for scale. Every student. Every course. Every outcome — tracked, supported, and optimized in real time.
+          MoltALP is an agentic learning platform built for scale. Every student. Every course. Every outcome — tracked, supported, and optimized in real time.
         </p>
         <p className="mt-8 text-molted-muted/50 text-sm">Use arrow keys or the buttons below to navigate</p>
       </div>
@@ -106,7 +106,7 @@ function SlideCanvas() {
           </ul>
         </div>
         <div className="p-8 rounded-2xl border border-molted-gold/20 bg-molted-gold/[0.04]">
-          <h3 className="text-molted-white font-bold text-lg mb-4">What MoltED does</h3>
+          <h3 className="text-molted-white font-bold text-lg mb-4">What MoltALP does</h3>
           <ul className="space-y-3 text-molted-muted">
             {['Watches every engagement signal', 'Responds to each student individually', 'Flags risk before it becomes dropout', 'Generates compliance data continuously'].map(i => (
               <li key={i} className="flex items-center gap-3">
@@ -128,7 +128,7 @@ function SlideMolt() {
     <Slide>
       <Eyebrow>The Platform</Eyebrow>
       <h2 className="text-5xl md:text-6xl font-black text-molted-white leading-tight mb-8">
-        MoltED is not a plugin.<br />
+        MoltALP is not a plugin.<br />
         <span style={{
           background: 'linear-gradient(120deg, #64748B 0%, #1E3A8A 100%)',
           WebkitBackgroundClip: 'text',
@@ -213,12 +213,12 @@ function SlideMissionLayer() {
       <Eyebrow>The Mission Layer</Eyebrow>
       <h2 className="text-5xl md:text-6xl font-black text-molted-white leading-tight mb-8">
         Every university has a soul.<br />
-        <span className="text-molted-muted">MoltED carries it.</span>
+        <span className="text-molted-muted">MoltALP carries it.</span>
       </h2>
       <div className="grid md:grid-cols-2 gap-8">
         <div className="space-y-6">
           <p className="text-molted-muted text-lg leading-relaxed">
-            Generic AI gives every student the same experience. MoltED's <strong className="text-molted-white">Spirit Layer</strong> encodes institutional character — values, voice, pastoral care — into every agent so students feel the university, not a chatbot.
+            Generic AI gives every student the same experience. MoltALP's <strong className="text-molted-white">Spirit Layer</strong> encodes institutional character — values, voice, pastoral care — into every agent so students feel the university, not a chatbot.
           </p>
           <p className="text-molted-muted text-lg leading-relaxed">
             Each university licenses its own Spirit Layer configuration. The agents respond in the institution's voice, with its values, at 2 AM when no one else is there.
@@ -474,7 +474,7 @@ export default function MoltedExecTour() {
             style={{ background: 'linear-gradient(135deg, #64748B, #1E3A8A)' }}>
             <span className="font-black text-white text-xs">M</span>
           </div>
-          <span className="text-molted-muted text-sm font-medium">MoltED &nbsp;·&nbsp; Executive Tour</span>
+          <span className="text-molted-muted text-sm font-medium">MoltALP &nbsp;·&nbsp; Executive Tour</span>
         </div>
         <div className="flex items-center gap-6">
           <span className="text-molted-muted/40 text-sm tabular-nums">{slide + 1} / {TOTAL_SLIDES}</span>

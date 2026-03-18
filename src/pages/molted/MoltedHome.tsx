@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronRight, Bot, BookOpen, BarChart3, Users, Zap } from 'lucide-react';
+import { ArrowRight, ChevronRight, Bot, BookOpen, BarChart3, Users, Zap, MessageSquare, AlertTriangle, Mail, GraduationCap, TrendingUp, Shield, Mic } from 'lucide-react';
 import MoltedLayout from './MoltedLayout';
 
 /* ── Scroll reveal ─────────────────────────────────────────────────────── */
@@ -171,14 +171,14 @@ function Hero() {
         {/* Body */}
         <RevealBlock delay={400}>
           <p className="mt-8 text-lg md:text-xl text-molted-muted max-w-2xl mx-auto leading-relaxed">
-            MoltED is not a better LMS. It is the replacement for the LMS — a platform built from scratch for AI-native education. It watches every discussion, every reading session, every engagement signal, and responds to each student, faculty member, and administrator as an individual. Not a tool. Not a plugin. A new category.
+            MoltALP is not a better LMS. It is the replacement for the LMS — a platform built from scratch for AI-native education. It watches every discussion, every reading session, every engagement signal, and responds to each student, faculty member, and administrator as an individual. Not a tool. Not a plugin. A new category.
           </p>
         </RevealBlock>
 
         {/* CTA row */}
         <RevealBlock delay={480} className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href="mailto:hello@molted.ai?subject=MoltED ALP Demo"
+            href="mailto:greg.lucas@paigebreaker.com?subject=MoltALP Demo"
             className="group inline-flex items-center gap-3 px-10 py-5 rounded-2xl font-bold text-base transition-all duration-200 hover:-translate-y-1 hover:shadow-molted-glow"
             style={{ background: 'linear-gradient(120deg, #2563EB 0%, #64748B 50%, #1E3A8A 100%)', color: '#ffffff' }}
           >
@@ -438,7 +438,7 @@ function DataFlywheel() {
             with every interaction.
           </p>
           <p className="mt-8 text-molted-muted text-lg leading-relaxed max-w-2xl mx-auto">
-            Every discussion reply, every intervention, every personalized response feeds back into MoltED's understanding of how that student learns. The data flywheel compounds. Institutions that deploy early build an advantage that can't be replicated — a model trained on their students, their courses, their outcomes.
+            Every discussion reply, every intervention, every personalized response feeds back into MoltALP's understanding of how that student learns. The data flywheel compounds. Institutions that deploy early build an advantage that can't be replicated — a model trained on their students, their courses, their outcomes.
           </p>
         </RevealBlock>
 
@@ -594,7 +594,7 @@ function InstructorFirst() {
             Students never lose you.
           </p>
           <p className="mt-6 text-molted-muted text-lg leading-relaxed max-w-2xl mx-auto">
-            MoltED is not a chatbot standing in for your instructor. It is your instructor's voice, deployed everywhere you cannot be at once. Forge learns your background, your passions, your hobbies, your teaching style — and every response it drafts sounds like you wrote it.
+            MoltALP is not a chatbot standing in for your instructor. It is your instructor's voice, deployed everywhere you cannot be at once. Forge learns your background, your passions, your hobbies, your teaching style — and every response it drafts sounds like you wrote it.
           </p>
         </RevealBlock>
 
@@ -749,7 +749,7 @@ function Manifesto() {
           <p className="mt-10 text-molted-muted text-base leading-relaxed max-w-xl mx-auto">
             The LMS was built for a world without AI. The curriculum was built for a world without the internet. The classroom was built for a world without remote work. The ALP is built for what comes next — and what comes next is already here.
           </p>
-          <p className="mt-6 text-molted-subtle text-sm tracking-widest">— MoltED</p>
+          <p className="mt-6 text-molted-subtle text-sm tracking-widest">— MoltALP</p>
         </RevealBlock>
 
         <RevealBlock delay={200} className="mt-16">
@@ -790,7 +790,7 @@ function FinalCTA() {
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="mailto:hello@molted.ai?subject=MoltED ALP Demo Request"
+              href="mailto:greg.lucas@paigebreaker.com?subject=MoltALP Demo Request"
               className="group flex items-center gap-2.5 px-8 py-4 rounded-xl text-white font-bold text-lg transition-all duration-200 hover:-translate-y-px"
               style={{ background: 'linear-gradient(135deg, #2563EB 0%, #64748B 50%, #1E3A8A 100%)', color: '#ffffff' }}
             >
@@ -802,6 +802,195 @@ function FinalCTA() {
             </Link>
           </div>
         </RevealBlock>
+      </div>
+    </section>
+  );
+}
+
+/* ── All Demos ─────────────────────────────────────────────────────────── */
+const DEMOS = [
+  {
+    href: '/lumen',
+    icon: BookOpen,
+    color: '#2563EB',
+    name: 'Lumen',
+    segment: 'Students',
+    tagline: 'AI reading companion',
+    preview: ['Student opens Week 4 reading', '→ Lumen answers in context', 'No tab switching. Ever.'],
+  },
+  {
+    href: '/forge',
+    icon: Users,
+    color: '#1D4ED8',
+    name: 'Forge',
+    segment: 'Faculty',
+    tagline: 'Full faculty AI toolkit',
+    preview: ['Discussion · Grader · Email', '→ 23 hrs/week admin reclaimed', 'One dashboard. All agents.'],
+  },
+  {
+    href: '/forge/discussion',
+    icon: MessageSquare,
+    color: '#3B82F6',
+    name: 'Discussion Agent',
+    segment: 'Faculty',
+    tagline: 'Replies in 4 seconds',
+    preview: ['"What is cognitive load theory?"', '→ Agent replies in 4 seconds', 'Faculty reviews before publish'],
+  },
+  {
+    href: '/forge/agentic-grader',
+    icon: GraduationCap,
+    color: '#7C3AED',
+    name: 'Agentic Grader',
+    segment: 'Faculty',
+    tagline: 'Rubric-based AI feedback',
+    preview: ['Submission: Week 4 Essay', 'Rubric matched: 4 criteria', '→ Feedback drafted, ready to send'],
+  },
+  {
+    href: '/forge/auto-respond',
+    icon: Mail,
+    color: '#059669',
+    name: 'Auto-Respond',
+    segment: 'Faculty',
+    tagline: 'Faculty email AI',
+    preview: ['Queue: 14 unanswered emails', '→ 14 drafts in 90 seconds', 'Faculty review time: ~2 min'],
+  },
+  {
+    href: '/forge/course-architect',
+    icon: Zap,
+    color: '#0891B2',
+    name: 'Course Architect',
+    segment: 'Faculty',
+    tagline: 'Syllabus → full semester',
+    preview: ['Syllabus: NURS 301 uploaded', '→ 16-week plan generated', 'Discussion prompts: 32 created'],
+  },
+  {
+    href: '/forge/early-warning',
+    icon: AlertTriangle,
+    color: '#D97706',
+    name: 'Early Warning',
+    segment: 'Admin',
+    tagline: '5-signal risk model',
+    preview: ['Signal: No login — 5 days', 'Signal: Grade drop — 2 assignments', '→ Check-in drafted automatically'],
+  },
+  {
+    href: '/beacon',
+    icon: BarChart3,
+    color: '#1E3A8A',
+    name: 'Beacon',
+    segment: 'Institutions',
+    tagline: 'Institutional analytics AI',
+    preview: ['Live: 170K students monitored', 'Risk signals: 47 flagged today', '→ Board report ready to export'],
+  },
+  {
+    href: '/pathway-ai',
+    icon: TrendingUp,
+    color: '#065F46',
+    name: 'Pathway AI',
+    segment: 'Students',
+    tagline: 'Career outcome mapping',
+    preview: ['Program: BSN Nursing', 'Top outcome: RN placement 94%', '→ 8 career pathways mapped'],
+  },
+  {
+    href: '/outcomes-ai',
+    icon: BarChart3,
+    color: '#1E40AF',
+    name: 'Outcomes AI',
+    segment: 'Institutions',
+    tagline: 'Dean & provost intelligence',
+    preview: ['Retention rate: 91.4% ↑', 'At-risk flags: 47 active', '→ Outcomes export ready'],
+  },
+  {
+    href: '/retain-ai',
+    icon: Shield,
+    color: '#7C2D12',
+    name: 'Retain AI',
+    segment: 'Admin',
+    tagline: 'Stop-out detection',
+    preview: ['⚠ 3 students — high risk today', '→ Marcus T. — 5 days offline', 'Check-in drafted automatically'],
+  },
+  {
+    href: '/forge/voice-demo',
+    icon: Mic,
+    color: '#6366F1',
+    name: 'Voice Demo',
+    segment: 'Live',
+    tagline: 'Hear the agent in conversation',
+    preview: ['Agent listening…', 'Student: "I don\'t understand…"', '→ Agent responds in real time'],
+  },
+];
+
+function AllDemos() {
+  const segColor = (seg: string) =>
+    seg === 'Faculty'       ? { bg: 'rgba(37,99,235,0.08)',   text: '#1D4ED8',   border: 'rgba(37,99,235,0.2)' }
+    : seg === 'Institutions'? { bg: 'rgba(30,58,138,0.08)',   text: '#1E3A8A',   border: 'rgba(30,58,138,0.2)' }
+    : seg === 'Admin'       ? { bg: 'rgba(99,102,241,0.08)',  text: '#4F46E5',   border: 'rgba(99,102,241,0.2)' }
+    : seg === 'Live'        ? { bg: 'rgba(16,185,129,0.08)',  text: '#059669',   border: 'rgba(16,185,129,0.2)' }
+    :                         { bg: 'rgba(100,116,139,0.08)', text: '#475569',   border: 'rgba(100,116,139,0.2)' };
+
+  return (
+    <section className="py-24 px-6 border-t border-molted-border">
+      <div className="max-w-6xl mx-auto">
+        <RevealBlock className="text-center mb-14">
+          <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: '#2563EB' }}>
+            Try every module
+          </p>
+          <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight leading-tight">
+            Every demo. Live now.
+          </h2>
+          <p className="mt-4 text-molted-muted text-lg max-w-xl mx-auto">
+            Click any card to experience the ALP in action — no login, no install.
+          </p>
+        </RevealBlock>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {DEMOS.map((d, i) => {
+            const Icon = d.icon;
+            const sc = segColor(d.segment);
+            return (
+              <RevealBlock key={d.href} delay={i * 40}>
+                <Link
+                  to={d.href}
+                  className="group flex flex-col h-full rounded-2xl border overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
+                  style={{ background: '#FFFFFF', borderColor: `${d.color}20` }}
+                >
+                  {/* Card header */}
+                  <div className="px-5 pt-5 pb-4" style={{ background: `linear-gradient(135deg, ${d.color}06, ${d.color}10)` }}>
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="w-8 h-8 rounded-xl flex items-center justify-center"
+                        style={{ background: `linear-gradient(135deg, ${d.color}cc, ${d.color})` }}>
+                        <Icon size={15} color="white" />
+                      </div>
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full border"
+                        style={{ background: sc.bg, color: sc.text, borderColor: sc.border }}>
+                        {d.segment}
+                      </span>
+                    </div>
+                    <h3 className="text-sm font-black leading-tight" style={{ color: '#0F172A' }}>{d.name}</h3>
+                    <p className="text-xs mt-0.5 font-medium" style={{ color: d.color }}>{d.tagline}</p>
+                  </div>
+
+                  {/* Mock preview */}
+                  <div className="flex-1 px-5 py-3 space-y-1">
+                    {d.preview.map((line, j) => (
+                      <p key={j} className="text-[11px] font-mono leading-snug"
+                        style={{ color: j === d.preview.length - 1 ? d.color : '#64748B' }}>
+                        {line}
+                      </p>
+                    ))}
+                  </div>
+
+                  {/* Footer */}
+                  <div className="px-5 py-3 flex items-center justify-between border-t"
+                    style={{ borderColor: `${d.color}15` }}>
+                    <span className="text-[11px] font-semibold" style={{ color: d.color }}>Open demo</span>
+                    <ArrowRight size={12} style={{ color: d.color }}
+                      className="group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </Link>
+              </RevealBlock>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
@@ -820,6 +1009,7 @@ export default function MoltedHome() {
       <InstructorFirst />
       <Traction />
       <PlatformBridge />
+      <AllDemos />
       <Manifesto />
       <FinalCTA />
     </MoltedLayout>

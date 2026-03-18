@@ -776,7 +776,7 @@ export default function CourseArchitect() {
               Next: direct LMS publish — build once, schedule everything.
             </p>
             <a
-              href="mailto:hello@molted.ai"
+              href="mailto:greg.lucas@paigebreaker.com"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all hover:-translate-y-px"
               style={{ background: TEAL, color: '#ffffff' }}
             >

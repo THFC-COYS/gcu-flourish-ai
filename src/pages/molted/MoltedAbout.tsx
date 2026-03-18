@@ -49,7 +49,7 @@ function Hero() {
       </div>
       <div className="relative z-10 max-w-4xl mx-auto">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-molted-border bg-molted-elevated text-molted-muted text-xs font-semibold mb-8 animate-fade-in">
-          MoltED · About
+          MoltALP · About
         </div>
         <h1 className="text-5xl md:text-7xl font-black text-molted-white tracking-tight leading-tight animate-reveal">
           We didn't build<br />
@@ -171,7 +171,7 @@ function StatusNote() {
               <div>
                 <h3 className="text-molted-white font-bold text-lg mb-3">Company Status</h3>
                 <p className="text-molted-muted leading-relaxed mb-4">
-                  MoltED is an active company. Products are live and deployed at a flagship university partner
+                  MoltALP is an active company. Products are live and deployed at a flagship university partner
                   serving 50,000+ students. We are currently accepting founding institutional partners.
                 </p>
                 <div className="space-y-2">
@@ -212,17 +212,17 @@ function Contact() {
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="mailto:hello@molted.ai"
+              href="mailto:greg.lucas@paigebreaker.com"
               className="group flex items-center gap-2.5 px-8 py-4 rounded-xl bg-gradient-to-r from-molted-violet to-molted-ember text-white font-bold text-lg transition-all hover:-translate-y-px"
             >
-              hello@molted.ai
+              greg.lucas@paigebreaker.com
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </a>
             <Link
               to="/"
               className="px-8 py-4 rounded-xl border border-molted-border text-molted-muted hover:text-molted-white font-semibold transition-all hover:border-molted-subtle"
             >
-              ← Back to MoltEDED
+              ← Back to MoltALPED
             </Link>
           </div>
         </RevealBlock>

@@ -565,7 +565,7 @@ export default function AutoRespond() {
               Next: sync Auto-Respond directly with Canvas Inbox and Gmail.
             </p>
             <a
-              href="mailto:hello@molted.ai"
+              href="mailto:greg.lucas@paigebreaker.com"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all hover:-translate-y-px"
               style={{ background: TEAL, color: '#ffffff' }}
             >

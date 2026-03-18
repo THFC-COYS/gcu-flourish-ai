@@ -58,7 +58,7 @@ function GateScreen({ onUnlock }: { onUnlock: () => void }) {
                 backgroundClip: 'text',
               }}
             >
-              MoltED
+              MoltALP
             </p>
             <p className="text-xs text-molted-muted mt-0.5 tracking-widest uppercase">Private access</p>
           </div>
@@ -111,10 +111,10 @@ function GateScreen({ onUnlock }: { onUnlock: () => void }) {
         <p className="mt-6 text-xs text-molted-subtle">
           Need access?{' '}
           <a
-            href="mailto:hello@molted.ai?subject=Access Request"
+            href="mailto:greg.lucas@paigebreaker.com?subject=Access Request"
             className="underline underline-offset-2 hover:text-molted-muted transition-colors"
           >
-            hello@molted.ai
+            greg.lucas@paigebreaker.com
           </a>
         </p>
       </div>

@@ -576,7 +576,7 @@ function SlideLegacy({ onExit }: { onExit: () => void }) {
           </button>
         </div>
         <p className="mt-8 text-white/25 text-xs">
-          hello@molted.ai &nbsp;·&nbsp; molted.ai/gcu
+          greg.lucas@paigebreaker.com &nbsp;·&nbsp; greg.lucas@paigebreaker.com
         </p>
       </div>
     </Slide>
