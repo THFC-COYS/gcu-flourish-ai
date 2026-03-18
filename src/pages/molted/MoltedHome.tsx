@@ -562,61 +562,113 @@ function ThreeRoles() {
 
 /* ── Instructor First ──────────────────────────────────────────────────── */
 function InstructorFirst() {
+  const agentHandles = [
+    { label: 'Conceptual questions', detail: 'Course content, definitions, readings — answered in your voice, instantly.' },
+    { label: 'Discussion engagement', detail: 'Routine posts acknowledged and deepened before students close the browser.' },
+    { label: 'Assignment clarifications', detail: 'Rubric questions, deadline reminders, submission logistics.' },
+    { label: 'Draft grade feedback', detail: 'Rubric-aligned comments drafted and queued for your one-click approval.' },
+  ];
+
+  const humanNeeded = [
+    { label: 'Student distress signals', detail: 'Mental health concerns, personal crises, anything emotionally sensitive — flagged immediately.' },
+    { label: 'Academic integrity flags', detail: 'Suspected violations surface directly to faculty with full context.' },
+    { label: 'Grade disputes', detail: 'Any challenge to an assessment goes to you, never resolved by the agent.' },
+    { label: 'Low-confidence situations', detail: 'When the system isn\'t certain, it pauses and asks — it never guesses on sensitive matters.' },
+  ];
+
   return (
     <section className="py-24 px-6 border-t border-molted-border">
       <div className="max-w-5xl mx-auto">
         <RevealBlock className="text-center mb-14">
           <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: '#2563EB' }}>
-            Faculty in the loop
+            Faculty in the loop — always
           </p>
           <h2 className="text-3xl md:text-5xl font-black text-molted-white leading-tight tracking-tight">
-            The ALP learns your voice.
+            The system knows what it can handle.
           </h2>
           <p className="text-3xl md:text-5xl font-black leading-tight tracking-tight mt-1"
             style={{ color: 'rgba(0,0,0,0.18)' }}>
-            Students never lose you.
+            And when to get you.
           </p>
           <p className="mt-6 text-molted-muted text-lg leading-relaxed max-w-2xl mx-auto">
-            MoltALP is not a chatbot standing in for your instructor. It is your instructor's voice, deployed everywhere you cannot be at once. Forge learns your background, your passions, your hobbies, your teaching style — and every response it drafts sounds like you wrote it.
+            MoltALP isn't a chatbot that guesses. It understands the difference between a question an agent can answer confidently and a moment that requires a human. Faculty see everything — what was handled, what's queued for review, and what needs immediate attention.
           </p>
         </RevealBlock>
 
-        <div className="grid md:grid-cols-2 gap-5 mb-8">
-          {[
-            { num: '01', title: 'Forge learns your story', body: 'Your years in the field. Your subject obsessions. Your coaching style. The hobbies that show up in your lectures. You share it once — it informs every response, forever.' },
-            { num: '02', title: 'Forge learns your voice', body: 'Upload your syllabus, paste your rubrics, describe how you talk to students. Forge reads your tone and matches it — not a generic AI template.' },
-            { num: '03', title: 'Forge drafts in your name', body: 'When a student posts at midnight, Forge drafts a reply grounded in your teaching philosophy and your personality. You review before anything sends.' },
-            { num: '04', title: 'You always have the last word', body: 'Nothing goes to a student without your approval. Every draft surfaces for your review. The instructor leads. The ALP lifts.' },
-          ].map((item, i) => (
-            <RevealBlock key={i} delay={i * 80}>
-              <div
-                className="rounded-xl border p-6"
-                style={{ background: 'rgba(241,243,248,0.85)', borderColor: 'rgba(37,99,235,0.12)' }}
-              >
-                <div className="flex items-start gap-3">
-                  <div
-                    className="w-6 h-6 rounded-full flex-shrink-0 flex items-center justify-center text-[10px] font-black mt-0.5"
-                    style={{ background: 'rgba(37,99,235,0.15)', color: '#2563EB' }}
-                  >
-                    {item.num}
-                  </div>
-                  <div>
-                    <p className="text-molted-white font-bold text-sm mb-1.5">{item.title}</p>
-                    <p className="text-molted-muted text-xs leading-relaxed">{item.body}</p>
-                  </div>
+        {/* Decision split */}
+        <div className="grid md:grid-cols-2 gap-6 mb-10">
+          {/* Agent handles */}
+          <RevealBlock>
+            <div className="rounded-2xl border h-full"
+              style={{ background: 'rgba(241,243,248,0.85)', borderColor: 'rgba(37,99,235,0.15)' }}
+            >
+              <div className="px-6 pt-6 pb-4 border-b" style={{ borderColor: 'rgba(37,99,235,0.12)' }}>
+                <div className="flex items-center gap-2 mb-1">
+                  <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: '#2563EB' }} />
+                  <p className="text-xs font-black uppercase tracking-widest" style={{ color: '#2563EB' }}>Agent handles</p>
                 </div>
+                <p className="text-molted-white font-bold text-base">Routine — responded to instantly</p>
               </div>
-            </RevealBlock>
-          ))}
+              <div className="p-4 space-y-3">
+                {agentHandles.map((item, i) => (
+                  <div key={i} className="flex items-start gap-3 p-3 rounded-xl" style={{ background: 'rgba(37,99,235,0.05)' }}>
+                    <div className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-1.5" style={{ background: '#2563EB' }} />
+                    <div>
+                      <p className="text-molted-white text-sm font-semibold">{item.label}</p>
+                      <p className="text-molted-muted text-xs leading-relaxed mt-0.5">{item.detail}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </RevealBlock>
+
+          {/* Human needed */}
+          <RevealBlock delay={100}>
+            <div className="rounded-2xl border h-full"
+              style={{ background: 'rgba(241,243,248,0.85)', borderColor: 'rgba(220,38,38,0.15)' }}
+            >
+              <div className="px-6 pt-6 pb-4 border-b" style={{ borderColor: 'rgba(220,38,38,0.10)' }}>
+                <div className="flex items-center gap-2 mb-1">
+                  <AlertTriangle size={12} style={{ color: '#DC2626' }} />
+                  <p className="text-xs font-black uppercase tracking-widest" style={{ color: '#DC2626' }}>Faculty required</p>
+                </div>
+                <p className="text-molted-white font-bold text-base">Escalated — you're notified immediately</p>
+              </div>
+              <div className="p-4 space-y-3">
+                {humanNeeded.map((item, i) => (
+                  <div key={i} className="flex items-start gap-3 p-3 rounded-xl" style={{ background: 'rgba(220,38,38,0.04)' }}>
+                    <div className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-1.5" style={{ background: '#DC2626' }} />
+                    <div>
+                      <p className="text-molted-white text-sm font-semibold">{item.label}</p>
+                      <p className="text-molted-muted text-xs leading-relaxed mt-0.5">{item.detail}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </RevealBlock>
         </div>
 
-        <RevealBlock delay={200} className="text-center">
+        {/* Guarantee strip */}
+        <RevealBlock delay={150}>
+          <div className="rounded-2xl border px-8 py-6 text-center"
+            style={{ background: 'rgba(37,99,235,0.04)', borderColor: 'rgba(37,99,235,0.18)' }}
+          >
+            <p className="text-molted-white font-black text-lg mb-2">Nothing reaches a student without your knowledge.</p>
+            <p className="text-molted-muted text-sm leading-relaxed max-w-xl mx-auto">
+              Every agent action is logged in your faculty dashboard. Drafts queue for one-click approval. Escalations surface instantly. The agent moves fast — you stay in control.
+            </p>
+          </div>
+        </RevealBlock>
+
+        <RevealBlock delay={200} className="text-center mt-8">
           <Link
             to="/forge"
             className="inline-flex items-center gap-1.5 text-sm font-bold transition-opacity hover:opacity-70"
             style={{ color: '#2563EB' }}
           >
-            See how Forge learns your voice <ChevronRight size={14} />
+            See how Forge keeps faculty in control <ChevronRight size={14} />
           </Link>
         </RevealBlock>
       </div>
