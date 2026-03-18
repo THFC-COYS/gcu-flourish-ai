@@ -5,7 +5,8 @@ import {
   ShieldCheck, Users, Target, Zap, Globe, Layers, Bot,
   ArrowRight, ExternalLink, Sparkles, FlaskConical,
   BrainCircuit, Microscope, Award, Briefcase, Network,
-  Eye, Atom, Link2, Fingerprint, LayoutGrid, Rocket
+  Eye, Atom, Link2, Fingerprint, LayoutGrid, Rocket,
+  type LucideIcon
 } from 'lucide-react';
 
 /* ─── Types ──────────────────────────────────────────────────────────────── */
@@ -19,7 +20,7 @@ interface Product {
   description: string;
   status: ProductStatus;
   category: ProductCategory;
-  icon: React.ComponentType<{ size?: number; className?: string }>;
+  icon: LucideIcon;
   color: string;
   bgColor: string;
   borderColor: string;
@@ -494,7 +495,7 @@ const STATUS_CONFIG: Record<ProductStatus, { label: string; color: string; bg: s
   vision:   { label: 'Vision',   color: 'text-purple-400',  bg: 'bg-purple-400/10 border border-purple-400/25' },
 };
 
-const CATEGORY_CONFIG: Record<ProductCategory, { label: string; icon: React.ComponentType<{ size?: number; className?: string }> }> = {
+const CATEGORY_CONFIG: Record<ProductCategory, { label: string; icon: LucideIcon }> = {
   Student:        { label: 'Student Experience', icon: GraduationCap },
   Faculty:        { label: 'Faculty Tools',      icon: BookOpen },
   Institution:    { label: 'Institution',         icon: Layers },
