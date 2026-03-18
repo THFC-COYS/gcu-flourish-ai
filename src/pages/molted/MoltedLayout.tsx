@@ -5,12 +5,13 @@ import { Menu, X, ChevronRight } from 'lucide-react';
 function MoltedLogo({ size = 'md' }: { size?: 'sm' | 'md' | 'lg' }) {
   const textSize = { sm: 'text-lg', md: 'text-2xl', lg: 'text-4xl' }[size];
   return (
-    <div className="flex items-center">
+    <div className="flex flex-col leading-none">
       <span className={`${textSize} font-black tracking-tight leading-none`}>
         <span className="text-molted-white/90">M</span>
         <span style={{ color: '#2563EB' }}>olt</span>
         <span className="text-molted-white/90">ALP</span>
       </span>
+      <span className="text-[9px] font-medium tracking-widest uppercase" style={{ color: '#64748B' }}>By PaigeBreaker LLC</span>
     </div>
   );
 }
