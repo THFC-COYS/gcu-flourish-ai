@@ -547,7 +547,7 @@ export default function DiscussionDemo() {
                   style={{ background: TEAL_DIM, color: TEAL, border: `1px solid ${TEAL_BORDER}` }}
                 >
                   <MessageSquare size={11} />
-                  Discussion Intelligence · Beta
+                  Discussion Intelligence
                 </div>
                 <h1 className="text-3xl md:text-4xl font-black text-molted-white tracking-tight">
                   Paste your discussion board.
@@ -555,9 +555,9 @@ export default function DiscussionDemo() {
                   <span style={{ color: TEAL }}>Get your analysis.</span>
                 </h1>
                 <p className="mt-3 text-molted-muted text-base max-w-lg leading-relaxed">
-                  No Canvas API required. Copy the thread from any LMS,
-                  paste it below, and the agent reads every post — flagging
-                  misconceptions and drafting your responses.
+                  Copy a thread from any platform, paste it below, and the
+                  agent reads every post — flagging misconceptions and
+                  drafting responses you can send in seconds.
                 </p>
               </div>
             </div>

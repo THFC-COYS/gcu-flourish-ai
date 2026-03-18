@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronRight, Bot, BookOpen, BarChart3, Users, Zap, MessageSquare, AlertTriangle, Mail, GraduationCap, TrendingUp, Shield, Mic } from 'lucide-react';
+import { ArrowRight, ChevronRight, Bot, BookOpen, BarChart3, Users, Zap, MessageSquare, AlertTriangle } from 'lucide-react';
 import MoltedLayout from './MoltedLayout';
 
 /* ── Scroll reveal ─────────────────────────────────────────────────────── */
@@ -789,193 +789,78 @@ function FinalCTA() {
 }
 
 /* ── All Demos ─────────────────────────────────────────────────────────── */
-const DEMOS = [
-  {
-    href: '/lumen',
-    icon: BookOpen,
-    color: '#2563EB',
-    name: 'Lumen',
-    segment: 'Students',
-    tagline: 'AI reading companion',
-    preview: ['Student opens Week 4 reading', '→ Lumen answers in context', 'No tab switching. Ever.'],
-  },
-  {
-    href: '/forge',
-    icon: Users,
-    color: '#1D4ED8',
-    name: 'Forge',
-    segment: 'Faculty',
-    tagline: 'Full faculty AI toolkit',
-    preview: ['Discussion · Grader · Email', '→ 23 hrs/week admin reclaimed', 'One dashboard. All agents.'],
-  },
-  {
-    href: '/forge/discussion',
-    icon: MessageSquare,
-    color: '#3B82F6',
-    name: 'Discussion Agent',
-    segment: 'Faculty',
-    tagline: 'Replies in 4 seconds',
-    preview: ['"What is cognitive load theory?"', '→ Agent replies in 4 seconds', 'Faculty reviews before publish'],
-  },
-  {
-    href: '/forge/agentic-grader',
-    icon: GraduationCap,
-    color: '#7C3AED',
-    name: 'Agentic Grader',
-    segment: 'Faculty',
-    tagline: 'Rubric-based AI feedback',
-    preview: ['Submission: Week 4 Essay', 'Rubric matched: 4 criteria', '→ Feedback drafted, ready to send'],
-  },
-  {
-    href: '/forge/auto-respond',
-    icon: Mail,
-    color: '#059669',
-    name: 'Auto-Respond',
-    segment: 'Faculty',
-    tagline: 'Faculty email AI',
-    preview: ['Queue: 14 unanswered emails', '→ 14 drafts in 90 seconds', 'Faculty review time: ~2 min'],
-  },
-  {
-    href: '/forge/course-architect',
-    icon: Zap,
-    color: '#0891B2',
-    name: 'Course Architect',
-    segment: 'Faculty',
-    tagline: 'Syllabus → full semester',
-    preview: ['Syllabus: NURS 301 uploaded', '→ 16-week plan generated', 'Discussion prompts: 32 created'],
-  },
-  {
-    href: '/forge/early-warning',
-    icon: AlertTriangle,
-    color: '#D97706',
-    name: 'Early Warning',
-    segment: 'Admin',
-    tagline: '5-signal risk model',
-    preview: ['Signal: No login — 5 days', 'Signal: Grade drop — 2 assignments', '→ Check-in drafted automatically'],
-  },
-  {
-    href: '/beacon',
-    icon: BarChart3,
-    color: '#1E3A8A',
-    name: 'Beacon',
-    segment: 'Institutions',
-    tagline: 'Institutional analytics AI',
-    preview: ['Live institutional dashboard', 'Risk signals: 47 flagged today', '→ Board report ready to export'],
-  },
-  {
-    href: '/pathway-ai',
-    icon: TrendingUp,
-    color: '#065F46',
-    name: 'Pathway AI',
-    segment: 'Students',
-    tagline: 'Career outcome mapping',
-    preview: ['Program: BSN Nursing', 'Top outcome: RN placement 94%', '→ 8 career pathways mapped'],
-  },
-  {
-    href: '/outcomes-ai',
-    icon: BarChart3,
-    color: '#1E40AF',
-    name: 'Outcomes AI',
-    segment: 'Institutions',
-    tagline: 'Dean & provost intelligence',
-    preview: ['Retention rate: 91.4% ↑', 'At-risk flags: 47 active', '→ Outcomes export ready'],
-  },
-  {
-    href: '/retain-ai',
-    icon: Shield,
-    color: '#7C2D12',
-    name: 'Retain AI',
-    segment: 'Admin',
-    tagline: 'Stop-out detection',
-    preview: ['⚠ 3 students — high risk today', '→ Marcus T. — 5 days offline', 'Check-in drafted automatically'],
-  },
-  {
-    href: '/forge/voice-demo',
-    icon: Mic,
-    color: '#6366F1',
-    name: 'Voice Demo',
-    segment: 'Live',
-    tagline: 'Hear the agent in conversation',
-    preview: ['Agent listening…', 'Student: "I don\'t understand…"', '→ Agent responds in real time'],
-  },
+const LIVE_DEMOS = [
+  { label: 'Beacon', description: "Chat with your institution's AI voice", href: '/beacon/demo', color: '#1E3A8A', pill: 'NEW' },
+  { label: 'RetainAI', description: 'Student risk analysis + intervention plan', href: '/retain-ai/demo', color: '#F43F5E', pill: 'NEW' },
+  { label: 'OutcomesAI', description: 'HLC accreditation · Board report · Rankings', href: '/outcomes-ai/demo', color: '#0EA5E9', pill: 'NEW' },
+  { label: 'ProofAI', description: 'Competency verification + credentials', href: '/proof-ai/demo', color: '#7C3AED', pill: 'NEW' },
+  { label: 'SyllabusSync', description: 'Upload syllabus → full LMS course built instantly', href: '/syllabussync/demo', color: '#059669', pill: 'NEW' },
+  { label: 'ClinicalAI', description: 'AI standardized patient for nursing simulation', href: '/clinical-ai/demo', color: '#1E40AF', pill: 'NEW' },
+  { label: 'Adaptive Exam', description: 'Unique AI-generated questions · adapts in real-time', href: '/adaptive-exam/demo', color: '#6366F1', pill: 'NEW' },
+  { label: 'PathwayAI', description: 'Adaptive learning map per student', href: '/pathway-ai/demo', color: '#10B981', pill: '' },
+  { label: 'Lumen', description: 'In-context AI tutor while reading', href: '/lumen/demo', color: '#7B61FF', pill: '' },
+  { label: 'Discussion', description: "AI responds in instructor's voice", href: '/forge/discussion', color: '#2563EB', pill: '' },
+  { label: 'Agentic Grader', description: 'Grades with rubric feedback', href: '/forge/agentic-grader', color: '#2563EB', pill: '' },
+  { label: 'Course Architect', description: 'Full course from a description', href: '/forge/course-architect', color: '#2563EB', pill: '' },
+  { label: 'Command Center', description: 'Ask the University OS anything', href: '/command-center', color: '#F59E0B', pill: 'NEW' },
 ];
 
 function AllDemos() {
-  const segColor = (seg: string) =>
-    seg === 'Faculty'       ? { bg: 'rgba(37,99,235,0.08)',   text: '#1D4ED8',   border: 'rgba(37,99,235,0.2)' }
-    : seg === 'Institutions'? { bg: 'rgba(30,58,138,0.08)',   text: '#1E3A8A',   border: 'rgba(30,58,138,0.2)' }
-    : seg === 'Admin'       ? { bg: 'rgba(99,102,241,0.08)',  text: '#4F46E5',   border: 'rgba(99,102,241,0.2)' }
-    : seg === 'Live'        ? { bg: 'rgba(16,185,129,0.08)',  text: '#059669',   border: 'rgba(16,185,129,0.2)' }
-    :                         { bg: 'rgba(100,116,139,0.08)', text: '#475569',   border: 'rgba(100,116,139,0.2)' };
-
   return (
-    <section className="py-24 px-6 border-t border-molted-border">
-      <div className="max-w-6xl mx-auto">
-        <RevealBlock className="text-center mb-14">
-          <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: '#2563EB' }}>
-            Try every module
-          </p>
-          <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight leading-tight">
-            Every demo. Live now.
-          </h2>
-          <p className="mt-4 text-molted-muted text-lg max-w-xl mx-auto">
-            Click any card to experience the ALP in action — no login, no install.
-          </p>
-        </RevealBlock>
+    <section className="py-20 px-6" style={{ background: '#ffffff' }}>
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400 mb-3">Interactive Demos</p>
+          <h2 className="text-3xl font-bold text-slate-900 tracking-tight">Try them now</h2>
+          <p className="text-slate-500 mt-2 text-sm">Live AI demos. No login required.</p>
+        </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {DEMOS.map((d, i) => {
-            const Icon = d.icon;
-            const sc = segColor(d.segment);
-            return (
-              <RevealBlock key={d.href} delay={i * 40}>
-                <Link
-                  to={d.href}
-                  className="group flex flex-col h-full rounded-2xl border overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
-                  style={{ background: '#FFFFFF', borderColor: `${d.color}20` }}
-                >
-                  {/* Card header */}
-                  <div className="px-5 pt-5 pb-4" style={{ background: `linear-gradient(135deg, ${d.color}06, ${d.color}10)` }}>
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="w-8 h-8 rounded-xl flex items-center justify-center"
-                        style={{ background: `linear-gradient(135deg, ${d.color}cc, ${d.color})` }}>
-                        <Icon size={15} color="white" />
-                      </div>
-                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full border"
-                        style={{ background: sc.bg, color: sc.text, borderColor: sc.border }}>
-                        {d.segment}
-                      </span>
-                    </div>
-                    <h3 className="text-sm font-black leading-tight" style={{ color: '#0F172A' }}>{d.name}</h3>
-                    <p className="text-xs mt-0.5 font-medium" style={{ color: d.color }}>{d.tagline}</p>
-                  </div>
-
-                  {/* Mock preview */}
-                  <div className="flex-1 px-5 py-3 space-y-1">
-                    {d.preview.map((line, j) => (
-                      <p key={j} className="text-[11px] font-mono leading-snug"
-                        style={{ color: j === d.preview.length - 1 ? d.color : '#64748B' }}>
-                        {line}
-                      </p>
-                    ))}
-                  </div>
-
-                  {/* Footer */}
-                  <div className="px-5 py-3 flex items-center justify-between border-t"
-                    style={{ borderColor: `${d.color}15` }}>
-                    <span className="text-[11px] font-semibold" style={{ color: d.color }}>Open demo</span>
-                    <ArrowRight size={12} style={{ color: d.color }}
-                      className="group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </Link>
-              </RevealBlock>
-            );
-          })}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+          {LIVE_DEMOS.map(demo => (
+            <Link key={demo.href} to={demo.href}
+              className="group flex flex-col p-5 rounded-2xl border transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
+              style={{
+                background: '#f8fafc',
+                borderColor: '#e2e8f0',
+                boxShadow: '0 1px 3px rgba(0,0,0,0.06)',
+              }}
+              onMouseEnter={e => {
+                (e.currentTarget as HTMLElement).style.background = '#ffffff';
+                (e.currentTarget as HTMLElement).style.borderColor = `${demo.color}35`;
+                (e.currentTarget as HTMLElement).style.boxShadow = `0 8px 24px rgba(0,0,0,0.10), 0 0 0 1px ${demo.color}20`;
+              }}
+              onMouseLeave={e => {
+                (e.currentTarget as HTMLElement).style.background = '#f8fafc';
+                (e.currentTarget as HTMLElement).style.borderColor = '#e2e8f0';
+                (e.currentTarget as HTMLElement).style.boxShadow = '0 1px 3px rgba(0,0,0,0.06)';
+              }}>
+              <div className="flex items-center justify-between mb-3">
+                <div className="w-8 h-8 rounded-xl flex items-center justify-center"
+                  style={{ background: `${demo.color}12` }}>
+                  <div className="w-2.5 h-2.5 rounded-full" style={{ background: demo.color }} />
+                </div>
+                {demo.pill && (
+                  <span className="text-[9px] font-bold px-2 py-0.5 rounded-full"
+                    style={{ background: `${demo.color}12`, color: demo.color }}>
+                    {demo.pill}
+                  </span>
+                )}
+              </div>
+              <p className="text-sm font-bold text-slate-800 mb-1">{demo.label}</p>
+              <p className="text-xs text-slate-500 leading-relaxed flex-1">{demo.description}</p>
+              <div className="mt-4 flex items-center gap-1 text-xs font-semibold transition-colors"
+                style={{ color: demo.color }}>
+                Try it
+                <ArrowRight size={11} className="transition-transform group-hover:translate-x-0.5" />
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
     </section>
   );
 }
+
 
 /* ── Page ──────────────────────────────────────────────────────────────── */
 export default function MoltedHome() {
