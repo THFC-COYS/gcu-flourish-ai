@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ArrowRight, ChevronRight, Bot, BookOpen, BarChart3, Users, Zap } from 'lucide-react';
 import MoltedLayout from './MoltedLayout';
+import { useAuth } from '../../context/AuthContext';
 
 
 /* ── Scroll reveal ─────────────────────────────────────────────────────── */
@@ -38,6 +39,105 @@ function RevealBlock({ children, delay = 0, className = '' }: {
 }
 
 /* ── Hero ──────────────────────────────────────────────────────────────── */
+function Hero() {
+  const { login } = useAuth();
+  const navigate = useNavigate();
+  const [entering, setEntering] = useState(false);
+
+  const enterDemo = async () => {
+    setEntering(true);
+    const result = await login('demoadmin@flourishai.edu', 'admin123');
+    if (result.success) navigate('/gcu');
+    else setEntering(false);
+  };
+
+  return (
+    <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden"
+      style={{ background: '#0e0e0e' }}>
+
+      {/* Grid overlay */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)
+          `,
+          backgroundSize: '80px 80px',
+        }}
+      />
+
+      {/* Faint blue radial glow */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden
+        style={{ background: 'radial-gradient(ellipse 80% 50% at 50% 60%, rgba(99,102,241,0.12) 0%, transparent 70%)' }}
+      />
+
+      <div className="relative z-10 max-w-5xl mx-auto">
+        {/* Kicker */}
+        <RevealBlock className="mb-8">
+          <p className="text-xs font-bold uppercase tracking-[0.25em]"
+            style={{ color: 'rgba(255,255,255,0.35)' }}>
+            Introducing MoltED™
+          </p>
+        </RevealBlock>
+
+        {/* Headline */}
+        <RevealBlock delay={60}>
+          <h1 className="font-black leading-[1.0] tracking-tight"
+            style={{ fontSize: 'clamp(3.5rem, 12vw, 9rem)' }}>
+            <span style={{ color: '#ffffff' }}>The LMS</span>
+            <br />
+            <span style={{ color: '#6366f1' }}>is dead.</span>
+          </h1>
+        </RevealBlock>
+
+        {/* Sub */}
+        <RevealBlock delay={180}>
+          <p className="mt-8 text-base md:text-lg max-w-xl mx-auto leading-relaxed"
+            style={{ color: 'rgba(255,255,255,0.50)' }}>
+            We replaced it with an agentic platform that watches every student, every signal, every moment — and responds to each one as an individual. Not a tool. A system that never stops working.
+          </p>
+        </RevealBlock>
+
+        {/* CTAs */}
+        <RevealBlock delay={300} className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <button
+            onClick={enterDemo}
+            disabled={entering}
+            className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full font-bold text-sm transition-all hover:-translate-y-px hover:opacity-90"
+            style={{ background: '#6366f1', color: '#fff', boxShadow: '0 4px 20px rgba(99,102,241,0.35)' }}
+          >
+            {entering ? (
+              <>
+                <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                Entering…
+              </>
+            ) : (
+              <>
+                Enter the LMS
+                <ArrowRight size={15} />
+              </>
+            )}
+          </button>
+          <a
+            href="mailto:hello@molted.ai?subject=MoltED Demo Request"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-sm transition-all hover:-translate-y-px"
+            style={{ background: '#ffffff', color: '#0e0e0e' }}
+          >
+            Get a walkthrough
+          </a>
+        </RevealBlock>
+      </div>
+
+      {/* Scroll cue */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-pulse"
+        style={{ color: 'rgba(255,255,255,0.18)' }}>
+        <span className="text-xs tracking-widest uppercase">Scroll</span>
+        <div className="w-px h-8 bg-gradient-to-b from-current to-transparent" />
+      </div>
+    </section>
+  );
+}
+
 /* ── Agent Feed ────────────────────────────────────────────────────────── */
 const FEED_EVENTS = [
   { time: '11:47 PM', event: 'Student posts confusion about cognitive load theory', action: 'Discussion agent replies in 4 seconds', role: 'Student', href: '/forge/discussion' },
@@ -111,70 +211,6 @@ function AgentFeed() {
   );
 }
 
-function Hero() {
-  return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden">
-      {/* Ambient */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
-        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[1000px] h-[700px] rounded-full"
-          style={{ background: 'radial-gradient(ellipse at center, rgba(37,99,235,0.14) 0%, transparent 65%)' }} />
-        <div className="absolute top-1/2 -right-60 w-[600px] h-[600px] rounded-full"
-          style={{ background: 'radial-gradient(ellipse at center, rgba(30,58,138,0.10) 0%, transparent 70%)' }} />
-        <div className="absolute bottom-0 left-1/4 w-[500px] h-[400px] rounded-full"
-          style={{ background: 'radial-gradient(ellipse at center, rgba(100,116,139,0.10) 0%, transparent 70%)' }} />
-      </div>
-
-      <div className="relative z-10 max-w-5xl mx-auto">
-        {/* Kicker */}
-        <RevealBlock className="mb-8">
-          <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest">
-            Canvas was built in 2008.
-          </p>
-        </RevealBlock>
-
-        {/* Headline */}
-        <RevealBlock delay={80}>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-molted-white leading-[1.02] tracking-tight">
-            The LMS that knows{' '}
-            <span style={{
-              background: 'linear-gradient(120deg, #2563EB 0%, #64748B 55%, #1E3A8A 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-            }}>
-              everyone.
-            </span>
-          </h1>
-        </RevealBlock>
-
-        {/* Sub */}
-        <RevealBlock delay={200}>
-          <p className="mt-8 text-lg md:text-xl text-molted-muted max-w-2xl mx-auto leading-relaxed">
-            MoltED is an agentic learning platform. It watches every discussion, every reading session, every engagement signal — and responds to each teacher, student, and admin as an individual. Not a tool. Not a plugin. A platform that never stops working.
-          </p>
-        </RevealBlock>
-
-        {/* Single CTA */}
-        <RevealBlock delay={320} className="mt-12">
-          <a
-            href="mailto:hello@molted.ai?subject=MoltED Demo Request"
-            className="group inline-flex items-center gap-3 px-10 py-5 rounded-2xl font-bold text-base transition-all duration-200 hover:-translate-y-1 hover:shadow-molted-glow"
-            style={{ background: 'linear-gradient(120deg, #2563EB 0%, #64748B 50%, #1E3A8A 100%)', color: '#ffffff' }}
-          >
-            See It Live
-            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-          </a>
-        </RevealBlock>
-      </div>
-
-      {/* Scroll cue */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-molted-subtle animate-pulse">
-        <span className="text-xs tracking-widest uppercase">Scroll</span>
-        <div className="w-px h-8 bg-gradient-to-b from-molted-subtle to-transparent" />
-      </div>
-    </section>
-  );
-}
 
 /* ── Now Live ──────────────────────────────────────────────────────────── */
 const LIVE_DEMOS = [
