@@ -85,7 +85,7 @@ function Hero() {
 
         <RevealBlock delay={320} className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href="mailto:hello@molted.ai?subject=Investor Inquiry"
+            href="mailto:greg.lucas@paigebreaker.com?subject=Investor Inquiry"
             className="group inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-bold text-base transition-all duration-200 hover:-translate-y-px"
             style={{ background: 'linear-gradient(120deg, #8B5CF6, #2563EB)', color: '#ffffff' }}
           >
@@ -457,7 +457,7 @@ function CTA() {
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="mailto:hello@molted.ai?subject=Investor Inquiry"
+              href="mailto:greg.lucas@paigebreaker.com?subject=Investor Inquiry"
               className="group flex items-center gap-2.5 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 hover:-translate-y-px"
               style={{ background: 'linear-gradient(135deg, #8B5CF6 0%, #2563EB 100%)', color: '#ffffff' }}
             >

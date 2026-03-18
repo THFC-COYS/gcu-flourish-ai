@@ -212,7 +212,7 @@ function Contact() {
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="mailto:hello@molted.ai"
+              href="mailto:greg.lucas@paigebreaker.com"
               className="group flex items-center gap-2.5 px-8 py-4 rounded-xl bg-gradient-to-r from-molted-violet to-molted-ember text-white font-bold text-lg transition-all hover:-translate-y-px"
             >
               hello@molted.ai

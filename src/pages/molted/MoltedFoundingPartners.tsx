@@ -88,7 +88,7 @@ function Cover() {
 
         <RevealBlock delay={400} className="mt-12">
           <a
-            href="mailto:hello@molted.ai?subject=Founding Partner Inquiry"
+            href="mailto:greg.lucas@paigebreaker.com?subject=Founding Partner Inquiry"
             className="group inline-flex items-center gap-3 px-10 py-5 rounded-2xl font-bold text-lg transition-all duration-200 hover:-translate-y-px hover:shadow-2xl"
             style={{ background: `linear-gradient(135deg, ${GOLD}, ${TEAL})`, color: '#ffffff' }}
           >
@@ -540,7 +540,7 @@ function TheAsk() {
 
         <RevealBlock delay={200} className="mt-12">
           <a
-            href="mailto:hello@molted.ai?subject=Founding Partner — Let's Talk"
+            href="mailto:greg.lucas@paigebreaker.com?subject=Founding Partner — Let's Talk"
             className="group inline-flex items-center gap-3 px-12 py-5 rounded-2xl font-bold text-xl transition-all duration-200 hover:-translate-y-px hover:shadow-2xl"
             style={{ background: `linear-gradient(135deg, ${GOLD}, ${TEAL})`, color: '#ffffff' }}
           >

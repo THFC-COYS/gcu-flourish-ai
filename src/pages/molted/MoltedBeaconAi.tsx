@@ -649,7 +649,7 @@ function PricingTeaser() {
                   ))}
                 </ul>
                 <a
-                  href="mailto:hello@molted.ai?subject=Beacon Pricing Inquiry"
+                  href="mailto:greg.lucas@paigebreaker.com?subject=Beacon Pricing Inquiry"
                   className={`mt-8 block text-center px-6 py-3 rounded-xl font-semibold text-sm transition-all ${
                     tier.highlight
                       ? 'bg-molted-ember hover:bg-molted-ember-light text-white shadow-molted-ember'
@@ -683,7 +683,7 @@ function CTA() {
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="mailto:hello@molted.ai?subject=Beacon Demo Request"
+              href="mailto:greg.lucas@paigebreaker.com?subject=Beacon Demo Request"
               className="group flex items-center gap-2.5 px-8 py-4 rounded-xl bg-molted-ember hover:bg-molted-ember-light text-white font-bold text-lg transition-all hover:-translate-y-px shadow-molted-ember"
             >
               Start the Conversation

@@ -94,7 +94,7 @@ function Hero() {
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 animate-reveal" style={{ animationDelay: '350ms' }}>
           <a
-            href="mailto:hello@molted.ai?subject=Lumen Demo Request"
+            href="mailto:greg.lucas@paigebreaker.com?subject=Lumen Demo Request"
             className="group flex items-center gap-2.5 px-8 py-4 rounded-xl bg-molted-violet hover:bg-molted-violet-light text-white font-bold text-lg transition-all duration-200 shadow-molted-violet hover:-translate-y-px"
           >
             Request Early Access
@@ -800,7 +800,7 @@ function CTA() {
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="mailto:hello@molted.ai?subject=Lumen Demo Request"
+              href="mailto:greg.lucas@paigebreaker.com?subject=Lumen Demo Request"
               className="group flex items-center gap-2.5 px-8 py-4 rounded-xl bg-molted-violet hover:bg-molted-violet-light text-white font-bold text-lg transition-all hover:-translate-y-px shadow-molted-violet"
             >
               Request a Demo

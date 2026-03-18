@@ -192,7 +192,7 @@ export default function Resources() {
                   <Download size={13} />
                 </button>
                 <a
-                  href={`mailto:resources@gcu.edu?subject=Document Request: ${encodeURIComponent(doc.title)}`}
+                  href={`mailto:greg.lucas@paigebreaker.com?subject=Document Request: ${encodeURIComponent(doc.title)}`}
                   title="Request via email"
                   className="p-1 rounded text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors"
                 >
@@ -212,12 +212,12 @@ export default function Resources() {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           {[
-            { label: 'Submit Ethical Review Request', icon: '📋', sub: 'CETLA review portal', href: 'mailto:cetla@gcu.edu?subject=Ethical Review Request' },
-            { label: 'Contribute Alumni Story', icon: '🎓', sub: 'Spirit infusion submissions', href: 'mailto:flourish@gcu.edu?subject=Alumni Story Contribution' },
-            { label: 'Report Ethical Concern', icon: '🚨', sub: 'Anonymous reporting channel', href: 'mailto:ethics@gcu.edu?subject=Ethical Concern (Anonymous)' },
-            { label: 'Robotics Lab', icon: '🤖', sub: 'Hardware integration requests', href: 'mailto:robotics@gcu.edu?subject=Robotics Lab Inquiry' },
-            { label: 'MIRA AI System', icon: '🧠', sub: 'GCU tutoring AI integration', href: 'mailto:mira@gcu.edu?subject=MIRA Integration Request' },
-            { label: 'IP & Licensing Office', icon: '⚖️', sub: 'Commercialization inquiries', href: 'mailto:licensing@gcu.edu?subject=IP & Licensing Inquiry' },
+            { label: 'Submit Ethical Review Request', icon: '📋', sub: 'CETLA review portal', href: 'mailto:greg.lucas@paigebreaker.com?subject=Ethical Review Request' },
+            { label: 'Contribute Alumni Story', icon: '🎓', sub: 'Spirit infusion submissions', href: 'mailto:greg.lucas@paigebreaker.com?subject=Alumni Story Contribution' },
+            { label: 'Report Ethical Concern', icon: '🚨', sub: 'Anonymous reporting channel', href: 'mailto:greg.lucas@paigebreaker.com?subject=Ethical Concern (Anonymous)' },
+            { label: 'Robotics Lab', icon: '🤖', sub: 'Hardware integration requests', href: 'mailto:greg.lucas@paigebreaker.com?subject=Robotics Lab Inquiry' },
+            { label: 'MIRA AI System', icon: '🧠', sub: 'GCU tutoring AI integration', href: 'mailto:greg.lucas@paigebreaker.com?subject=MIRA Integration Request' },
+            { label: 'IP & Licensing Office', icon: '⚖️', sub: 'Commercialization inquiries', href: 'mailto:greg.lucas@paigebreaker.com?subject=IP & Licensing Inquiry' },
           ].map(link => (
             <a
               key={link.label}

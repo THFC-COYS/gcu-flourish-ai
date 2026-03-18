@@ -144,7 +144,7 @@ function Hero() {
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
           </Link>
           <a
-            href="mailto:hello@molted.ai?subject=Forge Demo Request"
+            href="mailto:greg.lucas@paigebreaker.com?subject=Forge Demo Request"
             className="group flex items-center gap-2.5 px-7 py-3.5 rounded-xl border border-molted-border hover:border-molted-subtle text-molted-muted hover:text-molted-white font-semibold transition-all duration-200"
           >
             Request a demo
@@ -455,7 +455,7 @@ function CTA() {
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="mailto:hello@molted.ai?subject=Forge Demo Request"
+              href="mailto:greg.lucas@paigebreaker.com?subject=Forge Demo Request"
               className="group flex items-center gap-2.5 px-8 py-4 rounded-xl font-bold text-lg transition-all hover:-translate-y-px text-molted-black"
               style={{ background: TEAL }}
             >

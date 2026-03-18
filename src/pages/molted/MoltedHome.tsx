@@ -145,7 +145,7 @@ function Hero() {
             )}
           </button>
           <a
-            href="mailto:hello@molted.ai?subject=MoltED Demo Request"
+            href="mailto:greg.lucas@paigebreaker.com?subject=MoltED Demo Request"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-sm transition-all hover:-translate-y-px"
             style={{ background: '#ffffff', color: '#0e0e0e' }}
           >
@@ -764,7 +764,7 @@ function FinalCTA() {
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="mailto:hello@molted.ai?subject=MoltED Demo Request"
+              href="mailto:greg.lucas@paigebreaker.com?subject=MoltED Demo Request"
               className="group flex items-center gap-2.5 px-8 py-4 rounded-xl text-white font-bold text-lg transition-all duration-200 hover:-translate-y-px"
               style={{ background: 'linear-gradient(135deg, #2563EB 0%, #64748B 50%, #1E3A8A 100%)', color: '#ffffff' }}
             >

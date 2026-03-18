@@ -798,7 +798,7 @@ export default function MondayStack() {
                   <RotateCcw size={15} /> Reset demo
                 </button>
                 <a
-                  href="mailto:hello@molted.ai"
+                  href="mailto:greg.lucas@paigebreaker.com"
                   className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-8 py-3 rounded-xl text-sm font-bold text-white transition-all duration-200 hover:scale-[1.02]"
                   style={{
                     background: `linear-gradient(135deg, ${PURPLE}, #5B21B6)`,

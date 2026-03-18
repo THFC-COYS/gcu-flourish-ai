@@ -402,7 +402,7 @@ export default function DiscussionDemo() {
             <p className="text-molted-white font-semibold mb-5">
               Next: LMS integration so you never have to paste again.
             </p>
-            <a href="mailto:hello@molted.ai"
+            <a href="mailto:greg.lucas@paigebreaker.com"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all hover:-translate-y-px"
               style={{ background: TEAL, color: '#ffffff' }}>
               Join the early access list

@@ -106,7 +106,7 @@ function Hero() {
       {/* CTAs */}
       <RevealBlock delay={400} className="mt-10 flex flex-col sm:flex-row items-center gap-4">
         <a
-          href="mailto:hello@molted.ai"
+          href="mailto:greg.lucas@paigebreaker.com"
           className="group flex items-center gap-2.5 px-7 py-3.5 rounded-xl text-molted-black font-bold transition-all duration-200 hover:-translate-y-px"
           style={{ background: TEAL }}
         >
@@ -872,7 +872,7 @@ function ComingSoon() {
             Early access subscribers get first access to each tool as it ships.
           </p>
           <a
-            href="mailto:hello@molted.ai"
+            href="mailto:greg.lucas@paigebreaker.com"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all hover:-translate-y-px"
             style={{ background: TEAL, color: '#ffffff' }}
           >
@@ -1417,7 +1417,7 @@ function PricingTeaser() {
                 </ul>
 
                 <a
-                  href="mailto:hello@molted.ai"
+                  href="mailto:greg.lucas@paigebreaker.com"
                   className="block text-center px-5 py-3 rounded-xl text-sm font-semibold transition-all duration-200 hover:-translate-y-px"
                   style={{
                     background: tier.highlight ? TEAL : 'rgba(0,0,0,0.06)',
@@ -1455,7 +1455,7 @@ function CTA() {
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="mailto:hello@molted.ai"
+              href="mailto:greg.lucas@paigebreaker.com"
               className="group flex items-center gap-2.5 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-200 hover:-translate-y-px text-molted-black"
               style={{ background: TEAL }}
             >

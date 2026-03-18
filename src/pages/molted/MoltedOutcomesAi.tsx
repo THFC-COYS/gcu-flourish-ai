@@ -747,7 +747,7 @@ function Pricing() {
                   ))}
                 </ul>
                 <a
-                  href={`mailto:hello@molted.ai?subject=Outcomes ${tier.name} Inquiry`}
+                  href={`mailto:greg.lucas@paigebreaker.com?subject=Outcomes ${tier.name} Inquiry`}
                   className="mt-8 block text-center px-6 py-3.5 rounded-xl font-semibold text-sm transition-all hover:-translate-y-px"
                   style={
                     tier.highlight
@@ -790,7 +790,7 @@ function CTA() {
               className="flex-1 w-full px-5 py-4 rounded-xl bg-molted-elevated border border-molted-border text-molted-white placeholder:text-molted-muted text-sm focus:outline-none focus:border-sky-500 transition-colors"
             />
             <a
-              href={`mailto:hello@molted.ai?subject=Outcomes Demo&body=From: ${email}`}
+              href={`mailto:greg.lucas@paigebreaker.com?subject=Outcomes Demo&body=From: ${email}`}
               className="flex-shrink-0 flex items-center gap-2 px-6 py-4 rounded-xl font-bold text-sm text-white transition-all hover:-translate-y-px"
               style={{ background: SKY, boxShadow: `0 0 20px ${SKY}35` }}
             >
