@@ -21,43 +21,8 @@ import ExecutiveBriefing from './pages/ExecutiveBriefing';
 import FlourishStandard from './pages/FlourishStandard';
 import SpiritTraining from './pages/SpiritTraining';
 import ExecutiveTour from './pages/ExecutiveTour';
-import MoltLMSHome from './pages/molted/MoltedHome';
-import MoltLMSExecTour from './pages/molted/MoltedExecTour';
-import MoltLMSInvestors from './pages/molted/MoltedInvestors';
-import MoltLMSLumen from './pages/molted/MoltedLumen';
-import MoltLMSBeaconAi from './pages/molted/MoltedBeaconAi';
-import MoltLMSForge from './pages/molted/MoltedForge';
-import MoltLMSPathwayAi from './pages/molted/MoltedPathwayAi';
-import MoltLMSProofAi from './pages/molted/MoltedProofAi';
-import MoltLMSRetainAi from './pages/molted/MoltedRetainAi';
-import MoltLMSOutcomesAi from './pages/molted/MoltedOutcomesAi';
-import MoltLMSCampusOS from './pages/molted/MoltedCampusOS';
-import MoltLMSImagoOS from './pages/molted/MoltedImagoOS';
-import MoltLMSMasteryAi from './pages/molted/MoltedMasteryAi';
-import PathwayDemo from './pages/molted/PathwayDemo';
-import LumenDemo from './pages/molted/LumenDemo';
-import MoltLMSAbout from './pages/molted/MoltedAbout';
-import MoltLMSFoundingPartners from './pages/molted/MoltedFoundingPartners';
-import LiveAgentDemo from './pages/molted/LiveAgentDemo';
-import DiscussionDemo from './pages/molted/DiscussionDemo';
-import CourseArchitect from './pages/molted/CourseArchitect';
-import AgenticGrader from './pages/molted/AgenticGrader';
-import AutoRespond from './pages/molted/AutoRespond';
-import EarlyWarning from './pages/molted/EarlyWarning';
-import ForgeVoiceDemo from './pages/molted/ForgeVoiceDemo';
-import GCULeadershipDeck from './pages/molted/GCULeadershipDeck';
 import GovernanceQA from './pages/GovernanceQA';
 import ScalingModel from './pages/ScalingModel';
-import BeaconDemo from './pages/molted/demos/BeaconDemo';
-import RetainAIDemo from './pages/molted/demos/RetainAIDemo';
-import OutcomesAIDemo from './pages/molted/demos/OutcomesAIDemo';
-import ProofAIDemo from './pages/molted/demos/ProofAIDemo';
-import SyllabusSyncDemo from './pages/molted/demos/SyllabusSyncDemo';
-import ClinicalAIDemo from './pages/molted/demos/ClinicalAIDemo';
-import AdaptiveExamDemo from './pages/molted/demos/AdaptiveExamDemo';
-import MondayStack from './pages/molted/MondayStack';
-import CrossProductLoop from './pages/molted/CrossProductLoop';
-import VoiceABDemo from './pages/molted/VoiceABDemo';
 
 function ProtectedRoutes() {
   const { user, isLoading } = useAuth();
@@ -112,44 +77,7 @@ export default function App() {
       <AuthProvider>
         <BrowserRouter>
           <Routes>
-            {/* Molt — main public website */}
-            <Route path="/" element={<MoltLMSHome />} />
-            <Route path="/lumen" element={<MoltLMSLumen />} />
-            <Route path="/lumen/demo" element={<LumenDemo />} />
-            <Route path="/beacon" element={<MoltLMSBeaconAi />} />
-            <Route path="/beacon/demo" element={<BeaconDemo />} />
-            <Route path="/forge" element={<MoltLMSForge />} />
-            <Route path="/pathway-ai" element={<MoltLMSPathwayAi />} />
-            <Route path="/pathway-ai/demo" element={<PathwayDemo />} />
-            <Route path="/proof-ai" element={<MoltLMSProofAi />} />
-            <Route path="/proof-ai/demo" element={<ProofAIDemo />} />
-            <Route path="/retain-ai" element={<MoltLMSRetainAi />} />
-            <Route path="/retain-ai/demo" element={<RetainAIDemo />} />
-            <Route path="/outcomes-ai" element={<MoltLMSOutcomesAi />} />
-            <Route path="/outcomes-ai/demo" element={<OutcomesAIDemo />} />
-            <Route path="/outpost" element={<MoltLMSCampusOS />} />
-            <Route path="/imago-os" element={<MoltLMSImagoOS />} />
-            <Route path="/mastery-ai" element={<MoltLMSMasteryAi />} />
-            <Route path="/about" element={<MoltLMSAbout />} />
-            <Route path="/founding-partners" element={<MoltLMSFoundingPartners />} />
-            <Route path="/investors" element={<MoltLMSInvestors />} />
-            <Route path="/forge/discussion" element={<DiscussionDemo />} />
-            <Route path="/forge/course-architect" element={<CourseArchitect />} />
-            <Route path="/forge/agentic-grader" element={<AgenticGrader />} />
-            <Route path="/forge/auto-respond" element={<AutoRespond />} />
-            <Route path="/forge/early-warning" element={<EarlyWarning />} />
-            <Route path="/forge/live-demo" element={<LiveAgentDemo />} />
-            <Route path="/forge/voice-demo" element={<ForgeVoiceDemo />} />
-            <Route path="/forge/monday-stack" element={<MondayStack />} />
-            <Route path="/forge/voice-ab" element={<VoiceABDemo />} />
-            <Route path="/syllabussync/demo" element={<SyllabusSyncDemo />} />
-            <Route path="/clinical-ai/demo" element={<ClinicalAIDemo />} />
-            <Route path="/adaptive-exam/demo" element={<AdaptiveExamDemo />} />
-            <Route path="/cross-product-loop" element={<CrossProductLoop />} />
-            <Route path="/command-center" element={<CommandCenter />} />
-            <Route path="/exec-tour" element={<MoltLMSExecTour />} />
-            <Route path="/gcu-deck" element={<GCULeadershipDeck />} />
-            {/* GCU Flourish — client portal */}
+            <Route path="/" element={<Navigate to="/portal/login" replace />} />
             <Route path="/portal/login" element={<LoginGuard />} />
             <Route path="/executive-tour" element={<ExecutiveTour />} />
             <Route path="/portal/*" element={<ProtectedRoutes />} />
