@@ -3,6 +3,34 @@ import { Link } from 'react-router-dom';
 import { BookOpen, MessageSquare, Zap, GraduationCap, ArrowRight, Check, Users, Target, Clock } from 'lucide-react';
 import MoltedLayout, { OutpostBanner } from './MoltedLayout';
 
+/* ── Product switcher tab strip ─────────────────────────────────────────── */
+function ProductSwitcher() {
+  return (
+    <div className="flex justify-center pt-24 pb-2 px-6">
+      <div
+        className="inline-flex items-center gap-1 p-1 rounded-xl"
+        style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.10)' }}
+      >
+        {/* Active tab */}
+        <div
+          className="px-4 py-1.5 rounded-lg text-sm font-bold"
+          style={{ background: 'rgba(100,116,139,0.20)', color: '#F5F5F7' }}
+        >
+          PAIgeBreaker
+        </div>
+        {/* Molted tab */}
+        <Link
+          to="/"
+          className="px-4 py-1.5 rounded-lg text-sm font-semibold transition-all hover:bg-white/10"
+          style={{ color: 'rgba(245,245,247,0.50)' }}
+        >
+          Molted →
+        </Link>
+      </div>
+    </div>
+  );
+}
+
 function useReveal() {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -435,7 +463,7 @@ function CTA() {
 export default function MoltedLumen() {
   return (
     <MoltedLayout>
-      <OutpostBanner moduleName="Read" moduleColor="#64748B" />
+      <ProductSwitcher />
       <Hero />
       <TheInsight />
       <HowItWorks />
