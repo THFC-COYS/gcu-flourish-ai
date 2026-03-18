@@ -181,9 +181,9 @@ const INITIAL_COLUMNS: Column[] = [
       {
         id: 'c12',
         title: 'Lumen — AI reading companion',
-        description: 'Activates in-context as students read. Deployed at a major U.S. university.',
+        description: 'Activates in-context as students read. Ready for founding partner deployment.',
         labels: [LABEL_MAP.ai],
-        assignee: 'Shipped',
+        assignee: 'Ready',
         demo: {
           href: '/lumen',
           color: '#1E3A8A',
@@ -198,7 +198,7 @@ const INITIAL_COLUMNS: Column[] = [
         title: 'Forge — Faculty AI toolkit',
         description: 'Course architect, agentic grader, auto-respond, discussion agent. All live.',
         labels: [LABEL_MAP.ai, LABEL_MAP.ux],
-        assignee: 'Shipped',
+        assignee: 'Ready',
         demo: {
           href: '/forge',
           color: '#1E40AF',
@@ -213,7 +213,7 @@ const INITIAL_COLUMNS: Column[] = [
         title: 'Discussion Agent — live in-thread AI',
         description: 'Replies to student discussion posts in real time. Deepens threads, answers questions.',
         labels: [LABEL_MAP.ai],
-        assignee: 'Shipped',
+        assignee: 'Ready',
         demo: {
           href: '/forge/discussion',
           color: '#1D4ED8',
@@ -228,7 +228,7 @@ const INITIAL_COLUMNS: Column[] = [
         title: 'Agentic Grader — AI feedback engine',
         description: 'Doctoral and undergraduate submission review. Structured rubric-based feedback.',
         labels: [LABEL_MAP.ai],
-        assignee: 'Shipped',
+        assignee: 'Ready',
         demo: {
           href: '/forge/agentic-grader',
           color: '#4C1D95',
@@ -243,7 +243,7 @@ const INITIAL_COLUMNS: Column[] = [
         title: 'Auto-Respond — faculty email AI',
         description: 'Drafts replies to student email queues. Faculty approves before sending.',
         labels: [LABEL_MAP.ai],
-        assignee: 'Shipped',
+        assignee: 'Ready',
         demo: {
           href: '/forge/auto-respond',
           color: '#065F46',
@@ -258,7 +258,7 @@ const INITIAL_COLUMNS: Column[] = [
         title: 'Course Architect — syllabus-to-course AI',
         description: 'Generates full semester course infrastructure from a single syllabus upload.',
         labels: [LABEL_MAP.ai, LABEL_MAP.ux],
-        assignee: 'Shipped',
+        assignee: 'Ready',
         demo: {
           href: '/forge/course-architect',
           color: '#1E3A8A',
@@ -273,7 +273,7 @@ const INITIAL_COLUMNS: Column[] = [
         title: 'Beacon — Institutional analytics AI',
         description: 'Provost-facing intelligence layer. Enrollment, retention, outcomes in real time.',
         labels: [LABEL_MAP.analytics],
-        assignee: 'Shipped',
+        assignee: 'Ready',
         demo: {
           href: '/beacon',
           color: '#1E3A8A',
@@ -288,7 +288,7 @@ const INITIAL_COLUMNS: Column[] = [
         title: 'Pathway AI — Career outcome mapping',
         description: 'Post-graduation career trajectory intelligence tied to program completion.',
         labels: [LABEL_MAP.ai, LABEL_MAP.analytics],
-        assignee: 'Shipped',
+        assignee: 'Ready',
         demo: {
           href: '/pathway-ai',
           color: '#065F46',
@@ -303,7 +303,7 @@ const INITIAL_COLUMNS: Column[] = [
         title: 'Voice Demo — live agent in conversation',
         description: 'Interactive voice-mode AI agent demo. Showcases real-time conversational ALP.',
         labels: [LABEL_MAP.ai, LABEL_MAP.ux],
-        assignee: 'Shipped',
+        assignee: 'Ready',
         demo: {
           href: '/forge/voice-demo',
           color: '#1E3A8A',

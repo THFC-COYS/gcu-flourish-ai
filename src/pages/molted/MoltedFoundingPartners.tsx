@@ -154,10 +154,10 @@ function TheProblem() {
 /* ── 03 · The Proof ────────────────────────────────────────────────────── */
 function TheProof() {
   const stats = [
-    { num: '50,000+', label: 'Students served', color: GOLD },
-    { num: '6', label: 'AI personas deployed', color: TEAL },
+    { num: '8', label: 'ALP modules built & ready', color: GOLD },
+    { num: '6', label: 'AI personas architected', color: TEAL },
     { num: '24/7', label: 'Always on, no human required', color: VIOLET },
-    { num: '3', label: 'Products live right now', color: EMBER },
+    { num: '12', label: 'Founding partner seats available', color: EMBER },
   ];
 
   return (
@@ -169,11 +169,11 @@ function TheProof() {
           <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">The proof</p>
           <h2 className="text-4xl md:text-6xl font-black text-molted-white tracking-tight">
             This isn't a concept.<br />
-            <span style={{ color: GOLD }}>It's already running.</span>
+            <span style={{ color: GOLD }}>It's built and ready.</span>
           </h2>
           <p className="mt-6 text-molted-muted text-lg max-w-xl mx-auto">
-            Deployed at a flagship university partner. Live in production.
-            Not a pilot — a full deployment.
+            Every module is production-ready. We are now selecting
+            the 12 founding university partners who will go first.
           </p>
         </RevealBlock>
 
@@ -193,8 +193,8 @@ function TheProof() {
           <div className="rounded-2xl p-6 border text-center"
             style={{ background: 'rgba(100,116,139,0.04)', borderColor: 'rgba(100,116,139,0.15)' }}>
             <p className="text-molted-muted text-sm">
-              <span className="text-molted-white font-semibold">Flagship university partner</span>
-              {' '}· Deployed 2024 · Actively serving students
+              <span className="text-molted-white font-semibold">Now accepting founding partners</span>
+              {' '}· 12 seats · First cohort launching 2025
             </p>
           </div>
         </RevealBlock>

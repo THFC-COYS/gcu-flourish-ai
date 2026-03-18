@@ -655,7 +655,7 @@ function Traction() {
             </div>
             <div className="flex flex-col gap-4 text-center md:text-right">
               {[
-                { value: '8', label: 'ALP modules deployed' },
+                { value: '8', label: 'ALP modules built & ready' },
                 { value: '24/7', label: 'Agents always running' },
                 { value: '1', label: 'Category. Zero competitors.' },
               ].map((s, i) => (
@@ -753,7 +753,7 @@ function Manifesto() {
               Every student, regardless of zip code or institution budget, deserves a learning environment that knows their name.
             </p>
             <p className="text-molted-muted text-sm leading-relaxed mt-3">
-              The institutions deploying Molt today are proof. The long-term vision is access — bringing hyperpersonalized learning to under-resourced schools, rural campuses, and community colleges that can't afford a 1:1 tutor for every student. The ALP scales. The mission doesn't change.
+              We are selecting 12 founding university partners to go first. The long-term vision is access — bringing hyperpersonalized learning to under-resourced schools, rural campuses, and community colleges that can't afford a 1:1 tutor for every student. The ALP scales. The mission doesn't change.
             </p>
           </div>
         </RevealBlock>

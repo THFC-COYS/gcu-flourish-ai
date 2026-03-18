@@ -174,20 +174,20 @@ function SlideProductDetail({ product, index }: { product: typeof PRODUCTS[0]; i
 
 function SlideProof() {
   const results = [
-    { metric: '8', label: 'ALP modules deployed at launch' },
-    { metric: '3 min', label: 'average advisor response time vs. 3 days' },
-    { metric: '11%', label: 'improvement in first-year retention' },
-    { metric: '94%', label: 'faculty satisfaction with Forge workbench' },
+    { metric: '8', label: 'ALP modules built & ready' },
+    { metric: '12', label: 'founding partner seats available' },
+    { metric: '6', label: 'AI agent roles architected' },
+    { metric: '24/7', label: 'always-on, no human required' },
   ];
   return (
     <Slide>
-      <Eyebrow>Proof at Scale</Eyebrow>
+      <Eyebrow>Built. Ready. Now Selecting Partners.</Eyebrow>
       <h2 className="text-5xl md:text-6xl font-black text-molted-white leading-tight mb-6">
-        Not a pilot.<br />
-        <span className="text-molted-muted">Live at a major U.S. university.</span>
+        Not a concept.<br />
+        <span className="text-molted-muted">Production-ready. Seeking founding universities.</span>
       </h2>
       <p className="text-molted-muted text-lg max-w-2xl leading-relaxed mb-12">
-        Molt launched at scale with one of the largest private universities in the United States — full platform, across every college, every agent, day one. The numbers speak for themselves.
+        Every module is built and ready for deployment. We are now selecting 12 founding university partners — the institutions that will go first and shape how the ALP evolves.
       </p>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
         {results.map(r => (
@@ -319,7 +319,7 @@ function SlideModel() {
 
 function SlideRoadmap() {
   const phases = [
-    { phase: 'Phase 1', label: 'GCU at scale', date: '2024', desc: 'Full platform live at a major U.S. university. All six agents deployed. Outcomes baseline established.', done: true },
+    { phase: 'Phase 1', label: 'Founding partners', date: '2025', desc: 'Select 12 founding university partners. Full platform deployment across each institution. Outcomes baseline established.', done: false },
     { phase: 'Phase 2', label: 'Regional expansion', date: 'Q2 2025', desc: '5 additional university partners. Forge and Beacon as standalone SaaS for LMS-adjacent entry.', done: true },
     { phase: 'Phase 3', label: 'Platform standard', date: '2026', desc: 'Molt API open to third-party integrations. Community college system contracts. International pilots.', done: false },
     { phase: 'Phase 4', label: 'Market leadership', date: '2027', desc: '100+ institutions. Proof AI as the de facto accreditation layer. Series B.', done: false },
@@ -394,7 +394,7 @@ function SlideLegacy({ onEnter }: { onEnter: () => void }) {
           </span>
         </h2>
         <p className="text-molted-muted text-lg max-w-2xl mx-auto leading-relaxed mb-4">
-          GCU proved it works at scale. The question now is which universities run on Molt — and which ones don't.
+          The platform is built. The question now is which universities run on MoltALP — and which ones don't.
         </p>
         <p className="text-molted-muted/50 text-sm max-w-xl mx-auto leading-relaxed mb-16">
           Every year we wait, another 2.3 million students stop out. Molt exists to close that gap — one institution at a time, until this is how every university operates.
