@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronRight } from 'lucide-react';
+import { Menu, X, ChevronRight, ChevronDown } from 'lucide-react';
 
 function MoltedLogo({ size = 'md' }: { size?: 'sm' | 'md' | 'lg' }) {
   const textSize = { sm: 'text-lg', md: 'text-2xl', lg: 'text-4xl' }[size];
@@ -23,6 +23,15 @@ const THREE_PRODUCTS = [
   { label: 'Beacon', href: '/beacon', segment: 'Institutions', color: '#1E3A8A', pain: 'For the provost facing the board' },
 ];
 
+const NAV_DEMOS = [
+  { label: 'Lumen', description: 'In-context AI tutor while reading', href: '/lumen/demo', color: '#7B61FF' },
+  { label: 'Discussion', description: "AI responds in instructor's voice", href: '/forge/discussion', color: '#2563EB' },
+  { label: 'Agentic Grader', description: 'Grades with rubric feedback', href: '/forge/agentic-grader', color: '#2563EB' },
+  { label: 'Beacon', description: "Chat with your institution's AI voice", href: '/beacon/demo', color: '#1E3A8A' },
+  { label: 'RetainAI', description: 'Student risk analysis + intervention', href: '/retain-ai/demo', color: '#F43F5E' },
+  { label: 'Command Center', description: 'Ask the University OS anything', href: '/command-center', color: '#F59E0B' },
+];
+
 const CAMPUS_MODULES = [
   { label: 'Lumen', href: '/lumen' },
   { label: 'Forge', href: '/forge' },
@@ -38,6 +47,10 @@ const CAMPUS_MODULES = [
 export function MoltedNav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [productsOpen, setProductsOpen] = useState(false);
+  const [demosOpen, setDemosOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const demosDropdownRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -46,28 +59,22 @@ export function MoltedNav() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => { setMenuOpen(false); }, [location]);
+  useEffect(() => { setMenuOpen(false); setProductsOpen(false); setDemosOpen(false); }, [location]);
 
-  function navLink(href: string, label: string, color?: string) {
-    const active = location.pathname === href || location.pathname.startsWith(href + '/');
-    return (
-      <Link
-        key={href}
-        to={href}
-        className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 ${active ? '' : ''}`}
-        style={{
-          background: active ? 'rgba(0,0,0,0.06)' : undefined,
-          color: active
-            ? (color ?? '#0F172A')
-            : color
-            ? color
-            : '#475569',
-        }}
-      >
-        {label}
-      </Link>
-    );
-  }
+  useEffect(() => {
+    function handleClick(e: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setProductsOpen(false);
+      }
+      if (demosDropdownRef.current && !demosDropdownRef.current.contains(e.target as Node)) {
+        setDemosOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, []);
+
+  const aboutActive = location.pathname === '/about';
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'backdrop-blur-xl border-b' : 'bg-transparent'}`}
@@ -80,10 +87,77 @@ export function MoltedNav() {
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-1">
-          {THREE_PRODUCTS.map(p => navLink(p.href, p.label, p.color))}
-          <span className="w-px h-4 mx-1" style={{ background: 'rgba(0,0,0,0.12)' }} />
-          {navLink('/outpost', 'Outpost')}
-          {navLink('/about', 'About')}
+          {/* Products dropdown */}
+          <div className="relative" ref={dropdownRef}>
+            <button
+              onClick={() => setProductsOpen(v => !v)}
+              className="flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200"
+              style={{ color: productsOpen ? '#0F172A' : '#475569', background: productsOpen ? 'rgba(0,0,0,0.06)' : undefined }}
+            >
+              Products <ChevronDown size={13} className={`transition-transform duration-200 ${productsOpen ? 'rotate-180' : ''}`} />
+            </button>
+
+            {productsOpen && (
+              <div className="absolute top-full left-0 mt-2 w-64 rounded-2xl border shadow-xl overflow-hidden"
+                style={{ background: 'rgba(255,255,255,0.98)', borderColor: 'rgba(0,0,0,0.08)', boxShadow: '0 8px 32px rgba(0,0,0,0.12)' }}
+              >
+                {THREE_PRODUCTS.map(p => (
+                  <Link key={p.href} to={p.href}
+                    className="flex items-center gap-3 px-5 py-4 transition-all"
+                    style={{ borderBottom: '1px solid rgba(0,0,0,0.05)' }}
+                    onMouseEnter={e => (e.currentTarget.style.background = 'rgba(0,0,0,0.03)')}
+                    onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
+                  >
+                    <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: p.color }} />
+                    <div>
+                      <p className="text-sm font-bold" style={{ color: '#0F172A' }}>{p.label}</p>
+                      <p className="text-xs" style={{ color: '#64748B' }}>{p.pain}</p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Demos dropdown */}
+          <div className="relative" ref={demosDropdownRef}>
+            <button
+              onClick={() => setDemosOpen(v => !v)}
+              className="flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200"
+              style={{ color: demosOpen ? '#0F172A' : '#475569', background: demosOpen ? 'rgba(0,0,0,0.06)' : undefined }}
+            >
+              Demos <ChevronDown size={13} className={`transition-transform duration-200 ${demosOpen ? 'rotate-180' : ''}`} />
+            </button>
+
+            {demosOpen && (
+              <div className="absolute top-full left-0 mt-2 w-72 rounded-2xl border shadow-xl overflow-hidden"
+                style={{ background: 'rgba(255,255,255,0.98)', borderColor: 'rgba(0,0,0,0.08)', boxShadow: '0 8px 32px rgba(0,0,0,0.12)' }}
+              >
+                {NAV_DEMOS.map(d => (
+                  <Link key={d.href} to={d.href}
+                    className="flex items-center gap-3 px-5 py-4 transition-all"
+                    style={{ borderBottom: '1px solid rgba(0,0,0,0.05)' }}
+                    onMouseEnter={e => (e.currentTarget.style.background = 'rgba(0,0,0,0.03)')}
+                    onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
+                  >
+                    <div className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: d.color }} />
+                    <div>
+                      <p className="text-sm font-bold" style={{ color: '#0F172A' }}>{d.label}</p>
+                      <p className="text-xs" style={{ color: '#64748B' }}>{d.description}</p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <Link
+            to="/about"
+            className="px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200"
+            style={{ background: aboutActive ? 'rgba(0,0,0,0.06)' : undefined, color: aboutActive ? '#0F172A' : '#475569' }}
+          >
+            About
+          </Link>
         </div>
 
         <div className="hidden md:flex items-center gap-3">
@@ -126,15 +200,22 @@ export function MoltedNav() {
               </Link>
             ))}
             <div className="pt-3 mt-3" style={{ borderTop: '1px solid rgba(0,0,0,0.08)' }}>
-              <Link to="/outpost" className="flex items-center gap-3 px-4 py-3 rounded-lg mb-1"
-                style={{ background: 'rgba(37,99,235,0.06)', border: '1px solid rgba(37,99,235,0.2)' }}
-              >
-                <div className="w-5 h-5 rounded-md flex-shrink-0" style={{ background: 'linear-gradient(135deg,#64748B,#2563EB)' }} />
-                <div>
-                  <p className="text-sm font-bold text-molted-white">Outpost</p>
-                  <p className="text-molted-muted text-xs">The AI-native ALP</p>
-                </div>
-              </Link>
+              <p className="text-xs font-semibold uppercase tracking-widest px-4 pb-2" style={{ color: '#64748B' }}>Demos</p>
+              {NAV_DEMOS.map(d => (
+                <Link key={d.href} to={d.href} className="flex items-center gap-3 px-4 py-3 rounded-lg transition-all"
+                  style={{ background: 'transparent' }}
+                  onMouseEnter={e => (e.currentTarget.style.background = 'rgba(0,0,0,0.04)')}
+                  onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
+                >
+                  <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: d.color }} />
+                  <div>
+                    <p className="text-molted-white text-sm font-semibold">{d.label}</p>
+                    <p className="text-molted-muted text-xs">{d.description}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+            <div className="pt-3 mt-3" style={{ borderTop: '1px solid rgba(0,0,0,0.08)' }}>
               <Link to="/about" className="block px-4 py-3 rounded-lg text-sm font-medium text-molted-muted hover:text-molted-white transition-all">About</Link>
             </div>
             <div className="pt-3" style={{ borderTop: '1px solid rgba(0,0,0,0.08)' }}>
