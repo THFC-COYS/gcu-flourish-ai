@@ -175,16 +175,7 @@ function Hero() {
           </p>
         </RevealBlock>
 
-        {/* CTA row */}
-        <RevealBlock delay={480} className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link
-            to="/outpost"
-            className="inline-flex items-center gap-2 px-8 py-5 rounded-2xl font-semibold text-sm transition-all duration-200 hover:-translate-y-1"
-            style={{ background: 'rgba(37,99,235,0.06)', border: '1px solid rgba(37,99,235,0.2)', color: '#2563EB' }}
-          >
-            Explore the Platform <ChevronRight size={14} />
-          </Link>
-        </RevealBlock>
+
       </div>
 
       {/* Scroll cue */}
