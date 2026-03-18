@@ -865,10 +865,10 @@ export default function MoltedHome() {
       <ThreeRoles />
       <InstructorFirst />
       <Traction />
-      <PlatformBridge />
       <AllDemos />
       <Manifesto />
       <FinalCTA />
+      <PlatformBridge />
     </MoltedLayout>
   );
 }
