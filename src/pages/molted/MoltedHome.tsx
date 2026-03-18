@@ -846,6 +846,7 @@ const LIVE_DEMOS = [
   { label: 'Agentic Grader', description: 'Grades with rubric feedback', href: '/forge/agentic-grader', color: '#2563EB', pill: '' },
   { label: 'Course Architect', description: 'Full course from a description', href: '/forge/course-architect', color: '#2563EB', pill: '' },
   { label: 'Command Center', description: 'Ask the University OS anything', href: '/command-center', color: '#F59E0B', pill: 'NEW' },
+  { label: 'Monday Stack', description: "Dr. Chen's full Monday — 4h 20min of work, handled in minutes", href: '/forge/monday-stack', color: '#7C3AED', pill: 'NEW' },
 ];
 
 function AllDemos() {
