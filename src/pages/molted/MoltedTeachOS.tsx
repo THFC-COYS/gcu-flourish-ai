@@ -808,7 +808,7 @@ function ComingSoon() {
             <span style={{ color: TEAL }}>In three layers.</span>
           </h2>
           <p className="text-molted-muted text-base max-w-xl mx-auto leading-relaxed">
-            The five tools above reclaim your time. What's below replaces the LMS entirely —
+            The five tools above reclaim your time. What's below replaces the LMS entirely with an ALP —
             starting with the Student AI Tutor, shipping next.
           </p>
         </div>

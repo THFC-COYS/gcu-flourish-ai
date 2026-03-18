@@ -109,7 +109,7 @@ function SlideHaloLegacy() {
       <Eyebrow>What GCU Built</Eyebrow>
       <h2 className="text-5xl md:text-6xl font-black text-white leading-tight mb-6">
         You didn't buy an LMS.<br />
-        <span style={{ color: GCU_WHITE }}>You built one.</span>
+        <span style={{ color: GCU_WHITE }}>You built an ALP.</span>
       </h2>
       <p className="text-white/60 text-lg max-w-2xl mb-12 leading-relaxed">
         When every vendor fell short, GCU built Halo from scratch. That decision — to own the learning layer — is the single most strategically important infrastructure choice the university has made in two decades.
@@ -194,7 +194,7 @@ function SlideEmpyrean() {
             backgroundClip: 'text',
           }}
         >
-          GCU's next-generation LMS.
+          GCU's Agentic Learning Platform.
         </span>
       </h2>
       <p className="text-white/60 text-lg max-w-2xl leading-relaxed mb-12">

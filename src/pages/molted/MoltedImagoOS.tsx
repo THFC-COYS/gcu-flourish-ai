@@ -238,7 +238,7 @@ function ThreeStages() {
       bg: 'rgba(100,116,139,0.05)',
       border: 'rgba(100,116,139,0.2)',
       traits: [
-        'AI-native LMS from the ground up',
+        'AI-native ALP from the ground up',
         'All modules unified in one platform',
         'Mastery replaces grades',
         'Continuous learning, no end dates',
@@ -495,7 +495,7 @@ function Architecture() {
               >
                 Outpost
               </p>
-              <p className="text-molted-subtle text-xs mt-0.5">The AI-native LMS</p>
+              <p className="text-molted-subtle text-xs mt-0.5">The AI-native ALP</p>
             </div>
           </Link>
         </RevealBlock>

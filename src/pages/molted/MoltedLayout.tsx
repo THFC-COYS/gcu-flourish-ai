@@ -131,7 +131,7 @@ export function MoltedNav() {
                 <div className="w-5 h-5 rounded-md flex-shrink-0" style={{ background: 'linear-gradient(135deg,#64748B,#2563EB)' }} />
                 <div>
                   <p className="text-sm font-bold text-molted-white">Outpost</p>
-                  <p className="text-molted-muted text-xs">The AI-native LMS</p>
+                  <p className="text-molted-muted text-xs">The AI-native ALP</p>
                 </div>
               </Link>
               <Link to="/about" className="block px-4 py-3 rounded-lg text-sm font-medium text-molted-muted hover:text-molted-white transition-all">About</Link>
@@ -173,7 +173,7 @@ export function MoltedFooter() {
               <Link to="/outpost" className="inline-flex items-center gap-2 text-sm font-bold hover:opacity-80 transition-opacity" style={{ background: 'linear-gradient(120deg,#2563EB,#1E3A8A)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                 Outpost — The Platform
               </Link>
-              <p className="text-molted-subtle text-xs mt-1">All modules. One AI-native LMS.</p>
+              <p className="text-molted-subtle text-xs mt-1">All modules. One Agentic Learning Platform.</p>
             </div>
             <p className="text-molted-white text-sm font-semibold mb-3">Modules</p>
             <ul className="space-y-2">
@@ -218,7 +218,7 @@ export function OutpostBanner({ moduleName, moduleColor }: { moduleName: string;
             {' '}is a module of
           </span>
           <Link to="/outpost" className="text-xs font-bold hover:opacity-80 transition-opacity" style={{ background: 'linear-gradient(120deg,#64748B,#2563EB,#8B5CF6)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-            Outpost — the AI-native LMS
+            Outpost — the ALP
           </Link>
         </div>
         <Link to="/outpost" className="flex-shrink-0 flex items-center gap-1 text-xs font-semibold text-molted-muted hover:text-molted-white transition-colors">
