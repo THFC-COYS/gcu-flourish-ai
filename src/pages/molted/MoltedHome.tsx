@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronRight, Bot, BookOpen, BarChart3, Users } from 'lucide-react';
+import { ArrowRight, ChevronRight, Bot, BookOpen, BarChart3, Users, Zap } from 'lucide-react';
 import MoltedLayout from './MoltedLayout';
-
 
 /* ── Scroll reveal ─────────────────────────────────────────────────────── */
 function useReveal() {
@@ -37,14 +36,13 @@ function RevealBlock({ children, delay = 0, className = '' }: {
   );
 }
 
-/* ── Hero ──────────────────────────────────────────────────────────────── */
-/* ── Agent Feed ────────────────────────────────────────────────────────── */
+/* ── Agent Feed ─────────────────────────────────────────────────────────── */
 const FEED_EVENTS = [
   { time: '11:47 PM', event: 'Student posts confusion about cognitive load theory', action: 'Discussion agent replies in 4 seconds', role: 'Student', href: '/forge/discussion' },
   { time: '8:12 AM',  event: 'Professor uploads syllabus for NURS 301', action: 'Course architect generates full semester infrastructure', role: 'Faculty', href: '/forge/course-architect' },
   { time: '2:03 AM',  event: 'Marcus T. hasn\'t logged in for 5 days', action: 'Early warning flags risk — personalized check-in drafted', role: 'Admin', href: '/forge/early-warning' },
   { time: '9:30 AM',  event: 'Student opens Week 4 reading on pharmacology', action: 'Lumen activates — answers in context as they read', role: 'Student', href: '/lumen' },
-  { time: '3:14 PM',  event: 'Student replies to discussion forum on ethics in healthcare', action: 'Agent acknowledges their insight and deepens the thread with a follow-up question', role: 'Student', href: '/forge/discussion' },
+  { time: '3:14 PM',  event: 'Student replies to discussion forum on ethics in healthcare', action: 'Agent acknowledges their insight and deepens the thread', role: 'Student', href: '/forge/discussion' },
   { time: '6:55 AM',  event: 'Auto-respond queue: 14 unanswered student emails', action: 'Auto-respond drafts replies — faculty reviews in 2 minutes', role: 'Faculty', href: '/forge/auto-respond' },
   { time: '1:22 AM',  event: 'Doctoral student stuck on methodology chapter', action: 'Agentic grader reviews draft and returns structured feedback', role: 'Student', href: '/forge/agentic-grader' },
 ];
@@ -52,15 +50,12 @@ const FEED_EVENTS = [
 function AgentFeed() {
   const [visibleEvents, setVisibleEvents] = useState(FEED_EVENTS.slice(0, 4));
   const [nextIndex, setNextIndex] = useState(4);
-  const [fadingIn, setFadingIn] = useState<number | null>(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
       const incoming = FEED_EVENTS[nextIndex % FEED_EVENTS.length];
-      setFadingIn(0);
       setTimeout(() => {
         setVisibleEvents(prev => [incoming, ...prev.slice(0, 3)]);
-        setFadingIn(null);
       }, 300);
       setNextIndex(i => i + 1);
     }, 3500);
@@ -82,13 +77,13 @@ function AgentFeed() {
             to={item.href}
             className="group block rounded-xl p-4 border transition-all duration-300 hover:scale-[1.02]"
             style={{
-              background: 'rgba(0,0,0,0.05)',
-              borderColor: 'rgba(0,0,0,0.08)',
+              background: 'rgba(0,0,0,0.03)',
+              borderColor: 'rgba(0,0,0,0.07)',
               animation: i === 0 ? 'feedSlideIn 0.4s ease' : undefined,
             }}
           >
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-mono font-semibold" style={{ color: '#60A5FA' }}>{item.time}</span>
+              <span className="text-xs font-mono font-semibold" style={{ color: '#2563EB' }}>{item.time}</span>
               <div className="flex items-center gap-2">
                 <span className="text-[10px] font-bold px-2 py-0.5 rounded-full border" style={{ background: c.bg, color: c.text, borderColor: c.border }}>
                   {item.role}
@@ -111,59 +106,92 @@ function AgentFeed() {
   );
 }
 
+/* ── Hero ──────────────────────────────────────────────────────────────── */
 function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden">
-      {/* Ambient */}
+      {/* Ambient background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
-        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[1000px] h-[700px] rounded-full"
-          style={{ background: 'radial-gradient(ellipse at center, rgba(37,99,235,0.14) 0%, transparent 65%)' }} />
+        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[1100px] h-[800px] rounded-full"
+          style={{ background: 'radial-gradient(ellipse at center, rgba(37,99,235,0.12) 0%, transparent 65%)' }} />
         <div className="absolute top-1/2 -right-60 w-[600px] h-[600px] rounded-full"
-          style={{ background: 'radial-gradient(ellipse at center, rgba(30,58,138,0.10) 0%, transparent 70%)' }} />
+          style={{ background: 'radial-gradient(ellipse at center, rgba(30,58,138,0.08) 0%, transparent 70%)' }} />
         <div className="absolute bottom-0 left-1/4 w-[500px] h-[400px] rounded-full"
-          style={{ background: 'radial-gradient(ellipse at center, rgba(100,116,139,0.10) 0%, transparent 70%)' }} />
+          style={{ background: 'radial-gradient(ellipse at center, rgba(100,116,139,0.08) 0%, transparent 70%)' }} />
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto">
-        {/* Kicker */}
-        <RevealBlock className="mb-8">
-          <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest">
-            Canvas was built in 2008.
-          </p>
+
+        {/* Kicker pill */}
+        <RevealBlock className="mb-10">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest"
+            style={{ background: 'rgba(220,38,38,0.08)', border: '1px solid rgba(220,38,38,0.2)', color: '#DC2626' }}>
+            <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+            Canvas was built in 2008. The era is over.
+          </div>
         </RevealBlock>
 
-        {/* Headline */}
+        {/* Headline — THE LMS IS DEAD */}
         <RevealBlock delay={80}>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-molted-white leading-[1.02] tracking-tight">
-            The LMS that knows{' '}
-            <span style={{
+          <div className="relative inline-block mb-3">
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tight leading-[0.95]"
+              style={{ color: '#0F172A' }}>
+              The LMS
+            </h1>
+            {/* Strikethrough line */}
+            <div className="absolute top-1/2 left-0 w-full h-[5px] md:h-[7px] rounded-full -translate-y-1/2 pointer-events-none"
+              style={{ background: 'linear-gradient(90deg, #DC2626, #EF4444)', opacity: 0.85 }} />
+          </div>
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tight leading-[0.95]"
+            style={{ color: '#0F172A' }}>
+            is Dead.
+          </h1>
+        </RevealBlock>
+
+        {/* Sub-headline — THE ALP HAS ARRIVED */}
+        <RevealBlock delay={200} className="mt-6">
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight leading-tight"
+            style={{
               background: 'linear-gradient(120deg, #2563EB 0%, #64748B 55%, #1E3A8A 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
             }}>
-              everyone.
-            </span>
-          </h1>
+            The ALP has arrived.
+          </h2>
         </RevealBlock>
 
-        {/* Sub */}
-        <RevealBlock delay={200}>
-          <p className="mt-8 text-lg md:text-xl text-molted-muted max-w-2xl mx-auto leading-relaxed">
-            MoltED is an agentic learning platform. It watches every discussion, every reading session, every engagement signal — and responds to each teacher, student, and admin as an individual. Not a tool. Not a plugin. A platform that never stops working.
+        {/* Definition */}
+        <RevealBlock delay={320} className="mt-6">
+          <p className="text-base md:text-lg font-semibold tracking-wide" style={{ color: '#94A3B8' }}>
+            ALP — Agentic Learning Platform
           </p>
         </RevealBlock>
 
-        {/* Single CTA */}
-        <RevealBlock delay={320} className="mt-12">
+        {/* Body */}
+        <RevealBlock delay={400}>
+          <p className="mt-8 text-lg md:text-xl text-molted-muted max-w-2xl mx-auto leading-relaxed">
+            MoltED is not a better LMS. It is the replacement for the LMS — a platform built from scratch for AI-native education. It watches every discussion, every reading session, every engagement signal, and responds to each student, faculty member, and administrator as an individual. Not a tool. Not a plugin. A new category.
+          </p>
+        </RevealBlock>
+
+        {/* CTA row */}
+        <RevealBlock delay={480} className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
-            href="mailto:hello@molted.ai?subject=MoltED Demo Request"
+            href="mailto:hello@molted.ai?subject=MoltED ALP Demo"
             className="group inline-flex items-center gap-3 px-10 py-5 rounded-2xl font-bold text-base transition-all duration-200 hover:-translate-y-1 hover:shadow-molted-glow"
             style={{ background: 'linear-gradient(120deg, #2563EB 0%, #64748B 50%, #1E3A8A 100%)', color: '#ffffff' }}
           >
-            See It Live
+            See the ALP Live
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
           </a>
+          <Link
+            to="/outpost"
+            className="inline-flex items-center gap-2 px-8 py-5 rounded-2xl font-semibold text-sm transition-all duration-200 hover:-translate-y-1"
+            style={{ background: 'rgba(37,99,235,0.06)', border: '1px solid rgba(37,99,235,0.2)', color: '#2563EB' }}
+          >
+            Explore the Platform <ChevronRight size={14} />
+          </Link>
         </RevealBlock>
       </div>
 
@@ -176,74 +204,210 @@ function Hero() {
   );
 }
 
-/* ── The Problem ───────────────────────────────────────────────────────── */
-function TheProblem() {
+/* ── Death Certificate ──────────────────────────────────────────────────── */
+function DeathCertificate() {
+  const charges = [
+    { year: '1990s', charge: 'Built for content delivery, not learning', verdict: 'It tracked logins. Not people.' },
+    { year: '2000s', charge: 'Designed for administration, not students', verdict: 'It tracked enrollment. Not understanding.' },
+    { year: '2010s', charge: 'Plastered with integrations and bolt-ons', verdict: 'It tracked completion. Not outcomes.' },
+    { year: '2020s', charge: 'Survived a pandemic by doing nothing new', verdict: 'It tracked attendance. Not engagement.' },
+  ];
+
   return (
-    <section className="py-48 px-6 border-t border-molted-border">
-      <div className="max-w-3xl mx-auto">
-        <RevealBlock className="text-center">
-          <p className="text-molted-muted text-sm font-medium uppercase tracking-widest mb-12">The problem</p>
-          <p className="text-4xl md:text-6xl font-black text-molted-white leading-tight tracking-tight">
-            Every LMS treats everyone
+    <section className="py-32 px-6 border-t border-molted-border relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse at 50% 30%, rgba(220,38,38,0.05) 0%, transparent 65%)' }} />
+      <div className="max-w-4xl mx-auto relative z-10">
+        <RevealBlock className="text-center mb-16">
+          <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: '#DC2626' }}>
+            Cause of death
           </p>
-          <p className="text-4xl md:text-6xl font-light leading-tight tracking-tight mt-1"
-            style={{ color: 'rgba(0,0,0,0.2)' }}>
-            exactly the same.
+          <h2 className="text-4xl md:text-6xl font-black text-molted-white leading-tight tracking-tight">
+            The LMS had one job.
+          </h2>
+          <p className="text-4xl md:text-6xl font-black leading-tight tracking-tight mt-1"
+            style={{ color: 'rgba(0,0,0,0.18)' }}>
+            It never learned.
           </p>
-          <p className="mt-16 text-molted-muted text-xl leading-relaxed">
-            The professor with 140 students gets the same gradebook as the professor with 14.
-            The student failing at 11 PM gets the same discussion board as the student who's thriving.
-            The admin watching retention collapse gets the same reports from 2009.
+          <p className="mt-10 text-molted-muted text-lg leading-relaxed max-w-2xl mx-auto">
+            Thirty years. $11 billion in annual spend. The same professor with 140 students gets the same gradebook as the professor with 14. The student failing at 2 AM gets the same forum as the student who's thriving. The LMS doesn't know any of them. It never did.
           </p>
-          <p className="mt-8 text-molted-white text-2xl font-bold">
-            The LMS doesn't know any of them.
-          </p>
+        </RevealBlock>
+
+        <div className="grid md:grid-cols-2 gap-4">
+          {charges.map((c, i) => (
+            <RevealBlock key={i} delay={i * 80}>
+              <div
+                className="rounded-xl p-6 border"
+                style={{ background: 'rgba(241,243,248,0.85)', borderColor: 'rgba(220,38,38,0.10)' }}
+              >
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-xs font-black px-2 py-0.5 rounded" style={{ background: 'rgba(220,38,38,0.08)', color: '#DC2626' }}>
+                    {c.year}
+                  </span>
+                </div>
+                <p className="text-molted-white font-bold text-sm mb-1.5">{c.charge}</p>
+                <p className="text-molted-subtle text-xs leading-relaxed font-mono">{c.verdict}</p>
+              </div>
+            </RevealBlock>
+          ))}
+        </div>
+
+        <RevealBlock delay={320} className="mt-12 text-center">
+          <div
+            className="inline-block px-8 py-4 rounded-2xl border"
+            style={{ background: 'rgba(220,38,38,0.05)', borderColor: 'rgba(220,38,38,0.18)' }}
+          >
+            <p className="text-2xl md:text-3xl font-black" style={{ color: '#DC2626' }}>
+              The LMS doesn't know anyone.
+            </p>
+            <p className="text-molted-muted text-sm mt-2 font-medium">
+              That's not a feature gap. That's a category failure.
+            </p>
+          </div>
         </RevealBlock>
       </div>
     </section>
   );
 }
 
-/* ── The Platform ──────────────────────────────────────────────────────── */
-function ThePlatform() {
+/* ── ALP Definition ─────────────────────────────────────────────────────── */
+function ALPDefinition() {
+  const pillars = [
+    {
+      label: 'Agentic',
+      color: '#2563EB',
+      headline: 'It acts, not just stores.',
+      body: 'Agents watch every signal — discussions, reading sessions, engagement gaps, grade trajectories — and respond without waiting to be asked. The platform does the work.',
+    },
+    {
+      label: 'Learning',
+      color: '#475569',
+      headline: 'Built around the student, not the course.',
+      body: 'Every response is personalized to that student\'s history, their patterns, their voice. Not a template. A platform that actually knows who it\'s talking to.',
+    },
+    {
+      label: 'Platform',
+      color: '#1E3A8A',
+      headline: 'One system. Every role.',
+      body: 'Faculty, students, administrators — each with their own AI working for them. Not three disconnected tools. One intelligence layer that serves the entire institution.',
+    },
+  ];
+
   return (
     <section className="py-24 px-6 border-t border-molted-border relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none"
         style={{ background: 'radial-gradient(ellipse at 50% 30%, rgba(37,99,235,0.10) 0%, transparent 65%)' }} />
-      <div className="max-w-4xl mx-auto relative z-10">
-        <RevealBlock className="text-center">
-          <p className="text-molted-muted text-sm font-medium uppercase tracking-widest mb-12">The answer</p>
-          <h2 className="text-4xl md:text-6xl font-black text-molted-white leading-tight tracking-tight">
-            MoltED is an agentic LMS.
-          </h2>
-          <p className="mt-4 text-3xl md:text-5xl font-black leading-tight tracking-tight"
-            style={{
-              background: 'linear-gradient(120deg, #2563EB, #64748B)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-            }}
-          >
-            It never stops working.
+      <div className="max-w-5xl mx-auto relative z-10">
+        <RevealBlock className="text-center mb-16">
+          <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: '#2563EB' }}>
+            A new category
           </p>
-          <p className="mt-10 text-molted-muted text-lg leading-relaxed max-w-2xl mx-auto">
-            Agents watch every discussion board, every reading session, every engagement signal — in real time. When something needs a response, the platform acts. When something needs a human, it escalates. The LMS learns everyone. And responds to each of them as an individual.
+          <h2 className="text-4xl md:text-6xl font-black text-molted-white leading-tight tracking-tight">
+            ALP: Agentic Learning Platform.
+          </h2>
+          <p className="mt-6 text-molted-muted text-lg leading-relaxed max-w-2xl mx-auto">
+            Not a smarter LMS. A fundamentally different architecture — built for a world where AI doesn't just assist learning, it participates in it.
           </p>
         </RevealBlock>
 
-        {/* Agent loop */}
-        <RevealBlock delay={200} className="mt-16">
+        <div className="grid md:grid-cols-3 gap-6 mb-16">
+          {pillars.map((p, i) => (
+            <RevealBlock key={i} delay={i * 100}>
+              <div
+                className="rounded-2xl p-8 border h-full"
+                style={{ background: 'rgba(248,249,252,0.95)', borderColor: `${p.color}20` }}
+              >
+                <div
+                  className="text-xs font-black uppercase tracking-widest px-2.5 py-1 rounded-full inline-block mb-5"
+                  style={{ background: `${p.color}12`, color: p.color, border: `1px solid ${p.color}25` }}
+                >
+                  {p.label}
+                </div>
+                <h3 className="text-molted-white font-black text-lg leading-snug mb-3">{p.headline}</h3>
+                <p className="text-molted-muted text-sm leading-relaxed">{p.body}</p>
+              </div>
+            </RevealBlock>
+          ))}
+        </div>
+
+        {/* Live agent feed */}
+        <RevealBlock delay={200}>
           <div
             className="rounded-2xl border p-8"
-            style={{ background: 'rgba(248,249,252,0.95)', borderColor: 'rgba(99,155,255,0.25)', boxShadow: '0 0 40px rgba(37,99,235,0.08)' }}
+            style={{ background: 'rgba(248,249,252,0.95)', borderColor: 'rgba(37,99,235,0.20)', boxShadow: '0 0 40px rgba(37,99,235,0.06)' }}
           >
-            <div className="flex items-center gap-2 mb-8">
-              <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: '#60A5FA' }} />
+            <div className="flex items-center gap-2 mb-6">
+              <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: '#2563EB' }} />
               <p className="text-xs font-bold uppercase tracking-widest" style={{ color: '#2563EB' }}>
-                Agents running now
+                Agents running now — this is what an ALP does
               </p>
             </div>
             <AgentFeed />
+          </div>
+        </RevealBlock>
+      </div>
+    </section>
+  );
+}
+
+/* ── The Comparison ─────────────────────────────────────────────────────── */
+function TheComparison() {
+  const rows = [
+    { label: 'Responds to students', lms: 'Never', alp: '24/7, in real time' },
+    { label: 'Knows each student', lms: 'No', alp: 'Learns every individual' },
+    { label: 'Faculty burden', lms: '23 hrs/week admin', alp: 'Handled by agents' },
+    { label: 'Retention signal', lms: 'End-of-term report', alp: 'Live behavioral detection' },
+    { label: 'Outcome proof', lms: 'Grade in a box', alp: 'Verified learning trajectory' },
+    { label: 'Integration required', lms: 'API projects, IT cycles', alp: 'Zero — browser extension' },
+    { label: 'Gets smarter over time', lms: 'No', alp: 'Data flywheel compounds' },
+  ];
+
+  return (
+    <section className="py-24 px-6 border-t border-molted-border">
+      <div className="max-w-4xl mx-auto">
+        <RevealBlock className="text-center mb-14">
+          <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: '#64748B' }}>
+            Side by side
+          </p>
+          <h2 className="text-4xl md:text-5xl font-black text-molted-white leading-tight tracking-tight">
+            LMS vs. ALP.
+          </h2>
+          <p className="text-4xl md:text-5xl font-black leading-tight tracking-tight mt-1"
+            style={{ color: 'rgba(0,0,0,0.18)' }}>
+            There's no comparison.
+          </p>
+        </RevealBlock>
+
+        <RevealBlock>
+          <div className="rounded-2xl overflow-hidden border" style={{ borderColor: 'rgba(0,0,0,0.08)' }}>
+            {/* Header */}
+            <div className="grid grid-cols-3 text-xs font-black uppercase tracking-widest"
+              style={{ background: 'rgba(241,243,248,0.95)', borderBottom: '1px solid rgba(0,0,0,0.08)' }}
+            >
+              <div className="px-5 py-4 text-molted-muted" />
+              <div className="px-5 py-4 text-center border-x" style={{ borderColor: 'rgba(220,38,38,0.15)', color: '#DC2626' }}>
+                The LMS
+              </div>
+              <div className="px-5 py-4 text-center" style={{ color: '#2563EB' }}>
+                Molt ALP
+              </div>
+            </div>
+
+            {rows.map((row, i) => (
+              <div key={i} className={`grid grid-cols-3 text-sm border-b last:border-b-0`}
+                style={{ borderColor: 'rgba(0,0,0,0.06)', background: i % 2 === 0 ? '#FFFFFF' : 'rgba(248,249,252,0.8)' }}
+              >
+                <div className="px-5 py-4 text-molted-muted font-medium">{row.label}</div>
+                <div className="px-5 py-4 text-center border-x font-medium"
+                  style={{ borderColor: 'rgba(220,38,38,0.10)', color: '#DC2626' }}>
+                  {row.lms}
+                </div>
+                <div className="px-5 py-4 text-center font-semibold" style={{ color: '#1D4ED8' }}>
+                  {row.alp}
+                </div>
+              </div>
+            ))}
           </div>
         </RevealBlock>
       </div>
@@ -256,12 +420,12 @@ function DataFlywheel() {
   return (
     <section className="py-24 px-6 border-t border-molted-border relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 60% 50%, rgba(100,116,139,0.10) 0%, transparent 65%)' }} />
+        style={{ background: 'radial-gradient(ellipse at 60% 50%, rgba(100,116,139,0.08) 0%, transparent 65%)' }} />
       <div className="max-w-5xl mx-auto relative z-10">
         <RevealBlock className="text-center mb-16">
           <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">The moat</p>
           <h2 className="text-3xl md:text-5xl font-black text-molted-white leading-tight tracking-tight">
-            The platform gets smarter
+            The ALP gets smarter
           </h2>
           <p className="text-3xl md:text-5xl font-black leading-tight tracking-tight mt-2"
             style={{
@@ -274,7 +438,7 @@ function DataFlywheel() {
             with every interaction.
           </p>
           <p className="mt-8 text-molted-muted text-lg leading-relaxed max-w-2xl mx-auto">
-            Every discussion reply, every intervention, every personalized response feeds back into MoltED's understanding of how that student learns. The data flywheel compounds. Institutions that deploy early build an advantage that can't be replicated — the model trained on their students, their courses, their outcomes.
+            Every discussion reply, every intervention, every personalized response feeds back into MoltED's understanding of how that student learns. The data flywheel compounds. Institutions that deploy early build an advantage that can't be replicated — a model trained on their students, their courses, their outcomes.
           </p>
         </RevealBlock>
 
@@ -293,7 +457,7 @@ function DataFlywheel() {
                 <p
                   className="text-3xl font-black mb-3 leading-none"
                   style={{
-                    background: 'linear-gradient(120deg, #64748B, #94A3B8)',
+                    background: 'linear-gradient(120deg, #2563EB, #64748B)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                     backgroundClip: 'text',
@@ -319,7 +483,7 @@ const ROLES = [
     role: 'Teachers',
     color: '#2563EB',
     headline: 'An AI that handles the work. You do the teaching.',
-    body: 'Discussions answered while students are still online. Grades returned in minutes not weeks. Struggling students flagged before they disappear. The agent handles 23 hours of weekly admin — so you teach instead.',
+    body: 'Discussions answered while students are still online. Grades returned in minutes not weeks. Struggling students flagged before they disappear. The ALP handles 23 hours of weekly admin — so you teach instead.',
     features: ['Discussion Intelligence', 'Course Architect', 'Agentic Grader', 'Early Warning Engine', 'Auto-Respond'],
     href: '/forge',
     product: 'Forge',
@@ -339,7 +503,7 @@ const ROLES = [
     role: 'Institutions',
     color: '#1E3A8A',
     headline: "Your voice. Everywhere. The moment it's needed.",
-    body: "Beacon deploys your institution's values as AI — in every college, every department, every touchpoint. The platform tracks retention signals, surfaces risk before it becomes a crisis, and makes your outcomes visible in real time.",
+    body: "Beacon deploys your institution's values as AI — in every college, every department, every touchpoint. The ALP tracks retention signals, surfaces risk before it becomes a crisis, and makes your outcomes visible in real time.",
     features: ['Beacon — AI with your institution\'s voice', 'Retention signals across the full roster', 'Outcomes data in real time', 'Higher ed, healthcare, enterprise'],
     href: '/beacon',
     product: 'Beacon',
@@ -423,10 +587,10 @@ function InstructorFirst() {
             Faculty in the loop
           </p>
           <h2 className="text-3xl md:text-5xl font-black text-molted-white leading-tight tracking-tight">
-            The agent learns your voice.
+            The ALP learns your voice.
           </h2>
           <p className="text-3xl md:text-5xl font-black leading-tight tracking-tight mt-1"
-            style={{ color: 'rgba(0,0,0,0.2)' }}>
+            style={{ color: 'rgba(0,0,0,0.18)' }}>
             Students never lose you.
           </p>
           <p className="mt-6 text-molted-muted text-lg leading-relaxed max-w-2xl mx-auto">
@@ -439,7 +603,7 @@ function InstructorFirst() {
             { num: '01', title: 'Forge learns your story', body: 'Your years in the field. Your subject obsessions. Your coaching style. The hobbies that show up in your lectures. You share it once — it informs every response, forever.' },
             { num: '02', title: 'Forge learns your voice', body: 'Upload your syllabus, paste your rubrics, describe how you talk to students. Forge reads your tone and matches it — not a generic AI template.' },
             { num: '03', title: 'Forge drafts in your name', body: 'When a student posts at midnight, Forge drafts a reply grounded in your teaching philosophy and your personality. You review before anything sends.' },
-            { num: '04', title: 'You always have the last word', body: 'Nothing goes to a student without your approval. Every draft surfaces for your review. The instructor leads. The agent lifts.' },
+            { num: '04', title: 'You always have the last word', body: 'Nothing goes to a student without your approval. Every draft surfaces for your review. The instructor leads. The ALP lifts.' },
           ].map((item, i) => (
             <RevealBlock key={i} delay={i * 80}>
               <div
@@ -489,22 +653,22 @@ function Traction() {
               <p
                 className="text-7xl md:text-8xl font-black leading-none"
                 style={{
-                  background: 'linear-gradient(120deg, #94A3B8, #64748B)',
+                  background: 'linear-gradient(120deg, #2563EB, #1E3A8A)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text',
                 }}
               >
-                50,000+
+                170K+
               </p>
-              <p className="text-molted-white font-semibold text-xl mt-2">people. One platform.</p>
+              <p className="text-molted-white font-semibold text-xl mt-2">students. One ALP.</p>
               <p className="text-molted-muted text-base mt-1">Live today. Not a projection.</p>
             </div>
             <div className="flex flex-col gap-4 text-center md:text-right">
               {[
-                { value: '6', label: 'AI personas deployed' },
+                { value: '8', label: 'ALP modules deployed' },
                 { value: '24/7', label: 'Agents always running' },
-                { value: '3', label: 'Products. One platform.' },
+                { value: '1', label: 'Category. Zero competitors.' },
               ].map((s, i) => (
                 <div key={i}>
                   <p className="text-3xl font-black text-molted-white">{s.value}</p>
@@ -519,8 +683,8 @@ function Traction() {
   );
 }
 
-/* ── Campus Bridge ─────────────────────────────────────────────────────── */
-function CampusBridge() {
+/* ── Platform Bridge ─────────────────────────────────────────────────────── */
+function PlatformBridge() {
   return (
     <section className="py-24 px-6 border-t border-molted-border">
       <div className="max-w-6xl mx-auto">
@@ -528,28 +692,28 @@ function CampusBridge() {
           <Link
             to="/outpost"
             className="group block relative rounded-3xl overflow-hidden p-12 md:p-16 text-center transition-all duration-500"
-            style={{ background: 'rgba(255,255,255,0.95)', boxShadow: '0 8px 48px rgba(0,0,0,0.14), 0 2px 8px rgba(0,0,0,0.08)', border: '1px solid rgba(0,0,0,0.07)' }}
+            style={{ background: 'rgba(255,255,255,0.95)', boxShadow: '0 8px 48px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06)', border: '1px solid rgba(0,0,0,0.07)' }}
           >
             <div className="absolute inset-0 pointer-events-none">
-              <div className="absolute top-0 left-1/4 w-[400px] h-[300px] rounded-full" style={{ background: 'radial-gradient(ellipse,rgba(37,99,235,0.14) 0%,transparent 70%)' }} />
-              <div className="absolute top-0 right-1/4 w-[400px] h-[300px] rounded-full" style={{ background: 'radial-gradient(ellipse,rgba(100,116,139,0.14) 0%,transparent 70%)' }} />
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] rounded-full" style={{ background: 'radial-gradient(ellipse,rgba(30,58,138,0.10) 0%,transparent 70%)' }} />
+              <div className="absolute top-0 left-1/4 w-[400px] h-[300px] rounded-full" style={{ background: 'radial-gradient(ellipse,rgba(37,99,235,0.12) 0%,transparent 70%)' }} />
+              <div className="absolute top-0 right-1/4 w-[400px] h-[300px] rounded-full" style={{ background: 'radial-gradient(ellipse,rgba(100,116,139,0.12) 0%,transparent 70%)' }} />
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] rounded-full" style={{ background: 'radial-gradient(ellipse,rgba(30,58,138,0.08) 0%,transparent 70%)' }} />
             </div>
             <div className="relative z-10">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold mb-6"
-                style={{ background: 'rgba(0,0,0,0.05)', border: '1px solid rgba(255,255,255,0.1)', color: '#86868B' }}>
-                <Bot size={11} />
-                The full platform
+                style={{ background: 'rgba(37,99,235,0.08)', border: '1px solid rgba(37,99,235,0.2)', color: '#2563EB' }}>
+                <Zap size={11} />
+                The full ALP
               </div>
               <h2 className="text-5xl md:text-7xl font-black tracking-tight mb-6"
                 style={{ background: 'linear-gradient(135deg,#2563EB 0%,#64748B 50%,#1E3A8A 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                 Outpost
               </h2>
-              <p className="text-xl md:text-2xl font-semibold mb-4 max-w-xl mx-auto" style={{ color: 'rgba(245,245,247,0.85)' }}>
+              <p className="text-xl md:text-2xl font-semibold mb-4 max-w-xl mx-auto" style={{ color: '#0F172A' }}>
                 Every agent. Every role. One platform.
               </p>
-              <p className="text-base max-w-lg mx-auto leading-relaxed mb-8" style={{ color: '#86868B' }}>
-                Forge, Lumen, and Beacon aren't integrations. They're native features of an LMS built from scratch for the AI era.
+              <p className="text-base max-w-lg mx-auto leading-relaxed mb-8" style={{ color: '#64748B' }}>
+                Forge, Lumen, and Beacon aren't integrations. They're native modules of an ALP built from scratch for the AI era — and for the students the LMS never knew.
               </p>
               <div className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold transition-all group-hover:-translate-y-0.5"
                 style={{ background: 'linear-gradient(120deg,#2563EB,#64748B,#1E3A8A)', color: '#ffffff' }}>
@@ -568,21 +732,22 @@ function Manifesto() {
   return (
     <section className="py-32 px-6 border-t border-molted-border relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(37,99,235,0.08) 0%, transparent 70%)' }} />
+        style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(37,99,235,0.07) 0%, transparent 70%)' }} />
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <RevealBlock>
           <p className="text-molted-subtle text-sm uppercase tracking-widest mb-8 font-semibold">Our belief</p>
           {[
             { text: 'Everything that has been invented', accent: false },
             { text: 'will need to be reinvented.', accent: true },
-            { text: 'This starts with education.', accent: false },
+            { text: 'Education is first.', accent: false },
           ].map((line, i) => (
-            <p key={i} className={`text-3xl md:text-5xl font-black leading-tight tracking-tight ${line.accent ? 'text-molted-violet' : 'text-molted-white'}`}>
+            <p key={i} className={`text-3xl md:text-5xl font-black leading-tight tracking-tight`}
+              style={{ color: line.accent ? '#2563EB' : '#0F172A' }}>
               {line.text}
             </p>
           ))}
           <p className="mt-10 text-molted-muted text-base leading-relaxed max-w-xl mx-auto">
-            The LMS was built for a world without AI. The curriculum was built for a world without the internet. The classroom was built for a world without remote work. We are building for what comes next.
+            The LMS was built for a world without AI. The curriculum was built for a world without the internet. The classroom was built for a world without remote work. The ALP is built for what comes next — and what comes next is already here.
           </p>
           <p className="mt-6 text-molted-subtle text-sm tracking-widest">— MoltED</p>
         </RevealBlock>
@@ -590,16 +755,16 @@ function Manifesto() {
         <RevealBlock delay={200} className="mt-16">
           <div
             className="rounded-2xl border px-8 py-6 max-w-2xl mx-auto"
-            style={{ background: 'rgba(139,92,246,0.06)', borderColor: 'rgba(139,92,246,0.2)' }}
+            style={{ background: 'rgba(37,99,235,0.04)', borderColor: 'rgba(37,99,235,0.18)' }}
           >
-            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: '#8B5CF6' }}>
+            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: '#2563EB' }}>
               The long game
             </p>
             <p className="text-molted-white text-lg font-semibold leading-snug">
               Every student, regardless of zip code or institution budget, deserves a learning environment that knows their name.
             </p>
             <p className="text-molted-muted text-sm leading-relaxed mt-3">
-              The institutions deploying Molt today are proof. The long-term vision is access — bringing hyperpersonalized learning to under-resourced schools, rural campuses, and community colleges that can't afford a 1:1 tutor for every student. The platform scales. The mission doesn't change.
+              The institutions deploying Molt today are proof. The long-term vision is access — bringing hyperpersonalized learning to under-resourced schools, rural campuses, and community colleges that can't afford a 1:1 tutor for every student. The ALP scales. The mission doesn't change.
             </p>
           </div>
         </RevealBlock>
@@ -614,15 +779,18 @@ function FinalCTA() {
     <section className="py-32 px-6 border-t border-molted-border">
       <div className="max-w-3xl mx-auto text-center">
         <RevealBlock>
+          <p className="text-xs font-bold uppercase tracking-widest mb-6" style={{ color: '#DC2626' }}>
+            The LMS is over. The ALP is here.
+          </p>
           <h2 className="text-4xl md:text-6xl font-black text-molted-white tracking-tight leading-tight">
-            Ready to molt?
+            Ready to leave the LMS behind?
           </h2>
           <p className="mt-6 text-molted-muted text-lg leading-relaxed">
             We're onboarding founding partners now. The conversation takes 30 minutes.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="mailto:hello@molted.ai?subject=MoltED Demo Request"
+              href="mailto:hello@molted.ai?subject=MoltED ALP Demo Request"
               className="group flex items-center gap-2.5 px-8 py-4 rounded-xl text-white font-bold text-lg transition-all duration-200 hover:-translate-y-px"
               style={{ background: 'linear-gradient(135deg, #2563EB 0%, #64748B 50%, #1E3A8A 100%)', color: '#ffffff' }}
             >
@@ -644,13 +812,14 @@ export default function MoltedHome() {
   return (
     <MoltedLayout>
       <Hero />
-      <TheProblem />
-      <ThePlatform />
+      <DeathCertificate />
+      <ALPDefinition />
+      <TheComparison />
       <DataFlywheel />
       <ThreeRoles />
       <InstructorFirst />
       <Traction />
-      <CampusBridge />
+      <PlatformBridge />
       <Manifesto />
       <FinalCTA />
     </MoltedLayout>
