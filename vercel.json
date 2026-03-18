@@ -1,17 +1,51 @@
 {
-  "rewrites": [{ "source": "/((?!api/).*)", "destination": "/index.html" }],
+  "rewrites": [
+    {
+      "source": "/((?!api/).*)",
+      "destination": "/index.html"
+    }
+  ],
   "headers": [
     {
       "source": "/api/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "no-store, no-cache, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "no-store, no-cache, must-revalidate"
+        }
       ]
     }
   ],
   "functions": {
-    "api/course-architect.ts": { "maxDuration": 60 },
-    "api/agentic-grader.ts": { "maxDuration": 60 },
-    "api/expand-announcements.ts": { "maxDuration": 60 },
-    "api/discuss.ts": { "maxDuration": 30 }
+    "api/course-architect.ts": {
+      "maxDuration": 60
+    },
+    "api/agentic-grader.ts": {
+      "maxDuration": 60
+    },
+    "api/expand-announcements.ts": {
+      "maxDuration": 60
+    },
+    "api/discuss.ts": {
+      "maxDuration": 30
+    },
+    "api/demos.ts": {
+      "maxDuration": 60
+    },
+    "api/reply.ts": {
+      "maxDuration": 30
+    },
+    "api/lumen-companion.ts": {
+      "maxDuration": 30
+    },
+    "api/pathway-adapt.ts": {
+      "maxDuration": 30
+    },
+    "api/syllabus-parse.ts": {
+      "maxDuration": 60
+    },
+    "api/grader-negotiate.ts": {
+      "maxDuration": 60
+    }
   }
 }

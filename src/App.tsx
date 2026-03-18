@@ -48,6 +48,15 @@ import MoltBoard from './pages/molted/MoltBoard';
 import GovernanceQA from './pages/GovernanceQA';
 import ScalingModel from './pages/ScalingModel';
 import LearningSystemsModernization from './pages/LearningSystemsModernization';
+import BeaconDemo from './pages/molted/demos/BeaconDemo';
+import RetainAIDemo from './pages/molted/demos/RetainAIDemo';
+import OutcomesAIDemo from './pages/molted/demos/OutcomesAIDemo';
+import ProofAIDemo from './pages/molted/demos/ProofAIDemo';
+import SyllabusSyncDemo from './pages/molted/demos/SyllabusSyncDemo';
+import ClinicalAIDemo from './pages/molted/demos/ClinicalAIDemo';
+import AdaptiveExamDemo from './pages/molted/demos/AdaptiveExamDemo';
+import PathwayDemo from './pages/molted/PathwayDemo';
+import LumenDemo from './pages/molted/LumenDemo';
 
 function ProtectedRoutes() {
   const { user, isLoading } = useAuth();
@@ -121,6 +130,16 @@ export default function App() {
             <Route path="/forge/discussion" element={<DiscussionDemo />} />
             <Route path="/forge/course-architect" element={<CourseArchitect />} />
             <Route path="/forge/agentic-grader" element={<AgenticGrader />} />
+            <Route path="/beacon/demo" element={<BeaconDemo />} />
+            <Route path="/retain-ai/demo" element={<RetainAIDemo />} />
+            <Route path="/outcomes-ai/demo" element={<OutcomesAIDemo />} />
+            <Route path="/proof-ai/demo" element={<ProofAIDemo />} />
+            <Route path="/syllabussync/demo" element={<SyllabusSyncDemo />} />
+            <Route path="/clinical-ai/demo" element={<ClinicalAIDemo />} />
+            <Route path="/adaptive-exam/demo" element={<AdaptiveExamDemo />} />
+            <Route path="/pathway-ai/demo" element={<PathwayDemo />} />
+            <Route path="/lumen/demo" element={<LumenDemo />} />
+            <Route path="/command-center" element={<CommandCenter />} />
             <Route path="/forge/auto-respond" element={<AutoRespond />} />
             <Route path="/forge/early-warning" element={<EarlyWarning />} />
             <Route path="/forge/live-demo" element={<LiveAgentDemo />} />
