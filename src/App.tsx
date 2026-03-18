@@ -34,7 +34,6 @@ import MoltedOutcomesAi from './pages/molted/MoltedOutcomesAi';
 import MoltedCampusOS from './pages/molted/MoltedCampusOS';
 import MoltedImagoOS from './pages/molted/MoltedImagoOS';
 import MoltedMasteryAi from './pages/molted/MoltedMasteryAi';
-import MoltedPAIgeBreaker from './pages/molted/MoltedPAIgeBreaker';
 import PathwayDemo from './pages/molted/PathwayDemo';
 import LumenDemo from './pages/molted/LumenDemo';
 import MoltedAbout from './pages/molted/MoltedAbout';
@@ -131,7 +130,6 @@ export default function App() {
             <Route path="/outpost" element={<MoltedCampusOS />} />
             <Route path="/imago-os" element={<MoltedImagoOS />} />
             <Route path="/mastery-ai" element={<MoltedMasteryAi />} />
-            <Route path="/paigebreaker" element={<MoltedPAIgeBreaker />} />
             <Route path="/about" element={<MoltedAbout />} />
             <Route path="/founding-partners" element={<MoltedFoundingPartners />} />
             <Route path="/investors" element={<MoltedInvestors />} />
