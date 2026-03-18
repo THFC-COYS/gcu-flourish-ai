@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Sparkles, ArrowRight, Check, Globe, Heart, Shield, Zap, Building2, Mic } from 'lucide-react';
-import MoltedLayout, { OutpostBanner } from './MoltedLayout';
+import MoltLMSLayout, { OutpostBanner } from './MoltedLayout';
 import AgentFeed, { FeedEvent } from '../../components/AgentFeed';
 
 const RED = '#1E3A8A';
@@ -94,7 +94,7 @@ function Hero() {
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border text-xs font-semibold mb-8 animate-fade-in"
           style={{ borderColor: RED_BORDER, background: RED_DIM, color: RED }}
         >
-          <Mic size={12} /> MoltED · Institutions
+          <Mic size={12} /> MoltLMS · Institutions
         </div>
 
         {/* Wordmark */}
@@ -693,7 +693,7 @@ function CTA() {
               to="/"
               className="px-8 py-4 rounded-xl border border-molted-border text-molted-muted hover:text-molted-white font-semibold transition-all hover:border-molted-subtle"
             >
-              ← Back to MoltED
+              ← Back to MoltLMS
             </Link>
           </div>
         </RevealBlock>
@@ -702,9 +702,9 @@ function CTA() {
   );
 }
 
-export default function MoltedBeaconAi() {
+export default function MoltLMSBeaconAi() {
   return (
-    <MoltedLayout>
+    <MoltLMSLayout>
       <OutpostBanner moduleName="Beacon" moduleColor="#1E3A8A" />
       <Hero />
       <LiveProof />
@@ -715,6 +715,6 @@ export default function MoltedBeaconAi() {
       <WhyBeacon />
       <PricingTeaser />
       <CTA />
-    </MoltedLayout>
+    </MoltLMSLayout>
   );
 }

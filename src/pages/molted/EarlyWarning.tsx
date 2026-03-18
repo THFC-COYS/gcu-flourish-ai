@@ -5,7 +5,7 @@ import {
   AlertTriangle, Activity, TrendingDown, MessageSquare,
   Users, ChevronDown, ChevronUp, Zap, UserCheck,
 } from 'lucide-react';
-import MoltedLayout from './MoltedLayout';
+import MoltLMSLayout from './MoltedLayout';
 
 /* ── Constants ─────────────────────────────────────────────────────────── */
 const TEAL = '#2563EB';
@@ -563,7 +563,7 @@ export default function EarlyWarning() {
   }
 
   return (
-    <MoltedLayout>
+    <MoltLMSLayout>
       <div className="min-h-screen pt-24 pb-24 px-6">
         <div className="max-w-6xl mx-auto">
 
@@ -686,6 +686,6 @@ export default function EarlyWarning() {
 
         </div>
       </div>
-    </MoltedLayout>
+    </MoltLMSLayout>
   );
 }

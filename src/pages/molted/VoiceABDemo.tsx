@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronLeft, Mic, Send, Loader2, Copy, Check, RefreshCw, Sparkles, ArrowRight } from 'lucide-react';
-import MoltedLayout from './MoltedLayout';
+import MoltLMSLayout from './MoltedLayout';
 
 /* ── Color palette ─────────────────────────────────────────────────────── */
 const BLUE = '#2563EB';
@@ -337,7 +337,7 @@ export default function VoiceABDemo() {
   }
 
   return (
-    <MoltedLayout>
+    <MoltLMSLayout>
       {/* Page-level top bar */}
       <div className="border-b border-molted-border" style={{ background: 'rgba(0,0,0,0.30)', marginTop: 64 }}>
         <div className="max-w-7xl mx-auto px-6 py-2.5 flex items-center justify-between gap-4">
@@ -701,6 +701,6 @@ export default function VoiceABDemo() {
 
         </div>
       </div>
-    </MoltedLayout>
+    </MoltLMSLayout>
   );
 }

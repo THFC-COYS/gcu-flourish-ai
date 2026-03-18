@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronRight } from 'lucide-react';
 
-function MoltedLogo({ size = 'md' }: { size?: 'sm' | 'md' | 'lg' }) {
+function MoltLMSLogo({ size = 'md' }: { size?: 'sm' | 'md' | 'lg' }) {
   const textSize = { sm: 'text-lg', md: 'text-2xl', lg: 'text-4xl' }[size];
   return (
     <div className="flex items-center">
@@ -34,7 +34,7 @@ const CAMPUS_MODULES = [
 ];
 
 /* ── Nav ────────────────────────────────────────────────────────────────── */
-export function MoltedNav() {
+export function MoltLMSNav() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
@@ -74,7 +74,7 @@ export function MoltedNav() {
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link to="/" className="flex-shrink-0">
-          <MoltedLogo size="sm" />
+          <MoltLMSLogo size="sm" />
         </Link>
 
         {/* Desktop nav */}
@@ -149,15 +149,15 @@ export function MoltedNav() {
 }
 
 /* ── Footer ─────────────────────────────────────────────────────────────── */
-export function MoltedFooter() {
+export function MoltLMSFooter() {
   return (
     <footer style={{ background: '#F8F9FC', borderTop: '1px solid rgba(0,0,0,0.08)' }}>
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="md:col-span-2">
-            <MoltedLogo size="md" />
+            <MoltLMSLogo size="md" />
             <p className="mt-4 text-molted-muted text-sm leading-relaxed max-w-xs">
-              MoltED builds AI-native tools that transform how institutions teach,
+              MoltLMS builds AI-native tools that transform how institutions teach,
               how students learn, and how knowledge moves.
             </p>
           </div>
@@ -198,8 +198,11 @@ export function MoltedFooter() {
         </div>
 
         <div className="mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4" style={{ borderTop: '1px solid rgba(0,0,0,0.07)' }}>
-          <p className="text-molted-subtle text-xs">© {new Date().getFullYear()} MoltED. All rights reserved.</p>
-          <p className="text-molted-subtle text-xs">Built with intent. Designed with purpose.</p>
+          <p className="text-molted-subtle text-xs">© {new Date().getFullYear()} MoltLMS. All rights reserved.</p>
+          <p className="text-molted-subtle text-xs">
+            Powered by{' '}
+            <span className="font-semibold" style={{ color: 'rgba(255,255,255,0.45)' }}>Paigebreaker LLC</span>
+          </p>
         </div>
       </div>
     </footer>
@@ -229,12 +232,12 @@ export function OutpostBanner({ moduleName, moduleColor }: { moduleName: string;
   );
 }
 
-export default function MoltedLayout({ children }: { children: React.ReactNode }) {
+export default function MoltLMSLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="bg-molted-black min-h-screen">
-      <MoltedNav />
+      <MoltLMSNav />
       <main>{children}</main>
-      <MoltedFooter />
+      <MoltLMSFooter />
     </div>
   );
 }

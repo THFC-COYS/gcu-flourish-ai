@@ -4,7 +4,7 @@ import {
   ArrowRight, Check, TrendingUp, AlertTriangle, BarChart2,
   FileText, Zap, Database, Eye, Clock, Award, BookOpen,
 } from 'lucide-react';
-import MoltedLayout from './MoltedLayout';
+import MoltLMSLayout from './MoltedLayout';
 
 const SKY = '#0EA5E9';
 
@@ -73,7 +73,7 @@ function Hero() {
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border text-xs font-semibold mb-8 animate-fade-in"
           style={{ borderColor: `${SKY}40`, background: `${SKY}12`, color: SKY }}
         >
-          <Eye size={12} /> MoltED · Institutional Intelligence Layer
+          <Eye size={12} /> MoltLMS · Institutional Intelligence Layer
         </div>
 
         {/* Wordmark */}
@@ -803,7 +803,7 @@ function CTA() {
               to="/"
               className="text-molted-muted hover:text-molted-white text-sm transition-colors"
             >
-              ← Back to MoltED
+              ← Back to MoltLMS
             </Link>
             <Link
               to="/paigebreaker"
@@ -819,9 +819,9 @@ function CTA() {
 }
 
 /* ── Page export ────────────────────────────────────────────────────────── */
-export default function MoltedOutcomes() {
+export default function MoltLMSOutcomes() {
   return (
-    <MoltedLayout>
+    <MoltLMSLayout>
       <Hero />
       <TheBlindSpot />
       <WhatItSees />
@@ -830,6 +830,6 @@ export default function MoltedOutcomes() {
       <Integration />
       <Pricing />
       <CTA />
-    </MoltedLayout>
+    </MoltLMSLayout>
   );
 }

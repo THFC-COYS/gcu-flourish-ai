@@ -6,7 +6,7 @@ import {
   GraduationCap, Calendar, Target, FileText, Layers, ClipboardList,
   MessageSquare, Star, Award,
 } from 'lucide-react';
-import MoltedLayout from './MoltedLayout';
+import MoltLMSLayout from './MoltedLayout';
 
 /* ── Constants ─────────────────────────────────────────────────────────── */
 const TEAL = '#2563EB';
@@ -1189,7 +1189,7 @@ export default function CourseArchitect() {
   const accentBorder = mode === 'parse' ? PURPLE_BORDER : TEAL_BORDER;
 
   return (
-    <MoltedLayout>
+    <MoltLMSLayout>
       <div className="min-h-screen pt-24 pb-24 px-6">
         <div className="max-w-6xl mx-auto">
 
@@ -1429,6 +1429,6 @@ export default function CourseArchitect() {
 
         </div>
       </div>
-    </MoltedLayout>
+    </MoltLMSLayout>
   );
 }

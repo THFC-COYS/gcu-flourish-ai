@@ -16,7 +16,7 @@ import {
   Users,
   Zap,
 } from 'lucide-react';
-import MoltedLayout from './MoltedLayout';
+import MoltLMSLayout from './MoltedLayout';
 
 /* ── Product config ─────────────────────────────────────────────────────── */
 const PRODUCTS = [
@@ -482,7 +482,7 @@ export default function CrossProductLoop() {
   }
 
   return (
-    <MoltedLayout>
+    <MoltLMSLayout>
       <div className="min-h-screen" style={{ background: '#060B18' }}>
         {/* Hero header */}
         <div className="pt-24 pb-8 px-4 text-center">
@@ -678,6 +678,6 @@ export default function CrossProductLoop() {
           to   { opacity: 1; transform: translateX(0); }
         }
       `}</style>
-    </MoltedLayout>
+    </MoltLMSLayout>
   );
 }

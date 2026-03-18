@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronRight, UploadCloud, Map, CheckSquare, Award, BookOpen, BarChart3, Layers, Zap } from 'lucide-react';
-import MoltedLayout from './MoltedLayout';
+import MoltLMSLayout from './MoltedLayout';
 
 const EMERALD = '#10B981';
 const EMERALD_DIM = 'rgba(16,185,129,0.12)';
@@ -574,9 +574,9 @@ function CTA() {
 }
 
 /* ── Page ──────────────────────────────────────────────────────────────── */
-export default function MoltedMastery() {
+export default function MoltLMSMastery() {
   return (
-    <MoltedLayout>
+    <MoltLMSLayout>
       <Hero />
       <TheProblem />
       <TheTransformation />
@@ -586,6 +586,6 @@ export default function MoltedMastery() {
       <Integrations />
       <Pricing />
       <CTA />
-    </MoltedLayout>
+    </MoltLMSLayout>
   );
 }

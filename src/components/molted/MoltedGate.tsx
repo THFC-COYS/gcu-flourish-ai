@@ -6,7 +6,7 @@ const PASSCODE = 'molted2025';
 
 /* ── Context ─────────────────────────────────────────────────────────── */
 const GateContext = createContext(false);
-export const useMoltedAccess = () => useContext(GateContext);
+export const useMoltLMSAccess = () => useContext(GateContext);
 
 /* ── Gate screen ─────────────────────────────────────────────────────── */
 function GateScreen({ onUnlock }: { onUnlock: () => void }) {
@@ -58,7 +58,7 @@ function GateScreen({ onUnlock }: { onUnlock: () => void }) {
                 backgroundClip: 'text',
               }}
             >
-              MoltED
+              MoltLMS
             </p>
             <p className="text-xs text-molted-muted mt-0.5 tracking-widest uppercase">Private access</p>
           </div>
@@ -134,7 +134,7 @@ function GateScreen({ onUnlock }: { onUnlock: () => void }) {
 }
 
 /* ── Gate wrapper ────────────────────────────────────────────────────── */
-export default function MoltedGate({ children }: { children: React.ReactNode }) {
+export default function MoltLMSGate({ children }: { children: React.ReactNode }) {
   const [unlocked, setUnlocked] = useState<boolean | null>(null);
 
   useEffect(() => {

@@ -5,7 +5,7 @@ import {
   MessageCircle, ShieldCheck, AlertCircle, Zap, Tag,
   ChevronDown, ChevronUp, BookOpen,
 } from 'lucide-react';
-import MoltedLayout from './MoltedLayout';
+import MoltLMSLayout from './MoltedLayout';
 
 /* ── Constants ─────────────────────────────────────────────────────────── */
 const TEAL = '#2563EB';
@@ -455,7 +455,7 @@ export default function AutoRespond() {
   }
 
   return (
-    <MoltedLayout>
+    <MoltLMSLayout>
       <div className="min-h-screen pt-24 pb-24 px-6">
         <div className="max-w-6xl mx-auto">
 
@@ -576,6 +576,6 @@ export default function AutoRespond() {
 
         </div>
       </div>
-    </MoltedLayout>
+    </MoltLMSLayout>
   );
 }

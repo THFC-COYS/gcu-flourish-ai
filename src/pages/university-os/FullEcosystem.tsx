@@ -31,7 +31,7 @@ const LAYERS = [
     id: 'platform',
     number: '02',
     title: 'Platform Layer',
-    subtitle: 'MoltED Outpost / Campus OS',
+    subtitle: 'MoltLMS Outpost / Campus OS',
     tagline: 'The operating system faculty and staff see every day',
     icon: Cpu,
     color: 'blue',
@@ -61,7 +61,7 @@ const LAYERS = [
     id: 'student',
     number: '04',
     title: 'Student-Facing Layer',
-    subtitle: 'MoltED Learning Products',
+    subtitle: 'MoltLMS Learning Products',
     tagline: 'Personalized AI for every student, every step',
     icon: GraduationCap,
     color: 'amber',
@@ -942,7 +942,7 @@ export default function FullEcosystem() {
           <div className="w-6 h-6 rounded-md bg-blue-600 flex items-center justify-center">
             <Cpu size={12} className="text-white" />
           </div>
-          <h2 className="text-lg font-black text-slate-900 dark:text-white">Layer 02 — Platform Layer (MoltED)</h2>
+          <h2 className="text-lg font-black text-slate-900 dark:text-white">Layer 02 — Platform Layer (MoltLMS)</h2>
         </div>
         <p className="text-sm text-slate-500 dark:text-slate-400 -mt-2">The tools faculty, staff, and advisors use every day.</p>
 

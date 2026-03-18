@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Lightbulb, Target, Heart } from 'lucide-react';
-import MoltedLayout from './MoltedLayout';
+import MoltLMSLayout from './MoltedLayout';
 
 function useReveal() {
   const ref = useRef<HTMLDivElement>(null);
@@ -49,7 +49,7 @@ function Hero() {
       </div>
       <div className="relative z-10 max-w-4xl mx-auto">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-molted-border bg-molted-elevated text-molted-muted text-xs font-semibold mb-8 animate-fade-in">
-          MoltED · About
+          MoltLMS · About
         </div>
         <h1 className="text-5xl md:text-7xl font-black text-molted-white tracking-tight leading-tight animate-reveal">
           We didn't build<br />
@@ -171,7 +171,7 @@ function StatusNote() {
               <div>
                 <h3 className="text-molted-white font-bold text-lg mb-3">Company Status</h3>
                 <p className="text-molted-muted leading-relaxed mb-4">
-                  MoltED is an active company. Products are live and deployed at a flagship university partner
+                  MoltLMS is an active company. Products are live and deployed at a flagship university partner
                   serving 50,000+ students. We are currently accepting founding institutional partners.
                 </p>
                 <div className="space-y-2">
@@ -222,7 +222,7 @@ function Contact() {
               to="/"
               className="px-8 py-4 rounded-xl border border-molted-border text-molted-muted hover:text-molted-white font-semibold transition-all hover:border-molted-subtle"
             >
-              ← Back to MoltEDED
+              ← Back to MoltLMSED
             </Link>
           </div>
         </RevealBlock>
@@ -231,14 +231,14 @@ function Contact() {
   );
 }
 
-export default function MoltedAbout() {
+export default function MoltLMSAbout() {
   return (
-    <MoltedLayout>
+    <MoltLMSLayout>
       <Hero />
       <Story />
       <Values />
       <StatusNote />
       <Contact />
-    </MoltedLayout>
+    </MoltLMSLayout>
   );
 }

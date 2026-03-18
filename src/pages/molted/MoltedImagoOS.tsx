@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronRight } from 'lucide-react';
-import MoltedLayout from './MoltedLayout';
+import MoltLMSLayout from './MoltedLayout';
 
 /* ── Scroll reveal ─────────────────────────────────────────────────────── */
 function useReveal() {
@@ -180,7 +180,7 @@ function TheMoltMetaphor() {
           >
             "Education is molting.
             <br />
-            MoltED is what it becomes."
+            MoltLMS is what it becomes."
           </p>
         </RevealBlock>
 
@@ -531,7 +531,7 @@ function Architecture() {
   );
 }
 
-/* ── The MoltED is Not Optional ───────────────────────────────────────────── */
+/* ── The MoltLMS is Not Optional ───────────────────────────────────────────── */
 function MoltManifesto() {
   return (
     <section className="py-40 px-6 border-t border-molted-border relative overflow-hidden">
@@ -567,7 +567,7 @@ function MoltManifesto() {
         </RevealBlock>
         <RevealBlock delay={520}>
           <p className="mt-8 text-molted-subtle text-sm tracking-widest font-medium">
-            — MoltED
+            — MoltLMS
           </p>
         </RevealBlock>
       </div>
@@ -632,9 +632,9 @@ function TransformCTA() {
 }
 
 /* ── Page ──────────────────────────────────────────────────────────────── */
-export default function MoltedImagoOS() {
+export default function MoltLMSImagoOS() {
   return (
-    <MoltedLayout>
+    <MoltLMSLayout>
       <Hero />
       <TheMoltMetaphor />
       <ThreeStages />
@@ -642,6 +642,6 @@ export default function MoltedImagoOS() {
       <Architecture />
       <MoltManifesto />
       <TransformCTA />
-    </MoltedLayout>
+    </MoltLMSLayout>
   );
 }

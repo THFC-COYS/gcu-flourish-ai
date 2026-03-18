@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Sparkles, ArrowRight, Check, Globe, Heart, Shield, Zap, Building2 } from 'lucide-react';
-import MoltedLayout, { OutpostBanner } from './MoltedLayout';
+import MoltLMSLayout, { OutpostBanner } from './MoltedLayout';
 
 function useReveal() {
   const ref = useRef<HTMLDivElement>(null);
@@ -658,9 +658,9 @@ function CTA() {
   );
 }
 
-export default function MoltedBeaconAi() {
+export default function MoltLMSBeaconAi() {
   return (
-    <MoltedLayout>
+    <MoltLMSLayout>
       <OutpostBanner moduleName="Beacon" moduleColor="#1E3A8A" />
       <Hero />
       <LiveProof />
@@ -671,6 +671,6 @@ export default function MoltedBeaconAi() {
       <PricingTeaser />
       <ProofCallout />
       <CTA />
-    </MoltedLayout>
+    </MoltLMSLayout>
   );
 }

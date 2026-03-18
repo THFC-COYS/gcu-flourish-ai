@@ -21,23 +21,23 @@ import ExecutiveBriefing from './pages/ExecutiveBriefing';
 import FlourishStandard from './pages/FlourishStandard';
 import SpiritTraining from './pages/SpiritTraining';
 import ExecutiveTour from './pages/ExecutiveTour';
-import MoltedHome from './pages/molted/MoltedHome';
-import MoltedExecTour from './pages/molted/MoltedExecTour';
-import MoltedInvestors from './pages/molted/MoltedInvestors';
-import MoltedLumen from './pages/molted/MoltedLumen';
-import MoltedBeaconAi from './pages/molted/MoltedBeaconAi';
-import MoltedForge from './pages/molted/MoltedForge';
-import MoltedPathwayAi from './pages/molted/MoltedPathwayAi';
-import MoltedProofAi from './pages/molted/MoltedProofAi';
-import MoltedRetainAi from './pages/molted/MoltedRetainAi';
-import MoltedOutcomesAi from './pages/molted/MoltedOutcomesAi';
-import MoltedCampusOS from './pages/molted/MoltedCampusOS';
-import MoltedImagoOS from './pages/molted/MoltedImagoOS';
-import MoltedMasteryAi from './pages/molted/MoltedMasteryAi';
+import MoltLMSHome from './pages/molted/MoltedHome';
+import MoltLMSExecTour from './pages/molted/MoltedExecTour';
+import MoltLMSInvestors from './pages/molted/MoltedInvestors';
+import MoltLMSLumen from './pages/molted/MoltedLumen';
+import MoltLMSBeaconAi from './pages/molted/MoltedBeaconAi';
+import MoltLMSForge from './pages/molted/MoltedForge';
+import MoltLMSPathwayAi from './pages/molted/MoltedPathwayAi';
+import MoltLMSProofAi from './pages/molted/MoltedProofAi';
+import MoltLMSRetainAi from './pages/molted/MoltedRetainAi';
+import MoltLMSOutcomesAi from './pages/molted/MoltedOutcomesAi';
+import MoltLMSCampusOS from './pages/molted/MoltedCampusOS';
+import MoltLMSImagoOS from './pages/molted/MoltedImagoOS';
+import MoltLMSMasteryAi from './pages/molted/MoltedMasteryAi';
 import PathwayDemo from './pages/molted/PathwayDemo';
 import LumenDemo from './pages/molted/LumenDemo';
-import MoltedAbout from './pages/molted/MoltedAbout';
-import MoltedFoundingPartners from './pages/molted/MoltedFoundingPartners';
+import MoltLMSAbout from './pages/molted/MoltedAbout';
+import MoltLMSFoundingPartners from './pages/molted/MoltedFoundingPartners';
 import LiveAgentDemo from './pages/molted/LiveAgentDemo';
 import DiscussionDemo from './pages/molted/DiscussionDemo';
 import CourseArchitect from './pages/molted/CourseArchitect';
@@ -113,26 +113,26 @@ export default function App() {
         <BrowserRouter>
           <Routes>
             {/* Molt — main public website */}
-            <Route path="/" element={<MoltedHome />} />
-            <Route path="/lumen" element={<MoltedLumen />} />
+            <Route path="/" element={<MoltLMSHome />} />
+            <Route path="/lumen" element={<MoltLMSLumen />} />
             <Route path="/lumen/demo" element={<LumenDemo />} />
-            <Route path="/beacon" element={<MoltedBeaconAi />} />
+            <Route path="/beacon" element={<MoltLMSBeaconAi />} />
             <Route path="/beacon/demo" element={<BeaconDemo />} />
-            <Route path="/forge" element={<MoltedForge />} />
-            <Route path="/pathway-ai" element={<MoltedPathwayAi />} />
+            <Route path="/forge" element={<MoltLMSForge />} />
+            <Route path="/pathway-ai" element={<MoltLMSPathwayAi />} />
             <Route path="/pathway-ai/demo" element={<PathwayDemo />} />
-            <Route path="/proof-ai" element={<MoltedProofAi />} />
+            <Route path="/proof-ai" element={<MoltLMSProofAi />} />
             <Route path="/proof-ai/demo" element={<ProofAIDemo />} />
-            <Route path="/retain-ai" element={<MoltedRetainAi />} />
+            <Route path="/retain-ai" element={<MoltLMSRetainAi />} />
             <Route path="/retain-ai/demo" element={<RetainAIDemo />} />
-            <Route path="/outcomes-ai" element={<MoltedOutcomesAi />} />
+            <Route path="/outcomes-ai" element={<MoltLMSOutcomesAi />} />
             <Route path="/outcomes-ai/demo" element={<OutcomesAIDemo />} />
-            <Route path="/outpost" element={<MoltedCampusOS />} />
-            <Route path="/imago-os" element={<MoltedImagoOS />} />
-            <Route path="/mastery-ai" element={<MoltedMasteryAi />} />
-            <Route path="/about" element={<MoltedAbout />} />
-            <Route path="/founding-partners" element={<MoltedFoundingPartners />} />
-            <Route path="/investors" element={<MoltedInvestors />} />
+            <Route path="/outpost" element={<MoltLMSCampusOS />} />
+            <Route path="/imago-os" element={<MoltLMSImagoOS />} />
+            <Route path="/mastery-ai" element={<MoltLMSMasteryAi />} />
+            <Route path="/about" element={<MoltLMSAbout />} />
+            <Route path="/founding-partners" element={<MoltLMSFoundingPartners />} />
+            <Route path="/investors" element={<MoltLMSInvestors />} />
             <Route path="/forge/discussion" element={<DiscussionDemo />} />
             <Route path="/forge/course-architect" element={<CourseArchitect />} />
             <Route path="/forge/agentic-grader" element={<AgenticGrader />} />
@@ -147,7 +147,7 @@ export default function App() {
             <Route path="/adaptive-exam/demo" element={<AdaptiveExamDemo />} />
             <Route path="/cross-product-loop" element={<CrossProductLoop />} />
             <Route path="/command-center" element={<CommandCenter />} />
-            <Route path="/exec-tour" element={<MoltedExecTour />} />
+            <Route path="/exec-tour" element={<MoltLMSExecTour />} />
             <Route path="/gcu-deck" element={<GCULeadershipDeck />} />
             {/* GCU Flourish — client portal */}
             <Route path="/gcu/login" element={<LoginGuard />} />

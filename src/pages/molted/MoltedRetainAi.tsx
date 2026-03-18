@@ -6,7 +6,7 @@ import {
   CheckCircle, Send, RefreshCw, Zap, Eye, Brain, GitBranch,
   Shield, PlayCircle, ChevronDown,
 } from 'lucide-react';
-import MoltedLayout from './MoltedLayout';
+import MoltLMSLayout from './MoltedLayout';
 
 /* ── Scroll reveal ─────────────────────────────────────────────────────── */
 function useReveal() {
@@ -1142,7 +1142,7 @@ function FinalCTA() {
             </Link>
           </div>
           <p className="mt-8 text-molted-subtle text-sm italic">
-            "Every student who was about to leave — didn't." — MoltED
+            "Every student who was about to leave — didn't." — MoltLMS
           </p>
         </RevealBlock>
       </div>
@@ -1151,9 +1151,9 @@ function FinalCTA() {
 }
 
 /* ── Page ──────────────────────────────────────────────────────────────── */
-export default function MoltedRetain() {
+export default function MoltLMSRetain() {
   return (
-    <MoltedLayout>
+    <MoltLMSLayout>
       <Hero />
       <AgentLoop />
       <SilentDeparture />
@@ -1164,6 +1164,6 @@ export default function MoltedRetain() {
       <ROISection />
       <Pricing />
       <FinalCTA />
-    </MoltedLayout>
+    </MoltLMSLayout>
   );
 }

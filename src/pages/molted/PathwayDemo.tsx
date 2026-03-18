@@ -4,7 +4,7 @@ import {
   ChevronLeft, Loader2, Brain, GitBranch, AlertTriangle, Check,
   ArrowRight, Shield, TrendingUp, RefreshCw, Zap, BookOpen, FileText,
 } from 'lucide-react';
-import MoltedLayout from './MoltedLayout';
+import MoltLMSLayout from './MoltedLayout';
 
 /* ── Constants ─────────────────────────────────────────────────────────── */
 const VIOLET = '#8B5CF6';
@@ -829,7 +829,7 @@ export default function PathwayDemo() {
   };
 
   return (
-    <MoltedLayout>
+    <MoltLMSLayout>
       {/* Header */}
       <div className="sticky top-0 z-30 border-b border-molted-border bg-molted-surface/95 backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -966,6 +966,6 @@ export default function PathwayDemo() {
           </Link>
         </div>
       </div>
-    </MoltedLayout>
+    </MoltLMSLayout>
   );
 }

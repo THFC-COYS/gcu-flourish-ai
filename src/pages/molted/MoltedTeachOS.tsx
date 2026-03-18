@@ -7,7 +7,7 @@ import {
   GraduationCap, Sparkles, Database, Lock, FlaskConical,
   PieChart, FileCheck, UserCog, BrainCircuit,
 } from 'lucide-react';
-import MoltedLayout, { OutpostBanner } from './MoltedLayout';
+import MoltLMSLayout, { OutpostBanner } from './MoltedLayout';
 
 /* ── Scroll reveal ─────────────────────────────────────────────────────── */
 function useReveal() {
@@ -74,7 +74,7 @@ function Hero() {
           style={{ background: TEAL_DIM, border: `1px solid ${TEAL_BORDER}`, color: TEAL }}
         >
           <Cpu size={12} />
-          MoltED · Faculty
+          MoltLMS · Faculty
         </div>
       </RevealBlock>
 
@@ -1476,9 +1476,9 @@ function CTA() {
 }
 
 /* ── Page ──────────────────────────────────────────────────────────────── */
-export default function MoltedForge() {
+export default function MoltLMSForge() {
   return (
-    <MoltedLayout>
+    <MoltLMSLayout>
       <OutpostBanner moduleName="Forge" moduleColor="#2563EB" />
       <Hero />
       <TheProblem />
@@ -1493,6 +1493,6 @@ export default function MoltedForge() {
       <TeachStats />
       <PricingTeaser />
       <CTA />
-    </MoltedLayout>
+    </MoltLMSLayout>
   );
 }

@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { BookOpen, MessageSquare, Zap, GraduationCap, ArrowRight, Check, Users, Target, Clock, Video, Mic, Image, AlignLeft, RefreshCw, Link2 } from 'lucide-react';
-import MoltedLayout, { OutpostBanner } from './MoltedLayout';
+import MoltLMSLayout, { OutpostBanner } from './MoltedLayout';
 import AgentFeed, { FeedEvent } from '../../components/AgentFeed';
 
 const GOLD = '#64748B';
@@ -65,7 +65,7 @@ function Hero() {
       <div className="relative z-10 max-w-5xl mx-auto">
         {/* Product badge */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-molted-violet/30 bg-molted-violet/10 text-molted-violet text-xs font-semibold mb-8 animate-fade-in">
-          <BookOpen size={12} /> MoltED · Students
+          <BookOpen size={12} /> MoltLMS · Students
         </div>
 
         {/* Hero wordmark */}
@@ -810,7 +810,7 @@ function CTA() {
               to="/"
               className="px-8 py-4 rounded-xl border border-molted-border text-molted-muted hover:text-molted-white font-semibold transition-all hover:border-molted-subtle"
             >
-              ← Back to MoltED
+              ← Back to MoltLMS
             </Link>
           </div>
         </RevealBlock>
@@ -819,9 +819,9 @@ function CTA() {
   );
 }
 
-export default function MoltedLumen() {
+export default function MoltLMSLumen() {
   return (
-    <MoltedLayout>
+    <MoltLMSLayout>
       <OutpostBanner moduleName="Lumen" moduleColor="#64748B" />
       <Hero />
       <TheInsight />
@@ -835,6 +835,6 @@ export default function MoltedLumen() {
       <Features />
       <Audiences />
       <CTA />
-    </MoltedLayout>
+    </MoltLMSLayout>
   );
 }

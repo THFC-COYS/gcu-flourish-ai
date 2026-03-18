@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronLeft, Send, Bot, Loader2, Sparkles, Mic, ChevronDown, ChevronUp, User, Zap } from 'lucide-react';
-import MoltedLayout from './MoltedLayout';
+import MoltLMSLayout from './MoltedLayout';
 
 const TEAL = '#2563EB';
 const TEAL_DIM = 'rgba(37,99,235,0.10)';
@@ -144,7 +144,7 @@ export default function ForgeVoiceDemo() {
   }
 
   return (
-    <MoltedLayout>
+    <MoltLMSLayout>
       <NowLiveBanner />
       <div className="min-h-screen pt-24 pb-32 px-6">
         <div className="max-w-3xl mx-auto">
@@ -417,6 +417,6 @@ export default function ForgeVoiceDemo() {
 
         </div>
       </div>
-    </MoltedLayout>
+    </MoltLMSLayout>
   );
 }

@@ -5,7 +5,7 @@ import {
   BookOpen, AlertTriangle, ChevronRight, Users, BarChart2, Lightbulb,
   RefreshCw, Activity, Shield, TrendingUp, Eye, Layers,
 } from 'lucide-react';
-import MoltedLayout from './MoltedLayout';
+import MoltLMSLayout from './MoltedLayout';
 
 const VIOLET = '#8B5CF6';
 const VIOLET_DIM = 'rgba(139,92,246,0.12)';
@@ -988,7 +988,7 @@ function CTA() {
               to="/"
               className="text-molted-muted hover:text-molted-white text-sm transition-colors"
             >
-              ← Back to MoltED
+              ← Back to MoltLMS
             </Link>
             <Link
               to="/paigebreaker"
@@ -1004,9 +1004,9 @@ function CTA() {
 }
 
 /* ── Page export ────────────────────────────────────────────────────────── */
-export default function MoltedPathway() {
+export default function MoltLMSPathway() {
   return (
-    <MoltedLayout>
+    <MoltLMSLayout>
       <Hero />
       <TheProblem />
       <HowItLearns />
@@ -1017,6 +1017,6 @@ export default function MoltedPathway() {
       <ForInstitutions />
       <Pricing />
       <CTA />
-    </MoltedLayout>
+    </MoltLMSLayout>
   );
 }

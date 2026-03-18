@@ -4,7 +4,7 @@ import {
   ChevronLeft, Loader2, BookOpen, MessageSquare, RefreshCw, Link2,
   AlertTriangle, Check, ArrowRight, Zap, Eye,
 } from 'lucide-react';
-import MoltedLayout from './MoltedLayout';
+import MoltLMSLayout from './MoltedLayout';
 
 /* ── Constants ─────────────────────────────────────────────────────────── */
 const VIOLET = '#7B61FF';
@@ -677,7 +677,7 @@ export default function LumenDemo() {
   const isReadingMode = activeMode === 'readingMode';
 
   return (
-    <MoltedLayout>
+    <MoltLMSLayout>
       {/* Header */}
       <div className="sticky top-0 z-30 border-b border-molted-border bg-molted-surface/95 backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -917,6 +917,6 @@ export default function LumenDemo() {
           </Link>
         </div>
       </div>
-    </MoltedLayout>
+    </MoltLMSLayout>
   );
 }

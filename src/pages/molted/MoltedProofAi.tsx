@@ -4,7 +4,7 @@ import {
   ArrowRight, ChevronRight, Mic, MessageSquare, Award,
   Shield, BarChart3, CheckCircle, Users, BookOpen, Zap, AlertTriangle,
 } from 'lucide-react';
-import MoltedLayout from './MoltedLayout';
+import MoltLMSLayout from './MoltedLayout';
 import AgentFeed, { FeedEvent } from '../../components/AgentFeed';
 
 const PROOF_EVENTS: FeedEvent[] = [
@@ -837,7 +837,7 @@ function FinalCTA() {
             </Link>
           </div>
           <p className="mt-8 text-molted-subtle text-sm italic">
-            "You can't outsource a conversation." — MoltED
+            "You can't outsource a conversation." — MoltLMS
           </p>
         </RevealBlock>
       </div>
@@ -846,9 +846,9 @@ function FinalCTA() {
 }
 
 /* ── Page ──────────────────────────────────────────────────────────────── */
-export default function MoltedProof() {
+export default function MoltLMSProof() {
   return (
-    <MoltedLayout>
+    <MoltLMSLayout>
       <Hero />
       <TheCrisis />
       <AssessmentModes />
@@ -857,6 +857,6 @@ export default function MoltedProof() {
       <ForFaculty />
       <Pricing />
       <FinalCTA />
-    </MoltedLayout>
+    </MoltLMSLayout>
   );
 }

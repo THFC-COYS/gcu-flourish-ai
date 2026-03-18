@@ -5,7 +5,7 @@ import {
   AlertTriangle, Megaphone, Zap, Check, Copy,
   ChevronDown, ChevronUp, ArrowRight, Loader2, RotateCcw,
 } from 'lucide-react';
-import MoltedLayout from './MoltedLayout';
+import MoltLMSLayout from './MoltedLayout';
 
 /* ── Constants ──────────────────────────────────────────────────────────── */
 const TEAL         = '#2563EB';
@@ -469,7 +469,7 @@ export default function MondayStack() {
   }
 
   return (
-    <MoltedLayout>
+    <MoltLMSLayout>
       {/* Header */}
       <div className="pt-24 pb-6 px-6" style={{ background: 'linear-gradient(180deg, rgba(124,58,237,0.08) 0%, transparent 100%)' }}>
         <div className="max-w-3xl mx-auto">
@@ -822,6 +822,6 @@ export default function MondayStack() {
         }
         .animate-fadeIn { animation: fadeIn 0.3s ease both; }
       `}</style>
-    </MoltedLayout>
+    </MoltLMSLayout>
   );
 }

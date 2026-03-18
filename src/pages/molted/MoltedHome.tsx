@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ArrowRight, ChevronRight, Bot, BookOpen, BarChart3, Users, Zap } from 'lucide-react';
-import MoltedLayout from './MoltedLayout';
+import MoltLMSLayout from './MoltedLayout';
 import { useAuth } from '../../context/AuthContext';
 
 
@@ -91,7 +91,7 @@ function Hero() {
         <RevealBlock className="mb-8">
           <p className="text-xs font-bold uppercase tracking-[0.25em]"
             style={{ color: 'rgba(255,255,255,0.35)' }}>
-            Introducing MoltED™
+            Introducing MoltLMS™
           </p>
         </RevealBlock>
 
@@ -145,7 +145,7 @@ function Hero() {
             )}
           </button>
           <a
-            href="mailto:greg.lucas@paigebreaker.com?subject=MoltED Demo Request"
+            href="mailto:greg.lucas@paigebreaker.com?subject=MoltLMS Demo Request"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-sm transition-all hover:-translate-y-px"
             style={{ background: '#ffffff', color: '#0e0e0e' }}
           >
@@ -356,7 +356,7 @@ function ThePlatform() {
         <RevealBlock className="text-center">
           <p className="text-molted-muted text-sm font-medium uppercase tracking-widest mb-12">The answer</p>
           <h2 className="text-4xl md:text-6xl font-black text-molted-white leading-tight tracking-tight">
-            MoltED is an agentic LMS.
+            MoltLMS is an agentic LMS.
           </h2>
           <p className="mt-4 text-3xl md:text-5xl font-black leading-tight tracking-tight"
             style={{
@@ -416,7 +416,7 @@ function DataFlywheel() {
             with every interaction.
           </p>
           <p className="mt-8 text-molted-muted text-lg leading-relaxed max-w-2xl mx-auto">
-            Every discussion reply, every intervention, every personalized response feeds back into MoltED's understanding of how that student learns. The data flywheel compounds. Institutions that deploy early build an advantage that can't be replicated — the model trained on their students, their courses, their outcomes.
+            Every discussion reply, every intervention, every personalized response feeds back into MoltLMS's understanding of how that student learns. The data flywheel compounds. Institutions that deploy early build an advantage that can't be replicated — the model trained on their students, their courses, their outcomes.
           </p>
         </RevealBlock>
 
@@ -572,7 +572,7 @@ function InstructorFirst() {
             Students never lose you.
           </p>
           <p className="mt-6 text-molted-muted text-lg leading-relaxed max-w-2xl mx-auto">
-            MoltED is not a chatbot standing in for your instructor. It is your instructor's voice, deployed everywhere you cannot be at once. Forge learns your background, your passions, your hobbies, your teaching style — and every response it drafts sounds like you wrote it.
+            MoltLMS is not a chatbot standing in for your instructor. It is your instructor's voice, deployed everywhere you cannot be at once. Forge learns your background, your passions, your hobbies, your teaching style — and every response it drafts sounds like you wrote it.
           </p>
         </RevealBlock>
 
@@ -726,7 +726,7 @@ function Manifesto() {
           <p className="mt-10 text-molted-muted text-base leading-relaxed max-w-xl mx-auto">
             The LMS was built for a world without AI. The curriculum was built for a world without the internet. The classroom was built for a world without remote work. We are building for what comes next.
           </p>
-          <p className="mt-6 text-molted-subtle text-sm tracking-widest">— MoltED</p>
+          <p className="mt-6 text-molted-subtle text-sm tracking-widest">— MoltLMS</p>
         </RevealBlock>
 
         <RevealBlock delay={200} className="mt-16">
@@ -764,7 +764,7 @@ function FinalCTA() {
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="mailto:greg.lucas@paigebreaker.com?subject=MoltED Demo Request"
+              href="mailto:greg.lucas@paigebreaker.com?subject=MoltLMS Demo Request"
               className="group flex items-center gap-2.5 px-8 py-4 rounded-xl text-white font-bold text-lg transition-all duration-200 hover:-translate-y-px"
               style={{ background: 'linear-gradient(135deg, #2563EB 0%, #64748B 50%, #1E3A8A 100%)', color: '#ffffff' }}
             >
@@ -782,9 +782,9 @@ function FinalCTA() {
 }
 
 /* ── Page ──────────────────────────────────────────────────────────────── */
-export default function MoltedHome() {
+export default function MoltLMSHome() {
   return (
-    <MoltedLayout>
+    <MoltLMSLayout>
       <Hero />
       <NowLive />
       <TheProblem />
@@ -796,6 +796,6 @@ export default function MoltedHome() {
       <CampusBridge />
       <Manifesto />
       <FinalCTA />
-    </MoltedLayout>
+    </MoltLMSLayout>
   );
 }

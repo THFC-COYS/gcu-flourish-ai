@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import {
   ChevronLeft, Send, Loader2, User, Sparkles, RotateCcw, Copy, Check, ArrowRight,
 } from 'lucide-react';
-import MoltedLayout from './MoltedLayout';
+import MoltLMSLayout from './MoltedLayout';
 
 /* ── Constants ──────────────────────────────────────────────────────────── */
 const TEAL = '#2563EB';
@@ -177,7 +177,7 @@ export default function DiscussionDemo() {
   const ready = studentPost.trim().length > 10 && !loading;
 
   return (
-    <MoltedLayout>
+    <MoltLMSLayout>
       <div className="min-h-screen pt-24 pb-24 px-6">
         <div className="max-w-2xl mx-auto">
 
@@ -412,6 +412,6 @@ export default function DiscussionDemo() {
 
         </div>
       </div>
-    </MoltedLayout>
+    </MoltLMSLayout>
   );
 }

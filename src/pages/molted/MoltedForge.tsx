@@ -4,7 +4,7 @@ import {
   ArrowRight, MessageSquare, CheckSquare, Bell, FileText,
   AlertTriangle, Cpu, Clock, ChevronRight, Mic,
 } from 'lucide-react';
-import MoltedLayout, { OutpostBanner } from './MoltedLayout';
+import MoltLMSLayout, { OutpostBanner } from './MoltedLayout';
 import AgentFeed, { FeedEvent } from '../../components/AgentFeed';
 
 const TEAL = '#2563EB';
@@ -99,7 +99,7 @@ function Hero() {
             style={{ background: TEAL_DIM, border: `1px solid ${TEAL_BORDER}`, color: TEAL }}
           >
             <Cpu size={12} />
-            MoltED · Faculty
+            MoltLMS · Faculty
           </div>
         </RevealBlock>
 
@@ -466,7 +466,7 @@ function CTA() {
               to="/"
               className="px-8 py-4 rounded-xl border border-molted-border text-molted-muted hover:text-molted-white font-semibold transition-all hover:border-molted-subtle"
             >
-              ← Back to MoltED
+              ← Back to MoltLMS
             </Link>
           </div>
         </RevealBlock>
@@ -475,9 +475,9 @@ function CTA() {
   );
 }
 
-export default function MoltedForge() {
+export default function MoltLMSForge() {
   return (
-    <MoltedLayout>
+    <MoltLMSLayout>
       <OutpostBanner moduleName="Forge" moduleColor="#2563EB" />
       <Hero />
       <TheProblem />
@@ -485,6 +485,6 @@ export default function MoltedForge() {
       <ForgeLiveFeed />
       <FeatureDemos />
       <CTA />
-    </MoltedLayout>
+    </MoltLMSLayout>
   );
 }

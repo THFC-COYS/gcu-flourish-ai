@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { BookOpen, MessageSquare, Zap, GraduationCap, ArrowRight, Check, Users, Target, Clock } from 'lucide-react';
-import MoltedLayout, { OutpostBanner } from './MoltedLayout';
+import MoltLMSLayout, { OutpostBanner } from './MoltedLayout';
 
 function useReveal() {
   const ref = useRef<HTMLDivElement>(null);
@@ -432,9 +432,9 @@ function CTA() {
   );
 }
 
-export default function MoltedLumen() {
+export default function MoltLMSLumen() {
   return (
-    <MoltedLayout>
+    <MoltLMSLayout>
       <OutpostBanner moduleName="Read" moduleColor="#64748B" />
       <Hero />
       <TheInsight />
@@ -443,6 +443,6 @@ export default function MoltedLumen() {
       <Features />
       <Audiences />
       <CTA />
-    </MoltedLayout>
+    </MoltLMSLayout>
   );
 }

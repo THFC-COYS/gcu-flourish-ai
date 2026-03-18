@@ -138,7 +138,7 @@
   100% { background-position: 200% 0; }
 }
 
-/* ── MoltED Ai global styles ──────────────────────────────────────────── */
+/* ── MoltLMS Ai global styles ──────────────────────────────────────────── */
 @layer utilities {
   .molted-hero-gradient {
     background: linear-gradient(120deg, #60A5FA 0%, #2563EB 55%, #1E3A8A 100%);

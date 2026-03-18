@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronRight } from 'lucide-react';
-import MoltedLayout from './MoltedLayout';
+import MoltLMSLayout from './MoltedLayout';
 
 /* ── Scroll reveal ─────────────────────────────────────────────────────── */
 function useReveal() {
@@ -502,7 +502,7 @@ function VisionStatement() {
 
         <RevealBlock delay={650}>
           <p className="mt-8 text-molted-muted text-sm tracking-widest font-medium">
-            — MoltED
+            — MoltLMS
           </p>
         </RevealBlock>
 
@@ -617,9 +617,9 @@ function WaitlistCTA() {
 }
 
 /* ── Page ──────────────────────────────────────────────────────────────── */
-export default function MoltedOutpost() {
+export default function MoltLMSOutpost() {
   return (
-    <MoltedLayout>
+    <MoltLMSLayout>
       <Hero />
       <InfrastructureProblem />
       <WhatOutpostRemoves />
@@ -627,6 +627,6 @@ export default function MoltedOutpost() {
       <ThreePrinciples />
       <VisionStatement />
       <WaitlistCTA />
-    </MoltedLayout>
+    </MoltLMSLayout>
   );
 }
