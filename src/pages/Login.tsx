@@ -74,6 +74,13 @@ export default function Login() {
     setError('');
   };
 
+  const enterDemo = async () => {
+    setLoading(true);
+    const result = await login('demoadmin@flourishai.edu', 'admin123');
+    setLoading(false);
+    if (result.success) navigate('/gcu');
+  };
+
   return (
     <div className="min-h-screen flex canyon-bg">
 
@@ -195,6 +202,37 @@ export default function Login() {
               <div className="text-slate-900 dark:text-white font-bold text-lg">Empyrean LMS</div>
               <div className="text-slate-500 text-xs">Ethical AI Platform</div>
             </div>
+          </div>
+
+          {/* One-click demo entry */}
+          <button
+            onClick={enterDemo}
+            disabled={loading}
+            className="w-full mb-5 py-3.5 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all hover:-translate-y-px"
+            style={{
+              background: 'linear-gradient(135deg, #4C1D95, #6D28D9)',
+              color: '#fff',
+              boxShadow: '0 4px 14px rgba(109,40,217,0.30)',
+            }}
+          >
+            {loading ? (
+              <>
+                <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                Entering…
+              </>
+            ) : (
+              <>
+                <Zap size={15} />
+                Enter Demo — No Login Required
+                <ArrowRight size={15} />
+              </>
+            )}
+          </button>
+
+          <div className="flex items-center gap-3 mb-5">
+            <div className="flex-1 h-px bg-slate-200 dark:bg-slate-700" />
+            <span className="text-xs text-slate-400 font-medium">or sign in as a specific role</span>
+            <div className="flex-1 h-px bg-slate-200 dark:bg-slate-700" />
           </div>
 
           {/* Tab switcher */}
