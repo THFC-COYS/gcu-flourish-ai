@@ -178,7 +178,6 @@ function StatusNote() {
                   {[
                     { label: 'Company formation', status: '✓ Active', color: 'text-emerald-400' },
                     { label: 'Product development', status: '✓ Live', color: 'text-emerald-400' },
-                    { label: 'Flagship university deployment', status: '✓ 50,000+ students', color: 'text-emerald-400' },
                     { label: 'Founding institutional partners', status: '⏳ 12 spots open', color: 'text-amber-400' },
                     { label: 'General availability', status: '→ 2025', color: 'text-molted-muted' },
                   ].map((item, i) => (
@@ -231,10 +230,71 @@ function Contact() {
   );
 }
 
+function Founder() {
+  return (
+    <section className="py-24 px-6 border-t border-molted-border">
+      <div className="max-w-5xl mx-auto">
+        <RevealBlock className="text-center mb-16">
+          <p className="text-molted-muted text-sm font-semibold uppercase tracking-widest mb-4">Meet the Founder</p>
+          <h2 className="text-4xl md:text-5xl font-black text-molted-white tracking-tight">
+            Built by someone who saw<br />the problem firsthand.
+          </h2>
+          <p className="mt-4 text-molted-muted text-lg">From the front of the classroom.</p>
+        </RevealBlock>
+
+        <RevealBlock delay={100}>
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-12 bg-molted-elevated border border-molted-border rounded-3xl p-10">
+            {/* Photo */}
+            <div className="flex-shrink-0">
+              <div className="w-48 h-48 md:w-56 md:h-56 rounded-2xl overflow-hidden border-2 border-molted-border shadow-lg">
+                <img
+                  src="/greg-lucas.jpg"
+                  alt="Greg Lucas, Founder & CEO of MoltALP"
+                  className="w-full h-full object-cover object-top"
+                  onError={e => {
+                    (e.currentTarget as HTMLImageElement).style.display = 'none';
+                  }}
+                />
+              </div>
+            </div>
+
+            {/* Bio */}
+            <div className="flex-1 min-w-0">
+              <div className="mb-6">
+                <h3 className="text-molted-white font-black text-2xl">Greg Lucas, MBA</h3>
+                <p className="text-molted-violet font-semibold text-sm mt-1 uppercase tracking-wider">Founder &amp; CEO</p>
+              </div>
+              <div className="space-y-4 text-molted-muted leading-relaxed">
+                <p>
+                  An established education futurist and AI expert with over 16 years in higher education, Greg serves as Faculty Chair at a leading college of business where he leads AI ethics research, generative AI workshops, and immersive tech integrations.
+                </p>
+                <p>
+                  As owner of Mark85 Labs, he develops AI-driven spatial environments for education and collaboration — the same vision powering pAIgeBreaker™. His diverse background spanning renewable energy, real estate, and manufacturing at Intel brings strategic business acumen to edtech innovation.
+                </p>
+              </div>
+              <div className="mt-8 flex flex-wrap gap-3">
+                {['16+ years higher education', 'Faculty Chair', 'AI Ethics Research', 'Generative AI', 'Mark85 Labs', 'Intel alumnus'].map(tag => (
+                  <span
+                    key={tag}
+                    className="text-xs font-semibold px-3 py-1.5 rounded-full border border-molted-border text-molted-muted"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </RevealBlock>
+      </div>
+    </section>
+  );
+}
+
 export default function MoltedAbout() {
   return (
     <MoltedLayout>
       <Hero />
+      <Founder />
       <Story />
       <Values />
       <StatusNote />
