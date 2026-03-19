@@ -342,7 +342,7 @@ function TheComparison() {
     { label: 'Faculty burden', lms: '23 hrs/week admin', alp: 'Handled by agents' },
     { label: 'Retention signal', lms: 'End-of-term report', alp: 'Live behavioral detection' },
     { label: 'Outcome proof', lms: 'Grade in a box', alp: 'Verified learning trajectory' },
-    { label: 'Integration required', lms: 'API projects, IT cycles', alp: 'Zero — browser extension' },
+    { label: 'Integration required', lms: 'API projects, IT cycles', alp: 'Zero — it IS the platform' },
     { label: 'Gets smarter over time', lms: 'No', alp: 'Data flywheel compounds' },
   ];
 

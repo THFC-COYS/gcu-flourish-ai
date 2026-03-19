@@ -897,7 +897,7 @@ function AgentLoop() {
     {
       num: '02',
       label: 'Agent detects it instantly',
-      detail: 'The Teach browser extension sees the DOM change via MutationObserver — no refresh, no polling.',
+      detail: 'Forge detects the activity instantly via the platform\'s real-time event layer — no refresh, no polling.',
       color: TEAL,
     },
     {
@@ -973,11 +973,10 @@ function AgentLoop() {
             style={{ background: `${TEAL}08`, borderColor: TEAL_BORDER }}
           >
             <p className="text-molted-white font-bold text-lg mb-2">
-              Works on top of any LMS. No API. No IT project.
+              Native to Outpost. No API. No IT project.
             </p>
             <p className="text-molted-muted text-sm max-w-lg mx-auto">
-              Teach installs as a browser extension in 30 seconds. Canvas, Blackboard, D2L, Moodle —
-              if it runs in a browser, the agent runs on top of it.
+              Forge is a built-in module of the Outpost ALP — not an add-on, not an integration. It ships with the platform.
             </p>
             <div className="mt-5 flex flex-wrap justify-center gap-3">
               {['Canvas', 'Blackboard', 'D2L Brightspace', 'Moodle', 'Any web LMS'].map((lms) => (
@@ -1211,8 +1210,8 @@ function HowItWorks() {
   const steps = [
     {
       num: '01',
-      title: 'Install the extension.',
-      desc: 'Add the Forge browser extension in 30 seconds. No API credentials. No IT approval. It runs on top of whatever LMS you already use.',
+      title: 'Connect your course.',
+      desc: 'Forge is already inside Outpost. Set up your course in minutes — no credentials, no IT approval, no installation.',
       icon: Layers,
     },
     {
