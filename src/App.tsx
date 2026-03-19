@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { ThemeProvider } from './context/ThemeContext';
 import Layout from './components/layout/Layout';
@@ -152,6 +153,7 @@ export default function App() {
             <Route path="/executive-tour" element={<ExecutiveTour />} />
             <Route path="/portal/*" element={<ProtectedRoutes />} />
           </Routes>
+          <SpeedInsights />
         </BrowserRouter>
       </AuthProvider>
     </ThemeProvider>
