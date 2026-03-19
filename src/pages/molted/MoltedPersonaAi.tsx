@@ -72,7 +72,7 @@ function Hero() {
         </p>
 
         <p className="mt-4 text-lg text-molted-muted/70 max-w-2xl mx-auto leading-relaxed animate-reveal" style={{ animationDelay: '250ms' }}>
-          Not a chatbot. A named, trained AI persona that carries your organization's values in every conversation — at 2 AM, at scale, without a headcount increase. Already proven at a flagship university. Now available to hospitals, health systems, and enterprises.
+          Not a chatbot. A named, trained AI persona that carries your organization's values in every conversation — at 2 AM, at scale, without a headcount increase. Already proven at a flagship university serving 50,000+ people. Now available to hospitals, health systems, and enterprises.
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 animate-reveal" style={{ animationDelay: '350ms' }}>
@@ -103,6 +103,7 @@ function Hero() {
 function LiveProof() {
   const stats = [
     { number: '6', label: 'AI personas deployed across 6 colleges' },
+    { number: '50,000+', label: 'Students served' },
     { number: '24/7', label: 'Always on, no human required' },
   ];
 
@@ -386,7 +387,7 @@ function SpiritShowcase() {
                 {current.live ? (
                   <div className="mt-6 flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                    <span className="text-molted-muted text-xs">Live · Flagship University</span>
+                    <span className="text-molted-muted text-xs">Live · Flagship University · 50,000+ people served</span>
                   </div>
                 ) : (
                   <div className="mt-6 flex items-center gap-2">
