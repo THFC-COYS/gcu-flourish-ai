@@ -171,7 +171,9 @@ function StatusNote() {
               <div>
                 <h3 className="text-molted-white font-bold text-lg mb-3">Company Status</h3>
                 <p className="text-molted-muted leading-relaxed mb-4">
-                  MoltALP is an active company. Products are live and deployed at a flagship university partner
+                  MoltALP is a product of{' '}
+                  <a href="https://paigebreaker.com" target="_blank" rel="noopener noreferrer" className="text-molted-violet hover:opacity-80 transition-opacity font-semibold">PaigeBreaker LLC</a>
+                  , an active edtech company. Products are live and deployed at a flagship university partner.
                   We are currently accepting founding institutional partners.
                 </p>
                 <div className="space-y-2">
@@ -186,6 +188,12 @@ function StatusNote() {
                       <span className={`text-xs font-semibold ${item.color}`}>{item.status}</span>
                     </div>
                   ))}
+                  <div className="flex items-center justify-between py-2">
+                    <span className="text-molted-muted text-sm">Parent company</span>
+                    <a href="https://paigebreaker.com" target="_blank" rel="noopener noreferrer" className="text-xs font-semibold text-molted-violet hover:opacity-80 transition-opacity">
+                      PaigeBreaker LLC ↗
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

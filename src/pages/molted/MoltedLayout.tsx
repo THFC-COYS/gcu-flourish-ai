@@ -11,7 +11,14 @@ function MoltedLogo({ size = 'md' }: { size?: 'sm' | 'md' | 'lg' }) {
         <span style={{ color: '#2563EB' }}>olt</span>
         <span className="text-molted-white/90">ALP</span>
       </span>
-      <span className="text-[9px] font-medium tracking-widest uppercase" style={{ color: '#64748B' }}>By PaigeBreaker LLC</span>
+      <a
+        href="https://paigebreaker.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-[9px] font-medium tracking-widest uppercase hover:opacity-60 transition-opacity"
+        style={{ color: '#64748B' }}
+        onClick={e => e.stopPropagation()}
+      >By PaigeBreaker LLC ↗</a>
     </div>
   );
 }
@@ -275,12 +282,27 @@ export function MoltedFooter() {
                   <a href={l.href} className="text-molted-muted text-sm hover:text-molted-white transition-colors">{l.label}</a>
                 </li>
               ))}
+              <li className="pt-2 mt-1" style={{ borderTop: '1px solid rgba(0,0,0,0.08)' }}>
+                <a
+                  href="https://paigebreaker.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-molted-muted text-sm hover:text-molted-white transition-colors flex items-center gap-1"
+                >
+                  PaigeBreaker LLC ↗
+                </a>
+                <p className="text-molted-subtle text-xs mt-0.5">Parent company</p>
+              </li>
             </ul>
           </div>
         </div>
 
         <div className="mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4" style={{ borderTop: '1px solid rgba(0,0,0,0.07)' }}>
-          <p className="text-molted-subtle text-xs">© {new Date().getFullYear()} MoltALP. All rights reserved.</p>
+          <p className="text-molted-subtle text-xs">
+            © {new Date().getFullYear()}{' '}
+            <a href="https://paigebreaker.com" target="_blank" rel="noopener noreferrer" className="hover:text-molted-muted transition-colors">PaigeBreaker LLC</a>
+            {' · '}MoltALP is a product of PaigeBreaker LLC.
+          </p>
           <p className="text-molted-subtle text-xs">Built with intent. Designed with purpose.</p>
         </div>
       </div>
