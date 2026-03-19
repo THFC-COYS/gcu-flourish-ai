@@ -205,12 +205,12 @@ function HowLumenWorks() {
     {
       num: '01',
       title: 'You open your reading',
-      body: 'Canvas assignment, PDF, textbook, anything in your browser.',
+      body: 'Any course material inside Outpost — a chapter, an article, a PDF. Lumen is already embedded.',
     },
     {
       num: '02',
       title: 'Lumen is already watching',
-      body: 'The extension runs silently alongside whatever you\'re reading. No setup. No prompts.',
+      body: 'Built into the platform, Lumen runs alongside every reading session. No setup. No prompts. It\'s part of the environment.',
     },
     {
       num: '03',
@@ -266,7 +266,7 @@ function HowLumenWorks() {
           </div>
         </div>
 
-        {/* LMS callout */}
+        {/* Platform callout */}
         <RevealBlock delay={560} className="mt-10">
           <div
             className="rounded-2xl p-6 text-center border"
@@ -276,10 +276,10 @@ function HowLumenWorks() {
             }}
           >
             <p className="text-sm font-semibold uppercase tracking-widest mb-2" style={{ color: '#64748B' }}>
-              Works on top of your LMS
+              Native to Outpost
             </p>
             <p className="text-molted-muted leading-relaxed">
-              Canvas, Blackboard, D2L, PDFs, web articles — if it's in your browser, Lumen works on it. No integration required.
+              Lumen is a built-in module of the Outpost ALP — not an add-on, not an integration. It ships with the platform.
             </p>
           </div>
         </RevealBlock>
