@@ -283,11 +283,11 @@ function Founder() {
                   An established education futurist and AI expert with over 16 years in higher education, Greg serves as Faculty Chair at a leading college of business where he leads AI ethics research, generative AI workshops, and immersive tech integrations.
                 </p>
                 <p>
-                  As owner of PaigeBreaker LLC, he develops AI-driven spatial environments for education and collaboration — the same vision powering MoltALP. His diverse background spanning renewable energy, real estate, and manufacturing at Intel brings strategic business acumen to edtech innovation.
+                  As owner of Mark85 Labs, he develops AI-driven spatial environments for education and collaboration — the same vision powering pAIgeBreaker™. His diverse background spanning renewable energy, real estate, and manufacturing at Intel brings strategic business acumen to edtech innovation.
                 </p>
               </div>
               <div className="mt-8 flex flex-wrap gap-3">
-                {['16+ years higher education', 'Faculty Chair', 'AI Ethics Research', 'Generative AI', 'PaigeBreaker LLC', 'Intel alumnus'].map(tag => (
+                {['16+ years higher education', 'Faculty Chair', 'AI Ethics Research', 'Generative AI', 'Mark85 Labs', 'Intel alumnus'].map(tag => (
                   <span
                     key={tag}
                     className="text-xs font-semibold px-3 py-1.5 rounded-full border border-molted-border text-molted-muted"
