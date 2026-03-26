@@ -11,7 +11,7 @@ const CARD_INNER = '#f1f5f9';
 const BORDER = 'rgba(148,163,184,0.20)';
 
 const PERSONAS = [
-  { id: 'aria', name: 'Aria — GCU Student Success', description: 'Warm, faith-informed student success companion', touchpoints: ['First-day onboarding', 'Academic advising', 'Career support'] },
+  { id: 'aria', name: 'Aria — Student Success', description: 'Warm, faith-informed student success companion', touchpoints: ['First-day onboarding', 'Academic advising', 'Career support'] },
   { id: 'hope', name: 'Hope — Financial Aid Voice', description: 'Clear, empathetic guide through financial processes', touchpoints: ['FAFSA questions', 'Scholarship inquiries', 'Payment plans'] },
   { id: 'canyon', name: 'Canyon — Campus Life', description: 'Energetic, community-focused campus guide', touchpoints: ['Event discovery', 'Club sign-up', 'Housing questions'] },
   { id: 'grace', name: 'Grace — Pastoral Care AI', description: 'Compassionate, faith-centered support companion', touchpoints: ['Faith questions', 'Crisis support', 'Spiritual formation'] },

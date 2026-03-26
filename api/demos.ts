@@ -34,7 +34,7 @@ async function callGrok(systemPrompt: string, userMessage: string, opts: { model
 
 async function handleBeacon(body: any) {
   const { studentMessage, persona, touchpoint } = body;
-  const system = `You are ${persona}, the AI voice of Grand Canyon University, deployed at "${touchpoint}". Your personality is warm, faith-informed, encouraging, and distinctly GCU. Respond as the institutional voice.
+  const system = `You are ${persona}, the AI voice of your institution, deployed at "${touchpoint}". Your personality is warm, faith-informed, encouraging, and distinctly your institution's voice. Respond as the institutional voice.
 
 Return ONLY valid JSON:
 {
@@ -51,7 +51,7 @@ Return ONLY valid JSON:
 
 async function handleRetainAI(body: any) {
   const { student } = body;
-  const system = `You are RetainAI, an early intervention system for Grand Canyon University. Analyze student risk signals and generate an intervention plan.
+  const system = `You are RetainAI, an early intervention system for higher education. Analyze student risk signals and generate an intervention plan.
 
 Return ONLY valid JSON:
 {
@@ -60,7 +60,7 @@ Return ONLY valid JSON:
   "riskFactors": [{ "factor": "...", "weight": "high|medium|low", "detail": "..." }],
   "predictedOutcome": "e.g. 72% probability of withdrawal within 2 weeks without intervention",
   "interventionPlan": [{ "action": "...", "owner": "advisor|system|counselor", "urgency": "today|this week|this month", "template": "" }],
-  "emailDraft": "Full warm GCU-voice email from advisor to student — mention name, specific concerns, offer support, include faith-encouragement",
+  "emailDraft": "Full warm, personalized email from advisor to student — mention name, specific concerns, offer support, include encouragement",
   "retentionProbability": { "withoutIntervention": 34, "withIntervention": 81 }
 }`;
   const msg = `Student: ${student.name}, Major: ${student.major}, GPA: ${student.gpa}, Missed assignments: ${student.missedAssignments}, Logins last 14 days: ${student.loginDaysLast14}, Last login: ${student.lastLoginDaysAgo} days ago, Financial hold: ${student.financialHold}, Advisor: ${student.advisorName}`;
@@ -100,7 +100,7 @@ Return ONLY valid JSON:
 
 async function handleCommandCenter(body: any) {
   const { query } = body;
-  const system = `You are the GCU University OS Command Center AI — real-time intelligence across all 15 departments. Current: 47 agents active, 3 human escalations today, 18,342 tasks completed.
+  const system = `You are the University OS Command Center AI — real-time intelligence across all 15 departments. Current: 47 agents active, 3 human escalations today, 18,342 tasks completed.
 
 Return ONLY valid JSON:
 {

@@ -18,7 +18,7 @@ const REPORT_TYPES = [
 ] as const;
 
 const GCU_SAMPLE_DATA = {
-  institution: 'Grand Canyon University',
+  institution: 'Lakewood University',
   enrollmentTotal: 108000,
   graduationRate6yr: 52,
   retentionRate: 74,
@@ -295,7 +295,7 @@ export default function OutcomesAIDemo() {
 
             {/* Institution data preview */}
             <div className="p-4 rounded-xl" style={{ background: CARD, border: `1px solid ${BORDER}` }}>
-              <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-3">Institutional Data — GCU</p>
+              <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-3">Institutional Data — Sample</p>
               <div className="grid grid-cols-2 gap-y-2 text-sm">
                 {[
                   ['Enrollment', '108,000'],
@@ -354,7 +354,7 @@ export default function OutcomesAIDemo() {
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <p className="text-xs font-semibold uppercase tracking-widest text-slate-500">
-                    {REPORT_TYPES.find(t => t.id === reportType)?.label} — GCU
+                    {REPORT_TYPES.find(t => t.id === reportType)?.label} — Sample
                   </p>
                   <CopyButton text={JSON.stringify(result, null, 2)} />
                 </div>

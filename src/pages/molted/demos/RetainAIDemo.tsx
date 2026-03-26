@@ -192,7 +192,7 @@ const AUTO_TRACES = [
   { wait: 600,  step: 'Marcus J. flagged — Risk Score 91 (Critical)…', type: 'flag' },
   { wait: 500,  step: 'Generating personalized intervention plan…', type: 'plan' },
   { wait: 700,  step: 'Drafting outreach email in advisor voice (Dr. Sarah Chen)…', type: 'draft' },
-  { wait: 600,  step: 'Reviewing email for tone, empathy, and GCU faith alignment…', type: 'review' },
+  { wait: 600,  step: 'Reviewing email for tone, empathy, and values alignment…', type: 'review' },
   { wait: 500,  step: 'Scheduling delivery — optimal open-rate window: 9:00 AM…', type: 'send' },
   { wait: 400,  step: 'Email dispatched · Advisor notified · Case logged…', type: 'done' },
 ];

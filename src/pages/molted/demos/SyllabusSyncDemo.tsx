@@ -24,7 +24,7 @@ Instructor: Dr. Sarah Mitchell, DNP, RN | Office Hours: Mon/Wed 2-4pm
 Course Duration: 8 weeks | Delivery: Online asynchronous with one synchronous session
 
 COURSE DESCRIPTION
-This course examines ethical dilemmas encountered in clinical nursing practice using the four principles of biomedical ethics: autonomy, beneficence, non-maleficence, and justice. Students will analyze real and hypothetical cases, develop moral reasoning frameworks, and apply faith-integrated ethical decision-making aligned with GCU's Christian worldview.
+This course examines ethical dilemmas encountered in clinical nursing practice using the four principles of biomedical ethics: autonomy, beneficence, non-maleficence, and justice. Students will analyze real and hypothetical cases, develop moral reasoning frameworks, and apply faith-integrated ethical decision-making aligned with a Christian worldview.
 
 LEARNING OUTCOMES
 Upon completion, students will: (1) Apply the four principles of bioethics to clinical scenarios; (2) Analyze ethical conflicts using multiple ethical frameworks; (3) Demonstrate advocacy skills for vulnerable patient populations; (4) Integrate Christian values into ethical decision-making.
@@ -51,7 +51,7 @@ Week 8: Integration and professional identity`,
     label: 'BUS-601 · Strategic Management',
     courseType: 'MBA Strategic Management — graduate level',
     text: `BUS-601: Strategic Management (3 credits)
-Instructor: Prof. James Holloway, MBA | Contact: j.holloway@gcu.edu
+Instructor: Prof. James Holloway, MBA | Contact: j.holloway@university.edu
 Duration: 7 weeks | Format: Online
 
 DESCRIPTION
