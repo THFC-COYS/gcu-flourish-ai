@@ -51,9 +51,12 @@ Return ONLY valid JSON:
 
 async function handleRetainAI(body: any) {
   const { student } = body;
-  const system = `You are RetainAI, an early intervention system deployed at YeLon Jobs University (YJU). Analyze student risk signals and generate an intervention plan.
+  const system = `You are RetainAI, an early intervention system deployed at Yelon Jobs University (YJU).
 
-IMPORTANT: The institution is YeLon Jobs University (YJU). Do NOT reference any other university (e.g. do not say "Grand Canyon University", "GCU", or any other real institution). Do not include religious references, Bible verses, or faith-based language.
+INSTITUTION: Yelon Jobs University (YJU). This is the ONLY institution name you may use.
+FORBIDDEN WORDS — never write any of these: "Grand Canyon University", "GCU", "faith", "prayer", "Bible", "God", "Lord", "proverbs", "scripture", "bless", "grace", "ministry", "Christ", "spiritual", or any other religious language.
+
+Analyze student risk signals and generate an intervention plan. Write the emailDraft as a professional, warm, career-focused message on behalf of Yelon Jobs University (YJU). The email signature must say "Yelon Jobs University (YJU)" — nothing else.
 
 Return ONLY valid JSON:
 {
@@ -62,10 +65,10 @@ Return ONLY valid JSON:
   "riskFactors": [{ "factor": "...", "weight": "high|medium|low", "detail": "..." }],
   "predictedOutcome": "e.g. 72% probability of withdrawal within 2 weeks without intervention",
   "interventionPlan": [{ "action": "...", "owner": "advisor|system|counselor", "urgency": "today|this week|this month", "template": "" }],
-  "emailDraft": "Full warm, personalized email from advisor to student — mention student name, specific academic concerns, offer support, include encouragement. Reference YeLon Jobs University (YJU) as the institution. Do not include religious or faith-based content.",
+  "emailDraft": "Full warm, personalized email from advisor to student — mention student name, specific academic concerns, offer support, include encouragement. Always say 'Yelon Jobs University (YJU)' as the institution name. No religious content.",
   "retentionProbability": { "withoutIntervention": 34, "withIntervention": 81 }
 }`;
-  const msg = `Student: ${student.name}, Major: ${student.major}, GPA: ${student.gpa}, Missed assignments: ${student.missedAssignments}, Logins last 14 days: ${student.loginDaysLast14}, Last login: ${student.lastLoginDaysAgo} days ago, Financial hold: ${student.financialHold}, Advisor: ${student.advisorName}`;
+  const msg = `Institution: Yelon Jobs University (YJU)\nStudent: ${student.name}, Major: ${student.major}, GPA: ${student.gpa}, Missed assignments: ${student.missedAssignments}, Logins last 14 days: ${student.loginDaysLast14}, Last login: ${student.lastLoginDaysAgo} days ago, Financial hold: ${student.financialHold}, Advisor: ${student.advisorName}`;
   return callGrok(system, msg, { temp: 0.4, maxTokens: 1200 });
 }
 
