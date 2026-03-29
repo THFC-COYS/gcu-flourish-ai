@@ -321,7 +321,7 @@ export default function ProofAIDemo() {
 
         <div className="mt-16 pt-8 border-t flex justify-between items-center" style={{ borderColor: '#e2e8f0' }}>
           <Link to="/outcomes-ai/demo" className="text-sm text-slate-400 hover:text-slate-600 transition-colors">← OutcomesAI Demo</Link>
-          <Link to="/gcu/university-os/command-center" className="text-sm font-semibold flex items-center gap-1" style={{ color: '#0284c7' }}>
+          <Link to="/portal/university-os/command-center" className="text-sm font-semibold flex items-center gap-1" style={{ color: '#0284c7' }}>
             See Command Center →
           </Link>
         </div>
