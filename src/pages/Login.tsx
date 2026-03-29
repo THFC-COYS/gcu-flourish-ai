@@ -91,33 +91,33 @@ export default function Login() {
           <path d="M0,200 L0,120 Q100,60 200,100 Q300,140 400,80 Q500,20 600,70 Q700,120 800,90 L800,200 Z" fill="white" />
         </svg>
         <svg className="absolute bottom-0 left-0 right-0 opacity-6" viewBox="0 0 800 200" preserveAspectRatio="none">
-          <path d="M0,200 L0,150 Q150,90 300,130 Q450,170 600,110 Q700,80 800,120 L800,200 Z" fill="#FFC627" />
+          <path d="M0,200 L0,150 Q150,90 300,130 Q450,170 600,110 Q700,80 800,120 L800,200 Z" fill="#E85D04" />
         </svg>
 
         {/* Logo */}
         <div className="flex items-center gap-3 z-10">
-          <div className="w-12 h-12 rounded-xl bg-gcu-gold flex items-center justify-center">
-            <span className="font-black text-gcu-purple-dark text-lg">GCU</span>
+          <div className="w-12 h-12 rounded-xl bg-yju-accent flex items-center justify-center">
+            <span className="font-black text-yju-primary-dark text-lg">YJU</span>
           </div>
           <div>
             <div className="text-white font-bold text-xl">Empyrean LMS</div>
-            <div className="text-white/50 text-sm">Grand Canyon University</div>
+            <div className="text-white/50 text-sm">YeLon Jobs University</div>
           </div>
         </div>
 
         {/* Hero copy */}
         <div className="z-10 space-y-8">
           <div>
-            <div className="inline-flex items-center gap-2 bg-gcu-gold/20 border border-gcu-gold/30 text-gcu-gold text-sm font-semibold px-4 py-2 rounded-full mb-5">
+            <div className="inline-flex items-center gap-2 bg-yju-accent/20 border border-yju-accent/30 text-yju-accent text-sm font-semibold px-4 py-2 rounded-full mb-5">
               <Sparkles size={14} />
               Empyrean LMS · Creating a New Industry
             </div>
             <h1 className="text-4xl xl:text-5xl font-black text-white leading-tight mb-4">
               Not AI tools.<br />
-              <span className="text-gcu-gold">AI colleagues.</span>
+              <span className="text-yju-accent">AI colleagues.</span>
             </h1>
             <p className="text-white/70 text-lg leading-relaxed max-w-lg">
-              GCU Spirit Agents are autonomous professionals — nurses, teachers, chaplains, and advisors —
+              YJU Spirit Agents are autonomous professionals — nurses, teachers, chaplains, and advisors —
               encoded with 50 years of Christ-centered character and deployed where the world needs them most.
               Starting as a website. Becoming wearables. Becoming robots.
             </p>
@@ -132,7 +132,7 @@ export default function Login() {
           <div className="grid grid-cols-4 gap-3">
             {STATS.map(s => (
               <div key={s.label} className="glass-card rounded-xl p-3 text-center">
-                <div className="text-xl font-black text-gcu-gold">{s.value}</div>
+                <div className="text-xl font-black text-yju-accent">{s.value}</div>
                 <div className="text-white/60 text-xs mt-0.5 leading-tight">{s.label}</div>
               </div>
             ))}
@@ -162,10 +162,10 @@ export default function Login() {
             </div>
             <p className="text-white/80 text-sm leading-relaxed italic">
               "At 3am, when our chaplain goes home, there is a patient somewhere who is afraid and alone.
-              The Spirit Chaplain is <span className="text-gcu-gold font-semibold">already there.</span> That's not a feature. That's a calling answered."
+              The Spirit Chaplain is <span className="text-yju-accent font-semibold">already there.</span> That's not a feature. That's a calling answered."
             </p>
             <div className="flex items-center gap-3 mt-4">
-              <div className="w-8 h-8 rounded-full bg-gcu-gold/20 border border-gcu-gold/30 flex items-center justify-center text-gcu-gold font-bold text-sm">B</div>
+              <div className="w-8 h-8 rounded-full bg-yju-accent/20 border border-yju-accent/30 flex items-center justify-center text-yju-accent font-bold text-sm">B</div>
               <div>
                 <div className="text-white text-sm font-semibold">Illustrative Healthcare Partner</div>
                 <div className="text-white/40 text-xs">Simulated · Not a real organization</div>
@@ -177,7 +177,7 @@ export default function Login() {
           <div className="flex flex-wrap gap-2">
             {TRUST_BADGES.map(({ icon: Icon, label }) => (
               <div key={label} className="flex items-center gap-1.5 bg-white/10 border border-white/20 text-white/80 text-xs font-semibold px-3 py-1.5 rounded-full">
-                <Icon size={12} className="text-gcu-gold" />
+                <Icon size={12} className="text-yju-accent" />
                 {label}
               </div>
             ))}
@@ -185,7 +185,7 @@ export default function Login() {
         </div>
 
         <div className="z-10 text-white/30 text-xs">
-          © 2026 Grand Canyon University · Empyrean LMS Platform · All rights reserved.
+          © 2026 YeLon Jobs University · Empyrean LMS Platform · All rights reserved.
         </div>
       </div>
 
@@ -195,8 +195,8 @@ export default function Login() {
 
           {/* Mobile logo */}
           <div className="lg:hidden flex items-center gap-2 mb-8">
-            <div className="w-10 h-10 rounded-xl bg-gcu-purple flex items-center justify-center">
-              <span className="font-black text-gcu-gold text-sm">GCU</span>
+            <div className="w-10 h-10 rounded-xl bg-yju-primary flex items-center justify-center">
+              <span className="font-black text-yju-accent text-sm">YJU</span>
             </div>
             <div>
               <div className="text-slate-900 dark:text-white font-bold text-lg">Empyrean LMS</div>
@@ -241,7 +241,7 @@ export default function Login() {
               onClick={() => setPanel('login')}
               className={`flex-1 text-sm font-semibold py-2 rounded-lg transition-all ${
                 panel === 'login'
-                  ? 'bg-white dark:bg-[#2D2050] text-gcu-purple dark:text-purple-300 shadow-sm'
+                  ? 'bg-white dark:bg-[#2D2050] text-yju-primary dark:text-purple-300 shadow-sm'
                   : 'text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300'
               }`}
             >
@@ -251,7 +251,7 @@ export default function Login() {
               onClick={() => setPanel('demo')}
               className={`flex-1 text-sm font-semibold py-2 rounded-lg transition-all ${
                 panel === 'demo'
-                  ? 'bg-white dark:bg-[#2D2050] text-gcu-purple dark:text-purple-300 shadow-sm'
+                  ? 'bg-white dark:bg-[#2D2050] text-yju-primary dark:text-purple-300 shadow-sm'
                   : 'text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300'
               }`}
             >
@@ -328,15 +328,15 @@ export default function Login() {
                 Not a partner yet?{' '}
                 <button
                   onClick={() => setPanel('demo')}
-                  className="text-gcu-purple dark:text-purple-400 font-semibold hover:underline"
+                  className="text-yju-primary dark:text-purple-400 font-semibold hover:underline"
                 >
                   Request a demo →
                 </button>
               </p>
 
               {/* Demo credentials */}
-              <div className="mt-6 p-4 bg-gcu-purple-pale dark:bg-gcu-purple/10 rounded-xl border border-gcu-purple/20">
-                <p className="text-xs font-bold text-gcu-purple dark:text-purple-300 mb-3 uppercase tracking-wide">
+              <div className="mt-6 p-4 bg-yju-primary-pale dark:bg-yju-primary/10 rounded-xl border border-yju-primary/20">
+                <p className="text-xs font-bold text-yju-primary dark:text-purple-300 mb-3 uppercase tracking-wide">
                   Demo Credentials
                 </p>
                 <div className="space-y-2">
@@ -344,13 +344,13 @@ export default function Login() {
                     <button
                       key={cred.email}
                       onClick={() => fillDemo(cred)}
-                      className="w-full text-left flex items-center justify-between px-3 py-2 rounded-lg bg-white dark:bg-[#1A1235] border border-slate-200 dark:border-[#2D2050] hover:border-gcu-purple/40 transition-colors group"
+                      className="w-full text-left flex items-center justify-between px-3 py-2 rounded-lg bg-white dark:bg-[#1A1235] border border-slate-200 dark:border-[#2D2050] hover:border-yju-primary/40 transition-colors group"
                     >
                       <div>
                         <div className="text-xs font-semibold text-slate-800 dark:text-slate-200">{cred.name}</div>
                         <div className="text-xs text-slate-500 dark:text-slate-400">{cred.role} · {cred.email}</div>
                       </div>
-                      <span className="text-xs text-gcu-purple dark:text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity">Use →</span>
+                      <span className="text-xs text-yju-primary dark:text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity">Use →</span>
                     </button>
                   ))}
                 </div>
@@ -441,7 +441,7 @@ export default function Login() {
                 Already a partner?{' '}
                 <button
                   onClick={() => setPanel('login')}
-                  className="text-gcu-purple dark:text-purple-400 font-semibold hover:underline"
+                  className="text-yju-primary dark:text-purple-400 font-semibold hover:underline"
                 >
                   Sign in →
                 </button>
@@ -467,7 +467,7 @@ export default function Login() {
                   'Flourish Standard licensing & partnership options',
                 ].map(item => (
                   <div key={item} className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
-                    <ArrowRight size={14} className="text-gcu-gold flex-shrink-0" />
+                    <ArrowRight size={14} className="text-yju-accent flex-shrink-0" />
                     {item}
                   </div>
                 ))}

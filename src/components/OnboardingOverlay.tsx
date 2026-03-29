@@ -11,24 +11,24 @@ const MOMENTS = [
   },
   {
     eyebrow: 'The Answer',
-    headline: 'GCU has spent 77 years training people who are both.',
+    headline: 'YJU has spent 77 years training people who are both.',
     body: 'Nurses who sit with fear. Teachers who stay with struggle. Chaplains who carry grief. Business leaders who know that how you treat people in a crisis is the measure of everything you\'ve built. That spirit has always lived here. Until now, it could only reach those being taught by our faculty — or served by our graduates.',
     cta: 'See what changed',
     bg: 'from-[#1A1235] to-[#2D1A5E]',
   },
   {
     eyebrow: 'The Collective',
-    headline: 'We Are GCU.',
+    headline: 'We Are YJU.',
     subheadline: 'Physical and digital — one soul.',
     body: 'Every nurse educator. Every doctoral researcher. Every student who shared what it means to care, to teach, to lead with faith in today\'s world. The curriculum, the lectures, the lived experience — synthesized into a Spirit Layer that moves across every surface where people face moments that matter. On a tablet. In a kiosk. In a classroom. On a wearable. Inside a robot. The form changes. The soul does not.',
     cta: 'See the platform',
     bg: 'from-[#2D1A5E] to-[#1A0A30]',
-    weAreGCU: true,
+    weAreYJU: true,
   },
   {
     eyebrow: 'The Platform',
     headline: 'Empyrean LMS puts that spirit in the room with anyone who needs it.',
-    body: 'Ten Spirit Agents — one for each GCU college — available to any person, anywhere, at any moment of need. Not a chatbot. Not a search engine. An autonomous professional who knows what they\'re doing and cares about who they\'re doing it for.',
+    body: 'Ten Spirit Agents — one for each YJU college — available to any person, anywhere, at any moment of need. Not a chatbot. Not a search engine. An autonomous professional who knows what they\'re doing and cares about who they\'re doing it for.',
     cta: 'Enter the platform',
     bg: 'from-[#1A0A30] to-[#3D1F8A]',
     last: true,
@@ -75,7 +75,7 @@ export default function OnboardingOverlay({ onComplete }: { onComplete: () => vo
       {/* Subtle gold wave */}
       <div className="absolute inset-0 opacity-5 pointer-events-none">
         <svg viewBox="0 0 1440 900" preserveAspectRatio="none" className="w-full h-full">
-          <path d="M0,900 Q360,200 720,500 Q1080,800 1440,200 L1440,900 Z" fill="#FFC627" />
+          <path d="M0,900 Q360,200 720,500 Q1080,800 1440,200 L1440,900 Z" fill="#E85D04" />
         </svg>
       </div>
 
@@ -97,7 +97,7 @@ export default function OnboardingOverlay({ onComplete }: { onComplete: () => vo
               key={i}
               className={`rounded-full transition-all duration-500 ${
                 i === step
-                  ? 'w-6 h-2 bg-gcu-gold'
+                  ? 'w-6 h-2 bg-yju-accent'
                   : i < step
                   ? 'w-2 h-2 bg-white/40'
                   : 'w-2 h-2 bg-white/15'
@@ -107,18 +107,18 @@ export default function OnboardingOverlay({ onComplete }: { onComplete: () => vo
         </div>
 
         {/* Eyebrow */}
-        <p className="text-gcu-gold text-xs font-bold uppercase tracking-widest mb-4 transition-all duration-500">
+        <p className="text-yju-accent text-xs font-bold uppercase tracking-widest mb-4 transition-all duration-500">
           {moment.eyebrow}
         </p>
 
         {/* Headline */}
-        <h1 className={`font-black text-white leading-tight mb-3 transition-all duration-500 ${(moment as any).weAreGCU ? 'text-5xl sm:text-7xl' : 'text-3xl sm:text-4xl mb-6'}`}>
-          {(moment as any).weAreGCU
-            ? <><span className="text-white">We </span><span className="text-gcu-gold">Are</span><span className="text-white"> GCU.</span></>
+        <h1 className={`font-black text-white leading-tight mb-3 transition-all duration-500 ${(moment as any).weAreYJU ? 'text-5xl sm:text-7xl' : 'text-3xl sm:text-4xl mb-6'}`}>
+          {(moment as any).weAreYJU
+            ? <><span className="text-white">We </span><span className="text-yju-accent">Are</span><span className="text-white"> YJU.</span></>
             : moment.headline}
         </h1>
 
-        {/* Sub-headline for We Are GCU slide */}
+        {/* Sub-headline for We Are YJU slide */}
         {(moment as any).subheadline && (
           <p className="text-purple-300/80 text-lg font-semibold italic mb-6">{(moment as any).subheadline}</p>
         )}
@@ -133,7 +133,7 @@ export default function OnboardingOverlay({ onComplete }: { onComplete: () => vo
           onClick={advance}
           className={`inline-flex items-center gap-3 font-bold text-sm px-8 py-4 rounded-2xl transition-all duration-300 group ${
             moment.last
-              ? 'bg-gcu-gold text-gcu-purple-dark hover:bg-yellow-400 shadow-lg shadow-gcu-gold/20'
+              ? 'bg-yju-accent text-yju-primary-dark hover:bg-yellow-400 shadow-lg shadow-yju-accent/20'
               : 'bg-white/10 border border-white/20 text-white hover:bg-white/20'
           }`}
         >

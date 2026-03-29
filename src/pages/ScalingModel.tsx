@@ -113,7 +113,7 @@ const HLC_CRITERIA = [
   {
     criterion: 'Criterion 4B — Qualified Instruction',
     requirement: 'All instructors are appropriately credentialed for the courses they teach.',
-    compliance: 'AI is never the instructor of record. Every section has a credentialed human instructor. AI functions as a teaching assistant — a role with no credential requirement. GCU already uses thousands of TAs and peer tutors.',
+    compliance: 'AI is never the instructor of record. Every section has a credentialed human instructor. AI functions as a teaching assistant — a role with no credential requirement. YJU already uses thousands of TAs and peer tutors.',
     status: 'compliant',
   },
   {
@@ -165,7 +165,7 @@ export default function ScalingModel() {
 
       {/* Header */}
       <div>
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gcu-gold/15 border border-gcu-gold/30 text-gcu-gold text-xs font-semibold uppercase tracking-wider mb-3">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-yju-accent/15 border border-yju-accent/30 text-yju-accent text-xs font-semibold uppercase tracking-wider mb-3">
           <TrendingUp size={12} /> Scale Without Headcount
         </div>
         <h1 className="text-white text-2xl font-bold mb-2">The Growth Arbitrage Model</h1>
@@ -178,7 +178,7 @@ export default function ScalingModel() {
 
       {/* The core thesis */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="md:col-span-3 bg-gcu-purple/20 border border-gcu-purple/40 rounded-xl p-5">
+        <div className="md:col-span-3 bg-yju-primary/20 border border-yju-primary/40 rounded-xl p-5">
           <div className="flex flex-wrap gap-8 items-center justify-center text-center">
             <div>
               <p className="text-white/75 text-sm mb-1">Traditional model to serve 150K students</p>
@@ -194,7 +194,7 @@ export default function ScalingModel() {
             <ArrowRight size={28} className="text-white/20 hidden md:block" />
             <div>
               <p className="text-white/75 text-sm mb-1">Redirected to student scholarships</p>
-              <p className="text-3xl font-black text-gcu-gold">$118M <span className="text-lg font-normal">fund</span></p>
+              <p className="text-3xl font-black text-yju-accent">$118M <span className="text-lg font-normal">fund</span></p>
               <p className="text-white/65 text-xs mt-1">vs. $68M in the traditional model</p>
             </div>
           </div>
@@ -212,7 +212,7 @@ export default function ScalingModel() {
               onClick={() => setSelectedYear(i)}
               className={`flex-1 py-2 rounded-lg text-sm font-medium transition-all ${
                 selectedYear === i
-                  ? 'bg-gcu-purple text-white'
+                  ? 'bg-yju-primary text-white'
                   : 'bg-white/5 text-white/65 hover:text-white hover:bg-white/10'
               }`}
             >
@@ -234,12 +234,12 @@ export default function ScalingModel() {
           </div>
           <div className="bg-white/5 rounded-xl p-4">
             <p className="text-white/65 text-xs font-semibold uppercase tracking-wider mb-1">Hires Avoided</p>
-            <p className="text-gcu-gold text-2xl font-bold">{fmtNum(headcountSaved)}</p>
+            <p className="text-yju-accent text-2xl font-bold">{fmtNum(headcountSaved)}</p>
             <p className="text-white/55 text-xs mt-0.5">positions not created</p>
           </div>
           <div className="bg-white/5 rounded-xl p-4">
             <p className="text-white/65 text-xs font-semibold uppercase tracking-wider mb-1">Scholarship Fund</p>
-            <p className="text-gcu-gold text-2xl font-bold">{fmt(scenario.scholarshipFundWithAI)}</p>
+            <p className="text-yju-accent text-2xl font-bold">{fmt(scenario.scholarshipFundWithAI)}</p>
             <p className="text-white/55 text-xs mt-0.5">+{fmt(scholarshipDelta)} vs traditional</p>
           </div>
         </div>
@@ -270,12 +270,12 @@ export default function ScalingModel() {
               <span>{fmt(scenario.scholarshipFundWithAI)}</span>
             </div>
             <div className="h-3 bg-white/10 rounded-full overflow-hidden">
-              <div className="h-full bg-gcu-gold rounded-full" style={{ width: `${(scenario.scholarshipFundWithAI / 118_000_000) * 100}%` }} />
+              <div className="h-full bg-yju-accent rounded-full" style={{ width: `${(scenario.scholarshipFundWithAI / 118_000_000) * 100}%` }} />
             </div>
           </div>
         </div>
 
-        <p className="text-white/65 text-sm italic border-l-2 border-gcu-gold/40 pl-3">{scenario.note}</p>
+        <p className="text-white/65 text-sm italic border-l-2 border-yju-accent/40 pl-3">{scenario.note}</p>
       </div>
 
       {/* How it actually happens */}
@@ -286,7 +286,7 @@ export default function ScalingModel() {
             {
               icon: <Minus size={18} className="text-amber-400" />,
               label: 'Natural Attrition',
-              desc: 'GCU has ~8–10% annual staff turnover like any large organization. Over 4 years, that is roughly 2,000–3,000 positions that simply are not backfilled. AI absorbs the workload of those open seats.',
+              desc: 'YJU has ~8–10% annual staff turnover like any large organization. Over 4 years, that is roughly 2,000–3,000 positions that simply are not backfilled. AI absorbs the workload of those open seats.',
             },
             {
               icon: <Plus size={18} className="text-emerald-400" />,
@@ -294,9 +294,9 @@ export default function ScalingModel() {
               desc: 'Existing advisors, coaches, and adjuncts handle more students at higher quality. Their jobs become more strategic, not more repetitive. Job satisfaction research consistently shows this is a retention driver.',
             },
             {
-              icon: <ArrowRight size={18} className="text-gcu-gold" />,
+              icon: <ArrowRight size={18} className="text-yju-accent" />,
               label: 'Growth Absorption',
-              desc: 'Every 1,000 new students traditionally requires ~70 new hires. With AI, that number drops to ~12. GCU can enroll 45,000 more students over 4 years and hire only 450 net new staff instead of 3,060.',
+              desc: 'Every 1,000 new students traditionally requires ~70 new hires. With AI, that number drops to ~12. YJU can enroll 45,000 more students over 4 years and hire only 450 net new staff instead of 3,060.',
             },
           ].map((item) => (
             <div key={item.label} className="bg-white/5 rounded-xl p-4 space-y-2">
@@ -321,7 +321,7 @@ export default function ScalingModel() {
               onClick={() => setActiveRole(i)}
               className={`px-3 py-1.5 rounded-lg text-sm transition-all ${
                 activeRole === i
-                  ? 'bg-gcu-purple text-white font-medium'
+                  ? 'bg-yju-primary text-white font-medium'
                   : 'bg-white/5 text-white/75 hover:text-white hover:bg-white/10'
               }`}
             >
@@ -344,7 +344,7 @@ export default function ScalingModel() {
                       <span className="text-emerald-400 font-medium">{r.withAI}</span>
                     </div>
                   </div>
-                  <div className="px-3 py-1.5 rounded-full bg-gcu-gold/15 border border-gcu-gold/30 text-gcu-gold text-sm font-medium">
+                  <div className="px-3 py-1.5 rounded-full bg-yju-accent/15 border border-yju-accent/30 text-yju-accent text-sm font-medium">
                     {r.headcountImpact}
                   </div>
                 </div>
@@ -353,34 +353,34 @@ export default function ScalingModel() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-0 divide-y md:divide-y-0 md:divide-x divide-white/8">
                 <div className="p-5 space-y-2">
                   <div className="flex items-center gap-2 mb-3">
-                    <Brain size={14} className="text-gcu-purple-light" />
+                    <Brain size={14} className="text-yju-primary-light" />
                     <span className="text-white/60 text-xs font-semibold uppercase tracking-wider">AI Handles</span>
                   </div>
                   {r.aiHandles.map((task) => (
                     <div key={task} className="flex items-start gap-2">
-                      <CheckCircle2 size={13} className="text-gcu-purple-light mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 size={13} className="text-yju-primary-light mt-0.5 flex-shrink-0" />
                       <span className="text-white/70 text-sm">{task}</span>
                     </div>
                   ))}
                 </div>
                 <div className="p-5 space-y-2">
                   <div className="flex items-center gap-2 mb-3">
-                    <UserCheck size={14} className="text-gcu-gold" />
+                    <UserCheck size={14} className="text-yju-accent" />
                     <span className="text-white/60 text-xs font-semibold uppercase tracking-wider">Human Handles</span>
                   </div>
                   {r.humanHandles.map((task) => (
                     <div key={task} className="flex items-start gap-2">
-                      <CheckCircle2 size={13} className="text-gcu-gold mt-0.5 flex-shrink-0" />
+                      <CheckCircle2 size={13} className="text-yju-accent mt-0.5 flex-shrink-0" />
                       <span className="text-white/70 text-sm">{task}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="px-5 py-4 bg-gcu-purple/10 border-t border-gcu-purple/20 flex items-start gap-3">
-                <ShieldCheck size={15} className="text-gcu-gold flex-shrink-0 mt-0.5" />
+              <div className="px-5 py-4 bg-yju-primary/10 border-t border-yju-primary/20 flex items-start gap-3">
+                <ShieldCheck size={15} className="text-yju-accent flex-shrink-0 mt-0.5" />
                 <div>
-                  <span className="text-gcu-gold text-xs font-semibold uppercase tracking-wider">HLC Compliance Note · </span>
+                  <span className="text-yju-accent text-xs font-semibold uppercase tracking-wider">HLC Compliance Note · </span>
                   <span className="text-white/60 text-sm">{r.hlcNote}</span>
                 </div>
               </div>
@@ -392,7 +392,7 @@ export default function ScalingModel() {
       {/* HLC Compliance Checklist */}
       <div className="space-y-4">
         <div className="flex items-center gap-3">
-          <Award size={20} className="text-gcu-gold" />
+          <Award size={20} className="text-yju-accent" />
           <h2 className="text-white font-semibold">HLC Accreditation Compliance Framework</h2>
         </div>
 
@@ -436,7 +436,7 @@ export default function ScalingModel() {
         <h2 className="text-white font-semibold">The Real Economic Argument — For Brian Mueller</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div className="space-y-3">
-            <p className="text-gcu-gold font-medium text-sm uppercase tracking-wider">What this is</p>
+            <p className="text-yju-accent font-medium text-sm uppercase tracking-wider">What this is</p>
             {[
               'Absorbing 45,000 student growth with 450 net new staff instead of 3,060',
               'Redirecting ~$50M in avoided labor costs to scholarships over 4 years',
@@ -472,7 +472,7 @@ export default function ScalingModel() {
       <div className="flex items-start gap-3 px-4 py-3 rounded-xl bg-white/3 border border-white/8 text-white/65 text-xs leading-relaxed">
         <BookOpen size={13} className="flex-shrink-0 mt-0.5" />
         <p>
-          Headcount and scholarship projections are illustrative and based on GCU's publicly reported enrollment data and
+          Headcount and scholarship projections are illustrative and based on YJU's publicly reported enrollment data and
           industry averages for higher ed staff-to-student ratios. Actual savings will depend on implementation scope,
           attrition rates, and collective bargaining agreements. FERPA and ADA compliance items require legal review
           before production deployment. HLC Criterion citations reference the 2020 Criteria for Accreditation.

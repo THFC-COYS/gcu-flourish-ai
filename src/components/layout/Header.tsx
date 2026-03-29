@@ -10,7 +10,7 @@ interface HeaderProps {
 }
 
 const NOTIFICATIONS = [
-  { id: 1, text: 'Spirit Agent "GCU Nursing" completed 142 interactions', time: '2h ago', unread: true },
+  { id: 1, text: 'Spirit Agent "YJU Nursing" completed 142 interactions', time: '2h ago', unread: true },
   { id: 2, text: 'Ethical review requested for Business Spirit v2', time: '5h ago', unread: true },
   { id: 3, text: 'Pilot deployment link generated for Psychology Spirit', time: '1d ago', unread: false },
 ];
@@ -49,12 +49,12 @@ export default function Header({ title, subtitle, onMenuClick }: HeaderProps) {
         <div className="relative">
           <button
             onClick={handleBellClick}
-            className="relative p-2 rounded-lg text-slate-500 hover:text-gcu-purple hover:bg-gcu-purple-pale dark:hover:bg-gcu-purple/10 dark:text-slate-400 transition-colors"
+            className="relative p-2 rounded-lg text-slate-500 hover:text-yju-primary hover:bg-yju-primary-pale dark:hover:bg-yju-primary/10 dark:text-slate-400 transition-colors"
             aria-label="Notifications"
           >
             <Bell size={18} />
             {unreadCount > 0 && (
-              <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-gcu-gold rounded-full" />
+              <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-yju-accent rounded-full" />
             )}
           </button>
           {notifOpen && (
@@ -68,7 +68,7 @@ export default function Header({ title, subtitle, onMenuClick }: HeaderProps) {
               <div className="divide-y divide-slate-100 dark:divide-[#2D2050]">
                 {NOTIFICATIONS.map(n => (
                   <div key={n.id} className="px-4 py-3 flex items-start gap-3 hover:bg-slate-50 dark:hover:bg-white/5 transition-colors">
-                    <div className={`w-2 h-2 rounded-full mt-1.5 flex-shrink-0 ${!readIds.has(n.id) ? 'bg-gcu-gold' : 'bg-slate-200 dark:bg-slate-700'}`} />
+                    <div className={`w-2 h-2 rounded-full mt-1.5 flex-shrink-0 ${!readIds.has(n.id) ? 'bg-yju-accent' : 'bg-slate-200 dark:bg-slate-700'}`} />
                     <div>
                       <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">{n.text}</p>
                       <p className="text-xs text-slate-400 mt-0.5">{n.time}</p>
@@ -83,7 +83,7 @@ export default function Header({ title, subtitle, onMenuClick }: HeaderProps) {
         {/* Dark mode toggle */}
         <button
           onClick={toggle}
-          className="p-2 rounded-lg text-slate-500 hover:text-gcu-purple hover:bg-gcu-purple-pale dark:hover:bg-gcu-purple/10 dark:text-slate-400 transition-colors"
+          className="p-2 rounded-lg text-slate-500 hover:text-yju-primary hover:bg-yju-primary-pale dark:hover:bg-yju-primary/10 dark:text-slate-400 transition-colors"
           aria-label="Toggle dark mode"
         >
           {isDark ? <Sun size={18} /> : <Moon size={18} />}
@@ -92,7 +92,7 @@ export default function Header({ title, subtitle, onMenuClick }: HeaderProps) {
         {/* User avatar */}
         {user && (
           <div className="flex items-center gap-2 ml-1 pl-3 border-l border-slate-200 dark:border-slate-700">
-            <div className="w-8 h-8 rounded-full bg-gcu-purple flex items-center justify-center text-white font-bold text-sm">
+            <div className="w-8 h-8 rounded-full bg-yju-primary flex items-center justify-center text-white font-bold text-sm">
               {user.name.charAt(0)}
             </div>
             <div className="hidden sm:block">

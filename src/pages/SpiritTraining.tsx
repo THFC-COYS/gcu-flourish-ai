@@ -34,7 +34,7 @@ export default function SpiritTraining() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-gradient-to-r from-gcu-purple to-purple-800 rounded-2xl p-6 text-white">
+      <div className="bg-gradient-to-r from-yju-primary to-purple-800 rounded-2xl p-6 text-white">
         <div className="flex items-start gap-4">
           <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
             <GraduationCap size={24} />
@@ -74,8 +74,8 @@ export default function SpiritTraining() {
                   }}
                   className={`w-full text-left px-4 py-3 rounded-xl border transition-all flex items-center gap-3 ${
                     isSelected
-                      ? 'bg-gcu-purple text-white border-gcu-purple shadow-md'
-                      : 'bg-white dark:bg-[#1A1235] border-slate-200 dark:border-[#2D2050] hover:border-gcu-purple/50 dark:hover:border-gcu-purple/50 text-slate-800 dark:text-slate-200'
+                      ? 'bg-yju-primary text-white border-yju-primary shadow-md'
+                      : 'bg-white dark:bg-[#1A1235] border-slate-200 dark:border-[#2D2050] hover:border-yju-primary/50 dark:hover:border-yju-primary/50 text-slate-800 dark:text-slate-200'
                   }`}
                 >
                   <span className="text-xl flex-shrink-0">{proto.icon}</span>
@@ -120,13 +120,13 @@ export default function SpiritTraining() {
                   <button
                     key={scenario.id}
                     onClick={() => setActiveScenario(scenario)}
-                    className="w-full text-left bg-white dark:bg-[#1A1235] border border-slate-200 dark:border-[#2D2050] rounded-xl p-4 hover:border-gcu-purple/50 dark:hover:border-gcu-purple/50 hover:shadow-md transition-all group"
+                    className="w-full text-left bg-white dark:bg-[#1A1235] border border-slate-200 dark:border-[#2D2050] rounded-xl p-4 hover:border-yju-primary/50 dark:hover:border-yju-primary/50 hover:shadow-md transition-all group"
                   >
                     <div className="flex items-start gap-4">
                       <span className="text-3xl flex-shrink-0 mt-0.5">{scenario.icon}</span>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 flex-wrap mb-1">
-                          <h4 className="font-semibold text-slate-900 dark:text-white group-hover:text-gcu-purple dark:group-hover:text-purple-300 transition-colors">
+                          <h4 className="font-semibold text-slate-900 dark:text-white group-hover:text-yju-primary dark:group-hover:text-purple-300 transition-colors">
                             {scenario.title}
                           </h4>
                           <span className={`text-xs font-bold px-2 py-0.5 rounded-full border ${DIFFICULTY_COLORS[scenario.difficulty]}`}>
@@ -134,7 +134,7 @@ export default function SpiritTraining() {
                           </span>
                         </div>
                         <p className="text-xs text-slate-500 dark:text-slate-400 mb-2">
-                          You play: <span className="font-semibold text-gcu-purple dark:text-purple-300">{scenario.studentRole}</span>
+                          You play: <span className="font-semibold text-yju-primary dark:text-purple-300">{scenario.studentRole}</span>
                           {' · '}
                           Spirit plays: <span className="font-semibold text-amber-600 dark:text-amber-400">{scenario.characterName}</span>
                         </p>
@@ -143,8 +143,8 @@ export default function SpiritTraining() {
                         </p>
                       </div>
                       <div className="flex-shrink-0 self-center">
-                        <div className="w-8 h-8 rounded-full bg-gcu-purple/10 dark:bg-gcu-purple/20 flex items-center justify-center group-hover:bg-gcu-purple transition-colors">
-                          <ChevronRight size={16} className="text-gcu-purple group-hover:text-white transition-colors" />
+                        <div className="w-8 h-8 rounded-full bg-yju-primary/10 dark:bg-yju-primary/20 flex items-center justify-center group-hover:bg-yju-primary transition-colors">
+                          <ChevronRight size={16} className="text-yju-primary group-hover:text-white transition-colors" />
                         </div>
                       </div>
                     </div>
@@ -154,7 +154,7 @@ export default function SpiritTraining() {
 
               <div className="bg-slate-50 dark:bg-[#1A1235]/50 border border-slate-100 dark:border-[#2D2050] rounded-xl p-4">
                 <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                  <span className="font-bold text-slate-700 dark:text-slate-300">How it works:</span> Spirit plays the character — fully in character, realistic, and not easy. You practice your professional response in free conversation. After 3+ exchanges, you can end the session and receive structured feedback from {selectedPrototype.name} on what you did well, what to work on, and whether you demonstrated GCU character.
+                  <span className="font-bold text-slate-700 dark:text-slate-300">How it works:</span> Spirit plays the character — fully in character, realistic, and not easy. You practice your professional response in free conversation. After 3+ exchanges, you can end the session and receive structured feedback from {selectedPrototype.name} on what you did well, what to work on, and whether you demonstrated YJU character.
                 </p>
               </div>
             </div>

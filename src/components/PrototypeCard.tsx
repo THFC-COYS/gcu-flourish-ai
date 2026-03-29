@@ -14,7 +14,7 @@ export default function PrototypeCard({ prototype: p, compact = false }: Prototy
   return (
     <div
       className="page-card p-5 flex flex-col gap-4 hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-200 cursor-pointer group"
-      style={{ borderTop: `3px solid ${p.colorAccent === '#FEF9C3' ? '#FFC627' : '#4B2E83'}` }}
+      style={{ borderTop: `3px solid ${p.colorAccent === '#FEF9C3' ? '#E85D04' : '#1A3A5C'}` }}
       onClick={() => navigate(`/testing?id=${p.id}`)}
     >
       {/* Header */}
@@ -27,7 +27,7 @@ export default function PrototypeCard({ prototype: p, compact = false }: Prototy
             {p.icon}
           </div>
           <div>
-            <h3 className="font-bold text-slate-900 dark:text-white text-sm leading-tight group-hover:text-gcu-purple dark:group-hover:text-purple-300 transition-colors">
+            <h3 className="font-bold text-slate-900 dark:text-white text-sm leading-tight group-hover:text-yju-primary dark:group-hover:text-purple-300 transition-colors">
               {p.name}
             </h3>
             <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{p.college}</p>
@@ -42,8 +42,8 @@ export default function PrototypeCard({ prototype: p, compact = false }: Prototy
       </p>
 
       {/* Spirit summary */}
-      <div className="bg-gcu-purple-pale dark:bg-gcu-purple/10 rounded-lg px-3 py-2">
-        <p className="text-xs font-semibold text-gcu-purple dark:text-purple-300">Spirit Infusion</p>
+      <div className="bg-yju-primary-pale dark:bg-yju-primary/10 rounded-lg px-3 py-2">
+        <p className="text-xs font-semibold text-yju-primary dark:text-purple-300">Spirit Infusion</p>
         <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5">{p.spiritSummary}</p>
       </div>
 
@@ -64,12 +64,12 @@ export default function PrototypeCard({ prototype: p, compact = false }: Prototy
           {/* Metrics */}
           <div className="grid grid-cols-3 gap-2 pt-1 border-t border-slate-100 dark:border-[#2D2050]">
             <div className="text-center">
-              <div className="text-sm font-bold text-gcu-purple dark:text-purple-300">{p.metrics.ethicalAlignmentScore}%</div>
+              <div className="text-sm font-bold text-yju-primary dark:text-purple-300">{p.metrics.ethicalAlignmentScore}%</div>
               <div className="text-xs text-slate-500 dark:text-slate-500">Ethical Score</div>
             </div>
             <div className="text-center">
               <div className="flex items-center justify-center gap-0.5">
-                <Star size={10} className="text-gcu-gold fill-gcu-gold" />
+                <Star size={10} className="text-yju-accent fill-yju-accent" />
                 <span className="text-sm font-bold text-slate-700 dark:text-slate-300">{p.metrics.averageRating}</span>
               </div>
               <div className="text-xs text-slate-500 dark:text-slate-500">Rating</div>

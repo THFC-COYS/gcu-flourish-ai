@@ -20,9 +20,9 @@ const LAYERS = [
     tagline: '30–50 humans run the entire university back-office',
     icon: Building2,
     color: 'purple',
-    gradient: 'from-gcu-purple to-[#2D1B55]',
-    border: 'border-gcu-purple/30',
-    badge: 'bg-gcu-purple-pale dark:bg-gcu-purple/20 text-gcu-purple dark:text-purple-300',
+    gradient: 'from-yju-primary to-[#2D1B55]',
+    border: 'border-yju-primary/30',
+    badge: 'bg-yju-primary-pale dark:bg-yju-primary/20 text-yju-primary dark:text-purple-300',
     description: 'Every administrative function — HR, finance, legal, facilities, IT, admissions, marketing — handled by 1 human per department managing a team of specialized AI agents.',
     products: ['University OS', 'Command Center', '13 Department Consoles'],
     route: '/university-os',
@@ -46,8 +46,8 @@ const LAYERS = [
     id: 'character',
     number: '03',
     title: 'AI Character Layer',
-    subtitle: 'GCU Flourish Spirit Vessels',
-    tagline: '50 years of GCU character embedded in every agent',
+    subtitle: 'YJU Flourish Spirit Vessels',
+    tagline: '50 years of YJU character embedded in every agent',
     icon: Heart,
     color: 'pink',
     gradient: 'from-pink-600 to-rose-800',
@@ -83,7 +83,7 @@ const LAYERS = [
     gradient: 'from-emerald-600 to-teal-800',
     border: 'border-emerald-300/30',
     badge: 'bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-300',
-    description: 'GCU licenses its soul layer, ethical framework, and University OS model to other institutions, healthcare systems, and organizations worldwide.',
+    description: 'YJU licenses its soul layer, ethical framework, and University OS model to other institutions, healthcare systems, and organizations worldwide.',
     products: ['Flourish API', 'Flourish Standard', 'Flourish Robotics', 'Impact Tracker'],
     route: '/flourish-api',
   },
@@ -146,7 +146,7 @@ const DEPT_DETAIL = [
       {
         name: 'Content Creator AI',
         handles: 'All written content production',
-        detail: 'Writes blog posts, social media content, email campaigns, ad copy, press releases, and website copy — all in GCU\'s brand voice. Produces a week\'s worth of content in an hour. Human lead reviews and approves.',
+        detail: 'Writes blog posts, social media content, email campaigns, ad copy, press releases, and website copy — all in YJU\'s brand voice. Produces a week\'s worth of content in an hour. Human lead reviews and approves.',
         volume: '60+ pieces/day',
       },
       {
@@ -596,7 +596,7 @@ function LayerCard({ layer, isActive, onClick }: { layer: typeof LAYERS[0]; isAc
       className={`w-full text-left p-4 rounded-xl border-2 transition-all ${
         isActive
           ? `bg-gradient-to-br ${layer.gradient} border-transparent shadow-lg`
-          : `bg-white dark:bg-[#1A1235] border-slate-200 dark:border-slate-700 hover:border-gcu-purple/30`
+          : `bg-white dark:bg-[#1A1235] border-slate-200 dark:border-slate-700 hover:border-yju-primary/30`
       }`}
     >
       <div className="flex items-center justify-between">
@@ -751,8 +751,8 @@ export default function FullEcosystem() {
   ];
 
   const COMMERCIAL_PRODUCTS = [
-    { emoji: '⚡', name: 'Flourish API', desc: 'License the soul layer to other institutions, healthcare systems, or enterprises. Embed GCU character into any AI deployment.', route: '/flourish-api' },
-    { emoji: '🏅', name: 'Flourish Standard', desc: 'GCU\'s ethical AI certification framework — become the ISO of ethical AI for higher education.', route: '/flourish-standard' },
+    { emoji: '⚡', name: 'Flourish API', desc: 'License the soul layer to other institutions, healthcare systems, or enterprises. Embed YJU character into any AI deployment.', route: '/flourish-api' },
+    { emoji: '🏅', name: 'Flourish Standard', desc: 'YJU\'s ethical AI certification framework — become the ISO of ethical AI for higher education.', route: '/flourish-standard' },
     { emoji: '🤖', name: 'Flourish Robotics', desc: 'Phase 2 (2027): Spirit Vessels get physical form — nursing robots, campus companions, pastoral care androids.', route: '/flourish-robotics' },
     { emoji: '📊', name: 'Impact Tracker', desc: 'Commercialization dashboard — revenue, partnerships, reinvestment metrics, and mission ROI.', route: '/commercialization' },
   ];
@@ -761,7 +761,7 @@ export default function FullEcosystem() {
     <div className="space-y-6 animate-fade-in">
 
       {/* Hero */}
-      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-gcu-purple-dark to-[#0D0920] p-6 sm:p-8">
+      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-yju-primary-dark to-[#0D0920] p-6 sm:p-8">
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           {[...Array(5)].map((_, i) => (
             <div
@@ -773,13 +773,13 @@ export default function FullEcosystem() {
         </div>
         <div className="relative z-10 flex flex-col lg:flex-row lg:items-center gap-6 justify-between">
           <div>
-            <div className="inline-flex items-center gap-2 bg-gcu-gold/20 border border-gcu-gold/30 text-gcu-gold text-xs font-semibold px-3 py-1 rounded-full mb-4">
+            <div className="inline-flex items-center gap-2 bg-yju-accent/20 border border-yju-accent/30 text-yju-accent text-xs font-semibold px-3 py-1 rounded-full mb-4">
               <Layers size={12} />
               Complete Ecosystem Map — All 5 Layers
             </div>
             <h1 className="text-3xl sm:text-4xl font-black text-white mb-3 leading-tight">
-              The Full GCU<br />
-              <span className="text-gcu-gold">Empyrean LMS Stack</span>
+              The Full YJU<br />
+              <span className="text-yju-accent">Empyrean LMS Stack</span>
             </h1>
             <p className="text-white/70 text-sm max-w-xl leading-relaxed">
               From institutional back-office to the student in the seat — every layer, every product,
@@ -796,7 +796,7 @@ export default function FullEcosystem() {
               { value: '$173M', label: 'Annual reinvest', icon: Zap },
             ].map(({ value, label, icon: Icon }) => (
               <div key={label} className="bg-white/5 border border-white/10 rounded-xl p-3 text-center">
-                <Icon size={14} className="text-gcu-gold mx-auto mb-1" />
+                <Icon size={14} className="text-yju-accent mx-auto mb-1" />
                 <p className="text-lg font-black text-white leading-tight">{value}</p>
                 <p className="text-xs text-white/50">{label}</p>
               </div>
@@ -848,7 +848,7 @@ export default function FullEcosystem() {
             <div className="p-5">
               <button
                 onClick={() => navigate(currentLayer.route)}
-                className="flex items-center gap-2 text-xs font-semibold text-gcu-purple dark:text-purple-400 hover:gap-3 transition-all"
+                className="flex items-center gap-2 text-xs font-semibold text-yju-primary dark:text-purple-400 hover:gap-3 transition-all"
               >
                 <ArrowRight size={13} />
                 Open {currentLayer.subtitle} →
@@ -869,9 +869,9 @@ export default function FullEcosystem() {
               ].map(({ from, to, desc }) => (
                 <div key={from + to} className="flex items-start gap-3">
                   <div className="flex items-center gap-1 flex-shrink-0">
-                    <span className="text-xs font-bold text-gcu-purple dark:text-purple-400">{from}</span>
+                    <span className="text-xs font-bold text-yju-primary dark:text-purple-400">{from}</span>
                     <ArrowRight size={10} className="text-slate-300" />
-                    <span className="text-xs font-bold text-gcu-purple dark:text-purple-400">{to}</span>
+                    <span className="text-xs font-bold text-yju-primary dark:text-purple-400">{to}</span>
                   </div>
                   <span className="text-xs text-slate-500 dark:text-slate-400">— {desc}</span>
                 </div>
@@ -888,7 +888,7 @@ export default function FullEcosystem() {
         <div className="flex items-center justify-between">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <div className="w-6 h-6 rounded-md bg-gcu-purple flex items-center justify-center">
+              <div className="w-6 h-6 rounded-md bg-yju-primary flex items-center justify-center">
                 <Building2 size={12} className="text-white" />
               </div>
               <h2 className="text-lg font-black text-slate-900 dark:text-white">Layer 01 — University OS</h2>
@@ -898,7 +898,7 @@ export default function FullEcosystem() {
             </p>
           </div>
           <div className="flex gap-2">
-            <button onClick={expandAll} className="text-xs font-semibold text-gcu-purple dark:text-purple-400 hover:underline">Expand all</button>
+            <button onClick={expandAll} className="text-xs font-semibold text-yju-primary dark:text-purple-400 hover:underline">Expand all</button>
             <span className="text-slate-300">·</span>
             <button onClick={collapseAll} className="text-xs font-semibold text-slate-400 hover:underline">Collapse all</button>
           </div>
@@ -916,7 +916,7 @@ export default function FullEcosystem() {
         </div>
 
         {/* University OS totals */}
-        <div className="page-card p-5 bg-gradient-to-r from-gcu-purple-pale to-white dark:from-gcu-purple/10 dark:to-[#1A1235] border-gcu-purple/20">
+        <div className="page-card p-5 bg-gradient-to-r from-yju-primary-pale to-white dark:from-yju-primary/10 dark:to-[#1A1235] border-yju-primary/20">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {[
               { label: 'Total Department Pods', value: '13', icon: Building2 },
@@ -925,7 +925,7 @@ export default function FullEcosystem() {
               { label: 'Annual Savings vs Traditional', value: '$5.1M+', icon: TrendingUp },
             ].map(({ label, value, icon: Icon }) => (
               <div key={label} className="text-center">
-                <Icon size={16} className="text-gcu-purple dark:text-purple-400 mx-auto mb-1" />
+                <Icon size={16} className="text-yju-primary dark:text-purple-400 mx-auto mb-1" />
                 <p className="text-2xl font-black text-slate-900 dark:text-white">{value}</p>
                 <p className="text-xs text-slate-500 dark:text-slate-400">{label}</p>
               </div>
@@ -956,7 +956,7 @@ export default function FullEcosystem() {
               <div className="text-2xl mb-2">{p.emoji}</div>
               <h3 className="text-sm font-bold text-slate-800 dark:text-slate-200 mb-1">{p.name}</h3>
               <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">{p.desc}</p>
-              <div className="flex items-center gap-1 mt-3 text-xs text-gcu-purple dark:text-purple-400 font-semibold group-hover:gap-2 transition-all">
+              <div className="flex items-center gap-1 mt-3 text-xs text-yju-primary dark:text-purple-400 font-semibold group-hover:gap-2 transition-all">
                 Explore <ArrowRight size={10} />
               </div>
             </button>
@@ -974,17 +974,17 @@ export default function FullEcosystem() {
           </div>
           <h2 className="text-lg font-black text-slate-900 dark:text-white">Layer 03 — AI Character Layer (Spirit Vessels)</h2>
         </div>
-        <p className="text-sm text-slate-500 dark:text-slate-400 -mt-2">The soul embedded in every agent across every layer — 1 per GCU college.</p>
+        <p className="text-sm text-slate-500 dark:text-slate-400 -mt-2">The soul embedded in every agent across every layer — 1 per YJU college.</p>
 
         <div className="page-card p-5">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
             {SPIRIT_VESSELS.map(v => (
-              <div key={v.name} className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 dark:bg-[#241D35] hover:bg-gcu-purple-pale dark:hover:bg-gcu-purple/10 transition-colors">
+              <div key={v.name} className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 dark:bg-[#241D35] hover:bg-yju-primary-pale dark:hover:bg-yju-primary/10 transition-colors">
                 <span className="text-2xl flex-shrink-0">{v.emoji}</span>
                 <div className="min-w-0">
                   <p className="text-xs font-bold text-slate-800 dark:text-slate-200">{v.name}</p>
                   <p className="text-xs text-slate-500 dark:text-slate-400">{v.desc}</p>
-                  <p className="text-xs text-gcu-purple dark:text-purple-400 font-medium mt-0.5">College of {v.college}</p>
+                  <p className="text-xs text-yju-primary dark:text-purple-400 font-medium mt-0.5">College of {v.college}</p>
                 </div>
               </div>
             ))}
@@ -998,7 +998,7 @@ export default function FullEcosystem() {
             </div>
           </div>
           <div className="mt-3">
-            <button onClick={() => navigate('/library')} className="text-xs font-semibold text-gcu-purple dark:text-purple-400 flex items-center gap-1 hover:gap-2 transition-all">
+            <button onClick={() => navigate('/library')} className="text-xs font-semibold text-yju-primary dark:text-purple-400 flex items-center gap-1 hover:gap-2 transition-all">
               <ArrowRight size={12} /> Open Spirit Vessel Library
             </button>
           </div>
@@ -1066,9 +1066,9 @@ export default function FullEcosystem() {
       </div>
 
       {/* Bottom CTA */}
-      <div className="page-card p-6 bg-gradient-to-br from-slate-900 to-gcu-purple-dark border-[#2D2050]">
+      <div className="page-card p-6 bg-gradient-to-br from-slate-900 to-yju-primary-dark border-[#2D2050]">
         <div className="text-center">
-          <div className="inline-flex items-center gap-2 bg-gcu-gold/20 border border-gcu-gold/30 text-gcu-gold text-xs font-semibold px-3 py-1 rounded-full mb-4">
+          <div className="inline-flex items-center gap-2 bg-yju-accent/20 border border-yju-accent/30 text-yju-accent text-xs font-semibold px-3 py-1 rounded-full mb-4">
             <Sparkles size={12} />
             The complete vision
           </div>

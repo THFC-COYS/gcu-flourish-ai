@@ -9,7 +9,7 @@ const ThemeContext = createContext<ThemeContextType | null>(null);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [isDark, setIsDark] = useState(() => {
-    const stored = localStorage.getItem('gcu-theme');
+    const stored = localStorage.getItem('yju-theme');
     if (stored) return stored === 'dark';
     return window.matchMedia('(prefers-color-scheme: dark)').matches;
   });
@@ -23,7 +23,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
       root.classList.remove('dark');
       document.body.classList.remove('dark');
     }
-    localStorage.setItem('gcu-theme', isDark ? 'dark' : 'light');
+    localStorage.setItem('yju-theme', isDark ? 'dark' : 'light');
   }, [isDark]);
 
   const toggle = () => setIsDark(prev => !prev);

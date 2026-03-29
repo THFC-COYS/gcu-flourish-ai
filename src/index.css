@@ -68,7 +68,7 @@
   }
 
   .form-input {
-    @apply w-full px-3 py-2.5 rounded-lg border border-slate-200 dark:border-[#2D2050] bg-white dark:bg-[#241D35] text-slate-800 dark:text-slate-100 text-sm placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-gcu-purple/40 focus:border-gcu-purple transition-colors;
+    @apply w-full px-3 py-2.5 rounded-lg border border-slate-200 dark:border-[#2D2050] bg-white dark:bg-[#241D35] text-slate-800 dark:text-slate-100 text-sm placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-yju-primary/40 focus:border-yju-primary transition-colors;
   }
 
   .form-label {
@@ -76,15 +76,15 @@
   }
 
   .btn-primary {
-    @apply px-4 py-2.5 bg-gcu-purple hover:bg-gcu-purple-dark text-white text-sm font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gcu-purple/40 disabled:opacity-50 disabled:cursor-not-allowed;
+    @apply px-4 py-2.5 bg-yju-primary hover:bg-yju-primary-dark text-white text-sm font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-yju-primary/40 disabled:opacity-50 disabled:cursor-not-allowed;
   }
 
   .btn-secondary {
-    @apply px-4 py-2.5 border border-gcu-purple text-gcu-purple hover:bg-gcu-purple-pale dark:hover:bg-gcu-purple/10 text-sm font-semibold rounded-lg transition-all duration-200;
+    @apply px-4 py-2.5 border border-yju-primary text-yju-primary hover:bg-yju-primary-pale dark:hover:bg-yju-primary/10 text-sm font-semibold rounded-lg transition-all duration-200;
   }
 
   .btn-gold {
-    @apply px-4 py-2.5 bg-gcu-gold hover:bg-gcu-gold-dark text-gcu-purple-dark text-sm font-semibold rounded-lg transition-all duration-200;
+    @apply px-4 py-2.5 bg-yju-accent hover:bg-yju-accent-dark text-yju-primary-dark text-sm font-semibold rounded-lg transition-all duration-200;
   }
 
   .badge {
@@ -92,7 +92,7 @@
   }
 
   .typing-dot {
-    @apply w-2 h-2 rounded-full bg-gcu-purple/50 inline-block mx-0.5;
+    @apply w-2 h-2 rounded-full bg-yju-primary/50 inline-block mx-0.5;
     animation: typing 1.2s ease-in-out infinite;
   }
 

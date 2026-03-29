@@ -328,7 +328,7 @@ function SlideRoadmap() {
     <Slide>
       <Eyebrow>Roadmap</Eyebrow>
       <h2 className="text-5xl font-black text-molted-white leading-tight mb-12">
-        From GCU to the market standard.
+        From YJU to the market standard.
       </h2>
       <div className="space-y-4">
         {phases.map((p, i) => (

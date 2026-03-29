@@ -17,7 +17,7 @@ const REPORT_TYPES = [
   { id: 'rankings', label: 'Rankings Analysis', icon: '🏆', description: 'U.S. News & World Report improvement strategy' },
 ] as const;
 
-const GCU_SAMPLE_DATA = {
+const YJU_SAMPLE_DATA = {
   institution: 'Lakewood University',
   enrollmentTotal: 108000,
   graduationRate6yr: 52,
@@ -232,7 +232,7 @@ export default function OutcomesAIDemo() {
       const res = await fetch('/api/demos', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ type: 'outcomes-ai', reportType, institution: GCU_SAMPLE_DATA.institution, data: GCU_SAMPLE_DATA }),
+        body: JSON.stringify({ type: 'outcomes-ai', reportType, institution: YJU_SAMPLE_DATA.institution, data: YJU_SAMPLE_DATA }),
       });
       if (!res.ok) throw new Error(await res.text());
       setResult(await res.json());

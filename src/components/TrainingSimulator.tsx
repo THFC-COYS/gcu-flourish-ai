@@ -35,7 +35,7 @@ Immediately step fully out of character and respond as ${prototype.name}, giving
 **What to work on:**
 [1-2 specific, honest areas for growth — be constructive, not harsh]
 
-**GCU Character Check:**
+**YJU Character Check:**
 [Reflect on whether the student demonstrated dignity, compassion, patience, and integrity in how they engaged]
 
 DO NOT open with your character's line now — wait for the student to speak first and respond as ${scenario.characterName} naturally from there. If the student's first message seems like a greeting or opening, respond in character as ${scenario.characterName} from the situation described.`;
@@ -179,7 +179,7 @@ export default function TrainingSimulator({ prototype, scenario, onExit }: Train
           <span className="text-lg flex-shrink-0">{scenario.icon}</span>
           <div className="min-w-0">
             <p className="text-sm font-semibold text-slate-800 dark:text-white truncate">{scenario.title}</p>
-            <p className="text-xs text-slate-500 dark:text-slate-400">You are playing: <span className="font-medium text-gcu-purple dark:text-purple-300">{scenario.studentRole}</span></p>
+            <p className="text-xs text-slate-500 dark:text-slate-400">You are playing: <span className="font-medium text-yju-primary dark:text-purple-300">{scenario.studentRole}</span></p>
           </div>
           <span className={`text-xs font-bold px-2 py-0.5 rounded-full flex-shrink-0 ${DIFFICULTY_COLORS[scenario.difficulty]}`}>
             {scenario.difficulty}
@@ -214,7 +214,7 @@ export default function TrainingSimulator({ prototype, scenario, onExit }: Train
               </div>
             )}
             {msg.role === 'user' && (
-              <div className="w-7 h-7 rounded-full bg-gcu-purple flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
+              <div className="w-7 h-7 rounded-full bg-yju-primary flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
                 U
               </div>
             )}
@@ -234,7 +234,7 @@ export default function TrainingSimulator({ prototype, scenario, onExit }: Train
               ) : (
                 <div className={`px-4 py-3 rounded-2xl text-sm leading-relaxed whitespace-pre-wrap ${
                   msg.role === 'user'
-                    ? 'bg-gcu-purple text-white rounded-br-sm'
+                    ? 'bg-yju-primary text-white rounded-br-sm'
                     : 'bg-white dark:bg-[#241D35] border border-slate-100 dark:border-[#2D2050] text-slate-800 dark:text-slate-200 rounded-bl-sm'
                 }`}>
                   {msg.id === '0' && (
@@ -252,14 +252,14 @@ export default function TrainingSimulator({ prototype, scenario, onExit }: Train
 
       {/* End session banner */}
       {canEndSession && (
-        <div className="bg-gcu-purple/5 dark:bg-gcu-purple/10 border-t border-gcu-purple/20 px-4 py-2 flex items-center justify-between flex-shrink-0">
-          <p className="text-xs text-gcu-purple dark:text-purple-300 font-medium">
+        <div className="bg-yju-primary/5 dark:bg-yju-primary/10 border-t border-yju-primary/20 px-4 py-2 flex items-center justify-between flex-shrink-0">
+          <p className="text-xs text-yju-primary dark:text-purple-300 font-medium">
             Ready to wrap up? Get feedback from {prototype.name}.
           </p>
           <button
             onClick={endSession}
             disabled={isTyping}
-            className="flex items-center gap-1.5 text-xs bg-gcu-purple text-white px-3 py-1.5 rounded-lg font-semibold hover:bg-gcu-purple/90 transition-colors disabled:opacity-40"
+            className="flex items-center gap-1.5 text-xs bg-yju-primary text-white px-3 py-1.5 rounded-lg font-semibold hover:bg-yju-primary/90 transition-colors disabled:opacity-40"
           >
             <Flag size={12} />
             End Session & Get Feedback
@@ -278,7 +278,7 @@ export default function TrainingSimulator({ prototype, scenario, onExit }: Train
           </button>
           <button
             onClick={onExit}
-            className="flex-1 text-sm bg-gcu-purple text-white px-4 py-2 rounded-lg font-semibold hover:bg-gcu-purple/90 transition-colors"
+            className="flex-1 text-sm bg-yju-primary text-white px-4 py-2 rounded-lg font-semibold hover:bg-yju-primary/90 transition-colors"
           >
             New Scenario
           </button>

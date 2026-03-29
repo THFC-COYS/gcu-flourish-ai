@@ -255,15 +255,15 @@ const PRODUCTS: Product[] = [
     route: '/gcu/university-os',
   },
   {
-    id: 'gcu-spirit-agents',
-    name: 'GCU Spirit Agents',
-    tagline: 'AI with the character of GCU\'s finest.',
+    id: 'yju-spirit-agents',
+    name: 'YJU Spirit Agents',
+    tagline: 'AI with the character of YJU\'s finest.',
     description:
-      'Ten AI agents — one for each GCU college — trained to embody servant leadership, integrity, and Christ-centered values. These aren\'t chatbots. They\'re the compassionate presence of GCU\'s best graduates, available to every student, 24/7. The soul layer that makes AI trustworthy.',
+      'Ten AI agents — one for each YJU college — trained to embody servant leadership, integrity, and Christ-centered values. These aren\'t chatbots. They\'re the compassionate presence of YJU\'s best graduates, available to every student, 24/7. The soul layer that makes AI trustworthy.',
     status: 'live',
     category: 'Institution',
     icon: Bot,
-    color: 'text-gcu-gold',
+    color: 'text-yju-accent',
     bgColor: 'bg-amber-400/10',
     borderColor: 'border-amber-400/20',
     features: [
@@ -471,7 +471,7 @@ const PRODUCTS: Product[] = [
     status: 'vision',
     category: 'Vision',
     icon: Globe,
-    color: 'text-gcu-gold',
+    color: 'text-yju-accent',
     bgColor: 'bg-amber-400/10',
     borderColor: 'border-amber-400/20',
     features: [
@@ -507,7 +507,7 @@ const ALL_CATEGORIES: ProductCategory[] = ['Student', 'Faculty', 'Institution', 
 
 /* ─── Stats ──────────────────────────────────────────────────────────────── */
 const STATS = [
-  { icon: LayoutGrid, label: 'Total Products', value: PRODUCTS.length.toString(), sub: 'existing + new', color: 'text-gcu-gold', bg: 'bg-amber-400/10' },
+  { icon: LayoutGrid, label: 'Total Products', value: PRODUCTS.length.toString(), sub: 'existing + new', color: 'text-yju-accent', bg: 'bg-amber-400/10' },
   { icon: Zap, label: 'Live Today', value: PRODUCTS.filter(p => p.status === 'live').length.toString(), sub: 'fully deployed', color: 'text-emerald-400', bg: 'bg-emerald-400/10' },
   { icon: FlaskConical, label: 'In Pilot', value: PRODUCTS.filter(p => p.status === 'pilot').length.toString(), sub: 'active testing', color: 'text-blue-400', bg: 'bg-blue-400/10' },
   { icon: Sparkles, label: 'Revolutionary', value: PRODUCTS.filter(p => p.isRevolutionary).length.toString(), sub: 'dent-in-universe ideas', color: 'text-purple-400', bg: 'bg-purple-400/10' },
@@ -551,7 +551,7 @@ function ProductCard({ product }: { product: Product }) {
       {/* Corner badges */}
       <div className="absolute top-4 right-4 flex items-center gap-1.5 flex-wrap justify-end">
         {product.isNew && (
-          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-gcu-gold/20 border border-gcu-gold/40 text-gcu-gold">
+          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-yju-accent/20 border border-yju-accent/40 text-yju-accent">
             <Sparkles size={9} /> New
           </span>
         )}
@@ -634,14 +634,14 @@ export default function LearningSystemsModernization() {
         </div>
 
         <div className="relative z-10">
-          <div className="inline-flex items-center gap-2 bg-gcu-gold/20 border border-gcu-gold/30 text-gcu-gold text-xs font-bold px-3 py-1.5 rounded-full mb-5">
+          <div className="inline-flex items-center gap-2 bg-yju-accent/20 border border-yju-accent/30 text-yju-accent text-xs font-bold px-3 py-1.5 rounded-full mb-5">
             <Sparkles size={12} />
-            GCU Flourish AI · Greg Lucas · Learning Systems Modernization
+            YJU Flourish AI · Greg Lucas · Learning Systems Modernization
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight mb-3">
             Learning Systems<br />
             <span style={{
-              background: 'linear-gradient(135deg, #FFC627 0%, #FFE08A 40%, #FFC627 100%)',
+              background: 'linear-gradient(135deg, #E85D04 0%, #FFE08A 40%, #E85D04 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
@@ -672,7 +672,7 @@ export default function LearningSystemsModernization() {
           onClick={() => setActiveCategory('all')}
           className={`px-4 py-2 rounded-xl text-sm font-semibold transition-all ${
             activeCategory === 'all'
-              ? 'bg-gcu-purple text-white shadow-lg'
+              ? 'bg-yju-primary text-white shadow-lg'
               : 'bg-slate-800/60 text-slate-400 hover:text-white border border-slate-700/50'
           }`}
         >
@@ -687,7 +687,7 @@ export default function LearningSystemsModernization() {
               onClick={() => setActiveCategory(cat)}
               className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-semibold transition-all ${
                 activeCategory === cat
-                  ? 'bg-gcu-purple text-white shadow-lg'
+                  ? 'bg-yju-primary text-white shadow-lg'
                   : 'bg-slate-800/60 text-slate-400 hover:text-white border border-slate-700/50'
               }`}
             >
@@ -733,13 +733,13 @@ export default function LearningSystemsModernization() {
       )}
 
       {/* ── Vision footer ─────────────────────────────────────────────────── */}
-      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#1A1235] to-slate-900 border border-gcu-gold/20 p-8 text-center">
+      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#1A1235] to-slate-900 border border-yju-accent/20 p-8 text-center">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute inset-0 opacity-10"
             style={{ background: 'radial-gradient(ellipse at center, rgba(255,198,39,0.4) 0%, transparent 70%)' }} />
         </div>
         <div className="relative z-10">
-          <Rocket size={32} className="text-gcu-gold mx-auto mb-4" />
+          <Rocket size={32} className="text-yju-accent mx-auto mb-4" />
           <h2 className="text-2xl sm:text-3xl font-black text-white mb-3">
             We are here to make a dent in the universe.
           </h2>
@@ -747,8 +747,8 @@ export default function LearningSystemsModernization() {
             Every product in this portfolio is a step toward a world where every learner — regardless of zip code, income, or life circumstance — has access to the same quality of education as the most privileged student at the most elite institution on earth. That's the mission. We're building it.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <span className="px-4 py-2 rounded-xl bg-gcu-gold/10 border border-gcu-gold/20 text-gcu-gold text-sm font-semibold">Greg Lucas · Founder Vision</span>
-            <span className="px-4 py-2 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-300 text-sm font-semibold">GCU Flourish AI · 2025</span>
+            <span className="px-4 py-2 rounded-xl bg-yju-accent/10 border border-yju-accent/20 text-yju-accent text-sm font-semibold">Greg Lucas · Founder Vision</span>
+            <span className="px-4 py-2 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-300 text-sm font-semibold">YJU Flourish AI · 2025</span>
           </div>
         </div>
       </div>

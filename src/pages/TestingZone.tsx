@@ -40,7 +40,7 @@ function StarRating({ value, onChange }: { value: number; onChange: (v: number) 
         >
           <Star
             size={20}
-            className={`transition-colors ${i <= (hover || value) ? 'text-gcu-gold fill-gcu-gold' : 'text-slate-300 dark:text-slate-600'}`}
+            className={`transition-colors ${i <= (hover || value) ? 'text-yju-accent fill-yju-accent' : 'text-slate-300 dark:text-slate-600'}`}
           />
         </button>
       ))}
@@ -76,19 +76,19 @@ export default function TestingZone() {
   };
 
   const handleDeploy = () => {
-    const link = `https://gcu-flourish-ai.vercel.app/pilot/${selected.id}?token=${Math.random().toString(36).slice(2, 10)}`;
+    const link = `https://yju-flourish-ai.vercel.app/pilot/${selected.id}?token=${Math.random().toString(36).slice(2, 10)}`;
     setDeployMsg(link);
   };
 
   const handleCopyCode = () => {
-    const snippet = `import { FlourishAPI } from '@gcu/flourish-sdk';\n\nconst spirit = new FlourishAPI({ vessel: '${selected.id}' });\nconst result = await spirit.infuse(userMessage);\nconsole.log(result.infusedResponse);`;
+    const snippet = `import { FlourishAPI } from '@yju/flourish-sdk';\n\nconst spirit = new FlourishAPI({ vessel: '${selected.id}' });\nconst result = await spirit.infuse(userMessage);\nconsole.log(result.infusedResponse);`;
     navigator.clipboard.writeText(snippet);
     setCopied('code');
     setTimeout(() => setCopied(null), 2000);
   };
 
   const handleShareLink = () => {
-    const link = deployMsg || `https://gcu-flourish-ai.vercel.app/demo/${selected.id}`;
+    const link = deployMsg || `https://yju-flourish-ai.vercel.app/demo/${selected.id}`;
     navigator.clipboard.writeText(link);
     setCopied('link');
     setTimeout(() => setCopied(null), 2000);
@@ -100,7 +100,7 @@ export default function TestingZone() {
       <div className="page-card p-4">
         <div className="flex flex-col sm:flex-row sm:items-center gap-3">
           <div className="flex items-center gap-2">
-            <FlaskConical size={18} className="text-gcu-purple" />
+            <FlaskConical size={18} className="text-yju-primary" />
             <label className="text-sm font-semibold text-slate-700 dark:text-slate-300">Testing:</label>
           </div>
           <div className="flex-1 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-2">
@@ -110,12 +110,12 @@ export default function TestingZone() {
                 onClick={() => { setSelected(p); setSubmitted(false); setDeployMsg(''); }}
                 className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs font-medium transition-all border ${
                   selected.id === p.id
-                    ? 'bg-gcu-purple text-white border-gcu-purple shadow-gcu'
-                    : 'bg-white dark:bg-[#1A1235] text-slate-600 dark:text-slate-400 border-slate-200 dark:border-[#2D2050] hover:border-gcu-purple/40'
+                    ? 'bg-yju-primary text-white border-yju-primary shadow-yju'
+                    : 'bg-white dark:bg-[#1A1235] text-slate-600 dark:text-slate-400 border-slate-200 dark:border-[#2D2050] hover:border-yju-primary/40'
                 }`}
               >
                 <span className="text-sm">{p.icon}</span>
-                <span className="truncate hidden sm:block">{p.name.replace('GCU Spirit ', '').replace('GCU ', '')}</span>
+                <span className="truncate hidden sm:block">{p.name.replace('YJU Spirit ', '').replace('YJU ', '')}</span>
               </button>
             ))}
           </div>
@@ -141,7 +141,7 @@ export default function TestingZone() {
               <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{selected.college}</p>
               <p className="text-sm text-slate-600 dark:text-slate-400 mt-2 line-clamp-2">{selected.description}</p>
               <div className="mt-2">
-                <p className="text-xs text-gcu-purple dark:text-purple-400 font-medium italic">"{selected.spiritSummary}"</p>
+                <p className="text-xs text-yju-primary dark:text-purple-400 font-medium italic">"{selected.spiritSummary}"</p>
               </div>
             </div>
             {/* Voice mode toggle */}
@@ -150,18 +150,18 @@ export default function TestingZone() {
                 onClick={() => setVoiceMode(v => !v)}
                 className={`flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-semibold border transition-all ${
                   voiceMode
-                    ? 'bg-gcu-purple text-white border-gcu-purple shadow-gcu'
-                    : 'bg-white dark:bg-[#1A1235] text-slate-600 dark:text-slate-400 border-slate-200 dark:border-[#2D2050] hover:border-gcu-purple/40'
+                    ? 'bg-yju-primary text-white border-yju-primary shadow-yju'
+                    : 'bg-white dark:bg-[#1A1235] text-slate-600 dark:text-slate-400 border-slate-200 dark:border-[#2D2050] hover:border-yju-primary/40'
                 }`}
               >
                 {voiceMode ? <Mic size={14} /> : <MicOff size={14} />}
                 <span>{voiceMode ? 'Voice On' : 'Voice Off'}</span>
               </button>
               {voiceMode && (
-                <div className="flex items-center gap-1.5 text-xs text-gcu-purple dark:text-purple-400 font-medium">
+                <div className="flex items-center gap-1.5 text-xs text-yju-primary dark:text-purple-400 font-medium">
                   <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gcu-purple opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-gcu-purple"></span>
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yju-primary opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-yju-primary"></span>
                   </span>
                   Listening…
                   <span className="text-amber-500 dark:text-amber-400">(Simulated)</span>
@@ -179,7 +179,7 @@ export default function TestingZone() {
               {selected.aiPersona.responses.slice(0, 3).map((r, i) => (
                 <span
                   key={i}
-                  className="text-xs bg-gcu-purple-pale dark:bg-gcu-purple/10 text-gcu-purple dark:text-purple-300 border border-gcu-purple/20 px-3 py-1.5 rounded-lg cursor-default"
+                  className="text-xs bg-yju-primary-pale dark:bg-yju-primary/10 text-yju-primary dark:text-purple-300 border border-yju-primary/20 px-3 py-1.5 rounded-lg cursor-default"
                 >
                   "{r.keywords[0]}"
                 </span>
@@ -200,12 +200,12 @@ export default function TestingZone() {
               <MetricBar
                 label="Ethical Alignment"
                 value={selected.metrics.ethicalAlignmentScore}
-                color="#4B2E83"
+                color="#1A3A5C"
               />
               <MetricBar
                 label="Engagement Score"
                 value={selected.metrics.engagementScore}
-                color="#FFC627"
+                color="#E85D04"
               />
               <MetricBar
                 label="Avg Rating"
@@ -229,7 +229,7 @@ export default function TestingZone() {
           {/* Spirit Modules active */}
           <div className="page-card p-5">
             <div className="flex items-center gap-2 mb-3">
-              <Shield size={16} className="text-gcu-purple" />
+              <Shield size={16} className="text-yju-primary" />
               <h3 className="text-sm font-bold text-slate-900 dark:text-white">Active Spirit Modules</h3>
             </div>
             <div className="space-y-2">
@@ -312,13 +312,13 @@ export default function TestingZone() {
               <Download size={13} /> {copied === 'code' ? '✓ Copied to clipboard' : 'Export Code (GitHub)'}
             </button>
 
-            <button onClick={handleShareLink} className="w-full text-xs text-slate-500 dark:text-slate-400 border border-slate-200 dark:border-[#2D2050] hover:border-gcu-purple/40 rounded-lg py-2 flex items-center justify-center gap-2 transition-colors">
+            <button onClick={handleShareLink} className="w-full text-xs text-slate-500 dark:text-slate-400 border border-slate-200 dark:border-[#2D2050] hover:border-yju-primary/40 rounded-lg py-2 flex items-center justify-center gap-2 transition-colors">
               <Share2 size={13} /> {copied === 'link' ? '✓ Link copied' : 'Share Demo Link'}
             </button>
 
             {selected.pilotPartner && (
               <div className="text-xs text-slate-500 dark:text-slate-400 text-center pt-1">
-                Pilot partner: <span className="font-semibold text-gcu-purple dark:text-purple-400">{selected.pilotPartner}</span>
+                Pilot partner: <span className="font-semibold text-yju-primary dark:text-purple-400">{selected.pilotPartner}</span>
               </div>
             )}
           </div>

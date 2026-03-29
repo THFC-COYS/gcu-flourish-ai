@@ -17,12 +17,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const stored = localStorage.getItem('gcu-flourish-user');
+    const stored = localStorage.getItem('yju-flourish-user');
     if (stored) {
       try {
         setUser(JSON.parse(stored));
       } catch {
-        localStorage.removeItem('gcu-flourish-user');
+        localStorage.removeItem('yju-flourish-user');
       }
     }
     setIsLoading(false);
@@ -46,14 +46,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
 
     setUser(foundUser);
-    localStorage.setItem('gcu-flourish-user', JSON.stringify(foundUser));
+    localStorage.setItem('yju-flourish-user', JSON.stringify(foundUser));
     localStorage.removeItem('flourish_onboarded_v1');
     return { success: true };
   };
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem('gcu-flourish-user');
+    localStorage.removeItem('yju-flourish-user');
   };
 
   const isRole = (...roles: UserRole[]) => {

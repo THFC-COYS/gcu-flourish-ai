@@ -34,10 +34,10 @@ const PILLARS = [
     title: 'Ethical Stewardship',
     desc: 'Organizations deploying Flourish-certified AI accept fiduciary responsibility for how the AI is used. Revenue generated must be reinvested in student outcomes, community benefit, or mission-aligned causes.',
     principles: ['Revenue reinvestment audit required annually', 'Ethical impact reporting to governing board', 'No use in predatory or manipulative systems', 'Mission alignment review every 24 months'],
-    color: 'from-gcu-purple to-purple-800',
+    color: 'from-yju-primary to-purple-800',
     bg: 'bg-purple-50 dark:bg-purple-900/10 border-purple-200 dark:border-purple-800',
     iconBg: 'bg-purple-100 dark:bg-purple-900/30',
-    iconColor: 'text-gcu-purple dark:text-purple-400',
+    iconColor: 'text-yju-primary dark:text-purple-400',
   },
   {
     id: '04',
@@ -85,12 +85,12 @@ const TIERS = [
     forWho: 'Universities, mid-size healthcare systems, denominations',
     features: [
       'Everything in Foundation',
-      'GCU Spirit Layer API access (50K calls/mo)',
+      'YJU Spirit Layer API access (50K calls/mo)',
       'On-site compliance training (2 sessions/yr)',
       'Quarterly ethical alignment review',
       'Listed in Flourish Standard global registry',
     ],
-    color: 'border-gcu-purple dark:border-purple-500',
+    color: 'border-yju-primary dark:border-purple-500',
     badge: 'bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300',
     featured: true,
   },
@@ -107,7 +107,7 @@ const TIERS = [
       'Co-authorship in Standard updates',
       'Early access to Robotics & Wearables modules',
     ],
-    color: 'border-gcu-gold dark:border-yellow-500',
+    color: 'border-yju-accent dark:border-yellow-500',
     badge: 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/40 dark:text-yellow-300',
   },
 ];
@@ -118,8 +118,8 @@ const SECTORS = [
     title: 'Christian Higher Education',
     count: '33,000+',
     unit: 'institutions globally',
-    desc: 'From GCU to universities in Nigeria, Brazil, South Korea, and beyond — every Christian campus needs an ethical AI framework they can trust.',
-    color: 'text-gcu-purple',
+    desc: 'From YJU to universities in Nigeria, Brazil, South Korea, and beyond — every Christian campus needs an ethical AI framework they can trust.',
+    color: 'text-yju-primary',
     bg: 'bg-purple-50 dark:bg-purple-900/10',
   },
   {
@@ -175,24 +175,24 @@ export default function FlourishStandard() {
     <div className="space-y-10 animate-fade-in max-w-5xl mx-auto">
 
       {/* Hero */}
-      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#1A0D3A] to-[#4B2E83] p-8 sm:p-12">
+      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#1A0D3A] to-[#1A3A5C] p-8 sm:p-12">
         <div className="absolute inset-0 opacity-20">
           <svg viewBox="0 0 800 300" preserveAspectRatio="none" className="w-full h-full">
-            <path d="M0,300 Q400,50 800,200 L800,300 Z" fill="#FFC627" />
+            <path d="M0,300 Q400,50 800,200 L800,300 Z" fill="#E85D04" />
           </svg>
         </div>
         <div className="relative z-10 max-w-3xl">
-          <div className="inline-flex items-center gap-2 bg-gcu-gold/20 border border-gcu-gold/30 text-gcu-gold text-xs font-bold px-4 py-1.5 rounded-full mb-5 uppercase tracking-widest">
+          <div className="inline-flex items-center gap-2 bg-yju-accent/20 border border-yju-accent/30 text-yju-accent text-xs font-bold px-4 py-1.5 rounded-full mb-5 uppercase tracking-widest">
             <Award size={12} /> The Flourish Standard · v1.0 Draft
           </div>
           <h1 className="text-3xl sm:text-4xl font-black text-white leading-tight mb-4">
             The World's First Ethical AI Certification Framework for Faith-Based Institutions
           </h1>
           <p className="text-white/70 text-base leading-relaxed mb-6">
-            Developed by Grand Canyon University, the Flourish Standard establishes the global benchmark for how artificial intelligence must be designed, deployed, and governed inside organizations that operate from a faith-based, Christ-centered, or human dignity-first mission.
+            Developed by YeLon Jobs University, the Flourish Standard establishes the global benchmark for how artificial intelligence must be designed, deployed, and governed inside organizations that operate from a faith-based, Christ-centered, or human dignity-first mission.
           </p>
           <div className="flex flex-wrap gap-3">
-            <span className="bg-white/10 border border-white/20 text-white text-sm px-4 py-1.5 rounded-full font-semibold flex items-center gap-1.5"><Lock size={12} /> GCU-Owned IP</span>
+            <span className="bg-white/10 border border-white/20 text-white text-sm px-4 py-1.5 rounded-full font-semibold flex items-center gap-1.5"><Lock size={12} /> YJU-Owned IP</span>
             <span className="bg-white/10 border border-white/20 text-white text-sm px-4 py-1.5 rounded-full font-semibold flex items-center gap-1.5"><Globe size={12} /> Global Applicability</span>
             <span className="bg-white/10 border border-white/20 text-white text-sm px-4 py-1.5 rounded-full font-semibold flex items-center gap-1.5"><Star size={12} /> Zero Competitors</span>
           </div>
@@ -202,7 +202,7 @@ export default function FlourishStandard() {
       {/* 5 Pillars */}
       <div>
         <div className="flex items-center gap-3 mb-2">
-          <div className="w-1 h-8 rounded-full bg-gcu-purple" />
+          <div className="w-1 h-8 rounded-full bg-yju-primary" />
           <h2 className="text-2xl font-black text-slate-900 dark:text-white">The Five Pillars</h2>
         </div>
         <p className="text-slate-500 dark:text-slate-400 text-sm mb-6 ml-4">Every Flourish-certified organization must demonstrate compliance across all five pillars annually.</p>
@@ -239,23 +239,23 @@ export default function FlourishStandard() {
       {/* Certification Tiers */}
       <div>
         <div className="flex items-center gap-3 mb-5">
-          <div className="w-1 h-8 rounded-full bg-gcu-gold" />
+          <div className="w-1 h-8 rounded-full bg-yju-accent" />
           <h2 className="text-2xl font-black text-slate-900 dark:text-white">Certification Tiers</h2>
         </div>
         <div className="grid md:grid-cols-3 gap-5">
           {TIERS.map(t => (
-            <div key={t.name} className={`page-card p-6 border-t-4 ${t.color} flex flex-col gap-4 ${t.featured ? 'ring-2 ring-gcu-purple dark:ring-purple-500' : ''}`}>
+            <div key={t.name} className={`page-card p-6 border-t-4 ${t.color} flex flex-col gap-4 ${t.featured ? 'ring-2 ring-yju-primary dark:ring-purple-500' : ''}`}>
               <div className="flex items-center justify-between">
                 <div>
                   <span className="text-2xl mr-1">{t.icon}</span>
                   <span className="text-lg font-black text-slate-900 dark:text-white">{t.name}</span>
                 </div>
                 {t.featured && (
-                  <span className="text-xs font-bold bg-gcu-purple text-white px-2.5 py-1 rounded-full">Most Popular</span>
+                  <span className="text-xs font-bold bg-yju-primary text-white px-2.5 py-1 rounded-full">Most Popular</span>
                 )}
               </div>
               <div>
-                <p className="text-3xl font-black text-gcu-purple dark:text-purple-300">{t.price}</p>
+                <p className="text-3xl font-black text-yju-primary dark:text-purple-300">{t.price}</p>
                 <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{t.forWho}</p>
               </div>
               <ul className="space-y-2 flex-1">
@@ -272,7 +272,7 @@ export default function FlourishStandard() {
             </div>
           ))}
         </div>
-        <p className="text-xs text-center text-slate-400 mt-3">* All pricing illustrative. GCU retains full ownership of the Flourish Standard trademark and certification process.</p>
+        <p className="text-xs text-center text-slate-400 mt-3">* All pricing illustrative. YJU retains full ownership of the Flourish Standard trademark and certification process.</p>
       </div>
 
       {/* Who Needs This */}
@@ -311,7 +311,7 @@ export default function FlourishStandard() {
               <thead>
                 <tr className="border-b border-slate-100 dark:border-[#2D2050]">
                   <th className="text-left px-4 py-3 font-black text-slate-700 dark:text-slate-300 w-1/2">Criterion</th>
-                  <th className="px-4 py-3 font-black text-gcu-purple dark:text-purple-300 text-center">
+                  <th className="px-4 py-3 font-black text-yju-primary dark:text-purple-300 text-center">
                     <div className="flex flex-col items-center gap-0.5">
                       <Award size={14} />
                       Flourish Standard
@@ -340,12 +340,12 @@ export default function FlourishStandard() {
 
       {/* Vision statement */}
       <div className="rounded-2xl bg-gradient-to-br from-[#0D0920] to-[#1A0D3A] p-8 text-center">
-        <Zap size={32} className="text-gcu-gold mx-auto mb-4" />
+        <Zap size={32} className="text-yju-accent mx-auto mb-4" />
         <h2 className="text-2xl font-black text-white mb-3">
           "We are not building a product.<br />We are writing the rulebook."
         </h2>
         <p className="text-white/60 text-sm max-w-2xl mx-auto leading-relaxed mb-6">
-          When GCU publishes the Flourish Standard and 25 institutions adopt it, we become the accrediting authority for ethical AI in Christian higher education. That network effect is irreversible. The institutions that delay will become our customers — not our competitors.
+          When YJU publishes the Flourish Standard and 25 institutions adopt it, we become the accrediting authority for ethical AI in Christian higher education. That network effect is irreversible. The institutions that delay will become our customers — not our competitors.
         </p>
         <div className="flex flex-wrap justify-center gap-3">
           <button onClick={() => navigate('/portal/executive-brief')} className="btn-primary flex items-center gap-2">

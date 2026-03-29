@@ -46,7 +46,7 @@ import AgenticGrader from './pages/molted/AgenticGrader';
 import AutoRespond from './pages/molted/AutoRespond';
 import EarlyWarning from './pages/molted/EarlyWarning';
 import ForgeVoiceDemo from './pages/molted/ForgeVoiceDemo';
-import GCULeadershipDeck from './pages/molted/GCULeadershipDeck';
+import YJULeadershipDeck from './pages/molted/YJULeadershipDeck';
 import MoltBoard from './pages/molted/MoltBoard';
 import BeaconDemo from './pages/molted/demos/BeaconDemo';
 import RetainAIDemo from './pages/molted/demos/RetainAIDemo';
@@ -65,8 +65,8 @@ function ProtectedRoutes() {
     return (
       <div className="min-h-screen purple-gradient flex items-center justify-center">
         <div className="text-center">
-          <div className="w-12 h-12 rounded-xl bg-gcu-gold flex items-center justify-center mx-auto mb-4">
-            <span className="font-black text-gcu-purple-dark text-lg">GCU</span>
+          <div className="w-12 h-12 rounded-xl bg-yju-accent flex items-center justify-center mx-auto mb-4">
+            <span className="font-black text-yju-primary-dark text-lg">YJU</span>
           </div>
           <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin mx-auto" />
           <p className="text-white/60 text-sm mt-3">Loading Empyrean LMS…</p>
@@ -145,9 +145,9 @@ export default function App() {
             <Route path="/forge/live-demo" element={<LiveAgentDemo />} />
             <Route path="/forge/voice-demo" element={<ForgeVoiceDemo />} />
             <Route path="/exec-tour" element={<MoltedExecTour />} />
-            <Route path="/gcu-deck" element={<GCULeadershipDeck />} />
+            <Route path="/yju-deck" element={<YJULeadershipDeck />} />
             <Route path="/board" element={<MoltBoard />} />
-            {/* GCU Flourish — client portal */}
+            {/* YJU Flourish — client portal */}
             <Route path="/portal/login" element={<LoginGuard />} />
             <Route path="/executive-tour" element={<ExecutiveTour />} />
             <Route path="/portal/*" element={<ProtectedRoutes />} />

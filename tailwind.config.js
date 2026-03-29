@@ -5,15 +5,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        gcu: {
-          purple: '#4B2E83',
-          'purple-dark': '#3A2268',
-          'purple-light': '#6B4FA3',
-          'purple-pale': '#EDE8F5',
-          gold: '#FFC627',
-          'gold-dark': '#E6A800',
-          'gold-light': '#FFD980',
-          'gold-pale': '#FFF8E1',
+        yju: {
+          primary: '#1A3A5C',
+          'primary-dark': '#0F2340',
+          'primary-light': '#2E6DA4',
+          'primary-pale': '#E8F1FA',
+          accent: '#E85D04',
+          'accent-dark': '#C44E03',
+          'accent-light': '#F48C4A',
+          'accent-pale': '#FEF0E7',
         },
         molted: {
           black: '#FFFFFF',             // page background — white
@@ -90,10 +90,10 @@ export default {
         },
       },
       boxShadow: {
-        'gcu': '0 4px 24px rgba(75, 46, 131, 0.12)',
-        'gcu-gold': '0 4px 24px rgba(255, 198, 39, 0.20)',
+        'yju': '0 4px 24px rgba(26, 58, 92, 0.12)',
+        'yju-accent': '0 4px 24px rgba(255, 198, 39, 0.20)',
         'card': '0 2px 12px rgba(0,0,0,0.06)',
-        'card-hover': '0 8px 32px rgba(75, 46, 131, 0.15)',
+        'card-hover': '0 8px 32px rgba(26, 58, 92, 0.15)',
         'molted-glow': '0 0 60px rgba(37, 99, 235, 0.18), 0 0 120px rgba(37, 99, 235, 0.08)',
         'molted-violet': '0 4px 32px rgba(100, 116, 139, 0.28)',
         'molted-ember': '0 4px 32px rgba(30, 58, 138, 0.28)',

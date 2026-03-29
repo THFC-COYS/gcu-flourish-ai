@@ -167,7 +167,7 @@ const HeyGenAvatar = forwardRef<HeyGenAvatarHandle, HeyGenAvatarProps>(
             />
             {status === 'connecting' && (
               <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/80">
-                <Loader size={24} className="text-gcu-gold animate-spin mb-2" />
+                <Loader size={24} className="text-yju-accent animate-spin mb-2" />
                 <p className="text-white/70 text-xs">Connecting avatar…</p>
               </div>
             )}
@@ -191,7 +191,7 @@ const HeyGenAvatar = forwardRef<HeyGenAvatarHandle, HeyGenAvatarProps>(
           onClick={toggle}
           className={`p-1.5 rounded-lg transition-colors ${
             enabled
-              ? 'text-gcu-purple bg-gcu-purple/10'
+              ? 'text-yju-primary bg-yju-primary/10'
               : 'text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/10'
           }`}
           title={enabled ? 'Hide avatar' : 'Show live avatar'}

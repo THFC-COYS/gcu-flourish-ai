@@ -96,14 +96,14 @@ function AgentStatusRow({ dept }: { dept: typeof DEPARTMENTS[0] }) {
         <div className="flex items-center gap-2">
           <div className="flex-1 h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
             <div
-              className="h-full rounded-full bg-gradient-to-r from-gcu-purple to-gcu-gold transition-all duration-500"
+              className="h-full rounded-full bg-gradient-to-r from-yju-primary to-yju-accent transition-all duration-500"
               style={{ width: `${pct}%` }}
             />
           </div>
           <span className="text-xs font-bold text-slate-600 dark:text-slate-400 flex-shrink-0">{dept.kpis.tasksToday.toLocaleString()}</span>
         </div>
       </div>
-      <ChevronRight size={12} className="text-slate-300 dark:text-slate-600 group-hover:text-gcu-purple transition-colors flex-shrink-0" />
+      <ChevronRight size={12} className="text-slate-300 dark:text-slate-600 group-hover:text-yju-primary transition-colors flex-shrink-0" />
     </div>
   );
 }
@@ -155,18 +155,18 @@ function AskTheOS() {
   const trendIcon = (t: string) => t === 'up' ? <TrendingUp size={12} className="text-emerald-400" /> : t === 'down' ? <TrendingDown size={12} className="text-red-400" /> : <Minus size={12} className="text-slate-400" />;
 
   return (
-    <div className="page-card p-5 border-l-4 border-gcu-purple">
+    <div className="page-card p-5 border-l-4 border-yju-primary">
       <div className="flex items-center gap-2 mb-4">
-        <Sparkles size={15} className="text-gcu-purple dark:text-purple-400" />
+        <Sparkles size={15} className="text-yju-primary dark:text-purple-400" />
         <h3 className="text-sm font-bold text-slate-900 dark:text-white">Ask the University OS</h3>
-        <span className="text-xs bg-gcu-purple-pale dark:bg-gcu-purple/10 text-gcu-purple dark:text-purple-400 px-2 py-0.5 rounded-full font-semibold">AI</span>
+        <span className="text-xs bg-yju-primary-pale dark:bg-yju-primary/10 text-yju-primary dark:text-purple-400 px-2 py-0.5 rounded-full font-semibold">AI</span>
       </div>
 
       {/* Sample queries */}
       <div className="flex flex-wrap gap-2 mb-3">
         {SAMPLE_QUERIES.map(q => (
           <button key={q} onClick={() => setQuery(q)}
-            className="text-xs px-2.5 py-1 rounded-full transition-colors hover:bg-gcu-purple/10 dark:hover:bg-gcu-purple/20"
+            className="text-xs px-2.5 py-1 rounded-full transition-colors hover:bg-yju-primary/10 dark:hover:bg-yju-primary/20"
             style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', color: '#94a3b8' }}>
             {q}
           </button>
@@ -193,7 +193,7 @@ function AskTheOS() {
 
       {loading && (
         <div className="flex items-center gap-2 py-4 text-sm text-slate-400">
-          <RefreshCw size={14} className="animate-spin text-gcu-purple" />
+          <RefreshCw size={14} className="animate-spin text-yju-primary" />
           Querying all 15 department pods...
         </div>
       )}
@@ -201,7 +201,7 @@ function AskTheOS() {
       {result && (
         <div className="space-y-3">
           {/* Main answer */}
-          <div className="p-4 rounded-xl bg-gcu-purple-pale dark:bg-gcu-purple/10 border border-gcu-purple/20">
+          <div className="p-4 rounded-xl bg-yju-primary-pale dark:bg-yju-primary/10 border border-yju-primary/20">
             <p className="text-sm text-slate-800 dark:text-slate-200 leading-relaxed">{result.answer}</p>
           </div>
 
@@ -298,7 +298,7 @@ export default function CommandCenter() {
         <div className="flex items-center gap-3">
           <button
             onClick={() => navigate('/university-os')}
-            className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 hover:text-gcu-purple transition-colors"
+            className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 hover:text-yju-primary transition-colors"
           >
             <ArrowLeft size={14} />
             University OS
@@ -324,7 +324,7 @@ export default function CommandCenter() {
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
         {[
           { label: 'Tasks Completed Today', value: (totalTasksToday + tick * 3).toLocaleString(), icon: CheckCircle2, color: 'text-emerald-500', bg: 'bg-emerald-50 dark:bg-emerald-900/20' },
-          { label: 'Agents Active Now', value: `${activeAgents}/${totalAgents}`, icon: Bot, color: 'text-gcu-purple dark:text-purple-400', bg: 'bg-gcu-purple-pale dark:bg-gcu-purple/10' },
+          { label: 'Agents Active Now', value: `${activeAgents}/${totalAgents}`, icon: Bot, color: 'text-yju-primary dark:text-purple-400', bg: 'bg-yju-primary-pale dark:bg-yju-primary/10' },
           { label: 'Human Escalations Today', value: `${escalations}`, icon: AlertCircle, color: 'text-amber-500', bg: 'bg-amber-50 dark:bg-amber-900/20' },
           { label: 'Avg Response Time', value: '< 3 min', icon: Clock, color: 'text-blue-500', bg: 'bg-blue-50 dark:bg-blue-900/20' },
         ].map(({ label, value, icon: Icon, color, bg }) => (
@@ -347,7 +347,7 @@ export default function CommandCenter() {
         <div className="lg:col-span-2 page-card overflow-hidden">
           <div className="flex items-center justify-between p-4 border-b border-slate-100 dark:border-slate-700">
             <div className="flex items-center gap-2">
-              <Activity size={15} className="text-gcu-purple dark:text-purple-400" />
+              <Activity size={15} className="text-yju-primary dark:text-purple-400" />
               <h2 className="text-sm font-bold text-slate-900 dark:text-white">Live Agent Event Feed</h2>
               <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             </div>
@@ -366,7 +366,7 @@ export default function CommandCenter() {
           {/* Human On-Call */}
           <div className="page-card">
             <div className="flex items-center gap-2 p-4 border-b border-slate-100 dark:border-slate-700">
-              <Users size={15} className="text-gcu-purple dark:text-purple-400" />
+              <Users size={15} className="text-yju-primary dark:text-purple-400" />
               <h2 className="text-sm font-bold text-slate-900 dark:text-white">Humans On Call</h2>
               <span className="text-xs bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 px-2 py-0.5 rounded-full font-semibold">
                 {HUMAN_ONCALL.filter(h => h.status === 'available').length} available
@@ -398,7 +398,7 @@ export default function CommandCenter() {
           {/* System Health */}
           <div className="page-card">
             <div className="flex items-center gap-2 p-4 border-b border-slate-100 dark:border-slate-700">
-              <Shield size={15} className="text-gcu-purple dark:text-purple-400" />
+              <Shield size={15} className="text-yju-primary dark:text-purple-400" />
               <h2 className="text-sm font-bold text-slate-900 dark:text-white">System Health</h2>
             </div>
             <div className="p-3 space-y-2">
@@ -427,13 +427,13 @@ export default function CommandCenter() {
       <div className="page-card">
         <div className="flex items-center justify-between p-4 border-b border-slate-100 dark:border-slate-700">
           <div className="flex items-center gap-2">
-            <Cpu size={15} className="text-gcu-purple dark:text-purple-400" />
+            <Cpu size={15} className="text-yju-primary dark:text-purple-400" />
             <h2 className="text-sm font-bold text-slate-900 dark:text-white">All Department Pods</h2>
             <span className="text-xs text-slate-400">— tasks handled today</span>
           </div>
           <button
             onClick={() => navigate('/university-os')}
-            className="text-xs text-gcu-purple dark:text-purple-400 font-semibold flex items-center gap-1 hover:gap-2 transition-all"
+            className="text-xs text-yju-primary dark:text-purple-400 font-semibold flex items-center gap-1 hover:gap-2 transition-all"
           >
             Full overview <ArrowRight size={12} />
           </button>
@@ -473,9 +473,9 @@ export default function CommandCenter() {
           </div>
         </div>
 
-        <div className="page-card p-5 border-l-4 border-gcu-gold">
+        <div className="page-card p-5 border-l-4 border-yju-accent">
           <div className="flex items-center gap-2 mb-3">
-            <TrendingUp size={15} className="text-gcu-gold" />
+            <TrendingUp size={15} className="text-yju-accent" />
             <h3 className="text-sm font-bold text-slate-900 dark:text-white">Today's Peak Moments</h3>
           </div>
           <div className="space-y-3">
@@ -491,7 +491,7 @@ export default function CommandCenter() {
                   <p className="text-xs font-semibold text-slate-800 dark:text-slate-200">{peak.highlight}</p>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{peak.detail}</p>
                 </div>
-                <span className="text-sm font-black text-gcu-gold flex-shrink-0">{peak.value}</span>
+                <span className="text-sm font-black text-yju-accent flex-shrink-0">{peak.value}</span>
               </div>
             ))}
           </div>
@@ -499,14 +499,14 @@ export default function CommandCenter() {
       </div>
 
       {/* Global Principle */}
-      <div className="page-card p-5 bg-gradient-to-r from-slate-900 to-gcu-purple-dark border-[#2D2050]">
+      <div className="page-card p-5 bg-gradient-to-r from-slate-900 to-yju-primary-dark border-[#2D2050]">
         <div className="flex items-start gap-4">
-          <div className="w-10 h-10 rounded-xl bg-gcu-gold/20 border border-gcu-gold/30 flex items-center justify-center flex-shrink-0 text-xl">✝️</div>
+          <div className="w-10 h-10 rounded-xl bg-yju-accent/20 border border-yju-accent/30 flex items-center justify-center flex-shrink-0 text-xl">✝️</div>
           <div>
-            <p className="text-xs font-bold text-gcu-gold uppercase tracking-widest mb-1">The GCU Flourish Standard</p>
+            <p className="text-xs font-bold text-yju-accent uppercase tracking-widest mb-1">The YJU Flourish Standard</p>
             <p className="text-sm font-bold text-white mb-1">Every agent. Every interaction. Every escalation.</p>
             <p className="text-xs text-white/60 leading-relaxed max-w-2xl">
-              University OS is governed by the GCU Flourish Standard — 7 ethical principles embedded in every agent's decision layer.
+              University OS is governed by the YJU Flourish Standard — 7 ethical principles embedded in every agent's decision layer.
               When in doubt, agents escalate to humans. The goal is never efficiency for efficiency's sake.
               The goal is human flourishing — students, faculty, staff, and community — served with compassion, dignity, and integrity.
             </p>

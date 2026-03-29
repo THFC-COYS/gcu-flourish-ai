@@ -82,8 +82,8 @@ export default function Sidebar({ collapsed, onToggle, mobileOpen, onMobileClose
       <div className="flex items-center justify-between px-4 py-5 border-b border-white/10">
         {!collapsed && (
           <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-lg bg-gcu-gold flex items-center justify-center flex-shrink-0">
-              <span className="font-black text-gcu-purple-dark text-sm leading-none">GCU</span>
+            <div className="w-9 h-9 rounded-lg bg-yju-accent flex items-center justify-center flex-shrink-0">
+              <span className="font-black text-yju-primary-dark text-sm leading-none">YJU</span>
             </div>
             <div>
               <div className="text-white font-bold text-sm leading-tight">Empyrean LMS</div>
@@ -92,8 +92,8 @@ export default function Sidebar({ collapsed, onToggle, mobileOpen, onMobileClose
           </div>
         )}
         {collapsed && (
-          <div className="w-9 h-9 rounded-lg bg-gcu-gold flex items-center justify-center mx-auto">
-            <span className="font-black text-gcu-purple-dark text-xs leading-none">GCU</span>
+          <div className="w-9 h-9 rounded-lg bg-yju-accent flex items-center justify-center mx-auto">
+            <span className="font-black text-yju-primary-dark text-xs leading-none">YJU</span>
           </div>
         )}
         <button
@@ -140,7 +140,7 @@ export default function Sidebar({ collapsed, onToggle, mobileOpen, onMobileClose
         {user && !collapsed && (
           <div className="px-3 py-2 mb-1">
             <div className="flex items-center gap-2 mb-1">
-              <div className="w-8 h-8 rounded-full bg-gcu-gold/20 flex items-center justify-center text-gcu-gold font-bold text-sm flex-shrink-0">
+              <div className="w-8 h-8 rounded-full bg-yju-accent/20 flex items-center justify-center text-yju-accent font-bold text-sm flex-shrink-0">
                 {user.name.charAt(0)}
               </div>
               <div className="min-w-0">

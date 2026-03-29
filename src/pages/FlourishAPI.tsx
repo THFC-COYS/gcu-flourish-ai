@@ -3,16 +3,16 @@ import { useNavigate } from 'react-router-dom';
 import { Code2, Shield, Globe, Zap, CheckCircle2, Copy, Check, ArrowRight, Building2 } from 'lucide-react';
 
 const CODE_EXAMPLE = `// The Flourish API — The Soul Layer for AI
-// Give any AI system GCU-certified ethical character
+// Give any AI system YJU-certified ethical character
 
-import { FlourishClient } from '@gcu/flourish-api';
+import { FlourishClient } from '@yju/flourish-api';
 
 const flourish = new FlourishClient({
   apiKey: process.env.FLOURISH_API_KEY,
   vessel: 'spirit-nurse-assistant',  // or any of 10 vessels
 });
 
-// Infuse GCU spirit character into any AI response
+// Infuse YJU spirit character into any AI response
 const response = await flourish.infuse({
   userMessage: "My patient is anxious about surgery tomorrow.",
   baseResponse: await yourAI.generate(userMessage),
@@ -25,7 +25,7 @@ console.log(response.message);
 //    Let me walk through what tomorrow will look like, step by step..."
 
 console.log(response.attribution);
-// → "This reflects the compassionate pre-op care spirit of GCU
+// → "This reflects the compassionate pre-op care spirit of YJU
 //    nursing alumni (95%+ NCLEX pass rate, Arizona Faith Health System partners)."
 
 console.log(response.ethicalAlignmentScore);  // → 97
@@ -35,7 +35,7 @@ const TIERS = [
   {
     name: 'Internal',
     price: 'Free',
-    sub: 'GCU colleges & departments',
+    sub: 'YJU colleges & departments',
     highlight: false,
     features: [
       'All 10 spirit vessels',
@@ -98,7 +98,7 @@ const INTEGRATIONS = [
 
 const CERTIFICATION_STEPS = [
   { step: 1, title: 'Submit Application', desc: 'Organization describes their AI use case and target population.' },
-  { step: 2, title: 'CETLA Review', desc: 'GCU\'s ethics team evaluates alignment with human flourishing principles.' },
+  { step: 2, title: 'CETLA Review', desc: 'YJU\'s ethics team evaluates alignment with human flourishing principles.' },
   { step: 3, title: 'Integration Audit', desc: 'Technical review ensures spirit modules are faithfully implemented.' },
   { step: 4, title: 'Pilot Monitoring', desc: '90-day supervised pilot with real feedback collection.' },
   { step: 5, title: 'Certification Granted', desc: 'Organization receives the "Spirit-Certified AI" seal, valid 1 year.' },
@@ -155,22 +155,22 @@ export default function FlourishAPI() {
         <div className="absolute inset-0 opacity-5">
           <svg viewBox="0 0 400 400" className="w-full h-full">
             {Array.from({ length: 8 }).map((_, i) => (
-              <circle key={i} cx="200" cy="200" r={30 + i * 25} fill="none" stroke="#4B2E83" strokeWidth="1" />
+              <circle key={i} cx="200" cy="200" r={30 + i * 25} fill="none" stroke="#1A3A5C" strokeWidth="1" />
             ))}
           </svg>
         </div>
         <div className="relative z-10">
-          <div className="inline-flex items-center gap-2 bg-gcu-purple/30 border border-gcu-purple/40 text-purple-300 text-xs font-bold px-3 py-1.5 rounded-full mb-4 uppercase tracking-widest">
+          <div className="inline-flex items-center gap-2 bg-yju-primary/30 border border-yju-primary/40 text-purple-300 text-xs font-bold px-3 py-1.5 rounded-full mb-4 uppercase tracking-widest">
             <Code2 size={11} />
             Flourish API · Developer Preview
           </div>
           <h1 className="text-3xl sm:text-4xl font-black text-white mb-3">
             The Soul Layer<br />
-            <span className="text-gcu-gold">for Any AI.</span>
+            <span className="text-yju-accent">for Any AI.</span>
           </h1>
           <p className="text-slate-400 text-base leading-relaxed mb-6 max-w-2xl">
-            A single API call. GCU-certified ethical character infused into your existing AI.
-            Any model. Any platform. Any use case. The same spirit of GCU graduates — serving your users.
+            A single API call. YJU-certified ethical character infused into your existing AI.
+            Any model. Any platform. Any use case. The same spirit of YJU graduates — serving your users.
           </p>
           <div className="flex flex-wrap gap-3">
             <a href="mailto:greg.lucas@paigebreaker.com?subject=Flourish API Access Request" className="btn-gold flex items-center gap-2 text-sm">
@@ -187,7 +187,7 @@ export default function FlourishAPI() {
       <div className="grid lg:grid-cols-5 gap-6">
         <div className="lg:col-span-3">
           <div className="flex items-center gap-2 mb-3">
-            <Code2 size={16} className="text-gcu-purple" />
+            <Code2 size={16} className="text-yju-primary" />
             <h2 className="text-base font-black text-slate-900 dark:text-white">3 Lines to a Soul</h2>
           </div>
           <CodeBlock code={CODE_EXAMPLE} />
@@ -199,7 +199,7 @@ export default function FlourishAPI() {
               {[
                 { icon: '✨', title: 'Infused Response', desc: 'Your AI\'s output, re-voiced through the spirit module — same answer, transformed character.' },
                 { icon: '🔢', title: 'Ethical Score', desc: 'Real-time 0–100 ethical alignment score for every response generated.' },
-                { icon: '📖', title: 'Attribution', desc: 'Transparent citation of which GCU alumni character and curriculum informed the response.' },
+                { icon: '📖', title: 'Attribution', desc: 'Transparent citation of which YJU alumni character and curriculum informed the response.' },
                 { icon: '🛡️', title: 'Safety Flags', desc: 'Automatic escalation flags when a query exceeds AI competence boundaries.' },
                 { icon: '📊', title: 'Impact Metrics', desc: 'Aggregate data on how your users are being served by the spirit layer.' },
               ].map(f => (
@@ -228,19 +228,19 @@ export default function FlourishAPI() {
               key={tier.name}
               className={`page-card p-6 flex flex-col ${
                 tier.highlight
-                  ? 'border-gcu-purple ring-2 ring-gcu-purple/20 shadow-gcu'
+                  ? 'border-yju-primary ring-2 ring-yju-primary/20 shadow-yju'
                   : ''
               }`}
             >
               {tier.highlight && (
                 <div className="text-center mb-3">
-                  <span className="text-xs bg-gcu-purple text-white font-bold px-3 py-1 rounded-full uppercase tracking-wide">Most Popular</span>
+                  <span className="text-xs bg-yju-primary text-white font-bold px-3 py-1 rounded-full uppercase tracking-wide">Most Popular</span>
                 </div>
               )}
               <div className="mb-5">
                 <h3 className="font-black text-slate-900 dark:text-white text-lg">{tier.name}</h3>
                 <div className="flex items-end gap-1 mt-1">
-                  <span className="text-3xl font-black text-gcu-purple dark:text-purple-300">{tier.price}</span>
+                  <span className="text-3xl font-black text-yju-primary dark:text-purple-300">{tier.price}</span>
                   {tier.price !== 'Custom' && tier.price !== 'Free' && (
                     <span className="text-slate-400 text-sm mb-1">/yr</span>
                   )}
@@ -250,7 +250,7 @@ export default function FlourishAPI() {
               <ul className="space-y-2 flex-1 mb-6">
                 {tier.features.map(f => (
                   <li key={f} className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-400">
-                    <CheckCircle2 size={13} className="text-gcu-purple mt-0.5 flex-shrink-0" />
+                    <CheckCircle2 size={13} className="text-yju-primary mt-0.5 flex-shrink-0" />
                     {f}
                   </li>
                 ))}
@@ -278,7 +278,7 @@ export default function FlourishAPI() {
               onClick={() => setActiveCategory(c)}
               className={`text-xs font-semibold px-3 py-1.5 rounded-full transition-colors ${
                 activeCategory === c
-                  ? 'bg-gcu-purple text-white'
+                  ? 'bg-yju-primary text-white'
                   : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'
               }`}
             >
@@ -288,12 +288,12 @@ export default function FlourishAPI() {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {filtered.map(intg => (
-            <div key={intg.name} className="p-4 rounded-xl border border-slate-200 dark:border-[#2D2050] hover:border-gcu-purple/40 hover:bg-gcu-purple-pale dark:hover:bg-gcu-purple/5 transition-all group">
+            <div key={intg.name} className="p-4 rounded-xl border border-slate-200 dark:border-[#2D2050] hover:border-yju-primary/40 hover:bg-yju-primary-pale dark:hover:bg-yju-primary/5 transition-all group">
               <div className="flex items-center gap-2 mb-2">
                 <span className="text-2xl">{intg.icon}</span>
-                <span className="text-xs font-bold text-gcu-purple/60 dark:text-purple-400/60">{intg.category}</span>
+                <span className="text-xs font-bold text-yju-primary/60 dark:text-purple-400/60">{intg.category}</span>
               </div>
-              <h4 className="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-gcu-purple dark:group-hover:text-purple-300 transition-colors">{intg.name}</h4>
+              <h4 className="text-sm font-bold text-slate-800 dark:text-slate-200 group-hover:text-yju-primary dark:group-hover:text-purple-300 transition-colors">{intg.name}</h4>
               <p className="text-sm text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">{intg.desc}</p>
             </div>
           ))}
@@ -303,8 +303,8 @@ export default function FlourishAPI() {
       {/* ── CERTIFICATION PROCESS ── */}
       <div className="page-card p-6">
         <div className="flex items-start gap-4 mb-6">
-          <div className="w-11 h-11 rounded-xl bg-gcu-purple flex items-center justify-center flex-shrink-0">
-            <Shield size={20} className="text-gcu-gold" />
+          <div className="w-11 h-11 rounded-xl bg-yju-primary flex items-center justify-center flex-shrink-0">
+            <Shield size={20} className="text-yju-accent" />
           </div>
           <div>
             <h2 className="text-base font-black text-slate-900 dark:text-white">Spirit-Certified AI: The Process</h2>
@@ -316,7 +316,7 @@ export default function FlourishAPI() {
         <div className="grid sm:grid-cols-5 gap-3">
           {CERTIFICATION_STEPS.map((s, i) => (
             <div key={s.step} className="flex flex-col items-center text-center gap-2">
-              <div className="w-10 h-10 rounded-full bg-gcu-purple flex items-center justify-center text-gcu-gold font-black text-sm flex-shrink-0">
+              <div className="w-10 h-10 rounded-full bg-yju-primary flex items-center justify-center text-yju-accent font-black text-sm flex-shrink-0">
                 {s.step}
               </div>
               {i < CERTIFICATION_STEPS.length - 1 && (

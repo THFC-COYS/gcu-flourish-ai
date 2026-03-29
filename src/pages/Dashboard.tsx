@@ -20,7 +20,7 @@ const COLLEGE_COUNTS = {
 };
 
 const IMPACT_TICKER = [
-  { value: '34,100+', label: 'Interactions this month', icon: Zap, color: 'text-gcu-gold' },
+  { value: '34,100+', label: 'Interactions this month', icon: Zap, color: 'text-yju-accent' },
   { value: '94%', label: 'Avg ethical alignment', icon: CheckCircle2, color: 'text-emerald-500' },
   { value: '5', label: 'Active partnerships', icon: Globe, color: 'text-blue-500' },
   { value: '12', label: 'Scholarships funded', icon: Star, color: 'text-pink-500' },
@@ -70,12 +70,12 @@ export default function Dashboard() {
       <div className="relative overflow-hidden rounded-2xl purple-gradient p-6 sm:p-8">
         <div className="absolute inset-0 opacity-10">
           <svg viewBox="0 0 800 200" preserveAspectRatio="none" className="w-full h-full">
-            <path d="M0,200 Q200,60 400,100 Q600,140 800,60 L800,200 Z" fill="#FFC627" />
+            <path d="M0,200 Q200,60 400,100 Q600,140 800,60 L800,200 Z" fill="#E85D04" />
           </svg>
         </div>
         <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 bg-gcu-gold/20 border border-gcu-gold/30 text-gcu-gold text-xs font-semibold px-3 py-1 rounded-full mb-3">
+            <div className="inline-flex items-center gap-2 bg-yju-accent/20 border border-yju-accent/30 text-yju-accent text-xs font-semibold px-3 py-1 rounded-full mb-3">
               <Sparkles size={12} />
               Empyrean LMS · Autonomous Spirit Agents — Creating a New Industry
             </div>
@@ -83,7 +83,7 @@ export default function Dashboard() {
               {greeting}, {firstName}! 👋
             </h1>
             <p className="text-white/70 text-sm max-w-lg leading-relaxed">
-              AI that acts with compassion, not just intelligence. We embed the character of GCU's most compassionate graduates — servant leadership, integrity, and Christ-centered values — directly into AI your organization can deploy today.
+              AI that acts with compassion, not just intelligence. We embed the character of YJU's most compassionate graduates — servant leadership, integrity, and Christ-centered values — directly into AI your organization can deploy today.
             </p>
             <div className="mt-2">
               <RoleBadge role={user?.role ?? 'viewer'} />
@@ -114,30 +114,30 @@ export default function Dashboard() {
       </div>
 
       {/* Global Impact Counter */}
-      <div className="page-card p-5 border-l-4 border-gcu-gold">
+      <div className="page-card p-5 border-l-4 border-yju-accent">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <Globe size={16} className="text-gcu-gold" />
-              <span className="text-xs font-bold text-gcu-gold uppercase tracking-widest">Global Impact Goal</span>
+              <Globe size={16} className="text-yju-accent" />
+              <span className="text-xs font-bold text-yju-accent uppercase tracking-widest">Global Impact Goal</span>
               <span className="text-xs bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 font-semibold px-2 py-0.5 rounded-full">Simulated</span>
             </div>
             <h3 className="text-xl font-black text-slate-900 dark:text-white">10,000,000 Interactions</h3>
-            <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Lives touched by GCU Spirit Vessels worldwide</p>
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Lives touched by YJU Spirit Vessels worldwide</p>
           </div>
           <div className="text-right flex-shrink-0">
-            <p className="text-3xl font-black text-gcu-purple dark:text-purple-300">487,219</p>
+            <p className="text-3xl font-black text-yju-primary dark:text-purple-300">487,219</p>
             <p className="text-xs text-slate-400 dark:text-slate-500">interactions to date</p>
           </div>
         </div>
         <div className="space-y-2">
           <div className="flex justify-between text-xs text-slate-500 dark:text-slate-400">
             <span>Progress to 10M goal</span>
-            <span className="font-bold text-gcu-purple dark:text-purple-300">4.87%</span>
+            <span className="font-bold text-yju-primary dark:text-purple-300">4.87%</span>
           </div>
           <div className="h-4 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
             <div
-              className="h-full rounded-full bg-gradient-to-r from-gcu-purple to-gcu-gold transition-all duration-1000"
+              className="h-full rounded-full bg-gradient-to-r from-yju-primary to-yju-accent transition-all duration-1000"
               style={{ width: '4.87%' }}
             />
           </div>
@@ -159,11 +159,11 @@ export default function Dashboard() {
       {/* Stats */}
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
         <StatCard
-          icon={<FlaskConical size={20} className="text-gcu-purple" />}
+          icon={<FlaskConical size={20} className="text-yju-primary" />}
           label="Spirit Agents"
           value={COLLEGE_COUNTS.total}
-          sub="Across all 10 GCU colleges"
-          color="bg-gcu-purple-pale dark:bg-gcu-purple/10"
+          sub="Across all 10 YJU colleges"
+          color="bg-yju-primary-pale dark:bg-yju-primary/10"
         />
         <StatCard
           icon={<TrendingUp size={20} className="text-blue-600" />}
@@ -180,26 +180,26 @@ export default function Dashboard() {
           color="bg-emerald-50 dark:bg-emerald-900/20"
         />
         <StatCard
-          icon={<CheckCircle2 size={20} className="text-gcu-gold-dark" />}
+          icon={<CheckCircle2 size={20} className="text-yju-accent-dark" />}
           label="Ethical Alignment"
           value={`${COLLEGE_COUNTS.avgEthical}%`}
           sub="Average across all prototypes"
-          color="bg-gcu-gold-pale dark:bg-gcu-gold/10"
+          color="bg-yju-accent-pale dark:bg-yju-accent/10"
         />
       </div>
 
       {/* Phase 2 teaser */}
       <div
-        className="page-card p-5 flex items-center gap-4 bg-gradient-to-r from-slate-900 to-gcu-purple-dark border-[#2D2050] cursor-pointer hover:shadow-card-hover transition-all group"
+        className="page-card p-5 flex items-center gap-4 bg-gradient-to-r from-slate-900 to-yju-primary-dark border-[#2D2050] cursor-pointer hover:shadow-card-hover transition-all group"
         onClick={() => navigate('/portal/vision')}
       >
-        <div className="w-12 h-12 rounded-xl bg-gcu-gold/20 border border-gcu-gold/30 flex items-center justify-center flex-shrink-0 text-2xl">🤖</div>
+        <div className="w-12 h-12 rounded-xl bg-yju-accent/20 border border-yju-accent/30 flex items-center justify-center flex-shrink-0 text-2xl">🤖</div>
         <div className="flex-1">
-          <span className="text-xs font-bold text-gcu-gold uppercase tracking-widest">Coming 2027 — Phase 2</span>
+          <span className="text-xs font-bold text-yju-accent uppercase tracking-widest">Coming 2027 — Phase 2</span>
           <p className="text-sm font-bold text-white mt-0.5">Spirit Vessels get bodies.</p>
-          <p className="text-xs text-slate-400 mt-0.5">The world's most compassionate robots, powered by GCU character. Nursing, education, pastoral care.</p>
+          <p className="text-xs text-slate-400 mt-0.5">The world's most compassionate robots, powered by YJU character. Nursing, education, pastoral care.</p>
         </div>
-        <div className="flex items-center gap-1 text-gcu-gold group-hover:gap-2 transition-all">
+        <div className="flex items-center gap-1 text-yju-accent group-hover:gap-2 transition-all">
           <span className="text-xs font-semibold hidden sm:block">See roadmap</span>
           <ArrowRight size={16} />
         </div>
@@ -209,7 +209,7 @@ export default function Dashboard() {
       <div className="page-card p-5">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-base font-bold text-slate-900 dark:text-white">All 10 Deployed Spirit Agents</h2>
-          <button onClick={() => navigate('/portal/library')} className="text-xs text-gcu-purple dark:text-purple-400 font-semibold flex items-center gap-1 hover:gap-2 transition-all">
+          <button onClick={() => navigate('/portal/library')} className="text-xs text-yju-primary dark:text-purple-400 font-semibold flex items-center gap-1 hover:gap-2 transition-all">
             Full library <ArrowRight size={12} />
           </button>
         </div>
@@ -218,11 +218,11 @@ export default function Dashboard() {
             <button
               key={p.id}
               onClick={() => navigate(`/portal/testing?id=${p.id}`)}
-              className="flex flex-col items-center text-center p-3 rounded-xl bg-slate-50 dark:bg-[#241D35] hover:bg-gcu-purple-pale dark:hover:bg-gcu-purple/10 transition-colors border border-transparent hover:border-gcu-purple/20 group"
+              className="flex flex-col items-center text-center p-3 rounded-xl bg-slate-50 dark:bg-[#241D35] hover:bg-yju-primary-pale dark:hover:bg-yju-primary/10 transition-colors border border-transparent hover:border-yju-primary/20 group"
             >
               <span className="text-2xl mb-1">{p.icon}</span>
-              <span className="text-xs font-semibold text-slate-700 dark:text-slate-300 leading-tight group-hover:text-gcu-purple dark:group-hover:text-purple-300">
-                {p.name.replace('GCU Spirit ', '').replace('GCU ', '')}
+              <span className="text-xs font-semibold text-slate-700 dark:text-slate-300 leading-tight group-hover:text-yju-primary dark:group-hover:text-purple-300">
+                {p.name.replace('YJU Spirit ', '').replace('YJU ', '')}
               </span>
               <span className={`text-xs mt-1 font-medium ${
                 p.status === 'pilot' ? 'text-blue-500' :
@@ -238,7 +238,7 @@ export default function Dashboard() {
         <div className="lg:col-span-2 space-y-4">
           <div className="flex items-center justify-between">
             <h2 className="text-base font-bold text-slate-900 dark:text-white">Active Pilots</h2>
-            <button onClick={() => navigate('/portal/library')} className="text-xs text-gcu-purple dark:text-purple-400 font-semibold flex items-center gap-1 hover:gap-2 transition-all">
+            <button onClick={() => navigate('/portal/library')} className="text-xs text-yju-primary dark:text-purple-400 font-semibold flex items-center gap-1 hover:gap-2 transition-all">
               All vessels <ArrowRight size={12} />
             </button>
           </div>
@@ -256,12 +256,12 @@ export default function Dashboard() {
             <div className="space-y-3">
               {MOCK_ACTIVITY.map(entry => (
                 <div key={entry.id} className="flex items-start gap-3">
-                  <div className="w-7 h-7 rounded-full bg-gcu-purple/10 dark:bg-gcu-purple/20 flex items-center justify-center text-gcu-purple text-xs font-bold flex-shrink-0 mt-0.5">
+                  <div className="w-7 h-7 rounded-full bg-yju-primary/10 dark:bg-yju-primary/20 flex items-center justify-center text-yju-primary text-xs font-bold flex-shrink-0 mt-0.5">
                     {entry.userName.charAt(0)}
                   </div>
                   <div className="min-w-0 flex-1">
                     <p className="text-xs font-semibold text-slate-800 dark:text-slate-200 leading-tight">{entry.userName}</p>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 leading-tight">{entry.action} · <span className="text-gcu-purple dark:text-purple-400">{entry.target.replace('GCU Spirit ', '').replace('GCU ', '')}</span></p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 leading-tight">{entry.action} · <span className="text-yju-primary dark:text-purple-400">{entry.target.replace('YJU Spirit ', '').replace('YJU ', '')}</span></p>
                     <p className="text-xs text-slate-400 dark:text-slate-600 mt-0.5">{timeAgo(entry.timestamp)}</p>
                   </div>
                 </div>
@@ -280,14 +280,14 @@ export default function Dashboard() {
               <button
                 key={l.to}
                 onClick={() => navigate(l.to)}
-                className="w-full flex items-center gap-3 p-2.5 rounded-lg hover:bg-gcu-purple-pale dark:hover:bg-gcu-purple/10 transition-colors text-left group"
+                className="w-full flex items-center gap-3 p-2.5 rounded-lg hover:bg-yju-primary-pale dark:hover:bg-yju-primary/10 transition-colors text-left group"
               >
                 <span className="text-lg">{l.icon}</span>
                 <div className="flex-1">
-                  <p className="text-xs font-semibold text-slate-800 dark:text-slate-200 group-hover:text-gcu-purple dark:group-hover:text-purple-300 transition-colors">{l.label}</p>
+                  <p className="text-xs font-semibold text-slate-800 dark:text-slate-200 group-hover:text-yju-primary dark:group-hover:text-purple-300 transition-colors">{l.label}</p>
                   <p className="text-xs text-slate-400 dark:text-slate-500">{l.sub}</p>
                 </div>
-                <ArrowRight size={12} className="text-slate-300 dark:text-slate-600 group-hover:text-gcu-purple transition-colors" />
+                <ArrowRight size={12} className="text-slate-300 dark:text-slate-600 group-hover:text-yju-primary transition-colors" />
               </button>
             ))}
           </div>

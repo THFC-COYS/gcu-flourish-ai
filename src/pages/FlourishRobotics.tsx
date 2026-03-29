@@ -6,7 +6,7 @@ const ROBOT_CATEGORIES = [
     icon: '🤖',
     name: 'Nursing Companion Bot',
     college: 'Nursing & Health Care Professions',
-    description: 'Provides patient check-ins, medication reminders, and empathetic bedside support. Infused with GCU Nursing spirit modules for compassionate, ethical care.',
+    description: 'Provides patient check-ins, medication reminders, and empathetic bedside support. Infused with YJU Nursing spirit modules for compassionate, ethical care.',
     status: 'Concept',
     statusColor: 'text-amber-500',
     eta: '2027',
@@ -16,7 +16,7 @@ const ROBOT_CATEGORIES = [
     icon: '🎓',
     name: 'Classroom Teaching Bot',
     college: 'College of Education',
-    description: 'Supports educators with real-time tutoring, student engagement tracking, and personalized learning pathways aligned with GCU\'s learner-centered approach.',
+    description: 'Supports educators with real-time tutoring, student engagement tracking, and personalized learning pathways aligned with YJU\'s learner-centered approach.',
     status: 'Concept',
     statusColor: 'text-amber-500',
     eta: '2027',
@@ -36,7 +36,7 @@ const ROBOT_CATEGORIES = [
     icon: '💼',
     name: 'Business Mentor Bot',
     college: 'Colangelo College of Business',
-    description: 'Coaches entrepreneurs and professionals with ethical business principles, financial literacy, and leadership development rooted in GCU values.',
+    description: 'Coaches entrepreneurs and professionals with ethical business principles, financial literacy, and leadership development rooted in YJU values.',
     status: 'Concept',
     statusColor: 'text-amber-500',
     eta: '2028',
@@ -50,7 +50,7 @@ const TIMELINE = [
     label: 'Digital Spirit Vessels',
     years: '2024–2026',
     active: true,
-    description: 'AI coaching + simulation prototypes deployed across all 10 GCU colleges. Platform commercialized via Flourish API.',
+    description: 'AI coaching + simulation prototypes deployed across all 10 YJU colleges. Platform commercialized via Flourish API.',
     icon: '💬',
   },
   {
@@ -66,7 +66,7 @@ const TIMELINE = [
     label: 'Global Standard',
     years: '2029+',
     active: false,
-    description: 'Flourish Robotics becomes the world\'s leading ethical AI robotics platform. GCU character embedded in every institution.',
+    description: 'Flourish Robotics becomes the world\'s leading ethical AI robotics platform. YJU character embedded in every institution.',
     icon: '🌍',
   },
 ];
@@ -84,24 +84,24 @@ export default function FlourishRobotics() {
   return (
     <div className="space-y-8 animate-fade-in">
       {/* Hero */}
-      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-gcu-purple-dark to-[#0D0920] p-8 sm:p-12">
+      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-yju-primary-dark to-[#0D0920] p-8 sm:p-12">
         <div className="absolute inset-0 opacity-20">
           <svg viewBox="0 0 800 300" preserveAspectRatio="none" className="w-full h-full">
-            <circle cx="700" cy="50" r="200" fill="#FFC627" />
-            <circle cx="100" cy="250" r="150" fill="#4B2E83" />
+            <circle cx="700" cy="50" r="200" fill="#E85D04" />
+            <circle cx="100" cy="250" r="150" fill="#1A3A5C" />
           </svg>
         </div>
         <div className="relative z-10 max-w-3xl">
-          <div className="inline-flex items-center gap-2 bg-gcu-gold/20 border border-gcu-gold/40 text-gcu-gold text-xs font-bold px-3 py-1.5 rounded-full mb-4">
+          <div className="inline-flex items-center gap-2 bg-yju-accent/20 border border-yju-accent/40 text-yju-accent text-xs font-bold px-3 py-1.5 rounded-full mb-4">
             🤖 FLOURISH ROBOTICS · Phase 2 Vision · Launching 2027
           </div>
           <h1 className="text-3xl sm:text-5xl font-black text-white leading-tight mb-4">
             Spirit Vessels<br />
-            <span className="text-gcu-gold">Get Bodies.</span>
+            <span className="text-yju-accent">Get Bodies.</span>
           </h1>
           <p className="text-white/70 text-lg leading-relaxed max-w-2xl mb-6">
             The next frontier of Empyrean LMS: physical robots infused with the character,
-            compassion, and ethics of GCU graduates. The world's most human-centered robots —
+            compassion, and ethics of YJU graduates. The world's most human-centered robots —
             serving in hospitals, classrooms, and churches worldwide.
           </p>
           <div className="flex flex-wrap gap-3">
@@ -140,7 +140,7 @@ export default function FlourishRobotics() {
           { icon: Globe, value: '150+', label: 'Target countries', color: 'text-blue-500', bg: 'bg-blue-50 dark:bg-blue-900/20' },
           { icon: Heart, value: '1M+', label: 'Lives impacted (goal)', color: 'text-pink-500', bg: 'bg-pink-50 dark:bg-pink-900/20' },
           { icon: Shield, value: '100%', label: 'Ethics-first design', color: 'text-emerald-500', bg: 'bg-emerald-50 dark:bg-emerald-900/20' },
-          { icon: Zap, value: '4', label: 'Robot categories planned', color: 'text-gcu-gold', bg: 'bg-gcu-gold-pale dark:bg-gcu-gold/10' },
+          { icon: Zap, value: '4', label: 'Robot categories planned', color: 'text-yju-accent', bg: 'bg-yju-accent-pale dark:bg-yju-accent/10' },
         ].map(({ icon: Icon, value, label, color, bg }) => (
           <div key={label} className="page-card p-5 flex items-center gap-4">
             <div className={`w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 ${bg}`}>
@@ -164,7 +164,7 @@ export default function FlourishRobotics() {
           {ROBOT_CATEGORIES.map(robot => (
             <div key={robot.name} className="page-card p-6 hover:shadow-card-hover hover:-translate-y-0.5 transition-all">
               <div className="flex items-start gap-4 mb-4">
-                <div className="w-14 h-14 rounded-2xl bg-gcu-purple-pale dark:bg-gcu-purple/10 flex items-center justify-center text-3xl flex-shrink-0">
+                <div className="w-14 h-14 rounded-2xl bg-yju-primary-pale dark:bg-yju-primary/10 flex items-center justify-center text-3xl flex-shrink-0">
                   {robot.icon}
                 </div>
                 <div className="flex-1">
@@ -172,7 +172,7 @@ export default function FlourishRobotics() {
                     <h3 className="font-bold text-slate-900 dark:text-white text-sm">{robot.name}</h3>
                     <span className={`text-xs font-semibold ${robot.statusColor}`}>{robot.status}</span>
                   </div>
-                  <p className="text-xs text-gcu-purple dark:text-purple-400 font-medium">{robot.college}</p>
+                  <p className="text-xs text-yju-primary dark:text-purple-400 font-medium">{robot.college}</p>
                   <div className="flex items-center gap-1 mt-1">
                     <Clock size={11} className="text-slate-400" />
                     <span className="text-xs text-slate-400">Target: {robot.eta}</span>
@@ -184,7 +184,7 @@ export default function FlourishRobotics() {
                 <p className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide">Key Capabilities (Planned)</p>
                 {robot.specs.map(spec => (
                   <div key={spec} className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
-                    <div className="w-1.5 h-1.5 rounded-full bg-gcu-purple/50 flex-shrink-0" />
+                    <div className="w-1.5 h-1.5 rounded-full bg-yju-primary/50 flex-shrink-0" />
                     {spec}
                   </div>
                 ))}
@@ -199,16 +199,16 @@ export default function FlourishRobotics() {
         <h2 className="text-lg font-black text-slate-900 dark:text-white mb-6">Development Roadmap</h2>
         <div className="relative">
           {/* Connector line */}
-          <div className="absolute left-6 top-8 bottom-8 w-0.5 bg-gradient-to-b from-gcu-purple via-gcu-purple/30 to-slate-200 dark:to-[#2D2050]" />
+          <div className="absolute left-6 top-8 bottom-8 w-0.5 bg-gradient-to-b from-yju-primary via-yju-primary/30 to-slate-200 dark:to-[#2D2050]" />
           <div className="space-y-6">
             {TIMELINE.map((step, i) => (
               <div key={i} className="flex items-start gap-5">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-2xl flex-shrink-0 relative z-10 ${step.active ? 'bg-gcu-purple shadow-gcu' : 'bg-slate-100 dark:bg-[#1A1235]'}`}>
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-2xl flex-shrink-0 relative z-10 ${step.active ? 'bg-yju-primary shadow-yju' : 'bg-slate-100 dark:bg-[#1A1235]'}`}>
                   {step.icon}
                 </div>
                 <div className="flex-1 pt-1">
                   <div className="flex items-center gap-2 flex-wrap">
-                    <span className="text-xs font-bold text-gcu-purple dark:text-purple-400 uppercase tracking-widest">{step.phase}</span>
+                    <span className="text-xs font-bold text-yju-primary dark:text-purple-400 uppercase tracking-widest">{step.phase}</span>
                     <span className="text-xs text-slate-400 dark:text-slate-500">{step.years}</span>
                     {step.active && (
                       <span className="text-xs bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 font-bold px-2 py-0.5 rounded-full">Active Now</span>
@@ -242,14 +242,14 @@ export default function FlourishRobotics() {
       </div>
 
       {/* CTA */}
-      <div className="page-card p-6 bg-gradient-to-r from-gcu-purple/5 to-gcu-gold/5 border-gcu-purple/20 text-center">
+      <div className="page-card p-6 bg-gradient-to-r from-yju-primary/5 to-yju-accent/5 border-yju-primary/20 text-center">
         <div className="text-4xl mb-3">🌍</div>
         <h3 className="text-xl font-black text-slate-900 dark:text-white mb-2">
           The Most Compassionate Robots on Earth
         </h3>
         <p className="text-slate-600 dark:text-slate-400 text-sm max-w-xl mx-auto mb-5">
           Imagine a world where every hospital, classroom, and church has access to an AI companion
-          embodying the character of GCU graduates — ethical, compassionate, and Spirit-infused.
+          embodying the character of YJU graduates — ethical, compassionate, and Spirit-infused.
           That's Flourish Robotics.
         </p>
         <div className="flex flex-wrap gap-3 justify-center">

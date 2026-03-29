@@ -67,7 +67,7 @@ export default function DepartmentConsole() {
       <div className="flex flex-col items-center justify-center min-h-64 text-slate-400">
         <Bot size={40} className="mb-3 opacity-30" />
         <p className="text-sm font-semibold">Department not found.</p>
-        <button onClick={() => navigate('/university-os')} className="mt-3 text-xs text-gcu-purple hover:underline">
+        <button onClick={() => navigate('/university-os')} className="mt-3 text-xs text-yju-primary hover:underline">
           Back to University OS
         </button>
       </div>
@@ -101,7 +101,7 @@ export default function DepartmentConsole() {
         <div className="flex items-center gap-2 flex-wrap">
           <button
             onClick={() => navigate('/university-os')}
-            className="flex items-center gap-1 text-xs text-slate-500 dark:text-slate-400 hover:text-gcu-purple transition-colors"
+            className="flex items-center gap-1 text-xs text-slate-500 dark:text-slate-400 hover:text-yju-primary transition-colors"
           >
             <ArrowLeft size={12} />
             University OS
@@ -162,7 +162,7 @@ export default function DepartmentConsole() {
             onClick={() => setActiveTab(id as typeof activeTab)}
             className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold transition-all ${
               activeTab === id
-                ? 'bg-white dark:bg-gcu-purple text-gcu-purple dark:text-white shadow-sm'
+                ? 'bg-white dark:bg-yju-primary text-yju-primary dark:text-white shadow-sm'
                 : 'text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300'
             }`}
           >
@@ -251,15 +251,15 @@ export default function DepartmentConsole() {
           ))}
 
           {/* Human lead card */}
-          <div className="page-card p-4 border-2 border-gcu-gold/30 bg-gcu-gold-pale dark:bg-gcu-gold/5">
+          <div className="page-card p-4 border-2 border-yju-accent/30 bg-yju-accent-pale dark:bg-yju-accent/5">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gcu-gold/20 border border-gcu-gold/30 flex items-center justify-center flex-shrink-0">
-                <Users size={18} className="text-gcu-gold-dark" />
+              <div className="w-10 h-10 rounded-xl bg-yju-accent/20 border border-yju-accent/30 flex items-center justify-center flex-shrink-0">
+                <Users size={18} className="text-yju-accent-dark" />
               </div>
               <div className="flex-1">
                 <div className="flex items-center gap-2">
                   <h3 className="text-sm font-bold text-slate-800 dark:text-slate-200">{dept.humanLead}</h3>
-                  <span className="text-xs bg-gcu-gold/20 text-gcu-gold-dark dark:text-gcu-gold px-2 py-0.5 rounded-full font-bold">Human Lead</span>
+                  <span className="text-xs bg-yju-accent/20 text-yju-accent-dark dark:text-yju-accent px-2 py-0.5 rounded-full font-bold">Human Lead</span>
                 </div>
                 <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
                   Approves escalations · Sets agent priorities · Makes judgment calls · Guardian of department ethics
@@ -369,7 +369,7 @@ export default function DepartmentConsole() {
                 )}
                 <div className={`max-w-[80%] px-3 py-2 rounded-2xl text-xs leading-relaxed ${
                   msg.role === 'user'
-                    ? 'bg-gcu-purple text-white rounded-tr-sm'
+                    ? 'bg-yju-primary text-white rounded-tr-sm'
                     : `${c.bg} border ${c.border} text-slate-700 dark:text-slate-300 rounded-tl-sm`
                 }`}>
                   {msg.text}
@@ -400,11 +400,11 @@ export default function DepartmentConsole() {
               onChange={e => setInput(e.target.value)}
               onKeyDown={e => e.key === 'Enter' && handleSend()}
               placeholder={`Ask the ${dept.name} pod anything...`}
-              className="flex-1 text-xs px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-[#241D35] text-slate-800 dark:text-slate-200 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-gcu-purple/30"
+              className="flex-1 text-xs px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-[#241D35] text-slate-800 dark:text-slate-200 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-yju-primary/30"
             />
             <button
               onClick={handleSend}
-              className="w-8 h-8 rounded-xl bg-gcu-purple flex items-center justify-center text-white hover:bg-gcu-purple-dark transition-colors flex-shrink-0"
+              className="w-8 h-8 rounded-xl bg-yju-primary flex items-center justify-center text-white hover:bg-yju-primary-dark transition-colors flex-shrink-0"
             >
               <Send size={13} />
             </button>
@@ -453,14 +453,14 @@ export default function DepartmentConsole() {
           {/* Ethics metrics */}
           <div className="page-card p-5">
             <div className="flex items-center gap-2 mb-4">
-              <Shield size={15} className="text-gcu-purple dark:text-purple-400" />
+              <Shield size={15} className="text-yju-primary dark:text-purple-400" />
               <h3 className="text-sm font-bold text-slate-900 dark:text-white">Ethics & Compliance Metrics</h3>
             </div>
             <div className="space-y-3">
               {[
                 { label: 'Responses within ethical guardrails', value: 99.7, color: 'bg-emerald-500' },
-                { label: 'Bias audit score (last review)', value: 96, color: 'bg-gcu-purple' },
-                { label: 'Transparency disclosure compliance', value: 100, color: 'bg-gcu-gold' },
+                { label: 'Bias audit score (last review)', value: 96, color: 'bg-yju-primary' },
+                { label: 'Transparency disclosure compliance', value: 100, color: 'bg-yju-accent' },
                 { label: 'Human escalation accuracy', value: 94, color: 'bg-blue-500' },
               ].map(({ label, value, color }) => (
                 <div key={label}>

@@ -341,7 +341,7 @@ function DepartmentCard({ dept, onClick }: { dept: typeof DEPARTMENTS[0]; onClic
           <p className="text-xs text-slate-500 dark:text-slate-400">Replaces <span className="font-semibold text-slate-700 dark:text-slate-300">{dept.replaces}</span></p>
           <p className={`text-xs font-bold ${c.text}`}>${(dept.savings / 1000).toFixed(0)}K/yr saved</p>
         </div>
-        <ChevronRight size={14} className="text-slate-300 dark:text-slate-600 group-hover:text-gcu-purple transition-colors" />
+        <ChevronRight size={14} className="text-slate-300 dark:text-slate-600 group-hover:text-yju-primary transition-colors" />
       </div>
     </div>
   );
@@ -349,14 +349,14 @@ function DepartmentCard({ dept, onClick }: { dept: typeof DEPARTMENTS[0]; onClic
 
 function HumanTeamMember({ name, role, department, emoji }: { name: string; role: string; department: string; emoji: string }) {
   return (
-    <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 dark:bg-[#241D35] hover:bg-gcu-purple-pale dark:hover:bg-gcu-purple/10 transition-colors">
-      <div className="w-9 h-9 rounded-full bg-gcu-gold/20 border border-gcu-gold/30 flex items-center justify-center text-lg flex-shrink-0">
+    <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 dark:bg-[#241D35] hover:bg-yju-primary-pale dark:hover:bg-yju-primary/10 transition-colors">
+      <div className="w-9 h-9 rounded-full bg-yju-accent/20 border border-yju-accent/30 flex items-center justify-center text-lg flex-shrink-0">
         {emoji}
       </div>
       <div className="min-w-0">
         <p className="text-xs font-bold text-slate-800 dark:text-slate-200 truncate">{name}</p>
         <p className="text-xs text-slate-500 dark:text-slate-400 truncate">{role}</p>
-        <p className="text-xs text-gcu-purple dark:text-purple-400 truncate">{department}</p>
+        <p className="text-xs text-yju-primary dark:text-purple-400 truncate">{department}</p>
       </div>
     </div>
   );
@@ -400,24 +400,24 @@ export default function UniversityOS() {
     <div className="space-y-6 animate-fade-in">
 
       {/* Hero */}
-      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-gcu-purple-dark to-[#0D0920] p-6 sm:p-8">
+      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-yju-primary-dark to-[#0D0920] p-6 sm:p-8">
         <div className="absolute inset-0 opacity-5">
           <svg viewBox="0 0 1200 300" preserveAspectRatio="none" className="w-full h-full">
-            <circle cx="200" cy="150" r="200" fill="#FFC627" />
-            <circle cx="800" cy="100" r="150" fill="#4B2E83" />
-            <circle cx="1100" cy="200" r="100" fill="#FFC627" />
+            <circle cx="200" cy="150" r="200" fill="#E85D04" />
+            <circle cx="800" cy="100" r="150" fill="#1A3A5C" />
+            <circle cx="1100" cy="200" r="100" fill="#E85D04" />
           </svg>
         </div>
         <div className="relative z-10">
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
             <div className="flex-1">
-              <div className="inline-flex items-center gap-2 bg-gcu-gold/20 border border-gcu-gold/30 text-gcu-gold text-xs font-semibold px-3 py-1 rounded-full mb-4">
+              <div className="inline-flex items-center gap-2 bg-yju-accent/20 border border-yju-accent/30 text-yju-accent text-xs font-semibold px-3 py-1 rounded-full mb-4">
                 <Sparkles size={12} />
                 University OS — The Future of Higher Education Operations
               </div>
               <h1 className="text-3xl sm:text-4xl font-black text-white mb-3 leading-tight">
                 1 University.<br />
-                <span className="text-gcu-gold">30 Humans.</span><br />
+                <span className="text-yju-accent">30 Humans.</span><br />
                 Infinite Impact.
               </h1>
               <p className="text-white/70 text-sm max-w-xl leading-relaxed">
@@ -443,7 +443,7 @@ export default function UniversityOS() {
             {/* Stats cluster */}
             <div className="grid grid-cols-2 gap-3 lg:w-72 flex-shrink-0">
               {[
-                { value: '30–50', label: 'Human team members', icon: Users, color: 'text-gcu-gold' },
+                { value: '30–50', label: 'Human team members', icon: Users, color: 'text-yju-accent' },
                 { value: TOTAL_AGENTS, label: 'AI agents deployed', icon: Bot, color: 'text-purple-300' },
                 { value: TOTAL_TASKS_TODAY.toLocaleString(), label: 'Tasks handled today', icon: Zap, color: 'text-emerald-400' },
                 { value: `$${(TOTAL_SAVINGS / 1000000).toFixed(1)}M`, label: 'Annual savings', icon: TrendingUp, color: 'text-blue-300' },
@@ -462,7 +462,7 @@ export default function UniversityOS() {
       {/* The Comparison */}
       <div className="page-card p-5 sm:p-6">
         <div className="flex items-center gap-2 mb-5">
-          <Building2 size={16} className="text-gcu-purple dark:text-purple-400" />
+          <Building2 size={16} className="text-yju-primary dark:text-purple-400" />
           <h2 className="text-base font-bold text-slate-900 dark:text-white">Traditional University vs. University OS</h2>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
@@ -550,7 +550,7 @@ export default function UniversityOS() {
             onClick={() => setActiveTab(id as typeof activeTab)}
             className={`flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold transition-all ${
               activeTab === id
-                ? 'bg-white dark:bg-gcu-purple text-gcu-purple dark:text-white shadow-sm'
+                ? 'bg-white dark:bg-yju-primary text-yju-primary dark:text-white shadow-sm'
                 : 'text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300'
             }`}
           >
@@ -570,7 +570,7 @@ export default function UniversityOS() {
             </div>
             <button
               onClick={() => navigate('/university-os/command-center')}
-              className="text-xs text-gcu-purple dark:text-purple-400 font-semibold flex items-center gap-1 hover:gap-2 transition-all"
+              className="text-xs text-yju-primary dark:text-purple-400 font-semibold flex items-center gap-1 hover:gap-2 transition-all"
             >
               Command Center <ArrowRight size={12} />
             </button>
@@ -597,8 +597,8 @@ export default function UniversityOS() {
 
           {/* Org layers */}
           {[
-            { title: 'Executive Layer', subtitle: '5 humans · University-wide oversight', color: 'gcu-gold', members: HUMAN_TEAM.slice(0, 5) },
-            { title: 'Department Leads', subtitle: '9 humans · Each manages a full agent pod', color: 'gcu-purple', members: HUMAN_TEAM.slice(5, 14) },
+            { title: 'Executive Layer', subtitle: '5 humans · University-wide oversight', color: 'yju-accent', members: HUMAN_TEAM.slice(0, 5) },
+            { title: 'Department Leads', subtitle: '9 humans · Each manages a full agent pod', color: 'yju-primary', members: HUMAN_TEAM.slice(5, 14) },
             { title: 'AI Engineering Team', subtitle: '5 humans · Build, train, and govern all agents', color: 'blue-500', members: HUMAN_TEAM.slice(14, 19) },
             { title: 'Mission & Quality', subtitle: '2 humans · Ethics review, Spirit alignment', color: 'emerald-500', members: HUMAN_TEAM.slice(19) },
           ].map(({ title, subtitle, color, members }) => (
@@ -617,10 +617,10 @@ export default function UniversityOS() {
           ))}
 
           {/* Remaining 9-29 */}
-          <div className="page-card p-5 border-dashed border-2 border-gcu-purple/20 dark:border-gcu-purple/30">
+          <div className="page-card p-5 border-dashed border-2 border-yju-primary/20 dark:border-yju-primary/30">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gcu-purple-pale dark:bg-gcu-purple/10 flex items-center justify-center flex-shrink-0">
-                <Users size={18} className="text-gcu-purple dark:text-purple-400" />
+              <div className="w-10 h-10 rounded-xl bg-yju-primary-pale dark:bg-yju-primary/10 flex items-center justify-center flex-shrink-0">
+                <Users size={18} className="text-yju-primary dark:text-purple-400" />
               </div>
               <div>
                 <p className="text-sm font-bold text-slate-900 dark:text-white">Slots 22–50: Scaling Roles</p>
@@ -647,7 +647,7 @@ export default function UniversityOS() {
             {[
               { label: 'Traditional Model Cost', value: '$182M/yr', sub: '3,000 employees avg fully-loaded', color: 'text-red-600', bg: 'bg-red-50 dark:bg-red-900/10 border-red-200 dark:border-red-900/40' },
               { label: 'University OS Total Cost', value: '$8.4M/yr', sub: '30-50 humans + all AI infrastructure', color: 'text-emerald-600', bg: 'bg-emerald-50 dark:bg-emerald-900/10 border-emerald-200 dark:border-emerald-900/40' },
-              { label: 'Annual Reinvestment Potential', value: '$173M/yr', sub: 'Back into students, scholarships, mission', color: 'text-gcu-purple dark:text-purple-400', bg: 'bg-gcu-purple-pale dark:bg-gcu-purple/10 border-gcu-purple/20 dark:border-gcu-purple/30' },
+              { label: 'Annual Reinvestment Potential', value: '$173M/yr', sub: 'Back into students, scholarships, mission', color: 'text-yju-primary dark:text-purple-400', bg: 'bg-yju-primary-pale dark:bg-yju-primary/10 border-yju-primary/20 dark:border-yju-primary/30' },
             ].map(({ label, value, sub, color, bg }) => (
               <div key={label} className={`page-card p-5 border ${bg}`}>
                 <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1">{label}</p>
@@ -662,9 +662,9 @@ export default function UniversityOS() {
             <h3 className="text-sm font-bold text-slate-900 dark:text-white mb-4">University OS Cost Breakdown ($8.4M/yr)</h3>
             <div className="space-y-3">
               {[
-                { label: 'Human team salaries (30–50 people)', amount: 4200000, pct: 50, color: 'bg-gcu-purple' },
+                { label: 'Human team salaries (30–50 people)', amount: 4200000, pct: 50, color: 'bg-yju-primary' },
                 { label: 'AI infrastructure & compute', amount: 1800000, pct: 21, color: 'bg-blue-500' },
-                { label: 'Agent training & fine-tuning', amount: 1200000, pct: 14, color: 'bg-gcu-gold' },
+                { label: 'Agent training & fine-tuning', amount: 1200000, pct: 14, color: 'bg-yju-accent' },
                 { label: 'Security, compliance & audit', amount: 720000, pct: 9, color: 'bg-emerald-500' },
                 { label: 'Contingency & mission reserve', amount: 480000, pct: 6, color: 'bg-slate-400' },
               ].map(({ label, amount, pct, color }) => (
@@ -711,9 +711,9 @@ export default function UniversityOS() {
           </div>
 
           {/* Where does the money go */}
-          <div className="page-card p-5 border-l-4 border-gcu-gold">
+          <div className="page-card p-5 border-l-4 border-yju-accent">
             <div className="flex items-center gap-2 mb-3">
-              <Heart size={16} className="text-gcu-gold" />
+              <Heart size={16} className="text-yju-accent" />
               <h3 className="text-sm font-bold text-slate-900 dark:text-white">Where the $173M Reinvestment Goes</h3>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -738,16 +738,16 @@ export default function UniversityOS() {
 
           {/* Bottom CTA */}
           <div
-            className="page-card p-5 flex items-center gap-4 bg-gradient-to-r from-slate-900 to-gcu-purple-dark border-[#2D2050] cursor-pointer hover:shadow-card-hover transition-all group"
+            className="page-card p-5 flex items-center gap-4 bg-gradient-to-r from-slate-900 to-yju-primary-dark border-[#2D2050] cursor-pointer hover:shadow-card-hover transition-all group"
             onClick={() => navigate('/university-os/command-center')}
           >
-            <div className="w-12 h-12 rounded-xl bg-gcu-gold/20 border border-gcu-gold/30 flex items-center justify-center flex-shrink-0 text-2xl">⚡</div>
+            <div className="w-12 h-12 rounded-xl bg-yju-accent/20 border border-yju-accent/30 flex items-center justify-center flex-shrink-0 text-2xl">⚡</div>
             <div className="flex-1">
-              <span className="text-xs font-bold text-gcu-gold uppercase tracking-widest">See it live</span>
+              <span className="text-xs font-bold text-yju-accent uppercase tracking-widest">See it live</span>
               <p className="text-sm font-bold text-white mt-0.5">Open the Live Command Center</p>
               <p className="text-xs text-slate-400 mt-0.5">Watch all {TOTAL_AGENTS} agents working in real time across all 13 departments.</p>
             </div>
-            <div className="flex items-center gap-1 text-gcu-gold group-hover:gap-2 transition-all">
+            <div className="flex items-center gap-1 text-yju-accent group-hover:gap-2 transition-all">
               <span className="text-xs font-semibold hidden sm:block">Open</span>
               <ArrowRight size={16} />
             </div>

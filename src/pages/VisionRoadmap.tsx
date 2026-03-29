@@ -12,7 +12,7 @@ const GLOBAL_REGIONS = [
     focus: 'Christian universities, healthcare, military chaplaincy',
     status: 'Active',
     statusColor: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300',
-    highlights: ['Arizona Faith Health System', 'US Military Chaplains', 'GCU Partner Network'],
+    highlights: ['Arizona Faith Health System', 'US Military Chaplains', 'YJU Partner Network'],
     color: 'border-emerald-300 dark:border-emerald-700',
     population: '350M',
   },
@@ -75,29 +75,29 @@ const GLOBAL_REGIONS = [
 
 const PHASE1_MILESTONES = [
   { date: 'Q3 2025', label: 'Platform Launch', desc: 'Empyrean LMS platform live with 2 pilot spirit vessels (Nursing & Business).', done: true },
-  { date: 'Q4 2025', label: 'All 10 Colleges', desc: 'Spirit vessels created for all 10 GCU colleges. Platform open to faculty builders.', done: true },
+  { date: 'Q4 2025', label: 'All 10 Colleges', desc: 'Spirit vessels created for all 10 YJU colleges. Platform open to faculty builders.', done: true },
   { date: 'Q1 2026', label: '3 External Partner Pilots', desc: 'Pilot Spirit Vessels with 3 external partners (Arizona Faith Health System, SUSD, AZ Church Network). First real-world data collected.', done: false },
-  { date: 'Q2 2026', label: 'Flourish API Beta', desc: 'External API opens for enterprise partners to license GCU ethical character into their AI.', done: false },
-  { date: 'Q3 2026', label: 'Ethical AI Certification', desc: 'GCU launches the industry\'s first Ethical AI Character Certification standard.', done: false },
+  { date: 'Q2 2026', label: 'Flourish API Beta', desc: 'External API opens for enterprise partners to license YJU ethical character into their AI.', done: false },
+  { date: 'Q3 2026', label: 'Ethical AI Certification', desc: 'YJU launches the industry\'s first Ethical AI Character Certification standard.', done: false },
   { date: 'Q4 2026', label: 'Spirit Network Launch', desc: '10,000+ alumni actively contributing wisdom to living spirit vessels.', done: false },
   { date: '2027', label: 'Global Multi-Language', desc: 'Spirit vessels speak 12 languages — same character, worldwide reach.', done: false },
   { date: '2027 Q2', label: 'Wearable API Launch', desc: 'Flourish API certified for smart glasses (Meta Ray-Ban, Apple) and enterprise AR. Spirit Vessels leave the screen and enter the field.', done: false },
 ];
 
 const PHASE2_MILESTONES = [
-  { date: '2027 Q1', label: 'Spirit Body Prototype', desc: 'First humanoid robot running a GCU Spirit Vessel. Unveiled at GCU Innovation Summit.', icon: '🤖' },
+  { date: '2027 Q1', label: 'Spirit Body Prototype', desc: 'First humanoid robot running a YJU Spirit Vessel. Unveiled at YJU Innovation Summit.', icon: '🤖' },
   { date: '2027 Q3', label: 'Spirit Nurse Robot Pilot', desc: 'Spirit Nurse Companion deployed in Arizona Faith Health System ICU for night-watch compassionate support.', icon: '🏥' },
   { date: '2028', label: 'Spirit Mentor Classroom', desc: 'Spirit Mentor robots in 500 K-12 classrooms — patient, personalized, never tired.', icon: '🎓' },
   { date: '2028', label: 'Spirit Faith Companion', desc: 'Elder care and VA hospital deployment. Presence for the isolated and forgotten.', icon: '✝️' },
   { date: '2029', label: 'Global Deployment', desc: '50,000 spirit vessels — digital and physical — active in 40+ countries.', icon: '🌍' },
-  { date: '2030', label: 'The Standard', desc: 'GCU\'s Spirit Vessel certification becomes the required ethical standard for AI in healthcare, education, and faith-based organizations worldwide.', icon: '⭐' },
+  { date: '2030', label: 'The Standard', desc: 'YJU\'s Spirit Vessel certification becomes the required ethical standard for AI in healthcare, education, and faith-based organizations worldwide.', icon: '⭐' },
 ];
 
 const PHASE3_MILESTONES = [
   { date: '2027 Q2', label: 'Flourish API on Smart Glasses', desc: 'Spirit Vessels streamed live to Meta Ray-Ban smart glasses. Nurses see patient vitals + compassionate prompts in their field of vision. Teachers get real-time student engagement coaching.', icon: '👓' },
   { date: '2027 Q4', label: 'Enterprise AR Rollout', desc: 'Apple Vision Pro and Meta Quest enterprise integrations. Spirit Vessels become ambient work companions — always present, never intrusive.', icon: '🥽' },
   { date: '2028 Q2', label: 'Neural Interface Beta', desc: 'Flourish API connects to Synchron BrainOS and early Neuralink developer program — silent, thought-triggered Spirit guidance for users with accessibility needs and elite professionals.', icon: '🧠' },
-  { date: '2028 Q4', label: 'Wearable Spirit Certification', desc: 'GCU certifies Spirit-Safe wearable AI interactions — the first ethical standard for ambient, always-on AI companions worn on the body.', icon: '🏅' },
+  { date: '2028 Q4', label: 'Wearable Spirit Certification', desc: 'YJU certifies Spirit-Safe wearable AI interactions — the first ethical standard for ambient, always-on AI companions worn on the body.', icon: '🏅' },
   { date: '2029', label: '1 Billion Wearable Moments', desc: 'Spirit Vessels embedded in 50M+ wearable devices globally. A nurse in Lagos, a teacher in Seoul, a pastor in São Paulo — all receiving Spirit guidance in real time.', icon: '🌍' },
 ];
 
@@ -227,22 +227,22 @@ export default function VisionRoadmap() {
       <div className="relative overflow-hidden rounded-2xl purple-gradient min-h-[320px] flex items-center">
         {/* Canyon silhouette layers */}
         <svg className="absolute bottom-0 left-0 right-0 opacity-10 w-full" viewBox="0 0 1200 200" preserveAspectRatio="none">
-          <path d="M0,200 Q200,60 400,120 Q600,180 800,80 Q1000,0 1200,100 L1200,200 Z" fill="#FFC627" />
+          <path d="M0,200 Q200,60 400,120 Q600,180 800,80 Q1000,0 1200,100 L1200,200 Z" fill="#E85D04" />
         </svg>
         <svg className="absolute bottom-0 left-0 right-0 opacity-6 w-full" viewBox="0 0 1200 200" preserveAspectRatio="none">
           <path d="M0,200 Q300,140 600,160 Q900,180 1200,140 L1200,200 Z" fill="white" />
         </svg>
         <div className="relative z-10 px-8 py-12 max-w-4xl">
-          <div className="inline-flex items-center gap-2 bg-gcu-gold/20 border border-gcu-gold/40 text-gcu-gold text-xs font-bold px-4 py-1.5 rounded-full mb-6 uppercase tracking-widest">
+          <div className="inline-flex items-center gap-2 bg-yju-accent/20 border border-yju-accent/40 text-yju-accent text-xs font-bold px-4 py-1.5 rounded-full mb-6 uppercase tracking-widest">
             <Rocket size={12} />
             Platform Vision & Roadmap
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.05] mb-4">
-            GCU Gives<br />
-            <span className="text-gcu-gold">AI a Soul.</span>
+            YJU Gives<br />
+            <span className="text-yju-accent">AI a Soul.</span>
           </h1>
           <p className="text-white/70 text-lg max-w-2xl leading-relaxed mb-8">
-            The world's first ethical AI character network — carrying the proven wisdom, compassion, and integrity of GCU graduates into every AI interaction on earth. This is our iPhone moment.
+            The world's first ethical AI character network — carrying the proven wisdom, compassion, and integrity of YJU graduates into every AI interaction on earth. This is our iPhone moment.
           </p>
           <div className="flex flex-wrap gap-3">
             <button onClick={() => navigate('/portal/library')} className="btn-gold flex items-center gap-2">
@@ -259,16 +259,16 @@ export default function VisionRoadmap() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {[
           {
-            icon: <Globe size={24} className="text-gcu-purple" />,
+            icon: <Globe size={24} className="text-yju-primary" />,
             title: 'The Problem',
             desc: 'Every major AI company is building AI that knows more. The world has knowledge without character — intelligence without integrity. AI is becoming powerful faster than it is becoming good.',
             color: 'bg-red-50 dark:bg-red-900/10 border-red-100 dark:border-red-900/30',
           },
           {
-            icon: <Sparkles size={24} className="text-gcu-gold" />,
+            icon: <Sparkles size={24} className="text-yju-accent" />,
             title: 'The Insight',
-            desc: 'GCU has 40+ years of graduates whose character has been proven in the real world — nurses, teachers, pastors, executives who embody compassion, integrity, and servant-leadership. That character is the missing ingredient in AI.',
-            color: 'bg-gcu-gold-pale dark:bg-gcu-gold/10 border-gcu-gold/20',
+            desc: 'YJU has 40+ years of graduates whose character has been proven in the real world — nurses, teachers, pastors, executives who embody compassion, integrity, and servant-leadership. That character is the missing ingredient in AI.',
+            color: 'bg-yju-accent-pale dark:bg-yju-accent/10 border-yju-accent/20',
           },
           {
             icon: <Heart size={24} className="text-emerald-600" />,
@@ -287,17 +287,17 @@ export default function VisionRoadmap() {
 
       {/* ── PHASE 1: DIGITAL ── */}
       <div className="page-card overflow-hidden">
-        <div className="bg-gcu-purple p-6 flex items-center justify-between">
+        <div className="bg-yju-primary p-6 flex items-center justify-between">
           <div>
-            <div className="text-gcu-gold text-xs font-bold uppercase tracking-widest mb-1">Phase 1 · Now → 2027</div>
+            <div className="text-yju-accent text-xs font-bold uppercase tracking-widest mb-1">Phase 1 · Now → 2027</div>
             <h2 className="text-2xl font-black text-white">The Digital Spirit Network</h2>
-            <p className="text-white/60 text-sm mt-1">10 spirit vessels. Every college. Every interaction infused with GCU character.</p>
+            <p className="text-white/60 text-sm mt-1">10 spirit vessels. Every college. Every interaction infused with YJU character.</p>
           </div>
           <div className="hidden sm:flex items-center gap-2">
-            <div className="w-10 h-10 rounded-full bg-gcu-gold/20 border-2 border-gcu-gold flex items-center justify-center">
-              <CheckCircle2 size={18} className="text-gcu-gold" />
+            <div className="w-10 h-10 rounded-full bg-yju-accent/20 border-2 border-yju-accent flex items-center justify-center">
+              <CheckCircle2 size={18} className="text-yju-accent" />
             </div>
-            <span className="text-gcu-gold text-sm font-bold">In Progress</span>
+            <span className="text-yju-accent text-sm font-bold">In Progress</span>
           </div>
         </div>
         <div className="p-6">
@@ -309,7 +309,7 @@ export default function VisionRoadmap() {
                 <div key={i} className="flex gap-4 relative">
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 z-10 ${
                     m.done
-                      ? 'bg-gcu-purple'
+                      ? 'bg-yju-primary'
                       : 'bg-white dark:bg-[#1A1235] border-2 border-slate-200 dark:border-[#2D2050]'
                   }`}>
                     {m.done
@@ -319,7 +319,7 @@ export default function VisionRoadmap() {
                   </div>
                   <div className={`flex-1 pb-2 ${m.done ? '' : 'opacity-70'}`}>
                     <div className="flex items-center gap-2 flex-wrap">
-                      <span className="text-xs font-bold text-gcu-gold bg-gcu-gold/10 px-2 py-0.5 rounded">{m.date}</span>
+                      <span className="text-xs font-bold text-yju-accent bg-yju-accent/10 px-2 py-0.5 rounded">{m.date}</span>
                       <span className="text-sm font-bold text-slate-900 dark:text-white">{m.label}</span>
                       {m.done && <span className="text-xs text-emerald-600 dark:text-emerald-400 font-semibold">✓ Complete</span>}
                     </div>
@@ -334,11 +334,11 @@ export default function VisionRoadmap() {
 
       {/* ── PHASE 2: PHYSICAL ── */}
       <div className="page-card overflow-hidden">
-        <div className="bg-gradient-to-r from-slate-900 to-gcu-purple-dark p-6 flex items-center justify-between">
+        <div className="bg-gradient-to-r from-slate-900 to-yju-primary-dark p-6 flex items-center justify-between">
           <div>
-            <div className="text-gcu-gold text-xs font-bold uppercase tracking-widest mb-1">Phase 2 · 2027 → 2030</div>
+            <div className="text-yju-accent text-xs font-bold uppercase tracking-widest mb-1">Phase 2 · 2027 → 2030</div>
             <h2 className="text-2xl font-black text-white">The Physical Embodiment</h2>
-            <p className="text-white/60 text-sm mt-1">Spirit vessels get bodies. The most compassionate robots ever built, powered by GCU character.</p>
+            <p className="text-white/60 text-sm mt-1">Spirit vessels get bodies. The most compassionate robots ever built, powered by YJU character.</p>
           </div>
           <div className="hidden sm:flex items-center gap-2">
             <div className="w-10 h-10 rounded-full bg-white/10 border-2 border-white/20 flex items-center justify-center">
@@ -352,11 +352,11 @@ export default function VisionRoadmap() {
             {PHASE2_MILESTONES.map((m, i) => (
               <div
                 key={i}
-                className="p-4 rounded-xl border border-slate-200 dark:border-[#2D2050] bg-slate-50 dark:bg-[#1A1235] hover:border-gcu-purple/30 hover:bg-gcu-purple-pale dark:hover:bg-gcu-purple/5 transition-all"
+                className="p-4 rounded-xl border border-slate-200 dark:border-[#2D2050] bg-slate-50 dark:bg-[#1A1235] hover:border-yju-primary/30 hover:bg-yju-primary-pale dark:hover:bg-yju-primary/5 transition-all"
               >
                 <div className="flex items-center gap-2 mb-2">
                   <span className="text-2xl">{m.icon}</span>
-                  <span className="text-xs font-bold text-gcu-gold">{m.date}</span>
+                  <span className="text-xs font-bold text-yju-accent">{m.date}</span>
                 </div>
                 <h4 className="font-bold text-slate-900 dark:text-white text-sm mb-1">{m.label}</h4>
                 <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">{m.desc}</p>
@@ -400,7 +400,7 @@ export default function VisionRoadmap() {
       <div className="page-card overflow-hidden">
         <div className="bg-gradient-to-r from-[#0D0920] via-[#1A0A3E] to-slate-900 p-6 flex items-center justify-between">
           <div>
-            <div className="text-gcu-gold text-xs font-bold uppercase tracking-widest mb-1">Phase 3 · 2027 → 2029</div>
+            <div className="text-yju-accent text-xs font-bold uppercase tracking-widest mb-1">Phase 3 · 2027 → 2029</div>
             <h2 className="text-2xl font-black text-white">The Wearable Spirit Network</h2>
             <p className="text-white/60 text-sm mt-1">Spirit Vessels leave the screen. Smart glasses, neural interfaces, and AR — Spirit guidance at the point of need.</p>
           </div>
@@ -428,7 +428,7 @@ export default function VisionRoadmap() {
                   </div>
                   <div className="flex-1 pb-2 opacity-80">
                     <div className="flex items-center gap-2 flex-wrap">
-                      <span className="text-xs font-bold text-gcu-gold bg-gcu-gold/10 px-2 py-0.5 rounded">{m.date}</span>
+                      <span className="text-xs font-bold text-yju-accent bg-yju-accent/10 px-2 py-0.5 rounded">{m.date}</span>
                       <span className="text-sm font-bold text-slate-900 dark:text-white">{m.label}</span>
                     </div>
                     <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">{m.desc}</p>
@@ -458,7 +458,7 @@ export default function VisionRoadmap() {
                     </div>
                   </div>
                   <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">{device.useCase}</p>
-                  <p className="text-xs text-gcu-purple dark:text-purple-400 font-semibold mt-2">Target: {device.timeline}</p>
+                  <p className="text-xs text-yju-primary dark:text-purple-400 font-semibold mt-2">Target: {device.timeline}</p>
                 </div>
               ))}
             </div>
@@ -475,7 +475,7 @@ export default function VisionRoadmap() {
                     <span className="text-xl">{uc.icon}</span>
                     <div>
                       <p className="text-sm font-bold text-slate-900 dark:text-white">{uc.role}</p>
-                      <p className="text-xs text-gcu-purple dark:text-purple-400 font-medium">{uc.device}</p>
+                      <p className="text-xs text-yju-primary dark:text-purple-400 font-medium">{uc.device}</p>
                     </div>
                   </div>
                   <div className="bg-white dark:bg-[#0F0A1E] border border-slate-200 dark:border-[#2D2050] rounded-lg p-3 mb-3">
@@ -493,12 +493,12 @@ export default function VisionRoadmap() {
             <div className="flex items-start gap-4">
               <span className="text-4xl flex-shrink-0">🧠</span>
               <div>
-                <div className="text-xs font-bold text-gcu-gold uppercase tracking-widest mb-1">The Long Horizon · 2028+</div>
+                <div className="text-xs font-bold text-yju-accent uppercase tracking-widest mb-1">The Long Horizon · 2028+</div>
                 <h4 className="text-lg font-black text-white mb-2">When Spirit Becomes Thought</h4>
                 <p className="text-sm text-white/60 leading-relaxed max-w-2xl">
-                  Neural interfaces like Neuralink and Synchron represent the ultimate convergence: Spirit guidance that arrives not as a sound or image, but as a subtle, silent prompt — indistinguishable from intuition. A nurse who just <em>knows</em> to check on Room 7. A teacher who <em>feels</em> a student needs attention. The GCU spirit, woven into human consciousness itself.
+                  Neural interfaces like Neuralink and Synchron represent the ultimate convergence: Spirit guidance that arrives not as a sound or image, but as a subtle, silent prompt — indistinguishable from intuition. A nurse who just <em>knows</em> to check on Room 7. A teacher who <em>feels</em> a student needs attention. The YJU spirit, woven into human consciousness itself.
                 </p>
-                <p className="text-xs text-gcu-gold/60 mt-3 italic">⚠ Exploratory concept · Dependent on neural interface technology maturity and regulatory approval · Not a current product</p>
+                <p className="text-xs text-yju-accent/60 mt-3 italic">⚠ Exploratory concept · Dependent on neural interface technology maturity and regulatory approval · Not a current product</p>
               </div>
             </div>
           </div>
@@ -509,26 +509,26 @@ export default function VisionRoadmap() {
       <div className="page-card p-0 overflow-hidden">
         <div className="purple-gradient p-8 text-center">
           <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white/80 text-xs font-semibold px-4 py-1.5 rounded-full mb-4 uppercase tracking-wider">
-            <Star size={12} className="text-gcu-gold" />
+            <Star size={12} className="text-yju-accent" />
             The Unveiling
           </div>
           <h2 className="text-3xl sm:text-4xl font-black text-white mb-4">
-            Our <span className="text-gcu-gold">"iPhone Moment"</span>
+            Our <span className="text-yju-accent">"iPhone Moment"</span>
           </h2>
           <p className="text-white/70 text-base max-w-2xl mx-auto leading-relaxed mb-6">
             One stage. One story. One robot that changes everything.
           </p>
           <div className="max-w-2xl mx-auto bg-white/5 border border-white/10 rounded-2xl p-6 text-left">
             <p className="text-white/80 text-sm leading-relaxed italic">
-              "The President walks out. No slides. He tells the story of a GCU nursing alumna — her name, her compassion, a specific patient she carried through the darkest night of their life.
+              "The President walks out. No slides. He tells the story of a YJU nursing alumna — her name, her compassion, a specific patient she carried through the darkest night of their life.
               <br /><br />
-              Then he says: <span className="text-gcu-gold font-semibold not-italic">'Her spirit is now in this room.'</span>
+              Then he says: <span className="text-yju-accent font-semibold not-italic">'Her spirit is now in this room.'</span>
               <br /><br />
               A Spirit Nurse robot enters. It speaks — in her cadence, with her warmth, clearly identified as AI. It demonstrates a patient interaction. Real. Moving. Undeniable.
               <br /><br />
               A live feed shows the same spirit active in a rural hospital in Uganda, an elder care facility in Tokyo, a VA hospital in Phoenix. All at once. All carrying the same character.
               <br /><br />
-              <span className="text-gcu-gold font-semibold not-italic">'We didn't build a robot. We built a vessel for human greatness.'</span>"
+              <span className="text-yju-accent font-semibold not-italic">'We didn't build a robot. We built a vessel for human greatness.'</span>"
             </p>
           </div>
         </div>
@@ -537,7 +537,7 @@ export default function VisionRoadmap() {
       {/* ── IMPACT PROJECTIONS ── */}
       <div className="page-card p-6">
         <div className="flex items-center gap-2 mb-6">
-          <Zap size={18} className="text-gcu-gold" />
+          <Zap size={18} className="text-yju-accent" />
           <h2 className="text-base font-black text-slate-900 dark:text-white">Projected Global Impact</h2>
         </div>
         <div className="overflow-x-auto">
@@ -551,9 +551,9 @@ export default function VisionRoadmap() {
             </thead>
             <tbody className="divide-y divide-slate-50 dark:divide-[#2D2050]">
               {IMPACT_PROJECTIONS.map((row, i) => (
-                <tr key={row.year} className={i === IMPACT_PROJECTIONS.length - 1 ? 'bg-gcu-purple-pale dark:bg-gcu-purple/10' : ''}>
+                <tr key={row.year} className={i === IMPACT_PROJECTIONS.length - 1 ? 'bg-yju-primary-pale dark:bg-yju-primary/10' : ''}>
                   <td className="py-3 pr-4 font-black text-slate-900 dark:text-white">{row.year}</td>
-                  <td className="py-3 pr-4 text-sm font-semibold text-gcu-purple dark:text-purple-300">{row.vessels}</td>
+                  <td className="py-3 pr-4 text-sm font-semibold text-yju-primary dark:text-purple-300">{row.vessels}</td>
                   <td className="py-3 pr-4 text-sm text-slate-700 dark:text-slate-300">{row.reach}</td>
                   <td className="py-3 pr-4 text-sm font-semibold text-emerald-600 dark:text-emerald-400">{row.revenue}</td>
                   <td className="py-3 text-sm text-slate-600 dark:text-slate-400">{row.scholarships}</td>
@@ -562,7 +562,7 @@ export default function VisionRoadmap() {
             </tbody>
           </table>
         </div>
-        <p className="text-xs text-slate-400 dark:text-slate-600 mt-3">25% of all revenue reinvested into GCU scholarships and AI ethics research.</p>
+        <p className="text-xs text-slate-400 dark:text-slate-600 mt-3">25% of all revenue reinvested into YJU scholarships and AI ethics research.</p>
       </div>
 
       {/* ── PARTNER TARGETS ── */}
@@ -571,14 +571,14 @@ export default function VisionRoadmap() {
           <Building2 size={18} className="text-slate-400" />
           <h2 className="text-base font-black text-slate-900 dark:text-white">Strategic Partner Targets</h2>
         </div>
-        <p className="text-sm text-slate-500 dark:text-slate-400 mb-5">Organizations whose scale transforms GCU's local mission into global impact.</p>
+        <p className="text-sm text-slate-500 dark:text-slate-400 mb-5">Organizations whose scale transforms YJU's local mission into global impact.</p>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {PARTNERS.map(p => (
-            <div key={p.name} className="p-4 rounded-xl border border-slate-200 dark:border-[#2D2050] bg-slate-50 dark:bg-[#1A1235] hover:border-gcu-purple/40 hover:bg-gcu-purple-pale dark:hover:bg-gcu-purple/5 transition-all text-center group">
+            <div key={p.name} className="p-4 rounded-xl border border-slate-200 dark:border-[#2D2050] bg-slate-50 dark:bg-[#1A1235] hover:border-yju-primary/40 hover:bg-yju-primary-pale dark:hover:bg-yju-primary/5 transition-all text-center group">
               <div className="text-3xl mb-2">{p.icon}</div>
-              <p className="text-xs font-bold text-slate-800 dark:text-white group-hover:text-gcu-purple dark:group-hover:text-purple-300 transition-colors">{p.name}</p>
+              <p className="text-xs font-bold text-slate-800 dark:text-white group-hover:text-yju-primary dark:group-hover:text-purple-300 transition-colors">{p.name}</p>
               <p className="text-xs text-slate-400 dark:text-slate-500 mt-0.5">{p.sector}</p>
-              <p className="text-xs text-gcu-purple/70 dark:text-purple-400/70 font-medium mt-1">{p.reach}</p>
+              <p className="text-xs text-yju-primary/70 dark:text-purple-400/70 font-medium mt-1">{p.reach}</p>
             </div>
           ))}
         </div>
@@ -587,7 +587,7 @@ export default function VisionRoadmap() {
       {/* ── SPIRIT EVERYWHERE — VISUAL JOURNEY ── */}
       <div>
         <div className="flex items-center gap-3 mb-2">
-          <Rocket size={20} className="text-gcu-purple" />
+          <Rocket size={20} className="text-yju-primary" />
           <h2 className="text-2xl font-black text-slate-900 dark:text-white">Spirit Everywhere</h2>
         </div>
         <p className="text-slate-500 dark:text-slate-400 text-sm mb-6">
@@ -601,7 +601,7 @@ export default function VisionRoadmap() {
               <img src="/scenes/bedside.jpg" alt="Patient using tablet at hospital bedside at 2am" className="absolute inset-0 w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               <div className="relative z-10 p-4">
-                <span className="text-xs font-bold text-gcu-gold uppercase tracking-widest">Now · Phase 1</span>
+                <span className="text-xs font-bold text-yju-accent uppercase tracking-widest">Now · Phase 1</span>
               </div>
             </div>
             <div className="p-4">
@@ -651,14 +651,14 @@ export default function VisionRoadmap() {
             </div>
             <div className="p-4">
               <h3 className="font-black text-slate-900 dark:text-white mb-1">Wearable AR — Nurse's View</h3>
-              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">A GCU-trained nurse wears Spirit-powered smart glasses. As she reviews a chart, Spirit overlays context, flags anomalies, and whispers a quiet reminder: "Last time this patient refused the medication — here's why."</p>
+              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">A YJU-trained nurse wears Spirit-powered smart glasses. As she reviews a chart, Spirit overlays context, flags anomalies, and whispers a quiet reminder: "Last time this patient refused the medication — here's why."</p>
             </div>
           </div>
 
           {/* Scene 5 — Flourish Robotics */}
           <div className="page-card overflow-hidden group md:col-span-2 xl:col-span-1">
             <div className="relative h-52 flex items-end">
-              <img src="/scenes/robotics.jpg" alt="GCU Flourish robot at nursing station" className="absolute inset-0 w-full h-full object-cover" />
+              <img src="/scenes/robotics.jpg" alt="YJU Flourish robot at nursing station" className="absolute inset-0 w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               <div className="relative z-10 p-4">
                 <span className="text-xs font-bold text-purple-600 uppercase tracking-widest">Phase 4 · 2028</span>
@@ -666,31 +666,31 @@ export default function VisionRoadmap() {
             </div>
             <div className="p-4">
               <h3 className="font-black text-slate-900 dark:text-white mb-1">Flourish Robotics — Nursing Station</h3>
-              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">A Spirit-powered robot moves through the ward — delivering medications, flagging missed vitals, and checking on patients between nurse rounds. It has the efficiency of a machine and the character of a GCU nurse.</p>
+              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">A Spirit-powered robot moves through the ward — delivering medications, flagging missed vitals, and checking on patients between nurse rounds. It has the efficiency of a machine and the character of a YJU nurse.</p>
             </div>
           </div>
 
         </div>
         <p className="text-xs text-slate-400 dark:text-slate-600 mt-4 text-center">
-          Each surface is a new deployment of the same Spirit Layer — the same character, the same values, the same GCU mission. The form changes. The soul does not.
+          Each surface is a new deployment of the same Spirit Layer — the same character, the same values, the same YJU mission. The form changes. The soul does not.
         </p>
       </div>
 
-      {/* ── WE ARE GCU ── */}
-      <div className="relative overflow-hidden rounded-2xl border border-gcu-purple/20 dark:border-gcu-purple/30 bg-gradient-to-br from-[#1A0A30] via-[#120820] to-[#0a0618]">
+      {/* ── WE ARE YJU ── */}
+      <div className="relative overflow-hidden rounded-2xl border border-yju-primary/20 dark:border-yju-primary/30 bg-gradient-to-br from-[#1A0A30] via-[#120820] to-[#0a0618]">
         {/* Subtle radial glow */}
         <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 70% 60% at 50% 40%, rgba(124,58,237,0.18) 0%, transparent 70%)' }} />
 
         <div className="relative z-10 px-8 py-12 md:py-16 text-center">
           {/* Overline */}
-          <div className="inline-flex items-center gap-2 bg-gcu-purple/20 border border-gcu-purple/40 text-purple-300 text-xs font-bold px-4 py-1.5 rounded-full mb-6 uppercase tracking-widest">
+          <div className="inline-flex items-center gap-2 bg-yju-primary/20 border border-yju-primary/40 text-purple-300 text-xs font-bold px-4 py-1.5 rounded-full mb-6 uppercase tracking-widest">
             <Sparkles size={12} />
             The Collective
           </div>
 
           {/* Headline */}
           <h2 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-none mb-2">
-            We <span className="text-gcu-gold">Are</span> GCU.
+            We <span className="text-yju-accent">Are</span> YJU.
           </h2>
           <p className="text-purple-300/70 text-lg font-medium mb-10 max-w-xl mx-auto">
             The AI is not built from the internet. It is built from <em>us</em>.
@@ -703,12 +703,12 @@ export default function VisionRoadmap() {
             <div className="flex flex-col gap-2.5 text-left min-w-[200px]">
               {[
                 { icon: '🎓', label: 'Faculty Expertise', sub: 'Decades of clinical, academic & pastoral mastery' },
-                { icon: '📚', label: 'Curriculum & Content', sub: "GCU's entire academic catalog and pedagogy" },
+                { icon: '📚', label: 'Curriculum & Content', sub: "YJU's entire academic catalog and pedagogy" },
                 { icon: '🔬', label: 'Research & Publications', sub: 'Peer-reviewed scholarship and original findings' },
                 { icon: '🏛️', label: 'Institutional Memory', sub: 'Values, culture, and 77 years of mission' },
                 { icon: '💡', label: 'Student & Staff IP', sub: 'Projects, presentations, and lived experience' },
               ].map(s => (
-                <div key={s.label} className="flex items-start gap-2.5 bg-white/5 border border-white/10 rounded-xl px-3 py-2.5 hover:border-gcu-purple/40 transition-colors group">
+                <div key={s.label} className="flex items-start gap-2.5 bg-white/5 border border-white/10 rounded-xl px-3 py-2.5 hover:border-yju-primary/40 transition-colors group">
                   <span className="text-xl flex-shrink-0 mt-0.5">{s.icon}</span>
                   <div>
                     <p className="text-xs font-bold text-white group-hover:text-purple-200 transition-colors leading-tight">{s.label}</p>
@@ -721,22 +721,22 @@ export default function VisionRoadmap() {
             {/* Arrow / Spirit Layer */}
             <div className="flex md:flex-col items-center gap-0 px-2 md:px-6 py-4 md:py-0">
               {/* Arrows on both sides */}
-              <div className="hidden md:flex flex-col items-center gap-1 text-gcu-purple/40 mb-3">
-                <div className="w-px h-8 bg-gradient-to-b from-transparent to-gcu-purple/40" />
-                <ArrowRight size={14} className="rotate-90 text-gcu-purple/60" />
+              <div className="hidden md:flex flex-col items-center gap-1 text-yju-primary/40 mb-3">
+                <div className="w-px h-8 bg-gradient-to-b from-transparent to-yju-primary/40" />
+                <ArrowRight size={14} className="rotate-90 text-yju-primary/60" />
               </div>
-              <ArrowRight size={20} className="md:hidden text-gcu-purple/50 rotate-0 mx-2" />
+              <ArrowRight size={20} className="md:hidden text-yju-primary/50 rotate-0 mx-2" />
 
               {/* Spirit Layer nucleus */}
               <div className="flex flex-col items-center gap-2 my-2">
                 <div className="relative w-28 h-28 md:w-32 md:h-32 flex-shrink-0">
                   {/* Pulsing ring */}
-                  <div className="absolute inset-0 rounded-full border-2 border-gcu-purple/30 animate-ping" style={{ animationDuration: '3s' }} />
-                  <div className="absolute inset-2 rounded-full border border-gcu-purple/20" />
+                  <div className="absolute inset-0 rounded-full border-2 border-yju-primary/30 animate-ping" style={{ animationDuration: '3s' }} />
+                  <div className="absolute inset-2 rounded-full border border-yju-primary/20" />
                   {/* Core */}
-                  <div className="absolute inset-4 rounded-full bg-gradient-to-br from-gcu-purple via-purple-700 to-indigo-800 flex items-center justify-center shadow-lg shadow-gcu-purple/40">
+                  <div className="absolute inset-4 rounded-full bg-gradient-to-br from-yju-primary via-purple-700 to-indigo-800 flex items-center justify-center shadow-lg shadow-yju-primary/40">
                     <div className="text-center">
-                      <Sparkles size={16} className="text-gcu-gold mx-auto mb-0.5" />
+                      <Sparkles size={16} className="text-yju-accent mx-auto mb-0.5" />
                       <p className="text-white text-[9px] font-black uppercase tracking-wide leading-tight">Spirit<br/>Layer</p>
                     </div>
                   </div>
@@ -744,11 +744,11 @@ export default function VisionRoadmap() {
                 <p className="text-xs font-bold text-purple-300 uppercase tracking-widest">Synthesis</p>
               </div>
 
-              <div className="hidden md:flex flex-col items-center gap-1 text-gcu-purple/40 mt-3">
-                <ArrowRight size={14} className="rotate-90 text-gcu-purple/60" />
-                <div className="w-px h-8 bg-gradient-to-b from-gcu-purple/40 to-transparent" />
+              <div className="hidden md:flex flex-col items-center gap-1 text-yju-primary/40 mt-3">
+                <ArrowRight size={14} className="rotate-90 text-yju-primary/60" />
+                <div className="w-px h-8 bg-gradient-to-b from-yju-primary/40 to-transparent" />
               </div>
-              <ArrowRight size={20} className="md:hidden text-gcu-purple/50 mx-2" />
+              <ArrowRight size={20} className="md:hidden text-yju-primary/50 mx-2" />
             </div>
 
             {/* Deployment surfaces column */}
@@ -758,12 +758,12 @@ export default function VisionRoadmap() {
                 { icon: '🖥️', label: 'Hospital Lobby Kiosk', sub: 'Orienting families in their most frightened moments' },
                 { icon: '🧑‍🏫', label: 'Classroom Avatar', sub: 'Spirit Teacher — life-size, live, and responsive' },
                 { icon: '🥽', label: 'Wearable AR', sub: "Overlaying Spirit's guidance on the nurse's world" },
-                { icon: '🤖', label: 'Flourish Robotics', sub: "A physical presence with GCU's character embedded" },
+                { icon: '🤖', label: 'Flourish Robotics', sub: "A physical presence with YJU's character embedded" },
               ].map(s => (
-                <div key={s.label} className="flex items-start gap-2.5 bg-white/5 border border-white/10 rounded-xl px-3 py-2.5 hover:border-gcu-gold/30 transition-colors group">
+                <div key={s.label} className="flex items-start gap-2.5 bg-white/5 border border-white/10 rounded-xl px-3 py-2.5 hover:border-yju-accent/30 transition-colors group">
                   <span className="text-xl flex-shrink-0 mt-0.5">{s.icon}</span>
                   <div>
-                    <p className="text-xs font-bold text-white group-hover:text-gcu-gold transition-colors leading-tight">{s.label}</p>
+                    <p className="text-xs font-bold text-white group-hover:text-yju-accent transition-colors leading-tight">{s.label}</p>
                     <p className="text-[10px] text-slate-500 leading-tight mt-0.5">{s.sub}</p>
                   </div>
                 </div>
@@ -773,8 +773,8 @@ export default function VisionRoadmap() {
 
           {/* Closing statement */}
           <div className="max-w-3xl mx-auto">
-            <blockquote className="text-lg sm:text-xl text-white/80 leading-relaxed font-medium italic border-l-4 border-gcu-gold/60 pl-5 text-left">
-              "Every Spirit Agent carries the accumulated knowledge, values, and character of GCU's faculty, researchers, students, and staff — not as a database query, but as a living professional presence. When a patient speaks with Spirit Nurse at 2 AM, they are speaking with the collective wisdom of every GCU nurse educator who ever taught with compassion and conviction — and every GCU nursing student who shared what it truly means to care for people in today's world. <span className="text-gcu-gold not-italic font-black">We are GCU.</span>"
+            <blockquote className="text-lg sm:text-xl text-white/80 leading-relaxed font-medium italic border-l-4 border-yju-accent/60 pl-5 text-left">
+              "Every Spirit Agent carries the accumulated knowledge, values, and character of YJU's faculty, researchers, students, and staff — not as a database query, but as a living professional presence. When a patient speaks with Spirit Nurse at 2 AM, they are speaking with the collective wisdom of every YJU nurse educator who ever taught with compassion and conviction — and every YJU nursing student who shared what it truly means to care for people in today's world. <span className="text-yju-accent not-italic font-black">We are YJU.</span>"
             </blockquote>
           </div>
         </div>
@@ -787,7 +787,7 @@ export default function VisionRoadmap() {
           <h2 className="text-2xl font-black text-slate-900 dark:text-white">Global Market Opportunity</h2>
         </div>
         <p className="text-slate-500 dark:text-slate-400 text-sm mb-6">
-          We are not creating a product for GCU. We are creating an industry for the world.
+          We are not creating a product for YJU. We are creating an industry for the world.
           33,000+ Christian institutions across 6 continents have no ethical AI framework to follow — until now.
         </p>
         <div className="grid grid-cols-3 gap-4 mb-6">
@@ -797,14 +797,14 @@ export default function VisionRoadmap() {
             <p className="text-xs font-semibold text-slate-500 mt-1">Christian Institutions Globally</p>
           </div>
           <div className="page-card p-5 text-center">
-            <Users size={22} className="text-gcu-purple mx-auto mb-2" />
+            <Users size={22} className="text-yju-primary mx-auto mb-2" />
             <p className="text-3xl font-black text-slate-900 dark:text-white">2.6B</p>
             <p className="text-xs font-semibold text-slate-500 mt-1">Christians Worldwide</p>
           </div>
           <div className="page-card p-5 text-center">
-            <TrendingUp size={22} className="text-gcu-gold mx-auto mb-2" />
+            <TrendingUp size={22} className="text-yju-accent mx-auto mb-2" />
             <p className="text-3xl font-black text-slate-900 dark:text-white">$0</p>
-            <p className="text-xs font-semibold text-slate-500 mt-1">Current Ethical AI Market (GCU Creates It)</p>
+            <p className="text-xs font-semibold text-slate-500 mt-1">Current Ethical AI Market (YJU Creates It)</p>
           </div>
         </div>
         <div className="grid md:grid-cols-2 gap-4">
@@ -820,12 +820,12 @@ export default function VisionRoadmap() {
                 </div>
                 <span className={`text-xs font-bold px-2.5 py-1 rounded-full flex-shrink-0 ${r.statusColor}`}>{r.status}</span>
               </div>
-              <p className="text-2xl font-black text-gcu-purple dark:text-purple-300 mb-1">{r.institutions}</p>
+              <p className="text-2xl font-black text-yju-primary dark:text-purple-300 mb-1">{r.institutions}</p>
               <p className="text-xs text-slate-600 dark:text-slate-400 mb-3">{r.focus}</p>
               <ul className="space-y-1">
                 {r.highlights.map((h, i) => (
                   <li key={i} className="flex items-start gap-1.5 text-xs text-slate-600 dark:text-slate-400">
-                    <Star size={10} className="text-gcu-gold mt-0.5 flex-shrink-0" />
+                    <Star size={10} className="text-yju-accent mt-0.5 flex-shrink-0" />
                     <span>{h}</span>
                   </li>
                 ))}
@@ -833,30 +833,30 @@ export default function VisionRoadmap() {
             </div>
           ))}
         </div>
-        <div className="mt-4 rounded-xl bg-gradient-to-r from-gcu-purple/10 to-blue-500/10 dark:from-gcu-purple/20 dark:to-blue-500/10 border border-gcu-purple/20 p-5 text-center">
+        <div className="mt-4 rounded-xl bg-gradient-to-r from-yju-primary/10 to-blue-500/10 dark:from-yju-primary/20 dark:to-blue-500/10 border border-yju-primary/20 p-5 text-center">
           <p className="text-sm font-bold text-slate-800 dark:text-white mb-1">
             The network effect is irreversible at 25 institutions.
           </p>
           <p className="text-xs text-slate-500 dark:text-slate-400">
-            Once 25 universities and health systems adopt the Flourish Standard, GCU becomes the accrediting authority. Every institution that joins after that strengthens GCU's position — not weakens it.
+            Once 25 universities and health systems adopt the Flourish Standard, YJU becomes the accrediting authority. Every institution that joins after that strengthens YJU's position — not weakens it.
             The industry will not form around a startup. It will form around the university that had the courage to define it first.
           </p>
         </div>
       </div>
 
       {/* ── THE STANDARD ── */}
-      <div className="page-card p-6 bg-gcu-purple-pale dark:bg-gcu-purple/10 border-gcu-purple/20">
+      <div className="page-card p-6 bg-yju-primary-pale dark:bg-yju-primary/10 border-yju-primary/20">
         <div className="flex items-start gap-4">
-          <div className="w-12 h-12 rounded-xl bg-gcu-purple flex items-center justify-center flex-shrink-0">
-            <Award size={22} className="text-gcu-gold" />
+          <div className="w-12 h-12 rounded-xl bg-yju-primary flex items-center justify-center flex-shrink-0">
+            <Award size={22} className="text-yju-accent" />
           </div>
           <div className="flex-1">
-            <h3 className="font-black text-gcu-purple dark:text-purple-300 text-lg mb-2">The GCU Ethical AI Standard</h3>
+            <h3 className="font-black text-yju-primary dark:text-purple-300 text-lg mb-2">The YJU Ethical AI Standard</h3>
             <p className="text-sm text-slate-700 dark:text-slate-400 leading-relaxed mb-4">
               By 2030, every hospital, school, and faith-based organization deploying AI will ask one question:
-              <span className="font-bold text-gcu-purple dark:text-purple-300"> "Is it Spirit-Certified?"</span>
+              <span className="font-bold text-yju-primary dark:text-purple-300"> "Is it Spirit-Certified?"</span>
               <br /><br />
-              GCU doesn't just build spirit vessels — GCU writes the standard that the entire industry follows.
+              YJU doesn't just build spirit vessels — YJU writes the standard that the entire industry follows.
               Like the FDA for AI character. Like the Joint Commission for compassionate robotics.
               The accreditation body that gives organizations and the public confidence that their AI has been proven ethical.
             </p>

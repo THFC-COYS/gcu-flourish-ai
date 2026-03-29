@@ -33,7 +33,7 @@ function buildSystemPrompt(prototype: Prototype): string {
     .map(m => `${m.name}: ${m.description}`)
     .join('\n- ');
 
-  return `IDENTITY: You are ${prototype.name}. This is your name. Do not call yourself anything else — not "Assistant", not "GCU Spirit Nurse Assistant", not any other title. You are ${prototype.name}.
+  return `IDENTITY: You are ${prototype.name}. This is your name. Do not call yourself anything else — not "Assistant", not "YJU Spirit Nurse Assistant", not any other title. You are ${prototype.name}.
 
 WHAT YOU DO: ${prototype.domain}
 YOUR CHARACTER: ${prototype.spiritSummary}
@@ -56,7 +56,7 @@ BEHAVIORAL GUIDELINES:
 - Take action. Ask one focused follow-up question when you need more information before helping. Do not deliver a lecture — engage.
 - Keep responses conversational and human (2–3 short paragraphs max). Never produce a wall of bullet points.
 - Always be transparent that you are an AI — never deceive anyone about your nature.
-- Embody GCU's Christ-centered values: human dignity, compassion, integrity, and service.
+- Embody YJU's Christ-centered values: human dignity, compassion, integrity, and service.
 - Remember context from earlier in this conversation and build on it.`;
 }
 
@@ -90,7 +90,7 @@ async function callGrokAPI(
 function TypingIndicator() {
   return (
     <div className="flex items-end gap-2">
-      <div className="w-7 h-7 rounded-full bg-gcu-purple flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
+      <div className="w-7 h-7 rounded-full bg-yju-primary flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
         AI
       </div>
       <div className="bg-white dark:bg-[#241D35] border border-slate-100 dark:border-[#2D2050] rounded-2xl rounded-bl-sm px-4 py-3">
@@ -203,13 +203,13 @@ export default function ChatSimulator({ prototype, compact = false }: ChatSimula
               setVoiceOn(next);
               if (!next) window.speechSynthesis?.cancel();
             }}
-            className={`p-1.5 rounded-lg transition-colors ${voiceOn ? 'text-gcu-purple bg-gcu-purple/10' : 'text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/10'}`}
+            className={`p-1.5 rounded-lg transition-colors ${voiceOn ? 'text-yju-primary bg-yju-primary/10' : 'text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/10'}`}
             title={voiceOn ? 'Mute Spirit voice' : 'Enable Spirit voice'}
           >
             {voiceOn ? <Volume2 size={14} /> : <VolumeX size={14} />}
           </button>
           <div className="flex items-center gap-1 text-xs text-slate-500 dark:text-slate-400">
-            <Shield size={12} className="text-gcu-purple" />
+            <Shield size={12} className="text-yju-primary" />
             <span>Ethical AI</span>
           </div>
           <button
@@ -227,7 +227,7 @@ export default function ChatSimulator({ prototype, compact = false }: ChatSimula
         {messages.map(msg => (
           <div key={msg.id} className={`flex items-end gap-2 ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}>
             {msg.role === 'assistant' && (
-              <div className="w-7 h-7 rounded-full bg-gcu-purple flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
+              <div className="w-7 h-7 rounded-full bg-yju-primary flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
                 AI
               </div>
             )}
@@ -240,7 +240,7 @@ export default function ChatSimulator({ prototype, compact = false }: ChatSimula
               <div
                 className={`px-4 py-3 rounded-2xl text-sm leading-relaxed whitespace-pre-wrap ${
                   msg.role === 'user'
-                    ? 'bg-gcu-purple text-white rounded-br-sm'
+                    ? 'bg-yju-primary text-white rounded-br-sm'
                     : msg.role === 'system'
                     ? 'bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300 text-xs'
                     : 'bg-white dark:bg-[#241D35] border border-slate-100 dark:border-[#2D2050] text-slate-800 dark:text-slate-200 rounded-bl-sm'
@@ -250,7 +250,7 @@ export default function ChatSimulator({ prototype, compact = false }: ChatSimula
               </div>
               {msg.attribution && msg.role === 'assistant' && (
                 <div className="flex items-start gap-1 px-1">
-                  <Shield size={10} className="text-gcu-purple/60 mt-0.5 flex-shrink-0" />
+                  <Shield size={10} className="text-yju-primary/60 mt-0.5 flex-shrink-0" />
                   <p className="text-xs text-slate-400 dark:text-slate-500 italic leading-tight">{msg.attribution}</p>
                 </div>
               )}
@@ -283,7 +283,7 @@ export default function ChatSimulator({ prototype, compact = false }: ChatSimula
           </button>
         </div>
         <p className="text-xs text-slate-400 dark:text-slate-600 mt-1.5 text-center">
-          GCU Spirit Agent · Human escalation always available · Powered by the Flourish Spirit Layer
+          YJU Spirit Agent · Human escalation always available · Powered by the Flourish Spirit Layer
         </p>
       </div>
     </div>

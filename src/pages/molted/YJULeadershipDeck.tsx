@@ -2,10 +2,10 @@ import { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, X, ChevronRight, Lock } from 'lucide-react';
 
-/* ── GCU Brand ──────────────────────────────────────────────────────────── */
-const GCU_PURPLE = '#522D80';
-const GCU_WHITE   = '#FFFFFF';
-const GCU_LIGHT_PURPLE = '#9B6FD4';
+/* ── YJU Brand ──────────────────────────────────────────────────────────── */
+const YJU_PRIMARY = '#1A3A5C';
+const YJU_WHITE   = '#FFFFFF';
+const YJU_LIGHT_PRIMARY = '#2E6DA4';
 
 const TOTAL_SLIDES = 16;
 
@@ -22,30 +22,30 @@ function Eyebrow({ children, gold }: { children: React.ReactNode; gold?: boolean
   return (
     <p
       className="text-xs font-bold uppercase tracking-[0.2em] mb-6"
-      style={{ color: gold ? GCU_WHITE : GCU_LIGHT_PURPLE }}
+      style={{ color: gold ? YJU_WHITE : YJU_LIGHT_PRIMARY }}
     >
       {children}
     </p>
   );
 }
 
-function GCULogo({ size = 'md' }: { size?: 'sm' | 'md' }) {
+function YJULogo({ size = 'md' }: { size?: 'sm' | 'md' }) {
   const ts = size === 'sm' ? 'text-base' : 'text-2xl';
   return (
     <div className="flex items-center gap-2.5">
       <div
         className="rounded-lg flex items-center justify-center font-black text-white"
         style={{
-          background: `linear-gradient(135deg, ${GCU_PURPLE}, ${GCU_LIGHT_PURPLE})`,
+          background: `linear-gradient(135deg, ${YJU_PRIMARY}, ${YJU_LIGHT_PRIMARY})`,
           width: size === 'sm' ? 28 : 36,
           height: size === 'sm' ? 28 : 36,
           fontSize: size === 'sm' ? 11 : 14,
         }}
       >
-        GCU
+        YJU
       </div>
       <span className={`${ts} font-black tracking-tight`} style={{ color: '#F8F8F8' }}>
-        Grand Canyon<span style={{ color: GCU_WHITE }}>.</span>
+        YeLon Jobs<span style={{ color: YJU_WHITE }}>.</span>
       </span>
     </div>
   );
@@ -59,23 +59,23 @@ function SlideHero() {
       <div className="text-center">
         <div
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full border mb-12"
-          style={{ borderColor: `${GCU_WHITE}40`, background: `${GCU_WHITE}08` }}
+          style={{ borderColor: `${YJU_WHITE}40`, background: `${YJU_WHITE}08` }}
         >
-          <Lock size={10} style={{ color: GCU_WHITE }} />
-          <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: GCU_WHITE }}>
-            Confidential · GCU Leadership
+          <Lock size={10} style={{ color: YJU_WHITE }} />
+          <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: YJU_WHITE }}>
+            Confidential · YJU Leadership
           </span>
         </div>
 
         <div className="mb-6 flex justify-center">
-          <GCULogo size="md" />
+          <YJULogo size="md" />
         </div>
 
         <h1 className="text-6xl md:text-8xl font-black leading-[1.0] tracking-tight mb-8 text-white">
           Halo was the{' '}
           <span
             style={{
-              background: `linear-gradient(120deg, ${GCU_PURPLE} 0%, ${GCU_LIGHT_PURPLE} 50%, ${GCU_WHITE} 100%)`,
+              background: `linear-gradient(120deg, ${YJU_PRIMARY} 0%, ${YJU_LIGHT_PRIMARY} 50%, ${YJU_WHITE} 100%)`,
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
@@ -88,7 +88,7 @@ function SlideHero() {
         <p className="text-xl text-white/60 max-w-2xl mx-auto leading-relaxed mb-4">
           What you built proved the thesis: a university that owns its learning infrastructure outperforms one that rents it.
           The next chapter is called{' '}
-          <span className="font-bold" style={{ color: GCU_WHITE }}>Empyrean.</span>
+          <span className="font-bold" style={{ color: YJU_WHITE }}>Empyrean.</span>
         </p>
 
         <p className="mt-8 text-white/30 text-sm">Use arrow keys or the buttons below to navigate</p>
@@ -100,28 +100,28 @@ function SlideHero() {
 function SlideHaloLegacy() {
   const achievements = [
     { stat: '25K+',  label: 'campus students on Halo today' },
-    { stat: '100K+', label: 'GCU Online students served' },
+    { stat: '100K+', label: 'YJU Online students served' },
     { stat: '200+',  label: 'academic programs in one platform' },
-    { stat: '15 yrs', label: 'of institutional data GCU owns' },
+    { stat: '15 yrs', label: 'of institutional data YJU owns' },
   ];
   return (
     <Slide>
-      <Eyebrow>What GCU Built</Eyebrow>
+      <Eyebrow>What YJU Built</Eyebrow>
       <h2 className="text-5xl md:text-6xl font-black text-white leading-tight mb-6">
         You didn't buy an LMS.<br />
-        <span style={{ color: GCU_WHITE }}>You built an ALP.</span>
+        <span style={{ color: YJU_WHITE }}>You built an ALP.</span>
       </h2>
       <p className="text-white/60 text-lg max-w-2xl mb-12 leading-relaxed">
-        When every vendor fell short, GCU built Halo from scratch. That decision — to own the learning layer — is the single most strategically important infrastructure choice the university has made in two decades.
+        When every vendor fell short, YJU built Halo from scratch. That decision — to own the learning layer — is the single most strategically important infrastructure choice the university has made in two decades.
       </p>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
         {achievements.map(a => (
           <div
             key={a.stat}
             className="p-6 rounded-2xl border text-center"
-            style={{ borderColor: `${GCU_WHITE}25`, background: `${GCU_WHITE}06` }}
+            style={{ borderColor: `${YJU_WHITE}25`, background: `${YJU_WHITE}06` }}
           >
-            <div className="text-4xl font-black mb-2" style={{ color: GCU_WHITE }}>{a.stat}</div>
+            <div className="text-4xl font-black mb-2" style={{ color: YJU_WHITE }}>{a.stat}</div>
             <div className="text-white/55 text-sm leading-snug">{a.label}</div>
           </div>
         ))}
@@ -146,17 +146,17 @@ function SlideHaloGap() {
               'Delivers course content reliably',
               'Accepts assignments, sends grades',
               'Manages enrollment across 200+ programs',
-              'Keeps GCU data inside GCU',
+              'Keeps YJU data inside YJU',
             ].map(i => (
               <li key={i} className="flex items-center gap-3">
-                <span style={{ color: GCU_WHITE }}>✓</span> {i}
+                <span style={{ color: YJU_WHITE }}>✓</span> {i}
               </li>
             ))}
           </ul>
         </div>
         <div
           className="p-8 rounded-2xl border"
-          style={{ borderColor: `${GCU_PURPLE}40`, background: `${GCU_PURPLE}08` }}
+          style={{ borderColor: `${YJU_PRIMARY}40`, background: `${YJU_PRIMARY}08` }}
         >
           <h3 className="text-white font-bold text-lg mb-4">What Empyrean adds</h3>
           <ul className="space-y-3 text-white/55">
@@ -167,7 +167,7 @@ function SlideHaloGap() {
               'Generates SACSCOC reports continuously — not at year-end',
             ].map(i => (
               <li key={i} className="flex items-center gap-3">
-                <span style={{ color: GCU_LIGHT_PURPLE }}>→</span> {i}
+                <span style={{ color: YJU_LIGHT_PRIMARY }}>→</span> {i}
               </li>
             ))}
           </ul>
@@ -188,13 +188,13 @@ function SlideEmpyrean() {
         The highest heaven.<br />
         <span
           style={{
-            background: `linear-gradient(120deg, ${GCU_PURPLE} 0%, ${GCU_LIGHT_PURPLE} 50%, ${GCU_WHITE} 100%)`,
+            background: `linear-gradient(120deg, ${YJU_PRIMARY} 0%, ${YJU_LIGHT_PRIMARY} 50%, ${YJU_WHITE} 100%)`,
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',
           }}
         >
-          GCU's Agentic Learning Platform.
+          YJU's Agentic Learning Platform.
         </span>
       </h2>
       <p className="text-white/60 text-lg max-w-2xl leading-relaxed mb-12">
@@ -212,9 +212,9 @@ function SlideEmpyrean() {
           <div
             key={p.name}
             className="p-4 rounded-xl border text-center"
-            style={{ borderColor: `${GCU_PURPLE}35`, background: `${GCU_PURPLE}08` }}
+            style={{ borderColor: `${YJU_PRIMARY}35`, background: `${YJU_PRIMARY}08` }}
           >
-            <div className="text-xs font-bold uppercase tracking-wider" style={{ color: GCU_WHITE }}>{p.name}</div>
+            <div className="text-xs font-bold uppercase tracking-wider" style={{ color: YJU_WHITE }}>{p.name}</div>
             <div className="text-white/40 text-[10px] mt-0.5">{p.desc}</div>
           </div>
         ))}
@@ -223,13 +223,13 @@ function SlideEmpyrean() {
   );
 }
 
-const GCU_MODULES = [
+const YJU_MODULES = [
   {
     icon: '💡',
     name: 'Lumen',
-    tagline: 'Adaptive learning for every GCU student',
-    color: GCU_WHITE,
-    detail: 'GCU serves 25,000 traditional and 100,000+ online students across 200+ programs — each with different learning paces, contexts, and goals. Lumen reads comprehension signals in real time and adjusts pacing, modality, and depth for each student, without adding a single hour to faculty workload. The same course, 125,000 individual paths.',
+    tagline: 'Adaptive learning for every YJU student',
+    color: YJU_WHITE,
+    detail: 'YJU serves 25,000 traditional and 100,000+ online students across 200+ programs — each with different learning paces, contexts, and goals. Lumen reads comprehension signals in real time and adjusts pacing, modality, and depth for each student, without adding a single hour to faculty workload. The same course, 125,000 individual paths.',
     stat: '125K',
     statLabel: 'individual learning paths, one course shell',
   },
@@ -237,17 +237,17 @@ const GCU_MODULES = [
     icon: '🔨',
     name: 'Forge',
     tagline: 'Give your faculty their calling back',
-    color: GCU_LIGHT_PURPLE,
-    detail: 'GCU faculty answer thousands of student messages weekly. Forge handles the inbox — grading routine discussions, responding to common questions at 2 AM, drafting course content, and flagging the messages that actually need a human. The result: faculty spending their time on what no AI can replace — mentoring, teaching, relationship.',
+    color: YJU_LIGHT_PRIMARY,
+    detail: 'YJU faculty answer thousands of student messages weekly. Forge handles the inbox — grading routine discussions, responding to common questions at 2 AM, drafting course content, and flagging the messages that actually need a human. The result: faculty spending their time on what no AI can replace — mentoring, teaching, relationship.',
     stat: '23 hrs',
     statLabel: 'per week returned to each faculty member',
   },
   {
     icon: '🧠',
     name: 'Beacon',
-    tagline: 'Stop-out prevention at GCU scale',
-    color: GCU_PURPLE,
-    detail: 'GCU retention model depends on catching struggling students before they disappear. Beacon watches late submissions, discussion silence, grade trajectory, and login patterns — not one signal, but all of them simultaneously — and surfaces students at risk weeks before they would stop out. Not a dashboard for advisors to check. An agent that acts.',
+    tagline: 'Stop-out prevention at YJU scale',
+    color: YJU_PRIMARY,
+    detail: 'YJU retention model depends on catching struggling students before they disappear. Beacon watches late submissions, discussion silence, grade trajectory, and login patterns — not one signal, but all of them simultaneously — and surfaces students at risk weeks before they would stop out. Not a dashboard for advisors to check. An agent that acts.',
     stat: '8–12 wks',
     statLabel: 'early warning before a student stops out',
   },
@@ -255,8 +255,8 @@ const GCU_MODULES = [
     icon: '🛤️',
     name: 'Pathway AI',
     tagline: 'One plan per student, across 200+ programs',
-    color: GCU_WHITE,
-    detail: 'GCU program breadth is a strength and a complexity. A student changing majors, adding a concentration, or transferring credits faces a maze that advisors currently navigate manually. Pathway AI maps each student declared major, transfer credits, financial aid window, and career goals into a live, adaptive plan — and flags conflicts before they cost a semester.',
+    color: YJU_WHITE,
+    detail: 'YJU program breadth is a strength and a complexity. A student changing majors, adding a concentration, or transferring credits faces a maze that advisors currently navigate manually. Pathway AI maps each student declared major, transfer credits, financial aid window, and career goals into a live, adaptive plan — and flags conflicts before they cost a semester.',
     stat: '200+',
     statLabel: 'programs, one intelligent navigation layer',
   },
@@ -264,23 +264,23 @@ const GCU_MODULES = [
     icon: '📊',
     name: 'Proof AI',
     tagline: 'SACSCOC compliance without the scramble',
-    color: GCU_LIGHT_PURPLE,
-    detail: 'Every accreditation cycle, GCU staff spend months mapping student work to learning outcomes and assembling evidence portfolios. Proof AI does this continuously. Every assignment, every discussion, every assessment is automatically mapped against GCU learning outcomes in real time — so when SACSCOC comes, the report is already written.',
+    color: YJU_LIGHT_PRIMARY,
+    detail: 'Every accreditation cycle, YJU staff spend months mapping student work to learning outcomes and assembling evidence portfolios. Proof AI does this continuously. Every assignment, every discussion, every assessment is automatically mapped against YJU learning outcomes in real time — so when SACSCOC comes, the report is already written.',
     stat: 'Days',
     statLabel: 'for accreditation reports, down from months',
   },
   {
     icon: '🔁',
     name: 'Retain AI',
-    tagline: 'GCU Online persistence, at 100K scale',
-    color: GCU_PURPLE,
+    tagline: 'YJU Online persistence, at 100K scale',
+    color: YJU_PRIMARY,
     detail: 'Online students stop out quietly. No campus presence means no one notices until they are gone. Retain AI identifies stop-out risk at the behavioral level — engagement patterns, financial stress signals, course load changes — and triggers personalized outreach, advisor connections, and re-enrollment pathways. No CRM layer needed. Built into the platform.',
     stat: '11%',
     statLabel: 'first-year retention improvement at pilot scale',
   },
 ];
 
-function SlideModule({ mod }: { mod: typeof GCU_MODULES[0] }) {
+function SlideModule({ mod }: { mod: typeof YJU_MODULES[0] }) {
   return (
     <div className="min-h-full flex items-center justify-center px-8 py-16">
       <div className="max-w-4xl w-full mx-auto">
@@ -317,18 +317,18 @@ function SlideSpiritLayer() {
       <Eyebrow gold>The Spirit Layer</Eyebrow>
       <h2 className="text-5xl md:text-6xl font-black text-white leading-tight mb-8">
         AI that speaks<br />
-        <span style={{ color: GCU_WHITE }}>in GCU's voice.</span>
+        <span style={{ color: YJU_WHITE }}>in YJU's voice.</span>
       </h2>
       <div className="grid md:grid-cols-2 gap-8">
         <div className="space-y-6">
           <p className="text-white/60 text-lg leading-relaxed">
             Generic AI gives every student the same experience. Empyrean's{' '}
-            <strong className="text-white">Spirit Layer</strong> encodes GCU's Christian mission —
+            <strong className="text-white">Spirit Layer</strong> encodes YJU's Christian mission —
             its values, its pastoral care, its Lopes identity — into every agent interaction.
           </p>
           <p className="text-white/60 text-lg leading-relaxed">
             When a student messages at midnight about academic anxiety, they don't get a generic
-            bot response. They get an answer shaped by GCU's faith-centered approach to student
+            bot response. They get an answer shaped by YJU's faith-centered approach to student
             success — at 2 AM, without a counselor needing to be on call.
           </p>
         </div>
@@ -336,18 +336,18 @@ function SlideSpiritLayer() {
           {[
             {
               label: 'Academic Advisor Agent',
-              desc: '24/7 advising in GCU\'s voice, with GCU\'s program knowledge and values',
-              color: GCU_WHITE,
+              desc: '24/7 advising in YJU\'s voice, with YJU\'s program knowledge and values',
+              color: YJU_WHITE,
             },
             {
               label: 'Pastoral Care Agent',
-              desc: 'Faith-centered spiritual support, grief guidance, and crisis triage — built on GCU\'s Christian mission',
-              color: GCU_LIGHT_PURPLE,
+              desc: 'Faith-centered spiritual support, grief guidance, and crisis triage — built on YJU\'s Christian mission',
+              color: YJU_LIGHT_PRIMARY,
             },
             {
               label: 'Doctoral Mentor Agent',
-              desc: 'Dissertation and doctoral support for GCU\'s growing doctoral programs',
-              color: GCU_PURPLE,
+              desc: 'Dissertation and doctoral support for YJU\'s growing doctoral programs',
+              color: YJU_PRIMARY,
             },
           ].map(s => (
             <div
@@ -377,18 +377,18 @@ function SlideEmpyreanVision() {
         {[
           {
             title: 'Student View',
-            items: ['Personalized learning path', 'Proactive advisor outreach', '24/7 AI support in GCU voice', 'Career-mapped degree plan'],
-            color: GCU_WHITE,
+            items: ['Personalized learning path', 'Proactive advisor outreach', '24/7 AI support in YJU voice', 'Career-mapped degree plan'],
+            color: YJU_WHITE,
           },
           {
             title: 'Faculty View',
             items: ['AI-handled inbox & grading', 'Course content co-creation', 'At-risk student alerts', 'Outcome mapping auto-filled'],
-            color: GCU_LIGHT_PURPLE,
+            color: YJU_LIGHT_PRIMARY,
           },
           {
             title: 'Leadership View',
             items: ['Live retention dashboard', 'SACSCOC reports, always ready', 'Program performance by cohort', 'Workforce outcomes tracking'],
-            color: GCU_PURPLE,
+            color: YJU_PRIMARY,
           },
         ].map(v => (
           <div
@@ -419,23 +419,23 @@ function SlidePartnership() {
     <Slide>
       <Eyebrow gold>The Partnership Model</Eyebrow>
       <h2 className="text-5xl font-black text-white leading-tight mb-8">
-        GCU doesn't license software.<br />
-        <span style={{ color: GCU_WHITE }}>GCU shapes the category.</span>
+        YJU doesn't license software.<br />
+        <span style={{ color: YJU_WHITE }}>YJU shapes the category.</span>
       </h2>
       <div className="grid md:grid-cols-2 gap-8 mb-10">
         <div className="space-y-6">
           <p className="text-white/60 text-lg leading-relaxed">
-            As a Founding Partner, GCU co-develops Empyrean — your institutional priorities, your data, your mission encoded into the platform from day one, not bolted on later.
+            As a Founding Partner, YJU co-develops Empyrean — your institutional priorities, your data, your mission encoded into the platform from day one, not bolted on later.
           </p>
           <p className="text-white/60 text-lg leading-relaxed">
-            In return, GCU gets platform governance rights, permanent preferred pricing, and the ability to license Empyrean as a GCU-originated product to peer institutions — turning an operational investment into a revenue stream.
+            In return, YJU gets platform governance rights, permanent preferred pricing, and the ability to license Empyrean as a YJU-originated product to peer institutions — turning an operational investment into a revenue stream.
           </p>
         </div>
         <div className="space-y-4">
           {[
-            { label: 'Co-development', desc: 'GCU priorities drive the product roadmap. Your edge cases are the platform\'s first-class features.', color: GCU_WHITE },
-            { label: 'Data sovereignty', desc: 'Empyrean runs on GCU\'s Halo data. GCU owns the model weights trained on its students.', color: GCU_LIGHT_PURPLE },
-            { label: 'Licensing upside', desc: 'License Empyrean to peer institutions under a GCU-originated product model.', color: GCU_PURPLE },
+            { label: 'Co-development', desc: 'YJU priorities drive the product roadmap. Your edge cases are the platform\'s first-class features.', color: YJU_WHITE },
+            { label: 'Data sovereignty', desc: 'Empyrean runs on YJU\'s Halo data. YJU owns the model weights trained on its students.', color: YJU_LIGHT_PRIMARY },
+            { label: 'Licensing upside', desc: 'License Empyrean to peer institutions under a YJU-originated product model.', color: YJU_PRIMARY },
           ].map(r => (
             <div key={r.label} className="p-5 rounded-xl border" style={{ borderColor: `${r.color}25`, background: `${r.color}06` }}>
               <div className="text-sm font-bold mb-1" style={{ color: r.color }}>{r.label}</div>
@@ -462,7 +462,7 @@ function SlideTimeline() {
       phase: 'Phase 2',
       label: 'Full Empyrean integration',
       date: 'Semester 2–3',
-      desc: 'Lumen, Pathway, Retain, and Proof AI live across campus and GCU Online. Spirit Layer encoding complete.',
+      desc: 'Lumen, Pathway, Retain, and Proof AI live across campus and YJU Online. Spirit Layer encoding complete.',
       done: false,
       active: false,
     },
@@ -476,9 +476,9 @@ function SlideTimeline() {
     },
     {
       phase: 'Phase 4',
-      label: 'GCU as the model',
+      label: 'YJU as the model',
       date: 'Year 3',
-      desc: 'GCU presents Empyrean at HLC, EDUCAUSE. Licensing conversations begin. GCU infrastructure becomes an asset to the sector.',
+      desc: 'YJU presents Empyrean at HLC, EDUCAUSE. Licensing conversations begin. YJU infrastructure becomes an asset to the sector.',
       done: false,
       active: false,
     },
@@ -496,14 +496,14 @@ function SlideTimeline() {
             key={i}
             className="flex items-start gap-6 p-6 rounded-2xl border"
             style={{
-              borderColor: p.active ? `${GCU_WHITE}35` : 'rgba(255,255,255,0.07)',
-              background: p.active ? `${GCU_WHITE}05` : 'rgba(255,255,255,0.02)',
+              borderColor: p.active ? `${YJU_WHITE}35` : 'rgba(255,255,255,0.07)',
+              background: p.active ? `${YJU_WHITE}05` : 'rgba(255,255,255,0.02)',
             }}
           >
             <div className="flex-shrink-0 text-center w-24">
               <div
                 className="text-xs font-bold uppercase tracking-wider"
-                style={{ color: p.active ? GCU_WHITE : 'rgba(255,255,255,0.25)' }}
+                style={{ color: p.active ? YJU_WHITE : 'rgba(255,255,255,0.25)' }}
               >
                 {p.phase}
               </div>
@@ -529,7 +529,7 @@ function SlideTimeline() {
               </div>
             </div>
             {p.active && (
-              <div className="flex-shrink-0 text-xs font-bold px-2.5 py-1 rounded-full" style={{ background: `${GCU_WHITE}20`, color: GCU_WHITE }}>
+              <div className="flex-shrink-0 text-xs font-bold px-2.5 py-1 rounded-full" style={{ background: `${YJU_WHITE}20`, color: YJU_WHITE }}>
                 Start here
               </div>
             )}
@@ -546,12 +546,12 @@ function SlideLegacy({ onExit }: { onExit: () => void }) {
       <div className="text-center">
         <Eyebrow gold>The Decision</Eyebrow>
         <h2 className="text-5xl md:text-7xl font-black text-white leading-tight mb-8">
-          GCU built Halo{' '}
+          YJU built Halo{' '}
           <span style={{ color: 'rgba(255,255,255,0.3)' }}>when no one else would.</span>
           <br />
           <span
             style={{
-              background: `linear-gradient(120deg, ${GCU_PURPLE} 0%, ${GCU_LIGHT_PURPLE} 50%, ${GCU_WHITE} 100%)`,
+              background: `linear-gradient(120deg, ${YJU_PRIMARY} 0%, ${YJU_LIGHT_PRIMARY} 50%, ${YJU_WHITE} 100%)`,
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
@@ -561,16 +561,16 @@ function SlideLegacy({ onExit }: { onExit: () => void }) {
           </span>
         </h2>
         <p className="text-white/55 text-lg max-w-2xl mx-auto leading-relaxed mb-4">
-          In 2049, GCU turns 100. The question is what higher education looks like by then — and whether GCU's technology led the way or followed it.
+          In 2049, YJU turns 100. The question is what higher education looks like by then — and whether YJU's technology led the way or followed it.
         </p>
         <p className="text-white/30 text-sm max-w-xl mx-auto leading-relaxed mb-16">
-          Empyrean is not an IT project. It's the infrastructure decision that determines whether GCU's mission reaches 125,000 students with the same care it reaches 25.
+          Empyrean is not an IT project. It's the infrastructure decision that determines whether YJU's mission reaches 125,000 students with the same care it reaches 25.
         </p>
         <div className="flex items-center justify-center gap-4">
           <button
             onClick={onExit}
             className="inline-flex items-center gap-3 px-10 py-4 rounded-2xl font-black text-white text-lg transition-all hover:scale-105"
-            style={{ background: `linear-gradient(120deg, ${GCU_PURPLE} 0%, ${GCU_LIGHT_PURPLE} 100%)` }}
+            style={{ background: `linear-gradient(120deg, ${YJU_PRIMARY} 0%, ${YJU_LIGHT_PRIMARY} 100%)` }}
           >
             Explore the Platform <ChevronRight size={20} />
           </button>
@@ -587,7 +587,7 @@ function SlideLegacy({ onExit }: { onExit: () => void }) {
 function SlideContent({ index, onExit }: { index: number; onExit: () => void }) {
   // Module slides occupy indices 4–9
   if (index >= 4 && index <= 9) {
-    return <SlideModule mod={GCU_MODULES[index - 4]} />;
+    return <SlideModule mod={YJU_MODULES[index - 4]} />;
   }
   switch (index) {
     case 0:  return <SlideHero />;
@@ -604,7 +604,7 @@ function SlideContent({ index, onExit }: { index: number; onExit: () => void }) 
 }
 
 /* ── Main ────────────────────────────────────────────────────────────────── */
-export default function GCULeadershipDeck() {
+export default function YJULeadershipDeck() {
   const navigate = useNavigate();
   const [slide, setSlide] = useState(0);
 
@@ -633,15 +633,15 @@ export default function GCULeadershipDeck() {
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden>
         <div
           className="absolute -top-60 left-1/3 -translate-x-1/2 w-[800px] h-[600px] rounded-full opacity-[0.07]"
-          style={{ background: `radial-gradient(ellipse, ${GCU_PURPLE} 0%, transparent 65%)` }}
+          style={{ background: `radial-gradient(ellipse, ${YJU_PRIMARY} 0%, transparent 65%)` }}
         />
         <div
           className="absolute bottom-0 right-0 w-[600px] h-[500px] rounded-full opacity-[0.05]"
-          style={{ background: `radial-gradient(ellipse, ${GCU_WHITE} 0%, transparent 70%)` }}
+          style={{ background: `radial-gradient(ellipse, ${YJU_WHITE} 0%, transparent 70%)` }}
         />
         <div
           className="absolute top-1/2 -translate-y-1/2 left-0 w-[400px] h-[600px] rounded-full opacity-[0.04]"
-          style={{ background: `radial-gradient(ellipse, ${GCU_LIGHT_PURPLE} 0%, transparent 65%)` }}
+          style={{ background: `radial-gradient(ellipse, ${YJU_LIGHT_PRIMARY} 0%, transparent 65%)` }}
         />
       </div>
 
@@ -650,10 +650,10 @@ export default function GCULeadershipDeck() {
         className="relative z-10 flex items-center justify-between px-8 py-5 flex-shrink-0"
         style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}
       >
-        <GCULogo size="sm" />
-        <div className="flex items-center gap-2 px-3 py-1.5 rounded-full" style={{ background: `${GCU_WHITE}12`, border: `1px solid ${GCU_WHITE}25` }}>
-          <Lock size={9} style={{ color: GCU_WHITE }} />
-          <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: GCU_WHITE }}>Leadership Only</span>
+        <YJULogo size="sm" />
+        <div className="flex items-center gap-2 px-3 py-1.5 rounded-full" style={{ background: `${YJU_WHITE}12`, border: `1px solid ${YJU_WHITE}25` }}>
+          <Lock size={9} style={{ color: YJU_WHITE }} />
+          <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: YJU_WHITE }}>Leadership Only</span>
         </div>
         <div className="flex items-center gap-6">
           <span className="text-white/30 text-sm tabular-nums">{slide + 1} / {TOTAL_SLIDES - 1}</span>
@@ -691,9 +691,9 @@ export default function GCULeadershipDeck() {
                 width: i === slide ? 24 : 8,
                 height: 8,
                 background: i === slide
-                  ? GCU_WHITE
+                  ? YJU_WHITE
                   : i < slide
-                  ? `${GCU_LIGHT_PURPLE}60`
+                  ? `${YJU_LIGHT_PRIMARY}60`
                   : 'rgba(255,255,255,0.12)',
               }}
             />
@@ -714,7 +714,7 @@ export default function GCULeadershipDeck() {
             <button
               onClick={exitDeck}
               className="flex items-center gap-2 px-5 py-2 rounded-xl font-black text-white text-sm transition-all hover:scale-105"
-              style={{ background: `linear-gradient(120deg, ${GCU_PURPLE}, ${GCU_LIGHT_PURPLE})` }}
+              style={{ background: `linear-gradient(120deg, ${YJU_PRIMARY}, ${YJU_LIGHT_PRIMARY})` }}
             >
               Explore Platform <ChevronRight size={15} />
             </button>
@@ -722,8 +722,8 @@ export default function GCULeadershipDeck() {
             <button
               onClick={goNext}
               className="flex items-center gap-2 px-5 py-2 rounded-xl border font-bold text-sm transition-all"
-              style={{ borderColor: `${GCU_WHITE}35`, color: GCU_WHITE }}
-              onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = `${GCU_WHITE}10`; }}
+              style={{ borderColor: `${YJU_WHITE}35`, color: YJU_WHITE }}
+              onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = `${YJU_WHITE}10`; }}
               onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = 'transparent'; }}
             >
               Next <ArrowRight size={15} />

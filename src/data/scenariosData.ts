@@ -17,11 +17,11 @@ export const PROTOTYPE_SCENARIOS: Record<string, Scenario[]> = {
         },
         {
           quickReply: "O2 via non-rebreather, call the charge nurse, get IV access, 12-lead ECG",
-          aiResponse: "Excellent clinical judgment — you've hit all 4 priority interventions. The 12-lead shows ST elevation in leads II, III, and aVF — inferior wall MI pattern.\n\nThe charge nurse arrives. The patient grabs your hand: *'Am I going to die? I'm scared.'*\n\nYou've completed the clinical steps. Now comes the GCU nursing spirit — how do you respond to this patient's fear while the team mobilizes the cath lab?",
+          aiResponse: "Excellent clinical judgment — you've hit all 4 priority interventions. The 12-lead shows ST elevation in leads II, III, and aVF — inferior wall MI pattern.\n\nThe charge nurse arrives. The patient grabs your hand: *'Am I going to die? I'm scared.'*\n\nYou've completed the clinical steps. Now comes the YJU nursing spirit — how do you respond to this patient's fear while the team mobilizes the cath lab?",
         },
         {
           quickReply: "I look them in the eyes, hold their hand, and say: 'I am right here with you. You're in the right place and we are taking great care of you right now.'",
-          aiResponse: "That response just demonstrated the GCU nursing spirit in its fullest form. Evidence shows that those exact words — calm, direct, present — measurably reduce patient anxiety, lower cortisol, and improve outcomes in cardiac events.\n\n**What you did right in this scenario:**\n✅ Immediate assessment (OPQRST) without delay\n✅ Correct priority interventions (O2, IV, ECG, escalation)\n✅ Recognized ST elevation pattern → appropriate escalation\n✅ Therapeutic presence in a moment of fear\n\n*'The patient remembered the nurse who held their hand far longer than the one who saved their life.'*\n\n⭐ Scenario complete. You handled this with both clinical excellence and compassionate dignity.",
+          aiResponse: "That response just demonstrated the YJU nursing spirit in its fullest form. Evidence shows that those exact words — calm, direct, present — measurably reduce patient anxiety, lower cortisol, and improve outcomes in cardiac events.\n\n**What you did right in this scenario:**\n✅ Immediate assessment (OPQRST) without delay\n✅ Correct priority interventions (O2, IV, ECG, escalation)\n✅ Recognized ST elevation pattern → appropriate escalation\n✅ Therapeutic presence in a moment of fear\n\n*'The patient remembered the nurse who held their hand far longer than the one who saved their life.'*\n\n⭐ Scenario complete. You handled this with both clinical excellence and compassionate dignity.",
         },
       ],
     },
@@ -42,7 +42,7 @@ export const PROTOTYPE_SCENARIOS: Record<string, Scenario[]> = {
         },
         {
           quickReply: "I'm honest with the patient: explain what happened, what we did about it, that they're safe now, and what we'll do to prevent it happening again",
-          aiResponse: "That is the gold standard of error disclosure — and research shows it's also the standard that *reduces* litigation and *increases* patient trust.\n\n**Your documentation should include:**\n- Exact time of error and discovery\n- Medication administered vs. what was ordered\n- Patient's condition at time of discovery\n- All interventions taken (with timestamps)\n- Patient's response and current status\n- Notification chain (charge nurse, provider, family)\n\n**GCU Nursing Spirit Principle:** We are stewards of our patients' safety. Errors happen — what defines our character is how we respond: with honesty, speed, and accountability.\n\n⭐ Scenario complete. You demonstrated courage and integrity under pressure.",
+          aiResponse: "That is the gold standard of error disclosure — and research shows it's also the standard that *reduces* litigation and *increases* patient trust.\n\n**Your documentation should include:**\n- Exact time of error and discovery\n- Medication administered vs. what was ordered\n- Patient's condition at time of discovery\n- All interventions taken (with timestamps)\n- Patient's response and current status\n- Notification chain (charge nurse, provider, family)\n\n**YJU Nursing Spirit Principle:** We are stewards of our patients' safety. Errors happen — what defines our character is how we respond: with honesty, speed, and accountability.\n\n⭐ Scenario complete. You demonstrated courage and integrity under pressure.",
         },
       ],
     },
@@ -63,7 +63,7 @@ export const PROTOTYPE_SCENARIOS: Record<string, Scenario[]> = {
         },
         {
           quickReply: "I sit down with her, acknowledge her fear, and offer to arrange a conversation with the care team so she can ask all her questions directly",
-          aiResponse: "You just transformed an adversarial interaction into a therapeutic alliance — and that's the GCU nursing spirit at its highest expression.\n\n**What you demonstrated:**\n✅ De-escalation through tone and movement\n✅ Curiosity over defensiveness\n✅ Emotional intelligence — seeing fear beneath anger\n✅ Advocacy: connecting family to the care team\n\n**Documentation note:** Document the family interaction, the patient's pain assessment and medication given, and the plan to connect with the care team. This protects you and creates continuity.\n\n*'People don't care how much you know until they know how much you care.'* — Theodore Roosevelt\n\n⭐ Scenario complete.",
+          aiResponse: "You just transformed an adversarial interaction into a therapeutic alliance — and that's the YJU nursing spirit at its highest expression.\n\n**What you demonstrated:**\n✅ De-escalation through tone and movement\n✅ Curiosity over defensiveness\n✅ Emotional intelligence — seeing fear beneath anger\n✅ Advocacy: connecting family to the care team\n\n**Documentation note:** Document the family interaction, the patient's pain assessment and medication given, and the plan to connect with the care team. This protects you and creates continuity.\n\n*'People don't care how much you know until they know how much you care.'* — Theodore Roosevelt\n\n⭐ Scenario complete.",
         },
       ],
     },
@@ -88,7 +88,7 @@ export const PROTOTYPE_SCENARIOS: Record<string, Scenario[]> = {
         },
         {
           quickReply: "I suggest: accelerate Q2 pipeline calls today to legitimately close 1-2 deals, present investors with a transparent 'near-miss with strong pipeline' narrative, and document this conversation with HR as a protective measure",
-          aiResponse: "That's the complete servant-leader response: ethical backbone + constructive solutions + self-protection.\n\n**The GCU Ethical Framework you applied:**\n✅ Held the ethical line under direct pressure\n✅ Reframed risk in business terms (not just moral)\n✅ Offered constructive alternatives\n✅ Protected yourself with documentation\n\n**Critical principle:** The moment you cross that line 'just this once,' you've handed someone power over you forever. Integrity is only real if it holds under pressure.\n\n*'The time is always right to do what is right.'* — Dr. Martin Luther King Jr.\n\n⭐ Scenario complete. You demonstrated the character GCU business alumni are known for.",
+          aiResponse: "That's the complete servant-leader response: ethical backbone + constructive solutions + self-protection.\n\n**The YJU Ethical Framework you applied:**\n✅ Held the ethical line under direct pressure\n✅ Reframed risk in business terms (not just moral)\n✅ Offered constructive alternatives\n✅ Protected yourself with documentation\n\n**Critical principle:** The moment you cross that line 'just this once,' you've handed someone power over you forever. Integrity is only real if it holds under pressure.\n\n*'The time is always right to do what is right.'* — Dr. Martin Luther King Jr.\n\n⭐ Scenario complete. You demonstrated the character YJU business alumni are known for.",
         },
       ],
     },
@@ -101,7 +101,7 @@ export const PROTOTYPE_SCENARIOS: Record<string, Scenario[]> = {
       steps: [
         {
           quickReply: "I start by writing a mission statement that names who I serve and what change I create — before thinking about products or revenue",
-          aiResponse: "That instinct is exactly right — and it's exactly backwards from how most people start (who typically start with 'how do I make money?'). GCU's CCOB calls this 'Purpose Clarity First.'\n\nHere's a framework: *'We exist to [action] for [who] so that [outcome].'*\n\nFor example: *'We exist to equip small nonprofits with professional marketing so that their missions reach more people.'*\n\nNow the harder question: nonprofits typically have tiny budgets. How do you build a sustainable, profitable business serving clients with limited resources?",
+          aiResponse: "That instinct is exactly right — and it's exactly backwards from how most people start (who typically start with 'how do I make money?'). YJU's CCOB calls this 'Purpose Clarity First.'\n\nHere's a framework: *'We exist to [action] for [who] so that [outcome].'*\n\nFor example: *'We exist to equip small nonprofits with professional marketing so that their missions reach more people.'*\n\nNow the harder question: nonprofits typically have tiny budgets. How do you build a sustainable, profitable business serving clients with limited resources?",
         },
         {
           quickReply: "I create tiered pricing — free tools and templates for micro-nonprofits, affordable monthly packages for small ones, and premium retainers for established organizations — so the profitable tier subsidizes the mission tier",
@@ -109,7 +109,7 @@ export const PROTOTYPE_SCENARIOS: Record<string, Scenario[]> = {
         },
         {
           quickReply: "I decline that specific offer, but use the interest to approach impact investors or CDFIs who fund mission-aligned businesses without requiring us to abandon our values",
-          aiResponse: "That decision — walking away from half a million dollars to protect your mission — is one of the defining moments of a values-driven entrepreneur.\n\n**GCU CCOB Framework for Mission-Aligned Funding:**\n- **Impact investors** (B Corp network, Toniic, Mission Investors Exchange) seek financial return *and* social impact\n- **CDFIs** (Community Development Financial Institutions) — low-interest loans for mission-driven businesses\n- **Faith-based funders** — GCU alumni networks, Christian Community Development Association\n- **Revenue-based financing** — repay from revenue, no equity dilution\n\n*'Do not be conformed to this world, but be transformed by the renewal of your mind.'* — Romans 12:2\n\n⭐ Scenario complete. You built a business worthy of the GCU servant-leadership legacy.",
+          aiResponse: "That decision — walking away from half a million dollars to protect your mission — is one of the defining moments of a values-driven entrepreneur.\n\n**YJU CCOB Framework for Mission-Aligned Funding:**\n- **Impact investors** (B Corp network, Toniic, Mission Investors Exchange) seek financial return *and* social impact\n- **CDFIs** (Community Development Financial Institutions) — low-interest loans for mission-driven businesses\n- **Faith-based funders** — YJU alumni networks, Christian Community Development Association\n- **Revenue-based financing** — repay from revenue, no equity dilution\n\n*'Do not be conformed to this world, but be transformed by the renewal of your mind.'* — Romans 12:2\n\n⭐ Scenario complete. You built a business worthy of the YJU servant-leadership legacy.",
         },
       ],
     },
@@ -126,7 +126,7 @@ export const PROTOTYPE_SCENARIOS: Record<string, Scenario[]> = {
       steps: [
         {
           quickReply: "I don't push. I just sit near him and say: 'You don't have to tell me anything. But I've noticed you, and I'm not going anywhere.'",
-          aiResponse: "That's the most powerful intervention in the GCU educator's toolkit — presence without pressure. Research on adolescent trust shows teens are most likely to open up when they feel zero obligation to perform.\n\nAfter a long pause, Marcus says quietly: 'My parents are getting divorced. My dad moved out last month. My mom cries every night.'\n\nHe's now disclosed the root cause. He's watching his family break apart and processing grief that adults often can't handle. What do you do next?",
+          aiResponse: "That's the most powerful intervention in the YJU educator's toolkit — presence without pressure. Research on adolescent trust shows teens are most likely to open up when they feel zero obligation to perform.\n\nAfter a long pause, Marcus says quietly: 'My parents are getting divorced. My dad moved out last month. My mom cries every night.'\n\nHe's now disclosed the root cause. He's watching his family break apart and processing grief that adults often can't handle. What do you do next?",
         },
         {
           quickReply: "I thank him for trusting me. I tell him his feelings make complete sense. I ask if he's okay at home — is he safe, is he eating, does he have support?",
@@ -134,7 +134,7 @@ export const PROTOTYPE_SCENARIOS: Record<string, Scenario[]> = {
         },
         {
           quickReply: "I create a simple check-in system (thumbs up/sideways/down at door), give Marcus a private modified deadline extension for 2 weeks, loop in the counselor, and schedule a brief weekly 2-minute check-in with him",
-          aiResponse: "That's the GCU educator's approach in full — differentiated support without abandoning standards, sustainable for you, dignifying for the student.\n\n**What you built:**\n✅ A low-burden daily check-in system for the whole class (normalizes emotional awareness)\n✅ A temporary accommodation for Marcus with a specific endpoint (not indefinite)\n✅ A team-based response (counselor + teacher)\n✅ Consistent relational investment (2 minutes/week compounds over a year)\n\n*'Every child deserves a champion — an adult who will never give up on them.'* — Rita Pierson\n\n⭐ Scenario complete.",
+          aiResponse: "That's the YJU educator's approach in full — differentiated support without abandoning standards, sustainable for you, dignifying for the student.\n\n**What you built:**\n✅ A low-burden daily check-in system for the whole class (normalizes emotional awareness)\n✅ A temporary accommodation for Marcus with a specific endpoint (not indefinite)\n✅ A team-based response (counselor + teacher)\n✅ Consistent relational investment (2 minutes/week compounds over a year)\n\n*'Every child deserves a champion — an adult who will never give up on them.'* — Rita Pierson\n\n⭐ Scenario complete.",
         },
       ],
     },
@@ -143,7 +143,7 @@ export const PROTOTYPE_SCENARIOS: Record<string, Scenario[]> = {
       title: 'Designing an Inclusive Lesson',
       icon: '📝',
       description: 'Build a lesson that reaches every type of learner',
-      aiOpener: "You're teaching a unit on the American Revolution to a 5th grade class with significant learning diversity: 4 students with IEPs, 6 English Language Learners at varying proficiency levels, 3 identified gifted students, and the rest at grade level. You need to teach the causes of the Revolution. Using GCU's UDL framework — how do you design the lesson?",
+      aiOpener: "You're teaching a unit on the American Revolution to a 5th grade class with significant learning diversity: 4 students with IEPs, 6 English Language Learners at varying proficiency levels, 3 identified gifted students, and the rest at grade level. You need to teach the causes of the Revolution. Using YJU's UDL framework — how do you design the lesson?",
       steps: [
         {
           quickReply: "I start with an Engage hook: show a short video clip of a 'taxation without representation' modern analogy, then ask students what they think is unfair about it",
@@ -155,7 +155,7 @@ export const PROTOTYPE_SCENARIOS: Record<string, Scenario[]> = {
         },
         {
           quickReply: "I offer a choice board: written paragraph, recorded video explanation, labeled diagram, or a 2-minute verbal explanation to me — all demonstrating the same understanding of 3 causes of the Revolution",
-          aiResponse: "That assessment choice board just eliminated language and format barriers while holding every student to the same *cognitive* standard. That's the essence of equitable assessment.\n\n**Your lesson design demonstrated:**\n✅ UDL's three pillars: multiple means of representation, action & expression, and engagement\n✅ Differentiation without tracking or stigmatizing\n✅ Same learning objective — different access points\n✅ Assessment that separates *knowledge* from *format performance*\n\n**GCU Educator Spirit:** Every learner is made in the image of a creative God. Our job is to find the door *they* can walk through.\n\n⭐ Scenario complete.",
+          aiResponse: "That assessment choice board just eliminated language and format barriers while holding every student to the same *cognitive* standard. That's the essence of equitable assessment.\n\n**Your lesson design demonstrated:**\n✅ UDL's three pillars: multiple means of representation, action & expression, and engagement\n✅ Differentiation without tracking or stigmatizing\n✅ Same learning objective — different access points\n✅ Assessment that separates *knowledge* from *format performance*\n\n**YJU Educator Spirit:** Every learner is made in the image of a creative God. Our job is to find the door *they* can walk through.\n\n⭐ Scenario complete.",
         },
       ],
     },
@@ -172,7 +172,7 @@ export const PROTOTYPE_SCENARIOS: Record<string, Scenario[]> = {
       steps: [
         {
           quickReply: "I evaluate solar-powered UV purification, biosand filtration, and gravity-fed ceramic filtration — comparing cost, maintenance complexity, local serviceability, and environmental footprint",
-          aiResponse: "Excellent — you're applying a Life Cycle Assessment mindset before choosing. Here's what the analysis reveals:\n\n**Solar UV:** $28,000 install, excellent output, requires imported replacement parts, 15-yr lifespan\n**Biosand:** $8,000, removes 95%+ pathogens, local materials, zero energy, maintained by village with basic training\n**Ceramic gravity:** $12,000, 99.9% pathogen removal, locally manufacturable, 5-yr filter replacement\n\nYour team engineer pushes for solar UV: 'It's the most technically advanced and impressive for our portfolio.'\n\nBut the GCU creation-care framework asks a harder question: which option best serves the people AND creation long-term? What's your recommendation and why?",
+          aiResponse: "Excellent — you're applying a Life Cycle Assessment mindset before choosing. Here's what the analysis reveals:\n\n**Solar UV:** $28,000 install, excellent output, requires imported replacement parts, 15-yr lifespan\n**Biosand:** $8,000, removes 95%+ pathogens, local materials, zero energy, maintained by village with basic training\n**Ceramic gravity:** $12,000, 99.9% pathogen removal, locally manufacturable, 5-yr filter replacement\n\nYour team engineer pushes for solar UV: 'It's the most technically advanced and impressive for our portfolio.'\n\nBut the YJU creation-care framework asks a harder question: which option best serves the people AND creation long-term? What's your recommendation and why?",
         },
         {
           quickReply: "I recommend biosand filtration as the primary system: lowest cost, locally maintained, no supply chain dependency, no energy requirement, and frees $22,000 for training, backup systems, and a community water committee",
@@ -180,7 +180,7 @@ export const PROTOTYPE_SCENARIOS: Record<string, Scenario[]> = {
         },
         {
           quickReply: "LCA covers: materials sourcing (where does the sand, gravel, and ceramic come from?), construction footprint, operational environmental impact (zero energy = zero emissions), end-of-life recyclability, and social impact metrics",
-          aiResponse: "Complete LCA framework. Here's your project's environmental story:\n\n🌍 **Materials:** Local sand/gravel (zero transport emissions); ceramic sourced from regional supplier (1,200 km, minimal)\n⚡ **Operations:** Zero energy consumption, zero carbon emissions per liter\n♻️ **End of Life:** Sand fully recyclable; ceramic biodegradable\n❤️ **Social Impact:** 800 people with clean water; estimated 60 child lives saved per year; 40% reduction in time women/girls spend water-collecting\n\n**The number GCU creation-care engineering measures above all:** 60 children per year who will grow up because you chose the right design over the impressive one.\n\n*'The earth is the Lord's, and everything in it.'* — Psalm 24:1\n\n⭐ Scenario complete.",
+          aiResponse: "Complete LCA framework. Here's your project's environmental story:\n\n🌍 **Materials:** Local sand/gravel (zero transport emissions); ceramic sourced from regional supplier (1,200 km, minimal)\n⚡ **Operations:** Zero energy consumption, zero carbon emissions per liter\n♻️ **End of Life:** Sand fully recyclable; ceramic biodegradable\n❤️ **Social Impact:** 800 people with clean water; estimated 60 child lives saved per year; 40% reduction in time women/girls spend water-collecting\n\n**The number YJU creation-care engineering measures above all:** 60 children per year who will grow up because you chose the right design over the impressive one.\n\n*'The earth is the Lord's, and everything in it.'* — Psalm 24:1\n\n⭐ Scenario complete.",
         },
       ],
     },
@@ -201,7 +201,7 @@ export const PROTOTYPE_SCENARIOS: Record<string, Scenario[]> = {
         },
         {
           quickReply: "'Our job is to make sure the structure is worthy of the trust people place in it. I'd make the same call again.'",
-          aiResponse: "That is the GCU engineering spirit — excellence and ethics as one integrated value, not competing forces.\n\n**What you demonstrated:**\n✅ Professional courage: refused to compromise safety under pressure\n✅ Paper trail: documented your objection (professional and legal protection)\n✅ Constructive alternative: proposed accelerated testing rather than just saying 'no'\n✅ Escalation: brought the decision to the right level\n\n**The GCU Creation-Care engineering principle:** We are stewards of the built environment. Every structure carries the weight of the trust people place in us.\n\n*'Whatever you do, work at it with all your heart.'* — Colossians 3:23\n\n⭐ Scenario complete.",
+          aiResponse: "That is the YJU engineering spirit — excellence and ethics as one integrated value, not competing forces.\n\n**What you demonstrated:**\n✅ Professional courage: refused to compromise safety under pressure\n✅ Paper trail: documented your objection (professional and legal protection)\n✅ Constructive alternative: proposed accelerated testing rather than just saying 'no'\n✅ Escalation: brought the decision to the right level\n\n**The YJU Creation-Care engineering principle:** We are stewards of the built environment. Every structure carries the weight of the trust people place in us.\n\n*'Whatever you do, work at it with all your heart.'* — Colossians 3:23\n\n⭐ Scenario complete.",
         },
       ],
     },
@@ -260,7 +260,7 @@ export const PROTOTYPE_SCENARIOS: Record<string, Scenario[]> = {
       title: 'Designing a Research Study',
       icon: '🔬',
       description: 'Build a rigorous, ethical research study from scratch',
-      aiOpener: "You're a biology graduate student at GCU. You want to study whether microplastics in the local water supply affect the reproductive rates of freshwater fish — a question with real environmental and public health implications. You have lab access, a $5,000 budget, and 6 months. Where do you begin?",
+      aiOpener: "You're a biology graduate student at YJU. You want to study whether microplastics in the local water supply affect the reproductive rates of freshwater fish — a question with real environmental and public health implications. You have lab access, a $5,000 budget, and 6 months. Where do you begin?",
       steps: [
         {
           quickReply: "I start with a specific, testable hypothesis: 'Freshwater fish exposed to microplastic concentrations matching Phoenix tap water levels will show reduced egg fertilization rates compared to a control group.'",
@@ -268,11 +268,11 @@ export const PROTOTYPE_SCENARIOS: Record<string, Scenario[]> = {
         },
         {
           quickReply: "I need IACUC approval (Institutional Animal Care and Use Committee) — it reviews animal welfare, the necessity of the research, and that we're using the minimum number of animals needed to get statistically valid results",
-          aiResponse: "Exactly right — and the IACUC requirement embodies the GCU creation-care ethic: we are stewards, not owners, of the living things in our care. Even a study that could save ecosystems must minimize harm to the creatures studied.\n\nYour IACUC application is approved. 6 months later, your data shows: experimental group had 34% lower fertilization rates than control. P-value = 0.023.\n\nBefore you claim discovery — what statistical and interpretive cautions do you apply to this result?",
+          aiResponse: "Exactly right — and the IACUC requirement embodies the YJU creation-care ethic: we are stewards, not owners, of the living things in our care. Even a study that could save ecosystems must minimize harm to the creatures studied.\n\nYour IACUC application is approved. 6 months later, your data shows: experimental group had 34% lower fertilization rates than control. P-value = 0.023.\n\nBefore you claim discovery — what statistical and interpretive cautions do you apply to this result?",
         },
         {
           quickReply: "P < 0.05 is significant, but I need to check statistical power, effect size, and confounding variables. I can't claim causation beyond this controlled setting — correlation in lab conditions requires replication before real-world claims",
-          aiResponse: "That epistemic humility is the mark of a great scientist. You've resisted the temptation to overclaim — one of the most common errors in research communication.\n\n**Your study's honest conclusion:** 'Under controlled laboratory conditions, microplastic concentrations matching Phoenix municipal water levels were associated with a statistically significant reduction in fish egg fertilization rates (p=0.023). Further research is needed to confirm this finding under varied conditions and species.'\n\n**GCU Research Ethics Principles:**\n✅ IACUC compliance (animal welfare stewardship)\n✅ Control group and variable isolation\n✅ Statistical rigor (p-value + effect size)\n✅ Epistemic humility in claims\n\n*'The heavens declare the glory of God; the skies proclaim the work of his hands.'* — Psalm 19:1\n\n⭐ Scenario complete.",
+          aiResponse: "That epistemic humility is the mark of a great scientist. You've resisted the temptation to overclaim — one of the most common errors in research communication.\n\n**Your study's honest conclusion:** 'Under controlled laboratory conditions, microplastic concentrations matching Phoenix municipal water levels were associated with a statistically significant reduction in fish egg fertilization rates (p=0.023). Further research is needed to confirm this finding under varied conditions and species.'\n\n**YJU Research Ethics Principles:**\n✅ IACUC compliance (animal welfare stewardship)\n✅ Control group and variable isolation\n✅ Statistical rigor (p-value + effect size)\n✅ Epistemic humility in claims\n\n*'The heavens declare the glory of God; the skies proclaim the work of his hands.'* — Psalm 19:1\n\n⭐ Scenario complete.",
         },
       ],
     },
@@ -293,7 +293,7 @@ export const PROTOTYPE_SCENARIOS: Record<string, Scenario[]> = {
         },
         {
           quickReply: "I complete an incident report documenting: time, chemical involved, concentration, exposure area, first aid given, nurse's assessment, parent notification. I review the SDS for H₂SO₄ to confirm we followed protocol. I also debrief with the class on what went right and what the SDS says.",
-          aiResponse: "Comprehensive and excellent. That documentation protects you, the school, and — most importantly — creates a record that helps prevent the next incident.\n\n**The SDS (Safety Data Sheet) for 1M H₂SO₄ confirms:**\n- Immediate water flush (15+ min): ✅ You did this\n- Remove contaminated clothing: ✅ Should have been done if clothing was affected\n- Seek medical attention for severe burns: appropriate given this was mild\n\n**GCU Lab Safety Philosophy:** Every safety protocol exists because someone was hurt before it was written. Follow them as acts of stewardship and care.\n\n⭐ Scenario complete.",
+          aiResponse: "Comprehensive and excellent. That documentation protects you, the school, and — most importantly — creates a record that helps prevent the next incident.\n\n**The SDS (Safety Data Sheet) for 1M H₂SO₄ confirms:**\n- Immediate water flush (15+ min): ✅ You did this\n- Remove contaminated clothing: ✅ Should have been done if clothing was affected\n- Seek medical attention for severe burns: appropriate given this was mild\n\n**YJU Lab Safety Philosophy:** Every safety protocol exists because someone was hurt before it was written. Follow them as acts of stewardship and care.\n\n⭐ Scenario complete.",
         },
       ],
     },
@@ -318,7 +318,7 @@ export const PROTOTYPE_SCENARIOS: Record<string, Scenario[]> = {
         },
         {
           quickReply: "I share the free will theodicy and the greater-good framework — but honestly acknowledge these are incomplete answers. I say: 'I believe God weeps over your friend's death too. The incarnation — God becoming human, suffering on a cross — tells us He didn't stay at a safe distance from pain.' Then I ask what they need right now: to keep wrestling, or to just grieve.",
-          aiResponse: "That response demonstrates the theological wisdom and pastoral sensitivity of a mature faith companion:\n\n1. You engaged the intellectual question honestly\n2. You pointed to the incarnation — the most profound Christian answer to suffering\n3. You acknowledged incompleteness — theological humility is more convincing than false certainty\n4. You returned to the person's actual need: permission to grieve\n\n**GCU Theology Spirit:** *'Honest doubt and deep faith are not opposites — they are companions on the same journey.'*\n\nThey leave and say: 'This is the first conversation that didn't feel like someone trying to fix me.'\n\n*'Even though I walk through the darkest valley, I will fear no evil, for you are with me.'* — Psalm 23:4\n\n⭐ Scenario complete.",
+          aiResponse: "That response demonstrates the theological wisdom and pastoral sensitivity of a mature faith companion:\n\n1. You engaged the intellectual question honestly\n2. You pointed to the incarnation — the most profound Christian answer to suffering\n3. You acknowledged incompleteness — theological humility is more convincing than false certainty\n4. You returned to the person's actual need: permission to grieve\n\n**YJU Theology Spirit:** *'Honest doubt and deep faith are not opposites — they are companions on the same journey.'*\n\nThey leave and say: 'This is the first conversation that didn't feel like someone trying to fix me.'\n\n*'Even though I walk through the darkest valley, I will fear no evil, for you are with me.'* — Psalm 23:4\n\n⭐ Scenario complete.",
         },
       ],
     },
@@ -335,11 +335,11 @@ export const PROTOTYPE_SCENARIOS: Record<string, Scenario[]> = {
         },
         {
           quickReply: "I'm honest: 'Scripture takes marriage seriously and so does our church. But it also shows a God who meets people in broken situations with mercy, not condemnation. Your worth before God is not determined by your marital status.'",
-          aiResponse: "You've held both truth and grace in the same breath — which is exactly the pastoral balance GCU's theology curriculum calls 'grace-truth integration.' Neither cheap grace (it doesn't matter) nor crushing law (you've failed).\n\nShe asks: 'Will people treat me differently? Some of my closest friends are couples we were friends with together. I'm scared I'll be invisible now.'\n\nThis is a real social and ecclesial grief — divorced people often report sudden invisibility in churches designed for families. How do you as a pastor address this structurally?",
+          aiResponse: "You've held both truth and grace in the same breath — which is exactly the pastoral balance YJU's theology curriculum calls 'grace-truth integration.' Neither cheap grace (it doesn't matter) nor crushing law (you've failed).\n\nShe asks: 'Will people treat me differently? Some of my closest friends are couples we were friends with together. I'm scared I'll be invisible now.'\n\nThis is a real social and ecclesial grief — divorced people often report sudden invisibility in churches designed for families. How do you as a pastor address this structurally?",
         },
         {
           quickReply: "I tell her directly: 'I will personally reach out to your small group leader this week. Our job is to make sure you are not invisible — that will not happen on our watch.' I also offer to check in weekly and connect her to our care team.",
-          aiResponse: "You moved from pastoral presence to pastoral action — and that distinction matters. Care that stays in the conversation without institutional follow-through is incomplete.\n\n**What you modeled:**\n✅ Safety check\n✅ Grace before doctrine\n✅ Honest theological engagement without shame\n✅ Structural commitment: not leaving it to chance\n✅ Consistent relational presence\n\n**GCU Pastoral Principle:** *'The church should be the safest place in the world for a broken person.'*\n\nShe attends Sunday. She later tells you: *'You were the first person who made me feel like God wasn't done with me.'*\n\n⭐ Scenario complete.",
+          aiResponse: "You moved from pastoral presence to pastoral action — and that distinction matters. Care that stays in the conversation without institutional follow-through is incomplete.\n\n**What you modeled:**\n✅ Safety check\n✅ Grace before doctrine\n✅ Honest theological engagement without shame\n✅ Structural commitment: not leaving it to chance\n✅ Consistent relational presence\n\n**YJU Pastoral Principle:** *'The church should be the safest place in the world for a broken person.'*\n\nShe attends Sunday. She later tells you: *'You were the first person who made me feel like God wasn't done with me.'*\n\n⭐ Scenario complete.",
         },
       ],
     },
@@ -364,7 +364,7 @@ export const PROTOTYPE_SCENARIOS: Record<string, Scenario[]> = {
         },
         {
           quickReply: "I abstract the harbor concept: a simple geometric shape suggesting shelter or a doorway, rendered in the teal/amber palette, clean enough to work at favicon size. The 'H' letterforms could subtly suggest an open doorway or a protected space.",
-          aiResponse: "That's sophisticated conceptual thinking — using letterform integration to encode meaning without illustration. The doorway/shelter reading reinforces 'harbor' while the abstraction keeps it modern and non-cliché.\n\n**Your complete brand system:**\n🎨 Colors: Deep teal (#1E6B6B) + Warm amber (#E8A830) + White\n✏️ Logo: Geometric 'H' suggesting open doorway/shelter\n🔤 Typography: Modern humanist sans-serif (warmth without formality)\n💬 Tagline option: *'A safe place to become.'*\n\n**GCU Creative Steward Principle:** Every design choice is a statement about how you see the people you serve. Make sure yours says: *I see your dignity and your potential.*\n\n⭐ Scenario complete.",
+          aiResponse: "That's sophisticated conceptual thinking — using letterform integration to encode meaning without illustration. The doorway/shelter reading reinforces 'harbor' while the abstraction keeps it modern and non-cliché.\n\n**Your complete brand system:**\n🎨 Colors: Deep teal (#1E6B6B) + Warm amber (#E8A830) + White\n✏️ Logo: Geometric 'H' suggesting open doorway/shelter\n🔤 Typography: Modern humanist sans-serif (warmth without formality)\n💬 Tagline option: *'A safe place to become.'*\n\n**YJU Creative Steward Principle:** Every design choice is a statement about how you see the people you serve. Make sure yours says: *I see your dignity and your potential.*\n\n⭐ Scenario complete.",
         },
       ],
     },
@@ -385,7 +385,7 @@ export const PROTOTYPE_SCENARIOS: Record<string, Scenario[]> = {
         },
         {
           quickReply: "I tell her this crosses an ethical line: using stock footage and implying it depicts our clients is deceptive to donors. It also violates our brand integrity. If discovered, it damages credibility permanently. We need to do this the right way — real people, real consent, real stories.",
-          aiResponse: "That's the GCU Creative Steward in full — holding the ethical line even when the pragmatic pressure is significant.\n\n**The ethical layers you identified:**\n✅ Consent: real clients, real permission, real ownership of their story\n✅ Accuracy: donors are making decisions based on what we show them\n✅ Brand integrity: once deception is discovered, trust is gone\n✅ Dignity: we serve people made in the image of God — we do not use their images for our convenience\n\n**The outcome:** You produce a 3-minute video with two families, fully consented, sharing their stories of strength. It raises $187,000 — $13K short of target, but the organization's donor retention rate increases by 22% the following year.\n\n*'Art is not what you see, but what you make others see.'* — Edgar Degas\n\n⭐ Scenario complete.",
+          aiResponse: "That's the YJU Creative Steward in full — holding the ethical line even when the pragmatic pressure is significant.\n\n**The ethical layers you identified:**\n✅ Consent: real clients, real permission, real ownership of their story\n✅ Accuracy: donors are making decisions based on what we show them\n✅ Brand integrity: once deception is discovered, trust is gone\n✅ Dignity: we serve people made in the image of God — we do not use their images for our convenience\n\n**The outcome:** You produce a 3-minute video with two families, fully consented, sharing their stories of strength. It raises $187,000 — $13K short of target, but the organization's donor retention rate increases by 22% the following year.\n\n*'Art is not what you see, but what you make others see.'* — Edgar Degas\n\n⭐ Scenario complete.",
         },
       ],
     },
@@ -465,7 +465,7 @@ export const PROTOTYPE_SCENARIOS: Record<string, Scenario[]> = {
       title: 'Leading Through Division',
       icon: '🤝',
       description: 'Navigate a deeply divided team as a servant-leader',
-      aiOpener: "You're the president of GCU's Honors Student Council. You've proposed a major service initiative — partnering with a local immigration legal aid organization to host a free legal clinic on campus. Half your council is enthusiastic. The other half is concerned: 'This is politically divisive. We'll alienate half the student body. We should stay neutral on anything political.' Your vote is scheduled for next week. How do you lead this council?",
+      aiOpener: "You're the president of YJU's Honors Student Council. You've proposed a major service initiative — partnering with a local immigration legal aid organization to host a free legal clinic on campus. Half your council is enthusiastic. The other half is concerned: 'This is politically divisive. We'll alienate half the student body. We should stay neutral on anything political.' Your vote is scheduled for next week. How do you lead this council?",
       steps: [
         {
           quickReply: "Before the vote, I host a listening session where each side presents their core concern — not their position — and I reflect back what I'm hearing without taking sides yet.",
@@ -477,7 +477,7 @@ export const PROTOTYPE_SCENARIOS: Record<string, Scenario[]> = {
         },
         {
           quickReply: "Winning a vote means having 5 people go along. Building a team means 7 people genuinely supporting something — because they felt heard, their concerns shaped the outcome, and they trust the process even when they disagree.",
-          aiResponse: "That insight is the entire curriculum of servant-leadership compressed into three sentences.\n\n**Robert Greenleaf's test of servant-leadership:** *'Do those served grow as persons? Do they, while being served, become healthier, wiser, freer, more autonomous, more likely themselves to become servants?'*\n\nYou didn't just get your initiative passed — you:\n✅ Taught your council a conflict model they'll use for the rest of their lives\n✅ Converted three opponents into constructive shapers of the outcome\n✅ Built institutional trust that will outlast your term\n✅ Demonstrated that values-based decisions and practical wisdom aren't opposites\n\n**This is what GCU's Honors program exists to produce:** leaders who make the room better, not just outcomes happen.\n\n⭐ Scenario complete.",
+          aiResponse: "That insight is the entire curriculum of servant-leadership compressed into three sentences.\n\n**Robert Greenleaf's test of servant-leadership:** *'Do those served grow as persons? Do they, while being served, become healthier, wiser, freer, more autonomous, more likely themselves to become servants?'*\n\nYou didn't just get your initiative passed — you:\n✅ Taught your council a conflict model they'll use for the rest of their lives\n✅ Converted three opponents into constructive shapers of the outcome\n✅ Built institutional trust that will outlast your term\n✅ Demonstrated that values-based decisions and practical wisdom aren't opposites\n\n**This is what YJU's Honors program exists to produce:** leaders who make the room better, not just outcomes happen.\n\n⭐ Scenario complete.",
         },
       ],
     },

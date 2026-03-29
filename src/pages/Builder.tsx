@@ -12,7 +12,7 @@ const DEFAULT_MODULES: SpiritModule[] = [
   { id: 'mod-ethics', name: 'Ethical Check', type: 'ethics', description: 'Built-in ethical guardrails and transparent limitation disclosures.', enabled: true, promptExample: 'Disclose AI limitations and escalate when beyond competence.' },
   { id: 'mod-worldview', name: 'Christian Worldview', type: 'worldview', description: 'Christ-centered values: servant-heartedness, integrity, stewardship.', enabled: true, promptExample: 'Reflect the image of God in every person; prioritize human flourishing.' },
   { id: 'mod-stewardship', name: 'Stewardship Module', type: 'stewardship', description: 'Wise use of resources, creation care, and long-term thinking.', enabled: false },
-  { id: 'mod-domain', name: 'Domain Excellence', type: 'domain', description: 'College-specific expertise drawn from GCU curriculum and alumni.', enabled: true },
+  { id: 'mod-domain', name: 'Domain Excellence', type: 'domain', description: 'College-specific expertise drawn from YJU curriculum and alumni.', enabled: true },
 ];
 
 const STEPS = ['Basic Info', 'Curriculum & Alumni', 'Spirit Modules', 'Preview & Save'];
@@ -24,18 +24,18 @@ function StepIndicator({ current, steps }: { current: number; steps: string[] })
         <div key={step} className="flex items-center">
           <div className="flex flex-col items-center">
             <div className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold transition-all ${
-              i < current ? 'bg-gcu-purple text-white' :
-              i === current ? 'bg-gcu-purple text-white ring-4 ring-gcu-purple/20' :
+              i < current ? 'bg-yju-primary text-white' :
+              i === current ? 'bg-yju-primary text-white ring-4 ring-yju-primary/20' :
               'bg-slate-200 dark:bg-slate-700 text-slate-500 dark:text-slate-400'
             }`}>
               {i < current ? <Check size={14} /> : i + 1}
             </div>
             <span className={`text-xs mt-1 font-medium hidden sm:block ${
-              i === current ? 'text-gcu-purple dark:text-purple-400' : 'text-slate-500 dark:text-slate-500'
+              i === current ? 'text-yju-primary dark:text-purple-400' : 'text-slate-500 dark:text-slate-500'
             }`}>{step}</span>
           </div>
           {i < steps.length - 1 && (
-            <div className={`h-0.5 w-8 sm:w-16 mx-1 transition-colors ${i < current ? 'bg-gcu-purple' : 'bg-slate-200 dark:bg-slate-700'}`} />
+            <div className={`h-0.5 w-8 sm:w-16 mx-1 transition-colors ${i < current ? 'bg-yju-primary' : 'bg-slate-200 dark:bg-slate-700'}`} />
           )}
         </div>
       ))}
@@ -133,11 +133,11 @@ export default function Builder() {
     ...MOCK_PROTOTYPES[0],
     id: 'preview-proto',
     name: form.name || 'Your New Spirit Vessel',
-    college: form.college || 'GCU College',
+    college: form.college || 'YJU College',
     description: form.description || 'Your AI prototype description will appear here.',
     aiPersona: {
       ...MOCK_PROTOTYPES[0].aiPersona,
-      greeting: `Hello! I'm the ${form.name || 'GCU Spirit AI'}—a new spirit vessel for ${form.college || 'GCU'}. ${form.description ? form.description.slice(0, 100) + '...' : 'How can I help you today?'}`,
+      greeting: `Hello! I'm the ${form.name || 'YJU Spirit AI'}—a new spirit vessel for ${form.college || 'YJU'}. ${form.description ? form.description.slice(0, 100) + '...' : 'How can I help you today?'}`,
     },
   };
 
@@ -152,12 +152,12 @@ export default function Builder() {
     <div className="space-y-6 animate-fade-in max-w-4xl mx-auto">
       {/* Header */}
       <div className="flex items-center gap-3">
-        <div className="w-10 h-10 rounded-xl bg-gcu-purple/10 dark:bg-gcu-purple/20 flex items-center justify-center">
-          <Wand2 size={20} className="text-gcu-purple" />
+        <div className="w-10 h-10 rounded-xl bg-yju-primary/10 dark:bg-yju-primary/20 flex items-center justify-center">
+          <Wand2 size={20} className="text-yju-primary" />
         </div>
         <div>
           <h2 className="text-xl font-black text-slate-900 dark:text-white">Spirit Infusion Builder</h2>
-          <p className="text-sm text-slate-500 dark:text-slate-400">Create a new GCU-infused AI spirit vessel</p>
+          <p className="text-sm text-slate-500 dark:text-slate-400">Create a new YJU-infused AI spirit vessel</p>
         </div>
       </div>
 
@@ -172,7 +172,7 @@ export default function Builder() {
         {step === 0 && (
           <div className="space-y-5 animate-fade-in">
             <h3 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
-              <span className="w-6 h-6 rounded-full bg-gcu-purple text-white text-xs flex items-center justify-center font-bold">1</span>
+              <span className="w-6 h-6 rounded-full bg-yju-primary text-white text-xs flex items-center justify-center font-bold">1</span>
               Basic Prototype Information
             </h3>
 
@@ -181,7 +181,7 @@ export default function Builder() {
                 <label className="form-label">Prototype Name *</label>
                 <input
                   className={`form-input ${errors.name ? 'border-red-400' : ''}`}
-                  placeholder="e.g., GCU Spirit Engineering Innovator"
+                  placeholder="e.g., YJU Spirit Engineering Innovator"
                   value={form.name}
                   onChange={f('name')}
                 />
@@ -189,7 +189,7 @@ export default function Builder() {
               </div>
 
               <div>
-                <label className="form-label">GCU College / Department *</label>
+                <label className="form-label">YJU College / Department *</label>
                 <select
                   className={`form-input ${errors.college ? 'border-red-400' : ''}`}
                   value={form.college}
@@ -216,7 +216,7 @@ export default function Builder() {
                 <label className="form-label">Description *</label>
                 <textarea
                   className={`form-input min-h-[100px] resize-y ${errors.description ? 'border-red-400' : ''}`}
-                  placeholder="Describe what this AI spirit vessel does, who it serves, and how it embodies GCU values…"
+                  placeholder="Describe what this AI spirit vessel does, who it serves, and how it embodies YJU values…"
                   value={form.description}
                   onChange={f('description')}
                 />
@@ -240,26 +240,26 @@ export default function Builder() {
         {step === 1 && (
           <div className="space-y-5 animate-fade-in">
             <h3 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
-              <span className="w-6 h-6 rounded-full bg-gcu-purple text-white text-xs flex items-center justify-center font-bold">2</span>
+              <span className="w-6 h-6 rounded-full bg-yju-primary text-white text-xs flex items-center justify-center font-bold">2</span>
               Curriculum Content & Alumni Exemplars
             </h3>
 
             <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4 text-sm text-blue-700 dark:text-blue-300">
-              💡 This content will be used to "infuse" the spirit of GCU graduates into your AI. Be specific—the richer the content, the more authentic the AI persona.
+              💡 This content will be used to "infuse" the spirit of YJU graduates into your AI. Be specific—the richer the content, the more authentic the AI persona.
             </div>
 
             <div>
               <label className="form-label">Curriculum Content *</label>
               <div className="flex gap-2 mb-2">
                 <input ref={curriculumFileRef} type="file" accept=".txt,.pdf,.doc,.docx" className="hidden" onChange={e => handleFileUpload(e, 'curriculumContent')} />
-                <button onClick={() => curriculumFileRef.current?.click()} className="flex items-center gap-1.5 text-xs text-gcu-purple dark:text-purple-400 border border-gcu-purple/30 px-3 py-1.5 rounded-lg hover:bg-gcu-purple-pale dark:hover:bg-gcu-purple/10 transition-colors">
+                <button onClick={() => curriculumFileRef.current?.click()} className="flex items-center gap-1.5 text-xs text-yju-primary dark:text-purple-400 border border-yju-primary/30 px-3 py-1.5 rounded-lg hover:bg-yju-primary-pale dark:hover:bg-yju-primary/10 transition-colors">
                   <Upload size={12} /> Upload PDF/Doc
                 </button>
                 <span className="text-xs text-slate-400 self-center">or paste text below</span>
               </div>
               <textarea
                 className={`form-input min-h-[140px] resize-y ${errors.curriculumContent ? 'border-red-400' : ''}`}
-                placeholder="Paste relevant curriculum frameworks, learning objectives, course content, ethical guidelines, and GCU program descriptions…&#10;&#10;Example: 'GCU BSN curriculum includes holistic health assessment, evidence-based NCLEX preparation (95%+ pass rate), patient dignity frameworks, and Christ-centered care philosophies…'"
+                placeholder="Paste relevant curriculum frameworks, learning objectives, course content, ethical guidelines, and YJU program descriptions…&#10;&#10;Example: 'YJU BSN curriculum includes holistic health assessment, evidence-based NCLEX preparation (95%+ pass rate), patient dignity frameworks, and Christ-centered care philosophies…'"
                 value={form.curriculumContent}
                 onChange={f('curriculumContent')}
               />
@@ -270,13 +270,13 @@ export default function Builder() {
               <label className="form-label">Alumni Exemplars & Stories *</label>
               <div className="flex gap-2 mb-2">
                 <input ref={alumniFileRef} type="file" accept=".txt,.pdf,.doc,.docx" className="hidden" onChange={e => handleFileUpload(e, 'alumniExemplars')} />
-                <button onClick={() => alumniFileRef.current?.click()} className="flex items-center gap-1.5 text-xs text-gcu-purple dark:text-purple-400 border border-gcu-purple/30 px-3 py-1.5 rounded-lg hover:bg-gcu-purple-pale dark:hover:bg-gcu-purple/10 transition-colors">
+                <button onClick={() => alumniFileRef.current?.click()} className="flex items-center gap-1.5 text-xs text-yju-primary dark:text-purple-400 border border-yju-primary/30 px-3 py-1.5 rounded-lg hover:bg-yju-primary-pale dark:hover:bg-yju-primary/10 transition-colors">
                   <Upload size={12} /> Upload Stories
                 </button>
               </div>
               <textarea
                 className={`form-input min-h-[140px] resize-y ${errors.alumniExemplars ? 'border-red-400' : ''}`}
-                placeholder="Describe the spirit of GCU alumni whose values you want to infuse. Include specific stories, outcomes, and character traits…&#10;&#10;Example: 'GCU nursing alumni at Banner Health consistently demonstrate compassionate triage—one alumna described spending 20 extra minutes with a frightened elderly patient, reflecting the belief that every person is made in God\'s image…'"
+                placeholder="Describe the spirit of YJU alumni whose values you want to infuse. Include specific stories, outcomes, and character traits…&#10;&#10;Example: 'YJU nursing alumni at Banner Health consistently demonstrate compassionate triage—one alumna described spending 20 extra minutes with a frightened elderly patient, reflecting the belief that every person is made in God\'s image…'"
                 value={form.alumniExemplars}
                 onChange={f('alumniExemplars')}
               />
@@ -289,7 +289,7 @@ export default function Builder() {
         {step === 2 && (
           <div className="space-y-5 animate-fade-in">
             <h3 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
-              <span className="w-6 h-6 rounded-full bg-gcu-purple text-white text-xs flex items-center justify-center font-bold">3</span>
+              <span className="w-6 h-6 rounded-full bg-yju-primary text-white text-xs flex items-center justify-center font-bold">3</span>
               Spirit Infusion Modules
             </h3>
             <p className="text-sm text-slate-600 dark:text-slate-400">
@@ -302,14 +302,14 @@ export default function Builder() {
                   key={module.id}
                   className={`p-4 rounded-xl border-2 transition-all cursor-pointer ${
                     module.enabled
-                      ? 'border-gcu-purple bg-gcu-purple-pale dark:bg-gcu-purple/10'
+                      ? 'border-yju-primary bg-yju-primary-pale dark:bg-yju-primary/10'
                       : 'border-slate-200 dark:border-[#2D2050] bg-slate-50 dark:bg-[#1A1235]'
                   }`}
                   onClick={() => toggleModule(module.id)}
                 >
                   <div className="flex items-start gap-3">
                     <div className={`w-5 h-5 rounded flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors ${
-                      module.enabled ? 'bg-gcu-purple' : 'bg-slate-200 dark:bg-slate-700'
+                      module.enabled ? 'bg-yju-primary' : 'bg-slate-200 dark:bg-slate-700'
                     }`}>
                       {module.enabled && <Check size={12} className="text-white" />}
                     </div>
@@ -328,8 +328,8 @@ export default function Builder() {
                       </div>
                       <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">{module.description}</p>
                       {module.enabled && module.promptExample && (
-                        <div className="mt-2 bg-white dark:bg-[#241D35] rounded-lg px-3 py-2 border border-gcu-purple/20">
-                          <p className="text-xs text-gcu-purple dark:text-purple-300 font-medium">Example prompt instruction:</p>
+                        <div className="mt-2 bg-white dark:bg-[#241D35] rounded-lg px-3 py-2 border border-yju-primary/20">
+                          <p className="text-xs text-yju-primary dark:text-purple-300 font-medium">Example prompt instruction:</p>
                           <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5 italic">"{module.promptExample}"</p>
                         </div>
                       )}
@@ -339,7 +339,7 @@ export default function Builder() {
               ))}
             </div>
 
-            <div className="bg-gcu-gold-pale dark:bg-gcu-gold/10 border border-gcu-gold/30 rounded-xl p-4">
+            <div className="bg-yju-accent-pale dark:bg-yju-accent/10 border border-yju-accent/30 rounded-xl p-4">
               <p className="text-sm font-semibold text-amber-700 dark:text-amber-400">
                 🌟 {form.spiritModules.filter(m => m.enabled).length} of {form.spiritModules.length} spirit modules enabled
               </p>
@@ -354,23 +354,23 @@ export default function Builder() {
         {step === 3 && (
           <div className="space-y-5 animate-fade-in">
             <h3 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
-              <span className="w-6 h-6 rounded-full bg-gcu-purple text-white text-xs flex items-center justify-center font-bold">4</span>
+              <span className="w-6 h-6 rounded-full bg-yju-primary text-white text-xs flex items-center justify-center font-bold">4</span>
               Preview Your Spirit Vessel
             </h3>
 
             {/* Summary card */}
-            <div className="bg-gcu-purple-pale dark:bg-gcu-purple/10 border border-gcu-purple/20 rounded-xl p-5 space-y-3">
+            <div className="bg-yju-primary-pale dark:bg-yju-primary/10 border border-yju-primary/20 rounded-xl p-5 space-y-3">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-xl bg-gcu-purple text-white text-2xl flex items-center justify-center">✨</div>
+                <div className="w-12 h-12 rounded-xl bg-yju-primary text-white text-2xl flex items-center justify-center">✨</div>
                 <div>
-                  <h4 className="font-bold text-gcu-purple dark:text-purple-300 text-lg">{form.name || 'Unnamed Spirit Vessel'}</h4>
+                  <h4 className="font-bold text-yju-primary dark:text-purple-300 text-lg">{form.name || 'Unnamed Spirit Vessel'}</h4>
                   <p className="text-sm text-slate-600 dark:text-slate-400">{form.college || 'No college selected'} · {form.domain || 'No domain'}</p>
                 </div>
               </div>
               <p className="text-sm text-slate-700 dark:text-slate-300">{form.description || 'No description provided.'}</p>
               <div className="flex flex-wrap gap-1.5">
                 {form.spiritModules.filter(m => m.enabled).map(m => (
-                  <span key={m.id} className="text-xs bg-white dark:bg-[#241D35] text-gcu-purple dark:text-purple-300 border border-gcu-purple/20 px-2 py-0.5 rounded-full font-medium">
+                  <span key={m.id} className="text-xs bg-white dark:bg-[#241D35] text-yju-primary dark:text-purple-300 border border-yju-primary/20 px-2 py-0.5 rounded-full font-medium">
                     ✓ {m.name}
                   </span>
                 ))}
@@ -426,7 +426,7 @@ export default function Builder() {
 
       {/* Ethical note */}
       <div className="text-center text-xs text-slate-400 dark:text-slate-600">
-        Created by {user?.name} · All spirit vessels require CETLA ethical review before deployment · GCU AI Governance Policy v2.1
+        Created by {user?.name} · All spirit vessels require CETLA ethical review before deployment · YJU AI Governance Policy v2.1
       </div>
     </div>
   );

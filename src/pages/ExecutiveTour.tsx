@@ -8,7 +8,7 @@ const AGENTS = [
   {
     icon: '🏥', name: 'Spirit Nurse', domain: 'Clinical care & patient support',
     college: 'College of Nursing & Health Care Professions',
-    detail: 'Every GCU nursing graduate carries clinical competency and compassionate presence. Spirit Nurse carries both — available to any patient at 2 AM when fear is loudest and no one else can be there. Your faculty\'s clinical knowledge. Your graduates\' character. In the room when it matters most.',
+    detail: 'Every YJU nursing graduate carries clinical competency and compassionate presence. Spirit Nurse carries both — available to any patient at 2 AM when fear is loudest and no one else can be there. Your faculty\'s clinical knowledge. Your graduates\' character. In the room when it matters most.',
   },
   {
     icon: '📚', name: 'Spirit Teacher', domain: 'Education & learning guidance',
@@ -18,12 +18,12 @@ const AGENTS = [
   {
     icon: '✝️', name: 'Spirit Chaplain', domain: 'Grief, faith & spiritual care',
     college: 'College of Theology',
-    detail: 'Spirit Chaplain carries scripture, grief, and the pastoral wisdom of GCU\'s theology program into every hard conversation about faith, loss, and doubt. A rural pastor at 2 AM. A student losing their faith. A family in the ICU. Your theology — present in the room.',
+    detail: 'Spirit Chaplain carries scripture, grief, and the pastoral wisdom of YJU\'s theology program into every hard conversation about faith, loss, and doubt. A rural pastor at 2 AM. A student losing their faith. A family in the ICU. Your theology — present in the room.',
   },
   {
     icon: '💼', name: 'Spirit Advisor', domain: 'Business ethics & leadership',
     college: 'Colangelo College of Business',
-    detail: 'Spirit Advisor brings GCU\'s servant leadership principles and business ethics into every high-stakes decision. The founder on the edge. The leader who knows the right thing but feels alone in it. The team that needs someone to say: this is not who we are. Your faculty\'s values at the table.',
+    detail: 'Spirit Advisor brings YJU\'s servant leadership principles and business ethics into every high-stakes decision. The founder on the edge. The leader who knows the right thing but feels alone in it. The team that needs someone to say: this is not who we are. Your faculty\'s values at the table.',
   },
   {
     icon: '🤝', name: 'Spirit Companion', domain: 'Mental health & emotional support',
@@ -38,7 +38,7 @@ const AGENTS = [
   {
     icon: '⚙️', name: 'Spirit Engineer', domain: 'Ethical engineering practice',
     college: 'College of Engineering',
-    detail: 'Spirit Engineer carries GCU\'s commitment to building things right, not just fast. The junior engineer afraid to speak up. The team cutting corners to hit a deadline. The moment when someone needs to hear: integrity is not optional. Your curriculum\'s values at the moment of decision.',
+    detail: 'Spirit Engineer carries YJU\'s commitment to building things right, not just fast. The junior engineer afraid to speak up. The team cutting corners to hit a deadline. The moment when someone needs to hear: integrity is not optional. Your curriculum\'s values at the moment of decision.',
   },
   {
     icon: '🎨', name: 'Spirit Creative', domain: 'Arts, media & creative process',
@@ -53,7 +53,7 @@ const AGENTS = [
   {
     icon: '💡', name: 'Spirit Innovator', domain: 'Honors & entrepreneurial thinking',
     college: 'Honors College',
-    detail: 'Spirit Innovator serves your highest-potential students — the gifted ones terrified of failure, the ideas that need courage to pursue, the founders who need someone to believe in them first. GCU\'s innovation culture deployed to every student with something worth building.',
+    detail: 'Spirit Innovator serves your highest-potential students — the gifted ones terrified of failure, the ideas that need courage to pursue, the founders who need someone to believe in them first. YJU\'s innovation culture deployed to every student with something worth building.',
   },
 ];
 
@@ -80,13 +80,13 @@ const SCENES = [
     src: '/scenes/wearable.jpg',
     label: 'Wearable AR — Nurse\'s View',
     phase: 'Phase 3 · 2027',
-    scenario: 'The nurse enters the room and Spirit\'s overlay is already there — patient history, medication flags, a quiet note in the corner of her lens: "She\'s afraid of needles. Use distraction." The efficiency of AI. The instincts of a GCU nurse.',
+    scenario: 'The nurse enters the room and Spirit\'s overlay is already there — patient history, medication flags, a quiet note in the corner of her lens: "She\'s afraid of needles. Use distraction." The efficiency of AI. The instincts of a YJU nurse.',
   },
   {
     src: '/scenes/robotics.jpg',
     label: 'Flourish Robotics',
     phase: 'Phase 4 · 2028',
-    scenario: '3 AM on the ward. The robot moves through the corridor — delivering medications, checking vitals, stopping at the room of a patient who hasn\'t slept. It has the precision of a machine and the character of every GCU nurse who ever stayed a little longer than required.',
+    scenario: '3 AM on the ward. The robot moves through the corridor — delivering medications, checking vitals, stopping at the room of a patient who hasn\'t slept. It has the precision of a machine and the character of every YJU nurse who ever stayed a little longer than required.',
   },
 ];
 
@@ -94,7 +94,7 @@ const ASKS = [
   {
     number: '01',
     title: 'Establish the Department of Robotics & Intelligent Systems',
-    body: 'This is the institutional foundation everything else rests on. Create a new academic department that formalizes GCU\'s leadership in embodied AI — signaling to the world that GCU is not a follower in this space. It is the standard.',
+    body: 'This is the institutional foundation everything else rests on. Create a new academic department that formalizes YJU\'s leadership in embodied AI — signaling to the world that YJU is not a follower in this space. It is the standard.',
     accent: 'border-sky-500',
     glow: 'text-sky-300',
   },
@@ -102,20 +102,20 @@ const ASKS = [
     number: '02',
     title: 'Authorize Phase 1 Investment',
     body: 'Approve the Phase 1 investment for infrastructure, team, and the first three external pilot deployments. This funds the transition from prototype to production platform.',
-    accent: 'border-gcu-purple',
+    accent: 'border-yju-primary',
     glow: 'text-purple-300',
   },
   {
     number: '03',
     title: 'Activate Faculty Participation',
-    body: "Commission all 10 colleges to formally contribute faculty expertise into their Spirit Agent. This is GCU's unique moat — no other institution on earth can replicate it.",
-    accent: 'border-gcu-gold',
-    glow: 'text-gcu-gold',
+    body: "Commission all 10 colleges to formally contribute faculty expertise into their Spirit Agent. This is YJU's unique moat — no other institution on earth can replicate it.",
+    accent: 'border-yju-accent',
+    glow: 'text-yju-accent',
   },
   {
     number: '04',
     title: 'Greenlight the First External Deployment',
-    body: 'Approve the first clinical or educational partnership. The first real-world deployment establishes GCU as the pioneer and generates the data that proves the model.',
+    body: 'Approve the first clinical or educational partnership. The first real-world deployment establishes YJU as the pioneer and generates the data that proves the model.',
     accent: 'border-emerald-500',
     glow: 'text-emerald-300',
   },
@@ -135,7 +135,7 @@ function Slide({ children }: { children: React.ReactNode }) {
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-gcu-gold text-xs sm:text-sm font-bold uppercase tracking-widest mb-4">{children}</p>
+    <p className="text-yju-accent text-xs sm:text-sm font-bold uppercase tracking-widest mb-4">{children}</p>
   );
 }
 
@@ -147,8 +147,8 @@ function SlideHero() {
       <div className="text-center max-w-3xl mx-auto">
         <Eyebrow>Empyrean LMS · Executive Briefing</Eyebrow>
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.05] mb-6">
-          What if GCU could be present<br />
-          <span className="text-gcu-gold">at every moment that matters</span><br />
+          What if YJU could be present<br />
+          <span className="text-yju-accent">at every moment that matters</span><br />
           for every person it has ever trained to serve?
         </h1>
         <p className="text-white/50 text-lg leading-relaxed mb-10">
@@ -196,7 +196,7 @@ function SlideProblem() {
           People face their most important moments<br />with no one in the room.
         </h2>
         <p className="text-white/50 text-base max-w-2xl mx-auto">
-          GCU has spent 77 years training people who combine deep expertise with human dignity. Until now, only those being taught by our faculty — or served by our graduates — could benefit.
+          YJU has spent 77 years training people who combine deep expertise with human dignity. Until now, only those being taught by our faculty — or served by our graduates — could benefit.
         </p>
       </div>
       <div className="grid md:grid-cols-3 gap-4">
@@ -212,27 +212,27 @@ function SlideProblem() {
   );
 }
 
-function SlideWeAreGCU() {
+function SlideWeAreYJU() {
   const sources = [
     {
       label: 'Faculty Expertise',
-      detail: 'Credentialed knowledge from GCU faculty across all 10 colleges — reviewed, verified, and signed off before entering the Spirit Layer. Every domain expert is named and accountable.',
+      detail: 'Credentialed knowledge from YJU faculty across all 10 colleges — reviewed, verified, and signed off before entering the Spirit Layer. Every domain expert is named and accountable.',
     },
     {
       label: 'Curriculum & Pedagogy',
-      detail: 'Accredited course content, learning frameworks, and pedagogical approaches built over 77 years of academic excellence — the full depth of what GCU teaches, made available in every conversation.',
+      detail: 'Accredited course content, learning frameworks, and pedagogical approaches built over 77 years of academic excellence — the full depth of what YJU teaches, made available in every conversation.',
     },
     {
       label: 'Research & Scholarship',
-      detail: 'Peer-reviewed research, published scholarship, and evidence-based practice from GCU\'s doctoral and research programs — Spirit speaks from the literature, not just intuition.',
+      detail: 'Peer-reviewed research, published scholarship, and evidence-based practice from YJU\'s doctoral and research programs — Spirit speaks from the literature, not just intuition.',
     },
     {
       label: 'Institutional Values',
-      detail: "GCU's Christ-centered mission, ethical commitments, and character standards — the soul that gives Spirit its spirit. Every response is shaped by who GCU is, not just what it knows.",
+      detail: "YJU's Christ-centered mission, ethical commitments, and character standards — the soul that gives Spirit its spirit. Every response is shaped by who YJU is, not just what it knows.",
     },
     {
       label: 'Living Alumni & Student Voice',
-      detail: 'Students and alumni continuously contribute their stories, experiences, and insights — what it means to be a GCU nurse in today\'s ICU, a GCU teacher in a struggling classroom, a GCU chaplain at 2 AM. Every voice that enters the system makes Spirit more human. The collective grows with every graduating class.',
+      detail: 'Students and alumni continuously contribute their stories, experiences, and insights — what it means to be a YJU nurse in today\'s ICU, a YJU teacher in a struggling classroom, a YJU chaplain at 2 AM. Every voice that enters the system makes Spirit more human. The collective grows with every graduating class.',
       highlight: true,
     },
   ];
@@ -241,7 +241,7 @@ function SlideWeAreGCU() {
     { label: 'Hospital Kiosk',    detail: 'Life-size Spirit presence in lobbies and waiting areas — orienting families, holding space, connecting to care.' },
     { label: 'Classroom Avatar',  detail: 'Spirit Teacher leading small group sessions — personalized support for every student who needs it.' },
     { label: 'Wearable AR',       detail: 'Spirit overlaid in the nurse\'s field of vision — real-time guidance without breaking the care relationship.' },
-    { label: 'Flourish Robotics', detail: 'Spirit in a physical body — moving through wards, classrooms, and communities with the character of a GCU graduate.' },
+    { label: 'Flourish Robotics', detail: 'Spirit in a physical body — moving through wards, classrooms, and communities with the character of a YJU graduate.' },
   ];
 
   const [activeSource, setActiveSource] = useState<string | null>(sources[0].label);
@@ -260,12 +260,12 @@ function SlideWeAreGCU() {
         <Eyebrow>The Collective</Eyebrow>
         <h2 className="text-6xl sm:text-7xl font-black leading-none mb-3">
           <span className="text-white">We </span>
-          <span className="text-gcu-gold">Are</span>
-          <span className="text-white"> GCU.</span>
+          <span className="text-yju-accent">Are</span>
+          <span className="text-white"> YJU.</span>
         </h2>
         <p className="text-purple-300/70 text-lg font-semibold italic">Physical and digital — one soul.</p>
-        <div className="inline-flex items-center gap-2 mt-3 bg-gcu-gold/10 border border-gcu-gold/30 rounded-full px-4 py-1.5">
-          <span className="text-gcu-gold text-xs font-bold">👆 Hover any item to explore what feeds Spirit</span>
+        <div className="inline-flex items-center gap-2 mt-3 bg-yju-accent/10 border border-yju-accent/30 rounded-full px-4 py-1.5">
+          <span className="text-yju-accent text-xs font-bold">👆 Hover any item to explore what feeds Spirit</span>
         </div>
       </div>
       <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-0">
@@ -278,20 +278,20 @@ function SlideWeAreGCU() {
                 onMouseLeave={() => setActiveSource(null)}
                 className={`flex items-center gap-2 border rounded-xl px-3 py-2 cursor-pointer transition-all duration-200 ${
                   s.highlight
-                    ? 'bg-gcu-purple/20 border-gcu-purple/50 hover:border-gcu-purple'
+                    ? 'bg-yju-primary/20 border-yju-primary/50 hover:border-yju-primary'
                     : 'bg-white/5 border-white/10 hover:border-white/40 hover:bg-white/10'
-                } ${activeSource === s.label ? (s.highlight ? 'border-gcu-purple bg-gcu-purple/25' : 'border-white/40 bg-white/10') : ''}`}
+                } ${activeSource === s.label ? (s.highlight ? 'border-yju-primary bg-yju-primary/25' : 'border-white/40 bg-white/10') : ''}`}
               >
-                <div className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${s.highlight ? 'bg-gcu-gold' : 'bg-gcu-purple'}`} />
-                <span className={`text-sm font-medium flex-1 ${s.highlight ? 'text-gcu-gold' : 'text-white/80'}`}>{s.label}</span>
+                <div className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${s.highlight ? 'bg-yju-accent' : 'bg-yju-primary'}`} />
+                <span className={`text-sm font-medium flex-1 ${s.highlight ? 'text-yju-accent' : 'text-white/80'}`}>{s.label}</span>
                 {s.highlight
-                  ? <span className="text-xs text-gcu-gold/60">↺ live</span>
+                  ? <span className="text-xs text-yju-accent/60">↺ live</span>
                   : <span className="text-white/25 text-xs">+</span>
                 }
               </div>
               {activeSource === s.label && (
-                <div className="absolute top-full left-0 mt-2 sm:mt-0 sm:top-0 sm:left-full sm:ml-3 z-20 w-60 bg-[#1A0A30] border border-gcu-purple/60 rounded-xl p-4 shadow-2xl shadow-gcu-purple/20 pointer-events-none">
-                  <p className="text-gcu-gold font-black text-xs mb-1.5">{s.label}</p>
+                <div className="absolute top-full left-0 mt-2 sm:mt-0 sm:top-0 sm:left-full sm:ml-3 z-20 w-60 bg-[#1A0A30] border border-yju-primary/60 rounded-xl p-4 shadow-2xl shadow-yju-primary/20 pointer-events-none">
+                  <p className="text-yju-accent font-black text-xs mb-1.5">{s.label}</p>
                   <p className="text-white/80 text-xs leading-relaxed">{s.detail}</p>
                 </div>
               )}
@@ -301,36 +301,36 @@ function SlideWeAreGCU() {
 
         {/* Spirit Layer nucleus */}
         <div className="flex flex-col items-center px-10 relative">
-          <p className="text-gcu-gold text-sm font-black uppercase tracking-widest mb-1 text-center drop-shadow-lg">AI</p>
-          <div className="w-1 h-8 bg-gradient-to-b from-transparent to-gcu-purple/40 mb-2 hidden md:block" />
+          <p className="text-yju-accent text-sm font-black uppercase tracking-widest mb-1 text-center drop-shadow-lg">AI</p>
+          <div className="w-1 h-8 bg-gradient-to-b from-transparent to-yju-primary/40 mb-2 hidden md:block" />
           <div
             className="relative w-20 h-20 flex-shrink-0 cursor-pointer"
             onMouseEnter={() => setActiveNucleus(true)}
             onMouseLeave={() => setActiveNucleus(false)}
           >
-            <div className="absolute inset-0 rounded-full border-2 border-gcu-purple/30 animate-ping" style={{ animationDuration: '3s' }} />
-            <div className={`absolute inset-2 rounded-full bg-gradient-to-br from-gcu-purple to-indigo-800 flex items-center justify-center shadow-lg shadow-gcu-purple/40 transition-all duration-200 ${activeNucleus ? 'scale-110 shadow-gcu-purple/70' : ''}`}>
-              <Sparkles size={18} className="text-gcu-gold" />
+            <div className="absolute inset-0 rounded-full border-2 border-yju-primary/30 animate-ping" style={{ animationDuration: '3s' }} />
+            <div className={`absolute inset-2 rounded-full bg-gradient-to-br from-yju-primary to-indigo-800 flex items-center justify-center shadow-lg shadow-yju-primary/40 transition-all duration-200 ${activeNucleus ? 'scale-110 shadow-yju-primary/70' : ''}`}>
+              <Sparkles size={18} className="text-yju-accent" />
             </div>
             {activeNucleus && (
-              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 z-30 w-72 bg-[#1A0A30] border border-gcu-purple/60 rounded-2xl p-4 shadow-2xl shadow-gcu-purple/40 pointer-events-none">
-                <p className="text-gcu-gold font-black text-xs uppercase tracking-widest mb-2">The Spirit Layer</p>
+              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 z-30 w-72 bg-[#1A0A30] border border-yju-primary/60 rounded-2xl p-4 shadow-2xl shadow-yju-primary/40 pointer-events-none">
+                <p className="text-yju-accent font-black text-xs uppercase tracking-widest mb-2">The Spirit Layer</p>
                 <p className="text-white/80 text-xs leading-relaxed mb-3">
-                  GCU has spent 77 years building something no technology company can buy: the collective intelligence, lived experience, and moral character of an entire university.
+                  YJU has spent 77 years building something no technology company can buy: the collective intelligence, lived experience, and moral character of an entire university.
                 </p>
                 <p className="text-white/80 text-xs leading-relaxed mb-3">
-                  Every faculty lecture. Every published study. Every curriculum framework. Every student who shared what it means to be a GCU nurse, teacher, or chaplain in today's world. Every institutional value that shapes how GCU graduates show up in a crisis.
+                  Every faculty lecture. Every published study. Every curriculum framework. Every student who shared what it means to be a YJU nurse, teacher, or chaplain in today's world. Every institutional value that shapes how YJU graduates show up in a crisis.
                 </p>
                 <p className="text-white font-bold text-xs leading-relaxed">
                   The Spirit Layer takes all of it — and makes it available as a real conversation, with any person, on any device, at any moment they need it.
                 </p>
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-gcu-purple/60" />
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-yju-primary/60" />
               </div>
             )}
           </div>
-          <p className="text-gcu-gold text-xs font-bold uppercase tracking-widest mt-2 text-center">Spirit<br />Layer</p>
-          <p className="text-white/30 text-xs text-center mt-1 max-w-[80px] leading-tight">the intelligence between GCU's knowledge and the person who needs it</p>
-          <div className="w-1 h-8 bg-gradient-to-b from-gcu-purple/40 to-transparent mt-2 hidden md:block" />
+          <p className="text-yju-accent text-xs font-bold uppercase tracking-widest mt-2 text-center">Spirit<br />Layer</p>
+          <p className="text-white/30 text-xs text-center mt-1 max-w-[80px] leading-tight">the intelligence between YJU's knowledge and the person who needs it</p>
+          <div className="w-1 h-8 bg-gradient-to-b from-yju-primary/40 to-transparent mt-2 hidden md:block" />
         </div>
 
         {/* Surfaces */}
@@ -340,15 +340,15 @@ function SlideWeAreGCU() {
               <div
                 onMouseEnter={() => setActiveSurface(s.label)}
                 onMouseLeave={() => setActiveSurface(null)}
-                className={`flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-3 py-2 cursor-pointer transition-all duration-200 hover:border-gcu-gold/50 hover:bg-white/10 ${activeSurface === s.label ? 'border-gcu-gold/50 bg-white/10' : ''}`}
+                className={`flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-3 py-2 cursor-pointer transition-all duration-200 hover:border-yju-accent/50 hover:bg-white/10 ${activeSurface === s.label ? 'border-yju-accent/50 bg-white/10' : ''}`}
               >
-                <div className="w-1.5 h-1.5 rounded-full bg-gcu-gold flex-shrink-0" />
+                <div className="w-1.5 h-1.5 rounded-full bg-yju-accent flex-shrink-0" />
                 <span className="text-sm text-white/80 font-medium flex-1">{s.label}</span>
                 <span className="text-white/25 text-xs">+</span>
               </div>
               {activeSurface === s.label && (
-                <div className="absolute top-full right-0 mt-2 sm:mt-0 sm:top-0 sm:right-full sm:mr-3 z-20 w-60 bg-[#1A0A30] border border-gcu-gold/40 rounded-xl p-4 shadow-2xl shadow-gcu-gold/10 pointer-events-none">
-                  <p className="text-gcu-gold font-black text-xs mb-1.5">{s.label}</p>
+                <div className="absolute top-full right-0 mt-2 sm:mt-0 sm:top-0 sm:right-full sm:mr-3 z-20 w-60 bg-[#1A0A30] border border-yju-accent/40 rounded-xl p-4 shadow-2xl shadow-yju-accent/10 pointer-events-none">
+                  <p className="text-yju-accent font-black text-xs mb-1.5">{s.label}</p>
                   <p className="text-white/80 text-xs leading-relaxed">{s.detail}</p>
                 </div>
               )}
@@ -374,10 +374,10 @@ function SlidePlatform() {
         <Eyebrow>What We've Built</Eyebrow>
         <h2 className="text-4xl sm:text-5xl font-black text-white">
           10 Spirit Agents.<br />
-          <span className="text-gcu-gold">One for every GCU college.</span>
+          <span className="text-yju-accent">One for every YJU college.</span>
         </h2>
         <p className="text-white/50 text-base max-w-2xl mx-auto mt-3 leading-relaxed">
-          A Spirit Agent is a GCU expert you can have a real conversation with — by text or voice, any time of day, on a phone, tablet, kiosk, or wearable. It responds the way a GCU graduate would: with expertise <em>and</em> with humanity.
+          A Spirit Agent is a YJU expert you can have a real conversation with — by text or voice, any time of day, on a phone, tablet, kiosk, or wearable. It responds the way a YJU graduate would: with expertise <em>and</em> with humanity.
         </p>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
@@ -388,25 +388,25 @@ function SlidePlatform() {
             onMouseEnter={() => setActive(a.name)}
             onMouseLeave={() => setActive(null)}
           >
-            <div className={`bg-white/5 border rounded-xl p-3 text-center cursor-pointer transition-all duration-200 ${active === a.name ? 'border-gcu-purple bg-gcu-purple/10 scale-105' : 'border-white/10 hover:border-gcu-purple/40'}`}>
+            <div className={`bg-white/5 border rounded-xl p-3 text-center cursor-pointer transition-all duration-200 ${active === a.name ? 'border-yju-primary bg-yju-primary/10 scale-105' : 'border-white/10 hover:border-yju-primary/40'}`}>
               <div className="text-2xl mb-1.5">{a.icon}</div>
               <p className="text-white text-sm font-bold leading-tight mb-1">{a.name}</p>
               <p className="text-white/40 text-xs leading-tight">{a.domain}</p>
             </div>
             {active === a.name && (
-              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-30 w-64 bg-[#1A0A30] border border-gcu-purple/60 rounded-xl p-4 shadow-2xl shadow-gcu-purple/30 pointer-events-none">
-                <p className="text-gcu-gold font-black text-sm mb-0.5">{a.name}</p>
+              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 z-30 w-64 bg-[#1A0A30] border border-yju-primary/60 rounded-xl p-4 shadow-2xl shadow-yju-primary/30 pointer-events-none">
+                <p className="text-yju-accent font-black text-sm mb-0.5">{a.name}</p>
                 <p className="text-white/40 text-xs mb-2 italic">{a.college}</p>
                 <p className="text-white/80 text-xs leading-relaxed">{a.detail}</p>
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-gcu-purple/60" />
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-full w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-yju-primary/60" />
               </div>
             )}
           </div>
         ))}
       </div>
       <div className="flex items-center justify-center gap-2 mt-4">
-        <div className="inline-flex items-center gap-2 bg-gcu-gold/10 border border-gcu-gold/30 rounded-full px-4 py-1.5">
-          <span className="text-gcu-gold text-xs font-bold">👆 Hover each agent to see what it means for that college</span>
+        <div className="inline-flex items-center gap-2 bg-yju-accent/10 border border-yju-accent/30 rounded-full px-4 py-1.5">
+          <span className="text-yju-accent text-xs font-bold">👆 Hover each agent to see what it means for that college</span>
         </div>
       </div>
     </Slide>
@@ -473,17 +473,17 @@ function SlideDeliveryRoadmap() {
       statusColor: 'bg-blue-500',
       textColor: 'text-blue-400',
       borderColor: 'border-blue-500',
-      detail: 'Any hospital, university, or faith-based organization can license the Flourish API and embed Spirit directly into their own patient portal, learning platform, or app — under their own brand, with GCU\'s values built in. GCU becomes the infrastructure the entire industry runs on.',
+      detail: 'Any hospital, university, or faith-based organization can license the Flourish API and embed Spirit directly into their own patient portal, learning platform, or app — under their own brand, with YJU\'s values built in. YJU becomes the infrastructure the entire industry runs on.',
     },
     {
       icon: '🤖',
       title: 'Physical Robot',
       sub: 'Phase 4 · 2029+',
       status: 'Phase 4',
-      statusColor: 'bg-gcu-purple',
+      statusColor: 'bg-yju-primary',
       textColor: 'text-purple-400',
-      borderColor: 'border-gcu-purple',
-      detail: 'Spirit Vessels in physical robotic form — moving through wards, classrooms, and communities. The character of a GCU graduate in a body that can go where people are.',
+      borderColor: 'border-yju-primary',
+      detail: 'Spirit Vessels in physical robotic form — moving through wards, classrooms, and communities. The character of a YJU graduate in a body that can go where people are.',
     },
   ];
 
@@ -495,14 +495,14 @@ function SlideDeliveryRoadmap() {
         <Eyebrow>The Delivery Roadmap</Eyebrow>
         <h2 className="text-4xl sm:text-5xl font-black text-white mb-3 leading-tight">
           Spirit meets people wherever they are.<br />
-          <span className="text-gcu-gold">The form changes. The soul does not.</span>
+          <span className="text-yju-accent">The form changes. The soul does not.</span>
         </h2>
         <p className="text-white/30 text-xs">Hover each phase to learn more</p>
       </div>
       {/* Timeline */}
       <div className="relative">
         {/* Connecting line */}
-        <div className="absolute top-8 left-0 right-0 h-0.5 bg-gradient-to-r from-emerald-500/40 via-amber-500/40 to-gcu-purple/40 hidden md:block" />
+        <div className="absolute top-8 left-0 right-0 h-0.5 bg-gradient-to-r from-emerald-500/40 via-amber-500/40 to-yju-primary/40 hidden md:block" />
         <div className="grid grid-cols-2 md:grid-cols-7 gap-3">
           {phases.map((p, i) => (
             <div
@@ -535,7 +535,7 @@ function SlideDeliveryRoadmap() {
         <span className="flex items-center gap-1.5 text-xs text-emerald-400"><span className="w-2 h-2 rounded-full bg-emerald-500 inline-block" /> Live Now</span>
         <span className="flex items-center gap-1.5 text-xs text-blue-400"><span className="w-2 h-2 rounded-full bg-blue-500 inline-block" /> Ready to Launch</span>
         <span className="flex items-center gap-1.5 text-xs text-amber-400"><span className="w-2 h-2 rounded-full bg-amber-500 inline-block" /> Needs Funding</span>
-        <span className="flex items-center gap-1.5 text-xs text-purple-400"><span className="w-2 h-2 rounded-full bg-gcu-purple inline-block" /> Future Phase</span>
+        <span className="flex items-center gap-1.5 text-xs text-purple-400"><span className="w-2 h-2 rounded-full bg-yju-primary inline-block" /> Future Phase</span>
       </div>
     </Slide>
   );
@@ -557,7 +557,7 @@ function SlideScene({ scene, index }: { scene: typeof SCENES[0]; index: number }
       <div className="absolute top-6 left-8 flex items-center gap-3">
         <span className="text-white/30 text-xs font-bold uppercase tracking-widest">Spirit Everywhere</span>
         <span className="text-white/15 text-xs">·</span>
-        <span className="text-gcu-gold text-xs font-bold uppercase tracking-widest">{scene.phase}</span>
+        <span className="text-yju-accent text-xs font-bold uppercase tracking-widest">{scene.phase}</span>
         <span className="text-white/15 text-xs">·</span>
         <span className="text-white/30 text-xs">{index + 1} of {SCENES.length}</span>
       </div>
@@ -577,26 +577,26 @@ function SlideScene({ scene, index }: { scene: typeof SCENES[0]; index: number }
 
 function SlideMarket() {
   const stats = [
-    { value: '33,000+', label: 'Christian institutions globally',      sub: 'With no ethical AI framework — until GCU builds it',             Icon: Globe,       color: 'text-blue-400'    },
+    { value: '33,000+', label: 'Christian institutions globally',      sub: 'With no ethical AI framework — until YJU builds it',             Icon: Globe,       color: 'text-blue-400'    },
     { value: '2.6B',    label: 'Christians worldwide',                  sub: 'The largest underserved market for faith-aligned AI',             Icon: Users,       color: 'text-emerald-400' },
-    { value: '$0',      label: 'Current ethical AI competition',        sub: 'No institution on earth is doing this. GCU creates the category.', Icon: TrendingUp,  color: 'text-gcu-gold'    },
+    { value: '$0',      label: 'Current ethical AI competition',        sub: 'No institution on earth is doing this. YJU creates the category.', Icon: TrendingUp,  color: 'text-yju-accent'    },
   ];
   return (
     <Slide>
       <div className="text-center mb-10">
         <Eyebrow>The Market Opportunity</Eyebrow>
         <h2 className="text-4xl sm:text-5xl font-black text-white mb-4 leading-tight">
-          GCU doesn't enter a market.<br />
-          <span className="text-gcu-gold">GCU creates one.</span>
+          YJU doesn't enter a market.<br />
+          <span className="text-yju-accent">YJU creates one.</span>
         </h2>
         <p className="text-white/50 text-base max-w-2xl mx-auto">
-          Every Christian university, hospital system, and faith-based organization on earth needs an ethical AI framework. None exists. GCU builds it first — and licenses the standard globally.
+          Every Christian university, hospital system, and faith-based organization on earth needs an ethical AI framework. None exists. YJU builds it first — and licenses the standard globally.
         </p>
       </div>
-      <div className="bg-gcu-purple/15 border border-gcu-purple/40 rounded-2xl px-6 py-4 mb-6 max-w-3xl mx-auto">
-        <p className="text-white font-black text-sm mb-1">The Flourish API — GCU Becomes the Infrastructure</p>
+      <div className="bg-yju-primary/15 border border-yju-primary/40 rounded-2xl px-6 py-4 mb-6 max-w-3xl mx-auto">
+        <p className="text-white font-black text-sm mb-1">The Flourish API — YJU Becomes the Infrastructure</p>
         <p className="text-white/60 text-xs leading-relaxed">
-          GCU doesn't have to reach 33,000 institutions directly. The Flourish API lets any hospital, university, or faith-based organization license the Spirit Layer and embed it inside their own systems — their patient portal, their learning platform, their app. They deploy Spirit under their own brand. GCU's values are built in. GCU earns the licensing revenue. Think of it as the AWS of faith-based AI: GCU builds the foundation that the entire industry runs on.
+          YJU doesn't have to reach 33,000 institutions directly. The Flourish API lets any hospital, university, or faith-based organization license the Spirit Layer and embed it inside their own systems — their patient portal, their learning platform, their app. They deploy Spirit under their own brand. YJU's values are built in. YJU earns the licensing revenue. Think of it as the AWS of faith-based AI: YJU builds the foundation that the entire industry runs on.
         </p>
 
       </div>
@@ -635,8 +635,8 @@ function SlidePartners() {
     {
       icon: '🎓',
       label: 'Christian Universities',
-      color: 'border-gcu-gold',
-      textColor: 'text-gcu-gold',
+      color: 'border-yju-accent',
+      textColor: 'text-yju-accent',
       note: 'Platform license + Flourish Standard',
       partners: ['Liberty University', 'Baylor University', 'Wheaton College', 'Oral Roberts University'],
     },
@@ -663,11 +663,11 @@ function SlidePartners() {
       <div className="text-center mb-8">
         <Eyebrow>Potential Partners</Eyebrow>
         <h2 className="text-4xl sm:text-5xl font-black text-white mb-3 leading-tight">
-          GCU doesn't build this alone.<br />
-          <span className="text-gcu-gold">The ecosystem is ready.</span>
+          YJU doesn't build this alone.<br />
+          <span className="text-yju-accent">The ecosystem is ready.</span>
         </h2>
         <p className="text-white/40 text-sm max-w-2xl mx-auto">
-          These are the organizations GCU is positioned to partner with across every phase of the roadmap. None of these are confirmed — but all of them need exactly what GCU is building.
+          These are the organizations YJU is positioned to partner with across every phase of the roadmap. None of these are confirmed — but all of them need exactly what YJU is building.
         </p>
       </div>
 
@@ -693,19 +693,19 @@ function SlidePartners() {
 
 function SlideRevenue() {
   const rows = [
-    { year: 'Year 1', period: '2027–2028', amount: '~$3.2M est.',  note: 'Internal GCU savings + 3 external pilots + early Flourish API licensing to partner institutions + grants',                        color: 'text-slate-300'   },
+    { year: 'Year 1', period: '2027–2028', amount: '~$3.2M est.',  note: 'Internal YJU savings + 3 external pilots + early Flourish API licensing to partner institutions + grants',                        color: 'text-slate-300'   },
     { year: 'Year 2', period: '2028–2029', amount: '~$14.5M est.', note: '25 partner institutions licensing Spirit directly + enterprise Flourish API (hospitals, universities embedding Spirit in their own systems) + Flourish Standard certification fees',    color: 'text-purple-300'  },
-    { year: 'Year 3', period: '2029–2030', amount: '~$52M est.',   note: '100+ certified institutions worldwide + Flourish API at scale + wearables + robotics platform licensing',         color: 'text-gcu-gold'    },
+    { year: 'Year 3', period: '2029–2030', amount: '~$52M est.',   note: '100+ certified institutions worldwide + Flourish API at scale + wearables + robotics platform licensing',         color: 'text-yju-accent'    },
   ];
   return (
     <Slide>
       <div className="text-center mb-10">
         <Eyebrow>The Business Case</Eyebrow>
         <h2 className="text-4xl sm:text-5xl font-black text-white mb-3 leading-tight">
-          A platform that funds GCU's mission<br />
-          <span className="text-gcu-gold">for generations.</span>
+          A platform that funds YJU's mission<br />
+          <span className="text-yju-accent">for generations.</span>
         </h2>
-        <p className="text-white/50 text-base">25% of all revenue reinvested into GCU scholarships and AI ethics research.</p>
+        <p className="text-white/50 text-base">25% of all revenue reinvested into YJU scholarships and AI ethics research.</p>
       </div>
       <div className="flex flex-col gap-4 max-w-2xl mx-auto">
         {rows.map(r => (
@@ -735,7 +735,7 @@ function SlideAsk() {
         <Eyebrow>What We Need from Leadership</Eyebrow>
         <h2 className="text-4xl sm:text-5xl font-black text-white mb-3 leading-tight">
           Four decisions that change<br />
-          <span className="text-gcu-gold">GCU's trajectory.</span>
+          <span className="text-yju-accent">YJU's trajectory.</span>
         </h2>
       </div>
       <div className="grid md:grid-cols-4 gap-5">
@@ -757,19 +757,19 @@ function SlideLegacy({ onEnter }: { onEnter: () => void }) {
       <div className="text-center max-w-3xl mx-auto">
         <Eyebrow>The Legacy</Eyebrow>
         <h2 className="text-5xl sm:text-6xl font-black text-white leading-tight mb-6">
-          GCU doesn't just build Spirit Agents.<br />
-          <span className="text-gcu-gold">GCU writes the standard<br />the entire industry follows.</span>
+          YJU doesn't just build Spirit Agents.<br />
+          <span className="text-yju-accent">YJU writes the standard<br />the entire industry follows.</span>
         </h2>
         <p className="text-white/50 text-lg leading-relaxed mb-4 max-w-2xl mx-auto">
           By 2030, every hospital, university, and faith-based organization deploying AI will ask one question:
         </p>
         <p className="text-2xl font-black text-white mb-10">
-          "Is it <span className="text-gcu-gold">Spirit-Certified</span>?"
+          "Is it <span className="text-yju-accent">Spirit-Certified</span>?"
         </p>
         <div className="flex items-center justify-center">
           <button
             onClick={onEnter}
-            className="flex items-center gap-2 px-8 py-4 rounded-2xl bg-gcu-gold text-gcu-purple-dark font-black text-base hover:bg-yellow-400 transition-colors shadow-lg shadow-gcu-gold/20"
+            className="flex items-center gap-2 px-8 py-4 rounded-2xl bg-yju-accent text-yju-primary-dark font-black text-base hover:bg-yellow-400 transition-colors shadow-lg shadow-yju-accent/20"
           >
             Enter the Demo <ChevronRight size={18} />
           </button>
@@ -803,12 +803,12 @@ function SlideProof() {
     return (
       <div className={`flex gap-2 ${isUser ? 'justify-end' : 'justify-start'}`}>
         {!isUser && (
-          <div className="w-6 h-6 rounded-full bg-gcu-purple flex-shrink-0 flex items-center justify-center mt-0.5">
+          <div className="w-6 h-6 rounded-full bg-yju-primary flex-shrink-0 flex items-center justify-center mt-0.5">
             <span className="text-xs text-white font-black">S</span>
           </div>
         )}
-        <div className={`max-w-[80%] rounded-2xl px-3 py-2 text-sm leading-relaxed ${isUser ? 'bg-white/10 text-white/80 rounded-tr-sm' : 'bg-gcu-purple/30 border border-gcu-purple/40 text-white/90 rounded-tl-sm'}`}>
-          {!isUser && <p className="text-gcu-gold font-bold text-xs mb-1">{(msg as any).name}</p>}
+        <div className={`max-w-[80%] rounded-2xl px-3 py-2 text-sm leading-relaxed ${isUser ? 'bg-white/10 text-white/80 rounded-tr-sm' : 'bg-yju-primary/30 border border-yju-primary/40 text-white/90 rounded-tl-sm'}`}>
+          {!isUser && <p className="text-yju-accent font-bold text-xs mb-1">{(msg as any).name}</p>}
           {msg.text}
         </div>
       </div>
@@ -821,7 +821,7 @@ function SlideProof() {
         <Eyebrow>This Is Real</Eyebrow>
         <h2 className="text-4xl sm:text-5xl font-black text-white mb-3 leading-tight">
           Not a concept. Not a demo script.<br />
-          <span className="text-gcu-gold">A live platform, working today.</span>
+          <span className="text-yju-accent">A live platform, working today.</span>
         </h2>
         <p className="text-white/40 text-sm">Two conversations — happening right now, any time of day, for anyone who needs them.</p>
       </div>
@@ -868,13 +868,13 @@ function SlideStewardship() {
     {
       icon: '📋',
       title: 'Full Audit Trail',
-      body: 'Every conversation is logged, timestamped, and stored with a full audit record. GCU faculty supervisors review flagged sessions. Quality, safety, and alignment scores are tracked at the session level. Deploying institutions receive regular stewardship reports. Nothing happens in the dark.',
+      body: 'Every conversation is logged, timestamped, and stored with a full audit record. YJU faculty supervisors review flagged sessions. Quality, safety, and alignment scores are tracked at the session level. Deploying institutions receive regular stewardship reports. Nothing happens in the dark.',
       color: 'border-blue-500',
     },
     {
       icon: '🎓',
       title: 'Faculty Knowledge Verification',
-      body: 'All knowledge entering the Spirit Layer is reviewed and credentialed by GCU faculty before it is deployed. Faculty members sign off on their domain. The Spirit Layer is only as trustworthy as the people who built it — and every source is named, verified, and accountable.',
+      body: 'All knowledge entering the Spirit Layer is reviewed and credentialed by YJU faculty before it is deployed. Faculty members sign off on their domain. The Spirit Layer is only as trustworthy as the people who built it — and every source is named, verified, and accountable.',
       color: 'border-emerald-500',
     },
   ];
@@ -884,18 +884,18 @@ function SlideStewardship() {
         <Eyebrow>Stewardship & Safety</Eyebrow>
         <h2 className="text-4xl sm:text-5xl font-black text-white mb-3 leading-tight">
           Spirit never acts alone.<br />
-          <span className="text-gcu-gold">Every response is accountable.</span>
+          <span className="text-yju-accent">Every response is accountable.</span>
         </h2>
-        <p className="text-white/40 text-sm max-w-2xl mx-auto">GCU built the safety architecture before the product — because a platform that touches people in their most vulnerable moments must earn its place in the room.</p>
+        <p className="text-white/40 text-sm max-w-2xl mx-auto">YJU built the safety architecture before the product — because a platform that touches people in their most vulnerable moments must earn its place in the room.</p>
       </div>
 
       {/* RAG Foundation Banner */}
-      <div className="bg-gcu-purple/15 border border-gcu-purple/40 rounded-2xl px-6 py-4 mb-5 flex items-start gap-4">
+      <div className="bg-yju-primary/15 border border-yju-primary/40 rounded-2xl px-6 py-4 mb-5 flex items-start gap-4">
         <div className="text-2xl flex-shrink-0">📚</div>
         <div>
-          <p className="text-gcu-gold font-black text-sm mb-1">Grounded in Official GCU Sources — Not the Open Internet</p>
+          <p className="text-yju-accent font-black text-sm mb-1">Grounded in Official YJU Sources — Not the Open Internet</p>
           <p className="text-white/60 text-sm leading-relaxed">
-            When Spirit responds, it does not search the open internet. It searches a locked library of verified GCU content — accredited curriculum, faculty-reviewed clinical protocols, approved course material, and peer-reviewed research. Think of it as a librarian who only has access to GCU's official shelves. If the answer isn't in those shelves, Spirit says so and directs the person to a qualified human. The knowledge is GCU's. The liability boundary is clear.
+            When Spirit responds, it does not search the open internet. It searches a locked library of verified YJU content — accredited curriculum, faculty-reviewed clinical protocols, approved course material, and peer-reviewed research. Think of it as a librarian who only has access to YJU's official shelves. If the answer isn't in those shelves, Spirit says so and directs the person to a qualified human. The knowledge is YJU's. The liability boundary is clear.
           </p>
         </div>
       </div>
@@ -917,7 +917,7 @@ function SlideFlourishStandard() {
   const pillars = [
     {
       icon: '📋',
-      color: 'border-gcu-gold',
+      color: 'border-yju-accent',
       title: 'Institutional Governance Agreement',
       body: 'Before a Spirit Agent goes live, the deploying institution signs a formal governance agreement defining who oversees the deployment, how sessions are reviewed, and what escalation procedures are in place. Accountability is documented before the first conversation happens.',
     },
@@ -925,19 +925,19 @@ function SlideFlourishStandard() {
       icon: '⚖️',
       color: 'border-blue-400',
       title: 'Liability Framework',
-      body: 'Certification formally shifts primary liability to the deploying institution. GCU retains quality authority — the institution accepts operational responsibility. The documented chain of stewardship protects GCU, the partner, and every person the system serves.',
+      body: 'Certification formally shifts primary liability to the deploying institution. YJU retains quality authority — the institution accepts operational responsibility. The documented chain of stewardship protects YJU, the partner, and every person the system serves.',
     },
     {
       icon: '🔐',
       color: 'border-purple-400',
       title: 'Deployment Protocol Compliance',
-      body: 'Every deployment must meet GCU\'s technical, ethical, and pastoral standards before going live — verified source libraries, safety layers active, audit logging enabled, crisis escalation tested. The Flourish Standard is not a checkbox. It is a gate.',
+      body: 'Every deployment must meet YJU\'s technical, ethical, and pastoral standards before going live — verified source libraries, safety layers active, audit logging enabled, crisis escalation tested. The Flourish Standard is not a checkbox. It is a gate.',
     },
     {
       icon: '🎓',
       color: 'border-emerald-400',
       title: 'Annual Re-Certification',
-      body: 'Certification is not permanent. Institutions re-certify annually — ensuring governance stays current, Spirit Agents are updated with verified knowledge, and safety systems remain active. Re-certification generates recurring revenue and keeps GCU in an ongoing stewardship relationship with every partner.',
+      body: 'Certification is not permanent. Institutions re-certify annually — ensuring governance stays current, Spirit Agents are updated with verified knowledge, and safety systems remain active. Re-certification generates recurring revenue and keeps YJU in an ongoing stewardship relationship with every partner.',
     },
   ];
 
@@ -947,10 +947,10 @@ function SlideFlourishStandard() {
         <Eyebrow>The Flourish Standard</Eyebrow>
         <h2 className="text-4xl sm:text-5xl font-black text-white mb-3 leading-tight">
           Spirit is a platform organizations deploy.<br />
-          <span className="text-gcu-gold">GCU sets the terms.</span>
+          <span className="text-yju-accent">YJU sets the terms.</span>
         </h2>
         <p className="text-white/40 text-sm max-w-2xl mx-auto">
-          Hospitals, school districts, churches, and universities license Spirit Agents and deploy them inside their own systems. GCU does not operate every deployment — but GCU governs every one. The Flourish Standard is how.
+          Hospitals, school districts, churches, and universities license Spirit Agents and deploy them inside their own systems. YJU does not operate every deployment — but YJU governs every one. The Flourish Standard is how.
         </p>
       </div>
 
@@ -968,14 +968,14 @@ function SlideFlourishStandard() {
           <div>
             <p className="text-purple-300 font-black text-sm mb-1">Flourish API Integration</p>
             <p className="text-white/70 text-sm leading-relaxed">
-              For institutions that want to embed Spirit directly into their own systems. A hospital adds Spirit Nurse to its patient portal. A school district plugs Spirit Teacher into its learning management system. The institution owns the experience — GCU powers it behind the scenes.
+              For institutions that want to embed Spirit directly into their own systems. A hospital adds Spirit Nurse to its patient portal. A school district plugs Spirit Teacher into its learning management system. The institution owns the experience — YJU powers it behind the scenes.
             </p>
           </div>
         </div>
-        <div className="bg-gcu-gold/10 border border-gcu-gold/30 rounded-2xl px-5 py-4 flex items-start gap-3">
+        <div className="bg-yju-accent/10 border border-yju-accent/30 rounded-2xl px-5 py-4 flex items-start gap-3">
           <div className="text-2xl flex-shrink-0">📱</div>
           <div>
-            <p className="text-gcu-gold font-black text-sm mb-1">Platform License</p>
+            <p className="text-yju-accent font-black text-sm mb-1">Platform License</p>
             <p className="text-white/70 text-sm leading-relaxed">
               For institutions that want to deploy Spirit without custom development. Staff and students access Spirit through the Flourish platform directly — branded, configured, and certified for their organization. Ready to launch without an IT team.
             </p>
@@ -994,17 +994,17 @@ function SlideFlourishStandard() {
       </div>
 
       <div className="grid md:grid-cols-3 gap-4">
-        <div className="bg-gcu-gold/10 border border-gcu-gold/30 rounded-2xl p-4 text-center">
-          <p className="text-gcu-gold font-black text-sm mb-1">What institutions get</p>
-          <p className="text-white/60 text-sm">The authority to deploy Spirit Agents — and the credibility of GCU's ethical framework behind every interaction.</p>
+        <div className="bg-yju-accent/10 border border-yju-accent/30 rounded-2xl p-4 text-center">
+          <p className="text-yju-accent font-black text-sm mb-1">What institutions get</p>
+          <p className="text-white/60 text-sm">The authority to deploy Spirit Agents — and the credibility of YJU's ethical framework behind every interaction.</p>
         </div>
         <div className="bg-white/5 border border-white/10 rounded-2xl p-4 text-center">
-          <p className="text-white font-black text-sm mb-1">What GCU earns</p>
-          <p className="text-white/60 text-sm">Certification fees, annual re-certification revenue, and a growing network of institutions operating under GCU's ethical authority.</p>
+          <p className="text-white font-black text-sm mb-1">What YJU earns</p>
+          <p className="text-white/60 text-sm">Certification fees, annual re-certification revenue, and a growing network of institutions operating under YJU's ethical authority.</p>
         </div>
         <div className="bg-purple-500/10 border border-purple-500/30 rounded-2xl p-4 text-center">
           <p className="text-purple-300 font-black text-sm mb-1">The market position</p>
-          <p className="text-white/60 text-sm">No ethical AI certification standard exists for faith-based institutions. GCU creates it first — and owns the category.</p>
+          <p className="text-white/60 text-sm">No ethical AI certification standard exists for faith-based institutions. YJU creates it first — and owns the category.</p>
         </div>
       </div>
     </Slide>
@@ -1018,7 +1018,7 @@ function SlidePlatformOverview() {
     {
       x: '10%', y: '52%',
       side: 'right' as const,
-      dot: 'bg-gcu-purple',
+      dot: 'bg-yju-primary',
       label: 'One Platform. Everything in One Place.',
       detail: '10 Spirit Agents · tools to deploy them to hospitals and schools · a robotics roadmap · an ethics certification program · an executive briefing — all built, all accessible, all running today.',
     },
@@ -1032,7 +1032,7 @@ function SlidePlatformOverview() {
     {
       x: '23%', y: '40%',
       side: 'right' as const,
-      dot: 'bg-gcu-gold',
+      dot: 'bg-yju-accent',
       label: '10 Million Simulated Interactions',
       detail: 'The platform has processed 10 million demo interactions across all 10 Spirit Agents — demonstrating the infrastructure, scoring system, and scale capacity. These are simulated figures. Real deployment data begins with the first external pilot.',
     },
@@ -1048,7 +1048,7 @@ function SlidePlatformOverview() {
       side: 'left' as const,
       dot: 'bg-blue-400',
       label: 'All 10 College Spirit Agents — Live',
-      detail: 'Every GCU college has a Spirit Agent. Each is a live prototype deployable today — Spirit Nurse, Spirit Teacher, Spirit Chaplain, and seven more. One for every domain GCU has mastered.',
+      detail: 'Every YJU college has a Spirit Agent. Each is a live prototype deployable today — Spirit Nurse, Spirit Teacher, Spirit Chaplain, and seven more. One for every domain YJU has mastered.',
     },
   ];
 
@@ -1059,7 +1059,7 @@ function SlidePlatformOverview() {
           <Eyebrow>The Platform · Live Today</Eyebrow>
           <h2 className="text-3xl sm:text-4xl font-black text-white leading-tight">
             This is the real platform.<br />
-            <span className="text-gcu-gold">Built by one person. Running now.</span>
+            <span className="text-yju-accent">Built by one person. Running now.</span>
           </h2>
           <p className="text-white/30 text-xs mt-2">Hover the markers to explore</p>
         </div>
@@ -1108,9 +1108,9 @@ function SlideLibraryOverview() {
     {
       x: '18%', y: '9%',
       side: 'right' as const,
-      dot: 'bg-gcu-gold',
+      dot: 'bg-yju-accent',
       label: '20 Spirit Vessels — All 10 Colleges',
-      detail: 'Every GCU college has at least one Spirit Vessel designed and prototyped in the demo library. This shows the full scope of what has been built — the entire university represented in a single platform.',
+      detail: 'Every YJU college has at least one Spirit Vessel designed and prototyped in the demo library. This shows the full scope of what has been built — the entire university represented in a single platform.',
     },
     {
       x: '27%', y: '15%',
@@ -1136,9 +1136,9 @@ function SlideLibraryOverview() {
     {
       x: '22%', y: '42%',
       side: 'right' as const,
-      dot: 'bg-gcu-gold',
+      dot: 'bg-yju-accent',
       label: 'Spirit Infusion — Character, Not Just Knowledge',
-      detail: 'Every Spirit Vessel carries GCU\'s values baked in — Compassion, Servant Leadership, Biblical Wisdom, Creation Care. This is what separates Spirit from any other AI: it doesn\'t just know the field, it has the character of someone who chose that field for the right reasons.',
+      detail: 'Every Spirit Vessel carries YJU\'s values baked in — Compassion, Servant Leadership, Biblical Wisdom, Creation Care. This is what separates Spirit from any other AI: it doesn\'t just know the field, it has the character of someone who chose that field for the right reasons.',
     },
     {
       x: '28%', y: '48%',
@@ -1156,14 +1156,14 @@ function SlideLibraryOverview() {
           <Eyebrow>The Spirit Vessel Library</Eyebrow>
           <h2 className="text-3xl sm:text-4xl font-black text-white leading-tight">
             20 vessels. 10 colleges. Two modes.<br />
-            <span className="text-gcu-gold">Deployment. And training.</span>
+            <span className="text-yju-accent">Deployment. And training.</span>
           </h2>
           <p className="text-white/30 text-xs mt-2">Hover the markers to explore</p>
         </div>
         <div className="relative w-full">
           <img
             src="/scenes/prototype-library.png"
-            alt="GCU Spirit Vessel Library"
+            alt="YJU Spirit Vessel Library"
             className="w-full rounded-2xl border border-white/10 shadow-2xl shadow-black/40"
           />
           {annotations.map((a, i) => (
@@ -1205,7 +1205,7 @@ function SlideContent({ index, onEnter }: { index: number; onEnter: () => void }
     case 0:  return <SlideHero />;
     case 1:  return <SlideVideo />;
     case 2:  return <SlideProblem />;
-    case 3:  return <SlideWeAreGCU />;
+    case 3:  return <SlideWeAreYJU />;
     case 4:  return <SlidePlatform />;
     case 5:  return <SlideDeliveryRoadmap />;
     case 11: return <SlideProof />;
@@ -1250,15 +1250,15 @@ export default function ExecutiveTour() {
       {/* Subtle gold wave */}
       <div className="absolute inset-0 opacity-[0.04] pointer-events-none">
         <svg viewBox="0 0 1440 900" preserveAspectRatio="none" className="w-full h-full">
-          <path d="M0,900 Q360,200 720,500 Q1080,800 1440,200 L1440,900 Z" fill="#FFC627" />
+          <path d="M0,900 Q360,200 720,500 Q1080,800 1440,200 L1440,900 Z" fill="#E85D04" />
         </svg>
       </div>
 
       {/* Header — transparent on scene slides */}
       <div className={`relative z-10 flex items-center justify-between px-8 py-5 flex-shrink-0 transition-all duration-500 ${isScene ? '' : 'border-b border-white/5'}`}>
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-gcu-gold flex items-center justify-center">
-            <span className="font-black text-gcu-purple-dark text-sm">GCU</span>
+          <div className="w-8 h-8 rounded-lg bg-yju-accent flex items-center justify-center">
+            <span className="font-black text-yju-primary-dark text-sm">YJU</span>
           </div>
           <span className="text-white/35 text-sm font-medium">Empyrean LMS &nbsp;·&nbsp; Executive Tour</span>
         </div>
@@ -1287,7 +1287,7 @@ export default function ExecutiveTour() {
               key={i}
               onClick={() => setSlide(i)}
               className={`rounded-full transition-all duration-300 ${
-                i === slide   ? 'w-6 h-2 bg-gcu-gold' :
+                i === slide   ? 'w-6 h-2 bg-yju-accent' :
                 i < slide     ? 'w-2 h-2 bg-white/30' :
                                 'w-2 h-2 bg-white/10 hover:bg-white/25'
               }`}
@@ -1307,14 +1307,14 @@ export default function ExecutiveTour() {
           {isLast ? (
             <button
               onClick={enterPlatform}
-              className="flex items-center gap-2 px-5 py-2 rounded-xl bg-gcu-gold text-gcu-purple-dark font-black text-sm hover:bg-yellow-400 transition-colors"
+              className="flex items-center gap-2 px-5 py-2 rounded-xl bg-yju-accent text-yju-primary-dark font-black text-sm hover:bg-yellow-400 transition-colors"
             >
               Enter the Platform <ChevronRight size={15} />
             </button>
           ) : (
             <button
               onClick={goNext}
-              className="flex items-center gap-2 px-5 py-2 rounded-xl bg-gcu-purple text-white font-bold text-sm hover:bg-gcu-purple/80 transition-colors"
+              className="flex items-center gap-2 px-5 py-2 rounded-xl bg-yju-primary text-white font-bold text-sm hover:bg-yju-primary/80 transition-colors"
             >
               Next <ArrowRight size={15} />
             </button>

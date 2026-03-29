@@ -15,11 +15,11 @@ function RevenueBar({ month, revenue, reinvested }: { month: string; revenue: nu
       <div className="text-xs font-bold text-slate-700 dark:text-slate-300">${(revenue / 1000).toFixed(1)}k</div>
       <div className="relative w-full h-24 flex items-end">
         <div
-          className="w-full rounded-t-md bg-gcu-purple dark:bg-gcu-purple transition-all duration-700 relative"
+          className="w-full rounded-t-md bg-yju-primary dark:bg-yju-primary transition-all duration-700 relative"
           style={{ height: `${pct}%` }}
         >
           <div
-            className="absolute bottom-0 left-0 right-0 rounded-t-md bg-gcu-gold/50"
+            className="absolute bottom-0 left-0 right-0 rounded-t-md bg-yju-accent/50"
             style={{ height: `${(reinvested / revenue) * 100}%` }}
           />
         </div>
@@ -90,11 +90,11 @@ export default function Commercialization() {
             color: 'bg-blue-50 dark:bg-blue-900/20',
           },
           {
-            icon: <GraduationCap size={20} className="text-gcu-purple" />,
+            icon: <GraduationCap size={20} className="text-yju-primary" />,
             label: 'Scholarships Funded',
             value: '12',
             sub: 'From AI royalties',
-            color: 'bg-gcu-purple-pale dark:bg-gcu-purple/10',
+            color: 'bg-yju-primary-pale dark:bg-yju-primary/10',
           },
         ].map(s => (
           <div key={s.label} className="stat-card flex gap-4 items-start">
@@ -115,12 +115,12 @@ export default function Commercialization() {
         <div className="page-card p-5">
           <div className="flex items-center justify-between mb-5">
             <div className="flex items-center gap-2">
-              <TrendingUp size={16} className="text-gcu-purple" />
+              <TrendingUp size={16} className="text-yju-primary" />
               <h3 className="text-sm font-bold text-slate-900 dark:text-white">Monthly Revenue</h3>
             </div>
             <div className="flex items-center gap-3 text-xs">
-              <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-gcu-purple inline-block" /> Revenue</span>
-              <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-gcu-gold/50 inline-block" /> Reinvested</span>
+              <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-yju-primary inline-block" /> Revenue</span>
+              <span className="flex items-center gap-1"><span className="w-3 h-3 rounded bg-yju-accent/50 inline-block" /> Reinvested</span>
             </div>
           </div>
           <div className="grid grid-cols-6 gap-2">
@@ -130,7 +130,7 @@ export default function Commercialization() {
           </div>
           <div className="mt-4 pt-4 border-t border-slate-100 dark:border-[#2D2050]">
             <p className="text-xs text-slate-500 dark:text-slate-400">
-              25% of all licensing revenue reinvested into GCU scholarships and AI ethics research.
+              25% of all licensing revenue reinvested into YJU scholarships and AI ethics research.
             </p>
           </div>
         </div>
@@ -138,7 +138,7 @@ export default function Commercialization() {
         {/* Revenue by prototype */}
         <div className="page-card p-5">
           <div className="flex items-center gap-2 mb-4">
-            <Award size={16} className="text-gcu-gold" />
+            <Award size={16} className="text-yju-accent" />
             <h3 className="text-sm font-bold text-slate-900 dark:text-white">Revenue by Spirit Vessel</h3>
           </div>
           <div className="space-y-3">
@@ -148,13 +148,13 @@ export default function Commercialization() {
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between">
                     <span className="text-xs font-semibold text-slate-700 dark:text-slate-300 truncate">
-                      {p.name.replace('GCU Spirit ', '').replace('GCU ', '')}
+                      {p.name.replace('YJU Spirit ', '').replace('YJU ', '')}
                     </span>
-                    <span className="text-xs font-bold text-gcu-purple dark:text-purple-300 ml-2">${(revenue / 1000).toFixed(1)}k</span>
+                    <span className="text-xs font-bold text-yju-primary dark:text-purple-300 ml-2">${(revenue / 1000).toFixed(1)}k</span>
                   </div>
                   <div className="mt-1 h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full">
                     <div
-                      className="h-full bg-gcu-purple rounded-full"
+                      className="h-full bg-yju-primary rounded-full"
                       style={{ width: `${(revenue / 17000) * 100}%` }}
                     />
                   </div>
@@ -226,15 +226,15 @@ export default function Commercialization() {
       </div>
 
       {/* Reinvestment philosophy */}
-      <div className="page-card p-5 flex items-start gap-4 bg-gcu-purple-pale dark:bg-gcu-purple/10 border-gcu-purple/20">
-        <div className="w-10 h-10 rounded-xl bg-gcu-purple flex items-center justify-center flex-shrink-0">
-          <Heart size={18} className="text-gcu-gold" />
+      <div className="page-card p-5 flex items-start gap-4 bg-yju-primary-pale dark:bg-yju-primary/10 border-yju-primary/20">
+        <div className="w-10 h-10 rounded-xl bg-yju-primary flex items-center justify-center flex-shrink-0">
+          <Heart size={18} className="text-yju-accent" />
         </div>
         <div>
-          <h3 className="text-sm font-bold text-gcu-purple dark:text-purple-300 mb-1">GCU Reinvestment Commitment</h3>
+          <h3 className="text-sm font-bold text-yju-primary dark:text-purple-300 mb-1">YJU Reinvestment Commitment</h3>
           <p className="text-sm text-slate-700 dark:text-slate-400 leading-relaxed">
-            At least 25% of all AI licensing revenue is reinvested into GCU scholarships, AI ethics research, and mission-aligned initiatives.
-            Profit is a means to flourishing—not an end in itself. Every dollar this platform generates carries the servant-hearted spirit of GCU graduates forward.
+            At least 25% of all AI licensing revenue is reinvested into YJU scholarships, AI ethics research, and mission-aligned initiatives.
+            Profit is a means to flourishing—not an end in itself. Every dollar this platform generates carries the servant-hearted spirit of YJU graduates forward.
           </p>
         </div>
       </div>

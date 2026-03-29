@@ -167,7 +167,7 @@ const INITIAL_COLUMNS: Column[] = [
       },
       {
         id: 'c11',
-        title: 'Founding Partner deck — GCU co-dev agreement',
+        title: 'Founding Partner deck — YJU co-dev agreement',
         description: 'Governance rights, preferred pricing, licensing terms for first university partner.',
         labels: [LABEL_MAP.revenue],
       },

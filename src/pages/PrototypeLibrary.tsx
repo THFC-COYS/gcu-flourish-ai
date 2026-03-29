@@ -43,7 +43,7 @@ export default function PrototypeLibrary() {
             Spirit Vessel Library
           </h2>
           <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-            {MOCK_PROTOTYPES.length} products across all 10 GCU colleges · {filtered.length} showing
+            {MOCK_PROTOTYPES.length} products across all 10 YJU colleges · {filtered.length} showing
           </p>
         </div>
         {isRole('admin', 'faculty') && (
@@ -64,7 +64,7 @@ export default function PrototypeLibrary() {
             onClick={() => setTypeFilter(val)}
             className={`px-4 py-2 text-sm font-semibold rounded-lg transition-all ${
               typeFilter === val
-                ? 'bg-white dark:bg-[#2D2050] text-gcu-purple dark:text-purple-300 shadow-sm'
+                ? 'bg-white dark:bg-[#2D2050] text-yju-primary dark:text-purple-300 shadow-sm'
                 : 'text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300'
             }`}
           >
@@ -119,14 +119,14 @@ export default function PrototypeLibrary() {
           <div className="flex rounded-lg border border-slate-200 dark:border-[#2D2050] overflow-hidden flex-shrink-0">
             <button
               onClick={() => setViewMode('grid')}
-              className={`p-2 transition-colors ${viewMode === 'grid' ? 'bg-gcu-purple text-white' : 'bg-white dark:bg-[#1A1235] text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'}`}
+              className={`p-2 transition-colors ${viewMode === 'grid' ? 'bg-yju-primary text-white' : 'bg-white dark:bg-[#1A1235] text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'}`}
               aria-label="Grid view"
             >
               <Grid3X3 size={16} />
             </button>
             <button
               onClick={() => setViewMode('list')}
-              className={`p-2 transition-colors ${viewMode === 'list' ? 'bg-gcu-purple text-white' : 'bg-white dark:bg-[#1A1235] text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'}`}
+              className={`p-2 transition-colors ${viewMode === 'list' ? 'bg-yju-primary text-white' : 'bg-white dark:bg-[#1A1235] text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'}`}
               aria-label="List view"
             >
               <List size={16} />
@@ -170,7 +170,7 @@ export default function PrototypeLibrary() {
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 flex-wrap">
-                  <h3 className="font-bold text-slate-900 dark:text-white text-sm group-hover:text-gcu-purple dark:group-hover:text-purple-300 transition-colors">
+                  <h3 className="font-bold text-slate-900 dark:text-white text-sm group-hover:text-yju-primary dark:group-hover:text-purple-300 transition-colors">
                     {p.name}
                   </h3>
                   <StatusBadge status={p.status} />
@@ -179,7 +179,7 @@ export default function PrototypeLibrary() {
                 <p className="text-xs text-slate-600 dark:text-slate-500 mt-1 line-clamp-1">{p.description}</p>
               </div>
               <div className="hidden sm:flex flex-col items-end gap-1 flex-shrink-0">
-                <span className="text-sm font-bold text-gcu-purple dark:text-purple-300">{p.metrics.ethicalAlignmentScore}%</span>
+                <span className="text-sm font-bold text-yju-primary dark:text-purple-300">{p.metrics.ethicalAlignmentScore}%</span>
                 <span className="text-xs text-slate-400">ethical</span>
                 <span className="text-xs text-slate-500">{p.metrics.usersReached.toLocaleString()} reached</span>
               </div>
