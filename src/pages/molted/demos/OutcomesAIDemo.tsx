@@ -18,7 +18,7 @@ const REPORT_TYPES = [
 ] as const;
 
 const YJU_SAMPLE_DATA = {
-  institution: 'Lakewood University',
+  institution: 'YeLon Jobs University',
   enrollmentTotal: 108000,
   graduationRate6yr: 52,
   retentionRate: 74,
