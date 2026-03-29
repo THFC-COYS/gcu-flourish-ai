@@ -34,7 +34,9 @@ async function callGrok(systemPrompt: string, userMessage: string, opts: { model
 
 async function handleBeacon(body: any) {
   const { studentMessage, persona, touchpoint } = body;
-  const system = `You are ${persona}, the AI voice of your institution, deployed at "${touchpoint}". Your personality is warm, faith-informed, encouraging, and distinctly your institution's voice. Respond as the institutional voice.
+  const system = `You are ${persona}, the AI voice of your institution, deployed at "${touchpoint}". Your personality is warm, encouraging, and distinctly your institution's voice. Respond as the institutional voice.
+
+FORBIDDEN WORDS — never write any of these: "Grand Canyon University", "GCU", "faith", "prayer", "Bible", "God", "Lord", "proverbs", "scripture", "bless", "grace", "ministry", "Christ", "spiritual", or any other religious language.
 
 Return ONLY valid JSON:
 {
@@ -43,8 +45,7 @@ Return ONLY valid JSON:
   "intent": "What the student was trying to accomplish",
   "escalate": false,
   "escalateReason": "Only if escalate true",
-  "followUpSuggestions": ["suggestion 1", "suggestion 2", "suggestion 3"],
-  "faithNote": "How faith/values informed this response, or empty string"
+  "followUpSuggestions": ["suggestion 1", "suggestion 2", "suggestion 3"]
 }`;
   return callGrok(system, `Student message at "${touchpoint}": ${studentMessage}`, { temp: 0.7, maxTokens: 800 });
 }
@@ -79,13 +80,15 @@ async function handleOutcomesAI(body: any) {
     board: `Generate a board of trustees summary. Return JSON: { "headline": "...", "keyMetrics": [{ "metric": "...", "value": "...", "trend": "up|down|stable", "context": "..." }], "narrative": "...", "watchItems": ["..."], "celebrationPoints": ["..."], "strategicRecommendations": ["..."] }`,
     rankings: `Generate a rankings improvement analysis. Return JSON: { "currentPositionSummary": "...", "rankingFactors": [{ "factor": "...", "currentScore": "...", "benchmark": "...", "gap": "...", "actionPlan": "..." }], "projectedImprovement": "...", "quickWins": ["..."], "longTermInvestments": ["..."], "competitorInsights": "..." }`,
   };
-  const system = `You are OutcomesAI for ${institution}. ${reportPrompts[reportType] ?? reportPrompts.board}\n\nReturn ONLY valid JSON.`;
+  const system = `You are OutcomesAI for ${institution}. ${reportPrompts[reportType] ?? reportPrompts.board}\n\nFORBIDDEN WORDS — never write any of these: "Grand Canyon University", "GCU", "faith", "prayer", "Bible", "God", "Lord", "proverbs", "scripture", "bless", "grace", "ministry", "Christ", "spiritual", or any other religious language.\n\nReturn ONLY valid JSON.`;
   return callGrok(system, `Institution: ${institution}\nReport: ${reportType}\nData: ${JSON.stringify(data)}`, { temp: 0.3, maxTokens: 1400 });
 }
 
 async function handleProofAI(body: any) {
   const { studentName, program, submission, competencies } = body;
   const system = `You are ProofAI, a competency verification system. Assess the submission against the competencies.
+
+FORBIDDEN WORDS — never write any of these: "Grand Canyon University", "GCU", "faith", "prayer", "Bible", "God", "Lord", "proverbs", "scripture", "bless", "grace", "ministry", "Christ", "spiritual", or any other religious language.
 
 Return ONLY valid JSON:
 {
@@ -107,6 +110,8 @@ async function handleCommandCenter(body: any) {
   const { query } = body;
   const system = `You are the University OS Command Center AI — real-time intelligence across all 15 departments. Current: 47 agents active, 3 human escalations today, 18,342 tasks completed.
 
+FORBIDDEN WORDS — never write any of these: "Grand Canyon University", "GCU", "faith", "prayer", "Bible", "God", "Lord", "proverbs", "scripture", "bless", "grace", "ministry", "Christ", "spiritual", or any other religious language.
+
 Return ONLY valid JSON:
 {
   "answer": "Detailed executive-level response",
@@ -123,6 +128,8 @@ Return ONLY valid JSON:
 async function handleSyllabusSync(body: any) {
   const { syllabusText, courseType } = body;
   const system = `You are SyllabusSync, an AI that reads a course syllabus and auto-builds a complete LMS course structure.
+
+FORBIDDEN WORDS — never write any of these: "Grand Canyon University", "GCU", "faith", "prayer", "Bible", "God", "Lord", "proverbs", "scripture", "bless", "grace", "ministry", "Christ", "spiritual", or any other religious language.
 
 Return ONLY valid JSON:
 {
@@ -173,6 +180,8 @@ async function handleClinicalAI(body: any) {
 
 Respond ONLY as the patient would — use realistic, natural language. Reveal information gradually as the student asks good questions. If asked about symptoms, describe them authentically. Update vitals slightly as conversation progresses.
 
+FORBIDDEN WORDS — never write any of these: "Grand Canyon University", "GCU", "faith", "prayer", "Bible", "God", "Lord", "proverbs", "scripture", "bless", "grace", "ministry", "Christ", "spiritual", or any other religious language.
+
 Return ONLY valid JSON:
 {
   "patientResponse": "Natural patient dialogue — first person, realistic, may show pain/anxiety",
@@ -186,6 +195,8 @@ Return ONLY valid JSON:
 
   if (action === 'assess') {
     const system = `You are a clinical nursing education AI assessing a student's patient interview for QSEN competency verification.
+
+FORBIDDEN WORDS — never write any of these: "Grand Canyon University", "GCU", "faith", "prayer", "Bible", "God", "Lord", "proverbs", "scripture", "bless", "grace", "ministry", "Christ", "spiritual", or any other religious language.
 
 Return ONLY valid JSON:
 {
@@ -216,6 +227,8 @@ Return ONLY valid JSON:
 async function handleAdaptiveExam(body: any) {
   const { topic, questionCount } = body;
   const system = `You are AdaptiveExam, an AI that generates unique, high-quality exam questions for higher education. Generate ${questionCount || 8} questions on the topic, spanning difficulty levels 1-5 (1=recall, 5=application/analysis). Mix across sub-topics. Make every question unique — these are AI-generated fresh each time, making sharing useless.
+
+FORBIDDEN WORDS — never write any of these: "Grand Canyon University", "GCU", "faith", "prayer", "Bible", "God", "Lord", "proverbs", "scripture", "bless", "grace", "ministry", "Christ", "spiritual", or any other religious language.
 
 Return ONLY valid JSON:
 {
