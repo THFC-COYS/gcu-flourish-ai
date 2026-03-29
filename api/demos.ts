@@ -53,6 +53,8 @@ async function handleRetainAI(body: any) {
   const { student } = body;
   const system = `You are RetainAI, an early intervention system for higher education. Analyze student risk signals and generate an intervention plan.
 
+IMPORTANT: This is a white-label platform used by many institutions. Do NOT mention any specific university, college, or institution name (e.g. do not say "Grand Canyon University", "GCU", or any real institution). Do not include any religious references, Bible verses, or faith-based language. Keep all content institution-neutral.
+
 Return ONLY valid JSON:
 {
   "riskScore": 87,
@@ -60,7 +62,7 @@ Return ONLY valid JSON:
   "riskFactors": [{ "factor": "...", "weight": "high|medium|low", "detail": "..." }],
   "predictedOutcome": "e.g. 72% probability of withdrawal within 2 weeks without intervention",
   "interventionPlan": [{ "action": "...", "owner": "advisor|system|counselor", "urgency": "today|this week|this month", "template": "" }],
-  "emailDraft": "Full warm, personalized email from advisor to student — mention name, specific concerns, offer support, include encouragement",
+  "emailDraft": "Full warm, personalized email from advisor to student — mention student name, specific academic concerns, offer support, include encouragement. Do not name any university or institution. Do not include religious or faith-based content.",
   "retentionProbability": { "withoutIntervention": 34, "withIntervention": 81 }
 }`;
   const msg = `Student: ${student.name}, Major: ${student.major}, GPA: ${student.gpa}, Missed assignments: ${student.missedAssignments}, Logins last 14 days: ${student.loginDaysLast14}, Last login: ${student.lastLoginDaysAgo} days ago, Financial hold: ${student.financialHold}, Advisor: ${student.advisorName}`;
