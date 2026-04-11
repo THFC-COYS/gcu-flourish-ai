@@ -252,7 +252,7 @@ const PRODUCTS: Product[] = [
       'Role-based access across all institutional stakeholders',
       'Audit trails and compliance reporting built in',
     ],
-    route: '/gcu/university-os',
+    route: '/portal/university-os',
   },
   {
     id: 'yju-spirit-agents',
@@ -274,7 +274,7 @@ const PRODUCTS: Product[] = [
       'Alumni-contributed character training data',
       '94% average ethical alignment score across all agents',
     ],
-    route: '/gcu/library',
+    route: '/portal/library',
   },
 
   // ── REVOLUTIONARY NEW PRODUCTS ─────────────────────────────────────────

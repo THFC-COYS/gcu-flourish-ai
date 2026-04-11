@@ -670,7 +670,7 @@ export default function YJULeadershipDeck() {
       <div
         key={slide}
         className="relative z-10 flex-1 overflow-y-auto"
-        style={{ animation: 'gcuFadeSlide 0.35s ease' }}
+        style={{ animation: 'yjuFadeSlide 0.35s ease' }}
       >
         <SlideContent index={slide} onExit={exitDeck} />
       </div>
@@ -733,7 +733,7 @@ export default function YJULeadershipDeck() {
       </div>
 
       <style>{`
-        @keyframes gcuFadeSlide {
+        @keyframes yjuFadeSlide {
           from { opacity: 0; transform: translateY(12px); }
           to   { opacity: 1; transform: translateY(0); }
         }
